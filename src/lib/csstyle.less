@@ -1,0 +1,29 @@
+.component(@name, @content) {
+  .@{name} {
+    @content();
+  }
+}
+
+.option(@name, @content) {
+  &.\--@{name} {
+    @content();
+  }
+}
+
+.part(@name, @content){
+  &__@{name} {
+    @content();
+  }
+}
+
+.location(@name, @content) {
+  #csstyle .\@@{name} {
+    @content();
+  }
+}
+
+.tweak(@name, @content) {
+  #csstyle .\+@{name}{
+    @content();
+  }
+}

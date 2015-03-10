@@ -1,0 +1,35 @@
+@import "variables/variables.less";
+@import "mixins/mixins.less";
+
+html {
+	font-family: @font-stack;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	box-sizing: border-box;
+}
+
+// https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body {
+	margin: 0;
+	padding-top: 0px;
+	padding-bottom: 30px;
+	background-color: #f4f5f8;
+	font-family: @font-stack;
+	font-size: 14px;
+	font-weight: 400;
+	color: @dark-gray;
+}
+
+ul,
+ol {
+	margin: 0;
+}
+
+h4 {
+	font-size: 18px;
+	line-height: 24px;
+}

@@ -6,11 +6,16 @@ var components = require('./components.js');
 var Sidebar = React.createClass({
   render: function () {
 	    return (
-				<ul>
+				<div className="bs-flexible-sidenav +tall-top">
+					<div className="bs-flexible-sidenav__menu">
 					{components.map(function(component) {
-						return <li><Link to="component" params={{title: component.title}}>{component.title}</Link></li>;
+						return <Link className="bs-flexible-sidenav__menu__item" to="component" params={{title: component.title}}>
+							<i className="fa fa-home bs-flexible-sidenav__menu__item__icon"></i>
+							<span className="bs-flexible-sidenav__menu__item__title">{component.title}</span>
+						</Link>;
 					})}
-				</ul>
+					</div>
+				</div>
 			);
 	  }
 });
@@ -22,8 +27,19 @@ var App = React.createClass({
 	    var title = this.getParams().title;
 	    return (
 				<div>
+					<div className="bs-topNav">
+						<div className="bs-topnav__bar"></div>
+						<div className="bs-topnav__content">
+							<span className="bs-topnav__content__brand" href>
+								<img src="logo.png" alt="Company Logo"/>
+							</span>
+							<ul className="bs-topnav__content__menu padding-left-28">
+								<li><a href="#">Beanstalk Style Guide</a></li>
+							</ul>
+						</div>
+					</div>
 					<Sidebar/>
-					<div className="Content">
+					<div style={{'margin-left': '240px', width: 'calc(100% - 260px)'}}>
 						<RouteHandler/>
 					</div>
 				</div>
@@ -49,7 +65,7 @@ var Component = React.createClass({
 var Index = React.createClass({
   render: function () {
 	    return (
-				<div>
+				<div style={{'margin-left': '240px', width: 'calc(100% - 260px)'}}>
 					<p>Our Styleguide</p>
 				</div>
 			);

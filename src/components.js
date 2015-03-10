@@ -1,10 +1,9 @@
 module.exports = [
 	{ title: "Typeography", html: require('./components/typeography.html') },
-	{ title: "Buttons",			html: require('./components/buttons.html') },
-	{ title: "Checkboxes",	html: require('./components/checkbox.html') },
-	{ title: "Inputs",			html: require('./components/input.html') },
+	{ title: "Buttons",			html: require('./components/forms/buttons.html') },
+	{ title: "Checkboxes & Radios",	html: require('./components/forms/checkbox-radio.html') },
+	{ title: "Inputs",			html: require('./components/forms/input.html') },
 	{ title: "Lists",				html: require('./components/lists.html') },
-	{ title: "Navigation",	html: require('./components/navigation.html') },
-	{ title: "Radio",				html: require('./components/radio.html') },
-	{ title: "Textarea",		html: require('./components/textarea.html') }
+	{ title: "Navigation",	html: require('./components/navigation/navigation.html') },
+	{ title: "Textarea",		html: require('./components/forms/textarea.html') }
 ];
