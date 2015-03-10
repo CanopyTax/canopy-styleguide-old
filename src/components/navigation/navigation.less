@@ -2,7 +2,7 @@
 
 /************Navigation************/
 
-.bs-topnav {
+.bss-topnav {
 	position: fixed;
 	width: 100%;
 	z-index: 100;
@@ -141,7 +141,7 @@
 
 // FLEXIBLE SIDE NAV //
 
-.bs-flexible-sidenav {
+.bss-flexible-sidenav {
 	margin-top: 88px;
 	position: fixed;
 	top: 0;
@@ -201,3 +201,97 @@
 	}
 }
 
+.bss-nav-content {
+	margin-left: 240px;
+	width: calc(100% - 260px);
+	padding: 48px 24px;
+
+	&.\+full {
+		margin-left: 0px;
+		width: 100%;
+	}
+}
+
+.bss-page-container {
+	min-width:724px; // reduces container to 1024px, including margin
+
+	&.\+inline-container {
+		min-width: auto;
+		margin: 0;
+	}
+}
+
+.bss-page-content {
+	background-color: @white;
+	border-radius: 3px;
+	box-shadow: 0px 2px 5px 0px rgba(153,153,153,.3);
+	color: $text;
+
+	&__message {
+		padding: 40px;
+	}
+
+	&__table {
+
+	}
+}
+
+.bss-content-header {
+	padding: 16px 24px 16px 24px;
+	border-bottom: 1px solid $light;
+
+	&.\+no-border {
+		border-bottom: 0;
+	}
+
+	h3,h4 {
+		margin: 0;
+		color: $dark;
+	}
+
+}
+.bss-content-footer {
+	padding: 16px 24px 16px 24px;
+	border-top: 1px solid $light;
+}
+.bss-content-body {
+	padding:16px 24px;
+}
+
+.bss-content-footer {
+	padding:16px 24px;
+	border-top: 1px solid $light;
+	a {
+		color: $text;
+		text-decoration: none;
+		padding: 4px 8px;
+		&:hover {
+			border: 1px solid #E9E9E9;
+			border-radius: 2px;
+		}
+	}
+}
+
+.bss-content-inset {
+	background-color: @inset-background;
+	padding: 12px 32px;
+	box-shadow: inset 2px 5px 6px -6px rgba(153, 153, 153, 0.51);
+
+	hr {
+		background: @gray6;
+		height: 1px;
+		border: 0;
+		width: calc(100% + 64px);
+		margin-left: -32px;
+		margin-top: 12px;
+		margin-bottom: 8px;
+	}
+}
+
+.bss-centered-card {
+	background-color: @white;
+	max-width: 800px;
+	margin: 88px auto 0 auto;
+	border-radius: 3px;
+	box-shadow: 0px 2px 5px 0px rgba(153,153,153,.3);
+}
