@@ -1,3 +1,5 @@
+@import "./variables.less";
+
 /************Buttons************/
 
 .btn {
@@ -23,10 +25,10 @@
 	text-decoration: none;
 	margin-left: 0px;
 	margin-right: 24px;
-	@include depth-z1;
+	.depth-z1;
 
 	&:hover, &:focus{
-		@include depth-z2;
+		.depth-z2;
 	}
 
 	&:focus {
@@ -36,10 +38,10 @@
 	// Primary Raised Buttons //
 
 	&.\+primary {
-		background-color: $primary-green;
+		background-color: @primary-green;
 
 		&:focus {
-			background-color: $medium-green;
+			background-color: @medium-green;
 		}
 	}
 
@@ -47,10 +49,10 @@
 
 	&.\+secondary {
 		background-color: #f4f4f4;
-		color: $light-gray;
+		color: @light-gray;
 
 		&:focus {
-			background-color: $gray6;
+			background-color: @gray6;
 		}
 	}
 
@@ -59,7 +61,7 @@
 	&.\+disabled, &[disabled] {
 		pointer-events: none;
 		cursor: not-allowed;
-		background-color: $gray7;
+		background-color: @gray7;
 		color: rgba(0,0,0,.24);
 		box-shadow: none !important;
 	}
@@ -69,7 +71,7 @@
 fieldset[disabled] .btn {
 	pointer-events: none;
 	cursor: not-allowed;
-	background-color: $gray7;
+	background-color: @gray7;
 	color: rgba(0,0,0,.24);
 	box-shadow: none !important;
 }
@@ -78,7 +80,7 @@ fieldset[disabled] .btn {
 a.bs-link, .bs-link {
 	display: inline-block;
 	font-size: 14px;
-	color: $primary-green;
+	color: @primary-green;
 	text-decoration: none;
 	padding: 6px 12px;
 	border-radius: 2px;
@@ -96,7 +98,7 @@ a.bs-link, .bs-link {
 	&.\+disabled {
 		pointer-events: none;
 		cursor: not-allowed;
-		background-color: $gray7;
+		background-color: @gray7;
 		color: rgba(0,0,0,.24);
 		box-shadow: none !important;
 	}

@@ -1,3 +1,5 @@
+@import "./mixins.less";
+
 /************Navigation************/
 
 .bs-topnav {
@@ -5,29 +7,29 @@
 	width: 100%;
 	z-index: 100;
 	top: 0;
-	color: $dark-gray;
-	@include depth-z1;
+	color: @dark-gray;
+	.depth-z1;
 
 	&__bar {
 		height: 3px;
-		background-color: $primary-green;
+		background-color: @primary-green;
 	}
 
 	// a {
-	// 	color: $dark-gray;
+	// 	color: @dark-gray;
 	// 	text-decoration: none;
-	// 	border: 1px solid $white;
+	// 	border: 1px solid @white;
 	// 	padding: 4px 8px;
 	// 	&:hover {
-	// 		color: $dark-gray;
-	// 		border: 1px solid $gray6;
+	// 		color: @dark-gray;
+	// 		border: 1px solid @gray6;
 	// 		border-radius: 2px;
 	// 	}
 	// }
 
 	// PRIMARY GLOBAL NAV //
 	&__content {
-		background-color: $white;
+		background-color: @white;
 		height: 48px;
 		padding-left: 24px;
 		padding-right: 24px;
@@ -46,7 +48,7 @@
 			list-style: none;
 			float: left;
 			margin: 0;
-			@include clearfix;
+			.clearfix;
 
 			&__form {
 				margin-top: 7px;
@@ -62,14 +64,14 @@
 					padding-top: 15px;
 					padding-bottom: 15px;
 					text-decoration: none;
-					color: $dark-gray;
+					color: @dark-gray;
 					font-size: 14px;
 					position: relative;
 					display: block;
 					padding: 10px 15px;
 					&:hover,
 					&:focus {
-						color: $link-color;
+						color: @link-color;
 					}
 				}
 			}
@@ -92,8 +94,8 @@
 
 		&__content {
 
-			border-top: 1px solid $gray6;
-			background-color: $gray3;
+			border-top: 1px solid @gray6;
+			background-color: @gray3;
 			padding-left: 24px;
 			padding-right: 24px;
 			height: 48px;
@@ -103,7 +105,7 @@
 				float: left;
 				margin: 0;
 				padding: 10px 0px 0px 0px;
-				@include clearfix;
+				.clearfix;
 
 				> li {
 					padding-right: 8px;
@@ -117,13 +119,13 @@
 
 					> a {
 						text-decoration: none;
-						color: $dark-gray;
+						color: @dark-gray;
 						font-size: 16px;
 						position: relative;
 						display: block;
 						&:hover,
 						&:focus {
-							color: $link-color;
+							color: @link-color;
 						}
 					}
 				}
@@ -146,7 +148,7 @@
 	left: 0;
 	width: 240px;
 	background-color: #f4f5f8;
-	color: $dark-gray;
+	color: @dark-gray;
 	z-index: 90;
 
 	&.\+tall-top {
@@ -161,11 +163,11 @@
 
 		&__item {
 			padding:8px 0 0 24px;
-			border-left: 4px solid $gray4;
+			border-left: 4px solid @gray4;
 			height: 40px;
 			display: block;
 			text-decoration: none;
-			color: $light-gray;
+			color: @light-gray;
 
 			&:hover {
 				border-left: 4px solid gray;
@@ -179,12 +181,12 @@
 			}
 
 			&:visited,&:focus {
-				color: $light-gray;
+				color: @light-gray;
 			}
 
 			&.\+active {
-				border-left: 4px solid $primary-green;
-				color: $primary-green;
+				border-left: 4px solid @primary-green;
+				color: @primary-green;
 			}
 
 			&__icon {
