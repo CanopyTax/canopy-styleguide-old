@@ -1,0 +1,201 @@
+/************Navigation************/
+
+.bs-topnav {
+	position: fixed;
+	width: 100%;
+	z-index: 100;
+	top: 0;
+	color: $dark-gray;
+	@include depth-z1;
+
+	&__bar {
+		height: 3px;
+		background-color: $primary-green;
+	}
+
+	// a {
+	// 	color: $dark-gray;
+	// 	text-decoration: none;
+	// 	border: 1px solid $white;
+	// 	padding: 4px 8px;
+	// 	&:hover {
+	// 		color: $dark-gray;
+	// 		border: 1px solid $gray6;
+	// 		border-radius: 2px;
+	// 	}
+	// }
+
+	// PRIMARY GLOBAL NAV //
+	&__content {
+		background-color: $white;
+		height: 48px;
+		padding-left: 24px;
+		padding-right: 24px;
+
+
+		&__brand {
+
+			float: left;
+			> img {
+				height: 20px;
+				margin-top: 14px;
+			}
+		}
+
+		&__menu {
+			list-style: none;
+			float: left;
+			margin: 0;
+			@include clearfix;
+
+			&__form {
+				margin-top: 7px;
+			}
+
+			> li {
+				position: relative;
+				display: block;
+				float: left;
+
+				> a {
+					margin-top: 5px;
+					padding-top: 15px;
+					padding-bottom: 15px;
+					text-decoration: none;
+					color: $dark-gray;
+					font-size: 14px;
+					position: relative;
+					display: block;
+					padding: 10px 15px;
+					&:hover,
+					&:focus {
+						color: $link-color;
+					}
+				}
+			}
+
+		}
+
+		&__icon, &__title {
+			font-size: 16px;
+			display: inline-block;
+		}
+
+		&__icon .fa {
+			font-size: 16px;
+		}
+	}
+
+	// SECONDARY GLOBAL NAV //
+
+	&__secondary {
+
+		&__content {
+
+			border-top: 1px solid $gray6;
+			background-color: $gray3;
+			padding-left: 24px;
+			padding-right: 24px;
+			height: 48px;
+
+			&__menu {
+				list-style: none;
+				float: left;
+				margin: 0;
+				padding: 10px 0px 0px 0px;
+				@include clearfix;
+
+				> li {
+					padding-right: 8px;
+					position: relative;
+					display: block;
+					float: left;
+
+					&:last-child {
+						padding-right: 0px;
+					}
+
+					> a {
+						text-decoration: none;
+						color: $dark-gray;
+						font-size: 16px;
+						position: relative;
+						display: block;
+						&:hover,
+						&:focus {
+							color: $link-color;
+						}
+					}
+				}
+
+			}
+		}
+
+	}
+}
+
+
+
+
+// FLEXIBLE SIDE NAV //
+
+.bs-flexible-sidenav {
+	margin-top: 88px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 240px;
+	background-color: #f4f5f8;
+	color: $dark-gray;
+	z-index: 90;
+
+	&.\+tall-top {
+		margin-top: 140px !important;
+	}
+
+
+	&__menu {
+		list-style: none;
+		padding: 0;
+		margin-top: 16px;
+
+		&__item {
+			padding:8px 0 0 24px;
+			border-left: 4px solid $gray4;
+			height: 40px;
+			display: block;
+			text-decoration: none;
+			color: $light-gray;
+
+			&:hover {
+				border-left: 4px solid gray;
+				background-color: #DFDFDF;
+				color: #000;
+				text-decoration: none;
+			}
+
+			&:active,&:visited,&:focus {
+				text-decoration: none;
+			}
+
+			&:visited,&:focus {
+				color: $light-gray;
+			}
+
+			&.\+active {
+				border-left: 4px solid $primary-green;
+				color: $primary-green;
+			}
+
+			&__icon {
+				width: 18px;
+			}
+
+			&__title {
+				margin-left: 16px;
+				font-size: 14px;
+			}
+		}
+	}
+}
+
