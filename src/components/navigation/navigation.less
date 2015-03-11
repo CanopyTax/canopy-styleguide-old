@@ -1,4 +1,5 @@
 @import "../mixins/mixins.less";
+@import "../variables/variables.less";
 
 /************Navigation************/
 
@@ -162,7 +163,7 @@
 		margin-top: 16px;
 
 		&__item {
-			padding:8px 0 0 24px;
+			padding:10px 0 0 24px;
 			border-left: 4px solid @gray4;
 			height: 40px;
 			display: block;
@@ -212,20 +213,24 @@
 	}
 }
 
-.bss-page-container {
-	min-width:724px; // reduces container to 1024px, including margin
+.bss-card {
+	background-color: @white;
+	border-radius: 3px;
+	color: @light-gray;
+	.depth-z1();
+}
 
-	&.\+inline-container {
-		min-width: auto;
-		margin: 0;
-	}
+.bss-fixed-focus {
+	min-width: 700px;
+	max-width: 1360px;
+	margin: 4.0em auto 0 auto;
 }
 
 .bss-page-content {
 	background-color: @white;
 	border-radius: 3px;
 	box-shadow: 0px 2px 5px 0px rgba(153,153,153,.3);
-	color: $text;
+	color: @light-gray;
 
 	&__message {
 		padding: 40px;
@@ -236,9 +241,10 @@
 	}
 }
 
-.bss-content-header {
+.bss-card__header {
 	padding: 16px 24px 16px 24px;
-	border-bottom: 1px solid $light;
+	border-bottom: 1px solid @breakline-light;
+	font-weight: 400;
 
 	&.\+no-border {
 		border-bottom: 0;
@@ -246,23 +252,30 @@
 
 	h3,h4 {
 		margin: 0;
-		color: $dark;
+		color: @dark-gray;
 	}
 
 }
 .bss-content-footer {
 	padding: 16px 24px 16px 24px;
-	border-top: 1px solid $light;
+	border-top: 1px solid @breakline-light;
 }
-.bss-content-body {
+
+.bss-card__hr {
+	height: 1px;
+	width: 100%;
+	background-color: @breakline-light;
+}
+
+.bss-card__body {
 	padding:16px 24px;
 }
 
 .bss-content-footer {
 	padding:16px 24px;
-	border-top: 1px solid $light;
+	border-top: 1px solid @breakline-light;
 	a {
-		color: $text;
+		color: @light-gray;
 		text-decoration: none;
 		padding: 4px 8px;
 		&:hover {
