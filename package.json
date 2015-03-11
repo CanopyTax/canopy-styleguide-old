@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Beanstalkhq/styleguide",
   "devDependencies": {
+    "autoprefixer-loader": "^1.2.0",
     "css-loader": "^0.9.1",
     "extract-text-webpack-plugin": "^0.3.8",
     "html-loader": "^0.2.3",

@@ -15,13 +15,13 @@ module.exports = {
 			// Extract css files
 			{
 				test: /\.css$/,
-				loader: "style-loader!css-loader"
+				loader: "style-loader!css-loader!autoprefixer"
 			},
 			// Optionally extract less files
 			// or any other compile-to-css language
 			{
 				test: /\.less$/,
-				loader: "style-loader!css-loader!less-loader"
+				loader: "style-loader!css-loader!autoprefixer!less-loader"
 			},
 			{
 				test: /\.jsx$/,

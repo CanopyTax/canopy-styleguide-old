@@ -16,13 +16,13 @@ module.exports = {
 			// Extract css files
 			{
 				test: /\.css$/,
-				loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+				loader: ExtractTextPlugin.extract("style-loader", "css-loader!autoprefixer")
 			},
 			// Optionally extract less files
 			// or any other compile-to-css language
 			{
 				test: /\.less$/,
-				loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
+				loader: ExtractTextPlugin.extract("style-loader", "css-loader!autoprefixer!less-loader")
 			},
 			{
 				test: /\.jsx$/,
