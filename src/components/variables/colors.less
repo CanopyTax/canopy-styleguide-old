@@ -30,3 +30,43 @@
 @breakline-dark: @gray8;
 
 @inset-background: @gray1;
+
+@warning: #FF8A65;
+@info: #45A8F8;
+@general: @dark-gray;
+@success: @primary-green;
+
+.gen-color-class(@name, @color) {
+	.bss-text-@{name} {
+		color: @color;
+	}
+	.bss-bg-@{name} {
+		background-color: @color;
+	}
+}
+
+.gen-color-class(warning, @warning);
+.gen-color-class(info, @info);
+.gen-color-class(general, @general);
+.gen-color-class(success, @success);
+
+.gen-color-class(p-green, @primary-green);
+.gen-color-class(d-green, @dark-green);
+.gen-color-class(m-green, @medium-green);
+.gen-color-class(l-green, @light-green);
+
+.gen-color-class(light, @white);
+.gen-color-class(d-gray, @dark-gray);
+.gen-color-class(l-gray, @light-gray);
+.gen-color-class(m-gray, @medium-gray);
+
+.gen-color-class(gray-1, @gray1);
+.gen-color-class(gray-2, @gray2);
+.gen-color-class(gray-3, @gray3);
+.gen-color-class(gray-4, @gray4);
+.gen-color-class(gray-5, @gray5);
+.gen-color-class(gray-6, @gray6);
+.gen-color-class(gray-7, @gray7);
+.gen-color-class(gray-8, @gray8);
+.gen-color-class(gray-9, @gray9);
+.gen-color-class(gray-10, @gray10);
