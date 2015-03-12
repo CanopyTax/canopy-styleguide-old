@@ -8,21 +8,21 @@ module.exports = React.createClass({
 					</div>
 					<div className="bss-card__body">
 
-						<div className="bss-subheader-sm padding-bottom-20">Raised Buttons</div>
+						<div className="bss-subheader-sm padding-bottom-20 bottom-lg-space">Raised Buttons</div>
 						<div className="row">
 							<div className="col-xs-12">
-								<button className="btn +primary">primary</button>
-								<button className="btn +secondary">secondary</button>
-								<a href className="btn +primary">PRIMARY link</a>
-								<a href className="btn +secondary">secondary link</a>
+								<button className="btn +primary right-lg-space bottom-lg-space">primary</button>
+								<button className="btn +secondary right-lg-space bottom-lg-space">secondary</button>
+								<a href className="btn +primary right-lg-space bottom-lg-space">PRIMARY link</a>
+								<a href className="btn +secondary right-lg-space bottom-lg-space">secondary link</a>
 							</div>
 						</div>
 						<div className="row margin-top-24 margin-bottom-20">
 							<div className="col-xs-12">
-								<button className="btn +primary +disabled">PRIMARY</button>
-								<button className="btn +secondary" disabled>secondary</button>
-								<a href className="btn +primary +disabled">PRIMARY link</a>
-								<a href className="btn +secondary +disabled">secondary link</a>
+								<button className="btn +primary +disabled right-lg-space bottom-lg-space">PRIMARY</button>
+								<button className="btn +secondary right-lg-space bottom-lg-space" disabled>secondary</button>
+								<a href className="btn +primary +disabled right-lg-space bottom-lg-space">PRIMARY link</a>
+								<a href className="btn +secondary +disabled right-lg-space bottom-lg-space">secondary link</a>
 							</div>
 						</div>
 
@@ -31,12 +31,12 @@ module.exports = React.createClass({
 						<div className="bss-subheader-sm padding-bottom-20">Flat Buttons</div>
 						<div className="row">
 							<div className="col-xs-12">
-								<a href className="bss-link">PRIMARY link</a>
+								<a href className="bss-link right-lg-space">PRIMARY link</a>
 							</div>
 						</div>
 						<div className="row margin-top-24">
 							<div className="col-xs-12">
-								<a href className="bss-link +disabled">PRIMARY link</a>
+								<a href className="bss-link +disabled right-lg-space">PRIMARY link</a>
 							</div>
 						</div>
 
