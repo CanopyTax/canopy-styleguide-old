@@ -1,0 +1,52 @@
+@import "../variables/variables.less";
+@import "../mixins/mixins.less";
+
+.bss-slat {
+}
+
+.bss-slat-lg {
+	position: relative;
+	background-color: @white;
+	.depth-z1;
+	border-radius: .2rem;
+	height: 7.2rem;
+	min-width: 70rem;
+
+	&__desc {
+		width:7.2rem;
+		display: inline-block;
+		padding: .8rem 1.6rem .8rem 2.4rem;
+		&__main {
+			color: @success;
+			font-size: 2.4rem;
+		}
+		&__sub {
+			position: relative;
+			top:-.5rem;
+			left:.2rem;
+		}
+	}
+	&__content {
+		position: absolute;
+		display: inline-block;
+		left: 7.2rem;
+		padding: 1.6rem 0;
+		max-width: ~"calc(100% - 30rem)";
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+		&__title {
+			font-weight: 600;
+		}
+	}
+
+	&__actions {
+		float: right;
+		padding: 1.6rem;
+	}
+}
+
+.bss-slat-sm {
+
+}

@@ -2,6 +2,7 @@ var React = require('react');
 var Router = require('react-router');
 var { Route, DefaultRoute, RouteHandler, Link } = Router;
 var components = require('./components.js');
+var Highlight = require('react-highlight');
 
 var Sidebar = React.createClass({
   render: function () {
@@ -52,12 +53,11 @@ var Component = React.createClass({
 
   render: function () {
 	    var params = this.getParams();
-	    var component = components.filter(function(component) {
+	    var Component = components.filter(function(component) {
 				return component.title === params.title;
-			});
+			})[0].html;
 	    return (
-				<div dangerouslySetInnerHTML={{__html: component[0].html}}>
-				</div>
+				<Component/>
 			);
 	  }
 });
