@@ -2,6 +2,62 @@
 @import "../mixins/mixins.less";
 
 .bss-slat {
+	height: 4.8rem;
+	position: relative;
+	background-color: @white;
+	.depth-z1;
+	border-radius: .2rem;
+	min-width: 70rem;
+	cursor: pointer;
+
+	&__badge {
+		width: 7.2rem;
+		display:inline-block;
+		padding: .8rem 1.6rem .8rem 2.0rem;
+	}
+
+	&__content {
+		max-width: ~"calc(100% - 30rem)";
+		width: 100%;
+		left: 7.2rem;
+		padding: 1.5rem 0;
+		position: absolute;
+		display: inline-block;
+		&__title {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			width: 25%;
+			display:inline-block;
+		}
+
+		&__description {
+			margin-left: 2.5rem;
+			width: ~"calc(75% - 2.5rem)";
+			display:inline-block;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+
+	&__actions {
+		float: right;
+		padding: 1.5rem 2.4rem;
+	}
+
+	&.\+small {
+		height: 4.0rem;
+		.bss-slat__badge {
+			padding: .5rem 1.6rem .8rem 2.0rem;
+		}
+		.bss-slat__content {
+			padding: 1.0rem 0;
+		}
+		.bss-slat__actions {
+			padding: 1.0rem 2.4rem;
+		}
+	}
 }
 
 .bss-slat-lg {
@@ -11,8 +67,9 @@
 	border-radius: .2rem;
 	height: 7.2rem;
 	min-width: 70rem;
+	cursor: pointer;
 
-	&__desc {
+	&__badge {
 		width:7.2rem;
 		display: inline-block;
 		padding: .8rem 1.6rem .8rem 2.4rem;
@@ -43,10 +100,6 @@
 
 	&__actions {
 		float: right;
-		padding: 1.6rem;
+		padding: 1.6rem 2.4rem;
 	}
-}
-
-.bss-slat-sm {
-
 }

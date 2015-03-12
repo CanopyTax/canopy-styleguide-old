@@ -6,9 +6,9 @@ module.exports = React.createClass({
 		return (
 			<div>
 				<div className="bss-slat-lg">
-					<div className="bss-slat-lg__desc">
-						<div className="bss-slat-lg__desc__main">21</div>
-						<div className="bss-slat-lg__desc__sub">Jan</div>
+					<div className="bss-slat-lg__badge">
+						<div className="bss-slat-lg__badge__main">21</div>
+						<div className="bss-slat-lg__badge__sub">Jan</div>
 					</div>
 					<div className="bss-slat-lg__content">
 						<div className="bss-slat-lg__content__title">
@@ -25,16 +25,87 @@ module.exports = React.createClass({
 
 				<Highlight className="html">
 				{
-`<div class="bss-slat-lg">
-  <div class="bss-slat-lg__desc">
-    <div class="bss-slat-lg__desc__main">21</div>
-    <div class="bss-slat-lg__desc__sub">Jan</div>
+`<!-- Large slats have a max of two separate lines of slat content. The first line  -->
+<!-- of slat content should be a title or primary description for the slat. The    -->
+<!-- second line should be meta data directly related to the slat.                 -->
+<div class="bss-slat-lg">
+  <div class="bss-slat-lg__badge">
+    <div class="bss-slat-lg__badge__main">21</div>
+    <div class="bss-slat-lg__badge__sub">Jan</div>
   </div>
   <div class="bss-slat-lg__content">
     <div class="bss-slat-lg__content__title">Date Title</div>
     <span>Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner... </span>
   </div>
   <div class="bss-slat-lg__actions">2:30PM - 3:30PM</div>
+</div>
+`
+				}
+				</Highlight>
+
+				<div className="bss-slat">
+					<div className="bss-slat__badge">
+						<i className="bs-icon bss-subheader bs-icon-Taxes"></i>
+					</div>
+					<div className="bss-slat__content">
+						<div className="bss-slat__content__title">
+							Filename
+						</div>
+						<div className="bss-slat__content__description">
+							Document
+						</div>
+					</div>
+					<div className="bss-slat__actions">
+						2:30PM - 3:30PM
+					</div>
+				</div>
+				<Highlight className="html">
+				{
+`<!-- Medium slats have a max of one line of slat content. There needs to be a title  -->
+<!-- and an option for descriptions. The primary description should be listed        -->
+<!-- directly after the title.                                                       -->
+<div class="bss-slat">
+  <div class="bss-slat__badge">
+    <i class="bs-icon bss-subheader bs-icon-Taxes"></i>
+  </div>
+  <div class="bss-slat__content">
+    <div class="bss-slat__content__title">Filename</div>
+    <div class="bss-slat__content__description">Document</div>
+  </div>
+  <div class="bss-slat__actions">2:30PM - 3:30PM</div>
+</div>
+`
+				}
+				</Highlight>
+
+				<div className="bss-slat +small">
+					<div className="bss-slat__badge">
+						<i className="bs-icon bss-subheader bs-icon-Taxes"></i>
+					</div>
+					<div className="bss-slat__content">
+						<div className="bss-slat__content__title">
+							Filename
+						</div>
+						<div className="bss-slat__content__description">
+							Document
+						</div>
+					</div>
+					<div className="bss-slat__actions">
+						2:30PM - 3:30PM
+					</div>
+				</div>
+				<Highlight className="html">
+				{
+`<!-- Crate a small slat by simply adding the class modifier +small to the medium slat -->
+<div class="bss-slat +small">
+  <div class="bss-slat__badge">
+    <i class="bs-icon bss-subheader bs-icon-Taxes"></i>
+  </div>
+  <div class="bss-slat__content">
+    <div class="bss-slat__content__title">Filename</div>
+    <div class="bss-slat__content__description">Document</div>
+  </div>
+  <div class="bss-slat__actions">2:30PM - 3:30PM</div>
 </div>
 `
 				}
