@@ -1,0 +1,50 @@
+@import "../mixins/mixins.less";
+@card-color: #FFFDE9;
+
+.bss-flexible-masonry {
+	        column-gap: 16px;
+	   -moz-column-gap: 16px;
+	-webkit-column-gap: 16px;
+
+	        columns: 213px 6;
+	   -mox-columns: 213px 6;
+	-webkit-columns: 213px 6;
+}
+
+.bss-flexible-masonry-card {
+	display: inline-block;
+	margin-bottom: .8rem;
+	margin-top: .8rem;
+	background-color: @card-color;
+	.depth-z1;
+	padding: 1.6rem;
+	border-radius: 2px;
+	min-height: 208px;
+	max-height: 296px;
+	overflow: hidden;
+	width: 208px;
+	position: relative;
+
+	&::after {
+		content: ' ';
+		display: block;
+		background-color: red;
+		//background-color: @card-color;
+		height: 16px;
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+	}
+
+	&__title {
+		font-weight: 600;
+		margin-bottom: 16px;
+	}
+
+	&.\+link {
+		cursor: pointer;
+		&:hover {
+			.depth-z2;
+		}
+	}
+}
