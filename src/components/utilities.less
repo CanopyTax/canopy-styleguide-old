@@ -1,4 +1,5 @@
 @import "./variables/variables.less";
+@import "../lib/for.less";
 
 .clearfix {
 	.clearfix;
@@ -50,54 +51,95 @@
 	clear: both;
 }
 
-.bss-sm-padding {
-	padding: 6px 8px;
+.createSizeClasses(@sizes) {
+	.for(@sizes); .-each(@size) {
+		@name: @size;
+		@scale: @size / 10;
+		.bss-margin-@{name} {
+			margin: ~"@{scale}rem";
+		}
+		.bss-margin-top-@{name} {
+			margin-top: ~"@{scale}rem";
+		}
+		.bss-margin-bottom-@{name} {
+			margin-bottom: ~"@{scale}rem";
+		}
+		.bss-margin-right-@{name} {
+			margin-right: ~"@{scale}rem";
+		}
+		.bss-margin-left-@{name} {
+			margin-left: ~"@{scale}rem";
+		}
+
+		.bss-padding-@{name} {
+			padding: ~"@{scale}rem";
+		}
+		.bss-padding-top-@{name} {
+			padding-top: ~"@{scale}rem";
+		}
+		.bss-padding-bottom-@{name} {
+			padding-bottom: ~"@{scale}rem";
+		}
+		.bss-padding-right-@{name} {
+			padding-right: ~"@{scale}rem";
+		}
+		.bss-padding-left-@{name} {
+			padding-left: ~"@{scale}rem";
+		}
+	}
 }
 
-.bottom-sm-space {
-	margin-bottom: 8px;
-}
+@sizes: 4, 8, 12, 16, 24, 32;
+.createSizeClasses(@sizes);
 
-.bottom-md-space {
-	margin-bottom: 16px;
-}
-
-.bottom-lg-space {
-	margin-bottom: 24px;
-}
-
-.left-sm-space {
-	margin-left: 8px;
-}
-
-.left-md-space {
-	margin-left: 16px;
-}
-
-.left-lg-space {
-	margin-left: 24px;
-}
-
-.top-sm-space {
-	margin-top: 8px;
-}
-
-.top-md-space {
-	margin-top: 16px;
-}
-
-.top-lg-space {
-	margin-top: 24px;
-}
-
-.right-sm-space {
-	margin-right: 8px;
-}
-
-.right-md-space {
-	margin-right: 16px;
-}
-
-.right-lg-space {
-	margin-right: 24px;
-}
+//.bss-sm-padding {
+//	padding: 6px 8px;
+//}
+//
+//.bottom-sm-space {
+//	margin-bottom: 8px;
+//}
+//
+//.bottom-md-space {
+//	margin-bottom: 16px;
+//}
+//
+//.bottom-lg-space {
+//	margin-bottom: 24px;
+//}
+//
+//.left-sm-space {
+//	margin-left: 8px;
+//}
+//
+//.left-md-space {
+//	margin-left: 16px;
+//}
+//
+//.left-lg-space {
+//	margin-left: 24px;
+//}
+//
+//.top-sm-space {
+//	margin-top: 8px;
+//}
+//
+//.top-md-space {
+//	margin-top: 16px;
+//}
+//
+//.top-lg-space {
+//	margin-top: 24px;
+//}
+//
+//.right-sm-space {
+//	margin-right: 8px;
+//}
+//
+//.right-md-space {
+//	margin-right: 16px;
+//}
+//
+//.right-lg-space {
+//	margin-right: 24px;
+//}

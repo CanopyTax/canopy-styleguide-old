@@ -8,41 +8,41 @@ module.exports = React.createClass({
 					</div>
 					<div className="bss-card__body">
 
-						<div className="bss-subheader-sm padding-bottom-20 bottom-lg-space">Raised Buttons</div>
+						<div className="bss-subheader-sm bss-margin-bottom-8">Raised Buttons</div>
 						<div className="row">
 							<div className="col-xs-12">
-								<button className="btn +primary right-lg-space bottom-lg-space">primary</button>
-								<button className="btn +secondary right-lg-space bottom-lg-space">secondary</button>
-								<a href className="btn +primary right-lg-space bottom-lg-space">PRIMARY link</a>
-								<a href className="btn +secondary right-lg-space bottom-lg-space">secondary link</a>
-							</div>
-						</div>
-						<div className="row margin-top-24 margin-bottom-20">
-							<div className="col-xs-12">
-								<button className="btn +primary +disabled right-lg-space bottom-lg-space">PRIMARY</button>
-								<button className="btn +secondary right-lg-space bottom-lg-space" disabled>secondary</button>
-								<a href className="btn +primary +disabled right-lg-space bottom-lg-space">PRIMARY link</a>
-								<a href className="btn +secondary +disabled right-lg-space bottom-lg-space">secondary link</a>
-							</div>
-						</div>
-
-						<br/>
-
-						<div className="bss-subheader-sm padding-bottom-20">Flat Buttons</div>
-						<div className="row">
-							<div className="col-xs-12">
-								<a href className="bss-link right-lg-space">PRIMARY link</a>
+								<button className="btn +primary bss-margin-right-16 bss-margin-bottom-8">primary</button>
+								<button className="btn +secondary bss-margin-right-16 bss-margin-bottom-8">secondary</button>
+								<a href className="btn +primary bss-margin-right-16 bss-margin-bottom-8">PRIMARY link</a>
+								<a href className="btn +secondary bss-margin-right-16 bss-margin-bottom-8">secondary link</a>
 							</div>
 						</div>
 						<div className="row margin-top-24">
 							<div className="col-xs-12">
-								<a href className="bss-link +disabled right-lg-space">PRIMARY link</a>
+								<button className="btn +primary +disabled bss-margin-right-16 bss-margin-bottom-8">PRIMARY</button>
+								<button className="btn +secondary bss-margin-right-16 bss-margin-bottom-8" disabled>secondary</button>
+								<a href className="btn +primary +disabled bss-margin-right-16 bss-margin-bottom-8">PRIMARY link</a>
+								<a href className="btn +secondary +disabled bss-margin-right-16 bss-margin-bottom-8">secondary link</a>
 							</div>
 						</div>
 
 						<br/>
 
-						<div className="bss-subheader-sm padding-bottom-20">Icon Button</div>
+						<div className="bss-subheader-sm">Flat Buttons</div>
+						<div className="row">
+							<div className="col-xs-12">
+								<a href className="bss-link bss-margin-right-16">PRIMARY link</a>
+							</div>
+						</div>
+						<div className="row margin-top-24">
+							<div className="col-xs-12">
+								<a href className="bss-link +disabled bss-margin-right-16">PRIMARY link</a>
+							</div>
+						</div>
+
+						<br/>
+
+						<div className="bss-subheader-sm">Icon Button</div>
 						<div className="row">
 							<div className="col-xs-12">
 								<a href className="bss-link"><i className="bs-icon bs-icon-Work"></i></a>

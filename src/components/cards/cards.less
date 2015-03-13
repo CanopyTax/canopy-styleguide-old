@@ -1,4 +1,91 @@
-@import "./fixed-masonry.less";
-@import "./fixed-focus.less";
-@import "./flexible-focus.less";
-@import "./flexible-masonry.less";
+.bss-card {
+	background-color: @white;
+	border-radius: 3px;
+	color: @dark-gray;
+	.depth-z1();
+}
+
+.bss-fixed-masonry, .bss-fixed-focus {
+	min-width: 700px;
+	max-width: 1360px;
+	margin: 0 auto 0 auto;
+}
+
+.bss-fixed-masonry__card {
+	&:first-child {
+		margin-left: 0;
+	}
+	&:last-child {
+		margin-right: 0;
+	}
+	margin: 8px;
+}
+
+.bss-card__header {
+	padding: 16px 24px 16px 24px;
+	border-bottom: 1px solid @breakline-light;
+	font-weight: 400;
+
+	&.\+no-border {
+		border-bottom: 0;
+	}
+
+	h3,h4 {
+		margin: 0;
+		color: @dark-gray;
+	}
+
+}
+
+.bss-content-footer {
+	padding:16px 24px;
+	border-top: 1px solid @breakline-light;
+	a {
+		color: @dark-gray;
+		text-decoration: none;
+		padding: 4px 8px;
+		&:hover {
+			border: 1px solid #E9E9E9;
+			border-radius: 2px;
+		}
+	}
+}
+
+.bss-content-footer {
+	padding: 16px 24px 16px 24px;
+	border-top: 1px solid @breakline-light;
+}
+
+.bss-card__hr {
+	height: 1px;
+	width: 100%;
+	background-color: @breakline-light;
+}
+
+.bss-card__body {
+	padding:16px 24px;
+}
+
+.bss-content-inset {
+	background-color: @inset-background;
+	padding: 12px 32px;
+	box-shadow: inset 2px 5px 6px -6px rgba(153, 153, 153, 0.51);
+
+	hr {
+		background: @gray6;
+		height: 1px;
+		border: 0;
+		width: calc(100% + 64px);
+		margin-left: -32px;
+		margin-top: 12px;
+		margin-bottom: 8px;
+	}
+}
+
+.bss-centered-card {
+	background-color: @white;
+	max-width: 800px;
+	margin: 88px auto 0 auto;
+	border-radius: 3px;
+	box-shadow: 0px 2px 5px 0px rgba(153,153,153,.3);
+}
