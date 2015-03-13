@@ -1,4 +1,5 @@
 var React = require('react');
+var Highlight = require('react-highlight');
 
 module.exports = React.createClass({
 	render: function() {
@@ -21,23 +22,55 @@ module.exports = React.createClass({
 							</form>
 						</div>
 					</div>
+<Highlight className="html">
+{
+`<form>
+  <label class="radio-inline">
+    <input type="radio" value="1" name="testQuestion"/>&nbsp;&nbsp;Yes
+  </label>
+  <label class="radio-inline">
+    <input type="radio" value="1" name="testQuestion"/>&nbsp;&nbsp;No
+  </label>
+</form>`
+}
+</Highlight>
 					<div className="row margin-top-16">
 						<div className="col-xs-12">
-							<label className="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox1" value="option1"/>1
-							</label>
-							<label className="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox2" value="option2"/>2
-							</label>
-							<label className="checkbox-inline">
-								<input type="checkbox" id="inlineCheckbox3" value="option3"/>3
-							</label>
+							<form>
+								<label className="checkbox-inline">
+									<input type="checkbox" id="inlineCheckbox1" value="option1"/>1
+								</label>
+								<label className="checkbox-inline">
+									<input type="checkbox" id="inlineCheckbox2" value="option2"/>2
+								</label>
+								<label className="checkbox-inline">
+									<input type="checkbox" id="inlineCheckbox3" value="option3"/>3
+								</label>
+							</form>
 						</div>
 					</div>
+<Highlight className="html">
+{
+`<form>
+   <label class="checkbox-inline">
+     <input type="checkbox" id="inlineCheckbox1" value="option1"/>1
+   </label>
+   <label class="checkbox-inline">
+     <input type="checkbox" id="inlineCheckbox2" value="option2"/>2
+   </label>
+   <label class="checkbox-inline">
+     <input type="checkbox" id="inlineCheckbox3" value="option3"/>3
+   </label>
+</form>`
+}
+</Highlight>
+
+
+
 				</div>
 				<div className="bss-card__hr"></div>
 				<div className="bss-card__body">
-					<div className="bss-subheader-sm margin-bottom-12 margin-top-20">Stacked checkboxes and radios</div>
+					<div className="bss-subheader-sm">Stacked checkboxes and radios</div>
 					<div className="row">
 						<div className="col-xs-12">
 							<form>
@@ -81,23 +114,73 @@ module.exports = React.createClass({
 							</form>
 						</div>
 					</div>
-					<div className="bss-subheader-sm margin-bottom-12 margin-top-20">Top-aligned Inputs</div>
 
+<Highlight className="html">
+{
+`<form>
+  <div class="radio">
+    <label>
+      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"/>Option one is this and that&mdash;be sure to include why it's great
+    </label>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"/>Check me out
+    </label>
+  </div>
+</form>`
+}
+</Highlight>
+
+
+					<div className="bss-subheader-sm top-md-space">Right-aligned checkboxes and radios</div>
 					<div className="row">
 						<div className="col-xs-12">
-							<form>
-								<div className="form-group">
-									<label for="exampleInputEmail1">Email address</label>
-									<input type="text" className="form-control" id="exampleInputEmail1" placeholder="Enter email"/>
-								</div>
-								<div className="form-group has-error">
-									<label for="exampleInputPassword1">Password</label>
-									<input type="text" className="form-control" id="exampleInputPassword1" placeholder="Password"/>
-									<span className="help-block">This is an error!</span>
+							<form className="form-horizontal">
+								<div className="col-xs-offset-2 col-xs-10">
+									<div className="radio">
+										<label>
+											<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"/>Option one is this and that&mdash;be sure to include why it's great
+										</label>
+									</div>
+									<div className="radio">
+										<label>
+											<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"/>Option two is this and that&mdash;be sure to include why it's great
+										</label>
+									</div>
+									<div className="radio">
+										<label>
+											<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"/>Option one is this and that&mdash;be sure to include why it's great
+										</label>
+									</div>
 								</div>
 							</form>
 						</div>
 					</div>
+
+<Highlight className="html">
+{
+`<form class="form-horizontal">
+  <div class="col-xs-offset-2 col-xs-10">
+    <div class="radio">
+      <label>
+	  <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"/>Option one is this and that&mdash;be sure to include why it's great
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+	  <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"/>Option two is this and that&mdash;be sure to include why it's great
+	</label>
+    </div>
+    <div class="radio">
+	<label>
+	  <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"/>Option one is this and that&mdash;be sure to include why it's great
+	</label>
+    </div>
+  </div>
+</form>`
+}
+</Highlight>
 				</div>
 			</div>
 		)
