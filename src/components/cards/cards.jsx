@@ -11,6 +11,7 @@ module.exports = React.createClass({
 					</div>
 					<div className="bss-card__body">
 						<p>
+							This card is within a fixed focus layout.
 							This layout encourages a focus on a particular type of content like files or dates.
 							Generally the card grows vertically rather than stacking sequential cards.
 						</p>
@@ -39,15 +40,76 @@ module.exports = React.createClass({
 				}
 				</Highlight>
 				<div className="bss-fixed-masonry">
-					<div className="bss-fixed-masonry__row">
-						<div className="bss-fixed-masonry__card bss-card col-xs-5">
-							Hello
+					<div className="row">
+						<div className="col-xs-6">
+							<div className="bss-fixed-masonry__card bss-card">
+								<div className="bss-card__header">
+									Card 1
+								</div>
+								<div className="bss-card__body">
+									These cards are within a fixed masonry layout. The layout of these cards is arranged with bootstrap classes.
+									The actual layout and structure of the cards are the same as others. The cards have a min height of 296px and
+									 depending on the content cards may need manually defined max height.
+								</div>
+							</div>
 						</div>
-						<div className="bss-fixed-masonry__card bss-card col-xs-5">
-							Hello
+						<div className="col-xs-6">
+							<div className="bss-fixed-masonry__card bss-card">
+								<div className="bss-card__header">
+									Card 2
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="row">
+						<div className="col-xs-4">
+							<div className="bss-fixed-masonry__card bss-card">
+								<div className="bss-card__header">
+									Card 3
+								</div>
+							</div>
+						</div>
+						<div className="col-xs-4">
+							<div className="bss-fixed-masonry__card bss-card">
+								<div className="bss-card__header">
+									Card 4
+								</div>
+							</div>
+						</div>
+						<div className="col-xs-4">
+							<div className="bss-fixed-masonry__card bss-card">
+								<div className="bss-card__header">
+									Card 5
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
+				<Highlight className="html">
+				{
+`<div className="bss-fixed-masonry">
+  <div className="row">
+    <div className="col-xs-6">
+      <div className="bss-fixed-masonry__card bss-card">
+        <div className="bss-card__header">
+          Card 1
+        </div>
+        <div className="bss-card__body">
+          Card Content
+        </div>
+      </div>
+    </div>
+    <div className="col-xs-6">
+      <div className="bss-fixed-masonry__card bss-card">
+        <div className="bss-card__header">
+          Card 2
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`
+				}
+				</Highlight>
 			</div>
 		)
 	}

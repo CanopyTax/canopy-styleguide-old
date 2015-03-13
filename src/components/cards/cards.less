@@ -1,29 +1,26 @@
 .bss-card {
 	background-color: @white;
-	border-radius: 3px;
+	border-radius: .3rem;
 	color: @dark-gray;
 	.depth-z1();
 }
 
 .bss-fixed-masonry, .bss-fixed-focus {
-	min-width: 700px;
-	max-width: 1360px;
+	min-width: 70.0rem;
+	max-width: 136.0rem;
 	margin: 0 auto 0 auto;
 }
 
 .bss-fixed-masonry__card {
-	&:first-child {
-		margin-left: 0;
-	}
-	&:last-child {
-		margin-right: 0;
-	}
-	margin: 8px;
+	min-height: 29.6rem;
+	height:100%;
+	margin-bottom: .8rem;
+	margin-top: .8rem;
 }
 
 .bss-card__header {
-	padding: 16px 24px 16px 24px;
-	border-bottom: 1px solid @breakline-light;
+	padding: 1.6rem 2.4rem 1.6rem 2.4rem;
+	border-bottom: .1rem solid @breakline-light;
 	font-weight: 400;
 
 	&.\+no-border {
@@ -38,15 +35,15 @@
 }
 
 .bss-content-footer {
-	padding:16px 24px;
-	border-top: 1px solid @breakline-light;
+	padding:16px 2.4rem;
+	border-top: .1rem solid @breakline-light;
 	a {
 		color: @dark-gray;
 		text-decoration: none;
-		padding: 4px 8px;
+		padding: .4rem .8rem;
 		&:hover {
-			border: 1px solid #E9E9E9;
-			border-radius: 2px;
+			border: .1rem solid #E9E9E9;
+			border-radius: .2rem;
 		}
 	}
 }
