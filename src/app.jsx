@@ -61,13 +61,14 @@ var App = React.createClass({
 								</li>
 							</ul>
 						</div>
-						<div className="bss-topnav__secondary">
-							<div className="bss-topnav__secondary__content" >
-								<ul className="bss-topnav__secondary__content__menu padding-top-12">
+					</div>
+						<div className="bss-topnav-secondary">
+							<div className="bss-topnav-secondary__content" >
+								<ul className="bss-topnav-secondary__content__menu">
 									<li><a href>Mike Lewis</a></li>
 									<li><a href>Calendar</a></li>
 								</ul>
-								<ul className="bss-topnav__secondary__content__menu pull-right">
+								<ul className="bss-topnav-secondary__content__right-menu">
 									<li>
 										<div className="bss-label-square +medium">
 											<div className="center-vertical">AC</div>
@@ -91,7 +92,6 @@ var App = React.createClass({
 								</ul>
 							</div>
 						</div>
-					</div>
 					<Sidebar/>
 					<div className="bss-nav-content +tall-top">
 						<RouteHandler/>
