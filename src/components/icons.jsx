@@ -5,7 +5,7 @@ module.exports = React.createClass({
 		return (
 			<div className="bss-fixed-focus bss-card">
 				<div className="bss-card__header bss-subheader">
-					Icons
+					Beanstalk Font Icons
 				</div>
 				<div className="bss-card__body">
 					<div className="row">
@@ -557,6 +557,51 @@ module.exports = React.createClass({
 								</div>
 								<div className="col-xs-6 center-vertical">
 									<i className="bs-icon bss-subheader bs-icon-LeftAligned"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="bss-card__hr"></div>
+				<div className="bss-card__header bss-subheader">
+					Other Icons
+				</div>
+				<div className="bss-card__body">
+					<div className="row">
+					{/** first column **/}
+						<div className="col-xs-4">
+							<div className="row">
+								<div className="col-xs-6 center-vertical">
+									<span className="pull-right">
+										.bss-caret-left
+									</span>
+								</div>
+								<div className="col-xs-6 center-vertical">
+									<i className="bss-caret-left"></i>
+								</div>
+								<div className="col-xs-6 center-vertical">
+									<span className="pull-right">
+										.bss-caret-right
+									</span>
+								</div>
+								<div className="col-xs-6 center-vertical">
+									<i className="bss-caret-right"></i>
+								</div>
+								<div className="col-xs-6 center-vertical">
+									<span className="pull-right">
+										.bss-caret-up
+									</span>
+								</div>
+								<div className="col-xs-6 center-vertical">
+									<i className="bss-caret-up"></i>
+								</div>
+								<div className="col-xs-6 center-vertical">
+									<span className="pull-right">
+										.bss-caret-down
+									</span>
+								</div>
+								<div className="col-xs-6 center-vertical">
+									<i className="bss-caret-down"></i>
 								</div>
 							</div>
 						</div>

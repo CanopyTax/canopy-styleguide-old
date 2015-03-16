@@ -7,7 +7,7 @@ var Highlight = require('react-highlight');
 var Sidebar = React.createClass({
   render: function () {
 	    return (
-				<div className="bss-flexible-sidenav">
+				<div className="bss-flexible-sidenav +tall-top">
 					<div className="bss-flexible-sidenav__menu">
 					{components.map(function(component) {
 						return <Link className="bss-flexible-sidenav__menu__item" activeClassName="+active" to="component" params={{title: component.title}}>
@@ -93,7 +93,7 @@ var App = React.createClass({
 						</div>
 					</div>
 					<Sidebar/>
-					<div className="bss-nav-content">
+					<div className="bss-nav-content +tall-top">
 						<RouteHandler/>
 					</div>
 				</div>

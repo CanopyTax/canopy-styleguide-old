@@ -458,6 +458,41 @@
 .bss-label-square.\+active {
   background-color: #4caf50;
 }
+.bs-icon {
+  color: #777777;
+}
+.bss-caret-left {
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid #777777;
+  display: inline-block;
+}
+.bss-caret-right {
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid #777777;
+  display: inline-block;
+}
+.bss-caret-down {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #777777;
+  display: inline-block;
+}
+.bss-caret-up {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #777777;
+  display: inline-block;
+}
 html {
   font-size: 62.5%;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -945,6 +980,9 @@ fieldset[disabled] .form-control {
   margin-left: 240px;
   width: calc(100% - 260px);
   padding: 100px 24px;
+}
+.bss-nav-content.\+tall-top {
+  padding-top: 140px;
 }
 .bss-nav-content.\+full {
   margin-left: 0px;
