@@ -1,0 +1,39 @@
+@import "./mixins/mixins.less";
+@import "./variables/variables.less";
+/************Labels************/
+
+.bss-label-square {
+	display: block;
+	background-color: @gray9;
+	line-height: 1.2;
+	color: #FFFFFF;
+	border-radius: 2px;
+	text-align: center;
+
+	&__add {
+		background-color: transparent;
+		border: 1px dashed @gray9;
+		color: @gray8;
+		font-size: 30px;
+		height: 28px;
+		width: 28px;
+		text-align: center;
+		line-height: 2;
+	}
+
+	&.\+small {
+		font-size: 12px;
+		height: 20px;
+		width: 20px;
+	}
+
+	&.\+medium {
+		font-size: 14px;
+		height: 28px;
+		width: 28px;
+	}
+
+	&.\+active {
+		background-color: @primary-green;
+	}
+}
