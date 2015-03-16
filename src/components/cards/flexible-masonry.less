@@ -19,26 +19,18 @@
 	.depth-z1;
 	padding: 1.6rem;
 	border-radius: 2px;
-	min-height: 208px;
-	max-height: 296px;
-	overflow: hidden;
 	width: 208px;
 	position: relative;
-
-	&::after {
-		content: ' ';
-		display: block;
-		background-color: red;
-		//background-color: @card-color;
-		height: 16px;
-		width: 100%;
-		position: absolute;
-		bottom: 0;
-	}
 
 	&__title {
 		font-weight: 600;
 		margin-bottom: 16px;
+	}
+
+	&__body {
+		min-height: 132px;
+		max-height: 210px;//296px;
+		overflow: hidden;
 	}
 
 	&.\+link {

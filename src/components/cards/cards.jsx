@@ -115,7 +115,7 @@ module.exports = React.createClass({
 						<div className="bss-flexible-masonry-card__title">
 							Title of the note goes here
 						</div>
-						<div>
+						<div className="bss-flexible-masonry-card__body">
 							Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.
 						</div>
 					</div>
@@ -123,7 +123,7 @@ module.exports = React.createClass({
 						<div className="bss-flexible-masonry-card__title">
 							Title of the note goes here
 						</div>
-						<div>
+						<div className="bss-flexible-masonry-card__body">
 							Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. 
 						</div>
 					</div>
@@ -131,7 +131,7 @@ module.exports = React.createClass({
 						<div className="bss-flexible-masonry-card__title">
 							Title of the note goes here
 						</div>
-						<div>
+						<div className="bss-flexible-masonry-card__body">
 							iltong brisket tri-tip venison pig ham rump shank.
 						</div>
 					</div>
@@ -139,7 +139,7 @@ module.exports = React.createClass({
 						<div className="bss-flexible-masonry-card__title">
 							Title of the note goes here
 						</div>
-						<div>
+						<div className="bss-flexible-masonry-card__body">
 							Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.
 						</div>
 					</div>
@@ -147,7 +147,7 @@ module.exports = React.createClass({
 						<div className="bss-flexible-masonry-card__title">
 							Title of the note goes here
 						</div>
-						<div>
+						<div className="bss-flexible-masonry-card__body">
 							chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.
 						</div>
 					</div>
@@ -155,7 +155,7 @@ module.exports = React.createClass({
 						<div className="bss-flexible-masonry-card__title">
 							Title of the note goes here
 						</div>
-						<div>
+						<div className="bss-flexible-masonry-card__body">
 							Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.
 							Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.
 						</div>
@@ -164,7 +164,7 @@ module.exports = React.createClass({
 						<div className="bss-flexible-masonry-card__title">
 							Title of the note goes here
 						</div>
-						<div>
+						<div className="bss-flexible-masonry-card__body">
 							Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.
 						</div>
 					</div>
@@ -172,12 +172,39 @@ module.exports = React.createClass({
 						<div className="bss-flexible-masonry-card__title">
 							Title of the note goes here
 						</div>
-						<div>
+						<div className="bss-flexible-masonry-card__body">
 							Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.
 							Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.
 						</div>
 					</div>
 				</div>
+				<Highlight className="html">
+				{
+`
+<!-- The flexible masonry grid can be acheived purely in CSS or with the masonry JS lib available at http://masonry.desandro.com/ -->
+<!-- If you want to have the CSS functionality, wrapp all the cards in a "bss-flexible-masonry class". -->
+<!-- Give the cards a link style by adding the "+link" modifier -->
+<div className="bss-flexible-masonry bss-fixed-focus">
+  <div className="bss-flexible-masonry-card +link">
+    <div className="bss-flexible-masonry-card__title">
+      Title of the note goes here
+    </div>
+    <div className="bss-flexible-masonry-card__body">
+      Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone.
+    </div>
+  </div>
+  <div className="bss-flexible-masonry-card">
+    <div className="bss-flexible-masonry-card__title">
+      Title of the note goes here
+    </div>
+    <div className="bss-flexible-masonry-card__body">
+      Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone.
+    </div>
+  </div>
+</div>
+`
+				}
+				</Highlight>
 			</div>
 		)
 	}
