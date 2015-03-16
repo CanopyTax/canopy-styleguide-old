@@ -8,6 +8,10 @@ module.exports = React.createClass({
 					Date Pickers
 				</div>
 				<div className="bss-card__body">
+					<p>
+						The styleguide provides some override styles for the bootstrap date picker. Generate a datepicker as usuall with
+						bootstrap and make sure that the id "bss-app" is on the body tag. The date picker should automatically style correctly.
+					</p>
 					<div className="datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-top"
 					style={{position: 'relative', display: 'block', float: 'none'}}>
 						<div className="datepicker-days" style={{display: 'block'}}>
