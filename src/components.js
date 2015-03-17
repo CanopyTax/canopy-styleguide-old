@@ -11,5 +11,6 @@ module.exports = [
 	{ title: "Navigation",	html: require('./components/navigation/navigation.jsx') },
 	{ title: "Textarea",		html: require('./components/forms/textarea.jsx') },
 	{ title: "Pickers",		html: require('./components/pickers/pickers.jsx') },
-	{ title: "Toasters & Banners",		html: require('./components/banners/banners.jsx') }
+	{ title: "Toasters & Banners",		html: require('./components/banners/banners.jsx') },
+	{ title: "Tooltip",		link: "http://beanstalkhq.github.io/bs-tooltip/" }
 ];

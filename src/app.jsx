@@ -10,10 +10,17 @@ var Sidebar = React.createClass({
 				<div className="bss-flexible-sidenav +tall-top">
 					<div className="bss-flexible-sidenav__menu">
 					{components.map(function(component) {
-						return <Link className="bss-flexible-sidenav__menu__item" activeClassName="+active" to="component" params={{title: component.title}}>
-							<i className="fa fa-home bss-flexible-sidenav__menu__item__icon"></i>
-							<span className="bss-flexible-sidenav__menu__item__title">{component.title}</span>
-						</Link>;
+						if(component.link) {
+							return <a className="bss-flexible-sidenav__menu__item" href={component.link}>
+								<i className="fa fa-home bss-flexible-sidenav__menu__item__icon"></i>
+								<span className="bss-flexible-sidenav__menu__item__title">{component.title}</span>
+							</a>
+						} else {
+							return <Link className="bss-flexible-sidenav__menu__item" activeClassName="+active" to="component" params={{title: component.title}}>
+								<i className="fa fa-home bss-flexible-sidenav__menu__item__icon"></i>
+								<span className="bss-flexible-sidenav__menu__item__title">{component.title}</span>
+							</Link>;
+						}
 					})}
 					</div>
 				</div>
