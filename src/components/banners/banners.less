@@ -1,0 +1,44 @@
+@import "../variables/variables.less";
+@import "../mixins/mixins.less";
+
+.bss-toaster {
+	min-height: 48px;
+	width: 363px;
+	opacity: 95%;
+	margin: 24px;
+	padding: 15px 24px 15px 24px;
+	border-radius: 2px;
+	.depth-z2;
+
+	&__message {
+		display: inline-block;
+		width: 230px;
+		color: white;
+		font-size: 14px;
+	}
+	a {
+
+		float: right !important;
+		text-decoration: none;
+		color: white;
+		font-size: 14px;
+		font-weight: 600;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+	&.\+info {
+		background-color: #45A8F8;
+	}
+	&.\+success {
+		background-color: #4CAF50;
+	}
+	&.\+warning {
+		background-color: #FF8A65;
+	}
+	&.\+general {
+		background-color: #333333;
+	}
+
+}
+

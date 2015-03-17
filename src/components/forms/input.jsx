@@ -9,24 +9,28 @@ module.exports = React.createClass({
 					Inputs
 				</div>
 				<div className="bss-card__body">
-					<div className="bss-subheader-sm bottom-md-space">Top-aligned Inputs</div>
+					<div className="bss-subheader-sm bss-margin-bottom-24">Top-aligned Inputs</div>
 					<div className="row">
 						<div className="col-xs-12">
 							<form>
-								<div className="form-group">
+								<div className="bss-form-group">
+									<label for="exampleInputEmail1">Full Name</label>
+									<input type="text" className="bss-form-control" placeholder="Enter name"/>
+								</div>
+								<div className="bss-form-group">
 									<label for="exampleInputEmail1">Email address</label>
-									<input type="text" className="form-control" placeholder="Enter email"/>
-									<span className="help-block">Example help block</span>
+									<input type="text" className="bss-form-control" placeholder="Enter email"/>
+									<span className="bss-help-block">Example help block</span>
 								</div>
-								<div className="form-group has-error has-feedback">
+								<div className="bss-form-group bss-has-error bss-has-feedback">
 									<label for="exampleInputPassword1">Phone Number</label>
-									<input type="text" className="form-control" value="234-343-3434"/>
-									<span className="bs-icon-Close form-control-feedback" aria-hidden="true"></span>
-									<span className="help-block">This is an error!</span>
+									<input type="text" className="bss-form-control" value="234-343-3434"/>
+									<span className="bs-icon-Error bss-form-control-feedback" aria-hidden="true"></span>
+									<span className="bss-help-block">This is an error!</span>
 								</div>
-								<div className="form-group">
+								<div className="bss-form-group">
 									<label for="exampleInputPassword1">Disabled</label>
-									<input type="text" className="form-control"value="234-343-3434" disabled="true"/>
+									<input type="text" className="bss-form-control" value="234-343-3434" disabled="true"/>
 								</div>
 							</form>
 						</div>
@@ -35,38 +39,54 @@ module.exports = React.createClass({
 				<Highlight className="html">
 				{
 `<form>
-  <div class="form-group">
+  <div class="bss-form-group">
      <label for="exampleInputEmail1">Email address</label>
-     <input type="text" class="form-control" placeholder="Enter email"/>
-     <span class="help-block">Example help block</span>
+     <input type="text" class="bss-form-control" placeholder="Enter email"/>
+     <span class="bss-help-block">Example help block</span>
+  </div>
+  <div class="bss-form-group bss-has-error bss-has-feedback">
+    <label for="exampleInputPassword1">Phone Number</label>
+    <input type="text" class="bss-form-control" value="234-343-3434"/>
+    <span class="bs-icon-Error bss-form-control-feedback" aria-hidden="true"></span>
+    <span class="bss-help-block">This is an error!</span>
+  </div>
+  <div class="bss-form-group">
+    <label for="exampleInputPassword1">Disabled</label>
+    <input type="text" class="bss-form-control" value="234-343-3434" disabled="true"/>
   </div>
 </form>`
 				}
 				</Highlight>
 
-					<div className="bss-subheader-sm top-lg-space bottom-md-space">Right-aligned Inputs</div>
+					<div className="bss-subheader-sm bss-margin-bottom-16 bss-margin-top-24">Right-aligned Inputs</div>
 					<div className="row">
 						<div className="col-xs-12">
-							<form className="form-horizontal">
-								<div className="form-group">
+							<form className="bss-form-horizontal">
+								<div className="bss-form-group">
+									<label for="exampleInputEmail1" className="col-xs-2">Full Name</label>
+									<div className="col-xs-3">
+										<input type="text" className="bss-form-control" placeholder="Enter name"/>
+									</div>
+								</div>
+								<div className="bss-form-group">
 									<label for="exampleInputEmail1" className="col-xs-2">Email address</label>
-									<div className="col-xs-10">
-										<input type="text" className="form-control" placeholder="Enter email"/>
-										<span className="help-block">Example help block</span>
+									<div className="col-xs-3">
+										<input type="text" className="bss-form-control" placeholder="Enter email"/>
+										<span className="bss-help-block">Example help block</span>
 									</div>
 								</div>
-								<div className="form-group has-error has-feedback">
+								<div className="bss-form-group bss-has-error bss-has-feedback">
 									<label for="exampleInputPassword1" className="col-xs-2">Phone Number</label>
-									<div className="col-xs-10">
-										<input type="text" className="form-control" value="234-343-3434"/>
-										<span className="bs-icon-Close form-control-feedback" aria-hidden="true"></span>
-										<span className="help-block">This is an error!</span>
+									<div className="col-xs-6">
+										<input type="text" className="bss-form-control" value="234-343-3434"/>
+										<span className="bs-icon-Error bss-form-control-feedback" aria-hidden="true"></span>
+										<span className="bss-help-block">This is an error!</span>
 									</div>
 								</div>
-								<div className="form-group">
+								<div className="bss-form-group">
 									<label for="exampleInputPassword1" className="col-xs-2">Disabled</label>
 									<div className="col-xs-10">
-										<input type="text" className="form-control"value="234-343-3434" disabled="true"/>
+										<input type="text" className="bss-form-control"value="234-343-3434" disabled="true"/>
 									</div>
 								</div>
 							</form>
@@ -75,18 +95,56 @@ module.exports = React.createClass({
 
 				<Highlight className="html">
 				{
-`<form class="form-horizontal">
-  <div class="form-group">
+`<form class="bss-form-horizontal">
+  <div class="bss-form-group">
     <label for="exampleInputEmail1" class="col-xs-2">Email address</label>
-    <div class="col-xs-10">
-      <input type="text" class="form-control" placeholder="Enter email"/>
-      <span class="help-block">Example help block</span>
+    <div class="col-xs-3">
+      <input type="text" class="bss-form-control" placeholder="Enter email"/>
+      <span class="bss-help-block">Example help block</span>
     </div>
   </div>
 </form>`
 				}
 				</Highlight>
 
+					<div className="bss-subheader-sm bss-margin-bottom-24 bss-margin-top-24">Inline Form</div>
+					<div className="row bss-padding-bottom-16">
+						<div className="col-xs-12">
+							<form className="bss-form-inline">
+								<div className="bss-form-group">
+									<label for="exampleInputName2">Email</label>
+									<input type="text" className="bss-form-control" placeholder="Enter email"/>
+								</div>
+								<div className="bss-form-group bss-has-error bss-has-feedback">
+									<label for="exampleInputName2">Phone</label>
+									<input type="text" className="bss-form-control" value="234-343-3434"/>
+									<span className="bs-icon-Error bss-form-control-feedback" aria-hidden="true"></span>
+								</div>
+								<div className="bss-form-group">
+									<input type="text" className="bss-form-control" value="234-343-3434" disabled="true"/>
+								</div>
+							</form>
+						</div>
+					</div>
+
+			<Highlight className="html">
+{
+`<form class="bss-form-inline">
+  <div class="bss-form-group">
+    <label for="exampleInputName2">Email</label>
+    <input type="text" class="bss-form-control" placeholder="Enter email"/>
+  </div>
+  <div class="bss-form-group bss-has-error bss-has-feedback">
+    <label for="exampleInputName2">Phone</label>
+    <input type="text" class="bss-form-control" value="234-343-3434"/>
+    <span class="bs-icon-Error bss-form-control-feedback" aria-hidden="true"></span>
+  </div>
+  <div class="bss-form-group">
+    <input type="text" class="bss-form-control" value="234-343-3434" disabled="true"/>
+  </div>
+</form>`
+}
+				</Highlight>
 				</div>
 			</div>
 		)

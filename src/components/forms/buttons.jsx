@@ -11,18 +11,18 @@ module.exports = React.createClass({
 						<div className="bss-subheader-sm bss-margin-bottom-8">Raised Buttons</div>
 						<div className="row">
 							<div className="col-xs-12">
-								<button className="btn +primary bss-margin-right-16 bss-margin-bottom-8">primary</button>
-								<button className="btn +secondary bss-margin-right-16 bss-margin-bottom-8">secondary</button>
-								<a href className="btn +primary bss-margin-right-16 bss-margin-bottom-8">PRIMARY link</a>
-								<a href className="btn +secondary bss-margin-right-16 bss-margin-bottom-8">secondary link</a>
+								<button className="bss-btn +primary bss-margin-right-16 bss-margin-bottom-8">primary</button>
+								<button className="bss-btn +secondary bss-margin-right-16 bss-margin-bottom-8">secondary</button>
+								<a href className="bss-btn +primary bss-margin-right-16 bss-margin-bottom-8">PRIMARY link</a>
+								<a href className="bss-btn +secondary bss-margin-right-16 bss-margin-bottom-8">secondary link</a>
 							</div>
 						</div>
 						<div className="row margin-top-24">
 							<div className="col-xs-12">
-								<button className="btn +primary +disabled bss-margin-right-16 bss-margin-bottom-8">PRIMARY</button>
-								<button className="btn +secondary bss-margin-right-16 bss-margin-bottom-8" disabled>secondary</button>
-								<a href className="btn +primary +disabled bss-margin-right-16 bss-margin-bottom-8">PRIMARY link</a>
-								<a href className="btn +secondary +disabled bss-margin-right-16 bss-margin-bottom-8">secondary link</a>
+								<button className="bss-btn +primary +disabled bss-margin-right-16 bss-margin-bottom-8">PRIMARY</button>
+								<button className="bss-btn +secondary bss-margin-right-16 bss-margin-bottom-8" disabled>secondary</button>
+								<a href className="bss-btn +primary +disabled bss-margin-right-16 bss-margin-bottom-8">PRIMARY link</a>
+								<a href className="bss-btn +secondary +disabled bss-margin-right-16 bss-margin-bottom-8">secondary link</a>
 							</div>
 						</div>
 

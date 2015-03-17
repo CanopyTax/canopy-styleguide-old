@@ -10,5 +10,6 @@ module.exports = [
 	{ title: "Cards",	html: require('./components/cards/cards.jsx') },
 	{ title: "Navigation",	html: require('./components/navigation/navigation.jsx') },
 	{ title: "Textarea",		html: require('./components/forms/textarea.jsx') },
-	{ title: "Pickers",		html: require('./components/pickers/pickers.jsx') }
+	{ title: "Pickers",		html: require('./components/pickers/pickers.jsx') },
+	{ title: "Toasters & Banners",		html: require('./components/banners/banners.jsx') }
 ];
