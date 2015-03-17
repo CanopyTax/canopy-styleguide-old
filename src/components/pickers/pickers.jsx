@@ -3,6 +3,7 @@ var React = require('react');
 module.exports = React.createClass({
 	render: function() {
 		return (
+			<div>
 			<div className="bss-fixed-focus bss-card">
 				<div className="bss-card__header bss-subheader">
 					Date Pickers
@@ -163,6 +164,15 @@ module.exports = React.createClass({
 					</div>
 				</div>
 			</div>
+			<div className="bss-fixed-focus bss-card bss-margin-top-24">
+				<div className="bss-card__header bss-subheader">
+					People Picker / Multi-select
+				</div>
+				<div className="bss-card__body">
+					The mutli-selector widget is located in a <a href="http://beanstalkhq.github.io/bs-multi-selector/">separate repository</a>.
+				</div>
+			</div>
+		</div>
 		)
 	}
 });
