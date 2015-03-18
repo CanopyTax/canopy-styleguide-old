@@ -140,7 +140,7 @@ module.exports = React.createClass({
 
 				<div className="bss-card-table bss-card">
 					<div className="bss-card-table__headcontent">
-						<div className="pull-right">
+						<div className="bss-pull-right">
 							<a className="bss-link right-lg-space"><i className="bs-icon bs-icon-Sort"></i></a>
 							<a href="#" className="bss-link">ADD A FILE</a>
 						</div>
@@ -181,7 +181,7 @@ module.exports = React.createClass({
 `<!-- Card table with a header  -->
 <div class="bss-card-table bss-card">
   <div class="bss-card-table__headcontent">
-    <div class="pull-right">
+    <div class="bss-pull-right">
       <a class="bss-link right-lg-space"><i class="bs-icon bs-icon-Sort"></i></a>
       <a href="#" class="bss-link">ADD A FILE</a>
     </div>

@@ -45,7 +45,7 @@ var App = React.createClass({
 								<li><a href="#">Beanstalk Style Guide</a></li>
 								<li><a ui-sref="calendar">Calendar</a></li>
 							</ul>
-							<ul className="bss-topnav__content__menu pull-right">
+							<ul className="bss-topnav__content__menu bss-pull-right">
 								<li className="bss-topnav__content__menu__form">
 									<div client-search></div>
 								</li>
@@ -78,22 +78,22 @@ var App = React.createClass({
 								<ul className="bss-topnav-secondary__content__right-menu">
 									<li>
 										<div className="bss-label-square +medium">
-											<div className="center-vertical">AC</div>
+											<div className="bss-center-vertical">AC</div>
 										</div>
 									</li>
 									<li>
 										<div className="bss-label-square +medium">
-											<div className="center-vertical">DV</div>
+											<div className="bss-center-vertical">DV</div>
 										</div>
 									</li>
 									<li>
 										<div className="bss-label-square +medium +active">
-											<div className="center-vertical">KL</div>
+											<div className="bss-center-vertical">KL</div>
 										</div>
 									</li>
 									<li>
 										<div className="bss-label-square__add">
-											<div className="center-vertical">+</div>
+											<div className="bss-center-vertical">+</div>
 										</div>
 									</li>
 								</ul>

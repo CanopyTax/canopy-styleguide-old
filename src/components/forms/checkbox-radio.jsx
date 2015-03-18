@@ -10,8 +10,8 @@ module.exports = React.createClass({
 				</div>
 				<div className="bss-card__body">
 					<div className="bss-subheader-sm bottom-sm-space">Inline checkboxes and radios</div>
-					<div className="row">
-						<div className="col-xs-12">
+					<div className="bss-row">
+						<div className="bss-col-xs-12">
 							<form>
 								<label className="radio-inline">
 									<input type="radio" value="1" name="testQuestion"/>&nbsp;&nbsp;Yes
@@ -34,8 +34,8 @@ module.exports = React.createClass({
 </form>`
 }
 </Highlight>
-					<div className="row margin-top-16">
-						<div className="col-xs-12">
+					<div className="bss-row margin-top-16">
+						<div className="bss-col-xs-12">
 							<form>
 								<label className="checkbox-inline">
 									<input type="checkbox" id="inlineCheckbox1" value="option1"/>1
@@ -71,8 +71,8 @@ module.exports = React.createClass({
 				<div className="bss-card__hr"></div>
 				<div className="bss-card__body">
 					<div className="bss-subheader-sm">Stacked checkboxes and radios</div>
-					<div className="row">
-						<div className="col-xs-12">
+					<div className="bss-row">
+						<div className="bss-col-xs-12">
 							<form>
 								<div className="radio">
 									<label>
@@ -92,8 +92,8 @@ module.exports = React.createClass({
 							</form>
 						</div>
 					</div>
-					<div className="row">
-						<div className="col-xs-12">
+					<div className="bss-row">
+						<div className="bss-col-xs-12">
 							<form>
 								<div className="checkbox">
 									<label>
@@ -134,10 +134,10 @@ module.exports = React.createClass({
 
 
 					<div className="bss-subheader-sm top-md-space">Right-aligned checkboxes and radios</div>
-					<div className="row">
-						<div className="col-xs-12">
+					<div className="bss-row">
+						<div className="bss-col-xs-12">
 							<form className="form-horizontal">
-								<div className="col-xs-offset-2 col-xs-10">
+								<div className="bss-col-xs-offset-2 bss-col-xs-10">
 									<div className="radio">
 										<label>
 											<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"/>Option one is this and that&mdash;be sure to include why it's great
@@ -161,7 +161,7 @@ module.exports = React.createClass({
 <Highlight className="html">
 {
 `<form class="form-horizontal">
-  <div class="col-xs-offset-2 col-xs-10">
+  <div class="bss-col-xs-offset-2 bss-col-xs-10">
     <div class="radio">
       <label>
 	  <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"/>Option one is this and that&mdash;be sure to include why it's great

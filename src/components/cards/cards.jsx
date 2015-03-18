@@ -40,8 +40,8 @@ module.exports = React.createClass({
 				}
 				</Highlight>
 				<div className="bss-fixed-masonry">
-					<div className="row">
-						<div className="col-xs-6">
+					<div className="bss-row">
+						<div className="bss-col-xs-6">
 							<div className="bss-fixed-masonry__card bss-card">
 								<div className="bss-card__header">
 									Card 1
@@ -53,7 +53,7 @@ module.exports = React.createClass({
 								</div>
 							</div>
 						</div>
-						<div className="col-xs-6">
+						<div className="bss-col-xs-6">
 							<div className="bss-fixed-masonry__card bss-card">
 								<div className="bss-card__header">
 									Card 2
@@ -61,22 +61,22 @@ module.exports = React.createClass({
 							</div>
 						</div>
 					</div>
-					<div className="row">
-						<div className="col-xs-4">
+					<div className="bss-row">
+						<div className="bss-col-xs-4">
 							<div className="bss-fixed-masonry__card bss-card">
 								<div className="bss-card__header">
 									Card 3
 								</div>
 							</div>
 						</div>
-						<div className="col-xs-4">
+						<div className="bss-col-xs-4">
 							<div className="bss-fixed-masonry__card bss-card">
 								<div className="bss-card__header">
 									Card 4
 								</div>
 							</div>
 						</div>
-						<div className="col-xs-4">
+						<div className="bss-col-xs-4">
 							<div className="bss-fixed-masonry__card bss-card">
 								<div className="bss-card__header">
 									Card 5
@@ -88,8 +88,8 @@ module.exports = React.createClass({
 				<Highlight className="html">
 				{
 `<div className="bss-fixed-masonry">
-  <div className="row">
-    <div className="col-xs-6">
+  <div className="bss-row">
+    <div className="bss-col-xs-6">
       <div className="bss-fixed-masonry__card bss-card">
         <div className="bss-card__header">
           Card 1
@@ -99,7 +99,7 @@ module.exports = React.createClass({
         </div>
       </div>
     </div>
-    <div className="col-xs-6">
+    <div className="bss-col-xs-6">
       <div className="bss-fixed-masonry__card bss-card">
         <div className="bss-card__header">
           Card 2
@@ -124,7 +124,7 @@ module.exports = React.createClass({
 							Title of the note goes here
 						</div>
 						<div className="bss-flexible-masonry-card__body">
-							Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. 
+							Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone.
 						</div>
 					</div>
 					<div className="bss-flexible-masonry-card">
