@@ -17,8 +17,12 @@ module.exports = React.createClass({
 							clicking you can drag and drop your files anywhere on this page.
 						</div>
 						<div className="bss-modal__dialog__actions">
-							<button className="bss-btn +primary">CHOOSE FILES</button>
-							<a href="#" className="bss-link bss-margin-left-16">NEVERMIND</a>
+							<div className="bss-inline-block">
+								<button className="bss-btn +primary">CHOOSE FILES</button>
+							</div>
+							<div className="bss-inline-block bss-margin-left-16">
+								<a href="#" className="bss-link">NEVERMIND</a>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -37,8 +41,12 @@ module.exports = React.createClass({
       clicking you can drag and drop your files anywhere on this page.
     </div>
     <div class="bss-modal__dialog__actions">
-      <button class="bss-btn +primary">CHOOSE FILES</button>
-      <a href="#" class="bss-link bss-margin-left-16">NEVERMIND</a>
+      <div class="bss-inline-block">
+        <button class="bss-btn +primary">CHOOSE FILES</button>
+      </div>
+      <div class="bss-inline-block bss-margin-left-16">
+        <a href="#" class="bss-link">NEVERMIND</a>
+      </div>
     </div>
   </div>
 </div>
@@ -82,8 +90,12 @@ module.exports = React.createClass({
 								</div>
 							</form>
 							<div className="bss-form-group">
-								<button className="bss-btn +primary">ADD DATE</button>
-								<a href="#" className="bss-link bss-margin-left-16">CANCEL</a>
+								<div className="bss-inline-block">
+									<button className="bss-btn +primary">ADD DATE</button>
+								</div>
+								<div className="bss-inline-block bss-margin-left-16">
+									<a href="#" className="bss-link">CANCEL</a>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -128,8 +140,12 @@ module.exports = React.createClass({
         </div>
       </form>
       <div class="bss-form-group">
-        <button class="bss-btn +primary">ADD DATE</button>
-        <a href="#" class="bss-link bss-margin-left-16">CANCEL</a>
+        <div class="bss-inline-block">
+          <button class="bss-btn +primary">ADD DATE</button>
+        </div>
+        <div class="bss-inline-block bss-margin-left-16">
+          <a href="#" class="bss-link">CANCEL</a>
+        </div>
       </div>
     </div>
   </div>
