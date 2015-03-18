@@ -4,6 +4,7 @@ var Highlight = require('react-highlight');
 module.exports = React.createClass({
 	render: function() {
 		return (
+		<div>
 			<div className="bss-fixed-focus bss-card">
 				<div className="bss-card__header bss-subheader">
 					Inputs
@@ -35,6 +36,8 @@ module.exports = React.createClass({
 							</form>
 						</div>
 					</div>
+				</div>
+			</div>
 
 				<Highlight className="html">
 				{
@@ -58,6 +61,8 @@ module.exports = React.createClass({
 				}
 				</Highlight>
 
+			<div className="bss-fixed-focus bss-card">
+				<div className="bss-card__body">
 					<div className="bss-subheader-sm bss-margin-bottom-16 bss-margin-top-24">Right-aligned Inputs</div>
 					<div className="bss-row">
 						<div className="bss-col-xs-12">
@@ -92,6 +97,8 @@ module.exports = React.createClass({
 							</form>
 						</div>
 					</div>
+				</div>
+			</div>
 
 				<Highlight className="html">
 				{
@@ -107,6 +114,8 @@ module.exports = React.createClass({
 				}
 				</Highlight>
 
+			<div className="bss-fixed-focus bss-card">
+				<div className="bss-card__body">
 					<div className="bss-subheader-sm bss-margin-bottom-24 bss-margin-top-24">Inline Form</div>
 					<div className="bss-row bss-padding-bottom-16">
 						<div className="bss-col-xs-12">
@@ -126,7 +135,8 @@ module.exports = React.createClass({
 							</form>
 						</div>
 					</div>
-
+				</div>
+			</div>
 			<Highlight className="html">
 {
 `<form class="bss-form-inline">
@@ -145,8 +155,8 @@ module.exports = React.createClass({
 </form>`
 }
 				</Highlight>
-				</div>
-			</div>
+
+		</div>
 		)
 	}
 });

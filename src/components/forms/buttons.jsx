@@ -1,7 +1,11 @@
 var React = require('react');
+var Highlight = require('react-highlight');
+
+
 module.exports = React.createClass({
 		render: function() {
 			return (
+			<div>
 				<div className="bss-fixed-focus bss-card">
 					<div className="bss-card__header">
 						<h3 className="bss-subheader">Buttons</h3>
@@ -25,9 +29,26 @@ module.exports = React.createClass({
 								<a href className="bss-btn +secondary +disabled bss-margin-right-16 bss-margin-bottom-8">secondary link</a>
 							</div>
 						</div>
+					</div>
+				</div>
 
-						<br/>
+				<Highlight className="html">
+				{
+`<button className="bss-btn +primary bss-margin-right-16 bss-margin-bottom-8">primary</button>
+<button className="bss-btn +secondary bss-margin-right-16 bss-margin-bottom-8">secondary</button>
+<a href className="bss-btn +primary bss-margin-right-16 bss-margin-bottom-8">PRIMARY link</a>
+<a href className="bss-btn +secondary bss-margin-right-16 bss-margin-bottom-8">secondary link</a>
 
+<button className="bss-btn +primary +disabled bss-margin-right-16 bss-margin-bottom-8">PRIMARY</button>
+<button className="bss-btn +secondary bss-margin-right-16 bss-margin-bottom-8" disabled>secondary</button>
+<a href className="bss-btn +primary +disabled bss-margin-right-16 bss-margin-bottom-8">PRIMARY link</a>
+<a href className="bss-btn +secondary +disabled bss-margin-right-16 bss-margin-bottom-8">secondary link</a>
+`
+				}
+				</Highlight>
+
+				<div className="bss-fixed-focus bss-card">
+					<div className="bss-card__body">
 						<div className="bss-subheader-sm">Flat Buttons</div>
 						<div className="bss-row">
 							<div className="bss-col-xs-12">
@@ -39,9 +60,18 @@ module.exports = React.createClass({
 								<a href className="bss-link +disabled bss-margin-right-16">PRIMARY link</a>
 							</div>
 						</div>
+					</div>
+				</div>
+								<Highlight className="html">
+				{
+`<a href className="bss-link bss-margin-right-16">PRIMARY link</a>
+<a href className="bss-link +disabled bss-margin-right-16">PRIMARY link</a>`
+				}
+				</Highlight>
 
-						<br/>
 
+				<div className="bss-fixed-focus bss-card">
+					<div className="bss-card__body">
 						<div className="bss-subheader-sm">Icon Button</div>
 						<div className="bss-row">
 							<div className="bss-col-xs-12">
@@ -54,6 +84,19 @@ module.exports = React.createClass({
 						</div>
 					</div>
 				</div>
+
+
+								<Highlight className="html">
+				{
+`<a href className="bss-link"><i className="bs-icon bs-icon-Work"></i></a>
+<a href className="bss-link"><i className="bs-icon bs-icon-Cog"></i></a>
+<a href className="bss-link"><i className="bs-icon bs-icon-Close"></i></a>
+<a href className="bss-link"><i className="bs-icon bs-icon-Help"></i></a>
+<a href className="bss-link"><i className="bs-icon bs-icon-LargeCheck"></i></a>`
+				}
+				</Highlight>
+
+			</div>
 			)
 		}
 })

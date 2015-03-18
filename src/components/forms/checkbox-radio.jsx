@@ -4,6 +4,8 @@ var Highlight = require('react-highlight');
 module.exports = React.createClass({
 	render: function() {
 		return (
+
+		<div>
 			<div className="bss-fixed-focus bss-card">
 				<div className="bss-card__header bss-subheader">
 					Checkboxes and Radios
@@ -22,6 +24,8 @@ module.exports = React.createClass({
 							</form>
 						</div>
 					</div>
+				</div>
+			</div>
 <Highlight className="html">
 {
 `<form>
@@ -34,6 +38,9 @@ module.exports = React.createClass({
 </form>`
 }
 </Highlight>
+
+			<div className="bss-fixed-focus bss-card">
+				<div className="bss-card__body">
 					<div className="bss-row margin-top-16">
 						<div className="bss-col-xs-12">
 							<form>
@@ -49,6 +56,8 @@ module.exports = React.createClass({
 							</form>
 						</div>
 					</div>
+				</div>
+			</div>
 <Highlight className="html">
 {
 `<form>
@@ -64,11 +73,7 @@ module.exports = React.createClass({
 </form>`
 }
 </Highlight>
-
-
-
-				</div>
-				<div className="bss-card__hr"></div>
+			<div className="bss-fixed-focus bss-card">
 				<div className="bss-card__body">
 					<div className="bss-subheader-sm">Stacked checkboxes and radios</div>
 					<div className="bss-row">
@@ -114,7 +119,8 @@ module.exports = React.createClass({
 							</form>
 						</div>
 					</div>
-
+				</div>
+			</div>
 <Highlight className="html">
 {
 `<form>
@@ -133,6 +139,8 @@ module.exports = React.createClass({
 </Highlight>
 
 
+			<div className="bss-fixed-focus bss-card">
+				<div className="bss-card__body">
 					<div className="bss-subheader-sm top-md-space">Right-aligned checkboxes and radios</div>
 					<div className="bss-row">
 						<div className="bss-col-xs-12">
@@ -157,6 +165,8 @@ module.exports = React.createClass({
 							</form>
 						</div>
 					</div>
+				</div>
+			</div>
 
 <Highlight className="html">
 {
@@ -181,8 +191,7 @@ module.exports = React.createClass({
 </form>`
 }
 </Highlight>
-				</div>
-			</div>
+		</div>
 		)
 	}
 });
