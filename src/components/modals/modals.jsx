@@ -53,30 +53,30 @@ module.exports = React.createClass({
 						<div className="bss-overlay-modal__content__body">
 							<form className="bss-form-horizontal">
 								<div className="bss-form-group">
-									<label for="exampleInputEmail1" className="col-xs-2">Date Title</label>
-									<div className="col-xs-4">
+									<label for="exampleInputEmail1" className="bss-col-xs-2">Date Title</label>
+									<div className="bss-col-xs-4">
 										<input type="text" className="bss-form-control" placeholder="New Event"/>
 									</div>
 								</div>
 								<div className="bss-form-group">
-									<label for="exampleInputEmail1" className="col-xs-2">Date</label>
-									<div className="col-xs-2">
+									<label for="exampleInputEmail1" className="bss-col-xs-2">Date</label>
+									<div className="bss-col-xs-2">
 										<input type="text" className="bss-form-control" placeholder="2/7/2015"/>
 									</div>
-									<div className="col-xs-2">
+									<div className="bss-col-xs-2">
 										<input type="text" className="bss-form-control" placeholder="4:00 PM"/>
 									</div>
-									<label for="exampleInputEmail1" className="col-xs-0">To</label>
-									<div className="col-xs-2">
+									<label for="exampleInputEmail1" className="bss-col-xs-0">To</label>
+									<div className="bss-col-xs-2">
 										<input type="text" className="bss-form-control" placeholder="2/9/2015"/>
 									</div>
-									<div className="col-xs-2">
+									<div className="bss-col-xs-2">
 										<input type="text" className="bss-form-control" placeholder="5:00 PM"/>
 									</div>
 								</div>
 								<div className="bss-form-group">
-									<label for="exampleInputEmail1" className="col-xs-2">Description</label>
-									<div className="col-xs-6">
+									<label for="exampleInputEmail1" className="bss-col-xs-2">Description</label>
+									<div className="bss-col-xs-6">
 										<textarea style={{width: '100%', height: '60px'}}></textarea>
 									</div>
 								</div>
@@ -99,30 +99,30 @@ module.exports = React.createClass({
     <div class="bss-overlay-modal__content__body">
       <form class="bss-form-horizontal">
         <div class="bss-form-group">
-          <label for="exampleInputEmail1" class="col-xs-2">Date Title</label>
-          <div class="col-xs-4">
+          <label for="exampleInputEmail1" class="bss-col-xs-2">Date Title</label>
+          <div class="bss-col-xs-4">
             <input type="text" class="bss-form-control" placeholder="New Event"/>
           </div>
         </div>
         <div class="bss-form-group">
-          <label for="exampleInputEmail1" class="col-xs-2">Date</label>
-          <div class="col-xs-2">
+          <label for="exampleInputEmail1" class="bss-col-xs-2">Date</label>
+          <div class="bss-col-xs-2">
             <input type="text" class="bss-form-control" placeholder="2/7/2015"/>
           </div>
-          <div class="col-xs-2">
+          <div class="bss-col-xs-2">
             <input type="text" class="bss-form-control" placeholder="4:00 PM"/>
           </div>
-          <label for="exampleInputEmail1" class="col-xs-0">To</label>
-          <div class="col-xs-2">
+          <label for="exampleInputEmail1" class="bss-col-xs-0">To</label>
+          <div class="bss-col-xs-2">
             <input type="text" class="bss-form-control" placeholder="2/9/2015"/>
           </div>
-          <div class="col-xs-2">
+          <div class="bss-col-xs-2">
             <input type="text" class="bss-form-control" placeholder="5:00 PM"/>
           </div>
         </div>
         <div class="bss-form-group">
-          <label for="exampleInputEmail1" class="col-xs-2">Description</label>
-          <div class="col-xs-6">
+          <label for="exampleInputEmail1" class="bss-col-xs-2">Description</label>
+          <div class="bss-col-xs-6">
             <textarea></textarea>
           </div>
         </div>
