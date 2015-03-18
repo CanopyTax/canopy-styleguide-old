@@ -67,10 +67,17 @@ fieldset[disabled] .bss-form-control {
 	}
 
 	.bss-form-control, .bss-form-control:hover, .bss-form-control:focus {
+		background-color: #FFFFFF;
+	}
+
+	.bss-form-control, .bss-form-control:hover {
 		border: 2px solid rgba(254,153,108, .3);
 		box-shadow: none; /* emulate the border */
-		border-color: rgba(254,153,108, .3);
-		background-color: #FFFFFF;
+	}
+
+  .bss-form-control:focus {
+		border-color: transparent; /* remove the border's color */
+		box-shadow: 0 0 0 2px rgba(254,153,108, .3); /* emulate the border */
 	}
 
 	label {
