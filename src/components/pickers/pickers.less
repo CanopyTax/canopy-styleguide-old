@@ -4,6 +4,14 @@
 /**** BSS Guide - BOOTSTRAP DATEPICKER OVERRIDE ****/
 #bss-app .datepicker {
 	font-size: 1.0rem;
+	font-family: @font-stack;
+
+	&.datepicker-orient-top:before, &.datepicker-orient-top:after,
+	&.datepicker-orient-right:before, &.datepicker-orient-right:after,
+	&.datepicker-orient-left:before, &.datepicker-orient-left:after,
+	&.datepicker-orient-bottom:before, &.datepicker-orient-bottom:after, {
+		display: none;
+	}
 }
 
 #bss-app .datepicker table tr td,
@@ -12,7 +20,6 @@
   height: 24px;
   border-radius: 12px;
   border: none;
-	font-weight: 600;
 }
 
 #bss-app .datepicker table tr td.old,
@@ -48,17 +55,23 @@
 }
 
 #bss-app {
+	thead tr:first-child {
+		font-weight: 600;
+		font-size: 1.2rem;
+	}
+
 	.datepicker {
 		padding: 0;
 		border-radius: 2px;
 		border: 0;
-		width: 190px;
+		width: 200px;
+		padding: 0 8px 6px 8px;
 		.depth-z2;
 		.dow {
 			color: @gray10;
 		}
 		table {
-			border-spacing: 4px 8px;
+			border-spacing: 2px 2px;
 		}
 		tfoot {
 			display: none;
