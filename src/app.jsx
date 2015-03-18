@@ -35,8 +35,10 @@ var App = React.createClass({
 	    var title = this.getParams().title;
 	    return (
 				<div>
+
 					<div className="bss-topnav">
 						<div className="bss-topnav__bar"></div>
+
 						<div className="bss-topnav__content">
 							<span className="bss-topnav__content__brand" href>
 								<img src="logo.png" alt="Company Logo"/>

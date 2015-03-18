@@ -34,15 +34,15 @@ module.exports = React.createClass({
 
 				<Highlight className="html">
 				{
-`<button className="bss-btn +primary bss-margin-right-16 bss-margin-bottom-8">primary</button>
-<button className="bss-btn +secondary bss-margin-right-16 bss-margin-bottom-8">secondary</button>
-<a href className="bss-btn +primary bss-margin-right-16 bss-margin-bottom-8">PRIMARY link</a>
-<a href className="bss-btn +secondary bss-margin-right-16 bss-margin-bottom-8">secondary link</a>
+`<button class="bss-btn +primary bss-margin-right-16 bss-margin-bottom-8">primary</button>
+<button class="bss-btn +secondary bss-margin-right-16 bss-margin-bottom-8">secondary</button>
+<a href class="bss-btn +primary bss-margin-right-16 bss-margin-bottom-8">PRIMARY link</a>
+<a href class="bss-btn +secondary bss-margin-right-16 bss-margin-bottom-8">secondary link</a>
 
-<button className="bss-btn +primary +disabled bss-margin-right-16 bss-margin-bottom-8">PRIMARY</button>
-<button className="bss-btn +secondary bss-margin-right-16 bss-margin-bottom-8" disabled>secondary</button>
-<a href className="bss-btn +primary +disabled bss-margin-right-16 bss-margin-bottom-8">PRIMARY link</a>
-<a href className="bss-btn +secondary +disabled bss-margin-right-16 bss-margin-bottom-8">secondary link</a>
+<button class="bss-btn +primary +disabled bss-margin-right-16 bss-margin-bottom-8">PRIMARY</button>
+<button class="bss-btn +secondary bss-margin-right-16 bss-margin-bottom-8" disabled>secondary</button>
+<a href class="bss-btn +primary +disabled bss-margin-right-16 bss-margin-bottom-8">PRIMARY link</a>
+<a href class="bss-btn +secondary +disabled bss-margin-right-16 bss-margin-bottom-8">secondary link</a>
 `
 				}
 				</Highlight>
@@ -64,8 +64,8 @@ module.exports = React.createClass({
 				</div>
 								<Highlight className="html">
 				{
-`<a href className="bss-link bss-margin-right-16">PRIMARY link</a>
-<a href className="bss-link +disabled bss-margin-right-16">PRIMARY link</a>`
+`<a href class="bss-link bss-margin-right-16">PRIMARY link</a>
+<a href class="bss-link +disabled bss-margin-right-16">PRIMARY link</a>`
 				}
 				</Highlight>
 
@@ -88,11 +88,11 @@ module.exports = React.createClass({
 
 								<Highlight className="html">
 				{
-`<a href className="bss-link"><i className="bs-icon bs-icon-Work"></i></a>
-<a href className="bss-link"><i className="bs-icon bs-icon-Cog"></i></a>
-<a href className="bss-link"><i className="bs-icon bs-icon-Close"></i></a>
-<a href className="bss-link"><i className="bs-icon bs-icon-Help"></i></a>
-<a href className="bss-link"><i className="bs-icon bs-icon-LargeCheck"></i></a>`
+`<a href class="bss-link"><i class="bs-icon bs-icon-Work"></i></a>
+<a href class="bss-link"><i class="bs-icon bs-icon-Cog"></i></a>
+<a href class="bss-link"><i class="bs-icon bs-icon-Close"></i></a>
+<a href class="bss-link"><i class="bs-icon bs-icon-Help"></i></a>
+<a href class="bss-link"><i class="bs-icon bs-icon-LargeCheck"></i></a>`
 				}
 				</Highlight>
 
