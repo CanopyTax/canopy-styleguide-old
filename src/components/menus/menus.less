@@ -2,6 +2,12 @@
 
 .bss-dropdown {
   position: relative;
+
+  	&__icon {
+		display: inline-block;
+		vertical-align: middle;
+		margin-left: .5rem;
+	}
 }
 
 .bss-dropdown-menu {
@@ -19,59 +25,60 @@
 	background-color: #fff;
 	background-clip: padding-box;
 	border-radius: 2px;
-	.depth-z2
-}
-.bss-dropdown-menu.bss-pull-right {
-	right: 0;
-	left: auto;
-}
-.bss-dropdown-menu .bss-divider {
-	height: 1px;
-	margin: .5rem 0rem;
-	overflow: hidden;
-	background-color: #e5e5e5;
-}
+	.depth-z2;
 
-.bss-dropdown-menu > li > a {
-	display: block;
-	padding: 8px 16px;
-	clear: both;
-	font-weight: normal;
-	line-height: 1.42857143;
-	color: @dark-gray;
-	white-space: nowrap;
-	text-decoration: none;
-}
+	&.bss-pull-right {
+		right: 0;
+		left: auto;
+	}
 
+	.bss-divider {
+		height: .1rem;
+		margin: .35rem 0rem .35rem 0rem;
+		overflow: hidden;
+		background-color: #e5e5e5;
+	}
 
-.bss-dropdown-menu > li > a:hover,
-.bss-dropdown-menu > li > a:focus {
-	color: @dark-gray;
-	text-decoration: none;
-	background-color: @gray4;
-}
-.bss-dropdown-menu > .active > a,
-.bss-dropdown-menu > .active > a:hover,
-.bss-dropdown-menu > .active > a:focus {
-	color: #fff;
-	text-decoration: none;
-	background-color: #428bca;
-	outline: 0;
-}
-.bss-dropdown-menu > .disabled > a,
-.bss-dropdown-menu > .disabled > a:hover,
-.bss-dropdown-menu > .disabled > a:focus {
- 	color: #999;
-}
-.bss-dropdown-menu > .disabled > a:hover,
-.bss-dropdown-menu > .disabled > a:focus {
-	text-decoration: none;
-	cursor: not-allowed;
-	background-color: transparent;
-	background-image: none;
-	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	li > a {
+		display: block;
+		padding: .8rem 1.6rem;
+		clear: both;
+		font-weight: normal;
+		line-height: 1.42857143;
+		color: @dark-gray;
+		white-space: nowrap;
+		text-decoration: none;
+	}
+
+	li > a:hover,
+	li > a:focus,
+	.bss-active > a,
+	.bss-active > a:hover,
+	.bss-active > a:focus  {
+		color: @dark-gray;
+		text-decoration: none;
+		background-color: @gray4;
+	}
+
+	&__icon {
+		font-size: 2.4rem;
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 2rem;
+	}
 }
 
 .bss-open > .bss-dropdown-menu {
  	display: block;
 }
+
+.bss-dropdown > a.bss-link, .bss-link  {
+ 	color: @light-gray;
+ 	font-weight: 400;
+}
+
+.bss-open > a.bss-link, .bss-link  {
+ 	background-color: rgba(0,0,0,.05);
+}
+
+
