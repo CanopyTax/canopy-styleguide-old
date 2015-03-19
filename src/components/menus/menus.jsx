@@ -14,7 +14,7 @@ module.exports = React.createClass({
 						<div className="bss-col-xs-3">
 							<div className="bss-dropdown bss-open">
 								<a href className="bss-btn +primary dropdown-toggle">
-								 New <i className="bs-icon bs-caret-down"></i>
+								 New <i className="bss-icon bs-caret-down"></i>
 								</a>
 								<ul className="bss-dropdown-menu" role="menu">
 									<li><a href>My Profile</a></li>
@@ -33,13 +33,13 @@ module.exports = React.createClass({
 						<div className="bss-col-xs-3">
 							<div className="bss-dropdown bss-open">
 								<a href className="bss-link">
-									<i className="bs-icon bs-icon-Cog"></i>
+									<i className="bss-icon bss-icon-cog"></i>
 								</a>
 								<ul className="bss-dropdown-menu" role="menu">
-									<li><a href><i className="bs-icon bs-icon-AddPerson bss-dropdown-menu__icon"></i>Share</a></li>
-									<li><a href><i className="bs-icon bs-icon-Download bss-dropdown-menu__icon"></i>Download</a></li>
-									<li><a href><i className="bs-icon bs-icon-Notes bss-dropdown-menu__icon"></i>Rename</a></li>
-									<li><a href><i className="bs-icon bs-icon-Trash bss-dropdown-menu__icon"></i>Delete</a></li>
+									<li><a href><i className="bss-icon bss-icon-add-person bss-dropdown-menu__icon"></i>Share</a></li>
+									<li><a href><i className="bss-icon bss-icon-download bss-dropdown-menu__icon"></i>Download</a></li>
+									<li><a href><i className="bss-icon bss-icon-notes bss-dropdown-menu__icon"></i>Rename</a></li>
+									<li><a href><i className="bss-icon bss-icon-trash bss-dropdown-menu__icon"></i>Delete</a></li>
 
 								</ul>
 							</div>

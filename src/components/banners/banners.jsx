@@ -73,7 +73,7 @@ module.exports = React.createClass({
 				<div className="bss-banner-global__content">
 					Don't forget to add +tall-top to the secondary nav when using this banner. Also, remove the 3px bss-topnav__bar from the nav too! <a href className="bss-banner-global__action">Take Action</a>
 				</div>
-				<a href className="bss-pull-right"><i className="bs-icon bs-icon-Close"></i></a>
+				<a href className="bss-pull-right"><i className="bss-icon bss-icon-close"></i></a>
 			</div>
 
 							<Highlight className="html">
@@ -82,7 +82,7 @@ module.exports = React.createClass({
   <div class="bss-banner-global__content">
 	Don't forget to add the class '+banner-top' to (i) bss-topnav-secondary, (ii) bss-nav-content, and (iii) bss-flexible-sidenav when using this banner. Also, remove the 3px bss-topnav__bar from the nav too! <a href class="bss-banner-global__action">Take Action</a>
   </div>
-  <a href class="bss-pull-right"><i class="bs-icon bs-icon-Close"></i></a>
+  <a href class="bss-pull-right"><i class="bss-icon bss-icon-close"></i></a>
 </div>`
 				}
 				</Highlight>

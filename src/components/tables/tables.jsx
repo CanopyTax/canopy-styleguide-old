@@ -141,7 +141,7 @@ module.exports = React.createClass({
 				<div className="bss-card-table bss-card">
 					<div className="bss-card-table__headcontent">
 						<div className="bss-pull-right">
-							<a className="bss-link right-lg-space"><i className="bs-icon bs-icon-Sort"></i></a>
+							<a className="bss-link right-lg-space"><i className="bss-icon bss-icon-sort"></i></a>
 							<a href="#" className="bss-link">ADD A FILE</a>
 						</div>
 						<div className="bss-subheader">Files</div>
@@ -182,7 +182,7 @@ module.exports = React.createClass({
 <div class="bss-card-table bss-card">
   <div class="bss-card-table__headcontent">
     <div class="bss-pull-right">
-      <a class="bss-link right-lg-space"><i class="bs-icon bs-icon-Sort"></i></a>
+      <a class="bss-link right-lg-space"><i class="bss-icon bss-icon-sort"></i></a>
       <a href="#" class="bss-link">ADD A FILE</a>
     </div>
     <div class="bss-subheader">Files</div>

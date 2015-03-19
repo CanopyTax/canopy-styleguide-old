@@ -45,7 +45,7 @@ module.exports = React.createClass({
 
 				<div className="bss-slat">
 					<div className="bss-slat__badge">
-						<i className="bs-icon bss-subheader bs-icon-Taxes"></i>
+						<i className="bss-icon bss-subheader bss-icon-taxes"></i>
 					</div>
 					<div className="bss-slat__content">
 						<div className="bss-slat__content__title">
@@ -66,7 +66,7 @@ module.exports = React.createClass({
 <!-- directly after the title.                                                       -->
 <div class="bss-slat">
   <div class="bss-slat__badge">
-    <i class="bs-icon bss-subheader bs-icon-Taxes"></i>
+    <i class="bss-icon bss-subheader bss-icon-taxes"></i>
   </div>
   <div class="bss-slat__content">
     <div class="bss-slat__content__title">Filename</div>
@@ -80,7 +80,7 @@ module.exports = React.createClass({
 
 				<div className="bss-slat +small">
 					<div className="bss-slat__badge">
-						<i className="bs-icon bss-subheader bs-icon-Taxes"></i>
+						<i className="bss-icon bss-subheader bss-icon-taxes"></i>
 					</div>
 					<div className="bss-slat__content">
 						<div className="bss-slat__content__title">
@@ -99,7 +99,7 @@ module.exports = React.createClass({
 `<!-- Crate a small slat by simply adding the class modifier +small to the medium slat -->
 <div class="bss-slat +small">
   <div class="bss-slat__badge">
-    <i class="bs-icon bss-subheader bs-icon-Taxes"></i>
+    <i class="bss-icon bss-subheader bss-icon-taxes"></i>
   </div>
   <div class="bss-slat__content">
     <div class="bss-slat__content__title">Filename</div>

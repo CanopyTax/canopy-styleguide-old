@@ -14,181 +14,181 @@ module.exports = React.createClass({
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-									.bs-icon-AddPerson
+									.bss-icon-add-person
 									</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bs-icon-AddPerson bss-subheader"></i>
+									<i className="bss-icon bss-icon-add-person bss-subheader"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-									.bs-icon-Add
+									.bss-icon-add
 									</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Add"></i>
+									<i className="bss-icon bss-subheader bss-icon-add"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-									.bs-icon-Archive
+									.bss-icon-archive
 									</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Archive"></i>
+									<i className="bss-icon bss-subheader bss-icon-archive"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-									.bs-icon-Arrow
+									.bss-icon-arrow-left
 									</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Arrow"></i>
+									<i className="bss-icon bss-subheader bss-icon-arrow-left"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-									.bs-icon-Attachment
+									.bss-icon-attachment
 									</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Attachment"></i>
+									<i className="bss-icon bss-subheader bss-icon-attachment"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Taxes
+							.bss-icon-taxes
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Taxes"></i>
+									<i className="bss-icon bss-subheader bss-icon-taxes"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-TileView
+							.bss-icon-tile-view
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-TileView"></i>
+									<i className="bss-icon bss-subheader bss-icon-tile-view"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Trash
+							.bss-icon-trash
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Trash"></i>
+									<i className="bss-icon bss-subheader bss-icon-trash"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Upload
+							.bss-icon-upload
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Upload"></i>
+									<i className="bss-icon bss-subheader bss-icon-upload"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Valid
+							.bss-icon-valid
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Valid"></i>
+									<i className="bss-icon bss-subheader bss-icon-valid"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Visible
+							.bss-icon-visible
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Visible"></i>
+									<i className="bss-icon bss-subheader bss-icon-visible"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Work
+							.bss-icon-work
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Work"></i>
+									<i className="bss-icon bss-subheader bss-icon-work"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Wrench
+							.bss-icon-wrench
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Wrench"></i>
+									<i className="bss-icon bss-subheader bss-icon-wrench"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-LeftCaret
+							.bss-icon-lg-left-caret
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-LeftCaret"></i>
+									<i className="bss-icon bss-subheader bss-icon-lg-left-caret"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-List
+							.bss-icon-list
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-List"></i>
+									<i className="bss-icon bss-subheader bss-icon-list"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Location
+							.bss-icon-location
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Location"></i>
+									<i className="bss-icon bss-subheader bss-icon-location"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Lock
+							.bss-icon-lock
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Lock"></i>
+									<i className="bss-icon bss-subheader bss-icon-lock"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-More
+							.bss-icon-more
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-More"></i>
+									<i className="bss-icon bss-subheader bss-icon-more"></i>
 								</div>
 							</div>
 						</div>
@@ -198,191 +198,191 @@ module.exports = React.createClass({
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Move
+							.bss-icon-move
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Move"></i>
+									<i className="bss-icon bss-subheader bss-icon-move"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Nav
+							.bss-icon-nav
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Nav"></i>
+									<i className="bss-icon bss-subheader bss-icon-nav"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Notes
+							.bss-icon-notes
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Notes"></i>
+									<i className="bss-icon bss-subheader bss-icon-notes"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Number
+							.bss-icon-number
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Number"></i>
+									<i className="bss-icon bss-subheader bss-icon-number"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Pending
+							.bss-icon-pending
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Pending"></i>
+									<i className="bss-icon bss-subheader bss-icon-pending"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Phone
+							.bss-icon-phone
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Phone"></i>
+									<i className="bss-icon bss-subheader bss-icon-phone"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Print
+							.bss-icon-print
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Print"></i>
+									<i className="bss-icon bss-subheader bss-icon-print"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Projects
+							.bss-icon-projects
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Projects"></i>
+									<i className="bss-icon bss-subheader bss-icon-projects"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-RightAligned
+							.bss-icon-right-aligned
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-RightAligned"></i>
+									<i className="bss-icon bss-subheader bss-icon-right-aligned"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-RightCaret
+							.bss-icon-lg-right-caret
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-RightCaret"></i>
+									<i className="bss-icon bss-subheader bss-icon-lg-right-caret"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Search
+							.bss-icon-search
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Search"></i>
+									<i className="bss-icon bss-subheader bss-icon-search"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Sort
+							.bss-icon-sort
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Sort"></i>
+									<i className="bss-icon bss-subheader bss-icon-sort"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-									.bs-icon-Bell
+									.bss-icon-bell
 									</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Bell"></i>
+									<i className="bss-icon bss-subheader bss-icon-bell"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-									.bs-icon-Billing
+									.bss-icon-billing
 									</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Billing"></i>
+									<i className="bss-icon bss-subheader bss-icon-billing"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-									.bs-icon-Business
+									.bss-icon-business
 									</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Business"></i>
+									<i className="bss-icon bss-subheader bss-icon-business"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-									.bs-icon-Calendar1x
+									.bss-icon-calendar
 									</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Calendar1x"></i>
+									<i className="bss-icon bss-subheader bss-icon-calendar"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-									.bs-icon-CenterAligned
+									.bss-icon-CenterAligned
 									</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-CenterAligned"></i>
+									<i className="bss-icon bss-subheader bss-icon-center-aligned"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-									.bs-icon-Client
+									.bss-icon-client
 									</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Client"></i>
+									<i className="bss-icon bss-subheader bss-icon-client"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-									.bs-icon-Clients
+									.bss-icon-clients
 									</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Clients"></i>
+									<i className="bss-icon bss-subheader bss-icon-clients"></i>
 								</div>
 							</div>
 						</div>
@@ -392,171 +392,171 @@ module.exports = React.createClass({
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Close
+							.bss-icon-close
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Close"></i>
+									<i className="bss-icon bss-subheader bss-icon-close"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Cloud
+							.bss-icon-cloud
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Cloud"></i>
+									<i className="bss-icon bss-subheader bss-icon-cloud"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Cog
+							.bss-icon-cog
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Cog"></i>
+									<i className="bss-icon bss-subheader bss-icon-cog"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Compass
+							.bss-icon-compass
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Compass"></i>
+									<i className="bss-icon bss-subheader bss-icon-compass"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Download
+							.bss-icon-download
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Download"></i>
+									<i className="bss-icon bss-subheader bss-icon-download"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Duplicate
+							.bss-icon-duplicate
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Duplicate"></i>
+									<i className="bss-icon bss-subheader bss-icon-duplicate"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Error
+							.bss-icon-error
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Error"></i>
+									<i className="bss-icon bss-subheader bss-icon-error"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Expand
+							.bss-icon-expand
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Expand"></i>
+									<i className="bss-icon bss-subheader bss-icon-expand"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Files
+							.bss-icon-Files
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Files"></i>
+									<i className="bss-icon bss-subheader bss-icon-files"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Filter
+							.bss-icon-filter
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Filter"></i>
+									<i className="bss-icon bss-subheader bss-icon-filter"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Folder
+							.bss-icon-folder
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Folder"></i>
+									<i className="bss-icon bss-subheader bss-icon-folder"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Help
+							.bss-icon-help
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Help"></i>
+									<i className="bss-icon bss-subheader bss-icon-help"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Hidden
+							.bss-icon-hidden
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Hidden"></i>
+									<i className="bss-icon bss-subheader bss-icon-hidden"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Home
+							.bss-icon-home
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Home"></i>
+									<i className="bss-icon bss-subheader bss-icon-home"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-Information
+							.bss-icon-information
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-Information"></i>
+									<i className="bss-icon bss-subheader bss-icon-information"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-LargeCheck
+							.bss-icon-lg-check
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-LargeCheck"></i>
+									<i className="bss-icon bss-subheader bss-icon-lg-check"></i>
 								</div>
 							</div>
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-							.bs-icon-LeftAligned
+							.bss-icon-left-aligned
 							</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bs-icon bss-subheader bs-icon-LeftAligned"></i>
+									<i className="bss-icon bss-subheader bss-icon-left-aligned"></i>
 								</div>
 							</div>
 						</div>
@@ -573,35 +573,35 @@ module.exports = React.createClass({
 							<div className="bss-row">
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-										.bss-caret-left
+										.bss-icon-sm-caret-left
 									</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bss-caret-left"></i>
+									<i className="bss-icon-sm-caret-left"></i>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-										.bss-caret-right
+										.bss-icon-sm-caret-right
 									</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bss-caret-right"></i>
+									<i className="bss-icon-sm-caret-right"></i>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-										.bss-caret-up
+										.bss-icon-sm-caret-up
 									</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bss-caret-up"></i>
+									<i className="bss-icon-sm-caret-up"></i>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
 									<span className="bss-pull-right">
-										.bss-caret-down
+										.bss-icon-sm-caret-down
 									</span>
 								</div>
 								<div className="bss-col-xs-6 bss-center-vertical">
-									<i className="bss-caret-down"></i>
+									<i className="bss-icon-sm-caret-down"></i>
 								</div>
 							</div>
 						</div>
