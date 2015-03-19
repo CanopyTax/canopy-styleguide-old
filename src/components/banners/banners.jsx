@@ -60,10 +60,10 @@ module.exports = React.createClass({
 
 				<Highlight className="html">
 				{
-`<div class="bss-banner +inline">
- <div class="bss-banner__title">Welcome back!</div>
- <div class="bss-banner__content">Here is my message to you!</div>
- <a href class="bss-banner__action">Take Action</a>
+`<div class="bss-banner-inline">
+ <div class="bss-banner-inline__title">Welcome back!</div>
+ <div class="bss-banner-inline__content">Here is my message to you!</div>
+ <a href class="bss-banner-inline__action">Take Action</a>
 </div>`
 				}
 				</Highlight>
@@ -71,18 +71,18 @@ module.exports = React.createClass({
 
 			<div className="bss-banner-global">
 				<div className="bss-banner-global__content">
-					Here is my message to you!
+					Don't forget to add +tall-top to the secondary nav when using this banner. Also, remove the 3px bss-topnav__bar from the nav too! <a href className="bss-banner-global__action">Take Action</a>
 				</div>
 				<a href className="bss-pull-right"><i className="bs-icon bs-icon-Close"></i></a>
 			</div>
 
 							<Highlight className="html">
 				{
-`<div className="bss-banner-global">
-  <div className="bss-banner-global__content">
-	Here is my message to you!
+`<div class="bss-banner-global">
+  <div class="bss-banner-global__content">
+	Don't forget to add the class '+banner-top' to (i) bss-topnav-secondary, (ii) bss-nav-content, and (iii) bss-flexible-sidenav when using this banner. Also, remove the 3px bss-topnav__bar from the nav too! <a href class="bss-banner-global__action">Take Action</a>
   </div>
-  <a href className="bss-pull-right"><i className="bs-icon bs-icon-Close"></i></a>
+  <a href class="bss-pull-right"><i class="bs-icon bs-icon-Close"></i></a>
 </div>`
 				}
 				</Highlight>
