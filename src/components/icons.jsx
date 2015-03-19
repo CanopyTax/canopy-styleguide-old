@@ -559,6 +559,16 @@ module.exports = React.createClass({
 									<i className="bss-icon bss-subheader bss-icon-left-aligned"></i>
 								</div>
 							</div>
+							<div className="bss-row">
+								<div className="bss-col-xs-6 bss-center-vertical">
+									<span className="bss-pull-right">
+							.bs-icon-small-check
+							</span>
+								</div>
+								<div className="bss-col-xs-6 bss-center-vertical">
+									<i className="bs-icon bss-subheader bs-icon-small-check"></i>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

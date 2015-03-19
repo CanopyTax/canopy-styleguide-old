@@ -19,7 +19,19 @@ module.exports = React.createClass({
 									<input type="radio" value="1" name="testQuestion"/>&nbsp;&nbsp;Yes
 								</label>
 								<label className="radio-inline">
-									<input type="radio" value="1" name="testQuestion"/>&nbsp;&nbsp;No
+									<input type="radio" value="3" name="testQuestion"/>&nbsp;&nbsp;No
+								</label>
+							</form>
+						</div>
+					</div>
+					<div className="bss-row">
+						<div className="bss-col-xs-12">
+							<form>
+								<label className="radio-inline">
+									<input type="radio" value="1" checked disabled name="testQuestion"/>&nbsp;&nbsp;Yes
+								</label>
+								<label className="radio-inline">
+									<input type="radio" value="3" disabled name="testQuestion"/>&nbsp;&nbsp;No
 								</label>
 							</form>
 						</div>
@@ -45,13 +57,28 @@ module.exports = React.createClass({
 						<div className="bss-col-xs-12">
 							<form>
 								<label className="checkbox-inline">
-									<input type="checkbox" id="inlineCheckbox1" value="option1"/>1
+									<input type="checkbox" value="option1"/>1
 								</label>
 								<label className="checkbox-inline">
-									<input type="checkbox" id="inlineCheckbox2" value="option2"/>2
+									<input type="checkbox" value="option1" disabled/>1
 								</label>
 								<label className="checkbox-inline">
-									<input type="checkbox" id="inlineCheckbox3" value="option3"/>3
+									<input type="checkbox" value="option2" disabled checked/>2
+								</label>
+							</form>
+						</div>
+					</div>
+					<div className="bss-row bss-margin-top-16">
+						<div className="bss-col-xs-12">
+							<form>
+								<label className="checkbox-inline">
+									<input className="bss-large-checkbox" type="checkbox" value="option1"/>1
+								</label>
+								<label className="checkbox-inline">
+									<input className="bss-large-checkbox" type="checkbox" value="option1" disabled/>1
+								</label>
+								<label className="checkbox-inline">
+									<input className="bss-large-checkbox" type="checkbox" value="option2" disabled checked/>2
 								</label>
 							</form>
 						</div>
@@ -74,8 +101,8 @@ module.exports = React.createClass({
 }
 </Highlight>
 			<div className="bss-fixed-focus bss-card">
+				<div className="bss-card__header bss-subheader-sm">Stacked checkboxes and radios</div>
 				<div className="bss-card__body">
-					<div className="bss-subheader-sm">Stacked checkboxes and radios</div>
 					<div className="bss-row">
 						<div className="bss-col-xs-12">
 							<form>
@@ -116,6 +143,11 @@ module.exports = React.createClass({
 									</label>
 								</div>
 
+								<div className="checkbox">
+									<label>
+										<input className="bss-large-checkbox" type="checkbox"/>Check me out
+									</label>
+								</div>
 							</form>
 						</div>
 					</div>
@@ -140,8 +172,8 @@ module.exports = React.createClass({
 
 
 			<div className="bss-fixed-focus bss-card">
+				<div className="bss-card__header bss-subheader-sm">Right-aligned checkboxes and radios</div>
 				<div className="bss-card__body">
-					<div className="bss-subheader-sm top-md-space">Right-aligned checkboxes and radios</div>
 					<div className="bss-row">
 						<div className="bss-col-xs-12">
 							<form className="form-horizontal">
