@@ -11,12 +11,15 @@ module.exports = React.createClass({
 					Checkboxes and Radios
 				</div>
 				<div className="bss-card__body">
-					<div className="bss-subheader-sm bottom-sm-space">Inline checkboxes and radios</div>
+					<p>
+						Note that the radio and checkboxes need to be wrapped inside a label. <strong>This is a requirement.</strong>
+						The text beside the input also needs to be wrapped in a span tag.
+					</p>
 					<div className="bss-row">
 						<div className="bss-col-xs-12">
 							<form>
 								<label className="bss-radio">
-									<input type="radio" value="1" name="testQuestion"/><span>Yes wow</span>
+									<input type="radio" value="1" name="testQuestion"/><span>Yes</span>
 								</label>
 								<label className="bss-radio">
 									<input type="radio" value="3" name="testQuestion"/><span>No</span>
@@ -39,31 +42,29 @@ module.exports = React.createClass({
 				</div>
 			</div>
 <Highlight className="html">
-{
-`<form>
-  <label class="radio-inline">
-    <input type="radio" value="1" name="testQuestion"/>&nbsp;&nbsp;Yes
+{`<form>
+  <label class="bss-radio">
+    <input type="radio" value="1" name="testQuestion"/><span>Yes</span>
   </label>
-  <label class="radio-inline">
-    <input type="radio" value="1" name="testQuestion"/>&nbsp;&nbsp;No
+  <label class="bss-radio">
+    <input type="radio" value="3" name="testQuestion"/><span>No</span>
   </label>
 </form>`
 }
 </Highlight>
-
 			<div className="bss-fixed-focus bss-card">
 				<div className="bss-card__body">
 					<div className="bss-row margin-top-16">
 						<div className="bss-col-xs-12">
 							<form>
-								<label className="checkbox-inline">
-									<input type="checkbox" value="option1"/>1
+								<label className="bss-checkbox">
+									<input type="checkbox" value="option1"/><span>1</span>
 								</label>
-								<label className="checkbox-inline">
-									<input type="checkbox" value="option1" disabled/>1
+								<label className="bss-checkbox">
+									<input type="checkbox" value="option1" disabled/><span>1</span>
 								</label>
-								<label className="checkbox-inline">
-									<input type="checkbox" value="option2" disabled checked/>2
+								<label className="bss-checkbox">
+									<input type="checkbox" value="option2" disabled checked/><span>2</span>
 								</label>
 							</form>
 						</div>
@@ -71,14 +72,17 @@ module.exports = React.createClass({
 					<div className="bss-row bss-margin-top-16">
 						<div className="bss-col-xs-12">
 							<form>
-								<label className="checkbox-inline">
-									<input className="bss-large-checkbox" type="checkbox" value="option1"/>1
+								<label className="bss-checkbox-large">
+									<input type="checkbox" value="option1"/><span>1</span>
 								</label>
-								<label className="checkbox-inline">
-									<input className="bss-large-checkbox" type="checkbox" value="option1" disabled/>1
+								<label className="bss-checkbox-large">
+									<input type="checkbox" value="option1" disabled/><span>2</span>
 								</label>
-								<label className="checkbox-inline">
-									<input className="bss-large-checkbox" type="checkbox" value="option2" disabled checked/>2
+								<label className="bss-checkbox-large">
+									<input type="checkbox" value="option2" disabled checked/><span>3</span>
+								</label>
+								<label className="bss-checkbox-large">
+									<input type="checkbox" value="option2"/><span></span>
 								</label>
 							</form>
 						</div>
@@ -88,15 +92,12 @@ module.exports = React.createClass({
 <Highlight className="html">
 {
 `<form>
-   <label class="checkbox-inline">
-     <input type="checkbox" id="inlineCheckbox1" value="option1"/>1
-   </label>
-   <label class="checkbox-inline">
-     <input type="checkbox" id="inlineCheckbox2" value="option2"/>2
-   </label>
-   <label class="checkbox-inline">
-     <input type="checkbox" id="inlineCheckbox3" value="option3"/>3
-   </label>
+  <label class="bss-checkbox">
+    <input type="checkbox" value="option2"/><span>1</span>
+  </label>
+  <label class="bss-checkbox-large">
+    <input type="checkbox" value="option1"/><span>2</span>
+  </label>
 </form>`
 }
 </Highlight>
@@ -106,19 +107,19 @@ module.exports = React.createClass({
 					<div className="bss-row">
 						<div className="bss-col-xs-12">
 							<form>
-								<div className="radio">
-									<label>
-										<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"/>Option one is this and that&mdash;be sure to include why it's great
+								<div>
+									<label className="bss-radio">
+										<input type="radio" name="optionsRadios" value="option1"/><span>Option one is this and that&mdash;be sure to include why it's great</span>
 									</label>
 								</div>
-								<div className="radio">
-									<label>
-										<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"/>Option two is this and that&mdash;be sure to include why it's great
+								<div>
+									<label className="bss-radio">
+										<input type="radio" name="optionsRadios" value="option1"/><span>Option two is this and that&mdash;be sure to include why it's great</span>
 									</label>
 								</div>
-								<div className="radio">
-									<label>
-										<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"/>Option one is this and that&mdash;be sure to include why it's great
+								<div>
+									<label className="bss-radio">
+										<input type="radio" name="optionsRadios" value="option1"/><span>Option one is this and that&mdash;be sure to include why it's great</span>
 									</label>
 								</div>
 							</form>
@@ -127,25 +128,19 @@ module.exports = React.createClass({
 					<div className="bss-row">
 						<div className="bss-col-xs-12">
 							<form>
-								<div className="checkbox">
-									<label>
-										<input type="checkbox"/>Check me out
+								<div>
+									<label className="bss-checkbox">
+										<input type="checkbox"/><span>Check me out</span>
 									</label>
 								</div>
-								<div className="checkbox">
-									<label>
-										<input type="checkbox"/>Check me out
+								<div>
+									<label className="bss-checkbox">
+										<input type="checkbox"/><span>Check me out</span>
 									</label>
 								</div>
-								<div className="checkbox">
-									<label>
-										<input type="checkbox"/>Check me out
-									</label>
-								</div>
-
-								<div className="checkbox">
-									<label>
-										<input className="bss-large-checkbox" type="checkbox"/>Check me out
+								<div>
+									<label className="bss-checkbox">
+										<input type="checkbox"/><span>Check me out</span>
 									</label>
 								</div>
 							</form>
@@ -170,89 +165,41 @@ module.exports = React.createClass({
 }
 </Highlight>
 
-
-			<div className="bss-fixed-focus bss-card">
-				<div className="bss-card__header bss-subheader-sm">Right-aligned checkboxes and radios</div>
-				<div className="bss-card__body">
-					<div className="bss-row">
-						<div className="bss-col-xs-12">
-							<form className="form-horizontal">
-								<div className="bss-col-xs-offset-2 bss-col-xs-10">
-									<div className="radio">
-										<label>
-											<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"/>Option one is this and that&mdash;be sure to include why it's great
-										</label>
-									</div>
-									<div className="radio">
-										<label>
-											<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"/>Option two is this and that&mdash;be sure to include why it's great
-										</label>
-									</div>
-									<div className="radio">
-										<label>
-											<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"/>Option one is this and that&mdash;be sure to include why it's great
-										</label>
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-
-<Highlight className="html">
-{
-`<form class="form-horizontal">
-  <div class="bss-col-xs-offset-2 bss-col-xs-10">
-    <div class="radio">
-      <label>
-	  <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"/>Option one is this and that&mdash;be sure to include why it's great
-	</label>
-    </div>
-    <div class="radio">
-	<label>
-	  <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"/>Option two is this and that&mdash;be sure to include why it's great
-	</label>
-    </div>
-    <div class="radio">
-	<label>
-	  <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"/>Option one is this and that&mdash;be sure to include why it's great
-	</label>
-    </div>
-  </div>
-</form>`
-}
-</Highlight>
 			<div className="bss-fixed-focus bss-card">
 				<div className="bss-card__header bss-subheader-sm">Toggle Switch</div>
 				<div className="bss-card__body">
+					<p>
+						Toggles should be used for single instance values that need an "on" or "off" state.
+						It's also importatnt to note that the toggle only has one disabled state. When a toggle is disabled 
+						within the application, then the value must be set to "off".
+					</p>
 					<div className="bss-row">
 						<form>
-							<label className="checkbox-inline">
-								<input className="bss-toggle" type="checkbox" value="option1"/>Toggle 1
+							<label className="bss-toggle">
+								<input type="checkbox" value="option1"/><span></span>
 							</label>
-							<label className="checkbox-inline">
-								<input className="bss-toggle" type="checkbox" value="option1" disabled/>Toggle 2
+							<label className="bss-toggle">
+								<input type="checkbox" value="option1" disabled/><span></span>
 							</label>
-							<label className="checkbox-inline">
-								<input className="bss-toggle" type="checkbox" value="option1" disabled checked/>Toggle 2
+							<label className="bss-toggle">
+								<input type="checkbox" value="option1" disabled checked/><span></span>
 							</label>
 						</form>
 					</div>
 				</div>
 			</div>
 			<Highlight className="html">
-{`
-<label className="checkbox-inline">
-  <input className="bss-toggle" type="checkbox" value="option1"/>Toggle 1
-</label>
-<label className="checkbox-inline">
-  <input className="bss-toggle" type="checkbox" value="option1" disabled/>Toggle 2
-</label>
-<label className="checkbox-inline">
-  <input className="bss-toggle" type="checkbox" value="option1" disabled checked/>Toggle 2
-</label>
-
+{`<form>
+  <label class="bss-toggle">
+    <input type="checkbox" value="option1"/><span></span>
+  </label>
+  <label class="bss-toggle">
+    <input type="checkbox" value="option1" disabled/><span></span>
+  </label>
+  <label class="bss-toggle">
+    <input type="checkbox" value="option1" disabled checked/><span></span>
+  </label>
+</form>
 `}
 		</Highlight>
 		</div>
