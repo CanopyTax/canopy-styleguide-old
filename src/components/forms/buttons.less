@@ -106,6 +106,7 @@ a.bss-link, .bss-link {
 	&:focus {
 		background-color: rgba(0,0,0,.1);
 	}
+
 	&.\+disabled {
 		pointer-events: none;
 		cursor: not-allowed;
@@ -124,4 +125,9 @@ a.bss-link, .bss-link {
 	}
 }
 
+.bss-open > a.bss-link, .bss-link  {
+ 	background-color: rgba(0,0,0,.05);
+ 	color: @light-gray;
+ 	font-weight: 400;
+}
 

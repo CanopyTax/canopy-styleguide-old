@@ -87,6 +87,15 @@ module.exports = React.createClass({
 				}
 				</Highlight>
 
+
+			<div className="bss-fixed-focus bss-margin-top-16">
+				<div className="bss-card">
+					<div className="bss-card__body">
+						*Don't forget to add the class '+banner-top' to (i) bss-topnav-secondary, (ii) bss-nav-content, and (iii) bss-flexible-sidenav when using the global banner. Also, remove the 3px bss-topnav__bar from the nav too! <a href class="bss-banner-global__action">Take Action</a>
+					</div>
+				</div>
+			</div>
+
 		</div>
 		);
 	}

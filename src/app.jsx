@@ -51,19 +51,19 @@ var App = React.createClass({
 								<li className="bss-topnav__content__menu__form">
 									<div client-search></div>
 								</li>
-								<li className="dropdown" dropdown on-toggle="toggled(open)">
-									<a href className="dropdown-toggle padding-right-0" dropdown-toggle>
-									 Mike Hewitt <b className="caret"></b>
+								<li className="bss-dropdown" dropdown on-toggle="toggled(bss-open)">
+									<a href dropdown-toggle>
+									 Mike Hewitt
 									</a>
-									<ul className="dropdown-menu" role="menu">
+									<ul className="bss-dropdown-menu" role="menu">
 										<li><a href>My Profile</a></li>
 										<li><a href>Team Members</a></li>
 										<li><a href>Company Profile</a></li>
 
-										<li className="divider"></li>
+										<li className="bss-divider"></li>
 										<li><a href="https://beanstalk.reamaze.com" target="_blank">Help</a>
 										</li>
-										<li className="divider"></li>
+										<li className="bss-divider"></li>
 										<li><a href="/signout">Sign out</a>
 										</li>
 									</ul>
