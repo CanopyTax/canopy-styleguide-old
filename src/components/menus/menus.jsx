@@ -14,7 +14,7 @@ module.exports = React.createClass({
 						<div className="bss-col-xs-3">
 							<div className="bss-dropdown bss-open">
 								<a href className="bss-btn +primary dropdown-toggle">
-								 New <i className="bss-icon bs-caret-down"></i>
+								 New <i className="bss-icon-sm-caret-down bss-dropdown__icon +white"></i>
 								</a>
 								<ul className="bss-dropdown-menu" role="menu">
 									<li><a href>My Profile</a></li>
@@ -48,7 +48,7 @@ module.exports = React.createClass({
 						<div className="bss-col-xs-3">
 							<div className="bss-dropdown">
 								<a href className="bss-link">
-								 Settings <i className="bss-caret-down bss-dropdown__icon"></i>
+								 Settings <i className="bss-icon-sm-caret-down bss-dropdown__icon"></i>
 								</a>
 								<ul className="bss-dropdown-menu" role="menu">
 									<li><a href>My Profile</a></li>
@@ -67,7 +67,7 @@ module.exports = React.createClass({
 						<div className="bss-col-xs-3">
 							<div className="bss-dropdown bss-pull-right bss-open">
 								<a href className="bss-link">
-									Settings <i className="bss-caret-down bss-dropdown__icon"></i>
+									Settings <i className="bss-icon-sm-caret-down bss-dropdown__icon"></i>
 								</a>
 								<ul className="bss-dropdown-menu bss-pull-right" role="menu">
 									<li><a href>My Profile</a></li>
