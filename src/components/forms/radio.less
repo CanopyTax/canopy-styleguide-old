@@ -1,0 +1,52 @@
+@import "../variables/variables.less";
+@import "../mixins/mixins.less";
+
+.bss-radio {
+	// The radio label needs to be wrapped in a span tag, so hide all other text
+	font-size: 0;
+	input[type="radio"] {
+		opacity: 0;
+	}
+
+	input[type="radio"]:checked + span {
+		&:before {
+			background-color: @primary-green;
+			border-color: @primary-green;
+		}
+	}
+
+	input[type="radio"] + span {
+		font-size: 1.6rem;
+		margin: 0 8px;
+		position: relative;
+
+		&:before {
+			content: " ";
+			display: table-cell;
+			position: absolute;
+			//z-index: 100;
+			border-radius: 8px;
+			border: 2px solid @gray10;
+			width: 16px;
+			height: 16px;
+			background-color: @white;
+			transition: .15s ease-in background-color;
+			left: -26px;
+			top: 3px;
+		}
+
+		&:after {
+			content: " ";
+			display: block;
+			//z-index: 101;
+			width: 6px;
+			height: 6px;
+			border-radius: 3px;
+			background-color: @white;
+			position: absolute;
+			margin: 0 auto;
+			top: 8px;
+			left:-21px;
+		}
+	}
+}

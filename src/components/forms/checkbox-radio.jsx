@@ -15,11 +15,11 @@ module.exports = React.createClass({
 					<div className="bss-row">
 						<div className="bss-col-xs-12">
 							<form>
-								<label className="radio-inline">
-									<input type="radio" value="1" name="testQuestion"/>&nbsp;&nbsp;Yes
+								<label className="bss-radio">
+									<input type="radio" value="1" name="testQuestion"/><span>Yes wow</span>
 								</label>
-								<label className="radio-inline">
-									<input type="radio" value="3" name="testQuestion"/>&nbsp;&nbsp;No
+								<label className="bss-radio">
+									<input type="radio" value="3" name="testQuestion"/><span>No</span>
 								</label>
 							</form>
 						</div>
@@ -27,11 +27,11 @@ module.exports = React.createClass({
 					<div className="bss-row">
 						<div className="bss-col-xs-12">
 							<form>
-								<label className="radio-inline">
-									<input type="radio" value="1" checked disabled name="testQuestion"/>&nbsp;&nbsp;Yes
+								<label className="bss-radio">
+									<input type="radio" value="1" checked disabled name="testQuestion"/>Yes
 								</label>
-								<label className="radio-inline">
-									<input type="radio" value="3" disabled name="testQuestion"/>&nbsp;&nbsp;No
+								<label className="bss-radio">
+									<input type="radio" value="3" disabled name="testQuestion"/>No
 								</label>
 							</form>
 						</div>
