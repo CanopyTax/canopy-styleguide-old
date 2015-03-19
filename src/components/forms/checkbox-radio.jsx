@@ -223,6 +223,38 @@ module.exports = React.createClass({
 </form>`
 }
 </Highlight>
+			<div className="bss-fixed-focus bss-card">
+				<div className="bss-card__header bss-subheader-sm">Toggle Switch</div>
+				<div className="bss-card__body">
+					<div className="bss-row">
+						<form>
+							<label className="checkbox-inline">
+								<input className="bss-toggle" type="checkbox" value="option1"/>Toggle 1
+							</label>
+							<label className="checkbox-inline">
+								<input className="bss-toggle" type="checkbox" value="option1" disabled/>Toggle 2
+							</label>
+							<label className="checkbox-inline">
+								<input className="bss-toggle" type="checkbox" value="option1" disabled checked/>Toggle 2
+							</label>
+						</form>
+					</div>
+				</div>
+			</div>
+			<Highlight className="html">
+{`
+<label className="checkbox-inline">
+  <input className="bss-toggle" type="checkbox" value="option1"/>Toggle 1
+</label>
+<label className="checkbox-inline">
+  <input className="bss-toggle" type="checkbox" value="option1" disabled/>Toggle 2
+</label>
+<label className="checkbox-inline">
+  <input className="bss-toggle" type="checkbox" value="option1" disabled checked/>Toggle 2
+</label>
+
+`}
+		</Highlight>
 		</div>
 		)
 	}

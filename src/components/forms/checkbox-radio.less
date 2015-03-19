@@ -1,3 +1,6 @@
+@import "../variables/variables.less";
+@import "../mixins/mixins.less";
+
 .radio,
 .checkbox {
 	display: block;
@@ -189,6 +192,67 @@ input[type="checkbox"].bss-large-checkbox {
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 	}
+}
+
+input[type="checkbox"].bss-toggle {
+	cursor: pointer;
+	width: 40px;
+	height: 30px;
+	position: relative;
+	bottom: 6px;
+	visibility: hidden;
+
+	&:checked:before {
+		background-color: @primary-green;
+		border: 0;
+	}
+
+	&:checked:after {
+		left: 16px;
+	}
+
+	&:before {
+		content: " ";
+		display: table-cell;
+		position: absolute;
+		//z-index: 100;
+		border-radius: 8px;
+		border: 0;
+		width: 40px;
+		height: 16px;
+		background-color: @gray10;
+		transition: .15s ease-in background-color;
+		top: 6px;
+		visibility: visible;
+	}
+
+	&:after {
+		content: " ";
+		display: table-cell;
+		position: absolute;
+		height: 24px;
+		width: 24px;
+		border-radius: 12px;
+		background-color: @white;
+		border: 1px solid @gray8;
+		.depth-z1;
+		top: 2px;
+		left: 0px;
+		visibility: visible;
+		transition: .15s ease-in left;
+	}
+}
+
+input[type="checkbox"].bss-toggle:disabled:before, fieldset[disabled] input[type="checkbox"].bss-toggle:before {
+	background-color: @gray8;
+}
+
+input[type="checkbox"].bss-toggle:disabled:after, fieldset[disabled] input[type="checkbox"].bss-toggle:after {
+	box-shadow: none;
+}
+
+input[type="checkbox"].bss-toggle:disabled:checked:after, fieldset[disabled] input[type="checkbox"].bss-toggle:checked:after {
+	left: 0;
 }
 
 input[type="radio"]:checked {
