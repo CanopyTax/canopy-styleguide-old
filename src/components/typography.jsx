@@ -5,7 +5,7 @@ module.exports = React.createClass({
 		return (
 			<div className="bss-fixed-focus bss-card">
 				<div className="bss-card__header bss-subheader">
-					Typeography
+					Typography
 				</div>
 				<div className="bss-card__body">
 					<div className="bss-row bss-light bottom-md-space">

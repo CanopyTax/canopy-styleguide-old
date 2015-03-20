@@ -1,5 +1,5 @@
 module.exports = [
-	{ title: "Typeography", html: require('./components/typeography.jsx') },
+	{ title: "Typography", html: require('./components/typography.jsx') },
 	{ title: "Color Palette", html: require('./components/variables/colors.jsx') },
 	{ title: "Icons", html: require('./components/icons.jsx') },
 	{ title: "Buttons",			html: require('./components/forms/buttons.jsx') },
