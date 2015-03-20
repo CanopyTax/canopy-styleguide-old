@@ -85,7 +85,7 @@ module.exports = React.createClass({
 								<div className="bss-form-group">
 									<label for="exampleInputEmail1" className="bss-col-xs-2">Description</label>
 									<div className="bss-col-xs-6">
-										<textarea style={{width: '100%', height: '60px'}}></textarea>
+										<textarea className="bss-form-control +no-resize"></textarea>
 									</div>
 								</div>
 							</form>
