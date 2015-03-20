@@ -251,3 +251,147 @@
 		padding: 40px;
 	}
 }
+
+.bss-secondarynav {
+	margin-top:48px;
+	position:fixed;
+	width:240px;
+	background-color: @white;
+	color: @dark-gray;
+	top: 0;
+	height:100%;
+	z-index: 99;
+	border-right: 1px solid @breakline-light;
+
+	&__title {
+
+		padding: 24px;
+		border-bottom: 1px solid @breakline-light;
+		font-size: 16px;
+		font-weight: bold;
+		color: @primary-green;
+	}
+
+	&__menu {
+		&__item {
+			display: block;
+			height: 40px;
+			border-bottom: 1px solid @breakline-light;
+			color: @general;
+			text-decoration: none;
+			cursor: pointer;
+			position: relative;
+
+			.bss-icon-lg-left-caret {
+				float: right;
+				position: absolute;
+				top: 9px;
+				right: 8px;
+				color: @gray8;
+				transition: 250ms linear transform;
+				vertical-align: top;
+			}
+
+			&__bar {
+				float: left;
+				width: 4px;
+				height: 100%;
+				background-color: @white;
+			}
+
+			&__title {
+				position: absolute;
+				top: 10px;
+				left: 56px;
+			}
+
+			&:hover {
+				background-color: @hover-color;
+				.bss-secondarynav__menu__item__bar {
+					background-color: @hover-color;
+				}
+			}
+
+			&:hover, &:active, &:focus {
+				text-decoration: none;
+				color: @general;
+			}
+
+			&__icon {
+				color: @light-gray;
+				left: 18px;
+				top: 8px;
+				position: absolute;
+			}
+
+			&.\+anchor-bottom {
+				position: absolute;
+				width: 100%;
+				bottom: 48px;
+				border-top: 1px solid @breakline-light;
+			}
+
+			&.\+active {
+				.bss-secondarynav__menu__item__bar {
+					background-color: @primary-green;
+				}
+				span {
+					color: @dark-green;
+				}
+			}
+
+			&.\+expanded {
+				border-bottom: 0;
+
+				.bss-secondarynav__menu__item__bar {
+					background-color: @primary-green;
+				}
+
+				.bss-icon-lg-left-caret {
+					transform: rotate(-90deg);
+				}
+			}
+		}
+		&__sub {
+			background-color: @gray2;
+			max-height: 0px;
+			overflow: hidden;
+			transition: 300ms linear all;
+			position: relative;
+
+
+			&.\+active {
+				box-shadow: inset 2px 5px 6px -6px rgba(153, 153, 153, 0.31);
+				border-bottom: 1px solid @breakline-light;
+				max-height: 400px;
+			}
+
+			a {
+				display: block;
+				height: 35px;
+				left: 44px;
+				padding-left: 26px;
+				padding-top: 8px;
+				text-decoration: none;
+				border-left: 4px solid @dark-green;
+				color: @general;
+
+				&:first-child {
+					padding-top: 26px;
+					height: 50px;
+				}
+
+				&:last-child {
+					height: 50px;
+				}
+
+				&:hover {
+					text-decoration: underline;
+				}
+				&.\+active {
+					color: @dark-green;
+				}
+			}
+		}
+	}
+}
