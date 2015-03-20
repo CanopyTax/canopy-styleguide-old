@@ -45,7 +45,7 @@ var App = React.createClass({
 							</span>
 							<ul className="bss-topnav__content__menu">
 								<li><a href="#">Beanstalk Style Guide</a></li>
-								<li><a ui-sref="calendar">Calendar</a></li>
+								<li><a ui-sref="calendar" className="+active">Calendar</a></li>
 							</ul>
 							<ul className="bss-topnav__content__menu bss-pull-right">
 								<li className="bss-topnav__content__menu__form">
