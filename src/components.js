@@ -1,7 +1,7 @@
 module.exports = [
-	{ title: "Typography", html: require('./components/typography.jsx') },
+	{ title: "Typography", html: require('./components/typography/typography.jsx') },
 	{ title: "Color Palette", html: require('./components/variables/colors.jsx') },
-	{ title: "Icons", html: require('./components/icons.jsx') },
+	{ title: "Icons", html: require('./components/icons/icons.jsx') },
 	{ title: "Buttons",			html: require('./components/forms/buttons.jsx') },
 	{ title: "Checkboxes & Radios",	html: require('./components/forms/checkbox-radio.jsx') },
 	{ title: "Inputs",			html: require('./components/forms/input.jsx') },
