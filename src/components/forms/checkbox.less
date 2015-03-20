@@ -1,0 +1,196 @@
+@import "../variables/variables.less";
+@import "../mixins/mixins.less";
+
+.bss-checkbox {
+	// The radio label needs to be wrapped in a span tag, so hide all other text
+	font-size: 0;
+	position: relative;
+
+	input[type="checkbox"] {
+		opacity: 0;
+		position: absolute;
+		left: 0;
+	}
+
+	input[type="checkbox"]:checked + span {
+		&:before {
+			background-color: @primary-green;
+			border-color: @primary-green;
+		}
+	}
+
+	input[type="checkbox"]:disabled + span {
+		cursor: not-allowed;
+
+		&:before {
+			border-color: @gray9;
+			//background-color: @gray9;
+		}
+	}
+
+	input[type="checkbox"]:checked:disabled + span {
+		cursor: not-allowed;
+
+		&:before {
+			background-color: @gray9;
+		}
+	}
+
+	input[type="checkbox"]:focus + span {
+		&:before {
+			box-shadow: 0rem 0rem 0rem .4rem rgba( red(@link-color), green(@link-color), blue(@link-color), 0.2);
+		}
+	}
+
+	input[type="checkbox"] + span {
+		font-size: 1.6rem;
+		position: relative;
+		padding-left: 23px;
+		//padding-right: 16px;
+		cursor: pointer;
+
+		&:before {
+			content: " ";
+			display: table-cell;
+			position: absolute;
+			border-radius: 2px;
+			border: 2px solid @gray10;
+			width: 16px;
+			height: 16px;
+			background-color: @white;
+			transition: .15s ease-in background-color;
+			left: 0px;
+			top: 3px;
+			user-select: none;
+		}
+
+		&:after {
+			display: table-cell;;
+			width: 16px;
+			height: 16px;
+			vertical-align: middle;
+			position: absolute;
+			top: -2px;
+			left: -5px;
+
+			font-family: 'Beanstalk-Icons';
+			speak: none;
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			text-transform: none;
+			line-height: 1;
+			content: "\e636";
+			color: @white;
+			font-size: 2.6rem;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			user-select: none;
+		}
+	}
+}
+
+.bss-checkbox-large {
+	// The radio label needs to be wrapped in a span tag, so hide all other text
+	font-size: 0;
+	position: relative;
+
+	input[type="checkbox"] {
+		opacity: 0;
+		position: absolute;
+		left: 0;
+	}
+
+	input[type="checkbox"]:checked + span {
+		&:before {
+			background-color: @primary-green;
+			border-color: @primary-green;
+		}
+	}
+
+	input[type="checkbox"]:disabled + span {
+		cursor: not-allowed;
+
+		&:before {
+			border-color: @gray9;
+			//background-color: @gray9;
+		}
+	}
+
+	input[type="checkbox"]:checked:disabled + span {
+		cursor: not-allowed;
+
+		&:before {
+			background-color: @gray9;
+		}
+	}
+
+	input[type="checkbox"]:focus + span {
+		&:before {
+			box-shadow: 0rem 0rem 0rem .4rem rgba( red(@link-color), green(@link-color), blue(@link-color), 0.2);
+		}
+	}
+
+	input[type="checkbox"] + span {
+		font-size: 1.6rem;
+		position: relative;
+		padding-left: 39px;
+		//padding-right: 16px;
+		cursor: pointer;
+
+		&:before {
+			content: " ";
+			display: table-cell;
+			position: absolute;
+			border-radius: 2px;
+			border: 2px solid @gray10;
+			width: 24px;
+			height: 24px;
+			background-color: @white;
+			transition: .15s ease-in background-color;
+			left: 0px;
+			top: 0px;
+			user-select: none;
+		}
+
+		&:after {
+			display: table-cell;;
+			width: 16px;
+			height: 16px;
+			vertical-align: middle;
+			position: absolute;
+			top: 0px;
+			left: -1px;
+
+			font-family: 'Beanstalk-Icons';
+			speak: none;
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			text-transform: none;
+			line-height: 1;
+			content: "\e61b";
+			color: @white;
+			font-size: 2.6rem;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			user-select: none;
+		}
+	}
+}
+
+// Disable states for the checkbox in fieldsets
+fieldset[disabled] .bss-checkbox input[type="checkbox"] + span,
+fieldset[disabled] .bss-checkbox-large input[type="checkbox"] + span {
+	cursor: not-allowed;
+	&:before {
+		border-color: @gray9;
+	}
+}
+fieldset[disabled] .bss-checkbox input[type="checkbox"]:checked + span,
+fieldset[disabled] .bss-checkbox-large input[type="checkbox"]:checked + span {
+	cursor: not-allowed;
+	&:before {
+		background-color: @gray9;
+	}
+}
