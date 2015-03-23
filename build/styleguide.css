@@ -2037,7 +2037,8 @@ strong {
   text-decoration: none;
   background-color: #f7f7f7;
 }
-.bss-open > .bss-dropdown-menu {
+.bss-open > .bss-dropdown-menu,
+.bss-dropdown.open > .bss-dropdown-menu {
   display: block;
 }
 .bss-dropdown > a.bss-link,
