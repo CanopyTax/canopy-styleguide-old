@@ -1561,6 +1561,11 @@ textarea.bss-form-control.\+no-resize {
 .bss-card .bss-slat-lg,
 .bss-card .bss-slat {
   box-shadow: none;
+  border-bottom: 1px solid #e9e9e9;
+}
+.bss-card .bss-slat-lg:last-child,
+.bss-card .bss-slat:last-child {
+  border-bottom: 0;
 }
 .bss-slat-lg {
   position: relative;
