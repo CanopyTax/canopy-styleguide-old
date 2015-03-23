@@ -413,20 +413,16 @@ bss-col-xs-1,
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.26);
 }
 .depth-z2 {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.06), 0 2px 6px 0 rgba(0, 0, 0, 0.26);
 }
 .depth-z3 {
-  box-shadow: 0 6px 14px 0 rgba(0, 0, 0, 0.16);
-  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 0 6px 14px 0 rgba(0, 0, 0, 0.16), 0 4px 20px 0 rgba(0, 0, 0, 0.24);
 }
 .depth-z4 {
-  box-shadow: 0 17px 48px 0 rgba(0, 0, 0, 0.18);
-  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.22);
+  box-shadow: 0 17px 48px 0 rgba(0, 0, 0, 0.18), 0 12px 15px 0 rgba(0, 0, 0, 0.22);
 }
 .depth-z5 {
-  box-shadow: 0 25px 55px 0 rgba(0, 0, 0, 0.2);
-  box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 0 25px 55px 0 rgba(0, 0, 0, 0.2), 0 16px 28px 0 rgba(0, 0, 0, 0.24);
 }
 /************Labels************/
 .bss-label-square {
@@ -524,8 +520,7 @@ h4 {
 }
 .bss-btn:hover,
 .bss-btn:focus {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.06), 0 2px 6px 0 rgba(0, 0, 0, 0.26);
 }
 .bss-btn:focus {
   outline: none;
@@ -1151,8 +1146,7 @@ textarea.bss-form-control.\+no-resize {
   z-index: 100;
   top: 0;
   color: #333333;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.06), 0 2px 6px 0 rgba(0, 0, 0, 0.26);
 }
 .bss-topnav__bar {
   height: .3rem;
@@ -1715,8 +1709,7 @@ textarea.bss-form-control.\+no-resize {
   cursor: pointer;
 }
 .bss-flexible-masonry-card.\+link:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.06), 0 2px 6px 0 rgba(0, 0, 0, 0.26);
 }
 .bss-card {
   background-color: white;
@@ -2007,8 +2000,7 @@ strong {
   background-color: #fff;
   background-clip: padding-box;
   border-radius: 2px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.06), 0 2px 6px 0 rgba(0, 0, 0, 0.26);
 }
 .bss-dropdown-menu.bss-pull-right {
   right: 0;
@@ -2117,8 +2109,7 @@ strong {
   border: 0;
   width: 200px;
   padding: 0 8px 6px 8px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.06), 0 2px 6px 0 rgba(0, 0, 0, 0.26);
 }
 #bss-app .datepicker .dow {
   color: #afafaf;
@@ -2136,8 +2127,7 @@ strong {
   margin: 24px;
   padding: 15px 24px 15px 24px;
   border-radius: 2px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.06), 0 2px 6px 0 rgba(0, 0, 0, 0.26);
 }
 .bss-toaster__message {
   display: inline-block;
@@ -2250,8 +2240,7 @@ strong {
       -ms-transform: translate(-260px, 0);
           transform: translate(-260px, 0);
   width: 52.0rem;
-  box-shadow: 0 25px 55px 0 rgba(0, 0, 0, 0.2);
-  box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 0 25px 55px 0 rgba(0, 0, 0, 0.2), 0 16px 28px 0 rgba(0, 0, 0, 0.24);
 }
 .bss-modal__dialog__close {
   float: right;
