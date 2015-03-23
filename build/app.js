@@ -1833,6 +1833,55 @@
 
 	)
 					
+					), 
+
+					React.createElement("div", {className: "bss-card"}, 
+						React.createElement("div", {className: "bss-card__header bss-subheader"}, 
+							"This slat appears within a card."
+						), 
+						React.createElement("div", {className: "bss-slat-lg"}, 
+							React.createElement("div", {className: "bss-slat-lg__badge"}, 
+								React.createElement("div", {className: "bss-slat-lg__badge__main"}, "21"), 
+								React.createElement("div", {className: "bss-slat-lg__badge__sub"}, "Jan")
+							), 
+							React.createElement("div", {className: "bss-slat-lg__content"}, 
+								React.createElement("div", {className: "bss-slat-lg__content__title"}, 
+									"Date Title"
+								), 
+								"Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin" + ' ' +
+								"tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter" + ' ' +
+								"prosciutto ham rump tail."
+							), 
+							React.createElement("div", {className: "bss-slat-lg__actions"}, 
+								"2:30PM - 3:30PM"
+							)
+						)
+					), 
+					React.createElement(Highlight, {className: "html"}, 
+						("<div class=\"bss-card\">\n  <div class=\"bss-card__header bss-subheader\">\n    This slat appears within a card.\n  </div>\n  <div class=\"bss-slat-lg\">\n    <div class=\"bss-slat-lg__badge\">\n      <div class=\"bss-slat-lg__badge__main\">21</div>\n      <div class=\"bss-slat-lg__badge__sub\">Jan</div>\n    </div>\n    <div class=\"bss-slat-lg__content\">\n      <div class=\"bss-slat-lg__content__title\">\n        Date Title\n      </div>\n      Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin\n      tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter\n      prosciutto ham rump tail.\n    </div>\n    <div class=\"bss-slat-lg__actions\">\n      2:30PM - 3:30PM\n    </div>\n  </div>\n</div>\n"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	)
+						
 					)
 				)
 			)
@@ -13280,7 +13329,7 @@
 
 	"use strict";
 
-	var emptyObject = __webpack_require__(290);
+	var emptyObject = __webpack_require__(292);
 	var invariant = __webpack_require__(104);
 
 	/**
@@ -13439,11 +13488,11 @@
 
 	"use strict";
 
-	var CallbackQueue = __webpack_require__(291);
+	var CallbackQueue = __webpack_require__(290);
 	var PooledClass = __webpack_require__(121);
 	var ReactCurrentOwner = __webpack_require__(81);
 	var ReactPerf = __webpack_require__(91);
-	var Transaction = __webpack_require__(292);
+	var Transaction = __webpack_require__(291);
 
 	var assign = __webpack_require__(95);
 	var invariant = __webpack_require__(104);
@@ -16516,7 +16565,7 @@
 	"use strict";
 
 	var ReactUpdates = __webpack_require__(125);
-	var Transaction = __webpack_require__(292);
+	var Transaction = __webpack_require__(291);
 
 	var assign = __webpack_require__(95);
 	var emptyFunction = __webpack_require__(171);
@@ -16592,7 +16641,7 @@
 
 	"use strict";
 
-	var AutoFocusMixin = __webpack_require__(314);
+	var AutoFocusMixin = __webpack_require__(315);
 	var ReactBrowserComponentMixin = __webpack_require__(138);
 	var ReactCompositeComponent = __webpack_require__(79);
 	var ReactElement = __webpack_require__(82);
@@ -16662,7 +16711,7 @@
 	"use strict";
 
 	var EventConstants = __webpack_require__(123);
-	var LocalEventTrapMixin = __webpack_require__(315);
+	var LocalEventTrapMixin = __webpack_require__(314);
 	var ReactBrowserComponentMixin = __webpack_require__(138);
 	var ReactCompositeComponent = __webpack_require__(79);
 	var ReactElement = __webpack_require__(82);
@@ -16716,7 +16765,7 @@
 	"use strict";
 
 	var EventConstants = __webpack_require__(123);
-	var LocalEventTrapMixin = __webpack_require__(315);
+	var LocalEventTrapMixin = __webpack_require__(314);
 	var ReactBrowserComponentMixin = __webpack_require__(138);
 	var ReactCompositeComponent = __webpack_require__(79);
 	var ReactElement = __webpack_require__(82);
@@ -16767,7 +16816,7 @@
 
 	"use strict";
 
-	var AutoFocusMixin = __webpack_require__(314);
+	var AutoFocusMixin = __webpack_require__(315);
 	var DOMPropertyOperations = __webpack_require__(75);
 	var LinkedValueUtils = __webpack_require__(316);
 	var ReactBrowserComponentMixin = __webpack_require__(138);
@@ -17004,7 +17053,7 @@
 
 	"use strict";
 
-	var AutoFocusMixin = __webpack_require__(314);
+	var AutoFocusMixin = __webpack_require__(315);
 	var LinkedValueUtils = __webpack_require__(316);
 	var ReactBrowserComponentMixin = __webpack_require__(138);
 	var ReactCompositeComponent = __webpack_require__(79);
@@ -17192,7 +17241,7 @@
 
 	"use strict";
 
-	var AutoFocusMixin = __webpack_require__(314);
+	var AutoFocusMixin = __webpack_require__(315);
 	var DOMPropertyOperations = __webpack_require__(75);
 	var LinkedValueUtils = __webpack_require__(316);
 	var ReactBrowserComponentMixin = __webpack_require__(138);
@@ -18980,9 +19029,9 @@
 	"use strict";
 
 	var PooledClass = __webpack_require__(121);
-	var CallbackQueue = __webpack_require__(291);
+	var CallbackQueue = __webpack_require__(290);
 	var ReactPutListenerQueue = __webpack_require__(334);
-	var Transaction = __webpack_require__(292);
+	var Transaction = __webpack_require__(291);
 
 	var assign = __webpack_require__(95);
 	var emptyFunction = __webpack_require__(171);
@@ -29443,33 +29492,6 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * @providesModule emptyObject
-	 */
-
-	"use strict";
-
-	var emptyObject = {};
-
-	if ("production" !== process.env.NODE_ENV) {
-	  Object.freeze(emptyObject);
-	}
-
-	module.exports = emptyObject;
-
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(117)))
-
-/***/ },
-/* 291 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-2014, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
 	 * @providesModule CallbackQueue
 	 */
 
@@ -29562,7 +29584,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(117)))
 
 /***/ },
-/* 292 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -29802,6 +29824,33 @@
 	};
 
 	module.exports = Transaction;
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(117)))
+
+/***/ },
+/* 292 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule emptyObject
+	 */
+
+	"use strict";
+
+	var emptyObject = {};
+
+	if ("production" !== process.env.NODE_ENV) {
+	  Object.freeze(emptyObject);
+	}
+
+	module.exports = emptyObject;
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(117)))
 
@@ -31785,12 +31834,12 @@
 
 	"use strict";
 
-	var CallbackQueue = __webpack_require__(291);
+	var CallbackQueue = __webpack_require__(290);
 	var PooledClass = __webpack_require__(121);
 	var ReactBrowserEventEmitter = __webpack_require__(139);
 	var ReactInputSelection = __webpack_require__(307);
 	var ReactPutListenerQueue = __webpack_require__(334);
-	var Transaction = __webpack_require__(292);
+	var Transaction = __webpack_require__(291);
 
 	var assign = __webpack_require__(95);
 
@@ -32033,37 +32082,6 @@
 /* 314 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/**
-	 * Copyright 2013-2014, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule AutoFocusMixin
-	 * @typechecks static-only
-	 */
-
-	"use strict";
-
-	var focusNode = __webpack_require__(341);
-
-	var AutoFocusMixin = {
-	  componentDidMount: function() {
-	    if (this.props.autoFocus) {
-	      focusNode(this.getDOMNode());
-	    }
-	  }
-	};
-
-	module.exports = AutoFocusMixin;
-
-
-/***/ },
-/* 315 */
-/***/ function(module, exports, __webpack_require__) {
-
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014, Facebook, Inc.
 	 * All rights reserved.
@@ -32112,6 +32130,37 @@
 	module.exports = LocalEventTrapMixin;
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(117)))
+
+/***/ },
+/* 315 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule AutoFocusMixin
+	 * @typechecks static-only
+	 */
+
+	"use strict";
+
+	var focusNode = __webpack_require__(341);
+
+	var AutoFocusMixin = {
+	  componentDidMount: function() {
+	    if (this.props.autoFocus) {
+	      focusNode(this.getDOMNode());
+	    }
+	  }
+	};
+
+	module.exports = AutoFocusMixin;
+
 
 /***/ },
 /* 316 */

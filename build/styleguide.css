@@ -191,6 +191,9 @@ bss-col-xs-1,
 .bss-clearfix:after {
   clear: both;
 }
+.bss-cursor-pointer {
+  cursor: pointer;
+}
 .bss-pull-right {
   float: right !important;
 }
@@ -1554,6 +1557,10 @@ textarea.bss-form-control.\+no-resize {
 }
 .bss-slat.\+small .bss-slat__actions {
   padding: 1.0rem 2.4rem;
+}
+.bss-card .bss-slat-lg,
+.bss-card .bss-slat {
+  box-shadow: none;
 }
 .bss-slat-lg {
   position: relative;

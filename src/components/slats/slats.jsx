@@ -110,6 +110,56 @@ module.exports = React.createClass({
 `
 				}
 				</Highlight>
+
+				<div className="bss-card">
+					<div className="bss-card__header bss-subheader">
+						This slat appears within a card.
+					</div>
+					<div className="bss-slat-lg">
+						<div className="bss-slat-lg__badge">
+							<div className="bss-slat-lg__badge__main">21</div>
+							<div className="bss-slat-lg__badge__sub">Jan</div>
+						</div>
+						<div className="bss-slat-lg__content">
+							<div className="bss-slat-lg__content__title">
+								Date Title
+							</div>
+							Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin
+							tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter
+							prosciutto ham rump tail.
+						</div>
+						<div className="bss-slat-lg__actions">
+							2:30PM - 3:30PM
+						</div>
+					</div>
+				</div>
+				<Highlight className="html">
+					{
+`<div class="bss-card">
+  <div class="bss-card__header bss-subheader">
+    This slat appears within a card.
+  </div>
+  <div class="bss-slat-lg">
+    <div class="bss-slat-lg__badge">
+      <div class="bss-slat-lg__badge__main">21</div>
+      <div class="bss-slat-lg__badge__sub">Jan</div>
+    </div>
+    <div class="bss-slat-lg__content">
+      <div class="bss-slat-lg__content__title">
+        Date Title
+      </div>
+      Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin
+      tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter
+      prosciutto ham rump tail.
+    </div>
+    <div class="bss-slat-lg__actions">
+      2:30PM - 3:30PM
+    </div>
+  </div>
+</div>
+`
+					}
+				</Highlight>
 			</div>
 		)
 	}
