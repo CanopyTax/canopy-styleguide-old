@@ -2,6 +2,7 @@ module.exports = {
 	// The standard entry point and output config
 	entry: {
 		styleguide: "./src/components.less",
+		variables:  "./src/external-variables.less",
 		app:				"./src/app.jsx"
 	},
 	output: {

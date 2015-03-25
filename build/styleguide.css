@@ -3,7 +3,7 @@
   margin-left: -8px;
 }
 .bss-col-xs-0,
-bss-col-xs-1,
+.bss-col-xs-1,
 .bss-col-xs-2,
 .bss-col-xs-3,
 .bss-col-xs-4,
@@ -180,7 +180,7 @@ bss-col-xs-1,
 /************Variables************/
 /************Palettes************/
 .bss-inline-block {
-  display: inline-block;
+  display: inline-block !important;
   vertical-align: top;
 }
 .bss-clearfix:before,
@@ -229,6 +229,36 @@ bss-col-xs-1,
 .bss-row:after,
 .bss-form-horizontal .bss-form-group:after {
   clear: both;
+}
+.bss-margin-0 {
+  margin: 0rem!important;
+}
+.bss-margin-top-0 {
+  margin-top: 0rem!important;
+}
+.bss-margin-bottom-0 {
+  margin-bottom: 0rem!important;
+}
+.bss-margin-right-0 {
+  margin-right: 0rem!important;
+}
+.bss-margin-left-0 {
+  margin-left: 0rem!important;
+}
+.bss-padding-0 {
+  padding: 0rem!important;
+}
+.bss-padding-top-0 {
+  padding-top: 0rem!important;
+}
+.bss-padding-bottom-0 {
+  padding-bottom: 0rem!important;
+}
+.bss-padding-right-0 {
+  padding-right: 0rem!important;
+}
+.bss-padding-left-0 {
+  padding-left: 0rem!important;
 }
 .bss-margin-4 {
   margin: 0.4rem!important;
@@ -882,6 +912,7 @@ fieldset[disabled] .bss-checkbox-large input[type="checkbox"]:checked + span:bef
   position: relative;
   cursor: pointer;
   padding-left: 40px;
+  top: -0.4rem;
 }
 .bss-toggle input[type="checkbox"] + span:before {
   content: " ";
@@ -2274,7 +2305,7 @@ strong {
   left: 0;
 }
 .bss-overlay-modal__content {
-  width: 50rem;
+  width: 86rem;
   margin: 0 auto 0 auto;
   padding-top: 16rem;
 }
