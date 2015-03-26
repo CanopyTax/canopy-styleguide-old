@@ -3,16 +3,17 @@
 /************Buttons************/
 
 .bss-btn {
-	display: table-cell;
+	display: inline-block;
 	text-align: center;
 	vertical-align: middle;
 	-webkit-appearance: none;
 		 -moz-appearance: none;
 			  	appearance: none;
 
-	padding: 0 24px;
+	margin: 0px;
+	padding: 0px 24px;
 	font-size: 14px;
-	line-height: 1.42857143;
+	line-height: 2.12345;
 	text-align: center;
 	white-space: nowrap;
 	vertical-align: middle;
@@ -29,7 +30,6 @@
 	border-radius: 2px;
 	color: white;
 	text-decoration: none;
-	margin-left: 0px;
 	.depth-z1;
 
 	&:hover, &:focus{
@@ -40,6 +40,13 @@
 		outline: none;
 	}
 
+	+ .bss-btn {
+		margin-left: 24px;
+	}
+
+	+ .bss-link {
+		margin-left: 8px;
+	}
 	// Primary Raised Buttons //
 
 	&.\+primary {
@@ -91,7 +98,7 @@ fieldset[disabled] .bss-btn {
 
 
 a.bss-link, .bss-link {
-	display: table-cell;
+	display: inline-block;
 	text-align: center;
 	vertical-align: middle;
 	-webkit-appearance: none;
@@ -104,15 +111,24 @@ a.bss-link, .bss-link {
 	padding: 0px 12px;
 	border-radius: 2px;
 	height:32px;
+	line-height: 2.3;
 	font-weight: 600;
 	background-color: transparent;
 	cursor: pointer;
-	//margin-right: 24px;
+
 	&:hover {
 		background-color: rgba(0,0,0,.05);
 	}
 	&:focus {
 		background-color: rgba(0,0,0,.1);
+	}
+
+	+ .bss-btn {
+		margin-left: 8px;
+	}
+
+	+ .bss-link {
+		margin-left: 8px;
 	}
 
 	&.\+disabled {
@@ -132,5 +148,6 @@ a.bss-link, .bss-link {
 		top: .1rem;
 	}
 }
+
 
 
