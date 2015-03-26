@@ -1326,18 +1326,18 @@
 							React.createElement("div", {className: "bss-subheader-sm bss-margin-bottom-8"}, "Raised Buttons"), 
 							React.createElement("div", {className: "bss-row bss-margin-bottom-12"}, 
 								React.createElement("div", {className: "bss-col-xs-12"}, 
-									React.createElement("div", {className: "bss-inline-block bss-margin-right-8"}, React.createElement("button", {className: "bss-btn +primary"}, "primary")), 
-									React.createElement("div", {className: "bss-inline-block bss-margin-right-8"}, React.createElement("button", {className: "bss-btn +secondary"}, "secondary")), 
-									React.createElement("div", {className: "bss-inline-block bss-margin-right-8"}, React.createElement("a", {href: true, className: "bss-btn +primary"}, "PRIMARY link")), 
-									React.createElement("div", {className: "bss-inline-block"}, React.createElement("a", {href: true, className: "bss-btn +secondary"}, "secondary link"))
+									React.createElement("button", {className: "bss-btn +primary"}, "primary"), 
+									React.createElement("button", {className: "bss-btn +secondary"}, "secondary"), 
+									React.createElement("a", {href: true, className: "bss-btn +primary"}, "PRIMARY link"), 
+									React.createElement("a", {href: true, className: "bss-btn +secondary"}, "secondary link")
 								)
 							), 
 							React.createElement("div", {className: "bss-row margin-top-24"}, 
 								React.createElement("div", {className: "bss-col-xs-12"}, 
-									React.createElement("div", {className: "bss-inline-block bss-margin-right-8"}, React.createElement("button", {className: "bss-btn +primary +disabled"}, "PRIMARY")), 
-									React.createElement("div", {className: "bss-inline-block bss-margin-right-8"}, React.createElement("button", {className: "bss-btn +secondary", disabled: true}, "secondary")), 
-									React.createElement("div", {className: "bss-inline-block bss-margin-right-8"}, React.createElement("a", {href: true, className: "bss-btn +primary +disabled"}, "PRIMARY link")), 
-									React.createElement("div", {className: "bss-inline-block"}, React.createElement("a", {href: true, className: "bss-btn +secondary +disabled"}, "secondary link"))
+									React.createElement("button", {className: "bss-btn +primary +disabled"}, "PRIMARY"), 
+									React.createElement("button", {className: "bss-btn +secondary", disabled: true}, "secondary"), 
+									React.createElement("a", {href: true, className: "bss-btn +primary +disabled"}, "PRIMARY link"), 
+									React.createElement("a", {href: true, className: "bss-btn +secondary +disabled"}, "secondary link")
 								)
 							)
 						)
@@ -1362,11 +1362,7 @@
 							React.createElement("div", {className: "bss-subheader-sm"}, "Flat Buttons"), 
 							React.createElement("div", {className: "bss-row"}, 
 								React.createElement("div", {className: "bss-col-xs-12"}, 
-									React.createElement("a", {href: true, className: "bss-link bss-margin-right-16"}, "PRIMARY link")
-								)
-							), 
-							React.createElement("div", {className: "bss-row margin-top-24"}, 
-								React.createElement("div", {className: "bss-col-xs-12"}, 
+									React.createElement("a", {href: true, className: "bss-link"}, "PRIMARY link"), 
 									React.createElement("a", {href: true, className: "bss-link +disabled bss-margin-right-16"}, "PRIMARY link")
 								)
 							)
@@ -2231,7 +2227,7 @@
 					), 
 
 					React.createElement(Highlight, {className: "html"}, 
-					("<div className=\"bss-fixed-focus bss-card\">\n  <div className=\"bss-card__header bss-subheader\">\n    The Header content goes here.\n  </div>\n  <div className=\"bss-card__body\">\n    Put card main content with a body tag.\n  </div>\n  <div className=\"bss-card__hr\"></div>\n  <div className=\"bss-card__body\">\n    There can be multiple body tags, generally separated by an hr\n  </div>\n</div>"
+					("<div class=\"bss-fixed-focus bss-card\">\n  <div class=\"bss-card__header bss-subheader\">\n    The Header content goes here.\n  </div>\n  <div class=\"bss-card__body\">\n    Put card main content with a body tag.\n  </div>\n  <div class=\"bss-card__hr\"></div>\n  <div class=\"bss-card__body\">\n    There can be multiple body tags, generally separated by an hr\n  </div>\n</div>"
 
 
 
@@ -2292,7 +2288,7 @@
 						)
 					), 
 					React.createElement(Highlight, {className: "html"}, 
-					("<div className=\"bss-fixed-masonry\">\n  <div className=\"bss-row\">\n    <div className=\"bss-col-xs-6\">\n      <div className=\"bss-fixed-masonry__card bss-card\">\n        <div className=\"bss-card__header\">\n          Card 1\n        </div>\n        <div className=\"bss-card__body\">\n          Card Content\n        </div>\n      </div>\n    </div>\n    <div className=\"bss-col-xs-6\">\n      <div className=\"bss-fixed-masonry__card bss-card\">\n        <div className=\"bss-card__header\">\n          Card 2\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+					("<div class=\"bss-fixed-masonry\">\n  <div class=\"bss-row\">\n    <div class=\"bss-col-xs-6\">\n      <div class=\"bss-fixed-masonry__card bss-card\">\n        <div class=\"bss-card__header\">\n          Card 1\n        </div>\n        <div class=\"bss-card__body\">\n          Card Content\n        </div>\n      </div>\n    </div>\n    <div class=\"bss-col-xs-6\">\n      <div class=\"bss-fixed-masonry__card bss-card\">\n        <div class=\"bss-card__header\">\n          Card 2\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
 
 
 
@@ -2384,7 +2380,7 @@
 						)
 					), 
 					React.createElement(Highlight, {className: "html"}, 
-					("\n<!-- The flexible masonry grid can be acheived purely in CSS or with the masonry JS lib available at http://masonry.desandro.com/ -->\n<!-- If you want to have the CSS functionality, wrapp all the cards in a \"bss-flexible-masonry class\". -->\n<!-- Give the cards a link style by adding the \"+link\" modifier -->\n<div className=\"bss-flexible-masonry bss-fixed-focus\">\n  <div className=\"bss-flexible-masonry-card +link\">\n    <div className=\"bss-flexible-masonry-card__title\">\n      Title of the note goes here\n    </div>\n    <div className=\"bss-flexible-masonry-card__body\">\n      Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone.\n    </div>\n  </div>\n  <div className=\"bss-flexible-masonry-card\">\n    <div className=\"bss-flexible-masonry-card__title\">\n      Title of the note goes here\n    </div>\n    <div className=\"bss-flexible-masonry-card__body\">\n      Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone.\n    </div>\n  </div>\n</div>\n"
+					("\n<!-- The flexible masonry grid can be acheived purely in CSS or with the masonry JS lib available at http://masonry.desandro.com/ -->\n<!-- If you want to have the CSS functionality, wrapp all the cards in a \"bss-flexible-masonry class\". -->\n<!-- Give the cards a link style by adding the \"+link\" modifier -->\n<div class=\"bss-flexible-masonry bss-fixed-focus\">\n  <div class=\"bss-flexible-masonry-card +link\">\n    <div class=\"bss-flexible-masonry-card__title\">\n      Title of the note goes here\n    </div>\n    <div class=\"bss-flexible-masonry-card__body\">\n      Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone.\n    </div>\n  </div>\n  <div class=\"bss-flexible-masonry-card\">\n    <div class=\"bss-flexible-masonry-card__title\">\n      Title of the note goes here\n    </div>\n    <div class=\"bss-flexible-masonry-card__body\">\n      Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone.\n    </div>\n  </div>\n</div>\n"
 
 
 
@@ -3011,21 +3007,13 @@
 								"clicking you can drag and drop your files anywhere on this page."
 							), 
 							React.createElement("div", {className: "bss-modal__dialog__actions"}, 
-								React.createElement("div", {className: "bss-inline-block"}, 
-									React.createElement("button", {className: "bss-btn +primary"}, "CHOOSE FILES")
-								), 
-								React.createElement("div", {className: "bss-inline-block bss-margin-left-16"}, 
-									React.createElement("a", {href: "#", className: "bss-link"}, "NEVERMIND")
-								)
+								React.createElement("button", {className: "bss-btn +primary"}, "CHOOSE FILES"), 
+								React.createElement("a", {href: "#", className: "bss-link"}, "NEVERMIND")
 							)
 						)
 					), 
 					React.createElement(Highlight, {className: "html"}, 
-					("<!-- The dialog markup should be appended to the BODY tag.  -->\n<div class=\"bss-modal\">\n  <div class=\"bss-modal__screen\"></div>\n  <div class=\"bss-modal__dialog bss-card\">\n    <div class=\"bss-card__header bss-subheader-sm\">\n      Upload a File\n      <div class=\"bss-modal__dialog__close bss-icon bss-icon-close\"></div>\n    </div>\n    <div class=\"bss-card__body\">\n      Choose a file to upload to Beanstalk. You can upload asm any as you'd like&mdash; or if you're not a huge fan of\n      clicking you can drag and drop your files anywhere on this page.\n    </div>\n    <div class=\"bss-modal__dialog__actions\">\n      <div class=\"bss-inline-block\">\n        <button class=\"bss-btn +primary\">CHOOSE FILES</button>\n      </div>\n      <div class=\"bss-inline-block bss-margin-left-16\">\n        <a href=\"#\" class=\"bss-link\">NEVERMIND</a>\n      </div>\n    </div>\n  </div>\n</div>\n"
-
-
-
-
+					("<!-- The dialog markup should be appended to the BODY tag.  -->\n<div class=\"bss-modal\">\n  <div class=\"bss-modal__screen\"></div>\n  <div class=\"bss-modal__dialog bss-card\">\n    <div class=\"bss-card__header bss-subheader-sm\">\n      Upload a File\n      <div class=\"bss-modal__dialog__close bss-icon bss-icon-close\"></div>\n    </div>\n    <div class=\"bss-card__body\">\n      Choose a file to upload to Beanstalk. You can upload asm any as you'd like&mdash; or if you're not a huge fan of\n      clicking you can drag and drop your files anywhere on this page.\n    </div>\n    <div class=\"bss-modal__dialog__actions\">\n        <button class=\"bss-btn +primary\">CHOOSE FILES</button>\n        <a href=\"#\" class=\"bss-link\">NEVERMIND</a>\n    </div>\n  </div>\n</div>\n"
 
 
 
@@ -3080,24 +3068,20 @@
 										React.createElement("div", {className: "bss-col-xs-6"}, 
 											React.createElement("textarea", {className: "bss-form-control +no-resize"})
 										)
-									)
-								), 
-								React.createElement("div", {className: "bss-form-group"}, 
-									React.createElement("div", {className: "bss-inline-block"}, 
-										React.createElement("button", {className: "bss-btn +primary"}, "ADD DATE")
 									), 
-									React.createElement("div", {className: "bss-inline-block bss-margin-left-16"}, 
-										React.createElement("a", {href: "#", className: "bss-link"}, "CANCEL")
+									React.createElement("div", {className: "bss-form-group"}, 
+										React.createElement("label", {for: "exampleInputEmail1", className: "bss-col-xs-2"}), 
+										React.createElement("div", {className: "bss-col-xs-6"}, 
+											React.createElement("button", {className: "bss-btn +primary"}, "ADD DATE"), 
+											React.createElement("a", {href: "#", className: "bss-link"}, "CANCEL")
+										)
 									)
 								)
 							)
 						)
 					), 
 					React.createElement(Highlight, {className: "html"}, 
-					("<!-- The dialog markup should be appended to the BODY tag.  -->\n<div class=\"bss-overlay-modal\">\n  <div class=\"bss-overlay-modal__content\">\n    <div class=\"bss-overlay-modal__content__header\">\n      Create a New Date\n    </div>\n    <div class=\"bss-overlay-modal__content__body\">\n      <form class=\"bss-form-horizontal\">\n        <div class=\"bss-form-group\">\n          <label for=\"exampleInputEmail1\" class=\"bss-col-xs-2\">Date Title</label>\n          <div class=\"bss-col-xs-4\">\n            <input type=\"text\" class=\"bss-form-control\" placeholder=\"New Event\"/>\n          </div>\n        </div>\n        <div class=\"bss-form-group\">\n          <label for=\"exampleInputEmail1\" class=\"bss-col-xs-2\">Date</label>\n          <div class=\"bss-col-xs-2\">\n            <input type=\"text\" class=\"bss-form-control\" placeholder=\"2/7/2015\"/>\n          </div>\n          <div class=\"bss-col-xs-2\">\n            <input type=\"text\" class=\"bss-form-control\" placeholder=\"4:00 PM\"/>\n          </div>\n          <label for=\"exampleInputEmail1\" class=\"bss-col-xs-0\">To</label>\n          <div class=\"bss-col-xs-2\">\n            <input type=\"text\" class=\"bss-form-control\" placeholder=\"2/9/2015\"/>\n          </div>\n          <div class=\"bss-col-xs-2\">\n            <input type=\"text\" class=\"bss-form-control\" placeholder=\"5:00 PM\"/>\n          </div>\n        </div>\n        <div class=\"bss-form-group\">\n          <label for=\"exampleInputEmail1\" class=\"bss-col-xs-2\">Description</label>\n          <div class=\"bss-col-xs-6\">\n            <textarea></textarea>\n          </div>\n        </div>\n      </form>\n      <div class=\"bss-form-group\">\n        <div class=\"bss-inline-block\">\n          <button class=\"bss-btn +primary\">ADD DATE</button>\n        </div>\n        <div class=\"bss-inline-block bss-margin-left-16\">\n          <a href=\"#\" class=\"bss-link\">CANCEL</a>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
-
-
-
+					("<!-- The dialog markup should be appended to the BODY tag.  -->\n<div class=\"bss-overlay-modal\">\n  <div class=\"bss-overlay-modal__content\">\n    <div class=\"bss-overlay-modal__content__header\">\n      Create a New Date\n    </div>\n    <div class=\"bss-overlay-modal__content__body\">\n      <form class=\"bss-form-horizontal\">\n        <div class=\"bss-form-group\">\n          <label for=\"exampleInputEmail1\" class=\"bss-col-xs-2\">Date Title</label>\n          <div class=\"bss-col-xs-4\">\n            <input type=\"text\" class=\"bss-form-control\" placeholder=\"New Event\"/>\n          </div>\n        </div>\n        <div class=\"bss-form-group\">\n          <label for=\"exampleInputEmail1\" class=\"bss-col-xs-2\">Date</label>\n          <div class=\"bss-col-xs-2\">\n            <input type=\"text\" class=\"bss-form-control\" placeholder=\"2/7/2015\"/>\n          </div>\n          <div class=\"bss-col-xs-2\">\n            <input type=\"text\" class=\"bss-form-control\" placeholder=\"4:00 PM\"/>\n          </div>\n          <label for=\"exampleInputEmail1\" class=\"bss-col-xs-0\">To</label>\n          <div class=\"bss-col-xs-2\">\n            <input type=\"text\" class=\"bss-form-control\" placeholder=\"2/9/2015\"/>\n          </div>\n          <div class=\"bss-col-xs-2\">\n            <input type=\"text\" class=\"bss-form-control\" placeholder=\"5:00 PM\"/>\n          </div>\n        </div>\n        <div class=\"bss-form-group\">\n          <label for=\"exampleInputEmail1\" class=\"bss-col-xs-2\">Description</label>\n          <div class=\"bss-col-xs-6\">\n            <textarea></textarea>\n          </div>\n        </div>\n        <div class=\"bss-form-group\">\n            <button class=\"bss-btn +primary\">ADD DATE</button>\n            <a href=\"#\" class=\"bss-link\">CANCEL</a>\n        </div>\n      </form>\n\n    </div>\n  </div>\n</div>\n"
 
 
 
@@ -10922,7 +10906,7 @@
 	var ReactPropTypeLocationNames = __webpack_require__(134);
 
 	var deprecated = __webpack_require__(100);
-	var emptyFunction = __webpack_require__(174);
+	var emptyFunction = __webpack_require__(176);
 
 	/**
 	 * Collection of methods that allow declaration and validation of props that are
@@ -11278,9 +11262,9 @@
 
 	var ReactElement = __webpack_require__(86);
 	var ReactInstanceHandles = __webpack_require__(91);
-	var ReactMarkupChecksum = __webpack_require__(175);
+	var ReactMarkupChecksum = __webpack_require__(174);
 	var ReactServerRenderingTransaction =
-	  __webpack_require__(176);
+	  __webpack_require__(175);
 
 	var instantiateReactComponent = __webpack_require__(135);
 	var invariant = __webpack_require__(108);
@@ -11981,7 +11965,7 @@
 
 	"use strict";
 
-	var emptyFunction = __webpack_require__(174);
+	var emptyFunction = __webpack_require__(176);
 
 	/**
 	 * Similar to invariant but only logs a warning if the condition is not met.
@@ -14094,7 +14078,7 @@
 	"use strict";
 
 	var assign = __webpack_require__(99);
-	var emptyFunction = __webpack_require__(174);
+	var emptyFunction = __webpack_require__(176);
 	var invariant = __webpack_require__(108);
 	var joinClasses = __webpack_require__(296);
 	var warning = __webpack_require__(109);
@@ -16518,7 +16502,7 @@
 
 	var EventConstants = __webpack_require__(124);
 
-	var emptyFunction = __webpack_require__(174);
+	var emptyFunction = __webpack_require__(176);
 
 	var topLevelTypes = EventConstants.topLevelTypes;
 
@@ -16580,7 +16564,7 @@
 	"use strict";
 
 	var ReactDOMIDOperations = __webpack_require__(314);
-	var ReactMarkupChecksum = __webpack_require__(175);
+	var ReactMarkupChecksum = __webpack_require__(174);
 	var ReactMount = __webpack_require__(93);
 	var ReactPerf = __webpack_require__(95);
 	var ReactReconcileTransaction = __webpack_require__(315);
@@ -16706,7 +16690,7 @@
 	var Transaction = __webpack_require__(295);
 
 	var assign = __webpack_require__(99);
-	var emptyFunction = __webpack_require__(174);
+	var emptyFunction = __webpack_require__(176);
 
 	var RESET_BATCHED_UPDATES = {
 	  initialize: emptyFunction,
@@ -19070,44 +19054,6 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * @providesModule emptyFunction
-	 */
-
-	function makeEmptyFunction(arg) {
-	  return function() {
-	    return arg;
-	  };
-	}
-
-	/**
-	 * This function accepts and discards inputs; it has no side effects. This is
-	 * primarily useful idiomatically for overridable function endpoints which
-	 * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
-	 */
-	function emptyFunction() {}
-
-	emptyFunction.thatReturns = makeEmptyFunction;
-	emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
-	emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
-	emptyFunction.thatReturnsNull = makeEmptyFunction(null);
-	emptyFunction.thatReturnsThis = function() { return this; };
-	emptyFunction.thatReturnsArgument = function(arg) { return arg; };
-
-	module.exports = emptyFunction;
-
-
-/***/ },
-/* 175 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
 	 * @providesModule ReactMarkupChecksum
 	 */
 
@@ -19149,7 +19095,7 @@
 
 
 /***/ },
-/* 176 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -19172,7 +19118,7 @@
 	var Transaction = __webpack_require__(295);
 
 	var assign = __webpack_require__(99);
-	var emptyFunction = __webpack_require__(174);
+	var emptyFunction = __webpack_require__(176);
 
 	/**
 	 * Provides a `CallbackQueue` queue for collecting `onDOMReady` callbacks
@@ -19263,6 +19209,44 @@
 	PooledClass.addPoolingTo(ReactServerRenderingTransaction);
 
 	module.exports = ReactServerRenderingTransaction;
+
+
+/***/ },
+/* 176 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule emptyFunction
+	 */
+
+	function makeEmptyFunction(arg) {
+	  return function() {
+	    return arg;
+	  };
+	}
+
+	/**
+	 * This function accepts and discards inputs; it has no side effects. This is
+	 * primarily useful idiomatically for overridable function endpoints which
+	 * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
+	 */
+	function emptyFunction() {}
+
+	emptyFunction.thatReturns = makeEmptyFunction;
+	emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
+	emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
+	emptyFunction.thatReturnsNull = makeEmptyFunction(null);
+	emptyFunction.thatReturnsThis = function() { return this; };
+	emptyFunction.thatReturnsArgument = function(arg) { return arg; };
+
+	module.exports = emptyFunction;
 
 
 /***/ },
@@ -30362,7 +30346,7 @@
 
 	"use strict";
 
-	var hyphenate = __webpack_require__(342);
+	var hyphenate = __webpack_require__(340);
 
 	var msPattern = /^ms-/;
 
@@ -30409,8 +30393,8 @@
 	var EventPluginRegistry = __webpack_require__(303);
 	var EventPluginUtils = __webpack_require__(80);
 
-	var accumulateInto = __webpack_require__(340);
-	var forEachAccumulated = __webpack_require__(341);
+	var accumulateInto = __webpack_require__(341);
+	var forEachAccumulated = __webpack_require__(342);
 	var invariant = __webpack_require__(108);
 
 	/**
@@ -31061,8 +31045,8 @@
 	var EventConstants = __webpack_require__(124);
 	var EventPluginHub = __webpack_require__(302);
 
-	var accumulateInto = __webpack_require__(340);
-	var forEachAccumulated = __webpack_require__(341);
+	var accumulateInto = __webpack_require__(341);
+	var forEachAccumulated = __webpack_require__(342);
 
 	var PropagationPhases = EventConstants.PropagationPhases;
 	var getListener = EventPluginHub.getListener;
@@ -31258,7 +31242,7 @@
 	var PooledClass = __webpack_require__(125);
 
 	var assign = __webpack_require__(99);
-	var emptyFunction = __webpack_require__(174);
+	var emptyFunction = __webpack_require__(176);
 	var getEventTarget = __webpack_require__(321);
 
 	/**
@@ -32266,8 +32250,8 @@
 
 	var ReactBrowserEventEmitter = __webpack_require__(142);
 
-	var accumulateInto = __webpack_require__(340);
-	var forEachAccumulated = __webpack_require__(341);
+	var accumulateInto = __webpack_require__(341);
+	var forEachAccumulated = __webpack_require__(342);
 	var invariant = __webpack_require__(108);
 
 	function remove(event) {
@@ -32482,7 +32466,7 @@
 	 * @typechecks
 	 */
 
-	var emptyFunction = __webpack_require__(174);
+	var emptyFunction = __webpack_require__(176);
 
 	/**
 	 * Upstream version of event listener. Does not take into account specific
@@ -33404,7 +33388,7 @@
 	 * @typechecks
 	 */
 
-	var performance = __webpack_require__(349);
+	var performance = __webpack_require__(348);
 
 	/**
 	 * Detect if we can use `window.performance.now()` and gracefully fallback to
@@ -33436,7 +33420,7 @@
 	 * @typechecks
 	 */
 
-	var isNode = __webpack_require__(348);
+	var isNode = __webpack_require__(349);
 
 	/**
 	 * @param {*} object The object to check.
@@ -33608,6 +33592,43 @@
 /* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/**
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule hyphenate
+	 * @typechecks
+	 */
+
+	var _uppercasePattern = /([A-Z])/g;
+
+	/**
+	 * Hyphenates a camelcased string, for example:
+	 *
+	 *   > hyphenate('backgroundColor')
+	 *   < "background-color"
+	 *
+	 * For CSS style names, use `hyphenateStyleName` instead which works properly
+	 * with all vendor prefixes, including `ms`.
+	 *
+	 * @param {string} string
+	 * @return {string}
+	 */
+	function hyphenate(string) {
+	  return string.replace(_uppercasePattern, '-$1').toLowerCase();
+	}
+
+	module.exports = hyphenate;
+
+
+/***/ },
+/* 341 */
+/***/ function(module, exports, __webpack_require__) {
+
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014, Facebook, Inc.
 	 * All rights reserved.
@@ -33674,7 +33695,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(120)))
 
 /***/ },
-/* 341 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -33706,43 +33727,6 @@
 	};
 
 	module.exports = forEachAccumulated;
-
-
-/***/ },
-/* 342 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule hyphenate
-	 * @typechecks
-	 */
-
-	var _uppercasePattern = /([A-Z])/g;
-
-	/**
-	 * Hyphenates a camelcased string, for example:
-	 *
-	 *   > hyphenate('backgroundColor')
-	 *   < "background-color"
-	 *
-	 * For CSS style names, use `hyphenateStyleName` instead which works properly
-	 * with all vendor prefixes, including `ms`.
-	 *
-	 * @param {string} string
-	 * @return {string}
-	 */
-	function hyphenate(string) {
-	  return string.replace(_uppercasePattern, '-$1').toLowerCase();
-	}
-
-	module.exports = hyphenate;
 
 
 /***/ },
@@ -34341,38 +34325,6 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * @providesModule isNode
-	 * @typechecks
-	 */
-
-	/**
-	 * @param {*} object The object to check.
-	 * @return {boolean} Whether or not the object is a DOM node.
-	 */
-	function isNode(object) {
-	  return !!(object && (
-	    typeof Node === 'function' ? object instanceof Node :
-	      typeof object === 'object' &&
-	      typeof object.nodeType === 'number' &&
-	      typeof object.nodeName === 'string'
-	  ));
-	}
-
-	module.exports = isNode;
-
-
-/***/ },
-/* 349 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
 	 * @providesModule performance
 	 * @typechecks
 	 */
@@ -34391,6 +34343,38 @@
 	}
 
 	module.exports = performance || {};
+
+
+/***/ },
+/* 349 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule isNode
+	 * @typechecks
+	 */
+
+	/**
+	 * @param {*} object The object to check.
+	 * @return {boolean} Whether or not the object is a DOM node.
+	 */
+	function isNode(object) {
+	  return !!(object && (
+	    typeof Node === 'function' ? object instanceof Node :
+	      typeof object === 'object' &&
+	      typeof object.nodeType === 'number' &&
+	      typeof object.nodeName === 'string'
+	  ));
+	}
+
+	module.exports = isNode;
 
 
 /***/ },
@@ -34741,7 +34725,7 @@
 	var ExecutionEnvironment = __webpack_require__(102);
 
 	var createNodesFromMarkup = __webpack_require__(354);
-	var emptyFunction = __webpack_require__(174);
+	var emptyFunction = __webpack_require__(176);
 	var getMarkupWrap = __webpack_require__(355);
 	var invariant = __webpack_require__(108);
 

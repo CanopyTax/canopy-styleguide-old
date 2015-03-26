@@ -179,10 +179,6 @@
 }
 /************Variables************/
 /************Palettes************/
-.bss-inline-block {
-  display: inline-block !important;
-  vertical-align: top;
-}
 .bss-clearfix:before,
 .bss-clearfix:after {
   content: " ";
@@ -204,6 +200,12 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+.bss-text-center {
+  text-align: center;
+}
+.bss-text-center {
+  text-align: center;
 }
 .bss-center-vertical {
   position: relative;
@@ -525,13 +527,14 @@ h4 {
 }
 /************Buttons************/
 .bss-btn {
-  display: table-cell;
+  display: inline-block;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  padding: 0 24px;
+  margin: 0px;
+  padding: 0px 24px;
   font-size: 14px;
-  line-height: 1.42857143;
+  line-height: 2.12345;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
@@ -548,7 +551,6 @@ h4 {
   border-radius: 2px;
   color: white;
   text-decoration: none;
-  margin-left: 0px;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.26);
 }
 .bss-btn:hover,
@@ -557,6 +559,12 @@ h4 {
 }
 .bss-btn:focus {
   outline: none;
+}
+.bss-btn + .bss-btn {
+  margin-left: 24px;
+}
+.bss-btn + .bss-link {
+  margin-left: 8px;
 }
 .bss-btn.\+primary {
   background-color: #4caf50;
@@ -595,7 +603,7 @@ fieldset[disabled] .bss-btn {
 }
 a.bss-link,
 .bss-link {
-  display: table-cell;
+  display: inline-block;
   text-align: center;
   vertical-align: middle;
   -webkit-appearance: none;
@@ -607,6 +615,7 @@ a.bss-link,
   padding: 0px 12px;
   border-radius: 2px;
   height: 32px;
+  line-height: 2.3;
   font-weight: 600;
   background-color: transparent;
   cursor: pointer;
@@ -618,6 +627,14 @@ a.bss-link:hover,
 a.bss-link:focus,
 .bss-link:focus {
   background-color: rgba(0, 0, 0, 0.1);
+}
+a.bss-link + .bss-btn,
+.bss-link + .bss-btn {
+  margin-left: 8px;
+}
+a.bss-link + .bss-link,
+.bss-link + .bss-link {
+  margin-left: 8px;
 }
 a.bss-link.\+disabled,
 .bss-link.\+disabled {
@@ -1262,6 +1279,9 @@ textarea.bss-form-control.\+no-resize {
   padding-right: 2.4rem;
   height: 4.8rem;
 }
+.bss-topnav-secondary__content.\+green-banner {
+  background-color: #4CAF50;
+}
 .bss-topnav-secondary__content__menu {
   padding: 1.2rem 0rem 0rem 0rem;
   float: left;
@@ -1294,6 +1314,12 @@ textarea.bss-form-control.\+no-resize {
   vertical-align: top;
   color: #333333;
   font-size: 16px;
+  font-weight: 600;
+}
+.bss-topnav-secondary__content__menu > li.\+settings-nav,
+.bss-topnav-secondary__content__right-menu > li.\+settings-nav {
+  color: white;
+  font-size: 18px;
 }
 .bss-topnav-secondary__content__menu > li > .bss-icon,
 .bss-topnav-secondary__content__right-menu > li > .bss-icon {
