@@ -2319,3 +2319,22 @@ strong {
 .bss-overlay-modal__content__body .bss-form-horizontal {
   margin-left: -9.7rem;
 }
+.bss-list-inline {
+  padding-left: 0;
+  margin-left: -5px;
+  list-style: none;
+}
+.bss-list-inline > li {
+  display: inline-block;
+  padding-right: 12px;
+  padding-left: 12px;
+}
+.bss-list-inline.\+pipes > li {
+  border-left: 1px solid #5c5c5c;
+}
+.bss-list-inline.\+pipes > li:first-child {
+  border-left: 0px solid #5c5c5c;
+}
+.bss-list-inline a {
+  text-decoration: none;
+}

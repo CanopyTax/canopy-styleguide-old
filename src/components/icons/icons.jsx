@@ -191,6 +191,68 @@ module.exports = React.createClass({
 									<i className="bss-icon  bss-icon-more"></i>
 								</div>
 							</div>
+							<div className="bss-row bss-padding-top-8">
+								<div className="bss-col-xs-6 bss-center-vertical">
+									<span className="bss-pull-right">
+							.bss-icon-payments
+							</span>
+								</div>
+								<div className="bss-col-xs-6 bss-center-vertical">
+									<i className="bss-icon  bss-icon-payments"></i>
+								</div>
+							</div>
+							<div className="bss-row bss-padding-top-8">
+								<div className="bss-col-xs-6 bss-center-vertical">
+									<span className="bss-pull-right">
+							.bss-icon-statements
+							</span>
+								</div>
+								<div className="bss-col-xs-6 bss-center-vertical">
+									<i className="bss-icon  bss-icon-statements"></i>
+								</div>
+							</div>
+							<div className="bss-row bss-padding-top-8">
+								<div className="bss-col-xs-6 bss-center-vertical">
+									<span className="bss-pull-right">
+							.bss-icon-credits
+							</span>
+								</div>
+								<div className="bss-col-xs-6 bss-center-vertical">
+									<i className="bss-icon  bss-icon-credits"></i>
+								</div>
+							</div>
+														<div className="bss-row bss-padding-top-8">
+								<div className="bss-col-xs-6 bss-center-vertical">
+									<span className="bss-pull-right">
+							.bss-icon-items
+							</span>
+								</div>
+								<div className="bss-col-xs-6 bss-center-vertical">
+									<i className="bss-icon  bss-icon-items"></i>
+								</div>
+							</div>
+
+							<div className="bss-row bss-padding-top-8">
+								<div className="bss-col-xs-6 bss-center-vertical">
+									<span className="bss-pull-right">
+							.bss-icon-reports
+							</span>
+								</div>
+								<div className="bss-col-xs-6 bss-center-vertical">
+									<i className="bss-icon  bss-icon-reports"></i>
+								</div>
+							</div>
+
+							<div className="bss-row bss-padding-top-8">
+								<div className="bss-col-xs-6 bss-center-vertical">
+									<span className="bss-pull-right">
+							.bss-icon-grid-view
+							</span>
+								</div>
+								<div className="bss-col-xs-6 bss-center-vertical">
+									<i className="bss-icon  bss-icon-grid-view"></i>
+								</div>
+							</div>
 						</div>
 
 						{ /** second column **/ }
