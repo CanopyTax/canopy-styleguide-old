@@ -205,6 +205,9 @@
   margin-left: auto;
   margin-right: auto;
 }
+.bss-text-center {
+  text-align: center;
+}
 .bss-center-vertical {
   position: relative;
   top: 50%;
