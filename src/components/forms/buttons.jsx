@@ -92,6 +92,24 @@ module.exports = React.createClass({
 				}
 				</Highlight>
 
+
+				<div className="bss-fixed-focus bss-card">
+					<div className="bss-card__body">
+						<div className="bss-subheader-sm">Links</div>
+						<div className="bss-row bss-margin-top-16">
+							<div className="bss-col-xs-12">
+								<a href>this is a standard link</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+								<Highlight className="html">
+				{
+`<a href>this is a standard link</a>`
+				}
+				</Highlight>
 			</div>
 			)
 		}

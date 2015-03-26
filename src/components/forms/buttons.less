@@ -2,6 +2,15 @@
 
 /************Buttons************/
 
+a {
+	color: @primary-green;
+	text-decoration: none;
+
+	&:hover, &:focus{
+		text-decoration: underline;
+	}
+}
+
 .bss-btn {
 	display: inline-block;
 	text-align: center;
@@ -34,6 +43,7 @@
 
 	&:hover, &:focus{
 		.depth-z2;
+		text-decoration: none;
 	}
 
 	&:focus {
