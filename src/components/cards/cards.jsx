@@ -25,15 +25,15 @@ module.exports = React.createClass({
 
 				<Highlight className="html">
 				{
-`<div className="bss-fixed-focus bss-card">
-  <div className="bss-card__header bss-subheader">
+`<div class="bss-fixed-focus bss-card">
+  <div class="bss-card__header bss-subheader">
     The Header content goes here.
   </div>
-  <div className="bss-card__body">
+  <div class="bss-card__body">
     Put card main content with a body tag.
   </div>
-  <div className="bss-card__hr"></div>
-  <div className="bss-card__body">
+  <div class="bss-card__hr"></div>
+  <div class="bss-card__body">
     There can be multiple body tags, generally separated by an hr
   </div>
 </div>`
@@ -87,21 +87,21 @@ module.exports = React.createClass({
 				</div>
 				<Highlight className="html">
 				{
-`<div className="bss-fixed-masonry">
-  <div className="bss-row">
-    <div className="bss-col-xs-6">
-      <div className="bss-fixed-masonry__card bss-card">
-        <div className="bss-card__header">
+`<div class="bss-fixed-masonry">
+  <div class="bss-row">
+    <div class="bss-col-xs-6">
+      <div class="bss-fixed-masonry__card bss-card">
+        <div class="bss-card__header">
           Card 1
         </div>
-        <div className="bss-card__body">
+        <div class="bss-card__body">
           Card Content
         </div>
       </div>
     </div>
-    <div className="bss-col-xs-6">
-      <div className="bss-fixed-masonry__card bss-card">
-        <div className="bss-card__header">
+    <div class="bss-col-xs-6">
+      <div class="bss-fixed-masonry__card bss-card">
+        <div class="bss-card__header">
           Card 2
         </div>
       </div>
@@ -184,20 +184,20 @@ module.exports = React.createClass({
 <!-- The flexible masonry grid can be acheived purely in CSS or with the masonry JS lib available at http://masonry.desandro.com/ -->
 <!-- If you want to have the CSS functionality, wrapp all the cards in a "bss-flexible-masonry class". -->
 <!-- Give the cards a link style by adding the "+link" modifier -->
-<div className="bss-flexible-masonry bss-fixed-focus">
-  <div className="bss-flexible-masonry-card +link">
-    <div className="bss-flexible-masonry-card__title">
+<div class="bss-flexible-masonry bss-fixed-focus">
+  <div class="bss-flexible-masonry-card +link">
+    <div class="bss-flexible-masonry-card__title">
       Title of the note goes here
     </div>
-    <div className="bss-flexible-masonry-card__body">
+    <div class="bss-flexible-masonry-card__body">
       Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone.
     </div>
   </div>
-  <div className="bss-flexible-masonry-card">
-    <div className="bss-flexible-masonry-card__title">
+  <div class="bss-flexible-masonry-card">
+    <div class="bss-flexible-masonry-card__title">
       Title of the note goes here
     </div>
-    <div className="bss-flexible-masonry-card__body">
+    <div class="bss-flexible-masonry-card__body">
       Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone.
     </div>
   </div>

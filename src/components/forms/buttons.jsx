@@ -15,18 +15,18 @@ module.exports = React.createClass({
 						<div className="bss-subheader-sm bss-margin-bottom-8">Raised Buttons</div>
 						<div className="bss-row bss-margin-bottom-12">
 							<div className="bss-col-xs-12">
-								<div className="bss-inline-block bss-margin-right-8"><button className="bss-btn +primary">primary</button></div>
-								<div className="bss-inline-block bss-margin-right-8"><button className="bss-btn +secondary">secondary</button></div>
-								<div className="bss-inline-block bss-margin-right-8"><a href className="bss-btn +primary">PRIMARY link</a></div>
-								<div className="bss-inline-block"><a href className="bss-btn +secondary">secondary link</a></div>
+								<button className="bss-btn +primary">primary</button>
+								<button className="bss-btn +secondary">secondary</button>
+								<a href className="bss-btn +primary">PRIMARY link</a>
+								<a href className="bss-btn +secondary">secondary link</a>
 							</div>
 						</div>
 						<div className="bss-row margin-top-24">
 							<div className="bss-col-xs-12">
-								<div className="bss-inline-block bss-margin-right-8"><button className="bss-btn +primary +disabled">PRIMARY</button></div>
-								<div className="bss-inline-block bss-margin-right-8"><button className="bss-btn +secondary" disabled>secondary</button></div>
-								<div className="bss-inline-block bss-margin-right-8"><a href className="bss-btn +primary +disabled">PRIMARY link</a></div>
-								<div className="bss-inline-block"><a href className="bss-btn +secondary +disabled">secondary link</a></div>
+								<button className="bss-btn +primary +disabled">PRIMARY</button>
+								<button className="bss-btn +secondary" disabled>secondary</button>
+								<a href className="bss-btn +primary +disabled">PRIMARY link</a>
+								<a href className="bss-btn +secondary +disabled">secondary link</a>
 							</div>
 						</div>
 					</div>
@@ -52,11 +52,7 @@ module.exports = React.createClass({
 						<div className="bss-subheader-sm">Flat Buttons</div>
 						<div className="bss-row">
 							<div className="bss-col-xs-12">
-								<a href className="bss-link bss-margin-right-16">PRIMARY link</a>
-							</div>
-						</div>
-						<div className="bss-row margin-top-24">
-							<div className="bss-col-xs-12">
+								<a href className="bss-link">PRIMARY link</a>
 								<a href className="bss-link +disabled bss-margin-right-16">PRIMARY link</a>
 							</div>
 						</div>
