@@ -13,15 +13,24 @@
 	}
 
 	&.\+pipes {
-
 		> li {
-			border-left: 1px solid @medium-gray;
+			padding: 0px 0px 0px 4px;
 		}
-		> li:first-child {
-			border-left:  0px solid @medium-gray;
+		li + li::before {
+			color: @gray8;
+			content: "|";
+			padding-right: 4px;
 		}
 	}
+
 	a {
 		text-decoration: none;
 	}
+
+	&.\+underline {
+		a:hover {
+			text-decoration: underline;
+		}
+	}
+
 }

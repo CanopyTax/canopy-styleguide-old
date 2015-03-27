@@ -53,7 +53,7 @@ module.exports = React.createClass({
 						<div className="bss-row">
 							<div className="bss-col-xs-12">
 								<a href className="bss-link">PRIMARY link</a>
-								<a href className="bss-link +disabled bss-margin-right-16">PRIMARY link</a>
+								<a href className="bss-link" disabled="disabled">PRIMARY link</a>
 							</div>
 						</div>
 					</div>

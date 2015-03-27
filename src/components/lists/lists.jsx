@@ -14,10 +14,10 @@ module.exports = React.createClass({
 						<div className="bss-subheader-sm bss-margin-bottom-8">Inline Lists</div>
 						<div className="bss-row">
 							<div className="bss-col-xs-4">
-								<ul className="bss-list-inline +pipes">
-									<li>active</li>
-									<li>archived</li>
-									<li>deleted</li>
+								<ul className="bss-list-inline +pipes +underline">
+									<li><a href>active</a></li>
+									<li><a href>archived</a></li>
+									<li><a href>deleted</a></li>
 								</ul>
 							</div>
 							<div className="bss-col-xs-4">
@@ -31,7 +31,7 @@ module.exports = React.createClass({
 				</div>
 				<Highlight className="html">
 				{
-`<ul class="bss-list-inline +pipes">
+`<ul class="bss-list-inline +pipes +underline">
   <li>active</li>
   <li>archived</li>
   <li>deleted</li>
