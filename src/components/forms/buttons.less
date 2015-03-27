@@ -98,14 +98,6 @@ a {
 
 }
 
-fieldset[disabled] .bss-btn {
-	pointer-events: none;
-	cursor: not-allowed;
-	background-color: @gray7;
-	color: rgba(0,0,0,.24);
-	box-shadow: none !important;
-}
-
 
 a.bss-link, .bss-link {
 	display: inline-block;
@@ -141,10 +133,9 @@ a.bss-link, .bss-link {
 		margin-left: 8px;
 	}
 
-	&.\+disabled {
+	&.\+disabled, &[disabled] {
 		pointer-events: none;
 		cursor: not-allowed;
-		background-color: @gray7;
 		color: rgba(0,0,0,.24);
 		box-shadow: none !important;
 	}
@@ -159,5 +150,25 @@ a.bss-link, .bss-link {
 	}
 }
 
+fieldset {
+  padding: 0px;
+  margin: 0px;
+  border: 0px solid #c0c0c0;
+}
+
+fieldset[disabled] .bss-btn {
+	pointer-events: none;
+	cursor: not-allowed;
+	background-color: @gray7;
+	color: rgba(0,0,0,.24);
+	box-shadow: none !important;
+}
+
+fieldset[disabled] .bss-link {
+	pointer-events: none;
+	cursor: not-allowed;
+	color: rgba(0,0,0,.24);
+	box-shadow: none !important;
+}
 
 
