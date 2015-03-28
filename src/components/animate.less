@@ -1,4 +1,149 @@
 @import "./variables/variables.less";
 @import "./mixins/mixins.less";
 
+/** Animate ng-repeat statements **/
+.bss-animate-repeat.ng-enter, .bss-animate-repeat.ng-leave {
+  -webkit-transition: .5s linear all;
+  -moz-transition: .5s linear all;
+  -ms-transition: .5s linear all;
+  -o-transition: .5s linear all;
+  transition: .5s linear all;
+}
 
+.bss-animate-repeat.ng-enter {
+  opacity: 0;
+}
+
+.bss-animate-repeat.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+.bss-animate-repeat.ng-leave {
+  opacity:1;
+}
+
+.bss-animate-repeat.ng-leave.ng-leave-active {
+  opacity:0;
+}
+
+.bss-animate-repeat.ng-enter, .bss-animate-repeat.ng-leave td > span {
+  -webkit-transition: .5s linear all;
+  -moz-transition: .5s linear all;
+  -ms-transition: .5s linear all;
+  -o-transition: .5s linear all;
+  transition: .5s linear all;
+  display:block;
+  overflow: hidden;
+}
+
+.bss-animate-repeat.ng-enter td > span {
+  max-height: 0;
+}
+
+.bss-animate-repeat.ng-enter.ng-enter-active td > span {
+  max-height: 200px;
+}
+
+.bss-animate-repeat.ng-leave td > span {
+  max-height: 200px;
+}
+
+.bss-animate-repeat.ng-leave.ng-leave-active td > span {
+  max-height: 0px;
+}
+
+/** Fade in/out ng-if statements **/
+.bss-animate-fade.ng-enter, .bss-animate-fade.ng-leave {
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+.bss-animate-fade.ng-enter,
+.bss-animate-fade.ng-leave.ng-leave-active {
+  opacity:0;
+}
+
+.bss-animate-fade.ng-leave,
+.bss-animate-fade.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+/** Slide in and out ng-if statements 100, 300, 500 versions **/
+.bss-animate-if.ng-enter, .bss-animate-if.ng-leave {
+  transition: 1s linear all;
+  overflow: hidden;
+}
+
+.bss-animate-if.ng-enter {
+  max-height: 0;
+  opacity: 0;
+}
+
+.bss-animate-if.ng-enter.ng-enter-active {
+  max-height: 999px;
+  opacity:1;
+}
+
+.bss-animate-if.ng-leave {
+  max-height: 999px;
+  opacity:1;
+}
+
+.bss-animate-if.ng-leave.ng-leave-active {
+  max-height: 0;
+  opacity:1;
+}
+
+.bss-animate-if-100.ng-enter,
+.bss-animate-if-100.ng-leave {
+	transition: 250ms linear all;
+	overflow: hidden
+}
+.bss-animate-if-100.ng-enter {
+	max-height: 0;
+	opacity: 0
+}
+.bss-animate-if-100.ng-enter.ng-enter-active,
+.bss-animate-if-100.ng-leave {
+	max-height: 100px;
+	opacity: 1
+}
+.bss-animate-if-100.ng-leave.ng-leave-active {
+	max-height: 0;
+	opacity: 1
+}
+.bss-animate-if-300.ng-enter,
+.bss-animate-if-300.ng-leave {
+	transition: 750ms linear all;
+	overflow: hidden
+}
+.bss-animate-if-300.ng-enter {
+	max-height: 0;
+	opacity: 0
+}
+.bss-animate-if-300.ng-enter.ng-enter-active,
+.bss-animate-if-300.ng-leave {
+	max-height: 300px;
+	opacity: 1
+}
+.bss-animate-if-300.ng-leave.ng-leave-active {
+	max-height: 0;
+	opacity: 1
+}
+.bss-animate-if-500.ng-enter,
+.bss-animate-if-500.ng-leave {
+	transition: 1250ms linear all;
+	overflow: hidden
+}
+.bss-animate-if-500.ng-enter {
+	max-height: 0;
+	opacity: 0
+}
+.bss-animate-if-500.ng-enter.ng-enter-active,
+.bss-animate-if-500.ng-leave {
+	max-height: 500px;
+	opacity: 1
+}
+.bss-animate-if-500.ng-leave.ng-leave-active {
+	max-height: 0;
+	opacity: 1
+}
