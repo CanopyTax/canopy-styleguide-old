@@ -11,13 +11,6 @@
 	}
 }
 
-.bss-help-block {
-	display: block;
-	font-size: 10px;
-	padding-top:3px;
-	color: @light-gray;
-}
-
 .bss-form-control {
 	display: block;
 	width: 100%;
@@ -55,63 +48,6 @@ fieldset[disabled] .bss-form-control {
 	border: 1px dashed #CFCFCF;
 }
 
-.bss-has-error {
-
-	.bss-form-control-feedback {
-		color: #FE996C;
-	}
-
-	.bss-help-block, .bss-control-label, .bss-radio,
-	.bss-checkbox, .bss-radio-inline, .bss-checkbox-inline {
-		color: #FE996C;
-	}
-
-	.bss-form-control, .bss-form-control:hover, .bss-form-control:focus {
-		background-color: #FFFFFF;
-	}
-
-	.bss-form-control, .bss-form-control:hover {
-		border: 2px solid rgba(254,153,108, .3);
-		box-shadow: none; /* emulate the border */
-	}
-
-  .bss-form-control:focus {
-		border-color: transparent; /* remove the border's color */
-		box-shadow: 0 0 0 2px rgba(254,153,108, .3); /* emulate the border */
-	}
-
-	label {
-		color: #FE996C;
-	}
-}
-
-
-.bss-form-control-feedback {
-	position: absolute;
-	top: 0;
-	right: 0;
-	z-index: 2;
-	display: block;
-	width: 32px;
-	height: 32px;
-	line-height: 32px;
-	font-size:24px;
-	text-align: center;
-	pointer-events: none;
-}
-
-
-.bss-has-feedback {
-	position: relative;
-
-	label ~ .bss-form-control-feedback {
-		top: 20px;
-	}
-	label.sr-only ~ .bss-form-control-feedback {
-		top: 0;
-	}
-}
-
 .bss-form-horizontal {
 
 	.bss-radio, .bss-checkbox,
@@ -137,7 +73,7 @@ fieldset[disabled] .bss-form-control {
 		padding-right: 16px;
 	}
 
-	.bss-has-feedback .bss-form-control-feedback {
+	.bss-has-feedback .bss-form-control-feedback, .bss-has-error .bss-form-control-feedback {
 		right: 11px;
 	}
 }
@@ -186,10 +122,9 @@ fieldset[disabled] .bss-form-control {
 		}
 
 	}
-	.bss-has-feedback  {
+	.bss-has-feedback, .bss-has-error  {
 		label ~ .bss-form-control-feedback {
 			right: 0px;
-
 		}
 
 		.bss-form-control-feedback {
@@ -197,6 +132,83 @@ fieldset[disabled] .bss-form-control {
 		}
 	}
 }
+
+.bss-help-block {
+	display: block;
+	font-size: 10px;
+	padding-top:3px;
+	color: @light-gray;
+}
+
+.bss-form-control-feedback {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 2;
+	display: none;
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	font-size:24px;
+	text-align: center;
+	pointer-events: none;
+	color: @light-gray;
+}
+.bss-has-feedback .bss-form-control-feedback {
+	display: block;
+}
+
+.bss-error-block {
+	display: none;
+	font-size: 10px;
+	padding-top:3px;
+}
+
+.bss-has-error {
+
+	.bss-form-control-feedback, .bss-error-block {
+		display: block;
+		color: @warning;
+	}
+
+	.bss-error-block, .bss-control-label, .bss-radio,
+	.bss-checkbox, .bss-radio-inline, .bss-checkbox-inline {
+		color: @warning;
+	}
+
+	.bss-form-control, .bss-form-control:hover, .bss-form-control:focus {
+		background-color: #FFFFFF;
+	}
+
+	.bss-form-control, .bss-form-control:hover {
+		border: 2px solid rgba(254,153,108, .3);
+		box-shadow: none; /* emulate the border */
+	}
+
+  	.bss-form-control:focus {
+		border-color: transparent; /* remove the border's color */
+		box-shadow: 0 0 0 2px rgba(254,153,108, .3); /* emulate the border */
+	}
+
+	label {
+		color: @warning;
+	}
+}
+
+
+
+
+.bss-has-error, .bss-has-feedback {
+	position: relative;
+
+	label ~ .bss-form-control-feedback {
+		top: 24px;
+	}
+	label.sr-only ~ .bss-form-control-feedback {
+		top: 0;
+	}
+}
+
 
 
 
