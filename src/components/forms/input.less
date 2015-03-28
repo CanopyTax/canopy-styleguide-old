@@ -62,8 +62,8 @@ fieldset[disabled] .bss-form-control {
 	}
 
 	.bss-form-group {
-		margin-right: -15px;
-		margin-left: -15px;
+		margin-right: -8px;
+		margin-left: -8px;
 	}
 
 	label {
@@ -124,7 +124,7 @@ fieldset[disabled] .bss-form-control {
 	}
 	.bss-has-feedback, .bss-has-error  {
 		label ~ .bss-form-control-feedback {
-			right: 0px;
+			right: 3px;
 		}
 
 		.bss-form-control-feedback {
@@ -136,14 +136,14 @@ fieldset[disabled] .bss-form-control {
 .bss-help-block {
 	display: block;
 	font-size: 12px;
-	padding-top:3px;
-	color: @light-gray;
+	padding-top:8px;
+	color: @gray10;
 }
 
 .bss-form-control-feedback {
 	position: absolute;
 	top: 0;
-	right: 0;
+	right: 3px;
 	z-index: 2;
 	display: none;
 	width: 32px;
@@ -154,10 +154,26 @@ fieldset[disabled] .bss-form-control {
 	pointer-events: none;
 	color: @light-gray;
 }
+
+.bss-form-group > .bss-row > *  > .bss-form-control-feedback {
+	right: 8px;
+}
+
 .bss-has-feedback .bss-form-control-feedback {
 	display: block;
 }
 
+.bss-form-help-block {
+	display: block;
+	margin-top: 4px;
+	> i {
+		vertical-align: middle;
+	}
+	> a {
+		margin-left: 8px;
+		vertical-align: middle;
+	}
+}
 .bss-error-block {
 	display: none;
 	font-size: 12px;

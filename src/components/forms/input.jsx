@@ -20,16 +20,25 @@ module.exports = React.createClass({
 								</div>
 								<div className="bss-form-group bss-has-feedback">
 									<label for="exampleInputEmail1">Email address</label>
-									<input type="text" className="bss-form-control" placeholder="Enter email"/>
-									<span className="bss-icon-client bss-form-control-feedback" aria-hidden="true"></span>
-										<span className="bss-error-block">This error message is hidden unless bss-has-error is present</span>
-									<span className="bss-help-block">Example help block</span>
+									<div className="bss-row">
+										<div className="bss-col-xs-5">
+											<input type="text" className="bss-form-control" placeholder="Enter email"/>
+											<span className="bss-icon-client bss-form-control-feedback" aria-hidden="true"></span>
+											<span className="bss-error-block">This error message is hidden unless bss-has-error is present</span>
+											<span className="bss-help-block">Example help block</span>
+										</div>
+										<div className="bss-col-xs-6">
+											<span className="bss-form-help-block"><a href className="bss-link bss-info"><i className="bss-icon bss-icon-help"></i> Need help?</a></span>
+										</div>
+									</div>
 								</div>
-								<div className="bss-form-group  bss-has-error">
-									<label for="exampleInputPassword1">Phone Number</label>
-									<input type="text" className="bss-form-control" value="234-343-3434"/>
-									<span className="bss-icon-error bss-form-control-feedback" aria-hidden="true"></span>
-									<span className="bss-error-block">This is an error!</span>
+								<div className="bss-form-group bss-has-error">
+
+										<label for="exampleInputPassword1">Phone Number</label>
+										<input type="text" className="bss-form-control" value="234-343-3434"/>
+										<span className="bss-icon-error bss-form-control-feedback" aria-hidden="true"></span>
+										<span className="bss-error-block">This is an error!</span>
+
 								</div>
 								<div className="bss-form-group">
 									<label for="exampleInputPassword1">Disabled</label>
@@ -96,6 +105,9 @@ module.exports = React.createClass({
 										<input type="text" className="bss-form-control" value="234-343-3434"/>
 										<span className="bss-icon-error bss-form-control-feedback" aria-hidden="true"></span>
 										<span className="bss-error-block">This is an error!</span>
+									</div>
+									<div className="bss-col-xs-4">
+										<i className="bss-icon  bss-icon-help"></i><a href className="bss-info">Need help?</a>
 									</div>
 								</div>
 								<div className="bss-form-group">

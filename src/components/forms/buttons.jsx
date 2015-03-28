@@ -53,6 +53,7 @@ module.exports = React.createClass({
 						<div className="bss-row">
 							<div className="bss-col-xs-12">
 								<a href className="bss-link">PRIMARY link</a>
+								<a href className="bss-link"><i className="bss-icon bss-icon-lg-check"></i> ACCEPT</a>
 								<a href className="bss-link" disabled="disabled">PRIMARY link</a>
 							</div>
 						</div>
@@ -60,7 +61,8 @@ module.exports = React.createClass({
 				</div>
 								<Highlight className="html">
 				{
-`<a href class="bss-link">PRIMARY link</a>
+`<a href class="bss-link"><i class="bss-icon bss-icon-lg-check"></i> PRIMARY link</a>
+<a href class="bss-link"><i class="bss-icon bss-icon-lg-check"></i> ACCEPT</a>
 <a href class="bss-link +disabled">PRIMARY link</a>`
 				}
 				</Highlight>
@@ -71,11 +73,13 @@ module.exports = React.createClass({
 						<div className="bss-subheader-sm">Icon Button</div>
 						<div className="bss-row">
 							<div className="bss-col-xs-12">
-								<a href className="bss-link"><i className="bss-icon bss-icon-work"></i></a>
-								<a href className="bss-link"><i className="bss-icon bss-icon-cog"></i></a>
-								<a href className="bss-link"><i className="bss-icon bss-icon-close"></i></a>
-								<a href className="bss-link"><i className="bss-icon bss-icon-help"></i></a>
-								<a href className="bss-link"><i className="bss-icon bss-icon-lg-check"></i></a>
+								<div className="bss-btn-icon">
+									<a href className="bss-link"><i className="bss-icon bss-icon-work"></i></a>
+									<a href className="bss-link"><i className="bss-icon bss-icon-cog"></i></a>
+									<a href className="bss-link"><i className="bss-icon bss-icon-close"></i></a>
+									<a href className="bss-link"><i className="bss-icon bss-icon-help"></i></a>
+									<a href className="bss-link"><i className="bss-icon bss-icon-lg-check"></i></a>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -84,11 +88,10 @@ module.exports = React.createClass({
 
 								<Highlight className="html">
 				{
-`<a href class="bss-link"><i class="bss-icon bss-icon-work"></i></a>
-<a href class="bss-link"><i class="bss-icon bss-icon-cog"></i></a>
-<a href class="bss-link"><i class="bss-icon bss-icon-close"></i></a>
-<a href class="bss-link"><i class="bss-icon bss-icon-help"></i></a>
-<a href class="bss-link"><i class="bss-icon bss-icon-lg-check"></i></a>`
+`<div className="bss-btn-icon">
+  <a href className="bss-link"><i className="bss-icon bss-icon-work"></i></a>
+  <a href className="bss-link"><i className="bss-icon bss-icon-cog"></i></a>
+</div>`
 				}
 				</Highlight>
 
