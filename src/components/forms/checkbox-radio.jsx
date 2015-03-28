@@ -93,10 +93,13 @@ module.exports = React.createClass({
 {
 `<form>
   <label class="bss-checkbox">
-    <input type="checkbox" value="option2"/><span>1</span>
+    <input type="checkbox" value="option1"/><span>1</span>
   </label>
-  <label class="bss-checkbox-large">
-    <input type="checkbox" value="option1"/><span>2</span>
+  <label class="bss-checkbox">
+    <input type="checkbox" value="option1" disabled/><span>1</span>
+  </label>
+  <label class="bss-checkbox">
+    <input type="checkbox" value="option2" disabled checked/><span>2</span>
   </label>
 </form>`
 }
@@ -170,7 +173,7 @@ module.exports = React.createClass({
 				<div className="bss-card__body">
 					<p>
 						Toggles should be used for single instance values that need an "on" or "off" state.
-						It's also importatnt to note that the toggle only has one disabled state. When a toggle is disabled 
+						It's also importatnt to note that the toggle only has one disabled state. When a toggle is disabled
 						within the application, then the value must be set to "off".
 					</p>
 					<div className="bss-row">

@@ -10,7 +10,7 @@ module.exports = React.createClass({
 					<div className="bss-modal__dialog bss-card" style={{position: "absolute", top: "200px"}}>
 						<div className="bss-card__header bss-subheader-sm">
 							Upload a File
-							<div className="bss-modal__dialog__close bss-icon bss-icon-close"></div>
+							<a href className="bss-modal__dialog__close bss-icon bss-icon-close"></a>
 						</div>
 						<div className="bss-card__body">
 							Choose a file to upload to Beanstalk. You can upload asm any as you'd like&mdash; or if you're not a huge fan of
@@ -30,7 +30,7 @@ module.exports = React.createClass({
   <div class="bss-modal__dialog bss-card">
     <div class="bss-card__header bss-subheader-sm">
       Upload a File
-      <div class="bss-modal__dialog__close bss-icon bss-icon-close"></div>
+      <a href class="bss-modal__dialog__close bss-icon bss-icon-close"></a>
     </div>
     <div class="bss-card__body">
       Choose a file to upload to Beanstalk. You can upload asm any as you'd like&mdash; or if you're not a huge fan of
