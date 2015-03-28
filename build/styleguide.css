@@ -233,401 +233,215 @@
 .bss-form-horizontal .bss-form-group:after {
   clear: both;
 }
-.bss-animate-if-100.ng-enter,
-.animate-if-100.ng-leave {
-  -webkit-transition: 250ms linear all;
-          transition: 250ms linear all;
-  overflow: hidden;
-}
-.animate-if-100.ng-enter {
-  max-height: 0;
-  opacity: 0;
-}
-.animate-if-100.ng-enter.ng-enter-active {
-  max-height: #100px;
-  opacity: 1;
-}
-.animate-if-100.ng-leave {
-  max-height: #100px;
-  opacity: 1;
-}
-.animate-if-100.ng-leave.ng-leave-active {
-  max-height: 0;
-  opacity: 1;
-}
-.bss-animate-if-110.ng-enter,
-.animate-if-110.ng-leave {
-  -webkit-transition: 275ms linear all;
-          transition: 275ms linear all;
-  overflow: hidden;
-}
-.animate-if-110.ng-enter {
-  max-height: 0;
-  opacity: 0;
-}
-.animate-if-110.ng-enter.ng-enter-active {
-  max-height: #110px;
-  opacity: 1;
-}
-.animate-if-110.ng-leave {
-  max-height: #110px;
-  opacity: 1;
-}
-.animate-if-110.ng-leave.ng-leave-active {
-  max-height: 0;
-  opacity: 1;
-}
-.bss-animate-if-100.ng-enter,
-.animate-if-100.ng-leave {
-  -webkit-transition: 250ms linear all;
-          transition: 250ms linear all;
-  overflow: hidden;
-}
-.animate-if-100.ng-enter {
-  max-height: 0;
-  opacity: 0;
-}
-.animate-if-100.ng-enter.ng-enter-active {
-  max-height: #100px;
-  opacity: 1;
-}
-.animate-if-100.ng-leave {
-  max-height: #100px;
-  opacity: 1;
-}
-.animate-if-100.ng-leave.ng-leave-active {
-  max-height: 0;
-  opacity: 1;
-}
-.bss-animate-if-110.ng-enter,
-.animate-if-110.ng-leave {
-  -webkit-transition: 275ms linear all;
-          transition: 275ms linear all;
-  overflow: hidden;
-}
-.animate-if-110.ng-enter {
-  max-height: 0;
-  opacity: 0;
-}
-.animate-if-110.ng-enter.ng-enter-active {
-  max-height: #110px;
-  opacity: 1;
-}
-.animate-if-110.ng-leave {
-  max-height: #110px;
-  opacity: 1;
-}
-.animate-if-110.ng-leave.ng-leave-active {
-  max-height: 0;
-  opacity: 1;
-}
-.bss-animate-if-0.ng-enter,
-.animate-if-0.ng-leave {
-  -webkit-transition: 0ms linear all;
-          transition: 0ms linear all;
-  overflow: hidden;
-}
-.animate-if-0.ng-enter {
-  max-height: 0;
-  opacity: 0;
-}
-.animate-if-0.ng-enter.ng-enter-active {
-  max-height: #0px;
-  opacity: 1;
-}
-.animate-if-0.ng-leave {
-  max-height: #0px;
-  opacity: 1;
-}
-.animate-if-0.ng-leave.ng-leave-active {
-  max-height: 0;
-  opacity: 1;
-}
-.bss-animate-if-0.ng-enter,
-.animate-if-0.ng-leave {
-  -webkit-transition: 0ms linear all;
-          transition: 0ms linear all;
-  overflow: hidden;
-}
-.animate-if-0.ng-enter {
-  max-height: 0;
-  opacity: 0;
-}
-.animate-if-0.ng-enter.ng-enter-active {
-  max-height: #0px;
-  opacity: 1;
-}
-.animate-if-0.ng-leave {
-  max-height: #0px;
-  opacity: 1;
-}
-.animate-if-0.ng-leave.ng-leave-active {
-  max-height: 0;
-  opacity: 1;
-}
-.bss-animate-if-4.ng-enter,
-.animate-if-4.ng-leave {
-  -webkit-transition: 10ms linear all;
-          transition: 10ms linear all;
-  overflow: hidden;
-}
-.animate-if-4.ng-enter {
-  max-height: 0;
-  opacity: 0;
-}
-.animate-if-4.ng-enter.ng-enter-active {
-  max-height: #4px;
-  opacity: 1;
-}
-.animate-if-4.ng-leave {
-  max-height: #4px;
-  opacity: 1;
-}
-.animate-if-4.ng-leave.ng-leave-active {
-  max-height: 0;
-  opacity: 1;
-}
-.bss-animate-if-4.ng-enter,
-.animate-if-4.ng-leave {
-  -webkit-transition: 10ms linear all;
-          transition: 10ms linear all;
-  overflow: hidden;
-}
-.animate-if-4.ng-enter {
-  max-height: 0;
-  opacity: 0;
-}
-.animate-if-4.ng-enter.ng-enter-active {
-  max-height: #4px;
-  opacity: 1;
-}
-.animate-if-4.ng-leave {
-  max-height: #4px;
-  opacity: 1;
-}
-.animate-if-4.ng-leave.ng-leave-active {
-  max-height: 0;
-  opacity: 1;
-}
-.bss-animate-if-8.ng-enter,
-.animate-if-8.ng-leave {
-  -webkit-transition: 20ms linear all;
-          transition: 20ms linear all;
-  overflow: hidden;
-}
-.animate-if-8.ng-enter {
-  max-height: 0;
-  opacity: 0;
-}
-.animate-if-8.ng-enter.ng-enter-active {
-  max-height: #8px;
-  opacity: 1;
-}
-.animate-if-8.ng-leave {
-  max-height: #8px;
-  opacity: 1;
-}
-.animate-if-8.ng-leave.ng-leave-active {
-  max-height: 0;
-  opacity: 1;
-}
-.bss-animate-if-8.ng-enter,
-.animate-if-8.ng-leave {
-  -webkit-transition: 20ms linear all;
-          transition: 20ms linear all;
-  overflow: hidden;
-}
-.animate-if-8.ng-enter {
-  max-height: 0;
-  opacity: 0;
-}
-.animate-if-8.ng-enter.ng-enter-active {
-  max-height: #8px;
-  opacity: 1;
-}
-.animate-if-8.ng-leave {
-  max-height: #8px;
-  opacity: 1;
-}
-.animate-if-8.ng-leave.ng-leave-active {
-  max-height: 0;
-  opacity: 1;
-}
-.bss-animate-if-12.ng-enter,
-.animate-if-12.ng-leave {
-  -webkit-transition: 30ms linear all;
-          transition: 30ms linear all;
-  overflow: hidden;
-}
-.animate-if-12.ng-enter {
-  max-height: 0;
-  opacity: 0;
-}
-.animate-if-12.ng-enter.ng-enter-active {
-  max-height: #12px;
-  opacity: 1;
-}
-.animate-if-12.ng-leave {
-  max-height: #12px;
-  opacity: 1;
-}
-.animate-if-12.ng-leave.ng-leave-active {
-  max-height: 0;
-  opacity: 1;
-}
-.bss-animate-if-12.ng-enter,
-.animate-if-12.ng-leave {
-  -webkit-transition: 30ms linear all;
-          transition: 30ms linear all;
-  overflow: hidden;
-}
-.animate-if-12.ng-enter {
-  max-height: 0;
-  opacity: 0;
-}
-.animate-if-12.ng-enter.ng-enter-active {
-  max-height: #12px;
-  opacity: 1;
-}
-.animate-if-12.ng-leave {
-  max-height: #12px;
-  opacity: 1;
-}
-.animate-if-12.ng-leave.ng-leave-active {
-  max-height: 0;
-  opacity: 1;
-}
-.bss-animate-if-16.ng-enter,
-.animate-if-16.ng-leave {
-  -webkit-transition: 40ms linear all;
-          transition: 40ms linear all;
-  overflow: hidden;
-}
-.animate-if-16.ng-enter {
-  max-height: 0;
-  opacity: 0;
-}
-.animate-if-16.ng-enter.ng-enter-active {
-  max-height: #16px;
-  opacity: 1;
-}
-.animate-if-16.ng-leave {
-  max-height: #16px;
-  opacity: 1;
-}
-.animate-if-16.ng-leave.ng-leave-active {
-  max-height: 0;
-  opacity: 1;
-}
-.bss-animate-if-16.ng-enter,
-.animate-if-16.ng-leave {
-  -webkit-transition: 40ms linear all;
-          transition: 40ms linear all;
-  overflow: hidden;
-}
-.animate-if-16.ng-enter {
-  max-height: 0;
-  opacity: 0;
-}
-.animate-if-16.ng-enter.ng-enter-active {
-  max-height: #16px;
-  opacity: 1;
-}
-.animate-if-16.ng-leave {
-  max-height: #16px;
-  opacity: 1;
-}
-.animate-if-16.ng-leave.ng-leave-active {
-  max-height: 0;
-  opacity: 1;
-}
-.bss-animate-if-24.ng-enter,
-.animate-if-24.ng-leave {
-  -webkit-transition: 60ms linear all;
-          transition: 60ms linear all;
-  overflow: hidden;
-}
-.animate-if-24.ng-enter {
-  max-height: 0;
-  opacity: 0;
-}
-.animate-if-24.ng-enter.ng-enter-active {
-  max-height: #24px;
-  opacity: 1;
-}
-.animate-if-24.ng-leave {
-  max-height: #24px;
-  opacity: 1;
-}
-.animate-if-24.ng-leave.ng-leave-active {
-  max-height: 0;
-  opacity: 1;
-}
-.bss-animate-if-24.ng-enter,
-.animate-if-24.ng-leave {
-  -webkit-transition: 60ms linear all;
-          transition: 60ms linear all;
-  overflow: hidden;
-}
-.animate-if-24.ng-enter {
-  max-height: 0;
-  opacity: 0;
-}
-.animate-if-24.ng-enter.ng-enter-active {
-  max-height: #24px;
-  opacity: 1;
-}
-.animate-if-24.ng-leave {
-  max-height: #24px;
-  opacity: 1;
-}
-.animate-if-24.ng-leave.ng-leave-active {
-  max-height: 0;
-  opacity: 1;
-}
-.bss-animate-if-32.ng-enter,
-.animate-if-32.ng-leave {
-  -webkit-transition: 80ms linear all;
-          transition: 80ms linear all;
-  overflow: hidden;
-}
-.animate-if-32.ng-enter {
-  max-height: 0;
-  opacity: 0;
-}
-.animate-if-32.ng-enter.ng-enter-active {
-  max-height: #32px;
-  opacity: 1;
-}
-.animate-if-32.ng-leave {
-  max-height: #32px;
-  opacity: 1;
-}
-.animate-if-32.ng-leave.ng-leave-active {
-  max-height: 0;
-  opacity: 1;
-}
-.bss-animate-if-32.ng-enter,
-.animate-if-32.ng-leave {
-  -webkit-transition: 80ms linear all;
-          transition: 80ms linear all;
-  overflow: hidden;
-}
-.animate-if-32.ng-enter {
-  max-height: 0;
-  opacity: 0;
-}
-.animate-if-32.ng-enter.ng-enter-active {
-  max-height: #32px;
-  opacity: 1;
-}
-.animate-if-32.ng-leave {
-  max-height: #32px;
-  opacity: 1;
-}
-.animate-if-32.ng-leave.ng-leave-active {
-  max-height: 0;
-  opacity: 1;
+.bss-margin-0 {
+  margin: 0rem!important;
+}
+.bss-margin-top-0 {
+  margin-top: 0rem!important;
+}
+.bss-margin-bottom-0 {
+  margin-bottom: 0rem!important;
+}
+.bss-margin-right-0 {
+  margin-right: 0rem!important;
+}
+.bss-margin-left-0 {
+  margin-left: 0rem!important;
+}
+.bss-padding-0 {
+  padding: 0rem!important;
+}
+.bss-padding-top-0 {
+  padding-top: 0rem!important;
+}
+.bss-padding-bottom-0 {
+  padding-bottom: 0rem!important;
+}
+.bss-padding-right-0 {
+  padding-right: 0rem!important;
+}
+.bss-padding-left-0 {
+  padding-left: 0rem!important;
+}
+.bss-margin-4 {
+  margin: 0.4rem!important;
+}
+.bss-margin-top-4 {
+  margin-top: 0.4rem!important;
+}
+.bss-margin-bottom-4 {
+  margin-bottom: 0.4rem!important;
+}
+.bss-margin-right-4 {
+  margin-right: 0.4rem!important;
+}
+.bss-margin-left-4 {
+  margin-left: 0.4rem!important;
+}
+.bss-padding-4 {
+  padding: 0.4rem!important;
+}
+.bss-padding-top-4 {
+  padding-top: 0.4rem!important;
+}
+.bss-padding-bottom-4 {
+  padding-bottom: 0.4rem!important;
+}
+.bss-padding-right-4 {
+  padding-right: 0.4rem!important;
+}
+.bss-padding-left-4 {
+  padding-left: 0.4rem!important;
+}
+.bss-margin-8 {
+  margin: 0.8rem!important;
+}
+.bss-margin-top-8 {
+  margin-top: 0.8rem!important;
+}
+.bss-margin-bottom-8 {
+  margin-bottom: 0.8rem!important;
+}
+.bss-margin-right-8 {
+  margin-right: 0.8rem!important;
+}
+.bss-margin-left-8 {
+  margin-left: 0.8rem!important;
+}
+.bss-padding-8 {
+  padding: 0.8rem!important;
+}
+.bss-padding-top-8 {
+  padding-top: 0.8rem!important;
+}
+.bss-padding-bottom-8 {
+  padding-bottom: 0.8rem!important;
+}
+.bss-padding-right-8 {
+  padding-right: 0.8rem!important;
+}
+.bss-padding-left-8 {
+  padding-left: 0.8rem!important;
+}
+.bss-margin-12 {
+  margin: 1.2rem!important;
+}
+.bss-margin-top-12 {
+  margin-top: 1.2rem!important;
+}
+.bss-margin-bottom-12 {
+  margin-bottom: 1.2rem!important;
+}
+.bss-margin-right-12 {
+  margin-right: 1.2rem!important;
+}
+.bss-margin-left-12 {
+  margin-left: 1.2rem!important;
+}
+.bss-padding-12 {
+  padding: 1.2rem!important;
+}
+.bss-padding-top-12 {
+  padding-top: 1.2rem!important;
+}
+.bss-padding-bottom-12 {
+  padding-bottom: 1.2rem!important;
+}
+.bss-padding-right-12 {
+  padding-right: 1.2rem!important;
+}
+.bss-padding-left-12 {
+  padding-left: 1.2rem!important;
+}
+.bss-margin-16 {
+  margin: 1.6rem!important;
+}
+.bss-margin-top-16 {
+  margin-top: 1.6rem!important;
+}
+.bss-margin-bottom-16 {
+  margin-bottom: 1.6rem!important;
+}
+.bss-margin-right-16 {
+  margin-right: 1.6rem!important;
+}
+.bss-margin-left-16 {
+  margin-left: 1.6rem!important;
+}
+.bss-padding-16 {
+  padding: 1.6rem!important;
+}
+.bss-padding-top-16 {
+  padding-top: 1.6rem!important;
+}
+.bss-padding-bottom-16 {
+  padding-bottom: 1.6rem!important;
+}
+.bss-padding-right-16 {
+  padding-right: 1.6rem!important;
+}
+.bss-padding-left-16 {
+  padding-left: 1.6rem!important;
+}
+.bss-margin-24 {
+  margin: 2.4rem!important;
+}
+.bss-margin-top-24 {
+  margin-top: 2.4rem!important;
+}
+.bss-margin-bottom-24 {
+  margin-bottom: 2.4rem!important;
+}
+.bss-margin-right-24 {
+  margin-right: 2.4rem!important;
+}
+.bss-margin-left-24 {
+  margin-left: 2.4rem!important;
+}
+.bss-padding-24 {
+  padding: 2.4rem!important;
+}
+.bss-padding-top-24 {
+  padding-top: 2.4rem!important;
+}
+.bss-padding-bottom-24 {
+  padding-bottom: 2.4rem!important;
+}
+.bss-padding-right-24 {
+  padding-right: 2.4rem!important;
+}
+.bss-padding-left-24 {
+  padding-left: 2.4rem!important;
+}
+.bss-margin-32 {
+  margin: 3.2rem!important;
+}
+.bss-margin-top-32 {
+  margin-top: 3.2rem!important;
+}
+.bss-margin-bottom-32 {
+  margin-bottom: 3.2rem!important;
+}
+.bss-margin-right-32 {
+  margin-right: 3.2rem!important;
+}
+.bss-margin-left-32 {
+  margin-left: 3.2rem!important;
+}
+.bss-padding-32 {
+  padding: 3.2rem!important;
+}
+.bss-padding-top-32 {
+  padding-top: 3.2rem!important;
+}
+.bss-padding-bottom-32 {
+  padding-bottom: 3.2rem!important;
+}
+.bss-padding-right-32 {
+  padding-right: 3.2rem!important;
+}
+.bss-padding-left-32 {
+  padding-left: 3.2rem!important;
 }
 /************Mixins************/
 /************Depth************/
@@ -674,6 +488,11 @@
   font-size: 14px;
   height: 28px;
   width: 28px;
+}
+.bss-label-square.\+x-large {
+  font-size: 32px;
+  height: 72px;
+  width: 72px;
 }
 .bss-label-square.\+active {
   background-color: #4caf50;
@@ -790,13 +609,6 @@ a:focus {
   color: rgba(0, 0, 0, 0.24);
   box-shadow: none !important;
 }
-fieldset[disabled] .bss-btn {
-  pointer-events: none;
-  cursor: not-allowed;
-  background-color: #e2e2e2;
-  color: rgba(0, 0, 0, 0.24);
-  box-shadow: none !important;
-}
 a.bss-link,
 .bss-link {
   display: inline-block;
@@ -833,10 +645,11 @@ a.bss-link + .bss-link,
   margin-left: 8px;
 }
 a.bss-link.\+disabled,
-.bss-link.\+disabled {
+.bss-link.\+disabled,
+a.bss-link[disabled],
+.bss-link[disabled] {
   pointer-events: none;
   cursor: not-allowed;
-  background-color: #e2e2e2;
   color: rgba(0, 0, 0, 0.24);
   box-shadow: none !important;
 }
@@ -848,6 +661,24 @@ a.bss-link .bss-icon,
   font-size: 2.4rem;
   position: relative;
   top: .1rem;
+}
+fieldset {
+  padding: 0px;
+  margin: 0px;
+  border: 0px solid #c0c0c0;
+}
+fieldset[disabled] .bss-btn {
+  pointer-events: none;
+  cursor: not-allowed;
+  background-color: #e2e2e2;
+  color: rgba(0, 0, 0, 0.24);
+  box-shadow: none !important;
+}
+fieldset[disabled] .bss-link {
+  pointer-events: none;
+  cursor: not-allowed;
+  color: rgba(0, 0, 0, 0.24);
+  box-shadow: none !important;
 }
 .bss-radio {
   font-size: 0;
@@ -1313,8 +1144,8 @@ fieldset[disabled] .bss-form-control {
   min-height: 27px;
 }
 .bss-form-horizontal .bss-form-group {
-  margin-right: -15px;
-  margin-left: -15px;
+  margin-right: -8px;
+  margin-left: -8px;
 }
 .bss-form-horizontal label {
   padding-top: 7px;
@@ -1865,6 +1696,28 @@ textarea.bss-form-control.\+no-resize {
 .bss-slat-lg__actions {
   float: right;
   padding: 1.6rem 2.4rem;
+}
+.bss-slat-lg.bss-animate.ng-enter,
+.bss-slat-lg.bss-animate.ng-leave {
+  -webkit-transition: .5s linear all;
+  transition: .5s linear all;
+  overflow: hidden;
+}
+.bss-slat-lg.bss-animate.ng-enter {
+  opacity: 0;
+  height: 0;
+}
+.bss-slat-lg.bss-animate.ng-enter.ng-enter-active {
+  opacity: 1;
+  height: 7.2rem;
+}
+.bss-slat-lg.bss-animate.ng-leave {
+  opacity: 1;
+  height: 7.2rem;
+}
+.bss-slat-lg.bss-animate.ng-leave.ng-leave-active {
+  opacity: 0;
+  height: 0;
 }
 .bss-inset-table {
   border-spacing: 0;
@@ -2538,8 +2391,7 @@ strong {
 }
 .bss-overlay-modal__content {
   width: 86rem;
-  margin: 0 auto 0 auto;
-  padding: 16rem 0;
+  margin: 16rem auto 16rem auto;
 }
 .bss-overlay-modal__content__header {
   color: #4caf50;
@@ -2551,6 +2403,44 @@ strong {
 .bss-overlay-modal__content__body .bss-form-horizontal {
   margin-left: -9.7rem;
 }
+/** Animate ng-repeat statements **/
+.bss-animate-repeat.ng-enter,
+.bss-animate-repeat.ng-leave {
+  -webkit-transition: .5s linear all;
+  transition: .5s linear all;
+}
+.bss-animate-repeat.ng-enter {
+  opacity: 0;
+}
+.bss-animate-repeat.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+.bss-animate-repeat.ng-leave {
+  opacity: 1;
+}
+.bss-animate-repeat.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+.bss-animate-repeat.ng-enter,
+.bss-animate-repeat.ng-leave td > span {
+  -webkit-transition: .5s linear all;
+  transition: .5s linear all;
+  display: block;
+  overflow: hidden;
+}
+.bss-animate-repeat.ng-enter td > span {
+  max-height: 0;
+}
+.bss-animate-repeat.ng-enter.ng-enter-active td > span {
+  max-height: 200px;
+}
+.bss-animate-repeat.ng-leave td > span {
+  max-height: 200px;
+}
+.bss-animate-repeat.ng-leave.ng-leave-active td > span {
+  max-height: 0px;
+}
+/** Fade in/out ng-if statements **/
 .bss-animate-fade.ng-enter,
 .bss-animate-fade.ng-leave {
   -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
@@ -2564,25 +2454,83 @@ strong {
 .bss-animate-fade.ng-enter.ng-enter-active {
   opacity: 1;
 }
-.animate-if.ng-enter,
-.animate-if.ng-leave {
+/** Slide in and out ng-if statements 100, 300, 500 versions **/
+.bss-animate-if.ng-enter,
+.bss-animate-if.ng-leave {
   -webkit-transition: 1s linear all;
-  transition: 1s linear all;
+          transition: 1s linear all;
   overflow: hidden;
 }
-.animate-if.ng-enter {
+.bss-animate-if.ng-enter {
   max-height: 0;
   opacity: 0;
 }
-.animate-if.ng-enter.ng-enter-active {
+.bss-animate-if.ng-enter.ng-enter-active {
   max-height: 999px;
   opacity: 1;
 }
-.animate-if.ng-leave {
+.bss-animate-if.ng-leave {
   max-height: 999px;
   opacity: 1;
 }
-.animate-if.ng-leave.ng-leave-active {
+.bss-animate-if.ng-leave.ng-leave-active {
+  max-height: 0;
+  opacity: 1;
+}
+.bss-animate-if-100.ng-enter,
+.bss-animate-if-100.ng-leave {
+  -webkit-transition: 250ms linear all;
+          transition: 250ms linear all;
+  overflow: hidden;
+}
+.bss-animate-if-100.ng-enter {
+  max-height: 0;
+  opacity: 0;
+}
+.bss-animate-if-100.ng-enter.ng-enter-active,
+.bss-animate-if-100.ng-leave {
+  max-height: 100px;
+  opacity: 1;
+}
+.bss-animate-if-100.ng-leave.ng-leave-active {
+  max-height: 0;
+  opacity: 1;
+}
+.bss-animate-if-300.ng-enter,
+.bss-animate-if-300.ng-leave {
+  -webkit-transition: 750ms linear all;
+          transition: 750ms linear all;
+  overflow: hidden;
+}
+.bss-animate-if-300.ng-enter {
+  max-height: 0;
+  opacity: 0;
+}
+.bss-animate-if-300.ng-enter.ng-enter-active,
+.bss-animate-if-300.ng-leave {
+  max-height: 300px;
+  opacity: 1;
+}
+.bss-animate-if-300.ng-leave.ng-leave-active {
+  max-height: 0;
+  opacity: 1;
+}
+.bss-animate-if-500.ng-enter,
+.bss-animate-if-500.ng-leave {
+  -webkit-transition: 1250ms linear all;
+          transition: 1250ms linear all;
+  overflow: hidden;
+}
+.bss-animate-if-500.ng-enter {
+  max-height: 0;
+  opacity: 0;
+}
+.bss-animate-if-500.ng-enter.ng-enter-active,
+.bss-animate-if-500.ng-leave {
+  max-height: 500px;
+  opacity: 1;
+}
+.bss-animate-if-500.ng-leave.ng-leave-active {
   max-height: 0;
   opacity: 1;
 }
@@ -2597,11 +2545,16 @@ strong {
   padding-left: 12px;
 }
 .bss-list-inline.\+pipes > li {
-  border-left: 1px solid #5c5c5c;
+  padding: 0px 0px 0px 4px;
 }
-.bss-list-inline.\+pipes > li:first-child {
-  border-left: 0px solid #5c5c5c;
+.bss-list-inline.\+pipes li + li::before {
+  color: #dfdfdf;
+  content: "|";
+  padding-right: 4px;
 }
 .bss-list-inline a {
   text-decoration: none;
+}
+.bss-list-inline.\+underline a:hover {
+  text-decoration: underline;
 }
