@@ -12,19 +12,19 @@ module.exports = React.createClass({
 			</div>
 				<Highlight className="html ">
 				{
-`<div className="bss-dropdown bss-open">
-  <a href className="bss-btn +primary dropdown-toggle">
-   New <i className="bss-icon-sm-caret-down bss-dropdown__icon +white"></i>
+`<div class="bss-dropdown bss-open">
+  <a href class="bss-btn +primary dropdown-toggle">
+   New <i class="bss-icon-sm-caret-down bss-dropdown__icon +white"></i>
   </a>
-  <ul className="bss-dropdown-menu" role="menu">
+  <ul class="bss-dropdown-menu" role="menu">
     <li><a href>My Profile</a></li>
     <li><a href>Team Members</a></li>
     <li><a href>Company Profile</a></li>
 
-    <li className="bss-divider"></li>
+    <li class="bss-divider"></li>
     <li><a href="https://beanstalk.reamaze.com" target="_blank">Help</a>
     </li>
-    <li className="bss-divider"></li>
+    <li class="bss-divider"></li>
     <li><a href="/signout">Sign out</a>
     </li>
   </ul>
