@@ -1,14 +1,7 @@
 /************Menus************/
 
 .bss-dropdown {
-  position: relative;
-
-  	&__icon {
-		display: inline-block;
-		vertical-align: middle;
-		margin-left: .5rem;
-		font-size: 2.4rem;
-	}
+	position: relative;
 }
 
 .bss-dropdown-menu {
@@ -72,16 +65,26 @@
 }
 
 .bss-open > .bss-dropdown-menu, .bss-dropdown.open > .bss-dropdown-menu {
- 	display: block;
+	display: block;
 }
 
 .bss-dropdown > a.bss-link, .bss-link  {
- 	color: @light-gray;
- 	font-weight: 400;
+	color: @light-gray;
+	font-weight: 400;
 }
 
-.bss-open > a.bss-link, .bss-link  {
- 	background-color: rgba(0,0,0,.05);
+.bss-open a.bss-link  {
+	background-color: rgba(0,0,0,.05);
 }
 
+.bss-caret {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	margin-left: 2px;
+	vertical-align: middle;
+	border-top: 4px solid;
+	border-right: 4px solid transparent;
+	border-left: 4px solid transparent;
+}
 

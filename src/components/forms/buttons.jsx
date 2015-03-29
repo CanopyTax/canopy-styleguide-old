@@ -19,6 +19,8 @@ module.exports = React.createClass({
 								<button className="bss-btn +secondary">secondary</button>
 								<a href className="bss-btn +primary">PRIMARY link</a>
 								<a href className="bss-btn +secondary">secondary link</a>
+								<button className="bss-btn +primary"><span className="bss-icon bss-icon-upload"></span> primary</button>
+								<a href className="bss-btn +primary">PRIMARY link <span className="bss-icon bss-icon-upload"></span></a>
 							</div>
 						</div>
 						<div className="bss-row margin-top-24">
@@ -27,6 +29,8 @@ module.exports = React.createClass({
 								<button className="bss-btn +secondary" disabled>secondary</button>
 								<a href className="bss-btn +primary +disabled">PRIMARY link</a>
 								<a href className="bss-btn +secondary +disabled">secondary link</a>
+								<button className="bss-btn +primary" disabled><span className="bss-icon bss-icon-upload"></span> primary</button>
+								<a href className="bss-btn +primary" disabled>PRIMARY link <span className="bss-icon bss-icon-upload"></span></a>
 							</div>
 						</div>
 					</div>
@@ -38,11 +42,8 @@ module.exports = React.createClass({
 <button class="bss-btn +secondary">secondary</button>
 <a href class="bss-btn +primary">PRIMARY link</a>
 <a href class="bss-btn +secondary">secondary link</a>
-
-<button class="bss-btn +primary +disabled">PRIMARY</button>
-<button class="bss-btn +secondary" disabled>secondary</button>
-<a href class="bss-btn +primary +disabled">PRIMARY link</a>
-<a href class="bss-btn +secondary +disabled">secondary link</a>
+<button class="bss-btn +primary"><span class="bss-icon bss-icon-upload"></span> primary</button>
+<a href class="bss-btn +primary">PRIMARY link <span class="bss-icon bss-icon-upload"></span></a>
 `
 				}
 				</Highlight>
@@ -53,17 +54,20 @@ module.exports = React.createClass({
 						<div className="bss-row">
 							<div className="bss-col-xs-12">
 								<a href className="bss-link">PRIMARY link</a>
-								<a href className="bss-link"><i className="bss-icon bss-icon-lg-check"></i> ACCEPT</a>
 								<a href className="bss-link" disabled="disabled">PRIMARY link</a>
+								<a href className="bss-link"><span className="bss-icon bss-icon-lg-check"></span> ACCEPT</a>
+								<a href className="bss-link" disabled="disabled"><span className="bss-icon bss-icon-lg-check"></span> PRIMARY link</a>
 							</div>
 						</div>
 					</div>
 				</div>
 								<Highlight className="html">
 				{
-`<a href class="bss-link"><i class="bss-icon bss-icon-lg-check"></i> PRIMARY link</a>
-<a href class="bss-link"><i class="bss-icon bss-icon-lg-check"></i> ACCEPT</a>
-<a href class="bss-link +disabled">PRIMARY link</a>`
+`<a href class="bss-link">PRIMARY link</a>
+<a href class="bss-link" disabled="disabled">PRIMARY link</a>
+<a href class="bss-link"><span class="bss-icon bss-icon-lg-check"></span> ACCEPT</a>
+<a href class="bss-link" disabled="disabled"><span class="bss-icon bss-icon-lg-check"></span> PRIMARY link</a>
+`
 				}
 				</Highlight>
 
@@ -74,11 +78,11 @@ module.exports = React.createClass({
 						<div className="bss-row">
 							<div className="bss-col-xs-12">
 								<div className="bss-btn-icon">
-									<a href className="bss-link"><i className="bss-icon bss-icon-work"></i></a>
-									<a href className="bss-link"><i className="bss-icon bss-icon-cog"></i></a>
-									<a href className="bss-link"><i className="bss-icon bss-icon-close"></i></a>
-									<a href className="bss-link"><i className="bss-icon bss-icon-help"></i></a>
-									<a href className="bss-link"><i className="bss-icon bss-icon-lg-check"></i></a>
+									<a href className="bss-link"><span className="bss-icon bss-icon-work"></span></a>
+									<a href className="bss-link"><span className="bss-icon bss-icon-cog"></span></a>
+									<a href className="bss-link"><span className="bss-icon bss-icon-close"></span></a>
+									<a href className="bss-link"><span className="bss-icon bss-icon-help"></span></a>
+									<a href className="bss-link"><span className="bss-icon bss-icon-lg-check"></span></a>
 								</div>
 							</div>
 						</div>
@@ -89,8 +93,8 @@ module.exports = React.createClass({
 								<Highlight className="html">
 				{
 `<div className="bss-btn-icon">
-  <a href className="bss-link"><i className="bss-icon bss-icon-work"></i></a>
-  <a href className="bss-link"><i className="bss-icon bss-icon-cog"></i></a>
+  <a href class="bss-link"><span class="bss-icon bss-icon-work"></span></a>
+  <a href class="bss-link"><span class="bss-icon bss-icon-cog"></span></a>
 </div>`
 				}
 				</Highlight>

@@ -18,12 +18,11 @@ a {
 	-webkit-appearance: none;
 		 -moz-appearance: none;
 			  	appearance: none;
-
 	margin: 0px;
-	padding: 0px 24px;
+	padding: 4px 24px;
 	font-size: 14px;
-	line-height: 2.12345;
 	text-align: center;
+	line-height: 1.75; // accounts for icon
 	white-space: nowrap;
 	vertical-align: middle;
 	cursor: pointer;
@@ -32,8 +31,7 @@ a {
 			-ms-user-select: none;
 					user-select: none;
 	background-image: none;
-	border: 1px solid transparent;
-	height: 32px;
+	border: 0px solid transparent;
 	font-weight: 600;
 	text-transform: uppercase;
 	border-radius: 2px;
@@ -78,14 +76,11 @@ a {
 		}
 	}
 
-	&__icon {
-		color: white;
-		font-size: 2.4rem;
-		display: inline-block;
-		vertical-align: middle;
-		margin-right: 2rem;
+	.bss-icon {
+		float: left;
+		padding-right: 4px;
+		color: inherit;
 	}
-
 	// Disabled Raised Buttons //
 
 	&.\+disabled, &[disabled] {
@@ -100,13 +95,15 @@ a {
 
 .bss-btn-icon {
 	a.bss-link, .bss-link {
-		padding: 0px 4px;
+		padding: 4px; // 8px + 24px icon height = 32px
 	}
 
 	.bss-icon {
+		padding-right: 0px !important;
 		color: @light-gray !important;
 	}
 }
+
 a.bss-link, .bss-link {
 	display: inline-block;
 	text-align: center;
@@ -114,14 +111,12 @@ a.bss-link, .bss-link {
 	-webkit-appearance: none;
 		 -moz-appearance: none;
 			  	appearance: none;
-
 	font-size: 14px;
 	color: @primary-green;
 	text-decoration: none;
-	padding: 0px 12px;
+	padding: 4px 12px 4px 12px;
 	border-radius: 2px;
-	height:32px;
-	line-height: 2.3;
+	line-height: 1.75; // accounts for icon
 	font-weight: 600;
 	background-color: transparent;
 	cursor: pointer;
@@ -149,8 +144,8 @@ a.bss-link, .bss-link {
 	}
 
 	.bss-icon {
-		position: relative;
-		top: .4rem;
+		float: left;
+		padding-right: 4px;
 		color: inherit;
 	}
 }
