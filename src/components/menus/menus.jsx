@@ -13,7 +13,7 @@ module.exports = React.createClass({
 				<Highlight className="html ">
 				{
 `<div class="bss-dropdown bss-open">
-  <a href class="bss-btn +primary dropdown-toggle">
+  <a href class="bss-btn +primary">
    New <span class="bss-caret"></span>
   </a>
   <ul class="bss-dropdown-menu" role="menu">
@@ -36,7 +36,7 @@ module.exports = React.createClass({
 					<div className="bss-row">
 						<div className="bss-col-xs-2">
 							<div className="bss-dropdown bss-open">
-								<a href className="bss-btn +primary dropdown-toggle">
+								<a href className="bss-btn +primary">
 								 New <span className="bss-caret"></span>
 								</a>
 								<ul className="bss-dropdown-menu" role="menu">
