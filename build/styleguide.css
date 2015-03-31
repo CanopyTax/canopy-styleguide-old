@@ -1039,12 +1039,6 @@ fieldset[disabled] .checkbox-inline {
   height: 24px;
   padding-top: 3px;
 }
-.bss-help-block {
-  display: block;
-  font-size: 10px;
-  padding-top: 3px;
-  color: #777777;
-}
 .bss-form-control {
   display: block;
   width: 100%;
@@ -1078,59 +1072,6 @@ fieldset[disabled] .bss-form-control {
   opacity: 1;
   border: 1px dashed #CFCFCF;
 }
-.bss-has-error .bss-form-control-feedback {
-  color: #FE996C;
-}
-.bss-has-error .bss-help-block,
-.bss-has-error .bss-control-label,
-.bss-has-error .bss-radio,
-.bss-has-error .bss-checkbox,
-.bss-has-error .bss-radio-inline,
-.bss-has-error .bss-checkbox-inline {
-  color: #FE996C;
-}
-.bss-has-error .bss-form-control,
-.bss-has-error .bss-form-control:hover,
-.bss-has-error .bss-form-control:focus {
-  background-color: #FFFFFF;
-}
-.bss-has-error .bss-form-control,
-.bss-has-error .bss-form-control:hover {
-  border: 2px solid rgba(254, 153, 108, 0.3);
-  box-shadow: none;
-  /* emulate the border */
-}
-.bss-has-error .bss-form-control:focus {
-  border-color: transparent;
-  /* remove the border's color */
-  box-shadow: 0 0 0 2px rgba(254, 153, 108, 0.3);
-  /* emulate the border */
-}
-.bss-has-error label {
-  color: #FE996C;
-}
-.bss-form-control-feedback {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 2;
-  display: block;
-  width: 32px;
-  height: 32px;
-  line-height: 32px;
-  font-size: 24px;
-  text-align: center;
-  pointer-events: none;
-}
-.bss-has-feedback {
-  position: relative;
-}
-.bss-has-feedback label ~ .bss-form-control-feedback {
-  top: 20px;
-}
-.bss-has-feedback label.sr-only ~ .bss-form-control-feedback {
-  top: 0;
-}
 .bss-form-horizontal .bss-radio,
 .bss-form-horizontal .bss-checkbox,
 .bss-form-horizontal .bss-radio-inline,
@@ -1153,7 +1094,8 @@ fieldset[disabled] .bss-form-control {
   text-align: right;
   padding-right: 16px;
 }
-.bss-form-horizontal .bss-has-feedback .bss-form-control-feedback {
+.bss-form-horizontal .bss-has-feedback .bss-form-control-feedback,
+.bss-form-horizontal .bss-has-error .bss-form-control-feedback {
   right: 11px;
 }
 .bss-form-inline .bss-form-group {
@@ -1193,10 +1135,85 @@ fieldset[disabled] .bss-form-control {
   float: none;
   margin-left: 0;
 }
-.bss-form-inline .bss-has-feedback label ~ .bss-form-control-feedback {
+.bss-form-inline .bss-has-feedback label ~ .bss-form-control-feedback,
+.bss-form-inline .bss-has-error label ~ .bss-form-control-feedback {
   right: 0px;
 }
-.bss-form-inline .bss-has-feedback .bss-form-control-feedback {
+.bss-form-inline .bss-has-feedback .bss-form-control-feedback,
+.bss-form-inline .bss-has-error .bss-form-control-feedback {
+  top: 0;
+}
+.bss-help-block {
+  display: block;
+  font-size: 12px;
+  padding-top: 3px;
+  color: #777777;
+}
+.bss-form-control-feedback {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  display: none;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  font-size: 24px;
+  text-align: center;
+  pointer-events: none;
+  color: #777777;
+}
+.bss-has-feedback .bss-form-control-feedback {
+  display: block;
+}
+.bss-error-block {
+  display: none;
+  font-size: 12px;
+  padding-top: 3px;
+}
+.bss-has-error .bss-form-control-feedback,
+.bss-has-error .bss-error-block {
+  display: block;
+  color: #ff8a65;
+}
+.bss-has-error .bss-error-block,
+.bss-has-error .bss-control-label,
+.bss-has-error .bss-radio,
+.bss-has-error .bss-checkbox,
+.bss-has-error .bss-radio-inline,
+.bss-has-error .bss-checkbox-inline {
+  color: #ff8a65;
+}
+.bss-has-error .bss-form-control,
+.bss-has-error .bss-form-control:hover,
+.bss-has-error .bss-form-control:focus {
+  background-color: #FFFFFF;
+}
+.bss-has-error .bss-form-control,
+.bss-has-error .bss-form-control:hover {
+  border: 2px solid rgba(254, 153, 108, 0.3);
+  box-shadow: none;
+  /* emulate the border */
+}
+.bss-has-error .bss-form-control:focus {
+  border-color: transparent;
+  /* remove the border's color */
+  box-shadow: 0 0 0 2px rgba(254, 153, 108, 0.3);
+  /* emulate the border */
+}
+.bss-has-error label {
+  color: #ff8a65;
+}
+.bss-has-error,
+.bss-has-feedback {
+  position: relative;
+}
+.bss-has-error label ~ .bss-form-control-feedback,
+.bss-has-feedback label ~ .bss-form-control-feedback {
+  top: 24px;
+}
+.bss-has-error label.sr-only ~ .bss-form-control-feedback,
+.bss-has-feedback label.sr-only ~ .bss-form-control-feedback {
   top: 0;
 }
 textarea {
