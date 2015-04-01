@@ -5,7 +5,7 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 			<div>
-				<div style={{width: "100%", height: "350px"}} className="bss-fixed-focus bss-modal">
+				<div style={{width: "100%", height: "350px"}} className="bss-flexible-focus bss-modal">
 					<div className="bss-modal__screen" style={{position: "relative"}}></div>
 					<div className="bss-modal__dialog bss-card" style={{position: "absolute", top: "200px"}}>
 						<div className="bss-card__header bss-subheader-sm">
@@ -45,7 +45,7 @@ module.exports = React.createClass({
 `
 				}
 				</Highlight>
-				<div style={{width: "100%", height: "350px", position: "relative"}} className="bss-fixed-focus bss-overlay-modal">
+				<div style={{width: "100%", height: "350px", position: "relative"}} className="bss-flexible-focus bss-overlay-modal">
 					<div className="bss-overlay-modal__content" style={{'padding-top': "50px"}}>
 						<div className="bss-overlay-modal__content__header">
 							Create a New Date

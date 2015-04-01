@@ -5,7 +5,7 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 		<div>
-			<div className="bss-fixed-focus bss-card">
+			<div className="bss-flexible-focus bss-card">
 				<div className="bss-card__header bss-subheader">
 					Inputs
 				</div>
@@ -85,7 +85,7 @@ module.exports = React.createClass({
 				}
 				</Highlight>
 
-			<div className="bss-fixed-focus bss-card">
+			<div className="bss-flexible-focus bss-card">
 				<div className="bss-card__body">
 					<div className="bss-subheader-sm bss-margin-bottom-16 bss-margin-top-24">Right-aligned Inputs</div>
 					<div className="bss-row">
@@ -162,7 +162,7 @@ module.exports = React.createClass({
 				}
 				</Highlight>
 
-			<div className="bss-fixed-focus bss-card">
+			<div className="bss-flexible-focus bss-card">
 				<div className="bss-card__body">
 					<div className="bss-subheader-sm bss-margin-bottom-24 bss-margin-top-24">Inline Form</div>
 					<div className="bss-row bss-padding-bottom-16">

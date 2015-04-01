@@ -5,7 +5,7 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 			<div>
-				<div className="bss-fixed-focus bss-card">
+				<div className="bss-flexible-focus bss-card">
 					<div className="bss-card__header bss-subheader">
 						Fixed Focus
 					</div>
@@ -25,7 +25,7 @@ module.exports = React.createClass({
 
 				<Highlight className="html">
 				{
-`<div class="bss-fixed-focus bss-card">
+`<div class="bss-flexible-focus bss-card">
   <div class="bss-card__header bss-subheader">
     The Header content goes here.
   </div>
@@ -110,7 +110,7 @@ module.exports = React.createClass({
 </div>`
 				}
 				</Highlight>
-				<div className="bss-flexible-masonry bss-fixed-focus">
+				<div className="bss-flexible-masonry bss-flexible-focus">
 					<div className="bss-flexible-masonry-card">
 						<div className="bss-flexible-masonry-card__title">
 							Title of the note goes here
@@ -184,7 +184,7 @@ module.exports = React.createClass({
 <!-- The flexible masonry grid can be acheived purely in CSS or with the masonry JS lib available at http://masonry.desandro.com/ -->
 <!-- If you want to have the CSS functionality, wrapp all the cards in a "bss-flexible-masonry class". -->
 <!-- Give the cards a link style by adding the "+link" modifier -->
-<div class="bss-flexible-masonry bss-fixed-focus">
+<div class="bss-flexible-masonry bss-flexible-focus">
   <div class="bss-flexible-masonry-card +link">
     <div class="bss-flexible-masonry-card__title">
       Title of the note goes here

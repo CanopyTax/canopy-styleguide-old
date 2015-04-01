@@ -6,7 +6,7 @@ module.exports = React.createClass({
 		return (
 
 		<div>
-			<div className="bss-fixed-focus bss-card">
+			<div className="bss-flexible-focus bss-card">
 				<div className="bss-card__header bss-subheader">
 					Checkboxes and Radios
 				</div>
@@ -52,7 +52,7 @@ module.exports = React.createClass({
 </form>`
 }
 </Highlight>
-			<div className="bss-fixed-focus bss-card">
+			<div className="bss-flexible-focus bss-card">
 				<div className="bss-card__body">
 					<div className="bss-row margin-top-16">
 						<div className="bss-col-xs-12">
@@ -104,7 +104,7 @@ module.exports = React.createClass({
 </form>`
 }
 </Highlight>
-			<div className="bss-fixed-focus bss-card">
+			<div className="bss-flexible-focus bss-card">
 				<div className="bss-card__header bss-subheader-sm">Stacked checkboxes and radios</div>
 				<div className="bss-card__body">
 					<div className="bss-row">
@@ -168,7 +168,7 @@ module.exports = React.createClass({
 }
 </Highlight>
 
-			<div className="bss-fixed-focus bss-card">
+			<div className="bss-flexible-focus bss-card">
 				<div className="bss-card__header bss-subheader-sm">Toggle Switch</div>
 				<div className="bss-card__body">
 					<p>

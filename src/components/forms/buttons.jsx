@@ -6,7 +6,7 @@ module.exports = React.createClass({
 		render: function() {
 			return (
 			<div>
-				<div className="bss-fixed-focus bss-card">
+				<div className="bss-flexible-focus bss-card">
 					<div className="bss-card__header">
 						<h3 className="bss-subheader">Buttons</h3>
 					</div>
@@ -48,7 +48,7 @@ module.exports = React.createClass({
 				}
 				</Highlight>
 
-				<div className="bss-fixed-focus bss-card">
+				<div className="bss-flexible-focus bss-card">
 					<div className="bss-card__body">
 						<div className="bss-subheader-sm">Flat Buttons</div>
 						<div className="bss-row">
@@ -72,7 +72,7 @@ module.exports = React.createClass({
 				</Highlight>
 
 
-				<div className="bss-fixed-focus bss-card">
+				<div className="bss-flexible-focus bss-card">
 					<div className="bss-card__body">
 						<div className="bss-subheader-sm">Icon Button</div>
 						<div className="bss-row">
@@ -100,7 +100,7 @@ module.exports = React.createClass({
 				</Highlight>
 
 
-				<div className="bss-fixed-focus bss-card">
+				<div className="bss-flexible-focus bss-card">
 					<div className="bss-card__body">
 						<div className="bss-subheader-sm">Links</div>
 						<div className="bss-row bss-margin-top-16">

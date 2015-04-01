@@ -4,7 +4,7 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 		      <div>
-				<div className="bss-fixed-focus bss-card">
+				<div className="bss-flexible-focus bss-card">
 					<div className="bss-card__header bss-subheader">
 						Top-aligned textarea (with resize handle)
 					</div>
@@ -35,7 +35,7 @@ module.exports = React.createClass({
 
 
 
-			<div className="bss-fixed-focus bss-card">
+			<div className="bss-flexible-focus bss-card">
 				<div className="bss-card__header bss-subheader">
 					Right-aligned textarea (without resize handle)
 				</div>

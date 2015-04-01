@@ -3,7 +3,7 @@ var React = require('react');
 module.exports = React.createClass({
 	render: function() {
 		return (
-			<div className="bss-fixed-focus bss-card">
+			<div className="bss-flexible-focus bss-card">
 				<div className="bss-card__header bss-subheader">
 					Typography
 				</div>
