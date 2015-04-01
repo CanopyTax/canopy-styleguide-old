@@ -254,6 +254,48 @@ module.exports = React.createClass({
 `
 				}
 				</Highlight>
+				<div className="bss-fixed-focus">
+					<div className="bss-flexible-masonry-card +small">
+						<div className="bss-flexible-masonry-card__title">
+							Title of the note goes here
+						</div>
+						<div className="bss-flexible-masonry-card__body">
+							Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.
+						</div>
+					</div>
+					<div className="bss-flexible-masonry-card +small">
+						<div className="bss-flexible-masonry-card__title">
+							Title of the note goes here
+						</div>
+						<div className="bss-flexible-masonry-card__body">
+							Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.
+						</div>
+					</div>
+					<div className="bss-flexible-masonry-card +small">
+						<div className="bss-flexible-masonry-card__title">
+							Title of the note goes here
+						</div>
+						<div className="bss-flexible-masonry-card__body">
+							Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.
+						</div>
+					</div>
+				</div>
+				<Highlight className="html">
+				{
+`<!-- Small cards can be created with the "+small" class modifier -->
+<div className="bss-fixed-focus">
+  <div className="bss-flexible-masonry-card +small">
+    <div className="bss-flexible-masonry-card__title">
+      Title of the note goes here
+    </div>
+    <div className="bss-flexible-masonry-card__body">
+      Salami venison spare ribs shankle landjaeger tongue
+    </div>
+  </div>
+</div>
+`
+				}
+				</Highlight>
 			</div>
 		)
 	}

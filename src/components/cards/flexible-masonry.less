@@ -18,9 +18,10 @@
 	background-color: @card-color;
 	.depth-z1;
 	padding: 1.6rem;
-	border-radius: 2px;
-	width: 208px;
+	border-radius: .2rem;
+	width: 20.8rem;
 	position: relative;
+	text-align: left;
 
 	&__title {
 		font-weight: 600;
@@ -28,15 +29,36 @@
 	}
 
 	&__body {
-		min-height: 132px;
-		max-height: 210px;//296px;
+		min-height: 13.2rem;
+		max-height: 21.0rem;//296px;
 		overflow: hidden;
+
+		&.\+small {
+		}
 	}
 
 	&.\+link {
 		cursor: pointer;
 		&:hover {
 			.depth-z2;
+		}
+	}
+
+	&.\+small {
+		width: 15.2rem;
+		margin-right: 1.6rem;
+		padding: .8rem;
+
+		.bss-flexible-masonry-card__title {
+			font-size: 1.6rem;
+			margin-bottom: .2rem;
+		}
+
+		.bss-flexible-masonry-card__body {
+			min-height: 9rem;
+			max-height: 9rem;
+			font-size: 1.2rem;
+			line-height: 1.6rem;
 		}
 	}
 

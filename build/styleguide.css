@@ -1891,17 +1891,18 @@ textarea.bss-form-control.\+no-resize {
   background-color: #fffde9;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.26);
   padding: 1.6rem;
-  border-radius: 2px;
-  width: 208px;
+  border-radius: .2rem;
+  width: 20.8rem;
   position: relative;
+  text-align: left;
 }
 .bss-flexible-masonry-card__title {
   font-weight: 600;
   margin-bottom: 16px;
 }
 .bss-flexible-masonry-card__body {
-  min-height: 132px;
-  max-height: 210px;
+  min-height: 13.2rem;
+  max-height: 21.0rem;
   overflow: hidden;
 }
 .bss-flexible-masonry-card.\+link {
@@ -1909,6 +1910,21 @@ textarea.bss-form-control.\+no-resize {
 }
 .bss-flexible-masonry-card.\+link:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.06), 0 2px 6px 0 rgba(0, 0, 0, 0.26);
+}
+.bss-flexible-masonry-card.\+small {
+  width: 15.2rem;
+  margin-right: 1.6rem;
+  padding: .8rem;
+}
+.bss-flexible-masonry-card.\+small .bss-flexible-masonry-card__title {
+  font-size: 1.6rem;
+  margin-bottom: .2rem;
+}
+.bss-flexible-masonry-card.\+small .bss-flexible-masonry-card__body {
+  min-height: 9rem;
+  max-height: 9rem;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
 }
 .bss-card {
   background-color: white;
