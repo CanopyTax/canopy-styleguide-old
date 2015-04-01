@@ -5,6 +5,43 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 			<div>
+				<div className="bss-flexible-focus bss-card">
+					<div className="bss-card__header bss-subheader">
+						Flexible Focus
+					</div>
+					<div className="bss-card__body">
+						<p>
+							This card is within a flexible focus layout.
+							This layout encourages a focus on a particular type of content like files or dates.
+							Generally the card grows vertically rather than stacking sequential cards.
+						</p>
+						<p>
+							Flexible focus really only defines a max and min width for the content. It also centers it.
+							<strong>The class name "bss-card" is what makes the card look with a white background.</strong>
+							This same class name is used for the card look and feel of the slat and table components.
+						</p>
+						<p>
+							The thinner card headers can be used by adding the class modifier "+thin" to the bss-card element.
+						</p>
+					</div>
+				</div>
+
+				<Highlight className="html">
+				{
+`<div class="bss-flexible-focus bss-card">
+  <div class="bss-card__header bss-subheader">
+    The Header content goes here.
+  </div>
+  <div class="bss-card__body">
+    Put card main content with a body tag.
+  </div>
+  <div class="bss-card__hr"></div>
+  <div class="bss-card__body">
+    There can be multiple body tags, generally separated by an hr
+  </div>
+</div>`
+				}
+				</Highlight>
 				<div className="bss-fixed-focus bss-card">
 					<div className="bss-card__header bss-subheader">
 						Fixed Focus
@@ -13,15 +50,12 @@ module.exports = React.createClass({
 						<p>
 							This card is within a fixed focus layout.
 							This layout encourages a focus on a particular type of content like files or dates.
-							Generally the card grows vertically rather than stacking sequential cards.
+							Generally the card grows vertically but does not resize horizontally with the screen.
 						</p>
 						<p>
-							Fixed focus really only defines a max and min width for the content. It also centers it.
+							Fixed focus  defines a 760px width for the content. It also centers it. It  generally does not account for navigation menus.
 							<strong>The class name "bss-card" is what makes the card look with a white background.</strong>
 							This same class name is used for the card look and feel of the slat and table components.
-						</p>
-						<p>
-							The thinner card headers can be used by adding the class modifier "+thin" to the bss-card element.
 						</p>
 					</div>
 				</div>
@@ -159,7 +193,7 @@ module.exports = React.createClass({
 </div>`
 				}
 				</Highlight>
-				<div className="bss-flexible-masonry bss-fixed-focus">
+				<div className="bss-flexible-masonry bss-flexible-focus">
 					<div className="bss-flexible-masonry-card">
 						<div className="bss-flexible-masonry-card__title">
 							Title of the note goes here
@@ -233,7 +267,7 @@ module.exports = React.createClass({
 <!-- The flexible masonry grid can be acheived purely in CSS or with the masonry JS lib available at http://masonry.desandro.com/ -->
 <!-- If you want to have the CSS functionality, wrapp all the cards in a "bss-flexible-masonry class". -->
 <!-- Give the cards a link style by adding the "+link" modifier -->
-<div class="bss-flexible-masonry bss-fixed-focus">
+<div class="bss-flexible-masonry bss-flexible-focus">
   <div class="bss-flexible-masonry-card +link">
     <div class="bss-flexible-masonry-card__title">
       Title of the note goes here

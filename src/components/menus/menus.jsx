@@ -5,7 +5,7 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 		<div>
-			<div className="bss-fixed-focus bss-card ">
+			<div className="bss-flexible-focus bss-card ">
 				<div className="bss-card__header bss-subheader">
 					Menus
 				</div>
@@ -31,7 +31,7 @@ module.exports = React.createClass({
 </div>`
 				}
 				</Highlight>
-			<div className="bss-fixed-focus bss-card">
+			<div className="bss-flexible-focus bss-card">
 				<div className="bss-card__body">
 					<div className="bss-row">
 						<div className="bss-col-xs-2">

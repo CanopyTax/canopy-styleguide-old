@@ -5,7 +5,7 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 		      <div>
-				<div className="bss-fixed-focus bss-card">
+				<div className="bss-flexible-focus bss-card">
 					<div className="bss-card__header ">
 						Beanstalk Font Icons
 					</div>
@@ -683,7 +683,7 @@ module.exports = React.createClass({
 					</div>
 				</div>
 
-				<div className="bss-fixed-focus bss-card bss-margin-top-24">
+				<div className="bss-flexible-focus bss-card bss-margin-top-24">
 					<div className="bss-card__header ">
 						Beanstalk Labels
 					</div>

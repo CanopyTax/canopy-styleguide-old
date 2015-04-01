@@ -4,7 +4,7 @@ var Highlight = require('react-highlight');
 module.exports = React.createClass({
 	render: function() {
 		return (
-			<div className="bss-fixed-focus">
+			<div className="bss-flexible-focus">
 				<div className="bss-slat-lg">
 					<div className="bss-slat-lg__badge">
 						<div className="bss-slat-lg__badge__main">21</div>

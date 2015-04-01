@@ -61,7 +61,7 @@ fieldset[disabled] .bss-form-control {
 		min-height: 27px;
 	}
 
-	.bss-form-group {
+	.bss-form-group, .bss-form-group-resize {
 		margin-right: -8px;
 		margin-left: -8px;
 	}
@@ -184,7 +184,10 @@ fieldset[disabled] .bss-form-control {
 		display: block;
 		color: @warning;
 	}
-
+	.bss-form-group-resize > .bss-error-block {
+		display: inline-block;
+		color: black !important;
+	}
 	.bss-error-block, .bss-control-label, .bss-radio,
 	.bss-checkbox, .bss-radio-inline, .bss-checkbox-inline {
 		color: @warning;
@@ -204,13 +207,17 @@ fieldset[disabled] .bss-form-control {
 		box-shadow: 0 0 0 2px rgba(254,153,108, .3); /* emulate the border */
 	}
 
+	.bss-form-control-resize {
+		background-color:  rgba(254,143,108, .3);
+		&:focus {
+			background-color:  rgba(254,143,108, .3) !important;
+		}
+	}
+
 	label {
-		color: @warning;
+		color: @warning !important;
 	}
 }
-
-
-
 
 .bss-has-error, .bss-has-feedback {
 	position: relative;
@@ -223,6 +230,57 @@ fieldset[disabled] .bss-form-control {
 	}
 }
 
+.bss-form-group-resize {
+	display: block;
+
+	label {
+		display: block;
+		font-size: 14px;
+		color: @gray10;
+		padding-top: 2px;
+		padding-right: 8px !important; // 8px + 16px from col = 24px
+	}
+
+}
+
+.bss-form-control-resize {
+	display: block;
+	width: 100%;
+	background: transparent;
+	border-radius: 0;
+	box-shadow: none;
+	color: inherit;
+	outline: none;
+	font-size: 14px;
+	font-weight: 400;
+	border: 1px solid transparent;
+	margin: 0px;
+	color: @medium-gray;
+
+		&:focus {
+			//background-color:  rgba(84,178,88, .3);
+			border: 1px solid @gray9;
+		}
+}
+
+
+input[readonly="readonly"].bss-form-control-resize {
+	cursor: text;
+	border: 1px solid transparent !important;
+}
+
+input[type="text"].bss-form-control-resize::-webkit-input-placeholder {
+	color: @gray9;
+}
+input[type="text"].bss-form-control-resize::-moz-placeholder {
+	color: @gray9;
+}
+input[type="text"].bss-form-control-resize::-moz-placeholder {   /* Older versions of Firefox */
+	color: @gray9;
+}
+input[type="text"].bss-form-control-resize::-ms-input-placeholder {
+	color: @gray9;
+}
 
 
 
