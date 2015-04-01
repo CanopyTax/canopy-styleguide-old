@@ -7,6 +7,7 @@
 	background-color: @white;
 	border-radius: .2rem;
 	cursor: pointer;
+	display: block;
 	font-size: 1.4rem;
 	.depth-z1;
 
@@ -27,6 +28,11 @@
 		padding: 1.5rem 0;
 		position: absolute;
 		display: inline-block;
+
+		&.\+long {
+			max-width: ~"calc(100% - 15rem)";
+		}
+
 		&__title {
 			white-space: nowrap;
 			overflow: hidden;
@@ -36,18 +42,26 @@
 		}
 
 		&__description {
-			margin-left: 2.5rem;
+			left: 2.5rem;
 			width: ~"calc(75% - 2.5rem)";
 			display:inline-block;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
+			position: relative;
 		}
 	}
 
 	&__actions {
 		float: right;
-		padding: 1.5rem 2.4rem;
+		position: relative;
+		top: 1.5rem;
+		right: 2.4rem;
+
+		.bss-icon {
+			position: relative;
+			top: -.3rem;
+		}
 	}
 
 	&.\+small {
@@ -83,6 +97,7 @@
 	cursor: pointer;
 	margin: 0 auto;
 	font-size: 1.4rem;
+	display: block;
 
 	&:hover {
 		background-color: @hover-color;

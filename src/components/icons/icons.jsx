@@ -729,6 +729,23 @@ module.exports = React.createClass({
 `
 				}
 				</Highlight>
+
+				<div className="bss-fixed-focus bss-card bss-margin-top-24">
+					<div className="bss-card__header ">
+						Icons with inline text
+					</div>
+					<div className="bss-card__body">
+						<i className="bss-icon bss-icon-visible bss-warning"><span>Hello</span></i>
+					</div>
+				</div>
+
+
+
+				<Highlight className="html">
+				{
+					`<i className="bss-icon bss-icon-visible bss-warning"><span>Hello</span></i>`
+				}
+				</Highlight>
 			</div>
 
 		)

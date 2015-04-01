@@ -482,6 +482,12 @@
 								React.createElement("div", {className: "bss-col-xs-2 bss-center-vertical"}, "@info")
 							), 
 							React.createElement("div", {className: "bss-row"}, 
+								React.createElement("div", {className: "bss-bg-blue-link bss-col-xs-2 bss-padding-8 bss-light bss-center-vertical"}, React.createElement("span", {className: "bss-pull-right"}, ".bss-bg-blue-link")
+								), 
+								React.createElement("div", {className: "bss-col-xs-2 bss-center-vertical bss-blue-link"}, ".bss-blue-link"), 
+								React.createElement("div", {className: "bss-col-xs-2 bss-center-vertical"}, "@blue-link")
+							), 
+							React.createElement("div", {className: "bss-row"}, 
 								React.createElement("div", {className: "bss-bg-general bss-col-xs-2 bss-padding-8 bss-light bss-center-vertical"}, React.createElement("span", {className: "bss-pull-right"}, ".bss-bg-general")
 								), 
 								React.createElement("div", {className: "bss-col-xs-2 bss-center-vertical bss-general"}, ".bss-general"), 
@@ -1347,6 +1353,22 @@
 
 	)
 					
+					), 
+
+					React.createElement("div", {className: "bss-fixed-focus bss-card bss-margin-top-24"}, 
+						React.createElement("div", {className: "bss-card__header "}, 
+							"Icons with inline text"
+						), 
+						React.createElement("div", {className: "bss-card__body"}, 
+							React.createElement("i", {className: "bss-icon bss-icon-visible bss-warning"}, React.createElement("span", null, "Hello"))
+						)
+					), 
+
+
+
+					React.createElement(Highlight, {className: "html"}, 
+					("<i className=\"bss-icon bss-icon-visible bss-warning\"><span>Hello</span></i>")
+					
 					)
 				)
 
@@ -1379,7 +1401,9 @@
 									React.createElement("button", {className: "bss-btn +primary"}, "primary"), 
 									React.createElement("button", {className: "bss-btn +secondary"}, "secondary"), 
 									React.createElement("a", {href: true, className: "bss-btn +primary"}, "PRIMARY link"), 
-									React.createElement("a", {href: true, className: "bss-btn +secondary"}, "secondary link")
+									React.createElement("a", {href: true, className: "bss-btn +secondary"}, "secondary link"), 
+									React.createElement("button", {className: "bss-btn +primary"}, React.createElement("span", {className: "bss-icon bss-icon-upload"}), " primary"), 
+									React.createElement("a", {href: true, className: "bss-btn +primary"}, "PRIMARY link ", React.createElement("span", {className: "bss-icon bss-icon-upload"}))
 								)
 							), 
 							React.createElement("div", {className: "bss-row margin-top-24"}, 
@@ -1387,17 +1411,16 @@
 									React.createElement("button", {className: "bss-btn +primary +disabled"}, "PRIMARY"), 
 									React.createElement("button", {className: "bss-btn +secondary", disabled: true}, "secondary"), 
 									React.createElement("a", {href: true, className: "bss-btn +primary +disabled"}, "PRIMARY link"), 
-									React.createElement("a", {href: true, className: "bss-btn +secondary +disabled"}, "secondary link")
+									React.createElement("a", {href: true, className: "bss-btn +secondary +disabled"}, "secondary link"), 
+									React.createElement("button", {className: "bss-btn +primary", disabled: true}, React.createElement("span", {className: "bss-icon bss-icon-upload"}), " primary"), 
+									React.createElement("a", {href: true, className: "bss-btn +primary", disabled: true}, "PRIMARY link ", React.createElement("span", {className: "bss-icon bss-icon-upload"}))
 								)
 							)
 						)
 					), 
 
 					React.createElement(Highlight, {className: "html"}, 
-					("<button class=\"bss-btn +primary\">primary</button>\n<button class=\"bss-btn +secondary\">secondary</button>\n<a href class=\"bss-btn +primary\">PRIMARY link</a>\n<a href class=\"bss-btn +secondary\">secondary link</a>\n\n<button class=\"bss-btn +primary +disabled\">PRIMARY</button>\n<button class=\"bss-btn +secondary\" disabled>secondary</button>\n<a href class=\"bss-btn +primary +disabled\">PRIMARY link</a>\n<a href class=\"bss-btn +secondary +disabled\">secondary link</a>\n"
-
-
-
+					("<button class=\"bss-btn +primary\">primary</button>\n<button class=\"bss-btn +secondary\">secondary</button>\n<a href class=\"bss-btn +primary\">PRIMARY link</a>\n<a href class=\"bss-btn +secondary\">secondary link</a>\n<button class=\"bss-btn +primary\"><span class=\"bss-icon bss-icon-upload\"></span> primary</button>\n<a href class=\"bss-btn +primary\">PRIMARY link <span class=\"bss-icon bss-icon-upload\"></span></a>\n"
 
 
 
@@ -1413,13 +1436,18 @@
 							React.createElement("div", {className: "bss-row"}, 
 								React.createElement("div", {className: "bss-col-xs-12"}, 
 									React.createElement("a", {href: true, className: "bss-link"}, "PRIMARY link"), 
-									React.createElement("a", {href: true, className: "bss-link", disabled: "disabled"}, "PRIMARY link")
+									React.createElement("a", {href: true, className: "bss-link", disabled: "disabled"}, "PRIMARY link"), 
+									React.createElement("a", {href: true, className: "bss-link"}, React.createElement("span", {className: "bss-icon bss-icon-lg-check"}), " ACCEPT"), 
+									React.createElement("a", {href: true, className: "bss-link", disabled: "disabled"}, React.createElement("span", {className: "bss-icon bss-icon-lg-check"}), " PRIMARY link")
 								)
 							)
 						)
 					), 
 									React.createElement(Highlight, {className: "html"}, 
-					("<a href class=\"bss-link\">PRIMARY link</a>\n<a href class=\"bss-link +disabled\">PRIMARY link</a>"
+					("<a href class=\"bss-link\">PRIMARY link</a>\n<a href class=\"bss-link\" disabled=\"disabled\">PRIMARY link</a>\n<a href class=\"bss-link\"><span class=\"bss-icon bss-icon-lg-check\"></span> ACCEPT</a>\n<a href class=\"bss-link\" disabled=\"disabled\"><span class=\"bss-icon bss-icon-lg-check\"></span> PRIMARY link</a>\n"
+
+
+
 	)
 					
 					), 
@@ -1430,11 +1458,13 @@
 							React.createElement("div", {className: "bss-subheader-sm"}, "Icon Button"), 
 							React.createElement("div", {className: "bss-row"}, 
 								React.createElement("div", {className: "bss-col-xs-12"}, 
-									React.createElement("a", {href: true, className: "bss-link"}, React.createElement("i", {className: "bss-icon bss-icon-work"})), 
-									React.createElement("a", {href: true, className: "bss-link"}, React.createElement("i", {className: "bss-icon bss-icon-cog"})), 
-									React.createElement("a", {href: true, className: "bss-link"}, React.createElement("i", {className: "bss-icon bss-icon-close"})), 
-									React.createElement("a", {href: true, className: "bss-link"}, React.createElement("i", {className: "bss-icon bss-icon-help"})), 
-									React.createElement("a", {href: true, className: "bss-link"}, React.createElement("i", {className: "bss-icon bss-icon-lg-check"}))
+									React.createElement("div", {className: "bss-btn-icon"}, 
+										React.createElement("a", {href: true, className: "bss-link"}, React.createElement("span", {className: "bss-icon bss-icon-work"})), 
+										React.createElement("a", {href: true, className: "bss-link"}, React.createElement("span", {className: "bss-icon bss-icon-cog"})), 
+										React.createElement("a", {href: true, className: "bss-link"}, React.createElement("span", {className: "bss-icon bss-icon-close"})), 
+										React.createElement("a", {href: true, className: "bss-link"}, React.createElement("span", {className: "bss-icon bss-icon-help"})), 
+										React.createElement("a", {href: true, className: "bss-link"}, React.createElement("span", {className: "bss-icon bss-icon-lg-check"}))
+									)
 								)
 							)
 						)
@@ -1442,8 +1472,7 @@
 
 
 									React.createElement(Highlight, {className: "html"}, 
-					("<a href class=\"bss-link\"><i class=\"bss-icon bss-icon-work\"></i></a>\n<a href class=\"bss-link\"><i class=\"bss-icon bss-icon-cog\"></i></a>\n<a href class=\"bss-link\"><i class=\"bss-icon bss-icon-close\"></i></a>\n<a href class=\"bss-link\"><i class=\"bss-icon bss-icon-help\"></i></a>\n<a href class=\"bss-link\"><i class=\"bss-icon bss-icon-lg-check\"></i></a>"
-
+					("<div className=\"bss-btn-icon\">\n  <a href class=\"bss-link\"><span class=\"bss-icon bss-icon-work\"></span></a>\n  <a href class=\"bss-link\"><span class=\"bss-icon bss-icon-cog\"></span></a>\n</div>"
 
 
 	)
@@ -1569,7 +1598,10 @@
 					)
 				), 
 	React.createElement(Highlight, {className: "html"}, 
-	("<form>\n  <label class=\"bss-checkbox\">\n    <input type=\"checkbox\" value=\"option2\"/><span>1</span>\n  </label>\n  <label class=\"bss-checkbox-large\">\n    <input type=\"checkbox\" value=\"option1\"/><span>2</span>\n  </label>\n</form>"
+	("<form>\n  <label class=\"bss-checkbox\">\n    <input type=\"checkbox\" value=\"option1\"/><span>1</span>\n  </label>\n  <label class=\"bss-checkbox\">\n    <input type=\"checkbox\" value=\"option1\" disabled/><span>1</span>\n  </label>\n  <label class=\"bss-checkbox\">\n    <input type=\"checkbox\" value=\"option2\" disabled checked/><span>2</span>\n  </label>\n</form>"
+
+
+
 
 
 
@@ -1647,7 +1679,7 @@
 					React.createElement("div", {className: "bss-card__body"}, 
 						React.createElement("p", null, 
 							"Toggles should be used for single instance values that need an \"on\" or \"off\" state." + ' ' +
-							"It's also importatnt to note that the toggle only has one disabled state. When a toggle is disabled" + ' ' + 
+							"It's also importatnt to note that the toggle only has one disabled state. When a toggle is disabled" + ' ' +
 							"within the application, then the value must be set to \"off\"."
 						), 
 						React.createElement("div", {className: "bss-row"}, 
@@ -1709,16 +1741,27 @@
 										React.createElement("label", {for: "exampleInputEmail1"}, "Full Name"), 
 										React.createElement("input", {type: "text", className: "bss-form-control", placeholder: "Enter name"})
 									), 
-									React.createElement("div", {className: "bss-form-group"}, 
+									React.createElement("div", {className: "bss-form-group bss-has-feedback"}, 
 										React.createElement("label", {for: "exampleInputEmail1"}, "Email address"), 
-										React.createElement("input", {type: "text", className: "bss-form-control", placeholder: "Enter email"}), 
-										React.createElement("span", {className: "bss-help-block"}, "Example help block")
+										React.createElement("div", {className: "bss-row"}, 
+											React.createElement("div", {className: "bss-col-xs-5"}, 
+												React.createElement("input", {type: "text", className: "bss-form-control", placeholder: "Enter email"}), 
+												React.createElement("span", {className: "bss-icon-client bss-form-control-feedback", "aria-hidden": "true"}), 
+												React.createElement("span", {className: "bss-error-block"}, "This error message is hidden unless bss-has-error is present"), 
+												React.createElement("span", {className: "bss-help-block"}, "Example help block")
+											), 
+											React.createElement("div", {className: "bss-col-xs-6"}, 
+												React.createElement("span", {className: "bss-form-help-block"}, React.createElement("a", {href: true, className: "bss-link bss-padding-left-4 bss-padding-right-4"}, React.createElement("i", {className: "bss-icon bss-icon-help bss-light-gray"}), " ", React.createElement("span", {className: "bss-info bss-padding-left-8"}, "Need help?")))
+											)
+										)
 									), 
-									React.createElement("div", {className: "bss-form-group bss-has-error bss-has-feedback"}, 
-										React.createElement("label", {for: "exampleInputPassword1"}, "Phone Number"), 
-										React.createElement("input", {type: "text", className: "bss-form-control", value: "234-343-3434"}), 
-										React.createElement("span", {className: "bss-icon-error bss-form-control-feedback", "aria-hidden": "true"}), 
-										React.createElement("span", {className: "bss-help-block"}, "This is an error!")
+									React.createElement("div", {className: "bss-form-group bss-has-error"}, 
+
+											React.createElement("label", {for: "exampleInputPassword1"}, "Phone Number"), 
+											React.createElement("input", {type: "text", className: "bss-form-control", value: "234-343-3434"}), 
+											React.createElement("span", {className: "bss-icon-error bss-form-control-feedback", "aria-hidden": "true"}), 
+											React.createElement("span", {className: "bss-error-block"}, "This is an error!")
+
 									), 
 									React.createElement("div", {className: "bss-form-group"}, 
 										React.createElement("label", {for: "exampleInputPassword1"}, "Disabled"), 
@@ -1731,7 +1774,20 @@
 				), 
 
 					React.createElement(Highlight, {className: "html"}, 
-					("<form>\n  <div class=\"bss-form-group\">\n     <label for=\"exampleInputEmail1\">Email address</label>\n     <input type=\"text\" class=\"bss-form-control\" placeholder=\"Enter email\"/>\n     <span class=\"bss-help-block\">Example help block</span>\n  </div>\n  <div class=\"bss-form-group bss-has-error bss-has-feedback\">\n    <label for=\"exampleInputPassword1\">Phone Number</label>\n    <input type=\"text\" class=\"bss-form-control\" value=\"234-343-3434\"/>\n    <span class=\"bss-icon-error bss-form-control-feedback\" aria-hidden=\"true\"></span>\n    <span class=\"bss-help-block\">This is an error!</span>\n  </div>\n  <div class=\"bss-form-group\">\n    <label for=\"exampleInputPassword1\">Disabled</label>\n    <input type=\"text\" class=\"bss-form-control\" value=\"234-343-3434\" disabled=\"true\"/>\n  </div>\n</form>"
+					("<form>\n  <div class=\"bss-form-group\">\n    <label for=\"exampleInputEmail1\">Full Name</label>\n    <input type=\"text\" class=\"bss-form-control\" placeholder=\"Enter name\"/>\n  </div>\n  <div class=\"bss-form-group bss-has-feedback\">\n    <label for=\"exampleInputEmail1\">Email address</label>\n    <div class=\"bss-row\">\n      <div class=\"bss-col-xs-5\">\n        <input type=\"text\" class=\"bss-form-control\" placeholder=\"Enter email\"/>\n        <span class=\"bss-icon-client bss-form-control-feedback\" aria-hidden=\"true\"></span>\n        <span class=\"bss-error-block\">This error message is hidden unless bss-has-error is present</span>\n        <span class=\"bss-help-block\">Example help block</span>\n      </div>\n      <div className=\"bss-col-xs-6\">\n        <span class=\"bss-form-help-block\"><a href class=\"bss-link bss-padding-left-4 bss-padding-right-4\"><i class=\"bss-icon bss-icon-help bss-light-gray\"></i> <span class=\"bss-info bss-padding-left-8\">Need help?</span></a></span>\n      </div>\n    </div>\n  </div>\n  <div class=\"bss-form-group bss-has-error\">\n      <label for=\"exampleInputPassword1\">Phone Number</label>\n      <input type=\"text\" class=\"bss-form-control\" value=\"234-343-3434\"/>\n      <span class=\"bss-icon-error bss-form-control-feedback\" aria-hidden=\"true\"></span>\n      <span class=\"bss-error-block\">This is an error!</span>\n  </div>\n  <div class=\"bss-form-group\">\n    <label for=\"exampleInputPassword1\">Disabled</label>\n    <input type=\"text\" class=\"bss-form-control\" value=\"234-343-3434\" disabled=\"true\"/>\n  </div>\n</form>"
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1763,19 +1819,21 @@
 											React.createElement("input", {type: "text", className: "bss-form-control", placeholder: "Enter name"})
 										)
 									), 
-									React.createElement("div", {className: "bss-form-group"}, 
+									React.createElement("div", {className: "bss-form-group bss-has-feedback bss-has-error"}, 
 										React.createElement("label", {for: "exampleInputEmail1", className: "bss-col-xs-2"}, "Email address"), 
 										React.createElement("div", {className: "bss-col-xs-3"}, 
 											React.createElement("input", {type: "text", className: "bss-form-control", placeholder: "Enter email"}), 
+											React.createElement("span", {className: "bss-icon-client bss-form-control-feedback", "aria-hidden": "true"}), 
+											React.createElement("span", {className: "bss-error-block"}, "This error message is hidden unless bss-has-error is present"), 
 											React.createElement("span", {className: "bss-help-block"}, "Example help block")
 										)
 									), 
-									React.createElement("div", {className: "bss-form-group bss-has-error bss-has-feedback"}, 
+									React.createElement("div", {className: "bss-form-group bss-has-error"}, 
 										React.createElement("label", {for: "exampleInputPassword1", className: "bss-col-xs-2"}, "Phone Number"), 
 										React.createElement("div", {className: "bss-col-xs-6"}, 
 											React.createElement("input", {type: "text", className: "bss-form-control", value: "234-343-3434"}), 
 											React.createElement("span", {className: "bss-icon-error bss-form-control-feedback", "aria-hidden": "true"}), 
-											React.createElement("span", {className: "bss-help-block"}, "This is an error!")
+											React.createElement("span", {className: "bss-error-block"}, "This is an error!")
 										)
 									), 
 									React.createElement("div", {className: "bss-form-group"}, 
@@ -1791,7 +1849,29 @@
 				), 
 
 					React.createElement(Highlight, {className: "html"}, 
-					("<form class=\"bss-form-horizontal\">\n  <div class=\"bss-form-group\">\n    <label for=\"exampleInputEmail1\" class=\"bss-col-xs-2\">Email address</label>\n    <div class=\"bss-col-xs-3\">\n      <input type=\"text\" class=\"bss-form-control\" placeholder=\"Enter email\"/>\n      <span class=\"bss-help-block\">Example help block</span>\n    </div>\n  </div>\n</form>"
+					("<form class=\"bss-form-horizontal\">\n  <div class=\"bss-form-group\">\n    <label for=\"exampleInputEmail1\" class=\"bss-col-xs-2\">Full Name</label>\n    <div class=\"bss-col-xs-3\">\n      <input type=\"text\" class=\"bss-form-control\" placeholder=\"Enter name\"/>\n    </div>\n  </div>\n  <div class=\"bss-form-group bss-has-feedback bss-has-error\">\n    <label for=\"exampleInputEmail1\" class=\"bss-col-xs-2\">Email address</label>\n    <div class=\"bss-col-xs-3\">\n      <input type=\"text\" className=\"bss-form-control\" placeholder=\"Enter email\"/>\n      <span class=\"bss-icon-client bss-form-control-feedback\" aria-hidden=\"true\"></span>\n      <span class=\"bss-error-block\">This error message is hidden unless bss-has-error is present</span>\n      <span class=\"bss-help-block\">Example help block</span>\n    </div>\n  </div>\n  <div class=\"bss-form-group bss-has-error\">\n    <label for=\"exampleInputPassword1\" class=\"bss-col-xs-2\">Phone Number</label>\n    <div class=\"bss-col-xs-6\">\n      <input type=\"text\" class=\"bss-form-control\" value=\"234-343-3434\"/>\n      <span class=\"bss-icon-error bss-form-control-feedback\" aria-hidden=\"true\"></span>\n      <span class=\"bss-error-block\">This is an error!</span>\n    </div>\n  </div>\n  <div class=\"bss-form-group\">\n    <label for=\"exampleInputPassword1\" class=\"bss-col-xs-2\">Disabled</label>\n    <div class=\"bss-col-xs-10\">\n      <input type=\"text\" class=\"bss-form-control\"value=\"234-343-3434\" disabled=\"true\"/>\n    </div>\n  </div>\n</form>"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1809,11 +1889,12 @@
 						React.createElement("div", {className: "bss-row bss-padding-bottom-16"}, 
 							React.createElement("div", {className: "bss-col-xs-12"}, 
 								React.createElement("form", {className: "bss-form-inline"}, 
-									React.createElement("div", {className: "bss-form-group"}, 
+									React.createElement("div", {className: "bss-form-group bss-has-feedback"}, 
 										React.createElement("label", {for: "exampleInputName2"}, "Email"), 
-										React.createElement("input", {type: "text", className: "bss-form-control", placeholder: "Enter email"})
+										React.createElement("input", {type: "text", className: "bss-form-control", placeholder: "Enter email"}), 
+										React.createElement("span", {className: "bss-icon-client bss-form-control-feedback", "aria-hidden": "true"})
 									), 
-									React.createElement("div", {className: "bss-form-group bss-has-error bss-has-feedback"}, 
+									React.createElement("div", {className: "bss-form-group bss-has-error"}, 
 										React.createElement("label", {for: "exampleInputName2"}, "Phone"), 
 										React.createElement("input", {type: "text", className: "bss-form-control", value: "234-343-3434"}), 
 										React.createElement("span", {className: "bss-icon-error bss-form-control-feedback", "aria-hidden": "true"})
@@ -1827,7 +1908,8 @@
 					)
 				), 
 				React.createElement(Highlight, {className: "html"}, 
-	("<form class=\"bss-form-inline\">\n  <div class=\"bss-form-group\">\n    <label for=\"exampleInputName2\">Email</label>\n    <input type=\"text\" class=\"bss-form-control\" placeholder=\"Enter email\"/>\n  </div>\n  <div class=\"bss-form-group bss-has-error bss-has-feedback\">\n    <label for=\"exampleInputName2\">Phone</label>\n    <input type=\"text\" class=\"bss-form-control\" value=\"234-343-3434\"/>\n    <span class=\"bss-icon-error bss-form-control-feedback\" aria-hidden=\"true\"></span>\n  </div>\n  <div class=\"bss-form-group\">\n    <input type=\"text\" class=\"bss-form-control\" value=\"234-343-3434\" disabled=\"true\"/>\n  </div>\n</form>"
+	("<form class=\"bss-form-inline\">\n  <div class=\"bss-form-group bss-has-feedback\">\n    <label for=\"exampleInputName2\">Email</label>\n    <input type=\"text\" class=\"bss-form-control\" placeholder=\"Enter email\"/>\n    <span class=\"bss-icon-client bss-form-control-feedback\" aria-hidden=\"true\"></span>\n  </div>\n  <div class=\"bss-form-group bss-has-error\">\n    <label for=\"exampleInputName2\">Phone</label>\n    <input type=\"text\" class=\"bss-form-control\" value=\"234-343-3434\"/>\n    <span class=\"bss-icon-error bss-form-control-feedback\" aria-hidden=\"true\"></span>\n  </div>\n  <div class=\"bss-form-group\">\n    <input type=\"text\" class=\"bss-form-control\" value=\"234-343-3434\" disabled=\"true\"/>\n  </div>\n</form>"
+
 
 
 
@@ -2179,8 +2261,13 @@
 
 					React.createElement("div", {className: "bss-card-table bss-card"}, 
 						React.createElement("div", {className: "bss-card-table__headcontent"}, 
-							React.createElement("div", {className: "bss-pull-right"}, 
-								React.createElement("a", {className: "bss-link right-lg-space"}, React.createElement("i", {className: "bss-icon bss-icon-sort"})), 
+							React.createElement("div", {className: "bss-card-table__actions"}, 
+								React.createElement("div", {className: "bss-card-table__actions__icons"}, 
+									React.createElement("a", {className: "bss-link"}, React.createElement("i", {className: "bss-icon bss-icon-download"})), 
+									React.createElement("a", {className: "bss-link"}, React.createElement("i", {className: "bss-icon bss-icon-notes"})), 
+									React.createElement("a", {className: "bss-link"}, React.createElement("i", {className: "bss-icon bss-icon-trash"})), 
+									React.createElement("a", {className: "bss-link"}, React.createElement("i", {className: "bss-icon bss-icon-sort"}))
+								), 
 								React.createElement("a", {href: "#", className: "bss-link"}, "ADD A FILE")
 							), 
 							React.createElement("div", {className: "bss-subheader"}, "Files")
@@ -2197,17 +2284,17 @@
 								)
 							), 
 							React.createElement("tbody", null, 
-								React.createElement("tr", null, 
+								React.createElement("tr", {className: "+active +hover"}, 
 									React.createElement("td", null, "some_filename.pdf"), 
 									React.createElement("td", null, "PDF"), 
 									React.createElement("td", null, "Jan 21 ", React.createElement("span", {className: "bss-l-gray"}, "Kurt Avarell"))
 								), 
-								React.createElement("tr", null, 
+								React.createElement("tr", {className: "+hover"}, 
 									React.createElement("td", null, "secondquarter-tracking.doc"), 
 									React.createElement("td", null, "Document"), 
 									React.createElement("td", null, "Jan 19 ", React.createElement("span", {className: "bss-l-gray"}, "Kurt Avarell"))
 								), 
-								React.createElement("tr", null, 
+								React.createElement("tr", {className: "+hover"}, 
 									React.createElement("td", null, "client-list.docx"), 
 									React.createElement("td", null, "Document"), 
 									React.createElement("td", null, "Jan 02 ", React.createElement("span", {className: "bss-l-gray"}, "Kurt Avarell"))
@@ -2216,7 +2303,12 @@
 						)
 					), 
 					React.createElement(Highlight, {className: "html"}, 
-					("<!-- Card table with a header  -->\n<div class=\"bss-card-table bss-card\">\n  <div class=\"bss-card-table__headcontent\">\n    <div class=\"bss-pull-right\">\n      <a class=\"bss-link right-lg-space\"><i class=\"bss-icon bss-icon-sort\"></i></a>\n      <a href=\"#\" class=\"bss-link\">ADD A FILE</a>\n    </div>\n    <div class=\"bss-subheader\">Files</div>\n  </div>\n  <table>\n    <thead>\n      <tr class=\"bss-card-table__thin\">\n        <th>Filename</th>\n        <th>Type</th>\n        <th>Last Modified</th>\n      </tr>\n      <tr class=\"+thin\">\n        <th colspan=\"3\"></th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr>\n        <td>some_filename.pdf</td>\n        <td>PDF</td>\n        <td>Jan 21 <span class=\"bss-l-gray\">Kurt Avarell</span></td>\n      </tr>\n      <tr>\n        <td>secondquarter-tracking.doc</td>\n        <td>Document</td>\n        <td>Jan 19 <span class=\"bss-l-gray\">Kurt Avarell</span></td>\n      </tr>\n      <tr>\n        <td>client-list.docx</td>\n        <td>Document</td>\n        <td>Jan 02 <span class=\"bss-l-gray\">Kurt Avarell</span></td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n"
+					("<!-- Card table with a header  -->\n<div class=\"bss-card-table bss-card\">\n  <div class=\"bss-card-table__headcontent\">\n    <div class=\"bss-card-table__actions\">\n      <div class=\"bss-card-table__actions__icons\">\n        <a class=\"bss-link\"><i class=\"bss-icon bss-icon-download\"></i></a>\n        <a class=\"bss-link\"><i class=\"bss-icon bss-icon-notes\"></i></a>\n        <a class=\"bss-link\"><i class=\"bss-icon bss-icon-trash\"></i></a>\n        <a class=\"bss-link\"><i class=\"bss-icon bss-icon-sort\"></i></a>\n      </div>\n      <a href=\"#\" class=\"bss-link\">ADD A FILE</a>\n    </div>\n    <div class=\"bss-subheader\">Files</div>\n  </div>\n  <table>\n    <thead>\n      <tr class=\"bss-card-table__thin\">\n        <th>Filename</th>\n        <th>Type</th>\n        <th>Last Modified</th>\n      </tr>\n      <tr class=\"+thin\">\n        <th colSpan=\"3\"></th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr class=\"+active +hover\">\n        <td>some_filename.pdf</td>\n        <td>PDF</td>\n        <td>Jan 21 <span class=\"bss-l-gray\">Kurt Avarell</span></td>\n      </tr>\n      <tr class=\"+hover\">\n        <td>secondquarter-tracking.doc</td>\n        <td>Document</td>\n        <td>Jan 19 <span class=\"bss-l-gray\">Kurt Avarell</span></td>\n      </tr>\n      <tr class=\"+hover\">\n        <td>client-list.docx</td>\n        <td>Document</td>\n        <td>Jan 02 <span class=\"bss-l-gray\">Kurt Avarell</span></td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n"
+
+
+
+
+
 
 
 
@@ -2289,6 +2381,9 @@
 								"Fixed focus really only defines a max and min width for the content. It also centers it.", 
 								React.createElement("strong", null, "The class name \"bss-card\" is what makes the card look with a white background."), 
 								"This same class name is used for the card look and feel of the slat and table components."
+							), 
+							React.createElement("p", null, 
+								"The thinner card headers can be used by adding the class modifier \"+thin\" to the bss-card element."
 							)
 						)
 					), 
@@ -2311,9 +2406,10 @@
 					React.createElement("div", {className: "bss-fixed-masonry"}, 
 						React.createElement("div", {className: "bss-row"}, 
 							React.createElement("div", {className: "bss-col-xs-6"}, 
-								React.createElement("div", {className: "bss-fixed-masonry__card bss-card"}, 
+								React.createElement("div", {className: "bss-fixed-masonry__card bss-card +thin"}, 
 									React.createElement("div", {className: "bss-card__header"}, 
-										"Card 1"
+										"Card 1", 
+										React.createElement("a", {href: true, className: "bss-pull-right bss-blue-link"}, "+ Take some action")
 									), 
 									React.createElement("div", {className: "bss-card__body"}, 
 										"These cards are within a fixed masonry layout. The layout of these cards is arranged with bootstrap classes." + ' ' +
@@ -2323,9 +2419,54 @@
 								)
 							), 
 							React.createElement("div", {className: "bss-col-xs-6"}, 
-								React.createElement("div", {className: "bss-fixed-masonry__card bss-card"}, 
+								React.createElement("div", {className: "bss-fixed-masonry__card bss-card +thin"}, 
 									React.createElement("div", {className: "bss-card__header"}, 
 										"Card 2"
+									), 
+									React.createElement("div", {className: "bss-slat"}, 
+										React.createElement("div", {className: "bss-slat__badge"}, 
+											React.createElement("i", {className: "bss-icon bss-subheader bss-icon-taxes"})
+										), 
+										React.createElement("div", {className: "bss-slat__content"}, 
+											React.createElement("div", {className: "bss-slat__content__title"}, 
+												"Filename"
+											), 
+											React.createElement("div", {className: "bss-slat__content__description"}, 
+												"Document"
+											)
+										), 
+										React.createElement("div", {className: "bss-slat__actions"}, 
+											"2:30PM - 3:30PM"
+										)
+									), 
+									React.createElement("div", {className: "bss-slat"}, 
+										React.createElement("div", {className: "bss-slat__badge"}, 
+											React.createElement("i", {className: "bss-icon bss-subheader bss-icon-taxes"})
+										), 
+										React.createElement("div", {className: "bss-slat__content"}, 
+											React.createElement("div", null, 
+												"Filename"
+											)
+										), 
+										React.createElement("div", {className: "bss-slat__actions"}, 
+											"2:30PM - 3:30PM"
+										)
+									), 
+									React.createElement("div", {className: "bss-slat"}, 
+										React.createElement("div", {className: "bss-slat__badge"}, 
+											React.createElement("i", {className: "bss-icon bss-subheader bss-icon-taxes"})
+										), 
+										React.createElement("div", {className: "bss-slat__content"}, 
+											React.createElement("div", {className: "bss-slat__content__title"}, 
+												"Filename"
+											), 
+											React.createElement("div", {className: "bss-slat__content__description"}, 
+												"Document"
+											)
+										), 
+										React.createElement("div", {className: "bss-slat__actions"}, 
+											"2:30PM - 3:30PM"
+										)
 									)
 								)
 							)
@@ -2963,16 +3104,38 @@
 		render: function() {
 			return (
 			React.createElement("div", null, 
-				React.createElement("div", {className: "bss-fixed-focus bss-card"}, 
+				React.createElement("div", {className: "bss-fixed-focus bss-card "}, 
 					React.createElement("div", {className: "bss-card__header bss-subheader"}, 
 						"Menus"
+					)
+				), 
+					React.createElement(Highlight, {className: "html "}, 
+					("<div class=\"bss-dropdown bss-open\">\n  <a href class=\"bss-btn +primary\">\n   New <span class=\"bss-caret\"></span>\n  </a>\n  <ul class=\"bss-dropdown-menu\" role=\"menu\">\n    <li><a href>My Profile</a></li>\n    <li><a href>Team Members</a></li>\n    <li><a href>Company Profile</a></li>\n\n    <li class=\"bss-divider\"></li>\n    <li><a href=\"https://beanstalk.reamaze.com\" target=\"_blank\">Help</a>\n    </li>\n    <li class=\"bss-divider\"></li>\n    <li><a href=\"/signout\">Sign out</a>\n    </li>\n  </ul>\n</div>"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	)
+					
 					), 
+				React.createElement("div", {className: "bss-fixed-focus bss-card"}, 
 					React.createElement("div", {className: "bss-card__body"}, 
 						React.createElement("div", {className: "bss-row"}, 
-							React.createElement("div", {className: "bss-col-xs-3"}, 
+							React.createElement("div", {className: "bss-col-xs-2"}, 
 								React.createElement("div", {className: "bss-dropdown bss-open"}, 
-									React.createElement("a", {href: true, className: "bss-btn +primary dropdown-toggle"}, 
-									 "New ", React.createElement("i", {className: "bss-icon-sm-caret-down bss-dropdown__icon +white"})
+									React.createElement("a", {href: true, className: "bss-btn +primary"}, 
+									 "New ", React.createElement("span", {className: "bss-caret"})
 									), 
 									React.createElement("ul", {className: "bss-dropdown-menu", role: "menu"}, 
 										React.createElement("li", null, React.createElement("a", {href: true}, "My Profile")), 
@@ -2988,10 +3151,12 @@
 									)
 								)
 							), 
-							React.createElement("div", {className: "bss-col-xs-3"}, 
+							React.createElement("div", {className: "bss-col-xs-2"}, 
 								React.createElement("div", {className: "bss-dropdown bss-open"}, 
-									React.createElement("a", {href: true, className: "bss-link"}, 
-										React.createElement("i", {className: "bss-icon bss-icon-cog"})
+									React.createElement("div", {className: "bss-btn-icon"}, 
+										React.createElement("a", {href: true, className: "bss-link"}, 
+											React.createElement("span", {className: "bss-icon bss-icon-cog"})
+										)
 									), 
 									React.createElement("ul", {className: "bss-dropdown-menu", role: "menu"}, 
 										React.createElement("li", null, React.createElement("a", {href: true}, React.createElement("i", {className: "bss-icon bss-icon-add-person bss-dropdown-menu__icon"}), "Share")), 
@@ -3002,11 +3167,26 @@
 									)
 								)
 							), 
+							React.createElement("div", {className: "bss-col-xs-2"}, 
+								React.createElement("div", {className: "bss-dropdown bss-pull-right bss-open"}, 
+									React.createElement("div", {className: "bss-btn-icon"}, 
+										React.createElement("a", {href: true, className: "bss-link"}, 
+											React.createElement("span", {className: "bss-icon bss-icon-cog"})
+										)
+									), 
+									React.createElement("ul", {className: "bss-dropdown-menu bss-pull-right", role: "menu"}, 
+										React.createElement("li", null, React.createElement("a", {href: true}, React.createElement("i", {className: "bss-icon bss-icon-add-person bss-dropdown-menu__icon"}), "Share")), 
+										React.createElement("li", null, React.createElement("a", {href: true}, React.createElement("i", {className: "bss-icon bss-icon-download bss-dropdown-menu__icon"}), "Download")), 
+										React.createElement("li", null, React.createElement("a", {href: true}, React.createElement("i", {className: "bss-icon bss-icon-notes bss-dropdown-menu__icon"}), "Rename")), 
+										React.createElement("li", null, React.createElement("a", {href: true}, React.createElement("i", {className: "bss-icon bss-icon-trash bss-dropdown-menu__icon"}), "Delete"))
 
-							React.createElement("div", {className: "bss-col-xs-3"}, 
+									)
+								)
+							), 
+							React.createElement("div", {className: "bss-col-xs-2"}, 
 								React.createElement("div", {className: "bss-dropdown"}, 
 									React.createElement("a", {href: true, className: "bss-link"}, 
-									 "Settings ", React.createElement("i", {className: "bss-icon-sm-caret-down bss-dropdown__icon"})
+									 "Settings ", React.createElement("span", {className: "bss-caret"})
 									), 
 									React.createElement("ul", {className: "bss-dropdown-menu", role: "menu"}, 
 										React.createElement("li", null, React.createElement("a", {href: true}, "My Profile")), 
@@ -3022,10 +3202,29 @@
 									)
 								)
 							), 
-							React.createElement("div", {className: "bss-col-xs-3"}, 
+							React.createElement("div", {className: "bss-col-xs-2"}, 
+								React.createElement("div", {className: "bss-dropdown bss-open"}, 
+									React.createElement("a", {href: true, className: "bss-link"}, 
+										"Settings ", React.createElement("span", {className: "bss-caret"})
+									), 
+									React.createElement("ul", {className: "bss-dropdown-menu", role: "menu"}, 
+										React.createElement("li", null, React.createElement("a", {href: true}, "My Profile")), 
+										React.createElement("li", null, React.createElement("a", {href: true}, "Team Members")), 
+										React.createElement("li", null, React.createElement("a", {href: true}, "Company Profile")), 
+
+										React.createElement("li", {className: "bss-divider"}), 
+										React.createElement("li", null, React.createElement("a", {href: "https://beanstalk.reamaze.com", target: "_blank"}, "Help")
+										), 
+										React.createElement("li", {className: "bss-divider"}), 
+										React.createElement("li", null, React.createElement("a", {href: "/signout"}, "Sign out")
+										)
+									)
+								)
+							), 
+							React.createElement("div", {className: "bss-col-xs-2"}, 
 								React.createElement("div", {className: "bss-dropdown bss-pull-right bss-open"}, 
 									React.createElement("a", {href: true, className: "bss-link"}, 
-										"Settings ", React.createElement("i", {className: "bss-icon-sm-caret-down bss-dropdown__icon"})
+										"Settings ", React.createElement("span", {className: "bss-caret"})
 									), 
 									React.createElement("ul", {className: "bss-dropdown-menu bss-pull-right", role: "menu"}, 
 										React.createElement("li", null, React.createElement("a", {href: true}, "My Profile")), 
@@ -3044,7 +3243,6 @@
 						)
 					)
 				)
-
 			)
 			)
 		}
@@ -3067,7 +3265,7 @@
 						React.createElement("div", {className: "bss-modal__dialog bss-card", style: {position: "absolute", top: "200px"}}, 
 							React.createElement("div", {className: "bss-card__header bss-subheader-sm"}, 
 								"Upload a File", 
-								React.createElement("div", {className: "bss-modal__dialog__close bss-icon bss-icon-close"})
+								React.createElement("a", {href: true, className: "bss-modal__dialog__close bss-icon bss-icon-close"})
 							), 
 							React.createElement("div", {className: "bss-card__body"}, 
 								"Choose a file to upload to Beanstalk. You can upload asm any as you'd like— or if you're not a huge fan of" + ' ' +
@@ -3080,7 +3278,7 @@
 						)
 					), 
 					React.createElement(Highlight, {className: "html"}, 
-					("<!-- The dialog markup should be appended to the BODY tag.  -->\n<div class=\"bss-modal\">\n  <div class=\"bss-modal__screen\"></div>\n  <div class=\"bss-modal__dialog bss-card\">\n    <div class=\"bss-card__header bss-subheader-sm\">\n      Upload a File\n      <div class=\"bss-modal__dialog__close bss-icon bss-icon-close\"></div>\n    </div>\n    <div class=\"bss-card__body\">\n      Choose a file to upload to Beanstalk. You can upload asm any as you'd like&mdash; or if you're not a huge fan of\n      clicking you can drag and drop your files anywhere on this page.\n    </div>\n    <div class=\"bss-modal__dialog__actions\">\n        <button class=\"bss-btn +primary\">CHOOSE FILES</button>\n        <a href=\"#\" class=\"bss-link\">NEVERMIND</a>\n    </div>\n  </div>\n</div>\n"
+					("<!-- The dialog markup should be appended to the BODY tag.  -->\n<div class=\"bss-modal\">\n  <div class=\"bss-modal__screen\"></div>\n  <div class=\"bss-modal__dialog bss-card\">\n    <div class=\"bss-card__header bss-subheader-sm\">\n      Upload a File\n      <a href class=\"bss-modal__dialog__close bss-icon bss-icon-close\"></a>\n    </div>\n    <div class=\"bss-card__body\">\n      Choose a file to upload to Beanstalk. You can upload asm any as you'd like&mdash; or if you're not a huge fan of\n      clicking you can drag and drop your files anywhere on this page.\n    </div>\n    <div class=\"bss-modal__dialog__actions\">\n        <button class=\"bss-btn +primary\">CHOOSE FILES</button>\n        <a href=\"#\" class=\"bss-link\">NEVERMIND</a>\n    </div>\n  </div>\n</div>\n"
 
 
 
@@ -5449,7 +5647,7 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(124);
+	var EventConstants = __webpack_require__(126);
 
 	var invariant = __webpack_require__(108);
 
@@ -5673,9 +5871,9 @@
 
 	"use strict";
 
-	var PooledClass = __webpack_require__(125);
+	var PooledClass = __webpack_require__(124);
 
-	var traverseAllChildren = __webpack_require__(126);
+	var traverseAllChildren = __webpack_require__(125);
 	var warning = __webpack_require__(109);
 
 	var twoArgumentPooler = PooledClass.twoArgumentPooler;
@@ -10452,9 +10650,9 @@
 	"use strict";
 
 	var ReactComponent = __webpack_require__(82);
-	var ReactMultiChildUpdateTypes = __webpack_require__(173);
+	var ReactMultiChildUpdateTypes = __webpack_require__(172);
 
-	var flattenChildren = __webpack_require__(174);
+	var flattenChildren = __webpack_require__(173);
 	var instantiateReactComponent = __webpack_require__(135);
 	var shouldUpdateReactComponent = __webpack_require__(139);
 
@@ -10973,7 +11171,7 @@
 	var ReactPropTypeLocationNames = __webpack_require__(134);
 
 	var deprecated = __webpack_require__(100);
-	var emptyFunction = __webpack_require__(172);
+	var emptyFunction = __webpack_require__(174);
 
 	/**
 	 * Collection of methods that allow declaration and validation of props that are
@@ -12032,7 +12230,7 @@
 
 	"use strict";
 
-	var emptyFunction = __webpack_require__(172);
+	var emptyFunction = __webpack_require__(174);
 
 	/**
 	 * Similar to invariant but only logs a warning if the condition is not met.
@@ -13124,82 +13322,6 @@
 /* 124 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/**
-	 * Copyright 2013-2014, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule EventConstants
-	 */
-
-	"use strict";
-
-	var keyMirror = __webpack_require__(129);
-
-	var PropagationPhases = keyMirror({bubbled: null, captured: null});
-
-	/**
-	 * Types of raw signals from the browser caught at the top level.
-	 */
-	var topLevelTypes = keyMirror({
-	  topBlur: null,
-	  topChange: null,
-	  topClick: null,
-	  topCompositionEnd: null,
-	  topCompositionStart: null,
-	  topCompositionUpdate: null,
-	  topContextMenu: null,
-	  topCopy: null,
-	  topCut: null,
-	  topDoubleClick: null,
-	  topDrag: null,
-	  topDragEnd: null,
-	  topDragEnter: null,
-	  topDragExit: null,
-	  topDragLeave: null,
-	  topDragOver: null,
-	  topDragStart: null,
-	  topDrop: null,
-	  topError: null,
-	  topFocus: null,
-	  topInput: null,
-	  topKeyDown: null,
-	  topKeyPress: null,
-	  topKeyUp: null,
-	  topLoad: null,
-	  topMouseDown: null,
-	  topMouseMove: null,
-	  topMouseOut: null,
-	  topMouseOver: null,
-	  topMouseUp: null,
-	  topPaste: null,
-	  topReset: null,
-	  topScroll: null,
-	  topSelectionChange: null,
-	  topSubmit: null,
-	  topTextInput: null,
-	  topTouchCancel: null,
-	  topTouchEnd: null,
-	  topTouchMove: null,
-	  topTouchStart: null,
-	  topWheel: null
-	});
-
-	var EventConstants = {
-	  topLevelTypes: topLevelTypes,
-	  PropagationPhases: PropagationPhases
-	};
-
-	module.exports = EventConstants;
-
-
-/***/ },
-/* 125 */
-/***/ function(module, exports, __webpack_require__) {
-
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2014, Facebook, Inc.
 	 * All rights reserved.
@@ -13316,7 +13438,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(120)))
 
 /***/ },
-/* 126 */
+/* 125 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -13502,6 +13624,82 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(120)))
 
 /***/ },
+/* 126 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule EventConstants
+	 */
+
+	"use strict";
+
+	var keyMirror = __webpack_require__(129);
+
+	var PropagationPhases = keyMirror({bubbled: null, captured: null});
+
+	/**
+	 * Types of raw signals from the browser caught at the top level.
+	 */
+	var topLevelTypes = keyMirror({
+	  topBlur: null,
+	  topChange: null,
+	  topClick: null,
+	  topCompositionEnd: null,
+	  topCompositionStart: null,
+	  topCompositionUpdate: null,
+	  topContextMenu: null,
+	  topCopy: null,
+	  topCut: null,
+	  topDoubleClick: null,
+	  topDrag: null,
+	  topDragEnd: null,
+	  topDragEnter: null,
+	  topDragExit: null,
+	  topDragLeave: null,
+	  topDragOver: null,
+	  topDragStart: null,
+	  topDrop: null,
+	  topError: null,
+	  topFocus: null,
+	  topInput: null,
+	  topKeyDown: null,
+	  topKeyPress: null,
+	  topKeyUp: null,
+	  topLoad: null,
+	  topMouseDown: null,
+	  topMouseMove: null,
+	  topMouseOut: null,
+	  topMouseOver: null,
+	  topMouseUp: null,
+	  topPaste: null,
+	  topReset: null,
+	  topScroll: null,
+	  topSelectionChange: null,
+	  topSubmit: null,
+	  topTextInput: null,
+	  topTouchCancel: null,
+	  topTouchEnd: null,
+	  topTouchMove: null,
+	  topTouchStart: null,
+	  topWheel: null
+	});
+
+	var EventConstants = {
+	  topLevelTypes: topLevelTypes,
+	  PropagationPhases: PropagationPhases
+	};
+
+	module.exports = EventConstants;
+
+
+/***/ },
 /* 127 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -13518,7 +13716,7 @@
 
 	"use strict";
 
-	var emptyObject = __webpack_require__(295);
+	var emptyObject = __webpack_require__(293);
 	var invariant = __webpack_require__(108);
 
 	/**
@@ -13677,11 +13875,11 @@
 
 	"use strict";
 
-	var CallbackQueue = __webpack_require__(293);
-	var PooledClass = __webpack_require__(125);
+	var CallbackQueue = __webpack_require__(294);
+	var PooledClass = __webpack_require__(124);
 	var ReactCurrentOwner = __webpack_require__(85);
 	var ReactPerf = __webpack_require__(95);
-	var Transaction = __webpack_require__(294);
+	var Transaction = __webpack_require__(295);
 
 	var assign = __webpack_require__(99);
 	var invariant = __webpack_require__(108);
@@ -14145,7 +14343,7 @@
 	"use strict";
 
 	var assign = __webpack_require__(99);
-	var emptyFunction = __webpack_require__(172);
+	var emptyFunction = __webpack_require__(174);
 	var invariant = __webpack_require__(108);
 	var joinClasses = __webpack_require__(296);
 	var warning = __webpack_require__(109);
@@ -14851,7 +15049,7 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(124);
+	var EventConstants = __webpack_require__(126);
 	var EventPluginHub = __webpack_require__(302);
 	var EventPluginRegistry = __webpack_require__(303);
 	var ReactEventEmitterMixin = __webpack_require__(304);
@@ -15279,10 +15477,10 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(124);
+	var EventConstants = __webpack_require__(126);
 	var EventPropagators = __webpack_require__(306);
 	var ExecutionEnvironment = __webpack_require__(102);
-	var SyntheticInputEvent = __webpack_require__(307);
+	var SyntheticInputEvent = __webpack_require__(309);
 
 	var keyOf = __webpack_require__(136);
 
@@ -15504,15 +15702,15 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(124);
+	var EventConstants = __webpack_require__(126);
 	var EventPluginHub = __webpack_require__(302);
 	var EventPropagators = __webpack_require__(306);
 	var ExecutionEnvironment = __webpack_require__(102);
 	var ReactUpdates = __webpack_require__(128);
-	var SyntheticEvent = __webpack_require__(308);
+	var SyntheticEvent = __webpack_require__(307);
 
 	var isEventSupported = __webpack_require__(143);
-	var isTextInputElement = __webpack_require__(309);
+	var isTextInputElement = __webpack_require__(308);
 	var keyOf = __webpack_require__(136);
 
 	var topLevelTypes = EventConstants.topLevelTypes;
@@ -15920,7 +16118,7 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(124);
+	var EventConstants = __webpack_require__(126);
 	var EventPropagators = __webpack_require__(306);
 	var ExecutionEnvironment = __webpack_require__(102);
 	var ReactInputSelection = __webpack_require__(310);
@@ -16227,7 +16425,7 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(124);
+	var EventConstants = __webpack_require__(126);
 	var EventPropagators = __webpack_require__(306);
 	var SyntheticMouseEvent = __webpack_require__(313);
 
@@ -16567,9 +16765,9 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(124);
+	var EventConstants = __webpack_require__(126);
 
-	var emptyFunction = __webpack_require__(172);
+	var emptyFunction = __webpack_require__(174);
 
 	var topLevelTypes = EventConstants.topLevelTypes;
 
@@ -16754,10 +16952,10 @@
 	"use strict";
 
 	var ReactUpdates = __webpack_require__(128);
-	var Transaction = __webpack_require__(294);
+	var Transaction = __webpack_require__(295);
 
 	var assign = __webpack_require__(99);
-	var emptyFunction = __webpack_require__(172);
+	var emptyFunction = __webpack_require__(174);
 
 	var RESET_BATCHED_UPDATES = {
 	  initialize: emptyFunction,
@@ -16899,7 +17097,7 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(124);
+	var EventConstants = __webpack_require__(126);
 	var LocalEventTrapMixin = __webpack_require__(318);
 	var ReactBrowserComponentMixin = __webpack_require__(141);
 	var ReactCompositeComponent = __webpack_require__(83);
@@ -16953,7 +17151,7 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(124);
+	var EventConstants = __webpack_require__(126);
 	var LocalEventTrapMixin = __webpack_require__(318);
 	var ReactBrowserComponentMixin = __webpack_require__(141);
 	var ReactCompositeComponent = __webpack_require__(83);
@@ -17577,7 +17775,7 @@
 
 	var EventListener = __webpack_require__(320);
 	var ExecutionEnvironment = __webpack_require__(102);
-	var PooledClass = __webpack_require__(125);
+	var PooledClass = __webpack_require__(124);
 	var ReactInstanceHandles = __webpack_require__(91);
 	var ReactMount = __webpack_require__(93);
 	var ReactUpdates = __webpack_require__(128);
@@ -17806,13 +18004,13 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(124);
+	var EventConstants = __webpack_require__(126);
 	var EventPropagators = __webpack_require__(306);
 	var ReactInputSelection = __webpack_require__(310);
-	var SyntheticEvent = __webpack_require__(308);
+	var SyntheticEvent = __webpack_require__(307);
 
 	var getActiveElement = __webpack_require__(323);
-	var isTextInputElement = __webpack_require__(309);
+	var isTextInputElement = __webpack_require__(308);
 	var keyOf = __webpack_require__(136);
 	var shallowEqual = __webpack_require__(324);
 
@@ -18040,11 +18238,11 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(124);
+	var EventConstants = __webpack_require__(126);
 	var EventPluginUtils = __webpack_require__(80);
 	var EventPropagators = __webpack_require__(306);
 	var SyntheticClipboardEvent = __webpack_require__(325);
-	var SyntheticEvent = __webpack_require__(308);
+	var SyntheticEvent = __webpack_require__(307);
 	var SyntheticFocusEvent = __webpack_require__(326);
 	var SyntheticKeyboardEvent = __webpack_require__(327);
 	var SyntheticMouseEvent = __webpack_require__(313);
@@ -19012,44 +19210,6 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
-	 * @providesModule emptyFunction
-	 */
-
-	function makeEmptyFunction(arg) {
-	  return function() {
-	    return arg;
-	  };
-	}
-
-	/**
-	 * This function accepts and discards inputs; it has no side effects. This is
-	 * primarily useful idiomatically for overridable function endpoints which
-	 * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
-	 */
-	function emptyFunction() {}
-
-	emptyFunction.thatReturns = makeEmptyFunction;
-	emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
-	emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
-	emptyFunction.thatReturnsNull = makeEmptyFunction(null);
-	emptyFunction.thatReturnsThis = function() { return this; };
-	emptyFunction.thatReturnsArgument = function(arg) { return arg; };
-
-	module.exports = emptyFunction;
-
-
-/***/ },
-/* 173 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
 	 * @providesModule ReactMultiChildUpdateTypes
 	 */
 
@@ -19076,7 +19236,7 @@
 
 
 /***/ },
-/* 174 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -19094,7 +19254,7 @@
 
 	var ReactTextComponent = __webpack_require__(98);
 
-	var traverseAllChildren = __webpack_require__(126);
+	var traverseAllChildren = __webpack_require__(125);
 	var warning = __webpack_require__(109);
 
 	/**
@@ -19146,6 +19306,44 @@
 	module.exports = flattenChildren;
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(120)))
+
+/***/ },
+/* 174 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule emptyFunction
+	 */
+
+	function makeEmptyFunction(arg) {
+	  return function() {
+	    return arg;
+	  };
+	}
+
+	/**
+	 * This function accepts and discards inputs; it has no side effects. This is
+	 * primarily useful idiomatically for overridable function endpoints which
+	 * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
+	 */
+	function emptyFunction() {}
+
+	emptyFunction.thatReturns = makeEmptyFunction;
+	emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
+	emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
+	emptyFunction.thatReturnsNull = makeEmptyFunction(null);
+	emptyFunction.thatReturnsThis = function() { return this; };
+	emptyFunction.thatReturnsArgument = function(arg) { return arg; };
+
+	module.exports = emptyFunction;
+
 
 /***/ },
 /* 175 */
@@ -19217,13 +19415,13 @@
 
 	"use strict";
 
-	var PooledClass = __webpack_require__(125);
-	var CallbackQueue = __webpack_require__(293);
+	var PooledClass = __webpack_require__(124);
+	var CallbackQueue = __webpack_require__(294);
 	var ReactPutListenerQueue = __webpack_require__(337);
-	var Transaction = __webpack_require__(294);
+	var Transaction = __webpack_require__(295);
 
 	var assign = __webpack_require__(99);
-	var emptyFunction = __webpack_require__(172);
+	var emptyFunction = __webpack_require__(174);
 
 	/**
 	 * Provides a `CallbackQueue` queue for collecting `onDOMReady` callbacks
@@ -29681,12 +29879,39 @@
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
+	 * @providesModule emptyObject
+	 */
+
+	"use strict";
+
+	var emptyObject = {};
+
+	if ("production" !== process.env.NODE_ENV) {
+	  Object.freeze(emptyObject);
+	}
+
+	module.exports = emptyObject;
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(120)))
+
+/***/ },
+/* 294 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
 	 * @providesModule CallbackQueue
 	 */
 
 	"use strict";
 
-	var PooledClass = __webpack_require__(125);
+	var PooledClass = __webpack_require__(124);
 
 	var assign = __webpack_require__(99);
 	var invariant = __webpack_require__(108);
@@ -29773,7 +29998,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(120)))
 
 /***/ },
-/* 294 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -30013,33 +30238,6 @@
 	};
 
 	module.exports = Transaction;
-
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(120)))
-
-/***/ },
-/* 295 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-2014, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule emptyObject
-	 */
-
-	"use strict";
-
-	var emptyObject = {};
-
-	if ("production" !== process.env.NODE_ENV) {
-	  Object.freeze(emptyObject);
-	}
-
-	module.exports = emptyObject;
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(120)))
 
@@ -31109,7 +31307,7 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(124);
+	var EventConstants = __webpack_require__(126);
 	var EventPluginHub = __webpack_require__(302);
 
 	var accumulateInto = __webpack_require__(341);
@@ -31242,57 +31440,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
-	 * Copyright 2013 Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule SyntheticInputEvent
-	 * @typechecks static-only
-	 */
-
-	"use strict";
-
-	var SyntheticEvent = __webpack_require__(308);
-
-	/**
-	 * @interface Event
-	 * @see http://www.w3.org/TR/2013/WD-DOM-Level-3-Events-20131105
-	 *      /#events-inputevents
-	 */
-	var InputEventInterface = {
-	  data: null
-	};
-
-	/**
-	 * @param {object} dispatchConfig Configuration used to dispatch this event.
-	 * @param {string} dispatchMarker Marker identifying the event target.
-	 * @param {object} nativeEvent Native browser event.
-	 * @extends {SyntheticUIEvent}
-	 */
-	function SyntheticInputEvent(
-	  dispatchConfig,
-	  dispatchMarker,
-	  nativeEvent) {
-	  SyntheticEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent);
-	}
-
-	SyntheticEvent.augmentClass(
-	  SyntheticInputEvent,
-	  InputEventInterface
-	);
-
-	module.exports = SyntheticInputEvent;
-
-
-
-/***/ },
-/* 308 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
 	 * Copyright 2013-2014, Facebook, Inc.
 	 * All rights reserved.
 	 *
@@ -31306,10 +31453,10 @@
 
 	"use strict";
 
-	var PooledClass = __webpack_require__(125);
+	var PooledClass = __webpack_require__(124);
 
 	var assign = __webpack_require__(99);
-	var emptyFunction = __webpack_require__(172);
+	var emptyFunction = __webpack_require__(174);
 	var getEventTarget = __webpack_require__(321);
 
 	/**
@@ -31451,7 +31598,7 @@
 
 
 /***/ },
-/* 309 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31496,6 +31643,57 @@
 	}
 
 	module.exports = isTextInputElement;
+
+
+/***/ },
+/* 309 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013 Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule SyntheticInputEvent
+	 * @typechecks static-only
+	 */
+
+	"use strict";
+
+	var SyntheticEvent = __webpack_require__(307);
+
+	/**
+	 * @interface Event
+	 * @see http://www.w3.org/TR/2013/WD-DOM-Level-3-Events-20131105
+	 *      /#events-inputevents
+	 */
+	var InputEventInterface = {
+	  data: null
+	};
+
+	/**
+	 * @param {object} dispatchConfig Configuration used to dispatch this event.
+	 * @param {string} dispatchMarker Marker identifying the event target.
+	 * @param {object} nativeEvent Native browser event.
+	 * @extends {SyntheticUIEvent}
+	 */
+	function SyntheticInputEvent(
+	  dispatchConfig,
+	  dispatchMarker,
+	  nativeEvent) {
+	  SyntheticEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent);
+	}
+
+	SyntheticEvent.augmentClass(
+	  SyntheticInputEvent,
+	  InputEventInterface
+	);
+
+	module.exports = SyntheticInputEvent;
+
 
 
 /***/ },
@@ -31656,7 +31854,7 @@
 
 	"use strict";
 
-	var SyntheticEvent = __webpack_require__(308);
+	var SyntheticEvent = __webpack_require__(307);
 
 	/**
 	 * @interface Event
@@ -31750,7 +31948,7 @@
 	var SyntheticUIEvent = __webpack_require__(330);
 	var ViewportMetrics = __webpack_require__(305);
 
-	var getEventModifierState = __webpack_require__(346);
+	var getEventModifierState = __webpack_require__(345);
 
 	/**
 	 * @interface MouseEvent
@@ -31837,7 +32035,7 @@
 	"use strict";
 
 	var CSSPropertyOperations = __webpack_require__(140);
-	var DOMChildrenOperations = __webpack_require__(345);
+	var DOMChildrenOperations = __webpack_require__(346);
 	var DOMPropertyOperations = __webpack_require__(79);
 	var ReactMount = __webpack_require__(93);
 	var ReactPerf = __webpack_require__(95);
@@ -32023,12 +32221,12 @@
 
 	"use strict";
 
-	var CallbackQueue = __webpack_require__(293);
-	var PooledClass = __webpack_require__(125);
+	var CallbackQueue = __webpack_require__(294);
+	var PooledClass = __webpack_require__(124);
 	var ReactBrowserEventEmitter = __webpack_require__(142);
 	var ReactInputSelection = __webpack_require__(310);
 	var ReactPutListenerQueue = __webpack_require__(337);
-	var Transaction = __webpack_require__(294);
+	var Transaction = __webpack_require__(295);
 
 	var assign = __webpack_require__(99);
 
@@ -32533,7 +32731,7 @@
 	 * @typechecks
 	 */
 
-	var emptyFunction = __webpack_require__(172);
+	var emptyFunction = __webpack_require__(174);
 
 	/**
 	 * Upstream version of event listener. Does not take into account specific
@@ -32781,7 +32979,7 @@
 
 	"use strict";
 
-	var SyntheticEvent = __webpack_require__(308);
+	var SyntheticEvent = __webpack_require__(307);
 
 	/**
 	 * @interface Event
@@ -32878,7 +33076,7 @@
 
 	var getEventCharCode = __webpack_require__(332);
 	var getEventKey = __webpack_require__(347);
-	var getEventModifierState = __webpack_require__(346);
+	var getEventModifierState = __webpack_require__(345);
 
 	/**
 	 * @interface KeyboardEvent
@@ -33010,7 +33208,7 @@
 
 	var SyntheticUIEvent = __webpack_require__(330);
 
-	var getEventModifierState = __webpack_require__(346);
+	var getEventModifierState = __webpack_require__(345);
 
 	/**
 	 * @interface TouchEvent
@@ -33060,7 +33258,7 @@
 
 	"use strict";
 
-	var SyntheticEvent = __webpack_require__(308);
+	var SyntheticEvent = __webpack_require__(307);
 
 	var getEventTarget = __webpack_require__(321);
 
@@ -33555,7 +33753,7 @@
 
 	"use strict";
 
-	var PooledClass = __webpack_require__(125);
+	var PooledClass = __webpack_require__(124);
 	var ReactBrowserEventEmitter = __webpack_require__(142);
 
 	var assign = __webpack_require__(99);
@@ -34046,6 +34244,57 @@
 /* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/**
+	 * Copyright 2013 Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule getEventModifierState
+	 * @typechecks static-only
+	 */
+
+	"use strict";
+
+	/**
+	 * Translation from modifier key to the associated property in the event.
+	 * @see http://www.w3.org/TR/DOM-Level-3-Events/#keys-Modifiers
+	 */
+
+	var modifierKeyToProp = {
+	  'Alt': 'altKey',
+	  'Control': 'ctrlKey',
+	  'Meta': 'metaKey',
+	  'Shift': 'shiftKey'
+	};
+
+	// IE8 does not implement getModifierState so we simply map it to the only
+	// modifier keys exposed by the event itself, does not support Lock-keys.
+	// Currently, all major browsers except Chrome seems to support Lock-keys.
+	function modifierStateGetter(keyArg) {
+	  /*jshint validthis:true */
+	  var syntheticEvent = this;
+	  var nativeEvent = syntheticEvent.nativeEvent;
+	  if (nativeEvent.getModifierState) {
+	    return nativeEvent.getModifierState(keyArg);
+	  }
+	  var keyProp = modifierKeyToProp[keyArg];
+	  return keyProp ? !!nativeEvent[keyProp] : false;
+	}
+
+	function getEventModifierState(nativeEvent) {
+	  return modifierStateGetter;
+	}
+
+	module.exports = getEventModifierState;
+
+
+/***/ },
+/* 346 */
+/***/ function(module, exports, __webpack_require__) {
+
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2014, Facebook, Inc.
 	 * All rights reserved.
@@ -34061,7 +34310,7 @@
 	"use strict";
 
 	var Danger = __webpack_require__(353);
-	var ReactMultiChildUpdateTypes = __webpack_require__(173);
+	var ReactMultiChildUpdateTypes = __webpack_require__(172);
 
 	var getTextContentAccessor = __webpack_require__(312);
 	var invariant = __webpack_require__(108);
@@ -34219,57 +34468,6 @@
 	module.exports = DOMChildrenOperations;
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(120)))
-
-/***/ },
-/* 346 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013 Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule getEventModifierState
-	 * @typechecks static-only
-	 */
-
-	"use strict";
-
-	/**
-	 * Translation from modifier key to the associated property in the event.
-	 * @see http://www.w3.org/TR/DOM-Level-3-Events/#keys-Modifiers
-	 */
-
-	var modifierKeyToProp = {
-	  'Alt': 'altKey',
-	  'Control': 'ctrlKey',
-	  'Meta': 'metaKey',
-	  'Shift': 'shiftKey'
-	};
-
-	// IE8 does not implement getModifierState so we simply map it to the only
-	// modifier keys exposed by the event itself, does not support Lock-keys.
-	// Currently, all major browsers except Chrome seems to support Lock-keys.
-	function modifierStateGetter(keyArg) {
-	  /*jshint validthis:true */
-	  var syntheticEvent = this;
-	  var nativeEvent = syntheticEvent.nativeEvent;
-	  if (nativeEvent.getModifierState) {
-	    return nativeEvent.getModifierState(keyArg);
-	  }
-	  var keyProp = modifierKeyToProp[keyArg];
-	  return keyProp ? !!nativeEvent[keyProp] : false;
-	}
-
-	function getEventModifierState(nativeEvent) {
-	  return modifierStateGetter;
-	}
-
-	module.exports = getEventModifierState;
-
 
 /***/ },
 /* 347 */
@@ -34792,7 +34990,7 @@
 	var ExecutionEnvironment = __webpack_require__(102);
 
 	var createNodesFromMarkup = __webpack_require__(354);
-	var emptyFunction = __webpack_require__(172);
+	var emptyFunction = __webpack_require__(174);
 	var getMarkupWrap = __webpack_require__(355);
 	var invariant = __webpack_require__(108);
 

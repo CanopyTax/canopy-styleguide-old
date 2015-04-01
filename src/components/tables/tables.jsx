@@ -140,8 +140,13 @@ module.exports = React.createClass({
 
 				<div className="bss-card-table bss-card">
 					<div className="bss-card-table__headcontent">
-						<div className="bss-pull-right">
-							<a className="bss-link right-lg-space"><i className="bss-icon bss-icon-sort"></i></a>
+						<div className="bss-card-table__actions">
+							<div className="bss-card-table__actions__icons">
+								<a className="bss-link"><i className="bss-icon bss-icon-download"></i></a>
+								<a className="bss-link"><i className="bss-icon bss-icon-notes"></i></a>
+								<a className="bss-link"><i className="bss-icon bss-icon-trash"></i></a>
+								<a className="bss-link"><i className="bss-icon bss-icon-sort"></i></a>
+							</div>
 							<a href="#" className="bss-link">ADD A FILE</a>
 						</div>
 						<div className="bss-subheader">Files</div>
@@ -158,17 +163,17 @@ module.exports = React.createClass({
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
+							<tr className="+active +hover">
 								<td>some_filename.pdf</td>
 								<td>PDF</td>
 								<td>Jan 21 <span className="bss-l-gray">Kurt Avarell</span></td>
 							</tr>
-							<tr>
+							<tr className="+hover">
 								<td>secondquarter-tracking.doc</td>
 								<td>Document</td>
 								<td>Jan 19 <span className="bss-l-gray">Kurt Avarell</span></td>
 							</tr>
-							<tr>
+							<tr className="+hover">
 								<td>client-list.docx</td>
 								<td>Document</td>
 								<td>Jan 02 <span className="bss-l-gray">Kurt Avarell</span></td>
@@ -181,8 +186,13 @@ module.exports = React.createClass({
 `<!-- Card table with a header  -->
 <div class="bss-card-table bss-card">
   <div class="bss-card-table__headcontent">
-    <div class="bss-pull-right">
-      <a class="bss-link right-lg-space"><i class="bss-icon bss-icon-sort"></i></a>
+    <div class="bss-card-table__actions">
+      <div class="bss-card-table__actions__icons">
+        <a class="bss-link"><i class="bss-icon bss-icon-download"></i></a>
+        <a class="bss-link"><i class="bss-icon bss-icon-notes"></i></a>
+        <a class="bss-link"><i class="bss-icon bss-icon-trash"></i></a>
+        <a class="bss-link"><i class="bss-icon bss-icon-sort"></i></a>
+      </div>
       <a href="#" class="bss-link">ADD A FILE</a>
     </div>
     <div class="bss-subheader">Files</div>
@@ -195,21 +205,21 @@ module.exports = React.createClass({
         <th>Last Modified</th>
       </tr>
       <tr class="+thin">
-        <th colspan="3"></th>
+        <th colSpan="3"></th>
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr class="+active +hover">
         <td>some_filename.pdf</td>
         <td>PDF</td>
         <td>Jan 21 <span class="bss-l-gray">Kurt Avarell</span></td>
       </tr>
-      <tr>
+      <tr class="+hover">
         <td>secondquarter-tracking.doc</td>
         <td>Document</td>
         <td>Jan 19 <span class="bss-l-gray">Kurt Avarell</span></td>
       </tr>
-      <tr>
+      <tr class="+hover">
         <td>client-list.docx</td>
         <td>Document</td>
         <td>Jan 02 <span class="bss-l-gray">Kurt Avarell</span></td>

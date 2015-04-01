@@ -23,6 +23,8 @@
 @gray10: #AFAFAF;
 
 @blue-link: #4A90E2;
+@medium-blue: rgba( red(@blue-link), green(@blue-link), blue(@blue-link), .2);
+@light-blue: rgba( red(@blue-link), green(@blue-link), blue(@blue-link), .1);
 
 @white: white;
 
@@ -42,6 +44,9 @@
 .gen-color-class(@name, @color) {
 	.bss-@{name} {
 		color: @color!important;
+		&.bss-icon:before {
+			color: @color!important;
+		}
 	}
 	.bss-bg-@{name} {
 		background-color: @color!important;
