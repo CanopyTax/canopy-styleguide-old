@@ -206,6 +206,74 @@ module.exports = React.createClass({
 }
 				</Highlight>
 
+
+			<div className="bss-flexible-focus bss-card">
+				<div className="bss-card__body">
+					<div className="bss-subheader-sm bss-margin-bottom-24 bss-margin-top-24">Auto sized Inputs</div>
+					<div className="bss-row bss-padding-bottom-16">
+						<div className="bss-col-xs-12">
+							<form className="bss-form-horizontal">
+								<div className="bss-form-group-resize">
+									<label for="Email" className="bss-col-xs-2">Phone</label>
+									<div className="bss-col-xs-8">
+										<input type="text" className="bss-form-control-resize" placeholder="Enter email"/>
+									</div>
+								</div>
+								<div className="bss-form-group-resize">
+									<label for="Email" className="bss-col-xs-2">Email</label>
+									<div className="bss-col-xs-8">
+										<input type="text" className="bss-form-control-resize" placeholder="Enter email"/>
+									</div>
+								</div>
+								<div className="bss-form-group-resize">
+									<label for="Email" className="bss-col-xs-2">Address 1</label>
+									<div className="bss-col-xs-8">
+										<input type="text" className="bss-form-control-resize" placeholder="Enter email"/>
+									</div>
+								</div>
+								<div className="bss-form-group-resize bss-has-error">
+									<label for="Email" className="bss-col-xs-2">Adress 2</label>
+									<div className="bss-col-xs-8">
+										<input type="text" className="bss-form-control-resize" placeholder="Enter email" value="234-343-3434"/>
+										<span className="bss-error-block">This is an error!</span>
+									</div>
+								</div>
+								<div className="bss-form-group-resize">
+									<label for="Phone" className="bss-col-xs-2">Zip</label>
+									<div className="bss-col-xs-4">
+										<input type="text" className="bss-form-control-resize" value="234-343-3434" readonly="readonly"/>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<Highlight className="html">
+{
+`<form class="bss-form-inline">
+<div class="bss-form-group-resize">
+  <label for="Email" class="bss-col-xs-2">Address 1</label>
+  <div class="bss-col-xs-8">
+    <input type="text" class="bss-form-control-resize" placeholder="Enter email"/>
+  </div>
+</div>
+<div className="bss-form-group-resize bss-has-error">
+  <label for="Email" class="bss-col-xs-2">Adress 2</label>
+  <div class="bss-col-xs-8">
+    <input type="text" class="bss-form-control-resize" placeholder="Enter email" value="234-343-3434"/>
+    <span class="bss-error-block">This is an error!</span>
+  </div>
+</div>
+<div class="bss-form-group-resize">
+  <label for="Phone" class="bss-col-xs-2">Zip</label>
+  <div class="bss-col-xs-4">
+    <input type="text" class="bss-form-control-resize" value="234-343-3434" readonly="readonly"/>
+  </div>
+</div>
+</form>`
+}
+				</Highlight>
 		</div>
 		)
 	}
