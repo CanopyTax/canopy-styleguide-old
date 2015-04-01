@@ -1,10 +1,23 @@
 @import "./flexible-masonry.less";
+@import "../variables/variables.less";
 
 .bss-card {
 	background-color: @white;
 	border-radius: .3rem;
 	color: @dark-gray;
 	.depth-z1();
+
+	&.\+thin {
+		.bss-card__header {
+			height: 3.6rem;
+			background-color: @gray2;
+			padding: .8rem 1.6rem;
+			border-radius: 2px 2px 0 0;
+		}
+		.bss-card__body {
+			padding:1.6rem 1.6rem;
+		}
+	}
 }
 
 .bss-fixed-masonry, .bss-fixed-focus {

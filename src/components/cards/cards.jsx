@@ -20,6 +20,9 @@ module.exports = React.createClass({
 							<strong>The class name "bss-card" is what makes the card look with a white background.</strong>
 							This same class name is used for the card look and feel of the slat and table components.
 						</p>
+						<p>
+							The thinner card headers can be used by adding the class modifier "+thin" to the bss-card element.
+						</p>
 					</div>
 				</div>
 
@@ -42,9 +45,10 @@ module.exports = React.createClass({
 				<div className="bss-fixed-masonry">
 					<div className="bss-row">
 						<div className="bss-col-xs-6">
-							<div className="bss-fixed-masonry__card bss-card">
+							<div className="bss-fixed-masonry__card bss-card +thin">
 								<div className="bss-card__header">
 									Card 1
+									<a href className="bss-pull-right bss-blue-link">+ Take some action</a>
 								</div>
 								<div className="bss-card__body">
 									These cards are within a fixed masonry layout. The layout of these cards is arranged with bootstrap classes.
@@ -54,9 +58,54 @@ module.exports = React.createClass({
 							</div>
 						</div>
 						<div className="bss-col-xs-6">
-							<div className="bss-fixed-masonry__card bss-card">
+							<div className="bss-fixed-masonry__card bss-card +thin">
 								<div className="bss-card__header">
 									Card 2
+								</div>
+								<div className="bss-slat">
+									<div className="bss-slat__badge">
+										<i className="bss-icon bss-subheader bss-icon-taxes"></i>
+									</div>
+									<div className="bss-slat__content">
+										<div className="bss-slat__content__title">
+											Filename
+										</div>
+										<div className="bss-slat__content__description">
+											Document
+										</div>
+									</div>
+									<div className="bss-slat__actions">
+										2:30PM - 3:30PM
+									</div>
+								</div>
+								<div className="bss-slat">
+									<div className="bss-slat__badge">
+										<i className="bss-icon bss-subheader bss-icon-taxes"></i>
+									</div>
+									<div className="bss-slat__content">
+										<div>
+											Filename
+										</div>
+									</div>
+									<div className="bss-slat__actions">
+										2:30PM - 3:30PM
+									</div>
+								</div>
+								<div className="bss-slat">
+									<div className="bss-slat__badge">
+										<i className="bss-icon bss-subheader bss-icon-taxes"></i>
+									</div>
+									<div className="bss-slat__content">
+										<div className="bss-slat__content__title">
+											Filename
+										</div>
+										<div className="bss-slat__content__description">
+											Document
+										</div>
+									</div>
+									<div className="bss-slat__actions">
+										2:30PM - 3:30PM
+									</div>
 								</div>
 							</div>
 						</div>

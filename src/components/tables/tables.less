@@ -38,6 +38,19 @@
 		height: 4.8rem;
 		padding: 0;
 		width: 100%;
+		user-select: none;
+		&.\+hover:hover {
+			background-color: @hover-color;
+			cursor: pointer;
+		}
+
+		&.\+active.\+hover:hover {
+			background-color: @medium-blue;
+		}
+
+		&.\+active {
+			background-color: @light-blue;
+		}
 	}
 
 	thead {
@@ -46,6 +59,7 @@
 		font-size: 1.4rem;
 		tr {
 			height: 5.0rem;
+
 			&:last-child {
 				&.\+thin {
 					height: .1rem;
@@ -71,6 +85,7 @@
 
 	td {
 		border-bottom: .1rem solid @breakline-light;
+		height: 4.8rem;
 	}
 
 	tr:last-child td {
@@ -79,6 +94,23 @@
 
 	tr.bss-card-table__thin {
 		height: 4.0rem;
+	}
+
+	&__actions {
+		float: right;
+
+		&__icons {
+			margin-right: 3px;
+			display: inline-block;
+
+			.bss-link {
+				padding: 4px;
+				margin-right: 9px;
+				.bss-icon {
+					padding-right: 0;
+				}
+			}
+		}
 	}
 
 	&__headcontent {
