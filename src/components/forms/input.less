@@ -81,7 +81,7 @@ fieldset[disabled] .bss-form-control {
 
 .bss-form-inline {
 
-	.bss-form-group {
+	.bss-form-group, .bss-form-group-resize {
 		display: inline-block;
 		margin-bottom: 0;
 		vertical-align: middle;
@@ -95,17 +95,13 @@ fieldset[disabled] .bss-form-control {
 		}
 	}
 
-	.bss-form-control {
+	.bss-form-control, .bss-form-control-resize {
 		display: inline-block;
 		width: auto;
 		margin-left: 0px;
 		vertical-align: middle;
 	}
 
-	.bss-control-label {
-		margin-bottom: 0;
-		vertical-align: middle;
-	}
 
 	.bss-radio,
 	.bss-checkbox {
@@ -188,7 +184,7 @@ fieldset[disabled] .bss-form-control {
 		display: inline-block;
 		color: black !important;
 	}
-	.bss-error-block, .bss-control-label, .bss-radio,
+	.bss-error-block, .bss-radio,
 	.bss-checkbox, .bss-radio-inline, .bss-checkbox-inline {
 		color: @warning;
 	}
@@ -237,7 +233,7 @@ fieldset[disabled] .bss-form-control {
 		display: block;
 		font-size: 14px;
 		color: @gray10;
-		padding-top: 2px;
+		padding-top: 1px;
 		padding-right: 8px !important; // 8px + 16px from col = 24px
 	}
 
