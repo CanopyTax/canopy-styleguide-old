@@ -11,6 +11,14 @@
 	font-size: 1.4rem;
 	.depth-z1;
 
+	&.\+noclick {
+		cursor: auto;
+
+		&:hover {
+			background-color: @white;
+		}
+	}
+
 	&:hover {
 		background-color: @hover-color;
 	}
@@ -73,7 +81,7 @@
 			padding: 1.0rem 0;
 		}
 		.bss-slat__actions {
-			padding: 1.0rem 2.4rem;
+			top:1.1rem;
 		}
 	}
 }
@@ -98,6 +106,14 @@
 	margin: 0 auto;
 	font-size: 1.4rem;
 	display: block;
+
+	&.\+noclick {
+		cursor: auto;
+
+		&:hover {
+			background-color: @white;
+		}
+	}
 
 	&:hover {
 		background-color: @hover-color;
@@ -136,7 +152,9 @@
 
 	&__actions {
 		float: right;
-		padding: 1.6rem 2.4rem;
+		position: relative;
+		top: 2.5rem;
+		right: 2.4rem;
 	}
 
 	&.bss-animate.ng-enter,

@@ -230,12 +230,15 @@
 .bss-row:before,
 .bss-row:after,
 .bss-form-horizontal .bss-form-group:before,
-.bss-form-horizontal .bss-form-group:after {
+.bss-form-group-resize:before,
+.bss-form-horizontal .bss-form-group:after,
+.bss-form-group-resize:after {
   display: table;
   content: " ";
 }
 .bss-row:after,
-.bss-form-horizontal .bss-form-group:after {
+.bss-form-horizontal .bss-form-group:after,
+.bss-form-group-resize:after {
   clear: both;
 }
 .bss-margin-0 {
@@ -1095,7 +1098,8 @@ fieldset[disabled] .bss-form-control {
 .bss-form-horizontal .bss-checkbox {
   min-height: 27px;
 }
-.bss-form-horizontal .bss-form-group {
+.bss-form-horizontal .bss-form-group,
+.bss-form-horizontal .bss-form-group-resize {
   margin-right: -8px;
   margin-left: -8px;
 }
@@ -1199,6 +1203,10 @@ fieldset[disabled] .bss-form-control {
   display: block;
   color: #ff8a65;
 }
+.bss-has-error .bss-form-group-resize > .bss-error-block {
+  display: inline-block;
+  color: black !important;
+}
 .bss-has-error .bss-error-block,
 .bss-has-error .bss-control-label,
 .bss-has-error .bss-radio,
@@ -1224,8 +1232,14 @@ fieldset[disabled] .bss-form-control {
   box-shadow: 0 0 0 2px rgba(254, 153, 108, 0.3);
   /* emulate the border */
 }
+.bss-has-error .bss-form-control-resize {
+  background-color: rgba(254, 143, 108, 0.3);
+}
+.bss-has-error .bss-form-control-resize:focus {
+  background-color: rgba(254, 143, 108, 0.3) !important;
+}
 .bss-has-error label {
-  color: #ff8a65;
+  color: #ff8a65 !important;
 }
 .bss-has-error,
 .bss-has-feedback {
@@ -1238,6 +1252,50 @@ fieldset[disabled] .bss-form-control {
 .bss-has-error label.sr-only ~ .bss-form-control-feedback,
 .bss-has-feedback label.sr-only ~ .bss-form-control-feedback {
   top: 0;
+}
+.bss-form-group-resize {
+  display: block;
+}
+.bss-form-group-resize label {
+  display: block;
+  font-size: 14px;
+  color: #afafaf;
+  padding-top: 2px;
+  padding-right: 8px !important;
+}
+.bss-form-control-resize {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  color: inherit;
+  outline: none;
+  font-size: 14px;
+  font-weight: 400;
+  border: 1px solid transparent;
+  margin: 0px;
+  color: #5c5c5c;
+}
+.bss-form-control-resize:focus {
+  border: 1px solid #cfcfcf;
+}
+input[readonly="readonly"].bss-form-control-resize {
+  cursor: text;
+  border: 1px solid transparent !important;
+}
+input[type="text"].bss-form-control-resize::-webkit-input-placeholder {
+  color: #cfcfcf;
+}
+input[type="text"].bss-form-control-resize::-moz-placeholder {
+  color: #cfcfcf;
+}
+input[type="text"].bss-form-control-resize::-moz-placeholder {
+  /* Older versions of Firefox */
+  color: #cfcfcf;
+}
+input[type="text"].bss-form-control-resize::-ms-input-placeholder {
+  color: #cfcfcf;
 }
 textarea {
   margin: 0;
@@ -1492,15 +1550,6 @@ textarea.bss-form-control.\+no-resize {
   margin-left: 0rem;
   width: 100%;
 }
-.bss-page-content {
-  background-color: white;
-  border-radius: .3rem;
-  box-shadow: 0rem 0.2rem 0.5rem 0rem rgba(153, 153, 153, 0.3);
-  color: #333333;
-}
-.bss-page-content__message {
-  padding: 4.0rem;
-}
 .bss-secondarynav {
   margin-top: 4.8rem;
   position: fixed;
@@ -1636,6 +1685,12 @@ textarea.bss-form-control.\+no-resize {
   font-size: 1.4rem;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.26);
 }
+.bss-slat.\+noclick {
+  cursor: auto;
+}
+.bss-slat.\+noclick:hover {
+  background-color: white;
+}
 .bss-slat:hover {
   background-color: #f7f7f7;
 }
@@ -1691,7 +1746,7 @@ textarea.bss-form-control.\+no-resize {
   padding: 1.0rem 0;
 }
 .bss-slat.\+small .bss-slat__actions {
-  padding: 1.0rem 2.4rem;
+  top: 1.1rem;
 }
 .bss-card .bss-slat-lg,
 .bss-card .bss-slat {
@@ -1713,6 +1768,12 @@ textarea.bss-form-control.\+no-resize {
   margin: 0 auto;
   font-size: 1.4rem;
   display: block;
+}
+.bss-slat-lg.\+noclick {
+  cursor: auto;
+}
+.bss-slat-lg.\+noclick:hover {
+  background-color: white;
 }
 .bss-slat-lg:hover {
   background-color: #f7f7f7;
@@ -1747,7 +1808,9 @@ textarea.bss-form-control.\+no-resize {
 }
 .bss-slat-lg__actions {
   float: right;
-  padding: 1.6rem 2.4rem;
+  position: relative;
+  top: 2.5rem;
+  right: 2.4rem;
 }
 .bss-slat-lg.bss-animate.ng-enter,
 .bss-slat-lg.bss-animate.ng-leave {
@@ -1942,9 +2005,13 @@ textarea.bss-form-control.\+no-resize {
   padding: 1.6rem 1.6rem;
 }
 .bss-fixed-masonry,
-.bss-fixed-focus {
+.bss-flexible-focus {
   min-width: 70.0rem;
   max-width: 136.0rem;
+  margin: 0 auto 0 auto;
+}
+.bss-fixed-focus {
+  width: 76.0rem;
   margin: 0 auto 0 auto;
 }
 .bss-fixed-masonry__card {
