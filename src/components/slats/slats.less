@@ -9,7 +9,9 @@
 	cursor: pointer;
 	display: block;
 	font-size: 1.4rem;
+	color: @dark-gray;
 	.depth-z1;
+	transition: 200ms ease-in background-color;
 
 	&.\+noclick {
 		cursor: auto;
@@ -21,6 +23,10 @@
 
 	&:hover {
 		background-color: @hover-color;
+
+		.bss-slat__actions.\+hover-show {
+			opacity: 1;
+		}
 	}
 
 	&__badge {
@@ -29,10 +35,14 @@
 		padding: .8rem 1.6rem .8rem 2.0rem;
 	}
 
+	&__badge + .bss-slat__content {
+		left: 7.2rem;
+	}
+
 	&__content {
 		max-width: ~"calc(100% - 30rem)";
 		width: 100%;
-		left: 7.2rem;
+		left: 2.0rem;
 		padding: 1.5rem 0;
 		position: absolute;
 		display: inline-block;
@@ -66,6 +76,11 @@
 		top: 1.5rem;
 		right: 2.4rem;
 
+		&.\+hover-show {
+			transition: 200ms ease-in opacity;
+			opacity: 0;
+		}
+
 		.bss-icon {
 			position: relative;
 			top: -.3rem;
@@ -95,7 +110,7 @@
 	}
 }
 
-.bss-slat-lg {
+.bss-slat-lg, a.bss-slat-lg {
 	position: relative;
 	background-color: @white;
 	.depth-z1;
@@ -106,6 +121,8 @@
 	margin: 0 auto;
 	font-size: 1.4rem;
 	display: block;
+	color: @dark-gray;
+	transition: 200ms ease-in background-color;
 
 	&.\+noclick {
 		cursor: auto;
@@ -117,6 +134,9 @@
 
 	&:hover {
 		background-color: @hover-color;
+		.bss-slat-lg__actions.\+hover-show {
+			opacity: 1;
+		}
 	}
 
 	&__badge {
@@ -134,11 +154,15 @@
 		}
 	}
 
+	&__badge + .bss-slat-lg__content {
+		left: 7.2rem;
+	}
+
 	&__content {
 		position: absolute;
 		display: inline-block;
-		left: 7.2rem;
 		padding: 1.6rem 0;
+		left: 2.4rem;
 		max-width: ~"calc(100% - 30rem)";
 		white-space: nowrap;
 		overflow: hidden;
@@ -155,6 +179,11 @@
 		position: relative;
 		top: 2.5rem;
 		right: 2.4rem;
+
+		&.\+hover-show {
+			transition: 200ms ease-in opacity;
+			opacity: 0;
+		}
 	}
 
 	&.bss-animate.ng-enter,

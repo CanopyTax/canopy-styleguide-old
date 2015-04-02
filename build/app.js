@@ -1929,7 +1929,7 @@
 
 				React.createElement("div", {className: "bss-flexible-focus bss-card"}, 
 					React.createElement("div", {className: "bss-card__body"}, 
-						React.createElement("div", {className: "bss-subheader-sm bss-margin-bottom-24 bss-margin-top-24"}, "Auto sized Inputs"), 
+						React.createElement("div", {className: "bss-subheader-sm bss-margin-bottom-24 bss-margin-top-24"}, "Auto sized Inputs -- Right Aligned"), 
 						React.createElement("div", {className: "bss-row bss-padding-bottom-16"}, 
 							React.createElement("div", {className: "bss-col-xs-12"}, 
 								React.createElement("form", {className: "bss-form-horizontal"}, 
@@ -1967,10 +1967,11 @@
 								)
 							)
 						)
+
 					)
 				), 
 				React.createElement(Highlight, {className: "html"}, 
-	("<form class=\"bss-form-inline\">\n<div class=\"bss-form-group-resize\">\n  <label for=\"Email\" class=\"bss-col-xs-2\">Address 1</label>\n  <div class=\"bss-col-xs-8\">\n    <input type=\"text\" class=\"bss-form-control-resize\" placeholder=\"Enter email\"/>\n  </div>\n</div>\n<div className=\"bss-form-group-resize bss-has-error\">\n  <label for=\"Email\" class=\"bss-col-xs-2\">Adress 2</label>\n  <div class=\"bss-col-xs-8\">\n    <input type=\"text\" class=\"bss-form-control-resize\" placeholder=\"Enter email\" value=\"234-343-3434\"/>\n    <span class=\"bss-error-block\">This is an error!</span>\n  </div>\n</div>\n<div class=\"bss-form-group-resize\">\n  <label for=\"Phone\" class=\"bss-col-xs-2\">Zip</label>\n  <div class=\"bss-col-xs-4\">\n    <input type=\"text\" class=\"bss-form-control-resize\" value=\"234-343-3434\" readonly=\"readonly\"/>\n  </div>\n</div>\n</form>"
+	("<form class=\"bss-form-horizontal\">\n<div class=\"bss-form-group-resize\">\n  <label for=\"Email\" class=\"bss-col-xs-2\">Address 1</label>\n  <div class=\"bss-col-xs-8\">\n    <input type=\"text\" class=\"bss-form-control-resize\" placeholder=\"Enter email\"/>\n  </div>\n</div>\n<div className=\"bss-form-group-resize bss-has-error\">\n  <label for=\"Email\" class=\"bss-col-xs-2\">Adress 2</label>\n  <div class=\"bss-col-xs-8\">\n    <input type=\"text\" class=\"bss-form-control-resize\" placeholder=\"Enter email\" value=\"234-343-3434\"/>\n    <span class=\"bss-error-block\">This is an error!</span>\n  </div>\n</div>\n<div class=\"bss-form-group-resize\">\n  <label for=\"Phone\" class=\"bss-col-xs-2\">Zip</label>\n  <div class=\"bss-col-xs-4\">\n    <input type=\"text\" class=\"bss-form-control-resize\" value=\"234-343-3434\" readonly=\"readonly\"/>\n  </div>\n</div>\n</form>"
 
 
 
@@ -1992,7 +1993,58 @@
 
 	)
 
+					), 
+
+				React.createElement("div", {className: "bss-flexible-focus bss-card"}, 
+					React.createElement("div", {className: "bss-card__body"}, 
+						React.createElement("div", {className: "bss-subheader-sm bss-margin-bottom-24 bss-margin-top-24"}, "Auto sized Inputs -- Inline Form"), 
+
+						React.createElement("div", {className: "bss-row bss-padding-bottom-16"}, 
+							React.createElement("div", {className: "bss-col-xs-12"}, 
+								React.createElement("form", {className: "bss-form-inline"}, 
+									React.createElement("div", {className: "bss-form-group-resize"}, 
+										React.createElement("label", {for: "Email"}, "Email"), 
+										React.createElement("input", {type: "text", className: "bss-form-control-resize", placeholder: "Enter email", value: "exi@gm.com"})
+									), 
+									React.createElement("div", {className: "bss-form-group-resize"}, 
+										React.createElement("label", {for: "Email"}, "Phone"), 
+										React.createElement("input", {type: "text", className: "bss-form-control-resize", placeholder: "Enter email"})
+									), 
+									React.createElement("div", {className: "bss-form-group-resize"}, 
+										React.createElement("input", {type: "text", className: "bss-form-control-resize bss-subheader", placeholder: "Enter zip code", value: "large font example"})
+									), 
+									React.createElement("div", {className: "bss-form-group-resize bss-has-error"}, 
+										React.createElement("input", {type: "text", className: "bss-form-control-resize", placeholder: "Error example"}), 
+										React.createElement("span", {className: "bss-error-block"}, "This is an error")
+									)
+								)
+							)
+						)
 					)
+				), 
+
+				React.createElement(Highlight, {className: "html"}, 
+	("<form class=\"bss-form-inline\">\n  <div class=\"bss-form-group-resize\">\n    <label for=\"Email\" >Phone</label>\n    <input type=\"text\" class=\"bss-form-control-resize\" placeholder=\"Enter email\"/>\n  </div>\n  <div class=\"bss-form-group-resize\">\n    <label for=\"Email\" >Phone</label>\n    <input type=\"text\" class=\"bss-form-control-resize\" placeholder=\"Enter email\"/>\n  </div>\n  <div class=\"bss-form-group-resize\">\n    <input type=\"text\" class=\"bss-form-control-resize bss-subheader\" placeholder=\"Enter email\"/>\n  </div>\n  <div class=\"bss-form-group-resize bss-has-error\">\n    <input type=\"text\" class=\"bss-form-control-resize\" placeholder=\"Error example\"/>\n    <span class=\"bss-error-block\">This is an error</span>\n  </div>\n</form>"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	)
+
+					)
+
+
 			)
 			)
 		}
@@ -2010,21 +2062,54 @@
 		render: function() {
 			return (
 				React.createElement("div", {className: "bss-flexible-focus"}, 
-					React.createElement("div", {className: "bss-slat-lg"}, 
-						React.createElement("div", {className: "bss-slat-lg__badge"}, 
-							React.createElement("div", {className: "bss-slat-lg__badge__main"}, "21"), 
-							React.createElement("div", {className: "bss-slat-lg__badge__sub"}, "Jan")
-						), 
-						React.createElement("div", {className: "bss-slat-lg__content"}, 
-							React.createElement("div", {className: "bss-slat-lg__content__title"}, 
-								"Date Title"
+					React.createElement("div", {className: "bss-card"}, 
+						React.createElement("div", {className: "bss-slat-lg"}, 
+							React.createElement("div", {className: "bss-slat-lg__badge"}, 
+								React.createElement("div", {className: "bss-slat-lg__badge__main"}, "21"), 
+								React.createElement("div", {className: "bss-slat-lg__badge__sub"}, "Jan")
 							), 
-							"Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin" + ' ' +
-							"tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter" + ' ' +
-							"prosciutto ham rump tail."
+							React.createElement("div", {className: "bss-slat-lg__content"}, 
+								React.createElement("div", {className: "bss-slat-lg__content__title"}, 
+									"Date Title"
+								), 
+								"Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin" + ' ' +
+								"tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter" + ' ' +
+								"prosciutto ham rump tail."
+							), 
+							React.createElement("div", {className: "bss-slat-lg__actions"}, 
+								"2:30PM - 3:30PM"
+							)
 						), 
-						React.createElement("div", {className: "bss-slat-lg__actions"}, 
-							"2:30PM - 3:30PM"
+						React.createElement("div", {className: "bss-slat-lg"}, 
+							React.createElement("div", {className: "bss-slat-lg__content"}, 
+								React.createElement("div", {className: "bss-slat-lg__content__title"}, 
+									"Date Title"
+								), 
+								"Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin" + ' ' +
+								"tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter" + ' ' +
+								"prosciutto ham rump tail."
+							), 
+							React.createElement("div", {className: "bss-slat-lg__actions"}, 
+								"2:30PM - 3:30PM"
+							)
+						), 
+						React.createElement("a", {className: "bss-slat-lg"}, 
+							React.createElement("div", {className: "bss-slat-lg__badge"}, 
+								React.createElement("div", {className: "bss-slat-lg__badge__main"}, "21"), 
+								React.createElement("div", {className: "bss-slat-lg__badge__sub"}, "Jan")
+							), 
+							React.createElement("div", {className: "bss-slat-lg__content"}, 
+								React.createElement("div", {className: "bss-slat-lg__content__title"}, 
+									"Date Title"
+								), 
+								"Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin" + ' ' +
+								"tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter" + ' ' +
+								"prosciutto ham rump tail."
+							), 
+							React.createElement("div", {className: "bss-slat-lg__actions +hover-show"}, 
+								React.createElement("i", {className: "bss-icon bss-icon-trash"}), 
+								React.createElement("i", {className: "bss-icon bss-icon-archive bss-margin-left-24"})
+							)
 						)
 					), 
 
@@ -2047,20 +2132,52 @@
 					
 					), 
 
-					React.createElement("div", {className: "bss-slat"}, 
-						React.createElement("div", {className: "bss-slat__badge"}, 
-							React.createElement("i", {className: "bss-icon bss-subheader bss-icon-taxes"})
-						), 
-						React.createElement("div", {className: "bss-slat__content"}, 
-							React.createElement("div", {className: "bss-slat__content__title"}, 
-								"Filename"
+					React.createElement("div", {className: "bss-card"}, 
+						React.createElement("a", {className: "bss-slat"}, 
+							React.createElement("div", {className: "bss-slat__badge"}, 
+								React.createElement("i", {className: "bss-icon bss-subheader bss-icon-taxes"})
 							), 
-							React.createElement("div", {className: "bss-slat__content__description"}, 
-								"Document"
+							React.createElement("div", {className: "bss-slat__content"}, 
+								React.createElement("div", {className: "bss-slat__content__title"}, 
+									"Filename"
+								), 
+								React.createElement("div", {className: "bss-slat__content__description"}, 
+									"Document"
+								)
+							), 
+							React.createElement("div", {className: "bss-slat__actions"}, 
+								"2:30PM - 3:30PM"
 							)
 						), 
-						React.createElement("div", {className: "bss-slat__actions"}, 
-							"2:30PM - 3:30PM"
+						React.createElement("div", {className: "bss-slat"}, 
+							React.createElement("div", {className: "bss-slat__content"}, 
+								React.createElement("div", {className: "bss-slat__content__title"}, 
+									"Filename"
+								), 
+								React.createElement("div", {className: "bss-slat__content__description"}, 
+									"Document"
+								)
+							), 
+							React.createElement("div", {className: "bss-slat__actions"}, 
+								"2:30PM - 3:30PM"
+							)
+						), 
+						React.createElement("div", {className: "bss-slat"}, 
+							React.createElement("div", {className: "bss-slat__badge"}, 
+								React.createElement("i", {className: "bss-icon bss-subheader bss-icon-taxes"})
+							), 
+							React.createElement("div", {className: "bss-slat__content"}, 
+								React.createElement("div", {className: "bss-slat__content__title"}, 
+									"Filename"
+								), 
+								React.createElement("div", {className: "bss-slat__content__description"}, 
+									"Document"
+								)
+							), 
+							React.createElement("div", {className: "bss-slat__actions +hover-show"}, 
+								React.createElement("i", {className: "bss-icon bss-icon-trash"}), 
+								React.createElement("i", {className: "bss-icon bss-icon-archive bss-margin-left-24"})
+							)
 						)
 					), 
 					React.createElement(Highlight, {className: "html"}, 
@@ -2081,20 +2198,52 @@
 					
 					), 
 
-					React.createElement("div", {className: "bss-slat +small"}, 
-						React.createElement("div", {className: "bss-slat__badge"}, 
-							React.createElement("i", {className: "bss-icon bss-subheader bss-icon-taxes"})
-						), 
-						React.createElement("div", {className: "bss-slat__content"}, 
-							React.createElement("div", {className: "bss-slat__content__title"}, 
-								"Filename"
+					React.createElement("div", {className: "bss-card"}, 
+						React.createElement("div", {className: "bss-slat +small"}, 
+							React.createElement("div", {className: "bss-slat__badge"}, 
+								React.createElement("i", {className: "bss-icon bss-subheader bss-icon-taxes"})
 							), 
-							React.createElement("div", {className: "bss-slat__content__description"}, 
-								"Document"
+							React.createElement("div", {className: "bss-slat__content"}, 
+								React.createElement("div", {className: "bss-slat__content__title"}, 
+									"Filename"
+								), 
+								React.createElement("div", {className: "bss-slat__content__description"}, 
+									"Document"
+								)
+							), 
+							React.createElement("div", {className: "bss-slat__actions"}, 
+								"2:30PM - 3:30PM"
 							)
 						), 
-						React.createElement("div", {className: "bss-slat__actions"}, 
-							"2:30PM - 3:30PM"
+						React.createElement("div", {className: "bss-slat +small"}, 
+							React.createElement("div", {className: "bss-slat__content"}, 
+								React.createElement("div", {className: "bss-slat__content__title"}, 
+									"Filename"
+								), 
+								React.createElement("div", {className: "bss-slat__content__description"}, 
+									"Document"
+								)
+							), 
+							React.createElement("div", {className: "bss-slat__actions"}, 
+								"2:30PM - 3:30PM"
+							)
+						), 
+						React.createElement("a", {className: "bss-slat +small"}, 
+							React.createElement("div", {className: "bss-slat__badge"}, 
+								React.createElement("i", {className: "bss-icon bss-subheader bss-icon-taxes"})
+							), 
+							React.createElement("div", {className: "bss-slat__content"}, 
+								React.createElement("div", {className: "bss-slat__content__title"}, 
+									"Filename"
+								), 
+								React.createElement("div", {className: "bss-slat__content__description"}, 
+									"Document"
+								)
+							), 
+							React.createElement("div", {className: "bss-slat__actions +hover-show"}, 
+								React.createElement("i", {className: "bss-icon bss-icon-trash"}), 
+								React.createElement("i", {className: "bss-icon bss-icon-archive bss-margin-left-24"})
+							)
 						)
 					), 
 					React.createElement(Highlight, {className: "html"}, 

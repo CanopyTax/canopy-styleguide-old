@@ -53,6 +53,7 @@ module.exports = React.createClass({
 						<div className="bss-subheader-sm">Flat Buttons</div>
 						<div className="bss-row">
 							<div className="bss-col-xs-12">
+								<span className="bss-link bss-primary-green"><strong>PRIMARY link</strong></span>
 								<a href className="bss-link">PRIMARY link</a>
 								<a href className="bss-link" disabled="disabled">PRIMARY link</a>
 								<a href className="bss-link"><span className="bss-icon bss-icon-lg-check"></span> ACCEPT</a>

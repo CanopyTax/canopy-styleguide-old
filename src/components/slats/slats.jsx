@@ -5,22 +5,55 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 			<div className="bss-flexible-focus">
-				<div className="bss-slat-lg">
-					<div className="bss-slat-lg__badge">
-						<div className="bss-slat-lg__badge__main">21</div>
-						<div className="bss-slat-lg__badge__sub">Jan</div>
-					</div>
-					<div className="bss-slat-lg__content">
-						<div className="bss-slat-lg__content__title">
-							Date Title
+				<div className="bss-card">
+					<div className="bss-slat-lg">
+						<div className="bss-slat-lg__badge">
+							<div className="bss-slat-lg__badge__main">21</div>
+							<div className="bss-slat-lg__badge__sub">Jan</div>
 						</div>
-						Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin
-						tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter
-						prosciutto ham rump tail.
+						<div className="bss-slat-lg__content">
+							<div className="bss-slat-lg__content__title">
+								Date Title
+							</div>
+							Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin
+							tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter
+							prosciutto ham rump tail.
+						</div>
+						<div className="bss-slat-lg__actions">
+							2:30PM - 3:30PM
+						</div>
 					</div>
-					<div className="bss-slat-lg__actions">
-						2:30PM - 3:30PM
+					<div className="bss-slat-lg">
+						<div className="bss-slat-lg__content">
+							<div className="bss-slat-lg__content__title">
+								Date Title
+							</div>
+							Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin
+							tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter
+							prosciutto ham rump tail.
+						</div>
+						<div className="bss-slat-lg__actions">
+							2:30PM - 3:30PM
+						</div>
 					</div>
+					<a className="bss-slat-lg">
+						<div className="bss-slat-lg__badge">
+							<div className="bss-slat-lg__badge__main">21</div>
+							<div className="bss-slat-lg__badge__sub">Jan</div>
+						</div>
+						<div className="bss-slat-lg__content">
+							<div className="bss-slat-lg__content__title">
+								Date Title
+							</div>
+							Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin
+							tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter
+							prosciutto ham rump tail.
+						</div>
+						<div className="bss-slat-lg__actions +hover-show">
+							<i className="bss-icon bss-icon-trash"></i>
+							<i className="bss-icon bss-icon-archive bss-margin-left-24"></i>
+						</div>
+					</a>
 				</div>
 
 				<Highlight className="html">
@@ -43,20 +76,52 @@ module.exports = React.createClass({
 				}
 				</Highlight>
 
-				<div className="bss-slat">
-					<div className="bss-slat__badge">
-						<i className="bss-icon bss-subheader bss-icon-taxes"></i>
-					</div>
-					<div className="bss-slat__content">
-						<div className="bss-slat__content__title">
-							Filename
+				<div className="bss-card">
+					<a className="bss-slat">
+						<div className="bss-slat__badge">
+							<i className="bss-icon bss-subheader bss-icon-taxes"></i>
 						</div>
-						<div className="bss-slat__content__description">
-							Document
+						<div className="bss-slat__content">
+							<div className="bss-slat__content__title">
+								Filename
+							</div>
+							<div className="bss-slat__content__description">
+								Document
+							</div>
+						</div>
+						<div className="bss-slat__actions">
+							2:30PM - 3:30PM
+						</div>
+					</a>
+					<div className="bss-slat">
+						<div className="bss-slat__content">
+							<div className="bss-slat__content__title">
+								Filename
+							</div>
+							<div className="bss-slat__content__description">
+								Document
+							</div>
+						</div>
+						<div className="bss-slat__actions">
+							2:30PM - 3:30PM
 						</div>
 					</div>
-					<div className="bss-slat__actions">
-						2:30PM - 3:30PM
+					<div className="bss-slat">
+						<div className="bss-slat__badge">
+							<i className="bss-icon bss-subheader bss-icon-taxes"></i>
+						</div>
+						<div className="bss-slat__content">
+							<div className="bss-slat__content__title">
+								Filename
+							</div>
+							<div className="bss-slat__content__description">
+								Document
+							</div>
+						</div>
+						<div className="bss-slat__actions +hover-show">
+							<i className="bss-icon bss-icon-trash"></i>
+							<i className="bss-icon bss-icon-archive bss-margin-left-24"></i>
+						</div>
 					</div>
 				</div>
 				<Highlight className="html">
@@ -78,21 +143,53 @@ module.exports = React.createClass({
 				}
 				</Highlight>
 
-				<div className="bss-slat +small">
-					<div className="bss-slat__badge">
-						<i className="bss-icon bss-subheader bss-icon-taxes"></i>
-					</div>
-					<div className="bss-slat__content">
-						<div className="bss-slat__content__title">
-							Filename
+				<div className="bss-card">
+					<div className="bss-slat +small">
+						<div className="bss-slat__badge">
+							<i className="bss-icon bss-subheader bss-icon-taxes"></i>
 						</div>
-						<div className="bss-slat__content__description">
-							Document
+						<div className="bss-slat__content">
+							<div className="bss-slat__content__title">
+								Filename
+							</div>
+							<div className="bss-slat__content__description">
+								Document
+							</div>
+						</div>
+						<div className="bss-slat__actions">
+							2:30PM - 3:30PM
 						</div>
 					</div>
-					<div className="bss-slat__actions">
-						2:30PM - 3:30PM
+					<div className="bss-slat +small">
+						<div className="bss-slat__content">
+							<div className="bss-slat__content__title">
+								Filename
+							</div>
+							<div className="bss-slat__content__description">
+								Document
+							</div>
+						</div>
+						<div className="bss-slat__actions">
+							2:30PM - 3:30PM
+						</div>
 					</div>
+					<a className="bss-slat +small">
+						<div className="bss-slat__badge">
+							<i className="bss-icon bss-subheader bss-icon-taxes"></i>
+						</div>
+						<div className="bss-slat__content">
+							<div className="bss-slat__content__title">
+								Filename
+							</div>
+							<div className="bss-slat__content__description">
+								Document
+							</div>
+						</div>
+						<div className="bss-slat__actions +hover-show">
+							<i className="bss-icon bss-icon-trash"></i>
+							<i className="bss-icon bss-icon-archive bss-margin-left-24"></i>
+						</div>
+					</a>
 				</div>
 				<Highlight className="html">
 				{

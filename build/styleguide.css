@@ -1113,26 +1113,25 @@ fieldset[disabled] .bss-form-control {
 .bss-form-horizontal .bss-has-error .bss-form-control-feedback {
   right: 11px;
 }
-.bss-form-inline .bss-form-group {
+.bss-form-inline .bss-form-group,
+.bss-form-inline .bss-form-group-resize {
   display: inline-block;
   margin-bottom: 0;
   vertical-align: middle;
   margin-right: 8px;
 }
-.bss-form-inline .bss-form-group label {
+.bss-form-inline .bss-form-group label,
+.bss-form-inline .bss-form-group-resize label {
   display: inline-block;
   margin-bottom: 0;
   vertical-align: middle;
   margin-right: 8px;
 }
-.bss-form-inline .bss-form-control {
+.bss-form-inline .bss-form-control,
+.bss-form-inline .bss-form-control-resize {
   display: inline-block;
   width: auto;
   margin-left: 0px;
-  vertical-align: middle;
-}
-.bss-form-inline .bss-control-label {
-  margin-bottom: 0;
   vertical-align: middle;
 }
 .bss-form-inline .bss-radio,
@@ -1208,7 +1207,6 @@ fieldset[disabled] .bss-form-control {
   color: black !important;
 }
 .bss-has-error .bss-error-block,
-.bss-has-error .bss-control-label,
 .bss-has-error .bss-radio,
 .bss-has-error .bss-checkbox,
 .bss-has-error .bss-radio-inline,
@@ -1260,7 +1258,7 @@ fieldset[disabled] .bss-form-control {
   display: block;
   font-size: 14px;
   color: #afafaf;
-  padding-top: 2px;
+  padding-top: 1px;
   padding-right: 8px !important;
 }
 .bss-form-control-resize {
@@ -1493,6 +1491,14 @@ textarea.bss-form-control.\+no-resize {
 .bss-flexible-sidenav.\+banner-top {
   margin-top: 16.9rem !important;
 }
+.bss-flexible-sidenav__button {
+  position: relative;
+  left: 32px;
+  min-width: 120px;
+}
+.bss-flexible-sidenav__toggle-menu.bss-dropdown-menu {
+  left: 32px;
+}
 .bss-flexible-sidenav__menu {
   list-style: none;
   padding: 0;
@@ -1683,7 +1689,10 @@ textarea.bss-form-control.\+no-resize {
   cursor: pointer;
   display: block;
   font-size: 1.4rem;
+  color: #333333;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.26);
+  -webkit-transition: 200ms ease-in background-color;
+          transition: 200ms ease-in background-color;
 }
 .bss-slat.\+noclick {
   cursor: auto;
@@ -1694,15 +1703,21 @@ textarea.bss-form-control.\+no-resize {
 .bss-slat:hover {
   background-color: #f7f7f7;
 }
+.bss-slat:hover .bss-slat__actions.\+hover-show {
+  opacity: 1;
+}
 .bss-slat__badge {
   width: 7.2rem;
   display: inline-block;
   padding: .8rem 1.6rem .8rem 2.0rem;
 }
+.bss-slat__badge + .bss-slat__content {
+  left: 7.2rem;
+}
 .bss-slat__content {
   max-width: calc(100% - 30rem);
   width: 100%;
-  left: 7.2rem;
+  left: 2.0rem;
   padding: 1.5rem 0;
   position: absolute;
   display: inline-block;
@@ -1732,6 +1747,11 @@ textarea.bss-form-control.\+no-resize {
   top: 1.5rem;
   right: 2.4rem;
 }
+.bss-slat__actions.\+hover-show {
+  -webkit-transition: 200ms ease-in opacity;
+          transition: 200ms ease-in opacity;
+  opacity: 0;
+}
 .bss-slat__actions .bss-icon {
   position: relative;
   top: -0.3rem;
@@ -1757,7 +1777,8 @@ textarea.bss-form-control.\+no-resize {
 .bss-card .bss-slat:last-child {
   border-bottom: 0;
 }
-.bss-slat-lg {
+.bss-slat-lg,
+a.bss-slat-lg {
   position: relative;
   background-color: white;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.26);
@@ -1768,69 +1789,101 @@ textarea.bss-form-control.\+no-resize {
   margin: 0 auto;
   font-size: 1.4rem;
   display: block;
+  color: #333333;
+  -webkit-transition: 200ms ease-in background-color;
+          transition: 200ms ease-in background-color;
 }
-.bss-slat-lg.\+noclick {
+.bss-slat-lg.\+noclick,
+a.bss-slat-lg.\+noclick {
   cursor: auto;
 }
-.bss-slat-lg.\+noclick:hover {
+.bss-slat-lg.\+noclick:hover,
+a.bss-slat-lg.\+noclick:hover {
   background-color: white;
 }
-.bss-slat-lg:hover {
+.bss-slat-lg:hover,
+a.bss-slat-lg:hover {
   background-color: #f7f7f7;
 }
-.bss-slat-lg__badge {
+.bss-slat-lg:hover .bss-slat-lg__actions.\+hover-show,
+a.bss-slat-lg:hover .bss-slat-lg__actions.\+hover-show {
+  opacity: 1;
+}
+.bss-slat-lg__badge,
+a.bss-slat-lg__badge {
   width: 7.2rem;
   display: inline-block;
   padding: .8rem 1.6rem .8rem 2.4rem;
 }
-.bss-slat-lg__badge__main {
+.bss-slat-lg__badge__main,
+a.bss-slat-lg__badge__main {
   color: #4caf50;
   font-size: 2.4rem;
 }
-.bss-slat-lg__badge__sub {
+.bss-slat-lg__badge__sub,
+a.bss-slat-lg__badge__sub {
   position: relative;
   top: -0.5rem;
   left: .2rem;
 }
-.bss-slat-lg__content {
+.bss-slat-lg__badge + .bss-slat-lg__content,
+a.bss-slat-lg__badge + .bss-slat-lg__content {
+  left: 7.2rem;
+}
+.bss-slat-lg__content,
+a.bss-slat-lg__content {
   position: absolute;
   display: inline-block;
-  left: 7.2rem;
   padding: 1.6rem 0;
+  left: 2.4rem;
   max-width: calc(100% - 30rem);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.bss-slat-lg__content__title {
+.bss-slat-lg__content__title,
+a.bss-slat-lg__content__title {
   font-weight: 600;
   font-size: 1.6rem;
 }
-.bss-slat-lg__actions {
+.bss-slat-lg__actions,
+a.bss-slat-lg__actions {
   float: right;
   position: relative;
   top: 2.5rem;
   right: 2.4rem;
 }
+.bss-slat-lg__actions.\+hover-show,
+a.bss-slat-lg__actions.\+hover-show {
+  -webkit-transition: 200ms ease-in opacity;
+          transition: 200ms ease-in opacity;
+  opacity: 0;
+}
 .bss-slat-lg.bss-animate.ng-enter,
-.bss-slat-lg.bss-animate.ng-leave {
+a.bss-slat-lg.bss-animate.ng-enter,
+.bss-slat-lg.bss-animate.ng-leave,
+a.bss-slat-lg.bss-animate.ng-leave {
   -webkit-transition: .5s linear all;
   transition: .5s linear all;
   overflow: hidden;
 }
-.bss-slat-lg.bss-animate.ng-enter {
+.bss-slat-lg.bss-animate.ng-enter,
+a.bss-slat-lg.bss-animate.ng-enter {
   opacity: 0;
   height: 0;
 }
-.bss-slat-lg.bss-animate.ng-enter.ng-enter-active {
+.bss-slat-lg.bss-animate.ng-enter.ng-enter-active,
+a.bss-slat-lg.bss-animate.ng-enter.ng-enter-active {
   opacity: 1;
   height: 7.2rem;
 }
-.bss-slat-lg.bss-animate.ng-leave {
+.bss-slat-lg.bss-animate.ng-leave,
+a.bss-slat-lg.bss-animate.ng-leave {
   opacity: 1;
   height: 7.2rem;
 }
-.bss-slat-lg.bss-animate.ng-leave.ng-leave-active {
+.bss-slat-lg.bss-animate.ng-leave.ng-leave-active,
+a.bss-slat-lg.bss-animate.ng-leave.ng-leave-active {
   opacity: 0;
   height: 0;
 }
