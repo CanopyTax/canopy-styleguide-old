@@ -209,7 +209,7 @@ module.exports = React.createClass({
 
 			<div className="bss-flexible-focus bss-card">
 				<div className="bss-card__body">
-					<div className="bss-subheader-sm bss-margin-bottom-24 bss-margin-top-24">Auto sized Inputs</div>
+					<div className="bss-subheader-sm bss-margin-bottom-24 bss-margin-top-24">Auto sized Inputs -- Right Aligned</div>
 					<div className="bss-row bss-padding-bottom-16">
 						<div className="bss-col-xs-12">
 							<form className="bss-form-horizontal">
@@ -247,11 +247,12 @@ module.exports = React.createClass({
 							</form>
 						</div>
 					</div>
+
 				</div>
 			</div>
 			<Highlight className="html">
 {
-`<form class="bss-form-inline">
+`<form class="bss-form-horizontal">
 <div class="bss-form-group-resize">
   <label for="Email" class="bss-col-xs-2">Address 1</label>
   <div class="bss-col-xs-8">
@@ -274,6 +275,58 @@ module.exports = React.createClass({
 </form>`
 }
 				</Highlight>
+
+			<div className="bss-flexible-focus bss-card">
+				<div className="bss-card__body">
+					<div className="bss-subheader-sm bss-margin-bottom-24 bss-margin-top-24">Auto sized Inputs -- Inline Form</div>
+
+					<div className="bss-row bss-padding-bottom-16">
+						<div className="bss-col-xs-12">
+							<form className="bss-form-inline">
+								<div className="bss-form-group-resize">
+									<label for="Email" >Email</label>
+									<input type="text" className="bss-form-control-resize" placeholder="Enter email" value="exi@gm.com"/>
+								</div>
+								<div className="bss-form-group-resize">
+									<label for="Email" >Phone</label>
+									<input type="text" className="bss-form-control-resize" placeholder="Enter email"/>
+								</div>
+								<div className="bss-form-group-resize">
+									<input type="text" className="bss-form-control-resize bss-subheader" placeholder="Enter zip code" value="large font example"/>
+								</div>
+								<div className="bss-form-group-resize bss-has-error">
+									<input type="text" className="bss-form-control-resize" placeholder="Error example"/>
+									<span className="bss-error-block">This is an error</span>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<Highlight className="html">
+{
+`<form class="bss-form-inline">
+  <div class="bss-form-group-resize">
+    <label for="Email" >Phone</label>
+    <input type="text" class="bss-form-control-resize" placeholder="Enter email"/>
+  </div>
+  <div class="bss-form-group-resize">
+    <label for="Email" >Phone</label>
+    <input type="text" class="bss-form-control-resize" placeholder="Enter email"/>
+  </div>
+  <div class="bss-form-group-resize">
+    <input type="text" class="bss-form-control-resize bss-subheader" placeholder="Enter email"/>
+  </div>
+  <div class="bss-form-group-resize bss-has-error">
+    <input type="text" class="bss-form-control-resize" placeholder="Error example"/>
+    <span class="bss-error-block">This is an error</span>
+  </div>
+</form>`
+}
+				</Highlight>
+
+
 		</div>
 		)
 	}
