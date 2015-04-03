@@ -339,7 +339,7 @@
 	module.exports = React.createClass({displayName: "exports",
 		render: function() {
 			return (
-				React.createElement("div", {className: "bss-fixed-focus bss-card"}, 
+				React.createElement("div", {className: "bss-flexible-focus bss-card"}, 
 					React.createElement("div", {className: "bss-card__header bss-subheader"}, 
 						"Typography"
 					), 
@@ -461,7 +461,7 @@
 	module.exports = React.createClass({displayName: "exports",
 		render: function() {
 			return (
-				React.createElement("div", {className: "bss-fixed-focus bss-card"}, 
+				React.createElement("div", {className: "bss-flexible-focus bss-card"}, 
 					React.createElement("div", {className: "bss-card__header bss-subheader"}, 
 						"Color Palette"
 					), 
@@ -631,7 +631,7 @@
 		render: function() {
 			return (
 			      React.createElement("div", null, 
-					React.createElement("div", {className: "bss-fixed-focus bss-card"}, 
+					React.createElement("div", {className: "bss-flexible-focus bss-card"}, 
 						React.createElement("div", {className: "bss-card__header "}, 
 							"Beanstalk Font Icons"
 						), 
@@ -1309,7 +1309,7 @@
 						)
 					), 
 
-					React.createElement("div", {className: "bss-fixed-focus bss-card bss-margin-top-24"}, 
+					React.createElement("div", {className: "bss-flexible-focus bss-card bss-margin-top-24"}, 
 						React.createElement("div", {className: "bss-card__header "}, 
 							"Beanstalk Labels"
 						), 
@@ -1389,7 +1389,7 @@
 			render: function() {
 				return (
 				React.createElement("div", null, 
-					React.createElement("div", {className: "bss-fixed-focus bss-card"}, 
+					React.createElement("div", {className: "bss-flexible-focus bss-card"}, 
 						React.createElement("div", {className: "bss-card__header"}, 
 							React.createElement("h3", {className: "bss-subheader"}, "Buttons")
 						), 
@@ -1430,7 +1430,7 @@
 					
 					), 
 
-					React.createElement("div", {className: "bss-fixed-focus bss-card"}, 
+					React.createElement("div", {className: "bss-flexible-focus bss-card"}, 
 						React.createElement("div", {className: "bss-card__body"}, 
 							React.createElement("div", {className: "bss-subheader-sm"}, "Flat Buttons"), 
 							React.createElement("div", {className: "bss-row"}, 
@@ -1453,7 +1453,7 @@
 					), 
 
 
-					React.createElement("div", {className: "bss-fixed-focus bss-card"}, 
+					React.createElement("div", {className: "bss-flexible-focus bss-card"}, 
 						React.createElement("div", {className: "bss-card__body"}, 
 							React.createElement("div", {className: "bss-subheader-sm"}, "Icon Button"), 
 							React.createElement("div", {className: "bss-row"}, 
@@ -1480,7 +1480,7 @@
 					), 
 
 
-					React.createElement("div", {className: "bss-fixed-focus bss-card"}, 
+					React.createElement("div", {className: "bss-flexible-focus bss-card"}, 
 						React.createElement("div", {className: "bss-card__body"}, 
 							React.createElement("div", {className: "bss-subheader-sm"}, "Links"), 
 							React.createElement("div", {className: "bss-row bss-margin-top-16"}, 
@@ -1514,7 +1514,7 @@
 			return (
 
 			React.createElement("div", null, 
-				React.createElement("div", {className: "bss-fixed-focus bss-card"}, 
+				React.createElement("div", {className: "bss-flexible-focus bss-card"}, 
 					React.createElement("div", {className: "bss-card__header bss-subheader"}, 
 						"Checkboxes and Radios"
 					), 
@@ -1560,7 +1560,7 @@
 	)
 
 	), 
-				React.createElement("div", {className: "bss-fixed-focus bss-card"}, 
+				React.createElement("div", {className: "bss-flexible-focus bss-card"}, 
 					React.createElement("div", {className: "bss-card__body"}, 
 						React.createElement("div", {className: "bss-row margin-top-16"}, 
 							React.createElement("div", {className: "bss-col-xs-12"}, 
@@ -1611,7 +1611,7 @@
 	)
 
 	), 
-				React.createElement("div", {className: "bss-fixed-focus bss-card"}, 
+				React.createElement("div", {className: "bss-flexible-focus bss-card"}, 
 					React.createElement("div", {className: "bss-card__header bss-subheader-sm"}, "Stacked checkboxes and radios"), 
 					React.createElement("div", {className: "bss-card__body"}, 
 						React.createElement("div", {className: "bss-row"}, 
@@ -1674,7 +1674,7 @@
 
 	), 
 
-				React.createElement("div", {className: "bss-fixed-focus bss-card"}, 
+				React.createElement("div", {className: "bss-flexible-focus bss-card"}, 
 					React.createElement("div", {className: "bss-card__header bss-subheader-sm"}, "Toggle Switch"), 
 					React.createElement("div", {className: "bss-card__body"}, 
 						React.createElement("p", null, 
@@ -1728,7 +1728,7 @@
 		render: function() {
 			return (
 			React.createElement("div", null, 
-				React.createElement("div", {className: "bss-fixed-focus bss-card"}, 
+				React.createElement("div", {className: "bss-flexible-focus bss-card"}, 
 					React.createElement("div", {className: "bss-card__header bss-subheader"}, 
 						"Inputs"
 					), 
@@ -1807,7 +1807,7 @@
 					
 					), 
 
-				React.createElement("div", {className: "bss-fixed-focus bss-card"}, 
+				React.createElement("div", {className: "bss-flexible-focus bss-card"}, 
 					React.createElement("div", {className: "bss-card__body"}, 
 						React.createElement("div", {className: "bss-subheader-sm bss-margin-bottom-16 bss-margin-top-24"}, "Right-aligned Inputs"), 
 						React.createElement("div", {className: "bss-row"}, 
@@ -1883,7 +1883,7 @@
 					
 					), 
 
-				React.createElement("div", {className: "bss-fixed-focus bss-card"}, 
+				React.createElement("div", {className: "bss-flexible-focus bss-card"}, 
 					React.createElement("div", {className: "bss-card__body"}, 
 						React.createElement("div", {className: "bss-subheader-sm bss-margin-bottom-24 bss-margin-top-24"}, "Inline Form"), 
 						React.createElement("div", {className: "bss-row bss-padding-bottom-16"}, 
@@ -1924,7 +1924,126 @@
 
 	)
 
+					), 
+
+
+				React.createElement("div", {className: "bss-flexible-focus bss-card"}, 
+					React.createElement("div", {className: "bss-card__body"}, 
+						React.createElement("div", {className: "bss-subheader-sm bss-margin-bottom-24 bss-margin-top-24"}, "Auto sized Inputs -- Right Aligned"), 
+						React.createElement("div", {className: "bss-row bss-padding-bottom-16"}, 
+							React.createElement("div", {className: "bss-col-xs-12"}, 
+								React.createElement("form", {className: "bss-form-horizontal"}, 
+									React.createElement("div", {className: "bss-form-group-resize"}, 
+										React.createElement("label", {for: "Email", className: "bss-col-xs-2"}, "Phone"), 
+										React.createElement("div", {className: "bss-col-xs-8"}, 
+											React.createElement("input", {type: "text", className: "bss-form-control-resize", placeholder: "Enter email"})
+										)
+									), 
+									React.createElement("div", {className: "bss-form-group-resize"}, 
+										React.createElement("label", {for: "Email", className: "bss-col-xs-2"}, "Email"), 
+										React.createElement("div", {className: "bss-col-xs-8"}, 
+											React.createElement("input", {type: "text", className: "bss-form-control-resize", placeholder: "Enter email"})
+										)
+									), 
+									React.createElement("div", {className: "bss-form-group-resize"}, 
+										React.createElement("label", {for: "Email", className: "bss-col-xs-2"}, "Address 1"), 
+										React.createElement("div", {className: "bss-col-xs-8"}, 
+											React.createElement("input", {type: "text", className: "bss-form-control-resize", placeholder: "Enter email"})
+										)
+									), 
+									React.createElement("div", {className: "bss-form-group-resize bss-has-error"}, 
+										React.createElement("label", {for: "Email", className: "bss-col-xs-2"}, "Adress 2"), 
+										React.createElement("div", {className: "bss-col-xs-8"}, 
+											React.createElement("input", {type: "text", className: "bss-form-control-resize", placeholder: "Enter email", value: "234-343-3434"}), 
+											React.createElement("span", {className: "bss-error-block"}, "This is an error!")
+										)
+									), 
+									React.createElement("div", {className: "bss-form-group-resize"}, 
+										React.createElement("label", {for: "Phone", className: "bss-col-xs-2"}, "Zip"), 
+										React.createElement("div", {className: "bss-col-xs-4"}, 
+											React.createElement("input", {type: "text", className: "bss-form-control-resize", value: "234-343-3434", readonly: "readonly"})
+										)
+									)
+								)
+							)
+						)
+
 					)
+				), 
+				React.createElement(Highlight, {className: "html"}, 
+	("<form class=\"bss-form-horizontal\">\n<div class=\"bss-form-group-resize\">\n  <label for=\"Email\" class=\"bss-col-xs-2\">Address 1</label>\n  <div class=\"bss-col-xs-8\">\n    <input type=\"text\" class=\"bss-form-control-resize\" placeholder=\"Enter email\"/>\n  </div>\n</div>\n<div className=\"bss-form-group-resize bss-has-error\">\n  <label for=\"Email\" class=\"bss-col-xs-2\">Adress 2</label>\n  <div class=\"bss-col-xs-8\">\n    <input type=\"text\" class=\"bss-form-control-resize\" placeholder=\"Enter email\" value=\"234-343-3434\"/>\n    <span class=\"bss-error-block\">This is an error!</span>\n  </div>\n</div>\n<div class=\"bss-form-group-resize\">\n  <label for=\"Phone\" class=\"bss-col-xs-2\">Zip</label>\n  <div class=\"bss-col-xs-4\">\n    <input type=\"text\" class=\"bss-form-control-resize\" value=\"234-343-3434\" readonly=\"readonly\"/>\n  </div>\n</div>\n</form>"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	)
+
+					), 
+
+				React.createElement("div", {className: "bss-flexible-focus bss-card"}, 
+					React.createElement("div", {className: "bss-card__body"}, 
+						React.createElement("div", {className: "bss-subheader-sm bss-margin-bottom-24 bss-margin-top-24"}, "Auto sized Inputs -- Inline Form"), 
+
+						React.createElement("div", {className: "bss-row bss-padding-bottom-16"}, 
+							React.createElement("div", {className: "bss-col-xs-12"}, 
+								React.createElement("form", {className: "bss-form-inline"}, 
+									React.createElement("div", {className: "bss-form-group-resize"}, 
+										React.createElement("label", {for: "Email"}, "Email"), 
+										React.createElement("input", {type: "text", className: "bss-form-control-resize", placeholder: "Enter email", value: "exi@gm.com"})
+									), 
+									React.createElement("div", {className: "bss-form-group-resize"}, 
+										React.createElement("label", {for: "Email"}, "Phone"), 
+										React.createElement("input", {type: "text", className: "bss-form-control-resize", placeholder: "Enter email"})
+									), 
+									React.createElement("div", {className: "bss-form-group-resize"}, 
+										React.createElement("input", {type: "text", className: "bss-form-control-resize bss-subheader", placeholder: "Enter zip code", value: "large font example"})
+									), 
+									React.createElement("div", {className: "bss-form-group-resize bss-has-error"}, 
+										React.createElement("input", {type: "text", className: "bss-form-control-resize", placeholder: "Error example"}), 
+										React.createElement("span", {className: "bss-error-block"}, "This is an error")
+									)
+								)
+							)
+						)
+					)
+				), 
+
+				React.createElement(Highlight, {className: "html"}, 
+	("<form class=\"bss-form-inline\">\n  <div class=\"bss-form-group-resize\">\n    <label for=\"Email\" >Phone</label>\n    <input type=\"text\" class=\"bss-form-control-resize\" placeholder=\"Enter email\"/>\n  </div>\n  <div class=\"bss-form-group-resize\">\n    <label for=\"Email\" >Phone</label>\n    <input type=\"text\" class=\"bss-form-control-resize\" placeholder=\"Enter email\"/>\n  </div>\n  <div class=\"bss-form-group-resize\">\n    <input type=\"text\" class=\"bss-form-control-resize bss-subheader\" placeholder=\"Enter email\"/>\n  </div>\n  <div class=\"bss-form-group-resize bss-has-error\">\n    <input type=\"text\" class=\"bss-form-control-resize\" placeholder=\"Error example\"/>\n    <span class=\"bss-error-block\">This is an error</span>\n  </div>\n</form>"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	)
+
+					)
+
 
 			)
 			)
@@ -1942,22 +2061,55 @@
 	module.exports = React.createClass({displayName: "exports",
 		render: function() {
 			return (
-				React.createElement("div", {className: "bss-fixed-focus"}, 
-					React.createElement("div", {className: "bss-slat-lg"}, 
-						React.createElement("div", {className: "bss-slat-lg__badge"}, 
-							React.createElement("div", {className: "bss-slat-lg__badge__main"}, "21"), 
-							React.createElement("div", {className: "bss-slat-lg__badge__sub"}, "Jan")
-						), 
-						React.createElement("div", {className: "bss-slat-lg__content"}, 
-							React.createElement("div", {className: "bss-slat-lg__content__title"}, 
-								"Date Title"
+				React.createElement("div", {className: "bss-flexible-focus"}, 
+					React.createElement("div", {className: "bss-card"}, 
+						React.createElement("div", {className: "bss-slat-lg"}, 
+							React.createElement("div", {className: "bss-slat-lg__badge"}, 
+								React.createElement("div", {className: "bss-slat-lg__badge__main"}, "21"), 
+								React.createElement("div", {className: "bss-slat-lg__badge__sub"}, "Jan")
 							), 
-							"Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin" + ' ' +
-							"tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter" + ' ' +
-							"prosciutto ham rump tail."
+							React.createElement("div", {className: "bss-slat-lg__content"}, 
+								React.createElement("div", {className: "bss-slat-lg__content__title"}, 
+									"Date Title"
+								), 
+								"Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin" + ' ' +
+								"tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter" + ' ' +
+								"prosciutto ham rump tail."
+							), 
+							React.createElement("div", {className: "bss-slat-lg__actions"}, 
+								"2:30PM - 3:30PM"
+							)
 						), 
-						React.createElement("div", {className: "bss-slat-lg__actions"}, 
-							"2:30PM - 3:30PM"
+						React.createElement("div", {className: "bss-slat-lg"}, 
+							React.createElement("div", {className: "bss-slat-lg__content"}, 
+								React.createElement("div", {className: "bss-slat-lg__content__title"}, 
+									"Date Title"
+								), 
+								"Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin" + ' ' +
+								"tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter" + ' ' +
+								"prosciutto ham rump tail."
+							), 
+							React.createElement("div", {className: "bss-slat-lg__actions"}, 
+								"2:30PM - 3:30PM"
+							)
+						), 
+						React.createElement("a", {className: "bss-slat-lg"}, 
+							React.createElement("div", {className: "bss-slat-lg__badge"}, 
+								React.createElement("div", {className: "bss-slat-lg__badge__main"}, "21"), 
+								React.createElement("div", {className: "bss-slat-lg__badge__sub"}, "Jan")
+							), 
+							React.createElement("div", {className: "bss-slat-lg__content"}, 
+								React.createElement("div", {className: "bss-slat-lg__content__title"}, 
+									"Date Title"
+								), 
+								"Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin" + ' ' +
+								"tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter" + ' ' +
+								"prosciutto ham rump tail."
+							), 
+							React.createElement("div", {className: "bss-slat-lg__actions +hover-show"}, 
+								React.createElement("i", {className: "bss-icon bss-icon-trash"}), 
+								React.createElement("i", {className: "bss-icon bss-icon-archive bss-margin-left-24"})
+							)
 						)
 					), 
 
@@ -1980,20 +2132,52 @@
 					
 					), 
 
-					React.createElement("div", {className: "bss-slat"}, 
-						React.createElement("div", {className: "bss-slat__badge"}, 
-							React.createElement("i", {className: "bss-icon bss-subheader bss-icon-taxes"})
-						), 
-						React.createElement("div", {className: "bss-slat__content"}, 
-							React.createElement("div", {className: "bss-slat__content__title"}, 
-								"Filename"
+					React.createElement("div", {className: "bss-card"}, 
+						React.createElement("a", {className: "bss-slat"}, 
+							React.createElement("div", {className: "bss-slat__badge"}, 
+								React.createElement("i", {className: "bss-icon bss-subheader bss-icon-taxes"})
 							), 
-							React.createElement("div", {className: "bss-slat__content__description"}, 
-								"Document"
+							React.createElement("div", {className: "bss-slat__content"}, 
+								React.createElement("div", {className: "bss-slat__content__title"}, 
+									"Filename"
+								), 
+								React.createElement("div", {className: "bss-slat__content__description"}, 
+									"Document"
+								)
+							), 
+							React.createElement("div", {className: "bss-slat__actions"}, 
+								"2:30PM - 3:30PM"
 							)
 						), 
-						React.createElement("div", {className: "bss-slat__actions"}, 
-							"2:30PM - 3:30PM"
+						React.createElement("div", {className: "bss-slat"}, 
+							React.createElement("div", {className: "bss-slat__content"}, 
+								React.createElement("div", {className: "bss-slat__content__title"}, 
+									"Filename"
+								), 
+								React.createElement("div", {className: "bss-slat__content__description"}, 
+									"Document"
+								)
+							), 
+							React.createElement("div", {className: "bss-slat__actions"}, 
+								"2:30PM - 3:30PM"
+							)
+						), 
+						React.createElement("div", {className: "bss-slat"}, 
+							React.createElement("div", {className: "bss-slat__badge"}, 
+								React.createElement("i", {className: "bss-icon bss-subheader bss-icon-taxes"})
+							), 
+							React.createElement("div", {className: "bss-slat__content"}, 
+								React.createElement("div", {className: "bss-slat__content__title"}, 
+									"Filename"
+								), 
+								React.createElement("div", {className: "bss-slat__content__description"}, 
+									"Document"
+								)
+							), 
+							React.createElement("div", {className: "bss-slat__actions +hover-show"}, 
+								React.createElement("i", {className: "bss-icon bss-icon-trash"}), 
+								React.createElement("i", {className: "bss-icon bss-icon-archive bss-margin-left-24"})
+							)
 						)
 					), 
 					React.createElement(Highlight, {className: "html"}, 
@@ -2014,20 +2198,52 @@
 					
 					), 
 
-					React.createElement("div", {className: "bss-slat +small"}, 
-						React.createElement("div", {className: "bss-slat__badge"}, 
-							React.createElement("i", {className: "bss-icon bss-subheader bss-icon-taxes"})
-						), 
-						React.createElement("div", {className: "bss-slat__content"}, 
-							React.createElement("div", {className: "bss-slat__content__title"}, 
-								"Filename"
+					React.createElement("div", {className: "bss-card"}, 
+						React.createElement("div", {className: "bss-slat +small"}, 
+							React.createElement("div", {className: "bss-slat__badge"}, 
+								React.createElement("i", {className: "bss-icon bss-subheader bss-icon-taxes"})
 							), 
-							React.createElement("div", {className: "bss-slat__content__description"}, 
-								"Document"
+							React.createElement("div", {className: "bss-slat__content"}, 
+								React.createElement("div", {className: "bss-slat__content__title"}, 
+									"Filename"
+								), 
+								React.createElement("div", {className: "bss-slat__content__description"}, 
+									"Document"
+								)
+							), 
+							React.createElement("div", {className: "bss-slat__actions"}, 
+								"2:30PM - 3:30PM"
 							)
 						), 
-						React.createElement("div", {className: "bss-slat__actions"}, 
-							"2:30PM - 3:30PM"
+						React.createElement("div", {className: "bss-slat +small"}, 
+							React.createElement("div", {className: "bss-slat__content"}, 
+								React.createElement("div", {className: "bss-slat__content__title"}, 
+									"Filename"
+								), 
+								React.createElement("div", {className: "bss-slat__content__description"}, 
+									"Document"
+								)
+							), 
+							React.createElement("div", {className: "bss-slat__actions"}, 
+								"2:30PM - 3:30PM"
+							)
+						), 
+						React.createElement("a", {className: "bss-slat +small"}, 
+							React.createElement("div", {className: "bss-slat__badge"}, 
+								React.createElement("i", {className: "bss-icon bss-subheader bss-icon-taxes"})
+							), 
+							React.createElement("div", {className: "bss-slat__content"}, 
+								React.createElement("div", {className: "bss-slat__content__title"}, 
+									"Filename"
+								), 
+								React.createElement("div", {className: "bss-slat__content__description"}, 
+									"Document"
+								)
+							), 
+							React.createElement("div", {className: "bss-slat__actions +hover-show"}, 
+								React.createElement("i", {className: "bss-icon bss-icon-trash"}), 
+								React.createElement("i", {className: "bss-icon bss-icon-archive bss-margin-left-24"})
+							)
 						)
 					), 
 					React.createElement(Highlight, {className: "html"}, 
@@ -2127,7 +2343,7 @@
 	module.exports = React.createClass({displayName: "exports",
 		render: function() {
 			return (
-				React.createElement("div", {className: "bss-fixed-focus"}, 
+				React.createElement("div", {className: "bss-flexible-focus"}, 
 					React.createElement("div", {className: "bss-card"}, 
 						React.createElement("div", {className: "bss-card__body"}, 
 							React.createElement("table", {className: "bss-inset-table"}, 
@@ -2367,6 +2583,42 @@
 		render: function() {
 			return (
 				React.createElement("div", null, 
+					React.createElement("div", {className: "bss-flexible-focus bss-card"}, 
+						React.createElement("div", {className: "bss-card__header bss-subheader"}, 
+							"Flexible Focus"
+						), 
+						React.createElement("div", {className: "bss-card__body"}, 
+							React.createElement("p", null, 
+								"This card is within a flexible focus layout." + ' ' +
+								"This layout encourages a focus on a particular type of content like files or dates." + ' ' +
+								"Generally the card grows vertically rather than stacking sequential cards."
+							), 
+							React.createElement("p", null, 
+								"Flexible focus really only defines a max and min width for the content. It also centers it.", 
+								React.createElement("strong", null, "The class name \"bss-card\" is what makes the card look with a white background."), 
+								"This same class name is used for the card look and feel of the slat and table components."
+							), 
+							React.createElement("p", null, 
+								"The thinner card headers can be used by adding the class modifier \"+thin\" to the bss-card element."
+							)
+						)
+					), 
+
+					React.createElement(Highlight, {className: "html"}, 
+					("<div class=\"bss-flexible-focus bss-card\">\n  <div class=\"bss-card__header bss-subheader\">\n    The Header content goes here.\n  </div>\n  <div class=\"bss-card__body\">\n    Put card main content with a body tag.\n  </div>\n  <div class=\"bss-card__hr\"></div>\n  <div class=\"bss-card__body\">\n    There can be multiple body tags, generally separated by an hr\n  </div>\n</div>"
+
+
+
+
+
+
+
+
+
+
+	)
+					
+					), 
 					React.createElement("div", {className: "bss-fixed-focus bss-card"}, 
 						React.createElement("div", {className: "bss-card__header bss-subheader"}, 
 							"Fixed Focus"
@@ -2375,15 +2627,12 @@
 							React.createElement("p", null, 
 								"This card is within a fixed focus layout." + ' ' +
 								"This layout encourages a focus on a particular type of content like files or dates." + ' ' +
-								"Generally the card grows vertically rather than stacking sequential cards."
+								"Generally the card grows vertically but does not resize horizontally with the screen."
 							), 
 							React.createElement("p", null, 
-								"Fixed focus really only defines a max and min width for the content. It also centers it.", 
+								"Fixed focus  defines a 760px width for the content. It also centers it. It  generally does not account for navigation menus.", 
 								React.createElement("strong", null, "The class name \"bss-card\" is what makes the card look with a white background."), 
 								"This same class name is used for the card look and feel of the slat and table components."
-							), 
-							React.createElement("p", null, 
-								"The thinner card headers can be used by adding the class modifier \"+thin\" to the bss-card element."
 							)
 						)
 					), 
@@ -2519,7 +2768,7 @@
 	)
 					
 					), 
-					React.createElement("div", {className: "bss-flexible-masonry bss-fixed-focus"}, 
+					React.createElement("div", {className: "bss-flexible-masonry bss-flexible-focus"}, 
 						React.createElement("div", {className: "bss-flexible-masonry-card"}, 
 							React.createElement("div", {className: "bss-flexible-masonry-card__title"}, 
 								"Title of the note goes here"
@@ -2588,7 +2837,7 @@
 						)
 					), 
 					React.createElement(Highlight, {className: "html"}, 
-					("\n<!-- The flexible masonry grid can be acheived purely in CSS or with the masonry JS lib available at http://masonry.desandro.com/ -->\n<!-- If you want to have the CSS functionality, wrapp all the cards in a \"bss-flexible-masonry class\". -->\n<!-- Give the cards a link style by adding the \"+link\" modifier -->\n<div class=\"bss-flexible-masonry bss-fixed-focus\">\n  <div class=\"bss-flexible-masonry-card +link\">\n    <div class=\"bss-flexible-masonry-card__title\">\n      Title of the note goes here\n    </div>\n    <div class=\"bss-flexible-masonry-card__body\">\n      Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone.\n    </div>\n  </div>\n  <div class=\"bss-flexible-masonry-card\">\n    <div class=\"bss-flexible-masonry-card__title\">\n      Title of the note goes here\n    </div>\n    <div class=\"bss-flexible-masonry-card__body\">\n      Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone.\n    </div>\n  </div>\n</div>\n"
+					("\n<!-- The flexible masonry grid can be acheived purely in CSS or with the masonry JS lib available at http://masonry.desandro.com/ -->\n<!-- If you want to have the CSS functionality, wrapp all the cards in a \"bss-flexible-masonry class\". -->\n<!-- Give the cards a link style by adding the \"+link\" modifier -->\n<div class=\"bss-flexible-masonry bss-flexible-focus\">\n  <div class=\"bss-flexible-masonry-card +link\">\n    <div class=\"bss-flexible-masonry-card__title\">\n      Title of the note goes here\n    </div>\n    <div class=\"bss-flexible-masonry-card__body\">\n      Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone.\n    </div>\n  </div>\n  <div class=\"bss-flexible-masonry-card\">\n    <div class=\"bss-flexible-masonry-card__title\">\n      Title of the note goes here\n    </div>\n    <div class=\"bss-flexible-masonry-card__body\">\n      Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone.\n    </div>\n  </div>\n</div>\n"
 
 
 
@@ -2600,6 +2849,47 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+	)
+					
+					), 
+					React.createElement("div", {className: "bss-fixed-focus"}, 
+						React.createElement("div", {className: "bss-flexible-masonry-card +small"}, 
+							React.createElement("div", {className: "bss-flexible-masonry-card__title"}, 
+								"Title of the note goes here"
+							), 
+							React.createElement("div", {className: "bss-flexible-masonry-card__body"}, 
+								"Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank."
+							)
+						), 
+						React.createElement("div", {className: "bss-flexible-masonry-card +small"}, 
+							React.createElement("div", {className: "bss-flexible-masonry-card__title"}, 
+								"Title of the note goes here"
+							), 
+							React.createElement("div", {className: "bss-flexible-masonry-card__body"}, 
+								"Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank."
+							)
+						), 
+						React.createElement("div", {className: "bss-flexible-masonry-card +small"}, 
+							React.createElement("div", {className: "bss-flexible-masonry-card__title"}, 
+								"Title of the note goes here"
+							), 
+							React.createElement("div", {className: "bss-flexible-masonry-card__body"}, 
+								"Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank."
+							)
+						)
+					), 
+					React.createElement(Highlight, {className: "html"}, 
+					("<!-- Small cards can be created with the \"+small\" class modifier -->\n<div className=\"bss-fixed-focus\">\n  <div className=\"bss-flexible-masonry-card +small\">\n    <div className=\"bss-flexible-masonry-card__title\">\n      Title of the note goes here\n    </div>\n    <div className=\"bss-flexible-masonry-card__body\">\n      Salami venison spare ribs shankle landjaeger tongue\n    </div>\n  </div>\n</div>\n"
 
 
 
@@ -2737,7 +3027,7 @@
 		render: function() {
 			return (
 			      React.createElement("div", null, 
-					React.createElement("div", {className: "bss-fixed-focus bss-card"}, 
+					React.createElement("div", {className: "bss-flexible-focus bss-card"}, 
 						React.createElement("div", {className: "bss-card__header bss-subheader"}, 
 							"Top-aligned textarea (with resize handle)"
 						), 
@@ -2767,7 +3057,7 @@
 
 
 
-				React.createElement("div", {className: "bss-fixed-focus bss-card"}, 
+				React.createElement("div", {className: "bss-flexible-focus bss-card"}, 
 					React.createElement("div", {className: "bss-card__header bss-subheader"}, 
 						"Right-aligned textarea (without resize handle)"
 					), 
@@ -2814,7 +3104,7 @@
 		render: function() {
 			return (
 				React.createElement("div", null, 
-				React.createElement("div", {className: "bss-fixed-focus bss-card"}, 
+				React.createElement("div", {className: "bss-flexible-focus bss-card"}, 
 					React.createElement("div", {className: "bss-card__header bss-subheader"}, 
 						"Date Pickers"
 					), 
@@ -2974,7 +3264,7 @@
 						)
 					)
 				), 
-				React.createElement("div", {className: "bss-fixed-focus bss-card bss-margin-top-24"}, 
+				React.createElement("div", {className: "bss-flexible-focus bss-card bss-margin-top-24"}, 
 					React.createElement("div", {className: "bss-card__header bss-subheader"}, 
 						"People Picker / Multi-select"
 					), 
@@ -2999,7 +3289,7 @@
 		render: function() {
 			return (
 			React.createElement("div", null, 
-				React.createElement("div", {className: "bss-fixed-focus"}, 
+				React.createElement("div", {className: "bss-flexible-focus"}, 
 					React.createElement("div", {className: "bss-card"}, 
 						React.createElement("div", {className: "bss-card__header bss-subheader"}, 
 							"Toasters & Banners"
@@ -3079,7 +3369,7 @@
 					), 
 
 
-				React.createElement("div", {className: "bss-fixed-focus bss-margin-top-16"}, 
+				React.createElement("div", {className: "bss-flexible-focus bss-margin-top-16"}, 
 					React.createElement("div", {className: "bss-card"}, 
 						React.createElement("div", {className: "bss-card__body"}, 
 							"*Don't forget to add the class '+banner-top' to (i) bss-topnav-secondary, (ii) bss-nav-content, and (iii) bss-flexible-sidenav when using the global banner. Also, remove the 3px bss-topnav__bar from the nav too! ", React.createElement("a", {href: true, class: "bss-banner-global__action"}, "Take Action")
@@ -3104,7 +3394,7 @@
 		render: function() {
 			return (
 			React.createElement("div", null, 
-				React.createElement("div", {className: "bss-fixed-focus bss-card "}, 
+				React.createElement("div", {className: "bss-flexible-focus bss-card "}, 
 					React.createElement("div", {className: "bss-card__header bss-subheader"}, 
 						"Menus"
 					)
@@ -3129,7 +3419,7 @@
 	)
 					
 					), 
-				React.createElement("div", {className: "bss-fixed-focus bss-card"}, 
+				React.createElement("div", {className: "bss-flexible-focus bss-card"}, 
 					React.createElement("div", {className: "bss-card__body"}, 
 						React.createElement("div", {className: "bss-row"}, 
 							React.createElement("div", {className: "bss-col-xs-2"}, 
@@ -3260,7 +3550,7 @@
 		render: function() {
 			return (
 				React.createElement("div", null, 
-					React.createElement("div", {style: {width: "100%", height: "350px"}, className: "bss-fixed-focus bss-modal"}, 
+					React.createElement("div", {style: {width: "100%", height: "350px"}, className: "bss-flexible-focus bss-modal"}, 
 						React.createElement("div", {className: "bss-modal__screen", style: {position: "relative"}}), 
 						React.createElement("div", {className: "bss-modal__dialog bss-card", style: {position: "absolute", top: "200px"}}, 
 							React.createElement("div", {className: "bss-card__header bss-subheader-sm"}, 
@@ -3299,7 +3589,7 @@
 	)
 					
 					), 
-					React.createElement("div", {style: {width: "100%", height: "350px", position: "relative"}, className: "bss-fixed-focus bss-overlay-modal"}, 
+					React.createElement("div", {style: {width: "100%", height: "350px", position: "relative"}, className: "bss-flexible-focus bss-overlay-modal"}, 
 						React.createElement("div", {className: "bss-overlay-modal__content", style: {'padding-top': "50px"}}, 
 							React.createElement("div", {className: "bss-overlay-modal__content__header"}, 
 								"Create a New Date"
@@ -3411,7 +3701,7 @@
 		render: function() {
 			return (
 			      React.createElement("div", null, 
-					React.createElement("div", {className: "bss-fixed-focus bss-card"}, 
+					React.createElement("div", {className: "bss-flexible-focus bss-card"}, 
 						React.createElement("div", {className: "bss-card__header "}, 
 							"Lists"
 						), 
@@ -5647,7 +5937,7 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(126);
+	var EventConstants = __webpack_require__(124);
 
 	var invariant = __webpack_require__(108);
 
@@ -5871,9 +6161,9 @@
 
 	"use strict";
 
-	var PooledClass = __webpack_require__(124);
+	var PooledClass = __webpack_require__(125);
 
-	var traverseAllChildren = __webpack_require__(125);
+	var traverseAllChildren = __webpack_require__(126);
 	var warning = __webpack_require__(109);
 
 	var twoArgumentPooler = PooledClass.twoArgumentPooler;
@@ -13322,6 +13612,82 @@
 /* 124 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/**
+	 * Copyright 2013-2014, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule EventConstants
+	 */
+
+	"use strict";
+
+	var keyMirror = __webpack_require__(129);
+
+	var PropagationPhases = keyMirror({bubbled: null, captured: null});
+
+	/**
+	 * Types of raw signals from the browser caught at the top level.
+	 */
+	var topLevelTypes = keyMirror({
+	  topBlur: null,
+	  topChange: null,
+	  topClick: null,
+	  topCompositionEnd: null,
+	  topCompositionStart: null,
+	  topCompositionUpdate: null,
+	  topContextMenu: null,
+	  topCopy: null,
+	  topCut: null,
+	  topDoubleClick: null,
+	  topDrag: null,
+	  topDragEnd: null,
+	  topDragEnter: null,
+	  topDragExit: null,
+	  topDragLeave: null,
+	  topDragOver: null,
+	  topDragStart: null,
+	  topDrop: null,
+	  topError: null,
+	  topFocus: null,
+	  topInput: null,
+	  topKeyDown: null,
+	  topKeyPress: null,
+	  topKeyUp: null,
+	  topLoad: null,
+	  topMouseDown: null,
+	  topMouseMove: null,
+	  topMouseOut: null,
+	  topMouseOver: null,
+	  topMouseUp: null,
+	  topPaste: null,
+	  topReset: null,
+	  topScroll: null,
+	  topSelectionChange: null,
+	  topSubmit: null,
+	  topTextInput: null,
+	  topTouchCancel: null,
+	  topTouchEnd: null,
+	  topTouchMove: null,
+	  topTouchStart: null,
+	  topWheel: null
+	});
+
+	var EventConstants = {
+	  topLevelTypes: topLevelTypes,
+	  PropagationPhases: PropagationPhases
+	};
+
+	module.exports = EventConstants;
+
+
+/***/ },
+/* 125 */
+/***/ function(module, exports, __webpack_require__) {
+
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-2014, Facebook, Inc.
 	 * All rights reserved.
@@ -13438,7 +13804,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(120)))
 
 /***/ },
-/* 125 */
+/* 126 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -13624,82 +13990,6 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(120)))
 
 /***/ },
-/* 126 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2014, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule EventConstants
-	 */
-
-	"use strict";
-
-	var keyMirror = __webpack_require__(129);
-
-	var PropagationPhases = keyMirror({bubbled: null, captured: null});
-
-	/**
-	 * Types of raw signals from the browser caught at the top level.
-	 */
-	var topLevelTypes = keyMirror({
-	  topBlur: null,
-	  topChange: null,
-	  topClick: null,
-	  topCompositionEnd: null,
-	  topCompositionStart: null,
-	  topCompositionUpdate: null,
-	  topContextMenu: null,
-	  topCopy: null,
-	  topCut: null,
-	  topDoubleClick: null,
-	  topDrag: null,
-	  topDragEnd: null,
-	  topDragEnter: null,
-	  topDragExit: null,
-	  topDragLeave: null,
-	  topDragOver: null,
-	  topDragStart: null,
-	  topDrop: null,
-	  topError: null,
-	  topFocus: null,
-	  topInput: null,
-	  topKeyDown: null,
-	  topKeyPress: null,
-	  topKeyUp: null,
-	  topLoad: null,
-	  topMouseDown: null,
-	  topMouseMove: null,
-	  topMouseOut: null,
-	  topMouseOver: null,
-	  topMouseUp: null,
-	  topPaste: null,
-	  topReset: null,
-	  topScroll: null,
-	  topSelectionChange: null,
-	  topSubmit: null,
-	  topTextInput: null,
-	  topTouchCancel: null,
-	  topTouchEnd: null,
-	  topTouchMove: null,
-	  topTouchStart: null,
-	  topWheel: null
-	});
-
-	var EventConstants = {
-	  topLevelTypes: topLevelTypes,
-	  PropagationPhases: PropagationPhases
-	};
-
-	module.exports = EventConstants;
-
-
-/***/ },
 /* 127 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -13876,7 +14166,7 @@
 	"use strict";
 
 	var CallbackQueue = __webpack_require__(294);
-	var PooledClass = __webpack_require__(124);
+	var PooledClass = __webpack_require__(125);
 	var ReactCurrentOwner = __webpack_require__(85);
 	var ReactPerf = __webpack_require__(95);
 	var Transaction = __webpack_require__(295);
@@ -15049,7 +15339,7 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(126);
+	var EventConstants = __webpack_require__(124);
 	var EventPluginHub = __webpack_require__(302);
 	var EventPluginRegistry = __webpack_require__(303);
 	var ReactEventEmitterMixin = __webpack_require__(304);
@@ -15477,10 +15767,10 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(126);
+	var EventConstants = __webpack_require__(124);
 	var EventPropagators = __webpack_require__(306);
 	var ExecutionEnvironment = __webpack_require__(102);
-	var SyntheticInputEvent = __webpack_require__(309);
+	var SyntheticInputEvent = __webpack_require__(307);
 
 	var keyOf = __webpack_require__(136);
 
@@ -15702,15 +15992,15 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(126);
+	var EventConstants = __webpack_require__(124);
 	var EventPluginHub = __webpack_require__(302);
 	var EventPropagators = __webpack_require__(306);
 	var ExecutionEnvironment = __webpack_require__(102);
 	var ReactUpdates = __webpack_require__(128);
-	var SyntheticEvent = __webpack_require__(307);
+	var SyntheticEvent = __webpack_require__(308);
 
 	var isEventSupported = __webpack_require__(143);
-	var isTextInputElement = __webpack_require__(308);
+	var isTextInputElement = __webpack_require__(309);
 	var keyOf = __webpack_require__(136);
 
 	var topLevelTypes = EventConstants.topLevelTypes;
@@ -16118,7 +16408,7 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(126);
+	var EventConstants = __webpack_require__(124);
 	var EventPropagators = __webpack_require__(306);
 	var ExecutionEnvironment = __webpack_require__(102);
 	var ReactInputSelection = __webpack_require__(310);
@@ -16425,7 +16715,7 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(126);
+	var EventConstants = __webpack_require__(124);
 	var EventPropagators = __webpack_require__(306);
 	var SyntheticMouseEvent = __webpack_require__(313);
 
@@ -16765,7 +17055,7 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(126);
+	var EventConstants = __webpack_require__(124);
 
 	var emptyFunction = __webpack_require__(174);
 
@@ -17097,7 +17387,7 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(126);
+	var EventConstants = __webpack_require__(124);
 	var LocalEventTrapMixin = __webpack_require__(318);
 	var ReactBrowserComponentMixin = __webpack_require__(141);
 	var ReactCompositeComponent = __webpack_require__(83);
@@ -17151,7 +17441,7 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(126);
+	var EventConstants = __webpack_require__(124);
 	var LocalEventTrapMixin = __webpack_require__(318);
 	var ReactBrowserComponentMixin = __webpack_require__(141);
 	var ReactCompositeComponent = __webpack_require__(83);
@@ -17775,7 +18065,7 @@
 
 	var EventListener = __webpack_require__(320);
 	var ExecutionEnvironment = __webpack_require__(102);
-	var PooledClass = __webpack_require__(124);
+	var PooledClass = __webpack_require__(125);
 	var ReactInstanceHandles = __webpack_require__(91);
 	var ReactMount = __webpack_require__(93);
 	var ReactUpdates = __webpack_require__(128);
@@ -18004,13 +18294,13 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(126);
+	var EventConstants = __webpack_require__(124);
 	var EventPropagators = __webpack_require__(306);
 	var ReactInputSelection = __webpack_require__(310);
-	var SyntheticEvent = __webpack_require__(307);
+	var SyntheticEvent = __webpack_require__(308);
 
 	var getActiveElement = __webpack_require__(323);
-	var isTextInputElement = __webpack_require__(308);
+	var isTextInputElement = __webpack_require__(309);
 	var keyOf = __webpack_require__(136);
 	var shallowEqual = __webpack_require__(324);
 
@@ -18238,11 +18528,11 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(126);
+	var EventConstants = __webpack_require__(124);
 	var EventPluginUtils = __webpack_require__(80);
 	var EventPropagators = __webpack_require__(306);
 	var SyntheticClipboardEvent = __webpack_require__(325);
-	var SyntheticEvent = __webpack_require__(307);
+	var SyntheticEvent = __webpack_require__(308);
 	var SyntheticFocusEvent = __webpack_require__(326);
 	var SyntheticKeyboardEvent = __webpack_require__(327);
 	var SyntheticMouseEvent = __webpack_require__(313);
@@ -19254,7 +19544,7 @@
 
 	var ReactTextComponent = __webpack_require__(98);
 
-	var traverseAllChildren = __webpack_require__(125);
+	var traverseAllChildren = __webpack_require__(126);
 	var warning = __webpack_require__(109);
 
 	/**
@@ -19415,7 +19705,7 @@
 
 	"use strict";
 
-	var PooledClass = __webpack_require__(124);
+	var PooledClass = __webpack_require__(125);
 	var CallbackQueue = __webpack_require__(294);
 	var ReactPutListenerQueue = __webpack_require__(337);
 	var Transaction = __webpack_require__(295);
@@ -29911,7 +30201,7 @@
 
 	"use strict";
 
-	var PooledClass = __webpack_require__(124);
+	var PooledClass = __webpack_require__(125);
 
 	var assign = __webpack_require__(99);
 	var invariant = __webpack_require__(108);
@@ -31307,7 +31597,7 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(126);
+	var EventConstants = __webpack_require__(124);
 	var EventPluginHub = __webpack_require__(302);
 
 	var accumulateInto = __webpack_require__(341);
@@ -31440,6 +31730,57 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
+	 * Copyright 2013 Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule SyntheticInputEvent
+	 * @typechecks static-only
+	 */
+
+	"use strict";
+
+	var SyntheticEvent = __webpack_require__(308);
+
+	/**
+	 * @interface Event
+	 * @see http://www.w3.org/TR/2013/WD-DOM-Level-3-Events-20131105
+	 *      /#events-inputevents
+	 */
+	var InputEventInterface = {
+	  data: null
+	};
+
+	/**
+	 * @param {object} dispatchConfig Configuration used to dispatch this event.
+	 * @param {string} dispatchMarker Marker identifying the event target.
+	 * @param {object} nativeEvent Native browser event.
+	 * @extends {SyntheticUIEvent}
+	 */
+	function SyntheticInputEvent(
+	  dispatchConfig,
+	  dispatchMarker,
+	  nativeEvent) {
+	  SyntheticEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent);
+	}
+
+	SyntheticEvent.augmentClass(
+	  SyntheticInputEvent,
+	  InputEventInterface
+	);
+
+	module.exports = SyntheticInputEvent;
+
+
+
+/***/ },
+/* 308 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
 	 * Copyright 2013-2014, Facebook, Inc.
 	 * All rights reserved.
 	 *
@@ -31453,7 +31794,7 @@
 
 	"use strict";
 
-	var PooledClass = __webpack_require__(124);
+	var PooledClass = __webpack_require__(125);
 
 	var assign = __webpack_require__(99);
 	var emptyFunction = __webpack_require__(174);
@@ -31598,7 +31939,7 @@
 
 
 /***/ },
-/* 308 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31643,57 +31984,6 @@
 	}
 
 	module.exports = isTextInputElement;
-
-
-/***/ },
-/* 309 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013 Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule SyntheticInputEvent
-	 * @typechecks static-only
-	 */
-
-	"use strict";
-
-	var SyntheticEvent = __webpack_require__(307);
-
-	/**
-	 * @interface Event
-	 * @see http://www.w3.org/TR/2013/WD-DOM-Level-3-Events-20131105
-	 *      /#events-inputevents
-	 */
-	var InputEventInterface = {
-	  data: null
-	};
-
-	/**
-	 * @param {object} dispatchConfig Configuration used to dispatch this event.
-	 * @param {string} dispatchMarker Marker identifying the event target.
-	 * @param {object} nativeEvent Native browser event.
-	 * @extends {SyntheticUIEvent}
-	 */
-	function SyntheticInputEvent(
-	  dispatchConfig,
-	  dispatchMarker,
-	  nativeEvent) {
-	  SyntheticEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent);
-	}
-
-	SyntheticEvent.augmentClass(
-	  SyntheticInputEvent,
-	  InputEventInterface
-	);
-
-	module.exports = SyntheticInputEvent;
-
 
 
 /***/ },
@@ -31854,7 +32144,7 @@
 
 	"use strict";
 
-	var SyntheticEvent = __webpack_require__(307);
+	var SyntheticEvent = __webpack_require__(308);
 
 	/**
 	 * @interface Event
@@ -32222,7 +32512,7 @@
 	"use strict";
 
 	var CallbackQueue = __webpack_require__(294);
-	var PooledClass = __webpack_require__(124);
+	var PooledClass = __webpack_require__(125);
 	var ReactBrowserEventEmitter = __webpack_require__(142);
 	var ReactInputSelection = __webpack_require__(310);
 	var ReactPutListenerQueue = __webpack_require__(337);
@@ -32979,7 +33269,7 @@
 
 	"use strict";
 
-	var SyntheticEvent = __webpack_require__(307);
+	var SyntheticEvent = __webpack_require__(308);
 
 	/**
 	 * @interface Event
@@ -33258,7 +33548,7 @@
 
 	"use strict";
 
-	var SyntheticEvent = __webpack_require__(307);
+	var SyntheticEvent = __webpack_require__(308);
 
 	var getEventTarget = __webpack_require__(321);
 
@@ -33753,7 +34043,7 @@
 
 	"use strict";
 
-	var PooledClass = __webpack_require__(124);
+	var PooledClass = __webpack_require__(125);
 	var ReactBrowserEventEmitter = __webpack_require__(142);
 
 	var assign = __webpack_require__(99);
