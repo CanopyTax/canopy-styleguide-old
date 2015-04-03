@@ -539,6 +539,9 @@
 .bss-label-square.\+active {
   background-color: #4caf50;
 }
+.bss-label-square > .bss-center-vertical {
+  top: 48%;
+}
 .bss-icon {
   font-size: 2.4rem;
   color: #777777;
@@ -1315,6 +1318,7 @@ fieldset[disabled] .bss-form-control {
   border: 1px solid transparent;
   margin: 0px;
   color: #5c5c5c;
+  height: 75%;
 }
 .bss-form-control-resize:focus {
   border: 1px solid #cfcfcf;
