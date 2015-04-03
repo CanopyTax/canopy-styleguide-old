@@ -20,6 +20,7 @@ module.exports = React.createClass({
 							<strong>The class name "bss-card" is what makes the card look with a white background.</strong>
 							This same class name is used for the card look and feel of the slat and table components.
 						</p>
+						<hr className="bss-card__hr"/>
 						<p>
 							The thinner card headers can be used by adding the class modifier "+thin" to the bss-card element.
 						</p>

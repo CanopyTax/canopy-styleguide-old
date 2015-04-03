@@ -7,6 +7,13 @@
 	color: @dark-gray;
 	.depth-z1();
 
+	&__hr {
+		margin-left: -24px;
+		width: ~'calc(100% + 48px)';
+		margin-top: 16px;
+		margin-bottom: 16px;
+	}
+
 	&.\+thin {
 		.bss-card__header {
 			height: 3.6rem;
@@ -68,35 +75,19 @@
 	}
 }
 
-.bss-content-footer {
-	padding: 16px 24px 16px 24px;
-	border-top: 1px solid @breakline-light;
-}
-
-.bss-card__hr {
-	height: 1px;
-	width: 100%;
-	background-color: @breakline-light;
-}
-
 .bss-card__body {
 	padding:16px 24px;
 }
 
-.bss-content-inset {
-	background-color: @inset-background;
-	padding: 12px 32px;
-	box-shadow: inset 2px 5px 6px -6px rgba(153, 153, 153, 0.51);
+.bss-card__footer {
+	padding: 16px 24px 16px 24px;
+	border-top: 1px solid @breakline-light;
+}
 
-	hr {
-		background: @gray6;
-		height: 1px;
-		border: 0;
-		width: calc(100% + 64px);
-		margin-left: -32px;
-		margin-top: 12px;
-		margin-bottom: 8px;
-	}
+.bss-card__inset-body {
+	padding:16px 24px;
+	background-color: @inset-background;
+	box-shadow: inset 2px 5px 6px -6px rgba(153, 153, 153, 0.51);
 }
 
 .bss-centered-card {

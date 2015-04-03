@@ -32,8 +32,8 @@ module.exports = React.createClass({
 							tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter
 							prosciutto ham rump tail.
 						</div>
-						<div className="bss-slat-lg__actions">
-							2:30PM - 3:30PM
+						<div className="bss-slat-lg__actions +hover-show">
+							<span className="bss-link bss-primary-green"><strong>PRIMARY link</strong></span>
 						</div>
 					</div>
 					<a className="bss-slat-lg">
