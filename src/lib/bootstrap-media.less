@@ -1,0 +1,47 @@
+.bss-media {
+  // Proper spacing between instances of .bss-media
+  margin-top: 15px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.bss-media-right,
+.bss-media > .pull-right {
+  padding-left: 10px;
+}
+
+.bss-media-left,
+.bss-media > .pull-left {
+  padding-right: 10px;
+}
+
+.bss-media-left,
+.bss-media-right,
+.bss-media-body {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.bss-media-middle {
+  vertical-align: middle;
+}
+
+.bss-media-bottom {
+  vertical-align: bottom;
+}
+
+// Reset margins on headings for tighter default spacing
+.bss-media-heading {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+// bss-media list variation
+//
+// Undo default ul/ol styles
+.bss-media-list {
+  padding-left: 0;
+  list-style: none;
+}
