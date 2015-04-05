@@ -154,14 +154,14 @@ module.exports = React.createClass({
 <Highlight className="html">
 {
 `<form>
-  <div class="radio">
+  <div class="bss-radio">
     <label>
-      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"/>Option one is this and that&mdash;be sure to include why it's great
+      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"/><span>Option one is this and that&mdash;be sure to include why it's great</span>
     </label>
   </div>
-  <div class="checkbox">
+  <div class="bss-checkbox">
     <label>
-      <input type="checkbox"/>Check me out
+      <input type="checkbox"/><span>Check me out</span>
     </label>
   </div>
 </form>`
