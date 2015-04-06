@@ -52,8 +52,9 @@ var App = React.createClass({
 									<div client-search></div>
 								</li>
 								<li className="bss-dropdown" dropdown on-toggle="toggled(bss-open)">
-									<a href dropdown-toggle>
+									<a href className="bss-link" dropdown-toggle>
 									 Mike Hewitt
+									 <span className="bss-caret"></span>
 									</a>
 									<ul className="bss-dropdown-menu" role="menu">
 										<li><a href>My Profile</a></li>

@@ -2,6 +2,17 @@
 
 .bss-dropdown {
 	position: relative;
+
+	> a.bss-link, .bss-link  {
+		margin-top: 8px;
+		color: @light-gray;
+		font-weight: 400;
+		padding: 4px 12px 4px 12px;
+	}
+
+	> a.bss-link:hover, .bss-link:hover, a.bss-link:focus, .bss-link:focus {
+		color: @light-gray !important;
+	}
 }
 
 .bss-dropdown-menu {
@@ -65,24 +76,20 @@
 
 }
 
-.bss-open > .bss-dropdown-menu, .bss-dropdown.open > .bss-dropdown-menu {
-	display: block;
-}
-
-.bss-dropdown > a.bss-link, .bss-link  {
-	color: @light-gray;
-	font-weight: 400;
-}
-
-.bss-open a.bss-link  {
-	background-color: rgba(0,0,0,.05);
+.bss-open  {
+	a.bss-link  {
+		background-color: rgba(0,0,0,.05);
+	}
+	> .bss-dropdown-menu, .bss-dropdown.open > .bss-dropdown-menu {
+		display: block;
+	}
 }
 
 .bss-caret {
 	display: inline-block;
 	width: 0;
 	height: 0;
-	margin-left: 2px;
+	margin-left: 4px;
 	vertical-align: middle;
 	border-top: 4px solid;
 	border-right: 4px solid transparent;
