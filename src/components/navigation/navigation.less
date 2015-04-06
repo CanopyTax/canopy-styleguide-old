@@ -9,7 +9,10 @@
 	z-index: 100;
 	top: 0;
 	color: @dark-gray;
-	.depth-z2;
+
+	&.\+add-box-shadow {
+		.depth-z2;
+	}
 
 	&__bar {
 		height: .3rem;
@@ -97,8 +100,8 @@
 .bss-topnav-secondary {
 	position: fixed;
 	width: 100%;
-	z-index: 101;
-	top: 5.0rem;
+	z-index: 99;
+	top: 5.1rem;
 	color: @dark-gray;
 	box-shadow:0 .3rem .5rem 0 rgba(0, 0, 0, 0.18);
 
