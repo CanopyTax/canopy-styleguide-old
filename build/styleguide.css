@@ -696,6 +696,7 @@ a.bss-link:hover,
 a.bss-link:focus,
 .bss-link:focus {
   background-color: rgba(0, 0, 0, 0.1);
+  outline: none;
 }
 a.bss-link + .bss-btn,
 .bss-link + .bss-btn {
@@ -1097,7 +1098,6 @@ fieldset[disabled] .checkbox-inline {
   display: inline-block;
   font-size: 12px;
   color: #333333;
-  height: 24px;
   padding-top: 3px;
   margin-bottom: .2rem;
 }
@@ -1412,6 +1412,8 @@ textarea.bss-form-control.\+no-resize {
   z-index: 100;
   top: 0;
   color: #333333;
+}
+.bss-topnav.\+add-box-shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.06), 0 2px 6px 0 rgba(0, 0, 0, 0.26);
 }
 .bss-topnav__bar {
@@ -1479,8 +1481,8 @@ textarea.bss-form-control.\+no-resize {
 .bss-topnav-secondary {
   position: fixed;
   width: 100%;
-  z-index: 101;
-  top: 5.0rem;
+  z-index: 99;
+  top: 5.1rem;
   color: #333333;
   box-shadow: 0 0.3rem 0.5rem 0 rgba(0, 0, 0, 0.18);
 }
@@ -2518,6 +2520,19 @@ strong {
 .bss-dropdown {
   position: relative;
 }
+.bss-dropdown > a.bss-link,
+.bss-dropdown .bss-link {
+  margin-top: 8px;
+  color: #777777;
+  font-weight: 400;
+  padding: 4px 12px 4px 12px;
+}
+.bss-dropdown > a.bss-link:hover,
+.bss-dropdown .bss-link:hover,
+.bss-dropdown a.bss-link:focus,
+.bss-dropdown .bss-link:focus {
+  color: #777777 !important;
+}
 .bss-dropdown-menu {
   position: absolute;
   top: 100%;
@@ -2571,23 +2586,18 @@ strong {
   background-color: #f7f7f7;
   outline: none;
 }
-.bss-open > .bss-dropdown-menu,
-.bss-dropdown.open > .bss-dropdown-menu {
-  display: block;
-}
-.bss-dropdown > a.bss-link,
-.bss-link {
-  color: #777777;
-  font-weight: 400;
-}
 .bss-open a.bss-link {
   background-color: rgba(0, 0, 0, 0.05);
+}
+.bss-open > .bss-dropdown-menu,
+.bss-open .bss-dropdown.open > .bss-dropdown-menu {
+  display: block;
 }
 .bss-caret {
   display: inline-block;
   width: 0;
   height: 0;
-  margin-left: 2px;
+  margin-left: 4px;
   vertical-align: middle;
   border-top: 4px solid;
   border-right: 4px solid transparent;
