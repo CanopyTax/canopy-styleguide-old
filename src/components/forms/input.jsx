@@ -92,13 +92,13 @@ module.exports = React.createClass({
 						<div className="bss-col-xs-12">
 							<form className="bss-form-horizontal">
 								<div className="bss-form-group">
-									<label for="exampleInputEmail1" className="bss-col-xs-2">Full Name</label>
+									<label for="exampleInputEmail1" className="bss-col-xs-2 bss-control-label">Full Name</label>
 									<div className="bss-col-xs-3">
 										<input type="text" className="bss-form-control" placeholder="Enter name"/>
 									</div>
 								</div>
 								<div className="bss-form-group bss-has-feedback bss-has-error">
-									<label for="exampleInputEmail1" className="bss-col-xs-2">Email address</label>
+									<label for="exampleInputEmail1" className="bss-col-xs-2 bss-control-label">Email address</label>
 									<div className="bss-col-xs-3">
 										<input type="text" className="bss-form-control" placeholder="Enter email"/>
 										<span className="bss-icon-client bss-form-control-feedback" aria-hidden="true"></span>
@@ -107,7 +107,7 @@ module.exports = React.createClass({
 									</div>
 								</div>
 								<div className="bss-form-group bss-has-error">
-									<label for="exampleInputPassword1" className="bss-col-xs-2">Phone Number</label>
+									<label for="exampleInputPassword1" className="bss-col-xs-2 bss-control-label">Phone Number</label>
 									<div className="bss-col-xs-6">
 										<input type="text" className="bss-form-control" value="234-343-3434"/>
 										<span className="bss-icon-error bss-form-control-feedback" aria-hidden="true"></span>
@@ -115,7 +115,7 @@ module.exports = React.createClass({
 									</div>
 								</div>
 								<div className="bss-form-group">
-									<label for="exampleInputPassword1" className="bss-col-xs-2">Disabled</label>
+									<label for="exampleInputPassword1" className="bss-col-xs-2 bss-control-label">Disabled</label>
 									<div className="bss-col-xs-10">
 										<input type="text" className="bss-form-control"value="234-343-3434" disabled="true"/>
 									</div>
@@ -214,32 +214,32 @@ module.exports = React.createClass({
 						<div className="bss-col-xs-12">
 							<form className="bss-form-horizontal">
 								<div className="bss-form-group-resize">
-									<label for="Email" className="bss-col-xs-2">Phone</label>
+									<label for="Email" className="bss-col-xs-2 bss-control-label">Phone</label>
 									<div className="bss-col-xs-8">
 										<input type="text" className="bss-form-control-resize" placeholder="Enter email"/>
 									</div>
 								</div>
 								<div className="bss-form-group-resize">
-									<label for="Email" className="bss-col-xs-2">Email</label>
+									<label for="Email" className="bss-col-xs-2 bss-control-label">Email</label>
 									<div className="bss-col-xs-8">
 										<input type="text" className="bss-form-control-resize" placeholder="Enter email"/>
 									</div>
 								</div>
 								<div className="bss-form-group-resize">
-									<label for="Email" className="bss-col-xs-2">Address 1</label>
+									<label for="Email" className="bss-col-xs-2 bss-control-label">Address 1</label>
 									<div className="bss-col-xs-8">
 										<input type="text" className="bss-form-control-resize" placeholder="Enter email"/>
 									</div>
 								</div>
 								<div className="bss-form-group-resize bss-has-error">
-									<label for="Email" className="bss-col-xs-2">Adress 2</label>
+									<label for="Email" className="bss-col-xs-2 bss-control-label">Adress 2</label>
 									<div className="bss-col-xs-8">
 										<input type="text" className="bss-form-control-resize" placeholder="Enter email" value="234-343-3434"/>
 										<span className="bss-error-block">This is an error!</span>
 									</div>
 								</div>
 								<div className="bss-form-group-resize">
-									<label for="Phone" className="bss-col-xs-2">Zip</label>
+									<label for="Phone" className="bss-col-xs-2 bss-control-label">Zip</label>
 									<div className="bss-col-xs-4">
 										<input type="text" className="bss-form-control-resize" value="234-343-3434" readonly="readonly"/>
 									</div>

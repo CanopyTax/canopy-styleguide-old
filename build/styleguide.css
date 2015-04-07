@@ -590,7 +590,7 @@ hr {
 }
 /************Buttons************/
 a {
-  color: #4caf50;
+  color: #4a90e2;
   text-decoration: none;
 }
 a:hover,
@@ -696,6 +696,7 @@ a.bss-link:hover,
 a.bss-link:focus,
 .bss-link:focus {
   background-color: rgba(0, 0, 0, 0.1);
+  outline: none;
 }
 a.bss-link + .bss-btn,
 .bss-link + .bss-btn {
@@ -767,7 +768,8 @@ fieldset[disabled] .bss-link {
   box-shadow: 0rem 0rem 0rem 0.4rem rgba(74, 144, 226, 0.2);
 }
 .bss-radio input[type="radio"] + span {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
+  padding-top: .2rem;
   position: relative;
   padding-left: 2.6rem;
   cursor: pointer;
@@ -841,7 +843,8 @@ fieldset[disabled] .bss-radio input[type="radio"]:checked + span:before {
   box-shadow: 0rem 0rem 0rem 0.4rem rgba(74, 144, 226, 0.2);
 }
 .bss-checkbox input[type="checkbox"] + span {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
+  padding-top: .25rem;
   position: relative;
   padding-left: 23px;
   cursor: pointer;
@@ -918,7 +921,8 @@ fieldset[disabled] .bss-radio input[type="radio"]:checked + span:before {
   box-shadow: 0rem 0rem 0rem 0.4rem rgba(74, 144, 226, 0.2);
 }
 .bss-checkbox-large input[type="checkbox"] + span {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
+  padding-top: .3rem;
   position: relative;
   padding-left: 39px;
   cursor: pointer;
@@ -1091,11 +1095,15 @@ fieldset[disabled] .checkbox-inline {
   display: block;
 }
 .bss-form-group label {
-  display: block;
+  display: inline-block;
   font-size: 12px;
   color: #333333;
-  height: 24px;
   padding-top: 3px;
+  margin-bottom: .2rem;
+}
+.bss-form-group .bss-control-label {
+  margin-bottom: 0;
+  text-align: right;
 }
 .bss-form-control {
   display: block;
@@ -1147,7 +1155,8 @@ fieldset[disabled] .bss-form-control {
   margin-right: -8px;
   margin-left: -8px;
 }
-.bss-form-horizontal label {
+.bss-form-horizontal .bss-control-label {
+  display: inline-block;
   padding-top: 7px;
   margin-bottom: 0;
   text-align: right;
@@ -1302,8 +1311,11 @@ fieldset[disabled] .bss-form-control {
   display: block;
   font-size: 14px;
   color: #afafaf;
-  padding-top: 1px;
+  height: 23px;
   padding-right: 8px !important;
+}
+.bss-form-group-resize .bss-control-label {
+  padding-top: 2px;
 }
 .bss-form-control-resize {
   display: block;
@@ -1340,6 +1352,26 @@ input[type="text"].bss-form-control-resize::-moz-placeholder {
 input[type="text"].bss-form-control-resize::-ms-input-placeholder {
   color: #cfcfcf;
 }
+@media (min-width: 768px) {
+  .bss-form-inline label {
+    display: inline-block;
+    padding-left: 8px;
+  }
+  .bss-form-inline .bss-form-control {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+  }
+}
+.bss-has-error .bss-input-required {
+  color: #f44336;
+}
+.bss-input-required {
+  color: #4caf50;
+}
+.bss-input-required::after {
+  content: '*';
+}
 textarea {
   margin: 0;
   font-family: inherit;
@@ -1358,6 +1390,21 @@ textarea.bss-form-control {
 textarea.bss-form-control.\+no-resize {
   resize: none;
 }
+.bss-section-break {
+  color: #777777;
+  letter-spacing: 2px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e9e9e9;
+  margin-bottom: 25px;
+  margin-top: 35px;
+}
+.bss-form-tip {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: #777777;
+}
 /************Navigation************/
 .bss-topnav {
   position: fixed;
@@ -1365,6 +1412,8 @@ textarea.bss-form-control.\+no-resize {
   z-index: 100;
   top: 0;
   color: #333333;
+}
+.bss-topnav.\+add-box-shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.06), 0 2px 6px 0 rgba(0, 0, 0, 0.26);
 }
 .bss-topnav__bar {
@@ -1432,8 +1481,8 @@ textarea.bss-form-control.\+no-resize {
 .bss-topnav-secondary {
   position: fixed;
   width: 100%;
-  z-index: 101;
-  top: 5.0rem;
+  z-index: 99;
+  top: 5.1rem;
   color: #333333;
   box-shadow: 0 0.3rem 0.5rem 0 rgba(0, 0, 0, 0.18);
 }
@@ -2471,6 +2520,19 @@ strong {
 .bss-dropdown {
   position: relative;
 }
+.bss-dropdown > a.bss-link,
+.bss-dropdown .bss-link {
+  margin-top: 8px;
+  color: #777777;
+  font-weight: 400;
+  padding: 4px 12px 4px 12px;
+}
+.bss-dropdown > a.bss-link:hover,
+.bss-dropdown .bss-link:hover,
+.bss-dropdown a.bss-link:focus,
+.bss-dropdown .bss-link:focus {
+  color: #777777 !important;
+}
 .bss-dropdown-menu {
   position: absolute;
   top: 100%;
@@ -2522,24 +2584,20 @@ strong {
   color: #333333;
   text-decoration: none;
   background-color: #f7f7f7;
-}
-.bss-open > .bss-dropdown-menu,
-.bss-dropdown.open > .bss-dropdown-menu {
-  display: block;
-}
-.bss-dropdown > a.bss-link,
-.bss-link {
-  color: #777777;
-  font-weight: 400;
+  outline: none;
 }
 .bss-open a.bss-link {
   background-color: rgba(0, 0, 0, 0.05);
+}
+.bss-open > .bss-dropdown-menu,
+.bss-open .bss-dropdown.open > .bss-dropdown-menu {
+  display: block;
 }
 .bss-caret {
   display: inline-block;
   width: 0;
   height: 0;
-  margin-left: 2px;
+  margin-left: 4px;
   vertical-align: middle;
   border-top: 4px solid;
   border-right: 4px solid transparent;
@@ -2907,6 +2965,28 @@ strong {
   max-height: 0;
   opacity: 1;
 }
+.bss-animate-slide-wrapper {
+  position: relative;
+}
+.bss-animate-slide.ng-enter,
+.bss-animate-slide.ng-leave {
+  -webkit-transition: 800ms ease-in left;
+          transition: 800ms ease-in left;
+  position: absolute;
+  top: 140px;
+}
+.bss-animate-slide.ng-enter {
+  left: 100%;
+}
+.bss-animate-slide.ng-enter.ng-enter-active {
+  left: 30%;
+}
+.bss-animate-slide.ng-leave {
+  left: 30%;
+}
+.bss-animate-slide.ng-leave.ng-leave-active {
+  left: -100%;
+}
 .bss-list-inline {
   padding-left: 0;
   margin-left: -5px;
@@ -2930,4 +3010,8 @@ strong {
 }
 .bss-list-inline.\+underline a:hover {
   text-decoration: underline;
+}
+.bss-list-unstyled {
+  padding-left: 0;
+  list-style: none;
 }

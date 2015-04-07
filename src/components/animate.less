@@ -147,3 +147,29 @@
 	max-height: 0;
 	opacity: 1
 }
+
+
+.bss-animate-slide-wrapper {
+	position: relative;
+}
+
+.bss-animate-slide.ng-enter,
+.bss-animate-slide.ng-leave {
+	transition: 800ms ease-in left;
+	position: absolute;
+	top: 140px;
+}
+
+.bss-animate-slide.ng-enter {
+	left: 100%;
+}
+.bss-animate-slide.ng-enter.ng-enter-active {
+	left: 30%;
+}
+
+.bss-animate-slide.ng-leave {
+	left: 30%;
+}
+.bss-animate-slide.ng-leave.ng-leave-active{
+	left: -100%;
+}

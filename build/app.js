@@ -98,8 +98,9 @@
 										React.createElement("div", {"client-search": true})
 									), 
 									React.createElement("li", {className: "bss-dropdown", dropdown: true, "on-toggle": "toggled(bss-open)"}, 
-										React.createElement("a", {href: true, "dropdown-toggle": true}, 
-										 "Mike Hewitt"
+										React.createElement("a", {href: true, className: "bss-link", "dropdown-toggle": true}, 
+										 "Mike Hewitt", 
+										 React.createElement("span", {className: "bss-caret"})
 										), 
 										React.createElement("ul", {className: "bss-dropdown-menu", role: "menu"}, 
 											React.createElement("li", null, React.createElement("a", {href: true}, "My Profile")), 
@@ -1661,7 +1662,7 @@
 					)
 				), 
 	React.createElement(Highlight, {className: "html"}, 
-	("<form>\n  <div class=\"radio\">\n    <label>\n      <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios1\" value=\"option1\"/>Option one is this and that&mdash;be sure to include why it's great\n    </label>\n  </div>\n  <div class=\"checkbox\">\n    <label>\n      <input type=\"checkbox\"/>Check me out\n    </label>\n  </div>\n</form>"
+	("<form>\n  <div class=\"bss-radio\">\n    <label>\n      <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios1\" value=\"option1\"/><span>Option one is this and that&mdash;be sure to include why it's great</span>\n    </label>\n  </div>\n  <div class=\"bss-checkbox\">\n    <label>\n      <input type=\"checkbox\"/><span>Check me out</span>\n    </label>\n  </div>\n</form>"
 
 
 
@@ -1816,13 +1817,13 @@
 							React.createElement("div", {className: "bss-col-xs-12"}, 
 								React.createElement("form", {className: "bss-form-horizontal"}, 
 									React.createElement("div", {className: "bss-form-group"}, 
-										React.createElement("label", {for: "exampleInputEmail1", className: "bss-col-xs-2"}, "Full Name"), 
+										React.createElement("label", {for: "exampleInputEmail1", className: "bss-col-xs-2 bss-control-label"}, "Full Name"), 
 										React.createElement("div", {className: "bss-col-xs-3"}, 
 											React.createElement("input", {type: "text", className: "bss-form-control", placeholder: "Enter name"})
 										)
 									), 
 									React.createElement("div", {className: "bss-form-group bss-has-feedback bss-has-error"}, 
-										React.createElement("label", {for: "exampleInputEmail1", className: "bss-col-xs-2"}, "Email address"), 
+										React.createElement("label", {for: "exampleInputEmail1", className: "bss-col-xs-2 bss-control-label"}, "Email address"), 
 										React.createElement("div", {className: "bss-col-xs-3"}, 
 											React.createElement("input", {type: "text", className: "bss-form-control", placeholder: "Enter email"}), 
 											React.createElement("span", {className: "bss-icon-client bss-form-control-feedback", "aria-hidden": "true"}), 
@@ -1831,7 +1832,7 @@
 										)
 									), 
 									React.createElement("div", {className: "bss-form-group bss-has-error"}, 
-										React.createElement("label", {for: "exampleInputPassword1", className: "bss-col-xs-2"}, "Phone Number"), 
+										React.createElement("label", {for: "exampleInputPassword1", className: "bss-col-xs-2 bss-control-label"}, "Phone Number"), 
 										React.createElement("div", {className: "bss-col-xs-6"}, 
 											React.createElement("input", {type: "text", className: "bss-form-control", value: "234-343-3434"}), 
 											React.createElement("span", {className: "bss-icon-error bss-form-control-feedback", "aria-hidden": "true"}), 
@@ -1839,7 +1840,7 @@
 										)
 									), 
 									React.createElement("div", {className: "bss-form-group"}, 
-										React.createElement("label", {for: "exampleInputPassword1", className: "bss-col-xs-2"}, "Disabled"), 
+										React.createElement("label", {for: "exampleInputPassword1", className: "bss-col-xs-2 bss-control-label"}, "Disabled"), 
 										React.createElement("div", {className: "bss-col-xs-10"}, 
 											React.createElement("input", {type: "text", className: "bss-form-control", value: "234-343-3434", disabled: "true"})
 										)
@@ -1936,32 +1937,32 @@
 							React.createElement("div", {className: "bss-col-xs-12"}, 
 								React.createElement("form", {className: "bss-form-horizontal"}, 
 									React.createElement("div", {className: "bss-form-group-resize"}, 
-										React.createElement("label", {for: "Email", className: "bss-col-xs-2"}, "Phone"), 
+										React.createElement("label", {for: "Email", className: "bss-col-xs-2 bss-control-label"}, "Phone"), 
 										React.createElement("div", {className: "bss-col-xs-8"}, 
 											React.createElement("input", {type: "text", className: "bss-form-control-resize", placeholder: "Enter email"})
 										)
 									), 
 									React.createElement("div", {className: "bss-form-group-resize"}, 
-										React.createElement("label", {for: "Email", className: "bss-col-xs-2"}, "Email"), 
+										React.createElement("label", {for: "Email", className: "bss-col-xs-2 bss-control-label"}, "Email"), 
 										React.createElement("div", {className: "bss-col-xs-8"}, 
 											React.createElement("input", {type: "text", className: "bss-form-control-resize", placeholder: "Enter email"})
 										)
 									), 
 									React.createElement("div", {className: "bss-form-group-resize"}, 
-										React.createElement("label", {for: "Email", className: "bss-col-xs-2"}, "Address 1"), 
+										React.createElement("label", {for: "Email", className: "bss-col-xs-2 bss-control-label"}, "Address 1"), 
 										React.createElement("div", {className: "bss-col-xs-8"}, 
 											React.createElement("input", {type: "text", className: "bss-form-control-resize", placeholder: "Enter email"})
 										)
 									), 
 									React.createElement("div", {className: "bss-form-group-resize bss-has-error"}, 
-										React.createElement("label", {for: "Email", className: "bss-col-xs-2"}, "Adress 2"), 
+										React.createElement("label", {for: "Email", className: "bss-col-xs-2 bss-control-label"}, "Adress 2"), 
 										React.createElement("div", {className: "bss-col-xs-8"}, 
 											React.createElement("input", {type: "text", className: "bss-form-control-resize", placeholder: "Enter email", value: "234-343-3434"}), 
 											React.createElement("span", {className: "bss-error-block"}, "This is an error!")
 										)
 									), 
 									React.createElement("div", {className: "bss-form-group-resize"}, 
-										React.createElement("label", {for: "Phone", className: "bss-col-xs-2"}, "Zip"), 
+										React.createElement("label", {for: "Phone", className: "bss-col-xs-2 bss-control-label"}, "Zip"), 
 										React.createElement("div", {className: "bss-col-xs-4"}, 
 											React.createElement("input", {type: "text", className: "bss-form-control-resize", value: "234-343-3434", readonly: "readonly"})
 										)
