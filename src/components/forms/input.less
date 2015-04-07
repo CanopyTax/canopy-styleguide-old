@@ -182,6 +182,8 @@ fieldset[disabled] .bss-form-control {
 
 .bss-has-error {
 
+	color: @warning;
+
 	.bss-form-control-feedback, .bss-error-block {
 		display: block;
 		color: @warning;
@@ -204,7 +206,7 @@ fieldset[disabled] .bss-form-control {
 		box-shadow: none; /* emulate the border */
 	}
 
-  	.bss-form-control:focus {
+		.bss-form-control:focus {
 		border-color: transparent; /* remove the border's color */
 		box-shadow: 0 0 0 2px rgba(254,153,108, .3); /* emulate the border */
 	}
@@ -219,6 +221,15 @@ fieldset[disabled] .bss-form-control {
 	label {
 		color: @warning !important;
 	}
+	.bss-input-group-addon {
+		background-color: @warning;
+		border-color: @warning;
+		color: white;
+		> i {
+			color: white !important;
+		}
+	}
+
 }
 
 .bss-has-error, .bss-has-feedback {
@@ -241,10 +252,6 @@ fieldset[disabled] .bss-form-control {
 		color: @gray10;
 		height: 23px;
 		padding-right: 8px !important; // 8px + 16px from col = 24px
-	}
-
-	.bss-control-label {
-		padding-top: 2px;
 	}
 
 }
@@ -289,17 +296,7 @@ input[type="text"].bss-form-control-resize::-ms-input-placeholder {
 	color: @gray9;
 }
 
-.bss-form-group-sm .bss-form-control,
-.bss-input-group-sm > .bss-form-control,
-.bss-input-group-sm > .bss-input-group-addon,
-.bss-input-group-sm > .bss-input-group-btn > .bss-btn,
-.bss-input-sm {
-  //height: 30px;
-  //padding: 5px 10px;
-  //font-size: 12px;
-  //line-height: 1.5;
-  //border-radius: 3px;
-}
+
 
 @media (min-width: 768px) {
 	.bss-form-inline label {
@@ -315,7 +312,7 @@ input[type="text"].bss-form-control-resize::-ms-input-placeholder {
 }
 
 .bss-has-error .bss-input-required {
-	color: @red;
+	color: @warning;
 }
 
 .bss-input-required {
@@ -323,5 +320,57 @@ input[type="text"].bss-form-control-resize::-ms-input-placeholder {
 }
 
 .bss-input-required::after {
-	content: '*'
+	content: '*';
 }
+
+.bss-input-group {
+	position: relative;
+	display: table;
+	border-collapse: separate;
+	margin-bottom: 16px;
+
+	.bss-form-control {
+		position: relative;
+		z-index: 2;
+		float: left;
+		width: 100%;
+		margin-bottom: 0;
+	}
+
+	.bss-form-control:last-child {
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+
+	.bss-form-control {
+		display: table-cell;
+	}
+}
+
+.bss-input-group-addon {
+	padding: 6px 12px;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1;
+	color: @light-gray;
+	text-align: center;
+	background-color: @gray5;
+	border: 1px solid @gray8;
+	border-radius: 4px;
+	width: 1%;
+	white-space: nowrap;
+	vertical-align: middle;
+	display: table-cell;
+
+	&.bss-icon-addon {
+		padding: 0px 4px;
+	}
+	&:first-child {
+		border-right: 0;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+}
+
+
+

@@ -18,6 +18,12 @@ module.exports = React.createClass({
 							<div className="bss-col-xs-2 bss-center-vertical">@warning</div>
 						</div>
 						<div className="bss-row">
+							<div className="bss-bg-red bss-col-xs-2 bss-padding-8 bss-light bss-center-vertical"><span className="bss-pull-right">.bss-bg-red</span>
+							</div>
+							<div className="bss-col-xs-2 bss-center-vertical bss-red">.bss-red</div>
+							<div className="bss-col-xs-2 bss-center-vertical">@red</div>
+						</div>
+						<div className="bss-row">
 							<div className="bss-bg-info bss-col-xs-2 bss-padding-8 bss-light bss-center-vertical"><span className="bss-pull-right">.bss-bg-info</span>
 							</div>
 							<div className="bss-col-xs-2 bss-center-vertical bss-info">.bss-info</div>
