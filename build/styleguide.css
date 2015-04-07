@@ -585,8 +585,11 @@ h4 {
 hr {
   height: 1px;
   width: 100%;
-  background-color: #e9e9e9;
   border: 0;
+  background-color: #dfdfdf;
+}
+hr .\+light {
+  background-color: #e9e9e9;
 }
 /************Buttons************/
 a {
@@ -857,7 +860,7 @@ fieldset[disabled] .bss-radio input[type="radio"]:checked + span:before {
   border: 2px solid #afafaf;
   width: 16px;
   height: 16px;
-  background-color: white;
+  background-color: transparent;
   -webkit-transition: 0.15s ease-in background-color;
           transition: 0.15s ease-in background-color;
   left: 0px;
@@ -935,7 +938,7 @@ fieldset[disabled] .bss-radio input[type="radio"]:checked + span:before {
   border: 2px solid #afafaf;
   width: 24px;
   height: 24px;
-  background-color: white;
+  background-color: transparent;
   -webkit-transition: 0.15s ease-in background-color;
           transition: 0.15s ease-in background-color;
   left: 0px;
@@ -1250,6 +1253,9 @@ fieldset[disabled] .bss-form-control {
   font-size: 12px;
   padding-top: 3px;
 }
+.bss-has-error {
+  color: #ff8a65;
+}
 .bss-has-error .bss-form-control-feedback,
 .bss-has-error .bss-error-block {
   display: block;
@@ -1292,6 +1298,14 @@ fieldset[disabled] .bss-form-control {
 .bss-has-error label {
   color: #ff8a65 !important;
 }
+.bss-has-error .bss-input-group-addon {
+  background-color: #ff8a65;
+  border-color: #ff8a65;
+  color: white;
+}
+.bss-has-error .bss-input-group-addon > i {
+  color: white !important;
+}
 .bss-has-error,
 .bss-has-feedback {
   position: relative;
@@ -1313,9 +1327,6 @@ fieldset[disabled] .bss-form-control {
   color: #afafaf;
   height: 23px;
   padding-right: 8px !important;
-}
-.bss-form-group-resize .bss-control-label {
-  padding-top: 2px;
 }
 .bss-form-control-resize {
   display: block;
@@ -1364,13 +1375,56 @@ input[type="text"].bss-form-control-resize::-ms-input-placeholder {
   }
 }
 .bss-has-error .bss-input-required {
-  color: #f44336;
+  color: #ff8a65;
 }
 .bss-input-required {
   color: #4caf50;
 }
 .bss-input-required::after {
   content: '*';
+}
+.bss-input-group {
+  position: relative;
+  display: table;
+  border-collapse: separate;
+  margin-bottom: 16px;
+}
+.bss-input-group .bss-form-control {
+  position: relative;
+  z-index: 2;
+  float: left;
+  width: 100%;
+  margin-bottom: 0;
+}
+.bss-input-group .bss-form-control:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.bss-input-group .bss-form-control {
+  display: table-cell;
+}
+.bss-input-group-addon {
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1;
+  color: #777777;
+  text-align: center;
+  background-color: #f2f2f2;
+  border: 1px solid #dfdfdf;
+  border-radius: 4px;
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: middle;
+  display: table-cell;
+}
+.bss-input-group-addon.bss-icon-addon {
+  padding: 0px 4px;
+}
+.bss-input-group-addon:first-child {
+  border-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 textarea {
   margin: 0;
@@ -2111,18 +2165,20 @@ a.bss-slat-lg.bss-animate.ng-leave.ng-leave-active {
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.26);
   padding: 1.6rem;
   border-radius: .2rem;
-  width: 20.8rem;
+  width: 22.4rem;
   position: relative;
   text-align: left;
 }
 .bss-flexible-masonry-card__title {
   font-weight: 600;
+  font-size: 18px;
   margin-bottom: 16px;
 }
 .bss-flexible-masonry-card__body {
   min-height: 13.2rem;
   max-height: 21.0rem;
   overflow: hidden;
+  font-weight: 200;
 }
 .bss-flexible-masonry-card.\+link {
   cursor: pointer;
@@ -2830,9 +2886,6 @@ strong {
 }
 .bss-overlay-modal__content__body {
   margin-top: 2rem;
-}
-.bss-overlay-modal__content__body .bss-form-horizontal {
-  margin-left: -9.7rem;
 }
 /** Animate ng-repeat statements **/
 .bss-animate-repeat.ng-enter,
