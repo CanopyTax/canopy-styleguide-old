@@ -677,6 +677,14 @@ module.exports = React.createClass({
 									<div className="bss-col-xs-6 bss-center-vertical">
 										<i className="bss-icon  bss-icon-sm-caret-down"></i>
 									</div>
+									<div className="bss-col-xs-6 bss-center-vertical">
+										<span className="bss-pull-right">
+											Wrapped Icons
+										</span>
+									</div>
+									<div className="bss-col-xs-6 bss-center-vertical">
+										<i className="bss-icon +round bss-bg-primary-green bss-icon-taxes"></i>
+									</div>
 								</div>
 							</div>
 						</div>
