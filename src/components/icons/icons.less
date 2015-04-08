@@ -6,6 +6,33 @@
 	color: @light-gray;
 }
 
+.bss-icon.\+round::before {
+	position: relative;
+	z-index:1;
+	color: white;
+	visibility:visible;
+}
+
+.bss-icon.\+round {
+	visibility: hidden;
+	position: relative;
+}
+
+.bss-icon.\+round::after {
+	visibility:visible;
+	background-color: inherit;
+	content: " ";
+	display: inline-block;
+	height: 32px;
+	width: 32px;
+	color: white;
+	border-radius: 16px;
+	position:absolute;
+	left:-4px;
+	top:-2px;
+	z-index:0;
+}
+
 .bss-icon span {
 	position: relative;
 	top: -5px;
