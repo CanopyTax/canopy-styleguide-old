@@ -8,14 +8,7 @@ module.exports = React.createClass({
 					Typography
 				</div>
 				<div className="bss-card__body">
-					<div className="bss-row bss-light bottom-md-space">
-						<div className="bss-col-xs-2"><span className="bss-pull-right">LIGHT</span>
-						</div>
-						<div className="bss-col-xs-2"><span className="bss-pull-right">.bss-light</span>
-						</div>
-						<div className="bss-col-xs-8 bss-text-muted-dark">An economy based on endless growth is unsustainable</div>
-					</div>
-					<div className="bss-row bss-regular bottom-md-space">
+					<div className="bss-row bss-regular">
 						<div className="bss-col-xs-2"><span className="bss-pull-right">REGULAR</span>
 						</div>
 						<div className="bss-col-xs-2"><span className="bss-pull-right">.bss-regular</span>
@@ -29,7 +22,7 @@ module.exports = React.createClass({
 							</div>
 						</div>
 					</div>
-					<div className="bss-row bss-semibold bottom-md-space">
+					<div className="bss-row bss-semibold ">
 						<div className="bss-col-xs-2"><span className="bss-pull-right">SEMIBOLD</span>
 						</div>
 						<div className="bss-col-xs-2"><span className="bss-pull-right">.bss-semibold</span>
@@ -39,7 +32,7 @@ module.exports = React.createClass({
 				</div>
 				<div className="bss-card__hr"></div>
 				<div className="bss-card__body">
-					<div className="bss-row bottom-md-space">
+					<div className="bss-row">
 						<div className="bss-col-xs-2"><span className="bss-pull-right">LARGE HEADER</span>
 						</div>
 						<div className="bss-col-xs-2"><span className="bss-pull-right">.bss-header</span>
@@ -49,7 +42,7 @@ module.exports = React.createClass({
 							<div>Line Height 52px</div>
 						</div>
 					</div>
-					<div className="bss-row bottom-md-space">
+					<div className="bss-row">
 						<div className="bss-col-xs-2"><span className="bss-pull-right">HEADER</span>
 						</div>
 						<div className="bss-col-xs-2"><span className="bss-pull-right">.bss-header-sm</span>
@@ -59,7 +52,7 @@ module.exports = React.createClass({
 							<div>Line Height 44px</div>
 						</div>
 					</div>
-					<div className="bss-row bottom-md-space">
+					<div className="bss-row ">
 						<div className="bss-col-xs-2"><span className="bss-pull-right">SUBHEADER</span>
 						</div>
 						<div className="bss-col-xs-2"><span className="bss-pull-right">.bss-subheader</span>
@@ -69,7 +62,7 @@ module.exports = React.createClass({
 							<div>Line Height 32px</div>
 						</div>
 					</div>
-					<div className="bss-row bottom-md-space">
+					<div className="bss-row">
 						<div className="bss-col-xs-2"><span className="bss-pull-right">SUBHEADER 2</span>
 						</div>
 						<div className="bss-col-xs-2"><span className="bss-pull-right">.bss-subheader-sm</span>
@@ -79,7 +72,7 @@ module.exports = React.createClass({
 							<div>Line Height 28px</div>
 						</div>
 					</div>
-					<div className="bss-row bottom-md-space">
+					<div className="bss-row">
 						<div className="bss-col-xs-2"><span className="bss-pull-right">BODY</span>
 						</div>
 						<div className="bss-col-xs-2"><span className="bss-pull-right">.bss-body</span>
@@ -89,7 +82,7 @@ module.exports = React.createClass({
 							<div>Line Height 24px</div>
 						</div>
 					</div>
-					<div className="bss-row bottom-md-space">
+					<div className="bss-row">
 						<div className="bss-col-xs-2"><span className="bss-pull-right">BODY 2</span>
 						</div>
 						<div className="bss-col-xs-2"><span className="bss-pull-right">.bss-body-sm</span>
@@ -99,7 +92,7 @@ module.exports = React.createClass({
 							<div>Line Height 20px</div>
 						</div>
 					</div>
-					<div className="bss-row bottom-md-space">
+					<div className="bss-row">
 						<div className="bss-col-xs-2"><span className="bss-pull-right">CAPTION</span>
 						</div>
 						<div className="bss-col-xs-2"><span className="bss-pull-right">.bss-caption</span>

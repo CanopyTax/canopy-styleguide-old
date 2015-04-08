@@ -12,37 +12,37 @@ module.exports = React.createClass({
 					<br/>
 					<div className="left-md-space bss-margin-left-16">
 						<div className="bss-row">
-							<div className="bss-bg-warning bss-col-xs-2 bss-padding-8 bss-light bss-center-vertical"><span className="bss-pull-right">.bss-bg-warning</span>
+							<div className="bss-bg-warning bss-col-xs-2 bss-padding-8 bss-white bss-center-vertical"><span className="bss-pull-right">.bss-bg-warning</span>
 							</div>
 							<div className="bss-col-xs-2 bss-center-vertical bss-warning">.bss-warning</div>
 							<div className="bss-col-xs-2 bss-center-vertical">@warning</div>
 						</div>
 						<div className="bss-row">
-							<div className="bss-bg-red bss-col-xs-2 bss-padding-8 bss-light bss-center-vertical"><span className="bss-pull-right">.bss-bg-red</span>
+							<div className="bss-bg-red bss-col-xs-2 bss-padding-8 bss-white bss-center-vertical"><span className="bss-pull-right">.bss-bg-red</span>
 							</div>
 							<div className="bss-col-xs-2 bss-center-vertical bss-red">.bss-red</div>
 							<div className="bss-col-xs-2 bss-center-vertical">@red</div>
 						</div>
 						<div className="bss-row">
-							<div className="bss-bg-info bss-col-xs-2 bss-padding-8 bss-light bss-center-vertical"><span className="bss-pull-right">.bss-bg-info</span>
+							<div className="bss-bg-info bss-col-xs-2 bss-padding-8 bss-white bss-center-vertical"><span className="bss-pull-right">.bss-bg-info</span>
 							</div>
 							<div className="bss-col-xs-2 bss-center-vertical bss-info">.bss-info</div>
 							<div className="bss-col-xs-2 bss-center-vertical">@info</div>
 						</div>
 						<div className="bss-row">
-							<div className="bss-bg-blue-link bss-col-xs-2 bss-padding-8 bss-light bss-center-vertical"><span className="bss-pull-right">.bss-bg-blue-link</span>
+							<div className="bss-bg-blue-link bss-col-xs-2 bss-padding-8 bss-white bss-center-vertical"><span className="bss-pull-right">.bss-bg-blue-link</span>
 							</div>
 							<div className="bss-col-xs-2 bss-center-vertical bss-blue-link">.bss-blue-link</div>
 							<div className="bss-col-xs-2 bss-center-vertical">@blue-link</div>
 						</div>
 						<div className="bss-row">
-							<div className="bss-bg-general bss-col-xs-2 bss-padding-8 bss-light bss-center-vertical"><span className="bss-pull-right">.bss-bg-general</span>
+							<div className="bss-bg-general bss-col-xs-2 bss-padding-8 bss-white bss-center-vertical"><span className="bss-pull-right">.bss-bg-general</span>
 							</div>
 							<div className="bss-col-xs-2 bss-center-vertical bss-general">.bss-general</div>
 							<div className="bss-col-xs-2 bss-center-vertical">@general</div>
 						</div>
 						<div className="bss-row">
-							<div className="bss-bg-success bss-col-xs-2 bss-padding-8 bss-light bss-center-vertical"><span className="bss-pull-right">.bss-bg-success</span>
+							<div className="bss-bg-success bss-col-xs-2 bss-padding-8 bss-white bss-center-vertical"><span className="bss-pull-right">.bss-bg-success</span>
 							</div>
 							<div className="bss-col-xs-2 bss-center-vertical bss-success">.bss-success</div>
 							<div className="bss-col-xs-2 bss-center-vertical">@success</div>
@@ -52,25 +52,25 @@ module.exports = React.createClass({
 					<br/>
 					<div className="left-md-space bss-margin-left-16">
 						<div className="bss-row">
-							<div className="bss-bg-dark-green bss-col-xs-2 bss-padding-8 bss-light bss-center-vertical"><span className="bss-pull-right">.bss-bg-dark-green</span>
+							<div className="bss-bg-dark-green bss-col-xs-2 bss-padding-8 bss-white bss-center-vertical"><span className="bss-pull-right">.bss-bg-dark-green</span>
 							</div>
 							<div className="bss-col-xs-2 bss-center-vertical bss-dark-green">.bss-dark-green</div>
 							<div className="bss-col-xs-2 bss-center-vertical">@dark-green</div>
 						</div>
 						<div className="bss-row">
-							<div className="bss-bg-medium-green bss-col-xs-2 bss-padding-8 bss-light bss-center-vertical"><span className="bss-pull-right">.bss-bg-medium-green</span>
+							<div className="bss-bg-medium-green bss-col-xs-2 bss-padding-8 bss-white bss-center-vertical"><span className="bss-pull-right">.bss-bg-medium-green</span>
 							</div>
 							<div className="bss-col-xs-2 bss-center-vertical bss-medium-green">.bss-medium-green</div>
 							<div className="bss-col-xs-2 bss-center-vertical">@mediumedium-green</div>
 						</div>
 						<div className="bss-row">
-							<div className="bss-bg-primary-green bss-col-xs-2 bss-padding-8 bss-light bss-center-vertical"><span className="bss-pull-right">.bss-bg-primary-green</span><span className="bss-pull-left">PRIMARY</span>
+							<div className="bss-bg-primary-green bss-col-xs-2 bss-padding-8 bss-white bss-center-vertical"><span className="bss-pull-right">.bss-bg-primary-green</span><span className="bss-pull-left">PRIMARY</span>
 							</div>
 							<div className="bss-col-xs-2 bss-center-vertical bss-primary-green">.bss-primary-green</div>
 							<div className="bss-col-xs-2 bss-center-vertical">@primary-green</div>
 						</div>
 						<div className="bss-row">
-							<div className="bss-bg-light-green bss-col-xs-2 bss-padding-8 bss-light bss-center-vertical"><span className="bss-pull-right">.bss-bg-light-green</span>
+							<div className="bss-bg-light-green bss-col-xs-2 bss-padding-8 bss-white bss-center-vertical"><span className="bss-pull-right">.bss-bg-light-green</span>
 							</div>
 							<div className="bss-col-xs-2 bss-center-vertical bss-light-green">.bss-light-green</div>
 							<div className="bss-col-xs-2 bss-center-vertical">@light-green</div>
@@ -80,19 +80,19 @@ module.exports = React.createClass({
 					<br/>
 					<div className="left-md-space bss-margin-left-16">
 						<div className="bss-row">
-							<div className="bss-bg-dark-gray bss-col-xs-2 bss-padding-8 bss-light bss-center-vertical"><span className="bss-pull-right">.bss-bg-dark-gray</span><span className="bss-pull-left">FONT COLOR</span>
+							<div className="bss-bg-dark-gray bss-col-xs-2 bss-padding-8 bss-white bss-center-vertical"><span className="bss-pull-right">.bss-bg-dark-gray</span><span className="bss-pull-left">FONT COLOR</span>
 							</div>
 							<div className="bss-col-xs-2 bss-center-vertical bss-dark-gray">.bss-dark-gray</div>
 							<div className="bss-col-xs-2 bss-center-vertical">@dark-gray</div>
 						</div>
 						<div className="bss-row">
-							<div className="bss-bg-medium-gray bss-col-xs-2 bss-padding-8 bss-light bss-center-vertical"><span className="bss-pull-right">.bss-bg-medium-gray</span>
+							<div className="bss-bg-medium-gray bss-col-xs-2 bss-padding-8 bss-white bss-center-vertical"><span className="bss-pull-right">.bss-bg-medium-gray</span>
 							</div>
 							<div className="bss-col-xs-2 bss-center-vertical bss-medium-gray">.bss-medium-gray</div>
 							<div className="bss-col-xs-2 bss-center-vertical">@mediumedium-gray</div>
 						</div>
 						<div className="bss-row">
-							<div className="bss-bg-light-gray bss-col-xs-2 bss-padding-8 bss-light bss-center-vertical"><span className="bss-pull-right">.bss-bg-light-gray</span><span className="bss-pull-left">ICONOGRAPHY</span>
+							<div className="bss-bg-light-gray bss-col-xs-2 bss-padding-8 bss-white bss-center-vertical"><span className="bss-pull-right">.bss-bg-light-gray</span><span className="bss-pull-left">ICONOGRAPHY</span>
 							</div>
 							<div className="bss-col-xs-2 bss-center-vertical bss-light-gray">.bss-light-gray</div>
 							<div className="bss-col-xs-2 bss-center-vertical">@light-gray</div>
@@ -100,6 +100,12 @@ module.exports = React.createClass({
 					</div>
 					<br/>
 					<div className="left-md-space bss-margin-left-16">
+						<div className="bss-row">
+							<div className="bss-bg-white bss-col-xs-2 bss-padding-8 bss-center-vertical"><span className="bss-pull-right">.bss-bg-white</span>
+							</div>
+							<div className="bss-bg-light-gray bss-padding-8 bss-col-xs-2 bss-center-vertical bss-gray-1">.bss-white</div>
+							<div className="bss-col-xs-2 bss-center-vertical">@white</div>
+						</div>
 						<div className="bss-row">
 							<div className="bss-bg-gray-1 bss-col-xs-2 bss-padding-8 bss-center-vertical"><span className="bss-pull-right">.bss-bg-gray-1</span>
 							</div>
