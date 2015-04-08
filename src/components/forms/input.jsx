@@ -53,9 +53,9 @@ module.exports = React.createClass({
 									</div>
 									<span className="bss-error-block">This is an error!</span>
 								</div>
-								<div className="bss-form-group">
+								<div className="bss-form-group bss-has-feedback">
 									<div className="bss-input-group">
-									 	<span className="bss-input-group-addon bss-icon-addon bss-bg-primary-green" id="basic-addon1"><i className="bss-icon bss-icon-lg-check" style={{color:"white"}}></i></span>
+									 	<span className="bss-input-group-addon bss-icon-addon bss-bg-primary-green" id="basic-addon1"><i className="bss-icon bss-icon-lg-check bss-white"></i></span>
 									 	<input type="text" className="bss-form-control" placeholder="Serial Number" aria-describedby="basic-addon1"/>
 									</div>
 									<span className="bss-error-block">This is an error!</span>
