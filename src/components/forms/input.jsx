@@ -41,21 +41,32 @@ module.exports = React.createClass({
 
 								</div>
 								<div className="bss-form-group">
-									<label for="exampleInputPassword1">Disabled</label>
-									<input type="text" className="bss-form-control" value="234-343-3434" disabled="true"/>
+									<div className="bss-input-group">
+									 	<span className="bss-input-group-addon bss-icon-addon" id="basic-addon1"><i className="bss-icon bss-icon-add-person"></i></span>
+									 	<input type="text" className="bss-form-control" placeholder="Username" aria-describedby="basic-addon1"/>
+									 	<span className="bss-error-block">This is an error!</span>
+									</div>
 								</div>
-
-								<div className="bss-input-group">
-								 	<span className="bss-input-group-addon bss-icon-addon" id="basic-addon1"><i className="bss-icon bss-icon-add-person"></i></span>
-								 	<input type="text" className="bss-form-control" placeholder="Username" aria-describedby="basic-addon1"/>
+								<div className="bss-form-group bss-has-error">
+									<div className="bss-input-group">
+									 	<span className="bss-input-group-addon" id="basic-addon1">#</span>
+									 	<input type="text" className="bss-form-control" placeholder="Serial Number" aria-describedby="basic-addon1"/>
+									</div>
+									<span className="bss-error-block">This is an error!</span>
 								</div>
-								<div className="bss-input-group bss-has-error">
-								 	<span className="bss-input-group-addon" id="basic-addon1">#</span>
-								 	<input type="text" className="bss-form-control" placeholder="Serial Number" aria-describedby="basic-addon1"/>
+								<div className="bss-form-group">
+									<div className="bss-input-group">
+									 	<span className="bss-input-group-addon bss-icon-addon bss-bg-primary-green" id="basic-addon1"><i className="bss-icon bss-icon-lg-check" style={{color:"white"}}></i></span>
+									 	<input type="text" className="bss-form-control" placeholder="Serial Number" aria-describedby="basic-addon1"/>
+									</div>
+									<span className="bss-error-block">This is an error!</span>
 								</div>
-								<div className="bss-input-group bss-has-error">
-								 	<span className="bss-input-group-addon bss-icon-addon" id="basic-addon1"><i className="bss-icon bss-icon-add-person"></i></span>
-								 	<input type="text" className="bss-form-control" placeholder="User" aria-describedby="basic-addon1"/>
+								<div className="bss-form-group bss-has-error">
+									<div className="bss-input-group">
+									 	<span className="bss-input-group-addon" id="basic-addon1">#</span>
+									 	<input type="text" className="bss-form-control" placeholder="Serial Number" aria-describedby="basic-addon1"/>
+									</div>
+									<span className="bss-error-block">This is an error!</span>
 								</div>
 							</form>
 						</div>
@@ -90,14 +101,20 @@ module.exports = React.createClass({
       <span class="bss-icon-error bss-form-control-feedback" aria-hidden="true"></span>
       <span class="bss-error-block">This is an error!</span>
   </div>
+<div class="bss-form-group">
   <div class="bss-input-group">
-      <span class="bss-input-group-addon bss-icon-addon" id="basic-addon1"><i class="bss-icon bss-icon-add-person"></i></span>
-      <input type="text" class="bss-form-control" placeholder="Username" aria-describedby="basic-addon1"/>
-   </div>
-   <div class="bss-input-group">
-      <span class="bss-input-group-addon" id="basic-addon1">#</span>
-      <input type="text" class="bss-form-control" placeholder="Serial Number" aria-describedby="basic-addon1"/>
-   </div>
+    <span class="bss-input-group-addon bss-icon-addon" id="basic-addon1"><i class="bss-icon bss-icon-add-person"></i></span>
+    <input type="text" class="bss-form-control" placeholder="Serial Number" aria-describedby="basic-addon1"/>
+  </div>
+  <span class="bss-error-block">This is an error!</span>
+</div>
+<div class="bss-form-group bss-has-error">
+  <div class="bss-input-group">
+    <span class="bss-input-group-addon" id="basic-addon1">#</span>
+    <input type="text" class="bss-form-control" placeholder="Serial Number" aria-describedby="basic-addon1"/>
+  </div>
+  <span class="bss-error-block">This is an error!</span>
+</div>
   <div class="bss-form-group">
     <label for="exampleInputPassword1">Disabled</label>
     <input type="text" class="bss-form-control" value="234-343-3434" disabled="true"/>
