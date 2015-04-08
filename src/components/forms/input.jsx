@@ -44,7 +44,6 @@ module.exports = React.createClass({
 									<div className="bss-input-group">
 									 	<span className="bss-input-group-addon bss-icon-addon" id="basic-addon1"><i className="bss-icon bss-icon-add-person"></i></span>
 									 	<input type="text" className="bss-form-control" placeholder="Username" aria-describedby="basic-addon1"/>
-									 	<span className="bss-error-block">This is an error!</span>
 									</div>
 								</div>
 								<div className="bss-form-group bss-has-error">
