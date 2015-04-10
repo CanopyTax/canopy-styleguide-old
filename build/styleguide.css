@@ -236,7 +236,10 @@
   margin-right: auto;
 }
 .bss-text-center {
-  text-align: center;
+  text-align: center!important;
+}
+.bss-text-right {
+  text-align: right!important;
 }
 .bss-inline-block {
   display: inline-block !important;
@@ -260,6 +263,10 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+/* make sure to have `ngVisible` just add the extra CSS class */
+.ng-visible.ng-hide:not(.ng-hide-animate) {
+  visibility: hidden;
 }
 .bss-row:before,
 .bss-row:after,
@@ -871,7 +878,7 @@ fieldset[disabled] .bss-radio input[type="radio"]:checked + span:before {
 }
 .bss-checkbox input[type="checkbox"] + span {
   font-size: 1.2rem;
-  padding-top: .25rem;
+  padding-top: .0rem;
   position: relative;
   padding-left: 23px;
   cursor: pointer;
@@ -888,7 +895,7 @@ fieldset[disabled] .bss-radio input[type="radio"]:checked + span:before {
   -webkit-transition: 0.15s ease-in background-color;
           transition: 0.15s ease-in background-color;
   left: 0px;
-  top: 3px;
+  top: 0px;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -900,8 +907,8 @@ fieldset[disabled] .bss-radio input[type="radio"]:checked + span:before {
   height: 16px;
   vertical-align: middle;
   position: absolute;
-  top: -2px;
-  left: -5px;
+  top: -5px;
+  left: -0.45rem;
   font-family: 'Beanstalk-Icons';
   speak: none;
   font-style: normal;
@@ -1375,16 +1382,20 @@ input[readonly="readonly"].bss-form-control-resize {
   border: 1px solid transparent !important;
 }
 input[type="text"].bss-form-control-resize::-webkit-input-placeholder {
+  font-size: 12px;
   color: #cfcfcf;
 }
 input[type="text"].bss-form-control-resize::-moz-placeholder {
+  font-size: 12px;
   color: #cfcfcf;
 }
 input[type="text"].bss-form-control-resize::-moz-placeholder {
   /* Older versions of Firefox */
+  font-size: 12px;
   color: #cfcfcf;
 }
 input[type="text"].bss-form-control-resize::-ms-input-placeholder {
+  font-size: 12px;
   color: #cfcfcf;
 }
 @media (min-width: 768px) {
@@ -1424,6 +1435,10 @@ input[type="text"].bss-form-control-resize::-ms-input-placeholder {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
+.bss-input-group .bss-form-control:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
 .bss-input-group .bss-form-control {
   display: table-cell;
 }
@@ -1449,6 +1464,11 @@ input[type="text"].bss-form-control-resize::-ms-input-placeholder {
   border-right: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+}
+.bss-input-group-addon:last-child {
+  border-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 textarea {
   margin: 0;
@@ -1582,7 +1602,7 @@ textarea.bss-form-control.\+no-resize {
   float: left;
 }
 .bss-topnav-secondary__content__right-menu {
-  padding: 1.0rem 0rem 0rem 0rem;
+  padding: .8rem 0rem 0rem 0rem;
   float: right;
 }
 .bss-topnav-secondary__content__menu,
@@ -3050,16 +3070,15 @@ strong {
   -webkit-transition: 800ms ease-in left;
           transition: 800ms ease-in left;
   position: absolute;
-  top: 140px;
 }
 .bss-animate-slide.ng-enter {
   left: 100%;
 }
 .bss-animate-slide.ng-enter.ng-enter-active {
-  left: 30%;
+  left: calc( 50% - 380px);
 }
 .bss-animate-slide.ng-leave {
-  left: 30%;
+  left: calc( 50% - 380px);
 }
 .bss-animate-slide.ng-leave.ng-leave-active {
   left: -100%;

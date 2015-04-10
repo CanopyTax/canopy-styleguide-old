@@ -1789,6 +1789,10 @@
 									 	React.createElement("span", {className: "bss-input-group-addon bss-icon-addon", id: "basic-addon1"}, React.createElement("i", {className: "bss-icon bss-icon-add-person"})), 
 									 	React.createElement("input", {type: "text", className: "bss-form-control", placeholder: "Username", "aria-describedby": "basic-addon1"})
 									), 
+									React.createElement("div", {className: "bss-input-group"}, 
+									 	React.createElement("input", {type: "text", className: "bss-form-control", placeholder: "Username", "aria-describedby": "basic-addon1"}), 
+									 	React.createElement("span", {className: "bss-input-group-addon bss-icon-addon", id: "basic-addon1"}, React.createElement("i", {className: "bss-icon bss-icon-add-person"}))
+									), 
 									React.createElement("div", {className: "bss-input-group bss-has-error"}, 
 									 	React.createElement("span", {className: "bss-input-group-addon", id: "basic-addon1"}, "#"), 
 									 	React.createElement("input", {type: "text", className: "bss-form-control", placeholder: "Serial Number", "aria-describedby": "basic-addon1"})

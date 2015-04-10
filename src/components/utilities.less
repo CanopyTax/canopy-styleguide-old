@@ -22,7 +22,11 @@
 }
 
 .bss-text-center {
-	text-align: center;
+	text-align: center!important;
+}
+
+.bss-text-right {
+	text-align: right!important;
 }
 
 .bss-inline-block {
@@ -49,6 +53,11 @@
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+
+/* make sure to have `ngVisible` just add the extra CSS class */
+.ng-visible.ng-hide:not(.ng-hide-animate) {
+  visibility: hidden;
 }
 
 .bss-row:before,
