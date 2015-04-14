@@ -17,6 +17,9 @@
 			background-color: @primary-green;
 			border-color: @primary-green;
 		}
+		&:after {
+			opacity: 1;
+		}
 	}
 
 	input[type="checkbox"]:disabled + span {
@@ -84,6 +87,8 @@
 			content: "\e636";
 			color: @white;
 			font-size: 2.6rem;
+			opacity: 0;
+			transition: .15s ease-in opacity;
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
 			user-select: none;
@@ -106,6 +111,9 @@
 		&:before {
 			background-color: @primary-green;
 			border-color: @primary-green;
+		}
+		&:after {
+			opacity: 1;
 		}
 	}
 
@@ -174,6 +182,8 @@
 			content: "\e61b";
 			color: @white;
 			font-size: 2.6rem;
+			opacity: 0;
+			transition: .15s ease-in opacity;
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
 			user-select: none;
