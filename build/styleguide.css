@@ -1522,6 +1522,9 @@ textarea.bss-form-control.\+no-resize {
   top: 0;
   color: #333333;
 }
+.bss-topnav.\+banner-top {
+  top: 3.2rem;
+}
 .bss-topnav.\+add-box-shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.06), 0 2px 6px 0 rgba(0, 0, 0, 0.26);
 }
@@ -2864,7 +2867,7 @@ strong {
 .bss-banner-global {
   background-color: #4caf50;
   height: 32px;
-  padding: 4px 12px 0px 16px;
+  padding: 5px 12px 0px 16px;
   color: white;
   font-weight: 600;
 }
