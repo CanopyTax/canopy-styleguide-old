@@ -566,6 +566,28 @@
   top: 48%;
 }
 /** icons.less **/
+#bss-app [class^="bss-icon-"],
+#bss-app [class*=" bss-icon-"] {
+  font-family: inherit;
+  speak: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  font-variant: inherit;
+  text-transform: inherit;
+}
+#bss-app [class^="bss-icon-"]:before,
+#bss-app [class*=" bss-icon-"]:before {
+  font-family: 'Beanstalk-Icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 .bss-icon {
   font-size: 2.4rem;
   color: #777777;
@@ -2902,6 +2924,8 @@ strong {
   padding: 5px 12px 0px 16px;
   color: white;
   font-weight: 600;
+  position: fixed;
+  width: 100%;
 }
 .bss-banner-global .bss-icon {
   font-size: 24px;
@@ -2941,7 +2965,7 @@ strong {
 .bss-modal__dialog {
   position: fixed;
   z-index: 100000;
-  top: 300px;
+  top: 20%;
   left: 50%;
   -webkit-transform: translate(-260px, 0);
       -ms-transform: translate(-260px, 0);

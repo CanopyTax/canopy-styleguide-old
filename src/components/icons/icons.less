@@ -3,6 +3,32 @@
 @import "../variables/variables.less";
 @import "../mixins/mixins.less";
 
+
+#bss-app {
+	[class^="bss-icon-"], [class*=" bss-icon-"] {
+		font-family: inherit;
+		speak: inherit;
+		font-style: inherit;
+		font-weight: inherit;
+		font-variant: inherit;
+		text-transform: inherit;
+
+		&:before {
+			font-family: 'Beanstalk-Icons';
+			speak: none;
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			text-transform: none;
+			line-height: 1;
+
+			/* Better Font Rendering =========== */
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+	}
+}
+
 .bss-icon {
 	font-size: 2.4rem;
 	color: @light-gray;
