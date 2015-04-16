@@ -613,7 +613,7 @@
   border-radius: 16px;
   position: absolute;
   left: -4px;
-  top: -2px;
+  top: 0px;
   z-index: 0;
 }
 .bss-icon span {
@@ -661,6 +661,9 @@ hr {
 }
 hr .\+light {
   background-color: #e9e9e9;
+}
+a:hover {
+  cursor: pointer;
 }
 /** forms.less **/
 /** buttons.less **/
@@ -2926,6 +2929,7 @@ strong {
   font-weight: 600;
   position: fixed;
   width: 100%;
+  z-index: 1;
 }
 .bss-banner-global .bss-icon {
   font-size: 24px;
