@@ -1,3 +1,5 @@
+/** components.less **/
+/** bootstrap-grid.less **/
 .bss-row {
   margin-right: -8px;
   margin-left: -8px;
@@ -177,6 +179,7 @@
 .bss-col-xs-offset-0 {
   margin-left: 0;
 }
+/** bootstrap-media.less **/
 .bss-media {
   margin-top: 15px;
 }
@@ -211,8 +214,13 @@
   padding-left: 0;
   list-style: none;
 }
+/** utilities.less **/
+/** variables.less **/
+/** fonts.less **/
 /************Variables************/
+/** colors.less **/
 /************Palettes************/
+/** for.less **/
 .bss-clearfix:before,
 .bss-clearfix:after {
   content: " ";
@@ -495,7 +503,12 @@
 .bss-padding-left-32 {
   padding-left: 3.2rem!important;
 }
+/** labels.less **/
+/** mixins.less **/
 /************Mixins************/
+/** clearfix.less **/
+/** center-block.less **/
+/** depth.less **/
 /************Depth************/
 .depth-z1 {
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.26);
@@ -552,6 +565,7 @@
 .bss-label-square > .bss-center-vertical {
   top: 48%;
 }
+/** icons.less **/
 .bss-icon {
   font-size: 2.4rem;
   color: #777777;
@@ -586,6 +600,7 @@
   left: 6px;
   font-size: 14px;
 }
+/** core.less **/
 html {
   font-size: 62.5%;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -625,6 +640,8 @@ hr {
 hr .\+light {
   background-color: #e9e9e9;
 }
+/** forms.less **/
+/** buttons.less **/
 /************Buttons************/
 a {
   color: #4a90e2;
@@ -776,6 +793,8 @@ fieldset[disabled] .bss-link {
   color: rgba(0, 0, 0, 0.24);
   box-shadow: none !important;
 }
+/** checkbox-radio.less **/
+/** radio.less **/
 .bss-radio {
   font-size: 0;
   position: relative;
@@ -851,6 +870,7 @@ fieldset[disabled] .bss-radio input[type="radio"] + span:before {
 fieldset[disabled] .bss-radio input[type="radio"]:checked + span:before {
   background-color: #cfcfcf;
 }
+/** checkbox.less **/
 .bss-checkbox {
   font-size: 0;
   position: relative;
@@ -1035,6 +1055,7 @@ fieldset[disabled] .bss-checkbox input[type="checkbox"]:checked + span:before,
 fieldset[disabled] .bss-checkbox-large input[type="checkbox"]:checked + span:before {
   background-color: #cfcfcf;
 }
+/** toggle.less **/
 .bss-toggle {
   position: relative;
 }
@@ -1139,6 +1160,7 @@ fieldset[disabled] .checkbox,
 fieldset[disabled] .checkbox-inline {
   cursor: not-allowed;
 }
+/** input.less **/
 .bss-form-group {
   margin-bottom: 16px;
   display: block;
@@ -1488,6 +1510,7 @@ input[type="text"].bss-form-control-resize::-ms-input-placeholder {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
+/** textarea.less **/
 textarea {
   margin: 0;
   font-family: inherit;
@@ -1514,6 +1537,7 @@ textarea.bss-form-control.\+no-resize {
   margin-bottom: 25px;
   margin-top: 35px;
 }
+/** navigation.less **/
 /************Navigation************/
 .bss-topnav {
   position: fixed;
@@ -1892,6 +1916,7 @@ textarea.bss-form-control.\+no-resize {
 .bss-secondarynav__menu__sub a.\+active {
   color: #388e3c;
 }
+/** slats.less **/
 .bss-slat {
   height: 4.8rem;
   position: relative;
@@ -2103,6 +2128,7 @@ a.bss-slat-lg.bss-animate.ng-leave.ng-leave-active {
   opacity: 0;
   height: 0;
 }
+/** tables.less **/
 .bss-inset-table {
   border-spacing: 0;
 }
@@ -2207,6 +2233,8 @@ a.bss-slat-lg.bss-animate.ng-leave.ng-leave-active {
 .bss-card-table__headcontent .pull-right > * {
   vertical-align: top;
 }
+/** cards.less **/
+/** flexible-masonry.less **/
 .bss-flexible-masonry {
   column-gap: 16px;
   -moz-column-gap: 16px;
@@ -2262,7 +2290,7 @@ a.bss-slat-lg.bss-animate.ng-leave.ng-leave-active {
 }
 .bss-card {
   background-color: white;
-  border-radius: .3rem;
+  border-radius: .2rem;
   color: #333333;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.26);
 }
@@ -2344,6 +2372,7 @@ a.bss-slat-lg.bss-animate.ng-leave.ng-leave-active {
   border-radius: 3px;
   box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.3);
 }
+/** typography.less **/
 input,
 textarea,
 keygen,
@@ -2633,6 +2662,7 @@ strong {
 .bss-bg-red {
   background-color: #f44336 !important;
 }
+/** menus.less **/
 /************Menus************/
 .bss-dropdown {
   position: relative;
@@ -2720,6 +2750,7 @@ strong {
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;
 }
+/** pickers.less **/
 /**** BSS Guide - BOOTSTRAP DATEPICKER OVERRIDE ****/
 #bss-app .datepicker {
   font-size: 1.0rem;
@@ -2770,10 +2801,6 @@ strong {
   background-color: #4caf50;
   text-shadow: none;
 }
-#bss-app thead tr:first-child {
-  font-weight: 600;
-  font-size: 1.2rem;
-}
 #bss-app .datepicker {
   padding: 0;
   border-radius: 2px;
@@ -2785,12 +2812,17 @@ strong {
 #bss-app .datepicker .dow {
   color: #afafaf;
 }
+#bss-app .datepicker thead tr:first-child {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
 #bss-app .datepicker table {
   border-spacing: 2px 2px;
 }
 #bss-app .datepicker tfoot {
   display: none;
 }
+/** banners.less **/
 .bss-toaster {
   min-height: 48px;
   width: 363px;
@@ -2896,6 +2928,7 @@ strong {
 .bss-banner-global__action:hover {
   text-decoration: underline;
 }
+/** modals.less **/
 .bss-modal__screen {
   background-color: rgba(61, 70, 77, 0.4);
   position: fixed;
@@ -2948,6 +2981,7 @@ strong {
 .bss-overlay-modal__content__body {
   margin-top: 2rem;
 }
+/** animate.less **/
 /** Animate ng-repeat statements **/
 .bss-animate-repeat.ng-enter,
 .bss-animate-repeat.ng-leave {
@@ -3100,6 +3134,7 @@ strong {
 .bss-animate-slide.ng-leave.ng-leave-active {
   left: -100%;
 }
+/** lists.less **/
 .bss-list-inline {
   padding-left: 0;
   margin-left: -5px;
