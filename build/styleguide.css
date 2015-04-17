@@ -1588,6 +1588,7 @@ textarea.bss-form-control.\+no-resize {
   padding-right: 2.4rem;
 }
 .bss-topnav__content__brand {
+  cursor: pointer;
   float: left;
 }
 .bss-topnav__content__brand > img {
@@ -1826,6 +1827,14 @@ textarea.bss-form-control.\+no-resize {
 .bss-secondarynav.\+tall-top {
   margin-top: 9.8rem !important;
   height: calc(100% - 9.8rem);
+}
+.bss-secondarynav.\+banner-top {
+  margin-top: 8rem !important;
+  height: calc(100% - 8rem);
+}
+.bss-secondarynav.\+tall-top.\+banner-top {
+  margin-top: 13rem !important;
+  height: calc(100% - 13rem);
 }
 .bss-secondarynav__title {
   padding: 2.4rem;
@@ -2928,6 +2937,7 @@ strong {
   color: white;
   font-weight: 600;
   position: fixed;
+  top: 0px;
   width: 100%;
   z-index: 1;
 }

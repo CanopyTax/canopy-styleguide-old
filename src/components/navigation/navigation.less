@@ -46,7 +46,7 @@
 
 
 		&__brand {
-
+			cursor: pointer;
 			float: left;
 			> img {
 				height: 2.0rem;
@@ -308,6 +308,16 @@
 	&.\+tall-top {
 		margin-top: 9.8rem !important;
 		height:~'calc(100% - 9.8rem)';
+	}
+
+	&.\+banner-top {
+		margin-top: 8rem !important;
+		height:~'calc(100% - 8rem)';
+	}
+
+	&.\+tall-top.\+banner-top {
+		margin-top: 13rem !important;
+		height:~'calc(100% - 13rem)';
 	}
 
 	&__title {
