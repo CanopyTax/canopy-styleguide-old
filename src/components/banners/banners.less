@@ -1,3 +1,5 @@
+/** banners.less **/
+
 @import "../variables/variables.less";
 @import "../mixins/mixins.less";
 
@@ -85,9 +87,13 @@
 .bss-banner-global {
 	background-color: @primary-green;
 	height: 32px;
-	padding: 4px 12px 0px 16px;
+	padding: 5px 12px 0px 16px;
 	color: white;
 	font-weight: 600;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	z-index: 1;
 
 	.bss-icon {
 		font-size: 24px;
