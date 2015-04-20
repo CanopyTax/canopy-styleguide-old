@@ -11,6 +11,7 @@
 	color: #FFFFFF;
 	border-radius: 2px;
 	text-align: center;
+	opacity: 0.8;
 
 	&__add {
 		background-color: transparent;
@@ -21,6 +22,18 @@
 		width: 28px;
 		text-align: center;
 		line-height: 2;
+		border-radius: 2px;
+		opacity: 0.8;
+		i {
+			color: @light-gray;
+			cursor: pointer;
+		}
+
+		i:hover {
+			color: @gray10;
+			opacity: 1;
+		}
+
 	}
 
 	&.\+small {
@@ -31,6 +44,7 @@
 
 	&.\+medium {
 		font-size: 14px;
+		padding-top: 2px;
 		height: 28px;
 		width: 28px;
 	}
@@ -48,4 +62,8 @@
 	>.bss-center-vertical {
 		top: 48%;
 	}
+}
+
+.bss-label-square:hover {
+	opacity: 1;
 }

@@ -715,6 +715,11 @@ module.exports = React.createClass({
 											<div className="bss-center-vertical">AC</div>
 										</div>
 									</li>
+									<li>
+										<div className="bss-label-square__add +medium">
+											<div className="bss-center-vertical"><i className="bss-icon bss-icon-add-person"></i></div>
+										</div>
+									</li>
 								</ul>
 							</div>
 						</div>
