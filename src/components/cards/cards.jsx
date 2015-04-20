@@ -300,7 +300,7 @@ module.exports = React.createClass({
 					</div>
 					<div className="bss-flexible-masonry-card +small">
 						<div className="bss-flexible-masonry-card__title">
-							Title of the note goes here
+							Title of the note
 						</div>
 						<div className="bss-flexible-masonry-card__body">
 							Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.
