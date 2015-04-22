@@ -154,6 +154,11 @@ module.exports = React.createClass({
 					<table>
 						<thead>
 							<tr className="bss-card-table__thin">
+								<th className="bss-card-table__select-column">
+									<label className="bss-checkbox">
+										<input type="checkbox" value="option1"/><span></span>
+									</label>
+								</th>
 								<th>Filename</th>
 								<th>Type</th>
 								<th>Last Modified</th>
@@ -164,16 +169,31 @@ module.exports = React.createClass({
 						</thead>
 						<tbody>
 							<tr className="+active +hover">
+								<td className="bss-card-table__select-column">
+									<label className="bss-checkbox">
+										<input type="checkbox" value="option1"/><span></span>
+									</label>
+								</td>
 								<td>some_filename.pdf</td>
 								<td>PDF</td>
 								<td>Jan 21 <span className="bss-l-gray">Kurt Avarell</span></td>
 							</tr>
 							<tr className="+hover">
+								<td className="bss-card-table__select-column">
+									<label className="bss-checkbox">
+										<input type="checkbox" value="option1"/><span></span>
+									</label>
+								</td>
 								<td>secondquarter-tracking.doc</td>
 								<td>Document</td>
 								<td>Jan 19 <span className="bss-l-gray">Kurt Avarell</span></td>
 							</tr>
 							<tr className="+hover">
+								<td className="bss-card-table__select-column">
+									<label className="bss-checkbox">
+										<input type="checkbox" value="option1"/><span></span>
+									</label>
+								</td>
 								<td>client-list.docx</td>
 								<td>Document</td>
 								<td>Jan 02 <span className="bss-l-gray">Kurt Avarell</span></td>
@@ -200,6 +220,11 @@ module.exports = React.createClass({
   <table>
     <thead>
       <tr class="bss-card-table__thin">
+        <th class="bss-card-table__select-column">
+          <label class="bss-checkbox">
+            <input type="checkbox" value="option1"/><span></span>
+          </label>
+        </th>
         <th>Filename</th>
         <th>Type</th>
         <th>Last Modified</th>
@@ -210,16 +235,31 @@ module.exports = React.createClass({
     </thead>
     <tbody>
       <tr class="+active +hover">
+        <td class="bss-card-table__select-column">
+          <label class="bss-checkbox">
+            <input type="checkbox" value="option1"/><span></span>
+          </label>
+        </td>
         <td>some_filename.pdf</td>
         <td>PDF</td>
         <td>Jan 21 <span class="bss-l-gray">Kurt Avarell</span></td>
       </tr>
       <tr class="+hover">
+        <td class="bss-card-table__select-column">
+          <label class="bss-checkbox">
+            <input type="checkbox" value="option1"/><span></span>
+          </label>
+        </td>
         <td>secondquarter-tracking.doc</td>
         <td>Document</td>
         <td>Jan 19 <span class="bss-l-gray">Kurt Avarell</span></td>
       </tr>
       <tr class="+hover">
+        <td class="bss-card-table__select-column">
+          <label class="bss-checkbox">
+            <input type="checkbox" value="option1"/><span></span>
+          </label>
+        </td>
         <td>client-list.docx</td>
         <td>Document</td>
         <td>Jan 02 <span class="bss-l-gray">Kurt Avarell</span></td>

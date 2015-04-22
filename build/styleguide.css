@@ -533,6 +533,7 @@
   color: #FFFFFF;
   border-radius: 2px;
   text-align: center;
+  opacity: 0.8;
 }
 .bss-label-square__add {
   background-color: transparent;
@@ -543,6 +544,16 @@
   width: 28px;
   text-align: center;
   line-height: 2;
+  border-radius: 2px;
+  opacity: 0.8;
+}
+.bss-label-square__add i {
+  color: #777777;
+  cursor: pointer;
+}
+.bss-label-square__add i:hover {
+  color: #afafaf;
+  opacity: 1;
 }
 .bss-label-square.\+small {
   font-size: 12px;
@@ -551,6 +562,7 @@
 }
 .bss-label-square.\+medium {
   font-size: 14px;
+  padding-top: 2px;
   height: 28px;
   width: 28px;
 }
@@ -564,6 +576,9 @@
 }
 .bss-label-square > .bss-center-vertical {
   top: 48%;
+}
+.bss-label-square:hover {
+  opacity: 1;
 }
 /** icons.less **/
 #bss-app [class^="bss-icon-"],
@@ -714,7 +729,7 @@ a:focus {
   margin-left: 24px;
 }
 .bss-btn + .bss-link {
-  margin-left: 8px;
+  margin-left: 12px;
 }
 .bss-btn.\+primary {
   background-color: #4caf50;
@@ -741,6 +756,9 @@ a:focus {
   background-color: #e2e2e2;
   color: rgba(0, 0, 0, 0.24);
   box-shadow: none !important;
+}
+.bss-btn-icon {
+  display: inline-block;
 }
 .bss-btn-icon a.bss-link,
 .bss-btn-icon .bss-link {
@@ -779,11 +797,7 @@ a.bss-link:focus,
 }
 a.bss-link + .bss-btn,
 .bss-link + .bss-btn {
-  margin-left: 8px;
-}
-a.bss-link + .bss-link,
-.bss-link + .bss-link {
-  margin-left: 8px;
+  margin-left: 12px;
 }
 a.bss-link.\+disabled,
 .bss-link.\+disabled,
@@ -1043,7 +1057,6 @@ fieldset[disabled] .bss-radio input[type="radio"]:checked + span:before {
   vertical-align: middle;
   position: absolute;
   top: 0px;
-  left: -1px;
   font-family: 'Beanstalk-Icons';
   speak: none;
   font-style: normal;
@@ -1053,7 +1066,7 @@ fieldset[disabled] .bss-radio input[type="radio"]:checked + span:before {
   line-height: 1;
   content: "\e61b";
   color: white;
-  font-size: 2.6rem;
+  font-size: 2.4rem;
   opacity: 0;
   -webkit-transition: 0.15s ease-in opacity;
           transition: 0.15s ease-in opacity;
@@ -1205,7 +1218,7 @@ fieldset[disabled] .checkbox-inline {
   display: block;
   width: 100%;
   height: 32px;
-  padding: 6px 12px;
+  padding: 2px 12px 1px 12px;
   font-size: 14px;
   line-height: 1.42857143;
   color: #555;
@@ -1570,6 +1583,7 @@ textarea.bss-form-control.\+no-resize {
   z-index: 100;
   top: 0;
   color: #333333;
+  min-width: 1024px;
 }
 .bss-topnav.\+banner-top {
   top: 3.2rem;
@@ -1647,6 +1661,7 @@ textarea.bss-form-control.\+no-resize {
   top: 5.1rem;
   color: #333333;
   box-shadow: 0 0.3rem 0.5rem 0 rgba(0, 0, 0, 0.18);
+  min-width: 1024px;
 }
 .bss-topnav-secondary.\+banner-top {
   margin-top: 2.9rem;
@@ -2088,7 +2103,8 @@ a.bss-slat-lg__badge {
 .bss-slat-lg__badge__main,
 a.bss-slat-lg__badge__main {
   color: #4caf50;
-  font-size: 2.4rem;
+  font-size: 2.8rem;
+  font-weight: lighter;
 }
 .bss-slat-lg__badge__sub,
 a.bss-slat-lg__badge__sub {
@@ -2110,17 +2126,19 @@ a.bss-slat-lg__content {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #777777;
 }
 .bss-slat-lg__content__title,
 a.bss-slat-lg__content__title {
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1.6rem;
+  color: #333333;
 }
 .bss-slat-lg__actions,
 a.bss-slat-lg__actions {
   float: right;
   position: relative;
-  top: 2.5rem;
+  top: 1.8rem;
   right: 2.4rem;
 }
 .bss-slat-lg__actions .bss-link,
@@ -2240,6 +2258,11 @@ a.bss-slat-lg.bss-animate.ng-leave.ng-leave-active {
   border-bottom: 0.1rem solid #e9e9e9;
   height: 4.8rem;
 }
+.bss-card-table td.bss-card-table__select-column,
+.bss-card-table th.bss-card-table__select-column {
+  width: 46px;
+  padding-right: 0px;
+}
 .bss-card-table tr:last-child td {
   border-bottom: 0;
 }
@@ -2308,17 +2331,20 @@ a.bss-slat-lg.bss-animate.ng-leave.ng-leave-active {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.06), 0 2px 6px 0 rgba(0, 0, 0, 0.26);
 }
 .bss-flexible-masonry-card.\+small {
-  width: 15.2rem;
-  margin-right: 1.6rem;
+  width: 15.5rem;
+  margin: .8rem;
   padding: .8rem;
+  vertical-align: top;
+  height: 16rem;
 }
 .bss-flexible-masonry-card.\+small .bss-flexible-masonry-card__title {
+  height: 5rem;
   font-size: 1.6rem;
   margin-bottom: .2rem;
 }
 .bss-flexible-masonry-card.\+small .bss-flexible-masonry-card__body {
-  min-height: 9rem;
-  max-height: 9rem;
+  min-height: 9.2rem;
+  max-height: 9.2rem;
   font-size: 1.2rem;
   line-height: 1.6rem;
 }
@@ -2899,7 +2925,7 @@ strong {
 }
 .bss-banner-inline {
   margin: 0 auto 0 auto;
-  padding: 20px;
+  padding: 13px 24px 24px 24px;
   min-width: 70.0rem;
   max-width: 136.0rem;
   border-radius: 2px;
@@ -2911,7 +2937,7 @@ strong {
   color: white;
   font-size: 18px;
   font-weight: 600;
-  padding-bottom: 14px;
+  padding-bottom: 8px;
 }
 .bss-banner-inline__content {
   display: block;
@@ -2924,7 +2950,7 @@ strong {
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 600;
-  padding-top: 15px;
+  padding-top: 8px;
   text-decoration: none;
 }
 .bss-banner-inline__action:hover {
