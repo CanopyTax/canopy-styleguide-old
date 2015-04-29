@@ -757,6 +757,12 @@ a:focus {
   color: rgba(0, 0, 0, 0.24);
   box-shadow: none !important;
 }
+.bss-btn.\+large,
+.bss-btn.\+phat {
+  font-size: 18px;
+  height: 48px;
+  padding: 0px 28px;
+}
 .bss-btn-icon {
   display: inline-block;
 }
@@ -813,6 +819,10 @@ a.bss-link .bss-icon,
   float: left;
   padding-right: 4px;
   color: inherit;
+}
+button.bss-btn {
+  padding: 0px 24px;
+  height: 32px;
 }
 fieldset {
   padding: 0px;
@@ -1613,6 +1623,7 @@ textarea.bss-form-control.\+no-resize {
   list-style: none;
   float: left;
   margin: 0;
+  padding-left: 16px;
 }
 .bss-topnav__content__menu:before,
 .bss-topnav__content__menu:after {
@@ -1639,7 +1650,7 @@ textarea.bss-form-control.\+no-resize {
   font-size: 1.4rem;
   position: relative;
   display: block;
-  padding: 1.0rem 1.5rem;
+  padding: 1.0rem 2.4rem;
 }
 .bss-topnav__content__menu > li > a:hover,
 .bss-topnav__content__menu > li > a:focus {
@@ -2412,6 +2423,10 @@ a.bss-slat-lg.bss-animate.ng-leave.ng-leave-active {
 .bss-content-footer a:hover {
   border: .1rem solid #E9E9E9;
   border-radius: .2rem;
+}
+.bss-card__banner {
+  margin: 1rem -2.4rem;
+  padding: .8rem 2.4rem;
 }
 .bss-card__body {
   padding: 16px 24px;
@@ -3226,4 +3241,190 @@ strong {
 .bss-list-unstyled {
   padding-left: 0;
   list-style: none;
+}
+/** loaders.less **/
+.bss-loader {
+  padding: 0 36px;
+  display: block;
+}
+.bss-loader span {
+  width: 8px;
+  height: 8px;
+  float: left;
+  border-radius: 50%;
+  opacity: 0.2;
+  background-color: #e0e0e0;
+}
+.bss-loader span:not(:first-child) {
+  margin-left: 8px;
+}
+.bss-loader span:first-child {
+  -webkit-animation: fball 1350ms infinite linear;
+          animation: fball 1350ms infinite linear;
+}
+.bss-loader span:nth-child(2) {
+  -webkit-animation: sball 1350ms infinite linear;
+          animation: sball 1350ms infinite linear;
+}
+.bss-loader span:last-child {
+  -webkit-animation: tball 1350ms infinite linear;
+          animation: tball 1350ms infinite linear;
+}
+@-webkit-keyframes fball {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  13% {
+    opacity: 0.9;
+    -webkit-transform: scale(1.03);
+            transform: scale(1.03);
+  }
+  26% {
+    opacity: 1;
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+  33% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  34% {
+    opacity: 0.2;
+  }
+}
+@keyframes fball {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  13% {
+    opacity: 0.9;
+    -webkit-transform: scale(1.03);
+            transform: scale(1.03);
+  }
+  26% {
+    opacity: 1;
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+  33% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  34% {
+    opacity: 0.2;
+  }
+}
+@-webkit-keyframes sball {
+  32% {
+    opacity: 0.2;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  33% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  46% {
+    opacity: 0.9;
+    -webkit-transform: scale(1.03);
+            transform: scale(1.03);
+  }
+  59% {
+    opacity: 1;
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+  66% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  67% {
+    opacity: 0.2;
+  }
+}
+@keyframes sball {
+  32% {
+    opacity: 0.2;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  33% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  46% {
+    opacity: 0.9;
+    -webkit-transform: scale(1.03);
+            transform: scale(1.03);
+  }
+  59% {
+    opacity: 1;
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+  66% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  67% {
+    opacity: 0.2;
+  }
+}
+@-webkit-keyframes tball {
+  67% {
+    opacity: 0.2;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  68% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  81% {
+    opacity: 0.9;
+    -webkit-transform: scale(1.03);
+            transform: scale(1.03);
+  }
+  94% {
+    opacity: 1;
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes tball {
+  67% {
+    opacity: 0.2;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  68% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  81% {
+    opacity: 0.9;
+    -webkit-transform: scale(1.03);
+            transform: scale(1.03);
+  }
+  94% {
+    opacity: 1;
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }

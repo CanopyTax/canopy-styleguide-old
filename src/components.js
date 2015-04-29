@@ -15,5 +15,6 @@ module.exports = [
 	{ title: "Tooltip",		link: "http://beanstalkhq.github.io/bs-tooltip/" },
 	{ title: "Menus",		html: require('./components/menus/menus.jsx') },
 	{ title: "Modals",		html: require('./components/modals/modals.jsx') },
-	{ title: "Lists",		html: require('./components/lists/lists.jsx') }
+	{ title: "Lists",		html: require('./components/lists/lists.jsx') },
+	{ title: "Loaders",		html: require('./components/loaders/loaders.jsx') }
 ];
