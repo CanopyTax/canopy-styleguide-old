@@ -53,6 +53,7 @@ module.exports = React.createClass({
 							This layout encourages a focus on a particular type of content like files or dates.
 							Generally the card grows vertically but does not resize horizontally with the screen.
 						</p>
+						<div className="bss-card__banner bss-bg-success bss-white">A long banner can appear within a card</div>
 						<p>
 							Fixed focus  defines a 760px width for the content. It also centers it. It  generally does not account for navigation menus.
 							<strong>The class name "bss-card" is what makes the card look with a white background.</strong>
@@ -69,6 +70,8 @@ module.exports = React.createClass({
   </div>
   <div class="bss-card__body">
     Put card main content with a body tag.
+    Inline banners:
+    <div class="bss-card__banner bss-bg-success bss-white">A long banner can appear within a card</div>
   </div>
   <div class="bss-card__hr"></div>
   <div class="bss-card__body">
