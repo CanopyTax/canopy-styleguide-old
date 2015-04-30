@@ -12,7 +12,7 @@ module.exports = React.createClass({
 							Upload a File
 							<a href className="bss-modal__dialog__close bss-icon bss-icon-close"></a>
 						</div>
-						<div className="bss-card__banner +warning bss-subheader-sm">
+						<div className="bss-card__banner +large +bg-warning">
 							 <i className="bss-icon bss-icon-error bss-warning"><span>This is a warning</span></i>
 						</div>
 						<div className="bss-card__body">
