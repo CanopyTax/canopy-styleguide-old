@@ -59,6 +59,10 @@ module.exports = React.createClass({
 							<strong>The class name "bss-card" is what makes the card look with a white background.</strong>
 							This same class name is used for the card look and feel of the slat and table components.
 						</p>
+						<div className="bss-card__banner +large +bg-warning"><i className="bss-icon bss-icon-error bss-warning"><span>A large banner can also appear in a card</span></i></div>
+						<p>
+							Followed by more text.
+						</p>
 					</div>
 				</div>
 
@@ -77,6 +81,10 @@ module.exports = React.createClass({
   <div class="bss-card__body">
     There can be multiple body tags, generally separated by an hr
   </div>
+  <div class="bss-card__banner +large +bg-warning"><i class="bss-icon bss-icon-error bss-warning"><span>A large banner can also appear in a card</span></i></div>
+  <p>
+    Followed by more text.
+  </p>
 </div>`
 				}
 				</Highlight>
