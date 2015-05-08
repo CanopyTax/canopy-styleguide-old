@@ -761,7 +761,11 @@ a:focus {
 .bss-btn.\+phat {
   font-size: 18px;
   height: 48px;
-  padding: 0px 28px;
+  padding: 8px 28px;
+}
+button.bss-btn.\+large,
+button.bss-btn.\+phat {
+  padding: 0 28px;
 }
 .bss-btn-icon {
   display: inline-block;
@@ -1573,6 +1577,7 @@ textarea.bss-form-control {
   min-width: 320px;
   border: 1px solid #dfdfdf;
   border-radius: 2px;
+  padding-top: 5px;
 }
 textarea.bss-form-control.\+no-resize {
   resize: none;
@@ -2499,6 +2504,9 @@ h6 {
 }
 .bss-wt-semibold {
   font-weight: 600;
+}
+.bss-wt-bold {
+  font-weight: 700;
 }
 strong {
   font-weight: 600;
