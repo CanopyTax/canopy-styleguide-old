@@ -683,7 +683,7 @@ module.exports = React.createClass({
 										</span>
 									</div>
 									<div className="bss-col-xs-6 bss-center-vertical">
-										<i className="bss-icon +round bss-bg-primary-green bss-icon-taxes"></i>
+										<i className="bss-icon +round bss-bg-primary-green bss-white bss-icon-taxes"></i>
 									</div>
 								</div>
 							</div>
