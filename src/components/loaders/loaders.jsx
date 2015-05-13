@@ -10,6 +10,13 @@ module.exports = React.createClass({
 						Loaders
 					</div>
 					<div className="bss-card__body">
+						<button className="bss-btn +primary">
+							<span className="bss-loader">
+								<span></span>
+								<span></span>
+								<span></span>
+							</span>
+						</button>
 						<button className="bss-btn +primary +large">
 							<span className="bss-loader">
 								<span></span>

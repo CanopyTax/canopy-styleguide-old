@@ -2403,6 +2403,28 @@ a.bss-slat-lg.bss-animate.ng-leave.ng-leave-active {
 .bss-fixed-masonry__card.\+fixed-height {
   min-height: 29.6rem;
 }
+.bss-card__banner {
+  margin: 1rem -2.4rem;
+  padding: .8rem 2.4rem;
+}
+.bss-card__banner.\+large {
+  height: 56px;
+  padding: 1.2rem 2.4rem 1.6rem 2.4rem;
+}
+.bss-card__banner.\+large > i {
+  font-size: 32px;
+}
+.bss-card__banner.\+large > i > span {
+  vertical-align: middle;
+  font-size: 18px;
+  color: #333333;
+}
+.bss-card__banner.\+large.\+bg-warning {
+  background-color: rgba(255, 138, 101, 0.2);
+}
+.bss-card__header + .bss-card__banner {
+  margin: 0rem;
+}
 .bss-card__header {
   padding: 1.6rem 2.4rem 1.6rem 2.4rem;
   border-bottom: 0.1rem solid #e9e9e9;
