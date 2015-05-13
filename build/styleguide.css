@@ -610,7 +610,6 @@
 .bss-icon.\+round::before {
   position: relative;
   z-index: 1;
-  color: white;
   visibility: visible;
 }
 .bss-icon.\+round {
