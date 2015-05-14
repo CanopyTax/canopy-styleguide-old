@@ -1618,6 +1618,7 @@ textarea.bss-form-control.\+no-resize {
 .bss-topnav__content__brand {
   cursor: pointer;
   float: left;
+  width: 109px;
 }
 .bss-topnav__content__brand > img {
   height: 2.4rem;
@@ -2829,6 +2830,7 @@ strong {
 }
 .bss-dropdown-menu li > a:hover,
 .bss-dropdown-menu li > a:focus,
+.bss-dropdown-menu li.active > a,
 .bss-dropdown-menu .bss-active > a,
 .bss-dropdown-menu .bss-active > a:hover,
 .bss-dropdown-menu .bss-active > a:focus {
