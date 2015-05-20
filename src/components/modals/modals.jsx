@@ -31,20 +31,16 @@ module.exports = React.createClass({
 <div class="bss-modal">
   <div class="bss-modal__screen"></div>
   <div class="bss-modal__dialog bss-card">
-    <div class="bss-card__header bss-subheader-sm">
-      Upload a File
-      <a href class="bss-modal__dialog__close bss-icon bss-icon-close"></a>
+    <div class="bss-card__header bss-subheader-sm"><span>Upload a File</span>
+      <a href="true" class="bss-modal__dialog__close bss-icon bss-icon-close"></a>
     </div>
-     <div class="bss-card__banner +warning bss-subheader-sm">
-	 <i class="bss-icon bss-icon-visible bss-warning"><span>This is a warning</span></i>
+    <div class="bss-card__banner +large +bg-warning"><i class="bss-icon bss-icon-error bss-warning"><span>This is a warning</span></i>
     </div>
-    <div class="bss-card__body">
-      Choose a file to upload to Beanstalk. You can upload asm any as you'd like&mdash; or if you're not a huge fan of
-      clicking you can drag and drop your files anywhere on this page.
-    </div>
+    <div class="bss-card__body">Choose a file to upload to Beanstalk. You can upload asm any as you'd like— or
+      if you're not a huge fan of clicking you can drag and drop your files anywhere
+      on this page.</div>
     <div class="bss-modal__dialog__actions">
-        <button class="bss-btn +primary">CHOOSE FILES</button>
-        <a href="#" class="bss-link">NEVERMIND</a>
+      <button class="bss-btn +primary">CHOOSE FILES</button><a href="#" class="bss-link">NEVERMIND</a>
     </div>
   </div>
 </div>

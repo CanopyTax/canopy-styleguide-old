@@ -808,6 +808,10 @@ a.bss-link + .bss-btn,
 .bss-link + .bss-btn {
   margin-left: 12px;
 }
+a.bss-link.\+align,
+.bss-link.\+align {
+  margin-left: -12px;
+}
 a.bss-link.\+disabled,
 .bss-link.\+disabled,
 a.bss-link[disabled],
@@ -3067,7 +3071,12 @@ strong {
   text-decoration: none !important;
 }
 .bss-modal__dialog__actions {
-  padding: 8px 24px 16px 24px;
+  padding: 16px 20px;
+  height: 64px;
+}
+.bss-card__body.\+modal {
+  max-height: 300px;
+  overflow: auto;
 }
 .bss-overlay-modal {
   position: fixed;
