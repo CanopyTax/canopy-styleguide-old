@@ -29,6 +29,10 @@ module.exports = {
 				loader: 'jsx-loader?insertPragma=React.DOM&harmony'
 			},
 			{
+				test: /\.json$/,
+				loader: 'json-loader'
+			},
+			{
 				test: /\.html$/,
 				loader: 'html-loader'
 			}

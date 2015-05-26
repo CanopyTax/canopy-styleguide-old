@@ -3,6 +3,11 @@ var Router = require('react-router');
 var { Route, DefaultRoute, RouteHandler, Link } = Router;
 var components = require('./components.js');
 var Highlight = require('react-highlight');
+var _ = require('lodash');
+
+var icons = _.map(require('canopy-iconography/.fontcustom-manifest.json').glyphs, function(icon, name) {
+	return 'cps-icon-' + name;
+});
 
 var Sidebar = React.createClass({
   render: function () {
@@ -10,14 +15,15 @@ var Sidebar = React.createClass({
 				<div className="cps-flexible-sidenav +tall-top">
 					<div className="cps-flexible-sidenav__menu">
 					{components.map(function(component) {
+						var classes = "cps-icon " + _.sample(icons) + " cps-flexible-sidenav__menu__item__icon";
 						if(component.link) {
 							return <a className="cps-flexible-sidenav__menu__item" href={component.link}>
-								<i className="cps-icon cps-icon-calendar cps-flexible-sidenav__menu__item__icon"></i>
+								<i className={classes}></i>
 								<span className="cps-flexible-sidenav__menu__item__title">{component.title}</span>
 							</a>
 						} else {
 							return <Link className="cps-flexible-sidenav__menu__item" activeClassName="+active" to="component" params={{title: component.title}}>
-								<i className="cps-icon cps-icon-calendar cps-flexible-sidenav__menu__item__icon"></i>
+								<i className={classes}></i>
 								<span className="cps-flexible-sidenav__menu__item__title">{component.title}</span>
 							</Link>;
 						}
@@ -44,7 +50,7 @@ var App = React.createClass({
 								<img src="canopy-logotype.svg" alt="Company Logo"/>
 							</span>
 							<ul className="cps-topnav__content__menu">
-								<li><a href="#">Beanstalk Style Guide</a></li>
+								<li><a href="#">Canopy Style Guide</a></li>
 								<li><a ui-sref="calendar" className="+active">Calendar</a></li>
 							</ul>
 							<ul className="cps-topnav__content__menu cps-pull-right">
@@ -62,7 +68,7 @@ var App = React.createClass({
 										<li><a href>Company Profile</a></li>
 
 										<li className="cps-divider"></li>
-										<li><a href="https://beanstalk.reamaze.com" target="_blank">Help</a>
+										<li><a>Help</a>
 										</li>
 										<li className="cps-divider"></li>
 										<li><a href="/signout">Sign out</a>

@@ -16,7 +16,7 @@ module.exports = React.createClass({
 							 <i className="cps-icon cps-icon-error cps-warning"><span>This is a warning</span></i>
 						</div>
 						<div className="cps-card__body">
-							Choose a file to upload to Beanstalk. You can upload asm any as you'd like&mdash; or if you're not a huge fan of
+							Choose a file to upload to Canopy. You can upload asm any as you'd like&mdash; or if you're not a huge fan of
 							clicking you can drag and drop your files anywhere on this page.
 						</div>
 						<div className="cps-modal__dialog__actions">
@@ -36,7 +36,7 @@ module.exports = React.createClass({
     </div>
     <div class="cps-card__banner +large +bg-warning"><i class="cps-icon cps-icon-error cps-warning"><span>This is a warning</span></i>
     </div>
-    <div class="cps-card__body">Choose a file to upload to Beanstalk. You can upload asm any as you'd like— or
+			<div class="cps-card__body">Choose a file to upload to Canopy. You can upload asm any as you'd like— or
       if you're not a huge fan of clicking you can drag and drop your files anywhere
       on this page.</div>
     <div class="cps-modal__dialog__actions">

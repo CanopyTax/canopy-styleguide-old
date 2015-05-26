@@ -3,7 +3,6 @@
 @import "../variables/variables.less";
 @import "../mixins/mixins.less";
 
-
 #cps-app {
 	[class^="cps-icon-"], [class*=" cps-icon-"] {
 		font-family: inherit;
@@ -14,7 +13,7 @@
 		text-transform: inherit;
 
 		&:before {
-			font-family: 'Beanstalk-Icons';
+			font-family: 'canopy-icons';
 			speak: none;
 			font-style: normal;
 			font-weight: normal;
@@ -32,6 +31,15 @@
 .cps-icon {
 	font-size: 2.4rem;
 	color: @light-gray;
+	font-family: 'canopy-icons';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 .cps-icon.\+round::before {
@@ -56,7 +64,7 @@
 	border-radius: 16px;
 	position:absolute;
 	left:-4px;
-	top:0px;
+	top:-.5rem;
 	z-index:0;
 }
 

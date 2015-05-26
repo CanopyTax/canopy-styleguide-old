@@ -2,82 +2,13 @@ var React = require('react');
 var _ = require('lodash');
 var Highlight = require('react-highlight');
 
+var icons = require('canopy-iconography/.fontcustom-manifest.json').glyphs;
+
 module.exports = React.createClass({
 	render: function() {
-		var icons = [
-			'cps-icon-email',
-			'cps-icon-cash',
-			'cps-icon-license',
-			'cps-icon-sm-close',
-			'cps-icon-client-access',
-			'cps-icon-client-no-access',
-			'cps-icon-credits',
-			'cps-icon-grid-view',
-			'cps-icon-invoices',
-			'cps-icon-items',
-			'cps-icon-payments',
-			'cps-icon-reports',
-			'cps-icon-statements',
-			'cps-icon-sm-check',
-			'cps-icon-sm-caret-down',
-			'cps-icon-sm-caret-left',
-			'cps-icon-sm-caret-right',
-			'cps-icon-sm-caret-up',
-			'cps-icon-add-person',
-			'cps-icon-add',
-			'cps-icon-archive',
-			'cps-icon-arrow-left',
-			'cps-icon-attachment',
-			'cps-icon-bell',
-			'cps-icon-billing',
-			'cps-icon-business',
-			'cps-icon-calendar',
-			'cps-icon-center-aligned',
-			'cps-icon-client',
-			'cps-icon-clients',
-			'cps-icon-close',
-			'cps-icon-cloud',
-			'cps-icon-cog',
-			'cps-icon-compass',
-			'cps-icon-download',
-			'cps-icon-duplicate',
-			'cps-icon-error',
-			'cps-icon-expand',
-			'cps-icon-files',
-			'cps-icon-filter',
-			'cps-icon-folder',
-			'cps-icon-help',
-			'cps-icon-hidden',
-			'cps-icon-home',
-			'cps-icon-information',
-			'cps-icon-lg-check',
-			'cps-icon-left-aligned',
-			'cps-icon-lg-left-caret',
-			'cps-icon-list',
-			'cps-icon-location',
-			'cps-icon-lock',
-			'cps-icon-more',
-			'cps-icon-move',
-			'cps-icon-nav',
-			'cps-icon-notes',
-			'cps-icon-number',
-			'cps-icon-pending',
-			'cps-icon-phone',
-			'cps-icon-print',
-			'cps-icon-projects',
-			'cps-icon-right-aligned',
-			'cps-icon-lg-right-caret',
-			'cps-icon-search',
-			'cps-icon-sort',
-			'cps-icon-taxes',
-			'cps-icon-tile-view',
-			'cps-icon-trash',
-			'cps-icon-upload',
-			'cps-icon-valid',
-			'cps-icon-visible',
-			'cps-icon-work',
-			'cps-icon-wrench'
-		];
+		icons = _.map(icons, function(icon, name) {
+			return 'cps-icon-' + name;
+		});
 
 		icons.sort();
 
@@ -89,7 +20,7 @@ module.exports = React.createClass({
 			<div>
 				<div className="cps-flexible-focus cps-card">
 					<div className="cps-card__header ">
-						Beanstalk Font Icons
+						Canopy Font Icons
 					</div>
 					<div className="cps-card__body">
 						<div className="cps-row">
@@ -168,7 +99,7 @@ module.exports = React.createClass({
 
 				<div className="cps-flexible-focus cps-card cps-margin-top-24">
 					<div className="cps-card__header ">
-						Beanstalk Labels
+						Canopy Labels
 					</div>
 					<div className="cps-card__body">
 						<div className="cps-row">
