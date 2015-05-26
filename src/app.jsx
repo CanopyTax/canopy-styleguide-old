@@ -41,7 +41,7 @@ var App = React.createClass({
 
 						<div className="cps-topnav__content">
 							<span className="cps-topnav__content__brand" href>
-								<img src="logo.png" alt="Company Logo"/>
+								<img src="canopy-logotype.svg" alt="Company Logo"/>
 							</span>
 							<ul className="cps-topnav__content__menu">
 								<li><a href="#">Beanstalk Style Guide</a></li>
