@@ -2,22 +2,22 @@
 
 /************Menus************/
 
-.bss-dropdown {
+.cps-dropdown {
 	position: relative;
 
-	> a.bss-link, .bss-link  {
+	> a.cps-link, .cps-link  {
 		margin-top: 8px;
 		color: @light-gray;
 		font-weight: 400;
 		padding: 4px 12px 4px 12px;
 	}
 
-	> a.bss-link:hover, .bss-link:hover, a.bss-link:focus, .bss-link:focus {
+	> a.cps-link:hover, .cps-link:hover, a.cps-link:focus, .cps-link:focus {
 		color: @light-gray !important;
 	}
 }
 
-.bss-dropdown-menu {
+.cps-dropdown-menu {
 	position: absolute;
 	top: 100%;
 	left: 0;
@@ -34,12 +34,12 @@
 	border-radius: 2px;
 	.depth-z2;
 
-	&.bss-pull-right {
+	&.cps-pull-right {
 		right: 0;
 		left: auto;
 	}
 
-	.bss-divider {
+	.cps-divider {
 		height: .1rem;
 		margin: .35rem 0rem .35rem 0rem;
 		overflow: hidden;
@@ -68,9 +68,9 @@
 	li > a:hover,
 	li > a:focus,
 	li.active > a,
-	.bss-active > a,
-	.bss-active > a:hover,
-	.bss-active > a:focus  {
+	.cps-active > a,
+	.cps-active > a:hover,
+	.cps-active > a:focus  {
 		color: @dark-gray;
 		text-decoration: none;
 		background-color: @gray4;
@@ -79,16 +79,16 @@
 
 }
 
-.bss-open  {
-	a.bss-link  {
+.cps-open  {
+	a.cps-link  {
 		background-color: rgba(0,0,0,.05);
 	}
-	> .bss-dropdown-menu, .bss-dropdown.open > .bss-dropdown-menu {
+	> .cps-dropdown-menu, .cps-dropdown.open > .cps-dropdown-menu {
 		display: block;
 	}
 }
 
-.bss-caret {
+.cps-caret {
 	display: inline-block;
 	width: 0;
 	height: 0;

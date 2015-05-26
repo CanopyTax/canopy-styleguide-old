@@ -5,7 +5,7 @@
 
 /************Navigation************/
 
-.bss-topnav {
+.cps-topnav {
 	position: fixed;
 	width: 100%;
 	z-index: 100;
@@ -106,7 +106,7 @@
 }
 
 // SECONDARY GLOBAL NAV //
-.bss-topnav-secondary {
+.cps-topnav-secondary {
 	position: fixed;
 	width: 100%;
 	z-index: 99;
@@ -161,14 +161,14 @@
 					font-size: 18px;
 				}
 
-				> .bss-icon {
+				> .cps-icon {
 					padding-left: 8px;
 				}
 
 				&:last-child {
 					padding-right: 0rem;
 
-					> .bss-icon {
+					> .cps-icon {
 						visibility: hidden;
 					}
 
@@ -200,7 +200,7 @@
 
 // FLEXIBLE SIDE NAV //
 
-.bss-flexible-sidenav {
+.cps-flexible-sidenav {
 	margin-top: 8.8rem;
 	position: fixed;
 	top: 0;
@@ -224,7 +224,7 @@
 		min-width: 120px;
 	}
 
-	&__toggle-menu.bss-dropdown-menu {
+	&__toggle-menu.cps-dropdown-menu {
 		left: 32px;
 	}
 
@@ -277,7 +277,7 @@
 	}
 }
 
-.bss-nav-content {
+.cps-nav-content {
 	margin-left: 24.0rem;
 	width: ~"calc(100% - 26.0rem)";
 	padding: 10.0rem 2.4rem;
@@ -298,7 +298,7 @@
 
 
 
-.bss-secondarynav {
+.cps-secondarynav {
 	margin-top:4.8rem;
 	position:fixed;
 	width:24.0rem;
@@ -343,7 +343,7 @@
 			cursor: pointer;
 			position: relative;
 
-			.bss-icon-lg-left-caret {
+			.cps-icon-lg-left-caret {
 				float: right;
 				position: absolute;
 				top: .9rem;
@@ -368,7 +368,7 @@
 
 			&:hover {
 				background-color: @hover-color;
-				.bss-secondarynav__menu__item__bar {
+				.cps-secondarynav__menu__item__bar {
 					background-color: @hover-color;
 				}
 			}
@@ -393,7 +393,7 @@
 			}
 
 			&.\+active {
-				.bss-secondarynav__menu__item__bar {
+				.cps-secondarynav__menu__item__bar {
 					background-color: @primary-green;
 				}
 				span {
@@ -404,11 +404,11 @@
 			&.\+expanded {
 				border-bottom: 0;
 
-				.bss-secondarynav__menu__item__bar {
+				.cps-secondarynav__menu__item__bar {
 					background-color: @primary-green;
 				}
 
-				.bss-icon-lg-left-caret {
+				.cps-icon-lg-left-caret {
 					transform: rotate(-90deg);
 				}
 			}

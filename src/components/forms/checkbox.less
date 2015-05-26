@@ -3,7 +3,7 @@
 @import "../variables/variables.less";
 @import "../mixins/mixins.less";
 
-.bss-checkbox {
+.cps-checkbox {
 	// The radio label needs to be wrapped in a span tag, so hide all other text
 	font-size: 0;
 	position: relative;
@@ -98,7 +98,7 @@
 	}
 }
 
-.bss-checkbox-large {
+.cps-checkbox-large {
 	// The radio label needs to be wrapped in a span tag, so hide all other text
 	font-size: 0;
 	position: relative;
@@ -192,15 +192,15 @@
 }
 
 // Disable states for the checkbox in fieldsets
-fieldset[disabled] .bss-checkbox input[type="checkbox"] + span,
-fieldset[disabled] .bss-checkbox-large input[type="checkbox"] + span {
+fieldset[disabled] .cps-checkbox input[type="checkbox"] + span,
+fieldset[disabled] .cps-checkbox-large input[type="checkbox"] + span {
 	cursor: not-allowed;
 	&:before {
 		border-color: @gray9;
 	}
 }
-fieldset[disabled] .bss-checkbox input[type="checkbox"]:checked + span,
-fieldset[disabled] .bss-checkbox-large input[type="checkbox"]:checked + span {
+fieldset[disabled] .cps-checkbox input[type="checkbox"]:checked + span,
+fieldset[disabled] .cps-checkbox-large input[type="checkbox"]:checked + span {
 	cursor: not-allowed;
 	&:before {
 		background-color: @gray9;

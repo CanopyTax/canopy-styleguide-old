@@ -5,78 +5,78 @@ var Highlight = require('react-highlight');
 module.exports = React.createClass({
 	render: function() {
 		var icons = [
-			'bss-icon-email',
-			'bss-icon-cash',
-			'bss-icon-license',
-			'bss-icon-sm-close',
-			'bss-icon-client-access',
-			'bss-icon-client-no-access',
-			'bss-icon-credits',
-			'bss-icon-grid-view',
-			'bss-icon-invoices',
-			'bss-icon-items',
-			'bss-icon-payments',
-			'bss-icon-reports',
-			'bss-icon-statements',
-			'bss-icon-sm-check',
-			'bss-icon-sm-caret-down',
-			'bss-icon-sm-caret-left',
-			'bss-icon-sm-caret-right',
-			'bss-icon-sm-caret-up',
-			'bss-icon-add-person',
-			'bss-icon-add',
-			'bss-icon-archive',
-			'bss-icon-arrow-left',
-			'bss-icon-attachment',
-			'bss-icon-bell',
-			'bss-icon-billing',
-			'bss-icon-business',
-			'bss-icon-calendar',
-			'bss-icon-center-aligned',
-			'bss-icon-client',
-			'bss-icon-clients',
-			'bss-icon-close',
-			'bss-icon-cloud',
-			'bss-icon-cog',
-			'bss-icon-compass',
-			'bss-icon-download',
-			'bss-icon-duplicate',
-			'bss-icon-error',
-			'bss-icon-expand',
-			'bss-icon-files',
-			'bss-icon-filter',
-			'bss-icon-folder',
-			'bss-icon-help',
-			'bss-icon-hidden',
-			'bss-icon-home',
-			'bss-icon-information',
-			'bss-icon-lg-check',
-			'bss-icon-left-aligned',
-			'bss-icon-lg-left-caret',
-			'bss-icon-list',
-			'bss-icon-location',
-			'bss-icon-lock',
-			'bss-icon-more',
-			'bss-icon-move',
-			'bss-icon-nav',
-			'bss-icon-notes',
-			'bss-icon-number',
-			'bss-icon-pending',
-			'bss-icon-phone',
-			'bss-icon-print',
-			'bss-icon-projects',
-			'bss-icon-right-aligned',
-			'bss-icon-lg-right-caret',
-			'bss-icon-search',
-			'bss-icon-sort',
-			'bss-icon-taxes',
-			'bss-icon-tile-view',
-			'bss-icon-trash',
-			'bss-icon-upload',
-			'bss-icon-valid',
-			'bss-icon-visible',
-			'bss-icon-work',
-			'bss-icon-wrench'
+			'cps-icon-email',
+			'cps-icon-cash',
+			'cps-icon-license',
+			'cps-icon-sm-close',
+			'cps-icon-client-access',
+			'cps-icon-client-no-access',
+			'cps-icon-credits',
+			'cps-icon-grid-view',
+			'cps-icon-invoices',
+			'cps-icon-items',
+			'cps-icon-payments',
+			'cps-icon-reports',
+			'cps-icon-statements',
+			'cps-icon-sm-check',
+			'cps-icon-sm-caret-down',
+			'cps-icon-sm-caret-left',
+			'cps-icon-sm-caret-right',
+			'cps-icon-sm-caret-up',
+			'cps-icon-add-person',
+			'cps-icon-add',
+			'cps-icon-archive',
+			'cps-icon-arrow-left',
+			'cps-icon-attachment',
+			'cps-icon-bell',
+			'cps-icon-billing',
+			'cps-icon-business',
+			'cps-icon-calendar',
+			'cps-icon-center-aligned',
+			'cps-icon-client',
+			'cps-icon-clients',
+			'cps-icon-close',
+			'cps-icon-cloud',
+			'cps-icon-cog',
+			'cps-icon-compass',
+			'cps-icon-download',
+			'cps-icon-duplicate',
+			'cps-icon-error',
+			'cps-icon-expand',
+			'cps-icon-files',
+			'cps-icon-filter',
+			'cps-icon-folder',
+			'cps-icon-help',
+			'cps-icon-hidden',
+			'cps-icon-home',
+			'cps-icon-information',
+			'cps-icon-lg-check',
+			'cps-icon-left-aligned',
+			'cps-icon-lg-left-caret',
+			'cps-icon-list',
+			'cps-icon-location',
+			'cps-icon-lock',
+			'cps-icon-more',
+			'cps-icon-move',
+			'cps-icon-nav',
+			'cps-icon-notes',
+			'cps-icon-number',
+			'cps-icon-pending',
+			'cps-icon-phone',
+			'cps-icon-print',
+			'cps-icon-projects',
+			'cps-icon-right-aligned',
+			'cps-icon-lg-right-caret',
+			'cps-icon-search',
+			'cps-icon-sort',
+			'cps-icon-taxes',
+			'cps-icon-tile-view',
+			'cps-icon-trash',
+			'cps-icon-upload',
+			'cps-icon-valid',
+			'cps-icon-visible',
+			'cps-icon-work',
+			'cps-icon-wrench'
 		];
 
 		icons.sort();
@@ -87,23 +87,23 @@ module.exports = React.createClass({
 
 		return (
 			<div>
-				<div className="bss-flexible-focus bss-card">
-					<div className="bss-card__header ">
+				<div className="cps-flexible-focus cps-card">
+					<div className="cps-card__header ">
 						Beanstalk Font Icons
 					</div>
-					<div className="bss-card__body">
-						<div className="bss-row">
+					<div className="cps-card__body">
+						<div className="cps-row">
 							{_.map(iconGroups, function(group, i) {
-								return <div className="bss-col-xs-4">
+								return <div className="cps-col-xs-4">
 										{group.map(function(obj) {
-											return <div className="bss-row bss-padding-top-8">
-												<div className="bss-col-xs-6 bss-center-vertical">
-													<span className="bss-pull-right">
+											return <div className="cps-row cps-padding-top-8">
+												<div className="cps-col-xs-6 cps-center-vertical">
+													<span className="cps-pull-right">
 														{obj}
 													</span>
 												</div>
-												<div className="bss-col-xs-6 bss-center-vertical">
-													<i className={"bss-icon " + obj}></i>
+												<div className="cps-col-xs-6 cps-center-vertical">
+													<i className={"cps-icon " + obj}></i>
 												</div>
 											</div>
 										})}
@@ -111,54 +111,54 @@ module.exports = React.createClass({
 							})}
 						</div>
 					</div>
-					<div className="bss-card__hr"></div>
-					<div className="bss-card__header ">
+					<div className="cps-card__hr"></div>
+					<div className="cps-card__header ">
 						Other Icons
 					</div>
-					<div className="bss-card__body">
-						<div className="bss-row">
+					<div className="cps-card__body">
+						<div className="cps-row">
 						{/** first column **/}
-							<div className="bss-col-xs-4">
-								<div className="bss-row">
-									<div className="bss-col-xs-6 bss-center-vertical">
-										<span className="bss-pull-right">
-											.bss-icon-sm-caret-left
+							<div className="cps-col-xs-4">
+								<div className="cps-row">
+									<div className="cps-col-xs-6 cps-center-vertical">
+										<span className="cps-pull-right">
+											.cps-icon-sm-caret-left
 										</span>
 									</div>
-									<div className="bss-col-xs-6 bss-center-vertical">
-										<i className="bss-icon  bss-icon-sm-caret-left"></i>
+									<div className="cps-col-xs-6 cps-center-vertical">
+										<i className="cps-icon  cps-icon-sm-caret-left"></i>
 									</div>
-									<div className="bss-col-xs-6 bss-center-vertical">
-										<span className="bss-pull-right">
-											.bss-icon-sm-caret-right
+									<div className="cps-col-xs-6 cps-center-vertical">
+										<span className="cps-pull-right">
+											.cps-icon-sm-caret-right
 										</span>
 									</div>
-									<div className="bss-col-xs-6 bss-center-vertical">
-										<i className="bss-icon  bss-icon-sm-caret-right"></i>
+									<div className="cps-col-xs-6 cps-center-vertical">
+										<i className="cps-icon  cps-icon-sm-caret-right"></i>
 									</div>
-									<div className="bss-col-xs-6 bss-center-vertical">
-										<span className="bss-pull-right">
-											.bss-icon-sm-caret-up
+									<div className="cps-col-xs-6 cps-center-vertical">
+										<span className="cps-pull-right">
+											.cps-icon-sm-caret-up
 										</span>
 									</div>
-									<div className="bss-col-xs-6 bss-center-vertical">
-										<i className="bss-icon  bss-icon-sm-caret-up"></i>
+									<div className="cps-col-xs-6 cps-center-vertical">
+										<i className="cps-icon  cps-icon-sm-caret-up"></i>
 									</div>
-									<div className="bss-col-xs-6 bss-center-vertical">
-										<span className="bss-pull-right">
-											.bss-icon-sm-caret-down
+									<div className="cps-col-xs-6 cps-center-vertical">
+										<span className="cps-pull-right">
+											.cps-icon-sm-caret-down
 										</span>
 									</div>
-									<div className="bss-col-xs-6 bss-center-vertical">
-										<i className="bss-icon  bss-icon-sm-caret-down"></i>
+									<div className="cps-col-xs-6 cps-center-vertical">
+										<i className="cps-icon  cps-icon-sm-caret-down"></i>
 									</div>
-									<div className="bss-col-xs-6 bss-center-vertical">
-										<span className="bss-pull-right">
+									<div className="cps-col-xs-6 cps-center-vertical">
+										<span className="cps-pull-right">
 											Wrapped Icons
 										</span>
 									</div>
-									<div className="bss-col-xs-6 bss-center-vertical">
-										<i className="bss-icon +round bss-bg-primary-green bss-white bss-icon-taxes"></i>
+									<div className="cps-col-xs-6 cps-center-vertical">
+										<i className="cps-icon +round cps-bg-primary-green cps-white cps-icon-taxes"></i>
 									</div>
 								</div>
 							</div>
@@ -166,33 +166,33 @@ module.exports = React.createClass({
 					</div>
 				</div>
 
-				<div className="bss-flexible-focus bss-card bss-margin-top-24">
-					<div className="bss-card__header ">
+				<div className="cps-flexible-focus cps-card cps-margin-top-24">
+					<div className="cps-card__header ">
 						Beanstalk Labels
 					</div>
-					<div className="bss-card__body">
-						<div className="bss-row">
-							<div className="bss-col-xs-12">
-								<ul className="bss-list-inline">
+					<div className="cps-card__body">
+						<div className="cps-row">
+							<div className="cps-col-xs-12">
+								<ul className="cps-list-inline">
 									<li>
-										<div className="bss-label-square +x-large">
-											<div className="bss-center-vertical">AC</div>
+										<div className="cps-label-square +x-large">
+											<div className="cps-center-vertical">AC</div>
 										</div>
 									</li>
 									<li>
-										<div className="bss-label-square +medium">
-											<div className="bss-center-vertical">AC</div>
+										<div className="cps-label-square +medium">
+											<div className="cps-center-vertical">AC</div>
 										</div>
 									</li>
 
 									<li>
-										<div className="bss-label-square +medium +active">
-											<div className="bss-center-vertical">AC</div>
+										<div className="cps-label-square +medium +active">
+											<div className="cps-center-vertical">AC</div>
 										</div>
 									</li>
 									<li>
-										<div className="bss-label-square__add +medium">
-											<div className="bss-center-vertical"><i className="bss-icon bss-icon-add-person"></i></div>
+										<div className="cps-label-square__add +medium">
+											<div className="cps-center-vertical"><i className="cps-icon cps-icon-add-person"></i></div>
 										</div>
 									</li>
 								</ul>
@@ -205,25 +205,25 @@ module.exports = React.createClass({
 
 				<Highlight className="html">
 				{
-`<div class="bss-label-square +x-large">
-  <div class="bss-center-vertical">AC</div>
+`<div class="cps-label-square +x-large">
+  <div class="cps-center-vertical">AC</div>
 </div>
-<div class="bss-label-square +medium">
-  <div class="bss-center-vertical">AC</div>
+<div class="cps-label-square +medium">
+  <div class="cps-center-vertical">AC</div>
 </div>
-<div class="bss-label-square +medium +active">
-  <div class="bss-center-vertical">AC</div>
+<div class="cps-label-square +medium +active">
+  <div class="cps-center-vertical">AC</div>
 </div>
 `
 				}
 				</Highlight>
 
-				<div className="bss-fixed-focus bss-card bss-margin-top-24">
-					<div className="bss-card__header ">
+				<div className="cps-fixed-focus cps-card cps-margin-top-24">
+					<div className="cps-card__header ">
 						Icons with inline text
 					</div>
-					<div className="bss-card__body">
-						<i className="bss-icon bss-icon-visible bss-warning"><span>Hello</span></i>
+					<div className="cps-card__body">
+						<i className="cps-icon cps-icon-visible cps-warning"><span>Hello</span></i>
 					</div>
 				</div>
 
@@ -231,7 +231,7 @@ module.exports = React.createClass({
 
 				<Highlight className="html">
 				{
-					`<i className="bss-icon bss-icon-visible bss-warning"><span>Hello</span></i>`
+					`<i className="cps-icon cps-icon-visible cps-warning"><span>Hello</span></i>`
 				}
 				</Highlight>
 			</div>

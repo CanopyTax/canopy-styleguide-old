@@ -1,6 +1,6 @@
 /** input.less **/
 
-.bss-form-group {
+.cps-form-group {
 	margin-bottom: 16px;
 	display: block;
 
@@ -11,13 +11,13 @@
 		margin-bottom: .2rem;
 	}
 
-	.bss-control-label {
+	.cps-control-label {
 		margin-bottom: 0;
 		text-align: right;
 	}
 }
 
-.bss-form-control {
+.cps-form-control {
 	display: block;
 	width: 100%;
 	height: 32px;
@@ -45,50 +45,50 @@
 	}
 }
 
-.bss-form-control[disabled],
-.bss-form-control[readonly],
-fieldset[disabled] .bss-form-control {
+.cps-form-control[disabled],
+.cps-form-control[readonly],
+fieldset[disabled] .cps-form-control {
 	cursor: not-allowed;
 	background-color: #F9F9F9;
 	opacity: 1;
 	border: 1px dashed #CFCFCF;
 }
 
-.bss-form-horizontal {
+.cps-form-horizontal {
 
-	.bss-radio, .bss-checkbox,
-	.bss-radio-inline, .bss-checkbox-inline {
+	.cps-radio, .cps-checkbox,
+	.cps-radio-inline, .cps-checkbox-inline {
 		padding-top: 7px;
 		margin-top: 0;
 		margin-bottom: 0;
 	}
 
-	.bss-radio, .bss-checkbox {
+	.cps-radio, .cps-checkbox {
 		min-height: 27px;
 	}
 
-	.bss-form-group, .bss-form-group-resize {
+	.cps-form-group, .cps-form-group-resize {
 		margin-right: -8px;
 		margin-left: -8px;
 	}
 
 
-	.bss-control-label {
+	.cps-control-label {
 		display: inline-block;
 		padding-top: 7px;
 		margin-bottom: 0;
 		text-align: right;
 		padding-right: 16px;
 	}
-	.bss-has-feedback .bss-form-control-feedback, .bss-has-error .bss-form-control-feedback {
+	.cps-has-feedback .cps-form-control-feedback, .cps-has-error .cps-form-control-feedback {
 		right: 11px;
 	}
 }
 
 
-.bss-form-inline {
+.cps-form-inline {
 
-	.bss-form-group, .bss-form-group-resize {
+	.cps-form-group, .cps-form-group-resize {
 		display: inline-block;
 		margin-bottom: 0;
 		vertical-align: middle;
@@ -102,7 +102,7 @@ fieldset[disabled] .bss-form-control {
 		}
 	}
 
-	.bss-form-control, .bss-form-control-resize {
+	.cps-form-control, .cps-form-control-resize {
 		display: inline-block;
 		width: auto;
 		margin-left: 0px;
@@ -110,8 +110,8 @@ fieldset[disabled] .bss-form-control {
 	}
 
 
-	.bss-radio,
-	.bss-checkbox {
+	.cps-radio,
+	.cps-checkbox {
 		display: inline-block;
 		padding-left: 0;
 		margin-top: 0;
@@ -125,25 +125,25 @@ fieldset[disabled] .bss-form-control {
 		}
 
 	}
-	.bss-has-feedback, .bss-has-error  {
-		label ~ .bss-form-control-feedback {
+	.cps-has-feedback, .cps-has-error  {
+		label ~ .cps-form-control-feedback {
 			right: 3px;
 		}
 
-		.bss-form-control-feedback {
+		.cps-form-control-feedback {
 			top: 0;
 		}
 	}
 }
 
-.bss-help-block {
+.cps-help-block {
 	display: block;
 	font-size: 12px;
 	padding-top:8px;
 	color: @gray10;
 }
 
-.bss-form-control-feedback {
+.cps-form-control-feedback {
 	position: absolute;
 	top: 0;
 	right: 3px;
@@ -158,15 +158,15 @@ fieldset[disabled] .bss-form-control {
 	color: @light-gray;
 }
 
-.bss-form-group > .bss-row > *  > .bss-form-control-feedback {
+.cps-form-group > .cps-row > *  > .cps-form-control-feedback {
 	right: 8px;
 }
 
-.bss-has-feedback .bss-form-control-feedback {
+.cps-has-feedback .cps-form-control-feedback {
 	display: block;
 }
 
-.bss-form-help-block {
+.cps-form-help-block {
 	display: block;
 	> i {
 		vertical-align: middle;
@@ -175,48 +175,48 @@ fieldset[disabled] .bss-form-control {
 		vertical-align: middle;
 	}
 }
-.bss-error-block {
+.cps-error-block {
 	display: none;
 	font-size: 12px;
 	padding-top:3px;
 }
 
-label.bss-has-error {
+label.cps-has-error {
 	color: @warning !important;
 }
 
-.bss-has-error {
+.cps-has-error {
 
 	color: @warning;
 
-	.bss-form-control-feedback, .bss-error-block {
+	.cps-form-control-feedback, .cps-error-block {
 		display: block;
 		color: @warning;
 	}
-	.bss-form-group-resize > .bss-error-block {
+	.cps-form-group-resize > .cps-error-block {
 		display: inline-block;
 		color: black !important;
 	}
-	.bss-error-block, .bss-radio,
-	.bss-checkbox, .bss-radio-inline, .bss-checkbox-inline {
+	.cps-error-block, .cps-radio,
+	.cps-checkbox, .cps-radio-inline, .cps-checkbox-inline {
 		color: @warning;
 	}
 
-	.bss-form-control, .bss-form-control:hover, .bss-form-control:focus {
+	.cps-form-control, .cps-form-control:hover, .cps-form-control:focus {
 		background-color: #FFFFFF;
 	}
 
-	.bss-form-control, .bss-form-control:hover {
+	.cps-form-control, .cps-form-control:hover {
 		border: 2px solid rgba(254,153,108, .3);
 		box-shadow: none; /* emulate the border */
 	}
 
-		.bss-form-control:focus {
+		.cps-form-control:focus {
 		border-color: transparent; /* remove the border's color */
 		box-shadow: 0 0 0 2px rgba(254,153,108, .3); /* emulate the border */
 	}
 
-	.bss-form-control-resize {
+	.cps-form-control-resize {
 		background-color:  rgba(254,143,108, .3);
 		&:focus {
 			background-color:  rgba(254,143,108, .3) !important;
@@ -226,7 +226,7 @@ label.bss-has-error {
 	label {
 		color: @warning !important;
 	}
-	.bss-input-group-addon {
+	.cps-input-group-addon {
 		background-color: @warning;
 		border-color: @warning;
 		color: white;
@@ -237,21 +237,21 @@ label.bss-has-error {
 
 }
 
-.bss-has-error, .bss-has-feedback {
+.cps-has-error, .cps-has-feedback {
 	position: relative;
 
-	label ~ .bss-form-control-feedback {
+	label ~ .cps-form-control-feedback {
 		top: 24px;
 	}
-	label.sr-only ~ .bss-form-control-feedback {
+	label.sr-only ~ .cps-form-control-feedback {
 		top: 0;
 	}
 }
 
-.bss-form-group-resize {
+.cps-form-group-resize {
 	display: block;
 
-	.bss-control-label {
+	.cps-control-label {
 		display: block;
 		font-size: 14px;
 		color: @gray10;
@@ -262,7 +262,7 @@ label.bss-has-error {
 
 }
 
-.bss-form-control-resize {
+.cps-form-control-resize {
 	display: block;
 	width: 100%;
 	background: transparent;
@@ -284,24 +284,24 @@ label.bss-has-error {
 }
 
 
-input[readonly="readonly"].bss-form-control-resize {
+input[readonly="readonly"].cps-form-control-resize {
 	cursor: text;
 	border: 1px solid transparent !important;
 }
 
-input[type="text"].bss-form-control-resize::-webkit-input-placeholder {
+input[type="text"].cps-form-control-resize::-webkit-input-placeholder {
 	font-size: inherit;
 	color: @gray9;
 }
-input[type="text"].bss-form-control-resize::-moz-placeholder {
+input[type="text"].cps-form-control-resize::-moz-placeholder {
 	font-size: inherit;
 	color: @gray9;
 }
-input[type="text"].bss-form-control-resize::-moz-placeholder {   /* Older versions of Firefox */
+input[type="text"].cps-form-control-resize::-moz-placeholder {   /* Older versions of Firefox */
 	font-size: inherit;
 	color: @gray9;
 }
-input[type="text"].bss-form-control-resize::-ms-input-placeholder {
+input[type="text"].cps-form-control-resize::-ms-input-placeholder {
 	font-size: inherit;
 	color: @gray9;
 }
@@ -309,36 +309,36 @@ input[type="text"].bss-form-control-resize::-ms-input-placeholder {
 
 
 @media (min-width: 768px) {
-	.bss-form-inline label {
+	.cps-form-inline label {
 		display: inline-block;
 		padding-left: 8px;
 	}
 
-	.bss-form-inline .bss-form-control {
+	.cps-form-inline .cps-form-control {
 		display: inline-block;
 		width: auto;
 		vertical-align: middle;
 	}
 }
 
-.bss-has-error .bss-input-required {
+.cps-has-error .cps-input-required {
 	color: @warning;
 }
 
-.bss-input-required {
+.cps-input-required {
 	color:@primary-green;
 }
 
-.bss-input-required::after {
+.cps-input-required::after {
 	content: '*';
 }
 
-.bss-input-group {
+.cps-input-group {
 	position: relative;
 	display: table;
 	border-collapse: separate;
 
-	.bss-form-control {
+	.cps-form-control {
 		position: relative;
 		z-index: 2;
 		float: left;
@@ -346,22 +346,22 @@ input[type="text"].bss-form-control-resize::-ms-input-placeholder {
 		margin-bottom: 0;
 	}
 
-	.bss-form-control:last-child {
+	.cps-form-control:last-child {
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
 	}
 
-	.bss-form-control:first-child {
+	.cps-form-control:first-child {
 		border-top-right-radius: 0;
 		border-bottom-right-radius: 0;
 	}
 
-	.bss-form-control {
+	.cps-form-control {
 		display: table-cell;
 	}
 }
 
-.bss-input-group-addon {
+.cps-input-group-addon {
 	padding: 6px 12px;
 	font-size: 14px;
 	font-weight: normal;
@@ -376,7 +376,7 @@ input[type="text"].bss-form-control-resize::-ms-input-placeholder {
 	vertical-align: middle;
 	display: table-cell;
 
-	&.bss-icon-addon {
+	&.cps-icon-addon {
 		padding: 0px 4px;
 	}
 	&:first-child {

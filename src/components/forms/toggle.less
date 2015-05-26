@@ -4,7 +4,7 @@
 @import "../mixins/mixins.less";
 
 
-.bss-toggle {
+.cps-toggle {
 	position: relative;
 
 	input[type="checkbox"] {
@@ -89,7 +89,7 @@
 }
 
 // Disabled states for the toggle in fieldsets
-fieldset[disabled] .bss-toggle input[type="checkbox"] + span {
+fieldset[disabled] .cps-toggle input[type="checkbox"] + span {
 	cursor: not-allowed;
 	&:before {
 		background-color: @gray8;
@@ -100,7 +100,7 @@ fieldset[disabled] .bss-toggle input[type="checkbox"] + span {
 	}
 }
 
-fieldset[disabled] .bss-toggle input[type="checkbox"]:checked + span {
+fieldset[disabled] .cps-toggle input[type="checkbox"]:checked + span {
 	cursor: not-allowed;
 	&:after {
 		left: 0;

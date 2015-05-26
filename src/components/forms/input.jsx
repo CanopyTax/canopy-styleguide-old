@@ -5,73 +5,73 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 		<div>
-			<div className="bss-flexible-focus bss-card">
-				<div className="bss-card__header bss-subheader">
+			<div className="cps-flexible-focus cps-card">
+				<div className="cps-card__header cps-subheader">
 					Inputs
 				</div>
-				<div className="bss-card__body">
-					<div className="bss-subheader-sm bss-margin-bottom-24">Top-aligned Inputs</div>
-					<div className="bss-row">
-						<div className="bss-col-xs-12">
+				<div className="cps-card__body">
+					<div className="cps-subheader-sm cps-margin-bottom-24">Top-aligned Inputs</div>
+					<div className="cps-row">
+						<div className="cps-col-xs-12">
 							<form>
-								<div className="bss-form-group">
+								<div className="cps-form-group">
 									<label for="exampleInputEmail1">Full Name</label>
-									<input type="text" className="bss-form-control" placeholder="Enter name"/>
+									<input type="text" className="cps-form-control" placeholder="Enter name"/>
 								</div>
-								<div className="bss-form-group bss-has-feedback">
+								<div className="cps-form-group cps-has-feedback">
 									<label for="exampleInputEmail1">Email address</label>
-									<div className="bss-row">
-										<div className="bss-col-xs-5">
-											<input type="text" className="bss-form-control" placeholder="Enter email"/>
-											<span className="bss-icon-client bss-form-control-feedback" aria-hidden="true"></span>
-											<span className="bss-error-block">This error message is hidden unless bss-has-error is present</span>
-											<span className="bss-help-block">Example help block</span>
+									<div className="cps-row">
+										<div className="cps-col-xs-5">
+											<input type="text" className="cps-form-control" placeholder="Enter email"/>
+											<span className="cps-icon-client cps-form-control-feedback" aria-hidden="true"></span>
+											<span className="cps-error-block">This error message is hidden unless cps-has-error is present</span>
+											<span className="cps-help-block">Example help block</span>
 										</div>
-										<div className="bss-col-xs-6">
-											<span className="bss-form-help-block"><a href className="bss-link bss-padding-left-4 bss-padding-right-4"><i className="bss-icon bss-icon-help bss-light-gray"></i> <span className="bss-info bss-padding-left-8">Need help?</span></a></span>
+										<div className="cps-col-xs-6">
+											<span className="cps-form-help-block"><a href className="cps-link cps-padding-left-4 cps-padding-right-4"><i className="cps-icon cps-icon-help cps-light-gray"></i> <span className="cps-info cps-padding-left-8">Need help?</span></a></span>
 										</div>
 									</div>
 								</div>
-								<div className="bss-form-group bss-has-error">
+								<div className="cps-form-group cps-has-error">
 
 										<label for="exampleInputPassword1">Phone Number</label>
-										<input type="text" className="bss-form-control" value="234-343-3434"/>
-										<span className="bss-icon-error bss-form-control-feedback" aria-hidden="true"></span>
-										<span className="bss-error-block">This is an error!</span>
+										<input type="text" className="cps-form-control" value="234-343-3434"/>
+										<span className="cps-icon-error cps-form-control-feedback" aria-hidden="true"></span>
+										<span className="cps-error-block">This is an error!</span>
 
 								</div>
-								<div className="bss-form-group">
-									<div className="bss-input-group">
-									 	<span className="bss-input-group-addon bss-icon-addon" id="basic-addon1"><i className="bss-icon bss-icon-add-person"></i></span>
-									 	<input type="text" className="bss-form-control" placeholder="Username" aria-describedby="basic-addon1"/>
+								<div className="cps-form-group">
+									<div className="cps-input-group">
+									 	<span className="cps-input-group-addon cps-icon-addon" id="basic-addon1"><i className="cps-icon cps-icon-add-person"></i></span>
+									 	<input type="text" className="cps-form-control" placeholder="Username" aria-describedby="basic-addon1"/>
 									</div>
 								</div>
-								<div className="bss-form-group">
-									<div className="bss-input-group">
-									 	<input type="text" className="bss-form-control" placeholder="Username" aria-describedby="basic-addon1"/>
-									 	<span className="bss-input-group-addon bss-icon-addon" id="basic-addon1"><i className="bss-icon bss-icon-add-person"></i></span>
+								<div className="cps-form-group">
+									<div className="cps-input-group">
+									 	<input type="text" className="cps-form-control" placeholder="Username" aria-describedby="basic-addon1"/>
+									 	<span className="cps-input-group-addon cps-icon-addon" id="basic-addon1"><i className="cps-icon cps-icon-add-person"></i></span>
 									</div>
 								</div>
-								<div className="bss-form-group bss-has-error">
-									<div className="bss-input-group">
-									 	<span className="bss-input-group-addon" id="basic-addon1">#</span>
-									 	<input type="text" className="bss-form-control" placeholder="Serial Number" aria-describedby="basic-addon1"/>
+								<div className="cps-form-group cps-has-error">
+									<div className="cps-input-group">
+									 	<span className="cps-input-group-addon" id="basic-addon1">#</span>
+									 	<input type="text" className="cps-form-control" placeholder="Serial Number" aria-describedby="basic-addon1"/>
 									</div>
-									<span className="bss-error-block">This is an error!</span>
+									<span className="cps-error-block">This is an error!</span>
 								</div>
-								<div className="bss-form-group bss-has-feedback">
-									<div className="bss-input-group">
-									 	<span className="bss-input-group-addon bss-icon-addon bss-bg-primary-green" id="basic-addon1"><i className="bss-icon bss-icon-lg-check bss-white"></i></span>
-									 	<input type="text" className="bss-form-control" placeholder="Serial Number" aria-describedby="basic-addon1"/>
+								<div className="cps-form-group cps-has-feedback">
+									<div className="cps-input-group">
+									 	<span className="cps-input-group-addon cps-icon-addon cps-bg-primary-green" id="basic-addon1"><i className="cps-icon cps-icon-lg-check cps-white"></i></span>
+									 	<input type="text" className="cps-form-control" placeholder="Serial Number" aria-describedby="basic-addon1"/>
 									</div>
-									<span className="bss-error-block">This is an error!</span>
+									<span className="cps-error-block">This is an error!</span>
 								</div>
-								<div className="bss-form-group bss-has-error">
-									<div className="bss-input-group">
-									 	<span className="bss-input-group-addon" id="basic-addon1">#</span>
-									 	<input type="text" className="bss-form-control" placeholder="Serial Number" aria-describedby="basic-addon1"/>
+								<div className="cps-form-group cps-has-error">
+									<div className="cps-input-group">
+									 	<span className="cps-input-group-addon" id="basic-addon1">#</span>
+									 	<input type="text" className="cps-form-control" placeholder="Serial Number" aria-describedby="basic-addon1"/>
 									</div>
-									<span className="bss-error-block">This is an error!</span>
+									<span className="cps-error-block">This is an error!</span>
 								</div>
 							</form>
 						</div>
@@ -82,85 +82,85 @@ module.exports = React.createClass({
 				<Highlight className="html">
 				{
 `<form>
-  <div class="bss-form-group">
+  <div class="cps-form-group">
     <label for="exampleInputEmail1">Full Name</label>
-    <input type="text" class="bss-form-control" placeholder="Enter name"/>
+    <input type="text" class="cps-form-control" placeholder="Enter name"/>
   </div>
-  <div class="bss-form-group bss-has-feedback">
+  <div class="cps-form-group cps-has-feedback">
     <label for="exampleInputEmail1">Email address</label>
-    <div class="bss-row">
-      <div class="bss-col-xs-5">
-        <input type="text" class="bss-form-control" placeholder="Enter email"/>
-        <span class="bss-icon-client bss-form-control-feedback" aria-hidden="true"></span>
-        <span class="bss-error-block">This error message is hidden unless bss-has-error is present</span>
-        <span class="bss-help-block">Example help block</span>
+    <div class="cps-row">
+      <div class="cps-col-xs-5">
+        <input type="text" class="cps-form-control" placeholder="Enter email"/>
+        <span class="cps-icon-client cps-form-control-feedback" aria-hidden="true"></span>
+        <span class="cps-error-block">This error message is hidden unless cps-has-error is present</span>
+        <span class="cps-help-block">Example help block</span>
       </div>
-      <div className="bss-col-xs-6">
-        <span class="bss-form-help-block"><a href class="bss-link bss-padding-left-4 bss-padding-right-4"><i class="bss-icon bss-icon-help bss-light-gray"></i> <span class="bss-info bss-padding-left-8">Need help?</span></a></span>
+      <div className="cps-col-xs-6">
+        <span class="cps-form-help-block"><a href class="cps-link cps-padding-left-4 cps-padding-right-4"><i class="cps-icon cps-icon-help cps-light-gray"></i> <span class="cps-info cps-padding-left-8">Need help?</span></a></span>
       </div>
     </div>
   </div>
-  <div class="bss-form-group bss-has-error">
+  <div class="cps-form-group cps-has-error">
       <label for="exampleInputPassword1">Phone Number</label>
-      <input type="text" class="bss-form-control" value="234-343-3434"/>
-      <span class="bss-icon-error bss-form-control-feedback" aria-hidden="true"></span>
-      <span class="bss-error-block">This is an error!</span>
+      <input type="text" class="cps-form-control" value="234-343-3434"/>
+      <span class="cps-icon-error cps-form-control-feedback" aria-hidden="true"></span>
+      <span class="cps-error-block">This is an error!</span>
   </div>
-<div class="bss-form-group">
-  <div class="bss-input-group">
-    <span class="bss-input-group-addon bss-icon-addon" id="basic-addon1"><i class="bss-icon bss-icon-add-person"></i></span>
-    <input type="text" class="bss-form-control" placeholder="Serial Number" aria-describedby="basic-addon1"/>
+<div class="cps-form-group">
+  <div class="cps-input-group">
+    <span class="cps-input-group-addon cps-icon-addon" id="basic-addon1"><i class="cps-icon cps-icon-add-person"></i></span>
+    <input type="text" class="cps-form-control" placeholder="Serial Number" aria-describedby="basic-addon1"/>
   </div>
-  <span class="bss-error-block">This is an error!</span>
+  <span class="cps-error-block">This is an error!</span>
 </div>
-<div class="bss-form-group bss-has-error">
-  <div class="bss-input-group">
-    <span class="bss-input-group-addon" id="basic-addon1">#</span>
-    <input type="text" class="bss-form-control" placeholder="Serial Number" aria-describedby="basic-addon1"/>
+<div class="cps-form-group cps-has-error">
+  <div class="cps-input-group">
+    <span class="cps-input-group-addon" id="basic-addon1">#</span>
+    <input type="text" class="cps-form-control" placeholder="Serial Number" aria-describedby="basic-addon1"/>
   </div>
-  <span class="bss-error-block">This is an error!</span>
+  <span class="cps-error-block">This is an error!</span>
 </div>
-  <div class="bss-form-group">
+  <div class="cps-form-group">
     <label for="exampleInputPassword1">Disabled</label>
-    <input type="text" class="bss-form-control" value="234-343-3434" disabled="true"/>
+    <input type="text" class="cps-form-control" value="234-343-3434" disabled="true"/>
   </div>
 </form>`
 				}
 				</Highlight>
 
-			<div className="bss-flexible-focus bss-card">
-				<div className="bss-card__body">
-					<div className="bss-subheader-sm bss-margin-bottom-16 bss-margin-top-24">Right-aligned Inputs</div>
-					<div className="bss-row">
-						<div className="bss-col-xs-12">
-							<form className="bss-form-horizontal">
-								<div className="bss-form-group">
-									<label for="exampleInputEmail1" className="bss-col-xs-2 bss-control-label">Full Name</label>
-									<div className="bss-col-xs-3">
-										<input type="text" className="bss-form-control" placeholder="Enter name"/>
+			<div className="cps-flexible-focus cps-card">
+				<div className="cps-card__body">
+					<div className="cps-subheader-sm cps-margin-bottom-16 cps-margin-top-24">Right-aligned Inputs</div>
+					<div className="cps-row">
+						<div className="cps-col-xs-12">
+							<form className="cps-form-horizontal">
+								<div className="cps-form-group">
+									<label for="exampleInputEmail1" className="cps-col-xs-2 cps-control-label">Full Name</label>
+									<div className="cps-col-xs-3">
+										<input type="text" className="cps-form-control" placeholder="Enter name"/>
 									</div>
 								</div>
-								<div className="bss-form-group bss-has-feedback bss-has-error">
-									<label for="exampleInputEmail1" className="bss-col-xs-2 bss-control-label">Email address</label>
-									<div className="bss-col-xs-3">
-										<input type="text" className="bss-form-control" placeholder="Enter email"/>
-										<span className="bss-icon-client bss-form-control-feedback" aria-hidden="true"></span>
-										<span className="bss-error-block">This error message is hidden unless bss-has-error is present</span>
-										<span className="bss-help-block">Example help block</span>
+								<div className="cps-form-group cps-has-feedback cps-has-error">
+									<label for="exampleInputEmail1" className="cps-col-xs-2 cps-control-label">Email address</label>
+									<div className="cps-col-xs-3">
+										<input type="text" className="cps-form-control" placeholder="Enter email"/>
+										<span className="cps-icon-client cps-form-control-feedback" aria-hidden="true"></span>
+										<span className="cps-error-block">This error message is hidden unless cps-has-error is present</span>
+										<span className="cps-help-block">Example help block</span>
 									</div>
 								</div>
-								<div className="bss-form-group bss-has-error">
-									<label for="exampleInputPassword1" className="bss-col-xs-2 bss-control-label">Phone Number</label>
-									<div className="bss-col-xs-6">
-										<input type="text" className="bss-form-control" value="234-343-3434"/>
-										<span className="bss-icon-error bss-form-control-feedback" aria-hidden="true"></span>
-										<span className="bss-error-block">This is an error!</span>
+								<div className="cps-form-group cps-has-error">
+									<label for="exampleInputPassword1" className="cps-col-xs-2 cps-control-label">Phone Number</label>
+									<div className="cps-col-xs-6">
+										<input type="text" className="cps-form-control" value="234-343-3434"/>
+										<span className="cps-icon-error cps-form-control-feedback" aria-hidden="true"></span>
+										<span className="cps-error-block">This is an error!</span>
 									</div>
 								</div>
-								<div className="bss-form-group">
-									<label for="exampleInputPassword1" className="bss-col-xs-2 bss-control-label">Disabled</label>
-									<div className="bss-col-xs-10">
-										<input type="text" className="bss-form-control"value="234-343-3434" disabled="true"/>
+								<div className="cps-form-group">
+									<label for="exampleInputPassword1" className="cps-col-xs-2 cps-control-label">Disabled</label>
+									<div className="cps-col-xs-10">
+										<input type="text" className="cps-form-control"value="234-343-3434" disabled="true"/>
 									</div>
 								</div>
 							</form>
@@ -171,58 +171,58 @@ module.exports = React.createClass({
 
 				<Highlight className="html">
 				{
-`<form class="bss-form-horizontal">
-  <div class="bss-form-group">
-    <label for="exampleInputEmail1" class="bss-col-xs-2">Full Name</label>
-    <div class="bss-col-xs-3">
-      <input type="text" class="bss-form-control" placeholder="Enter name"/>
+`<form class="cps-form-horizontal">
+  <div class="cps-form-group">
+    <label for="exampleInputEmail1" class="cps-col-xs-2">Full Name</label>
+    <div class="cps-col-xs-3">
+      <input type="text" class="cps-form-control" placeholder="Enter name"/>
     </div>
   </div>
-  <div class="bss-form-group bss-has-feedback bss-has-error">
-    <label for="exampleInputEmail1" class="bss-col-xs-2">Email address</label>
-    <div class="bss-col-xs-3">
-      <input type="text" className="bss-form-control" placeholder="Enter email"/>
-      <span class="bss-icon-client bss-form-control-feedback" aria-hidden="true"></span>
-      <span class="bss-error-block">This error message is hidden unless bss-has-error is present</span>
-      <span class="bss-help-block">Example help block</span>
+  <div class="cps-form-group cps-has-feedback cps-has-error">
+    <label for="exampleInputEmail1" class="cps-col-xs-2">Email address</label>
+    <div class="cps-col-xs-3">
+      <input type="text" className="cps-form-control" placeholder="Enter email"/>
+      <span class="cps-icon-client cps-form-control-feedback" aria-hidden="true"></span>
+      <span class="cps-error-block">This error message is hidden unless cps-has-error is present</span>
+      <span class="cps-help-block">Example help block</span>
     </div>
   </div>
-  <div class="bss-form-group bss-has-error">
-    <label for="exampleInputPassword1" class="bss-col-xs-2">Phone Number</label>
-    <div class="bss-col-xs-6">
-      <input type="text" class="bss-form-control" value="234-343-3434"/>
-      <span class="bss-icon-error bss-form-control-feedback" aria-hidden="true"></span>
-      <span class="bss-error-block">This is an error!</span>
+  <div class="cps-form-group cps-has-error">
+    <label for="exampleInputPassword1" class="cps-col-xs-2">Phone Number</label>
+    <div class="cps-col-xs-6">
+      <input type="text" class="cps-form-control" value="234-343-3434"/>
+      <span class="cps-icon-error cps-form-control-feedback" aria-hidden="true"></span>
+      <span class="cps-error-block">This is an error!</span>
     </div>
   </div>
-  <div class="bss-form-group">
-    <label for="exampleInputPassword1" class="bss-col-xs-2">Disabled</label>
-    <div class="bss-col-xs-10">
-      <input type="text" class="bss-form-control"value="234-343-3434" disabled="true"/>
+  <div class="cps-form-group">
+    <label for="exampleInputPassword1" class="cps-col-xs-2">Disabled</label>
+    <div class="cps-col-xs-10">
+      <input type="text" class="cps-form-control"value="234-343-3434" disabled="true"/>
     </div>
   </div>
 </form>`
 				}
 				</Highlight>
 
-			<div className="bss-flexible-focus bss-card">
-				<div className="bss-card__body">
-					<div className="bss-subheader-sm bss-margin-bottom-24 bss-margin-top-24">Inline Form</div>
-					<div className="bss-row bss-padding-bottom-16">
-						<div className="bss-col-xs-12">
-							<form className="bss-form-inline">
-								<div className="bss-form-group bss-has-feedback">
+			<div className="cps-flexible-focus cps-card">
+				<div className="cps-card__body">
+					<div className="cps-subheader-sm cps-margin-bottom-24 cps-margin-top-24">Inline Form</div>
+					<div className="cps-row cps-padding-bottom-16">
+						<div className="cps-col-xs-12">
+							<form className="cps-form-inline">
+								<div className="cps-form-group cps-has-feedback">
 									<label for="exampleInputName2">Email</label>
-									<input type="text" className="bss-form-control" placeholder="Enter email"/>
-									<span className="bss-icon-client bss-form-control-feedback" aria-hidden="true"></span>
+									<input type="text" className="cps-form-control" placeholder="Enter email"/>
+									<span className="cps-icon-client cps-form-control-feedback" aria-hidden="true"></span>
 								</div>
-								<div className="bss-form-group bss-has-error">
+								<div className="cps-form-group cps-has-error">
 									<label for="exampleInputName2">Phone</label>
-									<input type="text" className="bss-form-control" value="234-343-3434"/>
-									<span className="bss-icon-error bss-form-control-feedback" aria-hidden="true"></span>
+									<input type="text" className="cps-form-control" value="234-343-3434"/>
+									<span className="cps-icon-error cps-form-control-feedback" aria-hidden="true"></span>
 								</div>
-								<div className="bss-form-group">
-									<input type="text" className="bss-form-control" value="234-343-3434" disabled="true"/>
+								<div className="cps-form-group">
+									<input type="text" className="cps-form-control" value="234-343-3434" disabled="true"/>
 								</div>
 							</form>
 						</div>
@@ -231,60 +231,60 @@ module.exports = React.createClass({
 			</div>
 			<Highlight className="html">
 {
-`<form class="bss-form-inline">
-  <div class="bss-form-group bss-has-feedback">
+`<form class="cps-form-inline">
+  <div class="cps-form-group cps-has-feedback">
     <label for="exampleInputName2">Email</label>
-    <input type="text" class="bss-form-control" placeholder="Enter email"/>
-    <span class="bss-icon-client bss-form-control-feedback" aria-hidden="true"></span>
+    <input type="text" class="cps-form-control" placeholder="Enter email"/>
+    <span class="cps-icon-client cps-form-control-feedback" aria-hidden="true"></span>
   </div>
-  <div class="bss-form-group bss-has-error">
+  <div class="cps-form-group cps-has-error">
     <label for="exampleInputName2">Phone</label>
-    <input type="text" class="bss-form-control" value="234-343-3434"/>
-    <span class="bss-icon-error bss-form-control-feedback" aria-hidden="true"></span>
+    <input type="text" class="cps-form-control" value="234-343-3434"/>
+    <span class="cps-icon-error cps-form-control-feedback" aria-hidden="true"></span>
   </div>
-  <div class="bss-form-group">
-    <input type="text" class="bss-form-control" value="234-343-3434" disabled="true"/>
+  <div class="cps-form-group">
+    <input type="text" class="cps-form-control" value="234-343-3434" disabled="true"/>
   </div>
 </form>`
 }
 				</Highlight>
 
 
-			<div className="bss-flexible-focus bss-card">
-				<div className="bss-card__body">
-					<div className="bss-subheader-sm bss-margin-bottom-24 bss-margin-top-24">Auto sized Inputs -- Right Aligned</div>
-					<div className="bss-row bss-padding-bottom-16">
-						<div className="bss-col-xs-12">
-							<form className="bss-form-horizontal">
-								<div className="bss-form-group-resize">
-									<label for="Email" className="bss-col-xs-2 bss-control-label">Phone</label>
-									<div className="bss-col-xs-8">
-										<input type="text" className="bss-form-control-resize" placeholder="Enter email"/>
+			<div className="cps-flexible-focus cps-card">
+				<div className="cps-card__body">
+					<div className="cps-subheader-sm cps-margin-bottom-24 cps-margin-top-24">Auto sized Inputs -- Right Aligned</div>
+					<div className="cps-row cps-padding-bottom-16">
+						<div className="cps-col-xs-12">
+							<form className="cps-form-horizontal">
+								<div className="cps-form-group-resize">
+									<label for="Email" className="cps-col-xs-2 cps-control-label">Phone</label>
+									<div className="cps-col-xs-8">
+										<input type="text" className="cps-form-control-resize" placeholder="Enter email"/>
 									</div>
 								</div>
-								<div className="bss-form-group-resize">
-									<label for="Email" className="bss-col-xs-2 bss-control-label">Email</label>
-									<div className="bss-col-xs-8">
-										<input type="text" className="bss-form-control-resize" placeholder="Enter email"/>
+								<div className="cps-form-group-resize">
+									<label for="Email" className="cps-col-xs-2 cps-control-label">Email</label>
+									<div className="cps-col-xs-8">
+										<input type="text" className="cps-form-control-resize" placeholder="Enter email"/>
 									</div>
 								</div>
-								<div className="bss-form-group-resize">
-									<label for="Email" className="bss-col-xs-2 bss-control-label">Address 1</label>
-									<div className="bss-col-xs-8">
-										<input type="text" className="bss-form-control-resize" placeholder="Enter email"/>
+								<div className="cps-form-group-resize">
+									<label for="Email" className="cps-col-xs-2 cps-control-label">Address 1</label>
+									<div className="cps-col-xs-8">
+										<input type="text" className="cps-form-control-resize" placeholder="Enter email"/>
 									</div>
 								</div>
-								<div className="bss-form-group-resize bss-has-error">
-									<label for="Email" className="bss-col-xs-2 bss-control-label">Adress 2</label>
-									<div className="bss-col-xs-8">
-										<input type="text" className="bss-form-control-resize" placeholder="Enter email" value="234-343-3434"/>
-										<span className="bss-error-block">This is an error!</span>
+								<div className="cps-form-group-resize cps-has-error">
+									<label for="Email" className="cps-col-xs-2 cps-control-label">Adress 2</label>
+									<div className="cps-col-xs-8">
+										<input type="text" className="cps-form-control-resize" placeholder="Enter email" value="234-343-3434"/>
+										<span className="cps-error-block">This is an error!</span>
 									</div>
 								</div>
-								<div className="bss-form-group-resize">
-									<label for="Phone" className="bss-col-xs-2 bss-control-label">Zip</label>
-									<div className="bss-col-xs-4">
-										<input type="text" className="bss-form-control-resize" value="234-343-3434" readonly="readonly"/>
+								<div className="cps-form-group-resize">
+									<label for="Phone" className="cps-col-xs-2 cps-control-label">Zip</label>
+									<div className="cps-col-xs-4">
+										<input type="text" className="cps-form-control-resize" value="234-343-3434" readonly="readonly"/>
 									</div>
 								</div>
 							</form>
@@ -295,51 +295,51 @@ module.exports = React.createClass({
 			</div>
 			<Highlight className="html">
 {
-`<form class="bss-form-horizontal">
-<div class="bss-form-group-resize">
-  <label for="Email" class="bss-col-xs-2">Address 1</label>
-  <div class="bss-col-xs-8">
-    <input type="text" class="bss-form-control-resize" placeholder="Enter email"/>
+`<form class="cps-form-horizontal">
+<div class="cps-form-group-resize">
+  <label for="Email" class="cps-col-xs-2">Address 1</label>
+  <div class="cps-col-xs-8">
+    <input type="text" class="cps-form-control-resize" placeholder="Enter email"/>
   </div>
 </div>
-<div className="bss-form-group-resize bss-has-error">
-  <label for="Email" class="bss-col-xs-2">Adress 2</label>
-  <div class="bss-col-xs-8">
-    <input type="text" class="bss-form-control-resize" placeholder="Enter email" value="234-343-3434"/>
-    <span class="bss-error-block">This is an error!</span>
+<div className="cps-form-group-resize cps-has-error">
+  <label for="Email" class="cps-col-xs-2">Adress 2</label>
+  <div class="cps-col-xs-8">
+    <input type="text" class="cps-form-control-resize" placeholder="Enter email" value="234-343-3434"/>
+    <span class="cps-error-block">This is an error!</span>
   </div>
 </div>
-<div class="bss-form-group-resize">
-  <label for="Phone" class="bss-col-xs-2">Zip</label>
-  <div class="bss-col-xs-4">
-    <input type="text" class="bss-form-control-resize" value="234-343-3434" readonly="readonly"/>
+<div class="cps-form-group-resize">
+  <label for="Phone" class="cps-col-xs-2">Zip</label>
+  <div class="cps-col-xs-4">
+    <input type="text" class="cps-form-control-resize" value="234-343-3434" readonly="readonly"/>
   </div>
 </div>
 </form>`
 }
 				</Highlight>
 
-			<div className="bss-flexible-focus bss-card">
-				<div className="bss-card__body">
-					<div className="bss-subheader-sm bss-margin-bottom-24 bss-margin-top-24">Auto sized Inputs -- Inline Form</div>
+			<div className="cps-flexible-focus cps-card">
+				<div className="cps-card__body">
+					<div className="cps-subheader-sm cps-margin-bottom-24 cps-margin-top-24">Auto sized Inputs -- Inline Form</div>
 
-					<div className="bss-row bss-padding-bottom-16">
-						<div className="bss-col-xs-12">
-							<form className="bss-form-inline">
-								<div className="bss-form-group-resize">
+					<div className="cps-row cps-padding-bottom-16">
+						<div className="cps-col-xs-12">
+							<form className="cps-form-inline">
+								<div className="cps-form-group-resize">
 									<label for="Email" >Email</label>
-									<input type="text" className="bss-form-control-resize" placeholder="Enter email" value="exi@gm.com"/>
+									<input type="text" className="cps-form-control-resize" placeholder="Enter email" value="exi@gm.com"/>
 								</div>
-								<div className="bss-form-group-resize">
+								<div className="cps-form-group-resize">
 									<label for="Email" >Phone</label>
-									<input type="text" className="bss-form-control-resize" placeholder="Enter email"/>
+									<input type="text" className="cps-form-control-resize" placeholder="Enter email"/>
 								</div>
-								<div className="bss-form-group-resize">
-									<input type="text" className="bss-form-control-resize bss-subheader" placeholder="Enter zip code" value="large font example"/>
+								<div className="cps-form-group-resize">
+									<input type="text" className="cps-form-control-resize cps-subheader" placeholder="Enter zip code" value="large font example"/>
 								</div>
-								<div className="bss-form-group-resize bss-has-error">
-									<input type="text" className="bss-form-control-resize" placeholder="Error example"/>
-									<span className="bss-error-block">This is an error</span>
+								<div className="cps-form-group-resize cps-has-error">
+									<input type="text" className="cps-form-control-resize" placeholder="Error example"/>
+									<span className="cps-error-block">This is an error</span>
 								</div>
 							</form>
 						</div>
@@ -349,21 +349,21 @@ module.exports = React.createClass({
 
 			<Highlight className="html">
 {
-`<form class="bss-form-inline">
-  <div class="bss-form-group-resize">
+`<form class="cps-form-inline">
+  <div class="cps-form-group-resize">
     <label for="Email" >Phone</label>
-    <input type="text" class="bss-form-control-resize" placeholder="Enter email"/>
+    <input type="text" class="cps-form-control-resize" placeholder="Enter email"/>
   </div>
-  <div class="bss-form-group-resize">
+  <div class="cps-form-group-resize">
     <label for="Email" >Phone</label>
-    <input type="text" class="bss-form-control-resize" placeholder="Enter email"/>
+    <input type="text" class="cps-form-control-resize" placeholder="Enter email"/>
   </div>
-  <div class="bss-form-group-resize">
-    <input type="text" class="bss-form-control-resize bss-subheader" placeholder="Enter email"/>
+  <div class="cps-form-group-resize">
+    <input type="text" class="cps-form-control-resize cps-subheader" placeholder="Enter email"/>
   </div>
-  <div class="bss-form-group-resize bss-has-error">
-    <input type="text" class="bss-form-control-resize" placeholder="Error example"/>
-    <span class="bss-error-block">This is an error</span>
+  <div class="cps-form-group-resize cps-has-error">
+    <input type="text" class="cps-form-control-resize" placeholder="Error example"/>
+    <span class="cps-error-block">This is an error</span>
   </div>
 </form>`
 }

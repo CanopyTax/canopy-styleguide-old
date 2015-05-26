@@ -5,20 +5,20 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 			<div>
-				<div className="bss-flexible-focus bss-card">
-					<div className="bss-card__header bss-subheader">
+				<div className="cps-flexible-focus cps-card">
+					<div className="cps-card__header cps-subheader">
 						Loaders
 					</div>
-					<div className="bss-card__body">
-						<button className="bss-btn +primary">
-							<span className="bss-loader">
+					<div className="cps-card__body">
+						<button className="cps-btn +primary">
+							<span className="cps-loader">
 								<span></span>
 								<span></span>
 								<span></span>
 							</span>
 						</button>
-						<button className="bss-btn +primary +large">
-							<span className="bss-loader">
+						<button className="cps-btn +primary +large">
+							<span className="cps-loader">
 								<span></span>
 								<span></span>
 								<span></span>
@@ -28,8 +28,8 @@ module.exports = React.createClass({
 				</div>
 				<Highlight className="html">
 						{
-`<button class="bss-btn +primary +large">
-  <span class="bss-loader">
+`<button class="cps-btn +primary +large">
+  <span class="cps-loader">
     <span></span>
     <span></span>
     <span></span>

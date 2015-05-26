@@ -5,138 +5,138 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 		<div>
-			<div className="bss-flexible-focus bss-card ">
-				<div className="bss-card__header bss-subheader">
+			<div className="cps-flexible-focus cps-card ">
+				<div className="cps-card__header cps-subheader">
 					Menus
 				</div>
 			</div>
 				<Highlight className="html ">
 				{
-`<div class="bss-dropdown bss-open">
-  <a href class="bss-btn +primary">
-   New <span class="bss-caret"></span>
+`<div class="cps-dropdown cps-open">
+  <a href class="cps-btn +primary">
+   New <span class="cps-caret"></span>
   </a>
-  <ul class="bss-dropdown-menu" role="menu">
+  <ul class="cps-dropdown-menu" role="menu">
     <li><a href>My Profile</a></li>
     <li><a href>Team Members</a></li>
     <li><a href>Company Profile</a></li>
 
-    <li class="bss-divider"></li>
-    <li><a href="https://beanstalk.reamaze.com" target="_blank">Help</a>
+    <li class="cps-divider"></li>
+    <li><a>Help</a>
     </li>
-    <li class="bss-divider"></li>
+    <li class="cps-divider"></li>
     <li><a href="/signout">Sign out</a>
     </li>
   </ul>
 </div>`
 				}
 				</Highlight>
-			<div className="bss-flexible-focus bss-card">
-				<div className="bss-card__body">
-					<div className="bss-row">
-						<div className="bss-col-xs-2">
-							<div className="bss-dropdown bss-open">
-								<a href className="bss-btn +primary">
-								 New <span className="bss-caret"></span>
+			<div className="cps-flexible-focus cps-card">
+				<div className="cps-card__body">
+					<div className="cps-row">
+						<div className="cps-col-xs-2">
+							<div className="cps-dropdown cps-open">
+								<a href className="cps-btn +primary">
+								 New <span className="cps-caret"></span>
 								</a>
-								<ul className="bss-dropdown-menu" role="menu">
+								<ul className="cps-dropdown-menu" role="menu">
 									<li><a href>My Profile</a></li>
 									<li><a href>Team Members</a></li>
 									<li><a href>Company Profile</a></li>
 
-									<li className="bss-divider"></li>
-									<li><a href="https://beanstalk.reamaze.com" target="_blank">Help</a>
+									<li className="cps-divider"></li>
+									<li><a>Help</a>
 									</li>
-									<li className="bss-divider"></li>
+									<li className="cps-divider"></li>
 									<li><a href="/signout">Sign out</a>
 									</li>
 								</ul>
 							</div>
 						</div>
-						<div className="bss-col-xs-2">
-							<div className="bss-dropdown bss-open">
-								<div className="bss-btn-icon">
-									<a href className="bss-link">
-										<span className="bss-icon bss-icon-cog"></span>
+						<div className="cps-col-xs-2">
+							<div className="cps-dropdown cps-open">
+								<div className="cps-btn-icon">
+									<a href className="cps-link">
+										<span className="cps-icon cps-icon-cog"></span>
 									</a>
 								</div>
-								<ul className="bss-dropdown-menu" role="menu">
-									<li><a href><i className="bss-icon bss-icon-add-person bss-dropdown-menu__icon"></i>Share</a></li>
-									<li><a href><i className="bss-icon bss-icon-download bss-dropdown-menu__icon"></i>Download</a></li>
-									<li><a href><i className="bss-icon bss-icon-notes bss-dropdown-menu__icon"></i>Rename</a></li>
-									<li><a href><i className="bss-icon bss-icon-trash bss-dropdown-menu__icon"></i>Delete</a></li>
+								<ul className="cps-dropdown-menu" role="menu">
+									<li><a href><i className="cps-icon cps-icon-add-person cps-dropdown-menu__icon"></i>Share</a></li>
+									<li><a href><i className="cps-icon cps-icon-download cps-dropdown-menu__icon"></i>Download</a></li>
+									<li><a href><i className="cps-icon cps-icon-notes cps-dropdown-menu__icon"></i>Rename</a></li>
+									<li><a href><i className="cps-icon cps-icon-trash cps-dropdown-menu__icon"></i>Delete</a></li>
 
 								</ul>
 							</div>
 						</div>
-						<div className="bss-col-xs-2">
-							<div className="bss-dropdown bss-pull-right bss-open">
-								<div className="bss-btn-icon">
-									<a href className="bss-link">
-										<span className="bss-icon bss-icon-cog"></span>
+						<div className="cps-col-xs-2">
+							<div className="cps-dropdown cps-pull-right cps-open">
+								<div className="cps-btn-icon">
+									<a href className="cps-link">
+										<span className="cps-icon cps-icon-cog"></span>
 									</a>
 								</div>
-								<ul className="bss-dropdown-menu bss-pull-right" role="menu">
-									<li><a href><i className="bss-icon bss-icon-add-person bss-dropdown-menu__icon"></i>Share</a></li>
-									<li><a href><i className="bss-icon bss-icon-download bss-dropdown-menu__icon"></i>Download</a></li>
-									<li><a href><i className="bss-icon bss-icon-notes bss-dropdown-menu__icon"></i>Rename</a></li>
-									<li><a href><i className="bss-icon bss-icon-trash bss-dropdown-menu__icon"></i>Delete</a></li>
+								<ul className="cps-dropdown-menu cps-pull-right" role="menu">
+									<li><a href><i className="cps-icon cps-icon-add-person cps-dropdown-menu__icon"></i>Share</a></li>
+									<li><a href><i className="cps-icon cps-icon-download cps-dropdown-menu__icon"></i>Download</a></li>
+									<li><a href><i className="cps-icon cps-icon-notes cps-dropdown-menu__icon"></i>Rename</a></li>
+									<li><a href><i className="cps-icon cps-icon-trash cps-dropdown-menu__icon"></i>Delete</a></li>
 
 								</ul>
 							</div>
 						</div>
-						<div className="bss-col-xs-2">
-							<div className="bss-dropdown">
-								<a href className="bss-link">
-								 Settings <span className="bss-caret"></span>
+						<div className="cps-col-xs-2">
+							<div className="cps-dropdown">
+								<a href className="cps-link">
+								 Settings <span className="cps-caret"></span>
 								</a>
-								<ul className="bss-dropdown-menu" role="menu">
+								<ul className="cps-dropdown-menu" role="menu">
 									<li><a href>My Profile</a></li>
 									<li><a href>Team Members</a></li>
 									<li><a href>Company Profile</a></li>
 
-									<li className="bss-divider"></li>
-									<li><a href="https://beanstalk.reamaze.com" target="_blank">Help</a>
+									<li className="cps-divider"></li>
+									<li><a>Help</a>
 									</li>
-									<li className="bss-divider"></li>
+									<li className="cps-divider"></li>
 									<li><a href="/signout">Sign out</a>
 									</li>
 								</ul>
 							</div>
 						</div>
-						<div className="bss-col-xs-2">
-							<div className="bss-dropdown bss-open">
-								<a href className="bss-link">
-									Settings <span className="bss-caret"></span>
+						<div className="cps-col-xs-2">
+							<div className="cps-dropdown cps-open">
+								<a href className="cps-link">
+									Settings <span className="cps-caret"></span>
 								</a>
-								<ul className="bss-dropdown-menu" role="menu">
+								<ul className="cps-dropdown-menu" role="menu">
 									<li><a href>My Profile</a></li>
 									<li><a href>Team Members</a></li>
 									<li><a href>Company Profile</a></li>
 
-									<li className="bss-divider"></li>
-									<li><a href="https://beanstalk.reamaze.com" target="_blank">Help</a>
+									<li className="cps-divider"></li>
+									<li><a>Help</a>
 									</li>
-									<li className="bss-divider"></li>
+									<li className="cps-divider"></li>
 									<li><a href="/signout">Sign out</a>
 									</li>
 								</ul>
 							</div>
 						</div>
-						<div className="bss-col-xs-2">
-							<div className="bss-dropdown bss-pull-right bss-open">
-								<a href className="bss-link">
-									Settings <span className="bss-caret"></span>
+						<div className="cps-col-xs-2">
+							<div className="cps-dropdown cps-pull-right cps-open">
+								<a href className="cps-link">
+									Settings <span className="cps-caret"></span>
 								</a>
-								<ul className="bss-dropdown-menu bss-pull-right" role="menu">
+								<ul className="cps-dropdown-menu cps-pull-right" role="menu">
 									<li><a href>My Profile</a></li>
 									<li><a href>Team Members</a></li>
 									<li><a href>Company Profile</a></li>
 
-									<li className="bss-divider"></li>
-									<li><a href="https://beanstalk.reamaze.com" target="_blank">Help</a>
+									<li className="cps-divider"></li>
+									<li><a>Help</a>
 									</li>
-									<li className="bss-divider"></li>
+									<li className="cps-divider"></li>
 									<li><a href="/signout">Sign out</a>
 									</li>
 								</ul>

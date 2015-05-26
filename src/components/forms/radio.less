@@ -3,7 +3,7 @@
 @import "../variables/variables.less";
 @import "../mixins/mixins.less";
 
-.bss-radio {
+.cps-radio {
 	// The radio label needs to be wrapped in a span tag, so hide all other text
 	font-size: 0;
 	position: relative;
@@ -83,13 +83,13 @@
 }
 
 // Disabled states for the radio in fieldsets
-fieldset[disabled] .bss-radio input[type="radio"] + span {
+fieldset[disabled] .cps-radio input[type="radio"] + span {
 	&:before {
 		border-color: @gray9;
 	}
 }
 
-fieldset[disabled] .bss-radio input[type="radio"]:checked + span {
+fieldset[disabled] .cps-radio input[type="radio"]:checked + span {
 	&:before {
 		background-color: @gray9;
 	}

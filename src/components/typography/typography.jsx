@@ -3,17 +3,17 @@ var React = require('react');
 module.exports = React.createClass({
 	render: function() {
 		return (
-			<div className="bss-flexible-focus bss-card">
-				<div className="bss-card__header bss-subheader">
+			<div className="cps-flexible-focus cps-card">
+				<div className="cps-card__header cps-subheader">
 					Typography
 				</div>
-				<div className="bss-card__body">
-					<div className="bss-row bss-regular">
-						<div className="bss-col-xs-2"><span className="bss-pull-right">REGULAR</span>
+				<div className="cps-card__body">
+					<div className="cps-row cps-regular">
+						<div className="cps-col-xs-2"><span className="cps-pull-right">REGULAR</span>
 						</div>
-						<div className="bss-col-xs-2"><span className="bss-pull-right">.bss-regular</span>
+						<div className="cps-col-xs-2"><span className="cps-pull-right">.cps-regular</span>
 						</div>
-						<div className="bss-col-xs-8 bss-text-muted-dark">
+						<div className="cps-col-xs-8 cps-text-muted-dark">
 							<div>
 								An economy based on endless growth is unsustainable
 							</div>
@@ -22,82 +22,82 @@ module.exports = React.createClass({
 							</div>
 						</div>
 					</div>
-					<div className="bss-row bss-semibold ">
-						<div className="bss-col-xs-2"><span className="bss-pull-right">SEMIBOLD</span>
+					<div className="cps-row cps-semibold ">
+						<div className="cps-col-xs-2"><span className="cps-pull-right">SEMIBOLD</span>
 						</div>
-						<div className="bss-col-xs-2"><span className="bss-pull-right">.bss-semibold</span>
+						<div className="cps-col-xs-2"><span className="cps-pull-right">.cps-semibold</span>
 						</div>
-						<div className="bss-col-xs-8 bss-text-muted-dark">An economy based on endless growth is unsustainable</div>
+						<div className="cps-col-xs-8 cps-text-muted-dark">An economy based on endless growth is unsustainable</div>
 					</div>
 				</div>
-				<div className="bss-card__hr"></div>
-				<div className="bss-card__body">
-					<div className="bss-row">
-						<div className="bss-col-xs-2"><span className="bss-pull-right">LARGE HEADER</span>
+				<div className="cps-card__hr"></div>
+				<div className="cps-card__body">
+					<div className="cps-row">
+						<div className="cps-col-xs-2"><span className="cps-pull-right">LARGE HEADER</span>
 						</div>
-						<div className="bss-col-xs-2"><span className="bss-pull-right">.bss-header</span>
+						<div className="cps-col-xs-2"><span className="cps-pull-right">.cps-header</span>
 						</div>
-						<div className="bss-col-xs-8 bss-header bss-text-muted-dark">
+						<div className="cps-col-xs-8 cps-header cps-text-muted-dark">
 							<div>Font Size 40px</div>
 							<div>Line Height 52px</div>
 						</div>
 					</div>
-					<div className="bss-row">
-						<div className="bss-col-xs-2"><span className="bss-pull-right">HEADER</span>
+					<div className="cps-row">
+						<div className="cps-col-xs-2"><span className="cps-pull-right">HEADER</span>
 						</div>
-						<div className="bss-col-xs-2"><span className="bss-pull-right">.bss-header-sm</span>
+						<div className="cps-col-xs-2"><span className="cps-pull-right">.cps-header-sm</span>
 						</div>
-						<div className="bss-col-xs-8 bss-header-sm bss-text-muted-dark">
+						<div className="cps-col-xs-8 cps-header-sm cps-text-muted-dark">
 							<div>Font Size 32px</div>
 							<div>Line Height 44px</div>
 						</div>
 					</div>
-					<div className="bss-row ">
-						<div className="bss-col-xs-2"><span className="bss-pull-right">SUBHEADER</span>
+					<div className="cps-row ">
+						<div className="cps-col-xs-2"><span className="cps-pull-right">SUBHEADER</span>
 						</div>
-						<div className="bss-col-xs-2"><span className="bss-pull-right">.bss-subheader</span>
+						<div className="cps-col-xs-2"><span className="cps-pull-right">.cps-subheader</span>
 						</div>
-						<div className="bss-col-xs-8 bss-subheader bss-text-muted-dark">
+						<div className="cps-col-xs-8 cps-subheader cps-text-muted-dark">
 							<div>Font Size 24px</div>
 							<div>Line Height 32px</div>
 						</div>
 					</div>
-					<div className="bss-row">
-						<div className="bss-col-xs-2"><span className="bss-pull-right">SUBHEADER 2</span>
+					<div className="cps-row">
+						<div className="cps-col-xs-2"><span className="cps-pull-right">SUBHEADER 2</span>
 						</div>
-						<div className="bss-col-xs-2"><span className="bss-pull-right">.bss-subheader-sm</span>
+						<div className="cps-col-xs-2"><span className="cps-pull-right">.cps-subheader-sm</span>
 						</div>
-						<div className="bss-col-xs-8 bss-subheader-sm bss-text-muted-dark">
+						<div className="cps-col-xs-8 cps-subheader-sm cps-text-muted-dark">
 							<div>Font Size 18px</div>
 							<div>Line Height 28px</div>
 						</div>
 					</div>
-					<div className="bss-row">
-						<div className="bss-col-xs-2"><span className="bss-pull-right">BODY</span>
+					<div className="cps-row">
+						<div className="cps-col-xs-2"><span className="cps-pull-right">BODY</span>
 						</div>
-						<div className="bss-col-xs-2"><span className="bss-pull-right">.bss-body</span>
+						<div className="cps-col-xs-2"><span className="cps-pull-right">.cps-body</span>
 						</div>
-						<div className="bss-col-xs-8 bss-body bss-text-muted-dark">
+						<div className="cps-col-xs-8 cps-body cps-text-muted-dark">
 							<div>Font Size 16px</div>
 							<div>Line Height 24px</div>
 						</div>
 					</div>
-					<div className="bss-row">
-						<div className="bss-col-xs-2"><span className="bss-pull-right">BODY 2</span>
+					<div className="cps-row">
+						<div className="cps-col-xs-2"><span className="cps-pull-right">BODY 2</span>
 						</div>
-						<div className="bss-col-xs-2"><span className="bss-pull-right">.bss-body-sm</span>
+						<div className="cps-col-xs-2"><span className="cps-pull-right">.cps-body-sm</span>
 						</div>
-						<div className="bss-col-xs-8 bss-body-sm bss-text-muted-dark">
+						<div className="cps-col-xs-8 cps-body-sm cps-text-muted-dark">
 							<div>Font Size 14px</div>
 							<div>Line Height 20px</div>
 						</div>
 					</div>
-					<div className="bss-row">
-						<div className="bss-col-xs-2"><span className="bss-pull-right">CAPTION</span>
+					<div className="cps-row">
+						<div className="cps-col-xs-2"><span className="cps-pull-right">CAPTION</span>
 						</div>
-						<div className="bss-col-xs-2"><span className="bss-pull-right">.bss-caption</span>
+						<div className="cps-col-xs-2"><span className="cps-pull-right">.cps-caption</span>
 						</div>
-						<div className="bss-col-xs-8 bss-caption bss-text-muted-dark">
+						<div className="cps-col-xs-8 cps-caption cps-text-muted-dark">
 							<div>Font Size 12px</div>
 							<div>Line Height 16px</div>
 						</div>

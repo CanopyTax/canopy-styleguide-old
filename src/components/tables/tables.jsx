@@ -4,10 +4,10 @@ var Highlight = require('react-highlight');
 module.exports = React.createClass({
 	render: function() {
 		return (
-			<div className="bss-flexible-focus">
-				<div className="bss-card">
-					<div className="bss-card__body">
-						<table className="bss-inset-table">
+			<div className="cps-flexible-focus">
+				<div className="cps-card">
+					<div className="cps-card__body">
+						<table className="cps-inset-table">
 							<thead>
 								<tr>
 									<th>Date</th>
@@ -40,7 +40,7 @@ module.exports = React.createClass({
 `<!-- Sometimes making an entire card a full table can be too heavy and not entirely relavent  -->
 <!-- to the context of the rest of the card. For these situations we have created inset tables-->
 <!-- If you need to specifically size columns use the bootstrap grid system.                  -->
-<table class="bss-inset-table">
+<table class="cps-inset-table">
   <thead>
     <tr>
       <th>Date</th>
@@ -69,7 +69,7 @@ module.exports = React.createClass({
 `
 				}
 				</Highlight>
-				<div className="bss-card-table bss-card">
+				<div className="cps-card-table cps-card">
 					<table>
 						<thead>
 							<tr>
@@ -85,17 +85,17 @@ module.exports = React.createClass({
 							<tr>
 								<td>some_filename.pdf</td>
 								<td>PDF</td>
-								<td>Jan 21 <span className="bss-l-gray">Kurt Avarell</span></td>
+								<td>Jan 21 <span className="cps-l-gray">Kurt Avarell</span></td>
 							</tr>
 							<tr>
 								<td>secondquarter-tracking.doc</td>
 								<td>Document</td>
-								<td>Jan 19 <span className="bss-l-gray">Kurt Avarell</span></td>
+								<td>Jan 19 <span className="cps-l-gray">Kurt Avarell</span></td>
 							</tr>
 							<tr>
 								<td>client-list.docx</td>
 								<td>Document</td>
-								<td>Jan 02 <span className="bss-l-gray">Kurt Avarell</span></td>
+								<td>Jan 02 <span className="cps-l-gray">Kurt Avarell</span></td>
 							</tr>
 						</tbody>
 					</table>
@@ -103,7 +103,7 @@ module.exports = React.createClass({
 				<Highlight className="html">
 				{
 `<!-- Card table  -->
-<div class="bss-card-table bss-card">
+<div class="cps-card-table cps-card">
   <table>
     <thead>
       <tr>
@@ -119,17 +119,17 @@ module.exports = React.createClass({
       <tr>
         <td>some_filename.pdf</td>
         <td>PDF</td>
-        <td>Jan 21 <span class="bss-l-gray">Kurt Avarell</span></td>
+        <td>Jan 21 <span class="cps-l-gray">Kurt Avarell</span></td>
       </tr>
       <tr>
         <td>secondquarter-tracking.doc</td>
         <td>Document</td>
-        <td>Jan 19 <span class="bss-l-gray">Kurt Avarell</span></td>
+        <td>Jan 19 <span class="cps-l-gray">Kurt Avarell</span></td>
       </tr>
       <tr>
         <td>client-list.docx</td>
         <td>Document</td>
-        <td>Jan 02 <span class="bss-l-gray">Kurt Avarell</span></td>
+        <td>Jan 02 <span class="cps-l-gray">Kurt Avarell</span></td>
       </tr>
     </tbody>
   </table>
@@ -138,24 +138,24 @@ module.exports = React.createClass({
 				}
 				</Highlight>
 
-				<div className="bss-card-table bss-card">
-					<div className="bss-card-table__headcontent">
-						<div className="bss-card-table__actions">
-							<div className="bss-card-table__actions__icons">
-								<a className="bss-link"><i className="bss-icon bss-icon-download"></i></a>
-								<a className="bss-link"><i className="bss-icon bss-icon-notes"></i></a>
-								<a className="bss-link"><i className="bss-icon bss-icon-trash"></i></a>
-								<a className="bss-link"><i className="bss-icon bss-icon-sort"></i></a>
+				<div className="cps-card-table cps-card">
+					<div className="cps-card-table__headcontent">
+						<div className="cps-card-table__actions">
+							<div className="cps-card-table__actions__icons">
+								<a className="cps-link"><i className="cps-icon cps-icon-download"></i></a>
+								<a className="cps-link"><i className="cps-icon cps-icon-notes"></i></a>
+								<a className="cps-link"><i className="cps-icon cps-icon-trash"></i></a>
+								<a className="cps-link"><i className="cps-icon cps-icon-sort"></i></a>
 							</div>
-							<a href="#" className="bss-link">ADD A FILE</a>
+							<a href="#" className="cps-link">ADD A FILE</a>
 						</div>
-						<div className="bss-subheader">Files</div>
+						<div className="cps-subheader">Files</div>
 					</div>
 					<table>
 						<thead>
-							<tr className="bss-card-table__thin">
-								<th className="bss-card-table__select-column">
-									<label className="bss-checkbox">
+							<tr className="cps-card-table__thin">
+								<th className="cps-card-table__select-column">
+									<label className="cps-checkbox">
 										<input type="checkbox" value="option1"/><span></span>
 									</label>
 								</th>
@@ -169,34 +169,34 @@ module.exports = React.createClass({
 						</thead>
 						<tbody>
 							<tr className="+active +hover">
-								<td className="bss-card-table__select-column">
-									<label className="bss-checkbox">
+								<td className="cps-card-table__select-column">
+									<label className="cps-checkbox">
 										<input type="checkbox" value="option1"/><span></span>
 									</label>
 								</td>
 								<td>some_filename.pdf</td>
 								<td>PDF</td>
-								<td>Jan 21 <span className="bss-l-gray">Kurt Avarell</span></td>
+								<td>Jan 21 <span className="cps-l-gray">Kurt Avarell</span></td>
 							</tr>
 							<tr className="+hover">
-								<td className="bss-card-table__select-column">
-									<label className="bss-checkbox">
+								<td className="cps-card-table__select-column">
+									<label className="cps-checkbox">
 										<input type="checkbox" value="option1"/><span></span>
 									</label>
 								</td>
 								<td>secondquarter-tracking.doc</td>
 								<td>Document</td>
-								<td>Jan 19 <span className="bss-l-gray">Kurt Avarell</span></td>
+								<td>Jan 19 <span className="cps-l-gray">Kurt Avarell</span></td>
 							</tr>
 							<tr className="+hover">
-								<td className="bss-card-table__select-column">
-									<label className="bss-checkbox">
+								<td className="cps-card-table__select-column">
+									<label className="cps-checkbox">
 										<input type="checkbox" value="option1"/><span></span>
 									</label>
 								</td>
 								<td>client-list.docx</td>
 								<td>Document</td>
-								<td>Jan 02 <span className="bss-l-gray">Kurt Avarell</span></td>
+								<td>Jan 02 <span className="cps-l-gray">Kurt Avarell</span></td>
 							</tr>
 						</tbody>
 					</table>
@@ -204,24 +204,24 @@ module.exports = React.createClass({
 				<Highlight className="html">
 				{
 `<!-- Card table with a header  -->
-<div class="bss-card-table bss-card">
-  <div class="bss-card-table__headcontent">
-    <div class="bss-card-table__actions">
-      <div class="bss-card-table__actions__icons">
-        <a class="bss-link"><i class="bss-icon bss-icon-download"></i></a>
-        <a class="bss-link"><i class="bss-icon bss-icon-notes"></i></a>
-        <a class="bss-link"><i class="bss-icon bss-icon-trash"></i></a>
-        <a class="bss-link"><i class="bss-icon bss-icon-sort"></i></a>
+<div class="cps-card-table cps-card">
+  <div class="cps-card-table__headcontent">
+    <div class="cps-card-table__actions">
+      <div class="cps-card-table__actions__icons">
+        <a class="cps-link"><i class="cps-icon cps-icon-download"></i></a>
+        <a class="cps-link"><i class="cps-icon cps-icon-notes"></i></a>
+        <a class="cps-link"><i class="cps-icon cps-icon-trash"></i></a>
+        <a class="cps-link"><i class="cps-icon cps-icon-sort"></i></a>
       </div>
-      <a href="#" class="bss-link">ADD A FILE</a>
+      <a href="#" class="cps-link">ADD A FILE</a>
     </div>
-    <div class="bss-subheader">Files</div>
+    <div class="cps-subheader">Files</div>
   </div>
   <table>
     <thead>
-      <tr class="bss-card-table__thin">
-        <th class="bss-card-table__select-column">
-          <label class="bss-checkbox">
+      <tr class="cps-card-table__thin">
+        <th class="cps-card-table__select-column">
+          <label class="cps-checkbox">
             <input type="checkbox" value="option1"/><span></span>
           </label>
         </th>
@@ -235,34 +235,34 @@ module.exports = React.createClass({
     </thead>
     <tbody>
       <tr class="+active +hover">
-        <td class="bss-card-table__select-column">
-          <label class="bss-checkbox">
+        <td class="cps-card-table__select-column">
+          <label class="cps-checkbox">
             <input type="checkbox" value="option1"/><span></span>
           </label>
         </td>
         <td>some_filename.pdf</td>
         <td>PDF</td>
-        <td>Jan 21 <span class="bss-l-gray">Kurt Avarell</span></td>
+        <td>Jan 21 <span class="cps-l-gray">Kurt Avarell</span></td>
       </tr>
       <tr class="+hover">
-        <td class="bss-card-table__select-column">
-          <label class="bss-checkbox">
+        <td class="cps-card-table__select-column">
+          <label class="cps-checkbox">
             <input type="checkbox" value="option1"/><span></span>
           </label>
         </td>
         <td>secondquarter-tracking.doc</td>
         <td>Document</td>
-        <td>Jan 19 <span class="bss-l-gray">Kurt Avarell</span></td>
+        <td>Jan 19 <span class="cps-l-gray">Kurt Avarell</span></td>
       </tr>
       <tr class="+hover">
-        <td class="bss-card-table__select-column">
-          <label class="bss-checkbox">
+        <td class="cps-card-table__select-column">
+          <label class="cps-checkbox">
             <input type="checkbox" value="option1"/><span></span>
           </label>
         </td>
         <td>client-list.docx</td>
         <td>Document</td>
-        <td>Jan 02 <span class="bss-l-gray">Kurt Avarell</span></td>
+        <td>Jan 02 <span class="cps-l-gray">Kurt Avarell</span></td>
       </tr>
     </tbody>
   </table>

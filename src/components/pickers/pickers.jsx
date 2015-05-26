@@ -4,14 +4,14 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 			<div>
-			<div className="bss-flexible-focus bss-card">
-				<div className="bss-card__header bss-subheader">
+			<div className="cps-flexible-focus cps-card">
+				<div className="cps-card__header cps-subheader">
 					Date Pickers
 				</div>
-				<div className="bss-card__body">
+				<div className="cps-card__body">
 					<p>
 						The styleguide provides some override styles for the bootstrap date picker. Generate a datepicker as usuall with
-						bootstrap and make sure that the id "bss-app" is on the body tag. The date picker should automatically style correctly.
+						bootstrap and make sure that the id "cps-app" is on the body tag. The date picker should automatically style correctly.
 					</p>
 					<div className="datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-top"
 					style={{position: 'relative', display: 'block', float: 'none'}}>
@@ -164,11 +164,11 @@ module.exports = React.createClass({
 					</div>
 				</div>
 			</div>
-			<div className="bss-flexible-focus bss-card bss-margin-top-24">
-				<div className="bss-card__header bss-subheader">
+			<div className="cps-flexible-focus cps-card cps-margin-top-24">
+				<div className="cps-card__header cps-subheader">
 					People Picker / Multi-select
 				</div>
-				<div className="bss-card__body">
+				<div className="cps-card__body">
 					The mutli-selector widget is located in a <a href="http://beanstalkhq.github.io/bs-multi-selector/">separate repository</a>.
 				</div>
 			</div>

@@ -4,17 +4,17 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 		      <div>
-				<div className="bss-flexible-focus bss-card">
-					<div className="bss-card__header bss-subheader">
+				<div className="cps-flexible-focus cps-card">
+					<div className="cps-card__header cps-subheader">
 						Top-aligned textarea (with resize handle)
 					</div>
-					<div className="bss-card__body">
-						<div className="bss-row">
-							<div className="bss-col-xs-12">
+					<div className="cps-card__body">
+						<div className="cps-row">
+							<div className="cps-col-xs-12">
 								<form>
-									<div className="bss-form-group">
+									<div className="cps-form-group">
 										<label for="exampleInputEmail1">Email address</label>
-										<textarea className="bss-form-control"></textarea>
+										<textarea className="cps-form-control"></textarea>
 									</div>
 								</form>
 							</div>
@@ -25,9 +25,9 @@ module.exports = React.createClass({
 								<Highlight className="html">
 					{
 `<form>
-  <div class="bss-form-group">
+  <div class="cps-form-group">
     <label for="exampleInputEmail1">Email address</label>
-    <textarea class="bss-form-control"></textarea>
+    <textarea class="cps-form-control"></textarea>
   </div>
 </form>`
 					}
@@ -35,18 +35,18 @@ module.exports = React.createClass({
 
 
 
-			<div className="bss-flexible-focus bss-card">
-				<div className="bss-card__header bss-subheader">
+			<div className="cps-flexible-focus cps-card">
+				<div className="cps-card__header cps-subheader">
 					Right-aligned textarea (without resize handle)
 				</div>
-				<div className="bss-card__body">
-					<div className="bss-row">
-						<div className="bss-col-xs-12">
-							<form className="bss-form-horizontal">
-								<div className="bss-form-group">
-									<label for="exampleInputEmail1" className="bss-col-xs-2">Full Name</label>
-									<div className="bss-col-xs-3">
-										<textarea className="bss-form-control +no-resize"></textarea>
+				<div className="cps-card__body">
+					<div className="cps-row">
+						<div className="cps-col-xs-12">
+							<form className="cps-form-horizontal">
+								<div className="cps-form-group">
+									<label for="exampleInputEmail1" className="cps-col-xs-2">Full Name</label>
+									<div className="cps-col-xs-3">
+										<textarea className="cps-form-control +no-resize"></textarea>
 									</div>
 								</div>
 							</form>
@@ -57,11 +57,11 @@ module.exports = React.createClass({
 
 					<Highlight className="html">
 					{
-`<form class="bss-form-horizontal">
-  <div class="bss-form-group">
-    <label for="exampleInputEmail1" class="bss-col-xs-2">Full Name</label>
-    <div class="bss-col-xs-3">
-      <textarea class="bss-form-control +no-resize"></textarea>
+`<form class="cps-form-horizontal">
+  <div class="cps-form-group">
+    <label for="exampleInputEmail1" class="cps-col-xs-2">Full Name</label>
+    <div class="cps-col-xs-3">
+      <textarea class="cps-form-control +no-resize"></textarea>
     </div>
   </div>
 </form>`

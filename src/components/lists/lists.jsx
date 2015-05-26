@@ -5,25 +5,25 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 		      <div>
-				<div className="bss-flexible-focus bss-card">
-					<div className="bss-card__header ">
+				<div className="cps-flexible-focus cps-card">
+					<div className="cps-card__header ">
 						Lists
 					</div>
-					<div className="bss-card__body">
+					<div className="cps-card__body">
 
-						<div className="bss-subheader-sm bss-margin-bottom-8">Inline Lists</div>
-						<div className="bss-row">
-							<div className="bss-col-xs-4">
-								<ul className="bss-list-inline +pipes +underline">
+						<div className="cps-subheader-sm cps-margin-bottom-8">Inline Lists</div>
+						<div className="cps-row">
+							<div className="cps-col-xs-4">
+								<ul className="cps-list-inline +pipes +underline">
 									<li><a href>active</a></li>
 									<li><a href>archived</a></li>
 									<li><a href>deleted</a></li>
 								</ul>
 							</div>
-							<div className="bss-col-xs-4">
-								<ul className="bss-list-inline">
-									<li><a href><i className="bss-icon bss-icon-list"></i></a></li>
-									<li><a href><i className="bss-icon bss-icon-grid-view"></i></a></li>
+							<div className="cps-col-xs-4">
+								<ul className="cps-list-inline">
+									<li><a href><i className="cps-icon cps-icon-list"></i></a></li>
+									<li><a href><i className="cps-icon cps-icon-grid-view"></i></a></li>
 								</ul>
 							</div>
 						</div>
@@ -31,16 +31,16 @@ module.exports = React.createClass({
 				</div>
 				<Highlight className="html">
 				{
-`<ul class="bss-list-inline +pipes +underline">
+`<ul class="cps-list-inline +pipes +underline">
   <li>active</li>
   <li>archived</li>
   <li>deleted</li>
 </ul>
 
 
-<ul class="bss-list-inline">
-  <li><a href><i class="bss-icon bss-icon-list"></i></a></li>
-  <li><a href><i class="bss-icon bss-icon-grid-view"></i></a></li>
+<ul class="cps-list-inline">
+  <li><a href><i class="cps-icon cps-icon-list"></i></a></li>
+  <li><a href><i class="cps-icon cps-icon-grid-view"></i></a></li>
 </ul>
 `
 				}

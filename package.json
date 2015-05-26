@@ -1,7 +1,7 @@
 {
-  "name": "styleguide",
-  "version": "0.0.2",
-  "description": "Style-guide for Beanstalk",
+  "name": "canopy-styleguide",
+  "version": "1.0.0",
+  "description": "Style-guide for Canopy",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Beanstalkhq/styleguide.git"
+    "url": "https://github.com/canopytax/styleguide.git"
   },
   "author": "Bret Little",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Beanstalkhq/styleguide/issues"
+    "url": "https://github.com/canopytax/styleguide/issues"
   },
-  "homepage": "https://github.com/Beanstalkhq/styleguide",
+  "homepage": "https://github.com/canopytax/styleguide",
   "devDependencies": {
     "autoprefixer-loader": "^1.2.0",
     "css-loader": "^0.9.1",

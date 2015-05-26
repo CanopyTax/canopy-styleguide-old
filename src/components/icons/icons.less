@@ -4,8 +4,8 @@
 @import "../mixins/mixins.less";
 
 
-#bss-app {
-	[class^="bss-icon-"], [class*=" bss-icon-"] {
+#cps-app {
+	[class^="cps-icon-"], [class*=" cps-icon-"] {
 		font-family: inherit;
 		speak: inherit;
 		font-style: inherit;
@@ -29,23 +29,23 @@
 	}
 }
 
-.bss-icon {
+.cps-icon {
 	font-size: 2.4rem;
 	color: @light-gray;
 }
 
-.bss-icon.\+round::before {
+.cps-icon.\+round::before {
 	position: relative;
 	z-index:1;
 	visibility:visible;
 }
 
-.bss-icon.\+round {
+.cps-icon.\+round {
 	visibility: hidden;
 	position: relative;
 }
 
-.bss-icon.\+round::after {
+.cps-icon.\+round::after {
 	visibility:visible;
 	background-color: inherit;
 	content: " ";
@@ -60,7 +60,7 @@
 	z-index:0;
 }
 
-.bss-icon span {
+.cps-icon span {
 	position: relative;
 	top: -5px;
 	left: 6px;
