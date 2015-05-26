@@ -1,3 +1,5 @@
+var path = require('path');
+
 module.exports = {
 	// The standard entry point and output config
 	entry: {
@@ -35,7 +37,33 @@ module.exports = {
 			{
 				test: /\.html$/,
 				loader: 'html-loader'
+			},
+			{
+				test: /\.woff$/,
+				loader: "file"
+				//loader: "url?limit=100&minetype=application/font-woff"
+			},
+			{
+				test: /\.ttf$/,
+				loader: "file"
+				//loader: "url?limit=10000&minetype=application/octet-stream"
+			},
+			{
+				test: /\.eot$/,
+				loader: "file"
+			},
+			{
+				test: /\.woff$/,
+				loader: "file"
+				//loader: "url?limit=100&minetype=application/font-woff"
+			},
+			{
+				test: /\.svg$/,
+				loader: "file"
+				//loader: "url?limit=100&minetype=application/font-woff"
 			}
+		],
+		noParse: [
 		]
 	},
 	plugins: [

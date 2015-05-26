@@ -3,12 +3,12 @@ var _ = require('lodash');
 var Highlight = require('react-highlight');
 
 var icons = require('canopy-iconography/.fontcustom-manifest.json').glyphs;
+icons = _.map(icons, function(icon, name) {
+	return 'cps-icon-' + name;
+});
 
 module.exports = React.createClass({
 	render: function() {
-		icons = _.map(icons, function(icon, name) {
-			return 'cps-icon-' + name;
-		});
 
 		icons.sort();
 

@@ -36,6 +36,26 @@ module.exports = {
 			{
 				test: /\.html$/,
 				loader: 'html-loader'
+			},
+			{
+				test: /\.woff$/,
+				loader: "file"
+			},
+			{
+				test: /\.ttf$/,
+				loader: "file"
+			},
+			{
+				test: /\.eot$/,
+				loader: "file"
+			},
+			{
+				test: /\.woff$/,
+				loader: "file"
+			},
+			{
+				test: /\.svg$/,
+				loader: "file"
 			}
 		]
 	},

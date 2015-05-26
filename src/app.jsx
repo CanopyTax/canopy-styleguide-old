@@ -14,8 +14,8 @@ var Sidebar = React.createClass({
 	    return (
 				<div className="cps-flexible-sidenav +tall-top">
 					<div className="cps-flexible-sidenav__menu">
-					{components.map(function(component) {
-						var classes = "cps-icon " + _.sample(icons) + " cps-flexible-sidenav__menu__item__icon";
+					{components.map(function(component, i) {
+						var classes = "cps-icon " + icons[i] + " cps-flexible-sidenav__menu__item__icon";
 						if(component.link) {
 							return <a className="cps-flexible-sidenav__menu__item" href={component.link}>
 								<i className={classes}></i>

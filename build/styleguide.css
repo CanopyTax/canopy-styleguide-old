@@ -1,3 +1,193 @@
+/*
+  Icon Font: canopy-icons
+*/
+
+@font-face {
+  font-family: "canopy-icons";
+  src: url(ebf08246bdb5d3d071f96a49ec983b87.eot);
+  src: url(ebf08246bdb5d3d071f96a49ec983b87.eot?#iefix) format("embedded-opentype"),
+       url(a2f43e3bff3aea8bab8d8409274d75ce.woff) format("woff"),
+       url(ea9beaeae85b3d645b0d1482564880b2.ttf) format("truetype"),
+       url(5801fbf82515b2d84e34cbb9a5168d71.svg#canopy-icons) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "canopy-icons";
+    src: url(5801fbf82515b2d84e34cbb9a5168d71.svg#canopy-icons) format("svg");
+  }
+}
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+.cps-icon-add:before,
+.cps-icon-add-person:before,
+.cps-icon-archive:before,
+.cps-icon-arrow-left:before,
+.cps-icon-attachment:before,
+.cps-icon-bell:before,
+.cps-icon-billing:before,
+.cps-icon-business:before,
+.cps-icon-calendar-1x:before,
+.cps-icon-cash:before,
+.cps-icon-center-aligned:before,
+.cps-icon-client:before,
+.cps-icon-client-access:before,
+.cps-icon-client-no-access:before,
+.cps-icon-clients:before,
+.cps-icon-close:before,
+.cps-icon-cloud:before,
+.cps-icon-cog:before,
+.cps-icon-compass:before,
+.cps-icon-credits:before,
+.cps-icon-download:before,
+.cps-icon-duplicate:before,
+.cps-icon-email:before,
+.cps-icon-error:before,
+.cps-icon-expand:before,
+.cps-icon-external-link:before,
+.cps-icon-files:before,
+.cps-icon-filter:before,
+.cps-icon-folder:before,
+.cps-icon-grid-view:before,
+.cps-icon-help:before,
+.cps-icon-hidden:before,
+.cps-icon-home:before,
+.cps-icon-information:before,
+.cps-icon-invoices:before,
+.cps-icon-items:before,
+.cps-icon-left-aligned:before,
+.cps-icon-left-caret:before,
+.cps-icon-lg-check:before,
+.cps-icon-license:before,
+.cps-icon-list:before,
+.cps-icon-location:before,
+.cps-icon-lock:before,
+.cps-icon-menu-2:before,
+.cps-icon-more:before,
+.cps-icon-move:before,
+.cps-icon-nav:before,
+.cps-icon-notes:before,
+.cps-icon-number:before,
+.cps-icon-payments:before,
+.cps-icon-pending:before,
+.cps-icon-phone:before,
+.cps-icon-print:before,
+.cps-icon-projects:before,
+.cps-icon-reports:before,
+.cps-icon-right-aligned:before,
+.cps-icon-right-caret:before,
+.cps-icon-search:before,
+.cps-icon-sm-caret-down:before,
+.cps-icon-sm-caret-left:before,
+.cps-icon-sm-caret-right:before,
+.cps-icon-sm-caret-up:before,
+.cps-icon-sm-check:before,
+.cps-icon-sm-close:before,
+.cps-icon-sort:before,
+.cps-icon-statements:before,
+.cps-icon-taxes:before,
+.cps-icon-tile-view:before,
+.cps-icon-transfer:before,
+.cps-icon-trash:before,
+.cps-icon-upload:before,
+.cps-icon-valid:before,
+.cps-icon-visible:before,
+.cps-icon-work:before,
+.cps-icon-wrench:before {
+  display: inline-block;
+  font-family: "canopy-icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.cps-icon-add:before { content: "\f100"; }
+.cps-icon-add-person:before { content: "\f101"; }
+.cps-icon-archive:before { content: "\f102"; }
+.cps-icon-arrow-left:before { content: "\f103"; }
+.cps-icon-attachment:before { content: "\f104"; }
+.cps-icon-bell:before { content: "\f105"; }
+.cps-icon-billing:before { content: "\f106"; }
+.cps-icon-business:before { content: "\f107"; }
+.cps-icon-calendar-1x:before { content: "\f108"; }
+.cps-icon-cash:before { content: "\f109"; }
+.cps-icon-center-aligned:before { content: "\f10a"; }
+.cps-icon-client:before { content: "\f10b"; }
+.cps-icon-client-access:before { content: "\f10c"; }
+.cps-icon-client-no-access:before { content: "\f10d"; }
+.cps-icon-clients:before { content: "\f10e"; }
+.cps-icon-close:before { content: "\f10f"; }
+.cps-icon-cloud:before { content: "\f110"; }
+.cps-icon-cog:before { content: "\f111"; }
+.cps-icon-compass:before { content: "\f112"; }
+.cps-icon-credits:before { content: "\f113"; }
+.cps-icon-download:before { content: "\f114"; }
+.cps-icon-duplicate:before { content: "\f115"; }
+.cps-icon-email:before { content: "\f116"; }
+.cps-icon-error:before { content: "\f117"; }
+.cps-icon-expand:before { content: "\f118"; }
+.cps-icon-external-link:before { content: "\f119"; }
+.cps-icon-files:before { content: "\f11a"; }
+.cps-icon-filter:before { content: "\f11b"; }
+.cps-icon-folder:before { content: "\f11c"; }
+.cps-icon-grid-view:before { content: "\f11d"; }
+.cps-icon-help:before { content: "\f11e"; }
+.cps-icon-hidden:before { content: "\f11f"; }
+.cps-icon-home:before { content: "\f120"; }
+.cps-icon-information:before { content: "\f121"; }
+.cps-icon-invoices:before { content: "\f122"; }
+.cps-icon-items:before { content: "\f123"; }
+.cps-icon-left-aligned:before { content: "\f124"; }
+.cps-icon-left-caret:before { content: "\f125"; }
+.cps-icon-lg-check:before { content: "\f126"; }
+.cps-icon-license:before { content: "\f127"; }
+.cps-icon-list:before { content: "\f128"; }
+.cps-icon-location:before { content: "\f129"; }
+.cps-icon-lock:before { content: "\f12a"; }
+.cps-icon-menu-2:before { content: "\f12b"; }
+.cps-icon-more:before { content: "\f12c"; }
+.cps-icon-move:before { content: "\f12d"; }
+.cps-icon-nav:before { content: "\f12e"; }
+.cps-icon-notes:before { content: "\f12f"; }
+.cps-icon-number:before { content: "\f130"; }
+.cps-icon-payments:before { content: "\f131"; }
+.cps-icon-pending:before { content: "\f132"; }
+.cps-icon-phone:before { content: "\f133"; }
+.cps-icon-print:before { content: "\f134"; }
+.cps-icon-projects:before { content: "\f135"; }
+.cps-icon-reports:before { content: "\f136"; }
+.cps-icon-right-aligned:before { content: "\f137"; }
+.cps-icon-right-caret:before { content: "\f138"; }
+.cps-icon-search:before { content: "\f139"; }
+.cps-icon-sm-caret-down:before { content: "\f13a"; }
+.cps-icon-sm-caret-left:before { content: "\f13b"; }
+.cps-icon-sm-caret-right:before { content: "\f13c"; }
+.cps-icon-sm-caret-up:before { content: "\f13d"; }
+.cps-icon-sm-check:before { content: "\f13e"; }
+.cps-icon-sm-close:before { content: "\f13f"; }
+.cps-icon-sort:before { content: "\f140"; }
+.cps-icon-statements:before { content: "\f141"; }
+.cps-icon-taxes:before { content: "\f142"; }
+.cps-icon-tile-view:before { content: "\f143"; }
+.cps-icon-transfer:before { content: "\f144"; }
+.cps-icon-trash:before { content: "\f145"; }
+.cps-icon-upload:before { content: "\f146"; }
+.cps-icon-valid:before { content: "\f147"; }
+.cps-icon-visible:before { content: "\f148"; }
+.cps-icon-work:before { content: "\f149"; }
+.cps-icon-wrench:before { content: "\f14a"; }
+
 /** components.less **/
 /** bootstrap-grid.less **/
 .cps-row {
