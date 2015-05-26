@@ -592,7 +592,7 @@
 }
 #cps-app [class^="cps-icon-"]:before,
 #cps-app [class*=" cps-icon-"]:before {
-  font-family: 'Beanstalk-Icons';
+  font-family: 'canopy-icons';
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -606,6 +606,15 @@
 .cps-icon {
   font-size: 2.4rem;
   color: #777777;
+  font-family: 'canopy-icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 .cps-icon.\+round::before {
   position: relative;
@@ -627,7 +636,7 @@
   border-radius: 16px;
   position: absolute;
   left: -4px;
-  top: 0px;
+  top: -0.5rem;
   z-index: 0;
 }
 .cps-icon span {
@@ -991,14 +1000,14 @@ fieldset[disabled] .cps-radio input[type="radio"]:checked + span:before {
   position: absolute;
   top: -5px;
   left: -0.45rem;
-  font-family: 'Beanstalk-Icons';
+  font-family: 'canopy-icons';
   speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  content: "\e636";
+  content: "\f13e";
   color: white;
   font-size: 2.6rem;
   opacity: 0;
@@ -1071,17 +1080,18 @@ fieldset[disabled] .cps-radio input[type="radio"]:checked + span:before {
   display: table-cell;
   width: 16px;
   height: 16px;
+  left: 0;
   vertical-align: middle;
   position: absolute;
   top: 0px;
-  font-family: 'Beanstalk-Icons';
+  font-family: 'canopy-icons';
   speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  content: "\e61b";
+  content: "\f126";
   color: white;
   font-size: 2.4rem;
   opacity: 0;
@@ -2419,7 +2429,6 @@ a.cps-slat-lg.cps-animate.ng-leave.ng-leave-active {
   font-size: 32px;
 }
 .cps-card__banner.\+large > i > span {
-  vertical-align: middle;
   font-size: 18px;
   color: #333333;
 }
