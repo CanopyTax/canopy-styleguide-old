@@ -83,15 +83,15 @@ var App = React.createClass({
 								<ul className="cps-topnav-secondary__content__menu">
 									<li>
 										<a href>Mike Lewis</a>
-										<i className="cps-icon cps-icon-lg-right-caret"></i>
+										<i className="cps-icon cps-icon-right-caret"></i>
 									</li>
 									<li>
 										<a href>Level 2</a>
-										<i className="cps-icon cps-icon-lg-right-caret"></i>
+										<i className="cps-icon cps-icon-right-caret"></i>
 									</li>
 									<li>
 										<a href>Level 3</a>
-										<i className="cps-icon cps-icon-lg-right-caret"></i>
+										<i className="cps-icon cps-icon-right-caret"></i>
 									</li>
 								</ul>
 								<ul className="cps-topnav-secondary__content__right-menu">

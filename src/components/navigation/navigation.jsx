@@ -18,7 +18,7 @@ module.exports = React.createClass({
       <div class="cps-secondarynav__menu__item__bar"></div>
       <i class="cps-secondarynav__menu__item__icon cps-icon cps-icon-compass"></i>
       <span class="cps-secondarynav__menu__item__title">Planning</span>
-      <i class="cps-icon cps-icon-lg-left-caret"></i>
+      <i class="cps-icon cps-icon-left-caret"></i>
     </a>
     <div class="cps-secondarynav__menu__sub +active">
       <a href="#" class="+active"><span>Power of Attorney</span></a>
@@ -28,7 +28,7 @@ module.exports = React.createClass({
       <div class="cps-secondarynav__menu__item__bar"></div>
       <i class="cps-secondarynav__menu__item__icon cps-icon cps-icon-work"></i>
       <span class="cps-secondarynav__menu__item__title">Program</span>
-      <i class="cps-icon cps-icon-lg-left-caret"></i>
+      <i class="cps-icon cps-icon-left-caret"></i>
     </a>
     <div class="cps-secondarynav__menu__sub +active">
       <a href="#"><span>Offer in Compromise</span></a>
@@ -64,7 +64,7 @@ module.exports = React.createClass({
 							<div className="cps-secondarynav__menu__item__bar"></div>
 							<i className="cps-secondarynav__menu__item__icon cps-icon cps-icon-compass"></i>
 							<span className="cps-secondarynav__menu__item__title">Planning</span>
-							<i className="cps-icon cps-icon-lg-left-caret"></i>
+							<i className="cps-icon cps-icon-left-caret"></i>
 						</a>
 						<div className="cps-secondarynav__menu__sub +active">
 							<a href="#" className="+active"><span>Power of Attorney</span></a>
@@ -74,7 +74,7 @@ module.exports = React.createClass({
 							<div className="cps-secondarynav__menu__item__bar"></div>
 							<i className="cps-secondarynav__menu__item__icon cps-icon cps-icon-work"></i>
 							<span className="cps-secondarynav__menu__item__title">Program</span>
-							<i className="cps-icon cps-icon-lg-left-caret"></i>
+							<i className="cps-icon cps-icon-left-caret"></i>
 						</a>
 						<div className="cps-secondarynav__menu__sub">
 							<a href="#"><span>Offer in Compromise</span></a>

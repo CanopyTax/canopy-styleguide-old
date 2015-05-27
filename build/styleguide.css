@@ -2087,7 +2087,7 @@ textarea.cps-form-control.\+no-resize {
   cursor: pointer;
   position: relative;
 }
-.cps-secondarynav__menu__item .cps-icon-lg-left-caret {
+.cps-secondarynav__menu__item .cps-icon-left-caret {
   float: right;
   position: absolute;
   top: .9rem;
@@ -2144,7 +2144,7 @@ textarea.cps-form-control.\+no-resize {
 .cps-secondarynav__menu__item.\+expanded .cps-secondarynav__menu__item__bar {
   background-color: #4caf50;
 }
-.cps-secondarynav__menu__item.\+expanded .cps-icon-lg-left-caret {
+.cps-secondarynav__menu__item.\+expanded .cps-icon-left-caret {
   -webkit-transform: rotate(-90deg);
       -ms-transform: rotate(-90deg);
           transform: rotate(-90deg);
