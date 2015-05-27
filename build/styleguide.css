@@ -4,11 +4,11 @@
 
 @font-face {
   font-family: "canopy-icons";
-  src: url(ebf08246bdb5d3d071f96a49ec983b87.eot);
-  src: url(ebf08246bdb5d3d071f96a49ec983b87.eot?#iefix) format("embedded-opentype"),
-       url(a2f43e3bff3aea8bab8d8409274d75ce.woff) format("woff"),
-       url(ea9beaeae85b3d645b0d1482564880b2.ttf) format("truetype"),
-       url(5801fbf82515b2d84e34cbb9a5168d71.svg#canopy-icons) format("svg");
+  src: url(c4c76e5cb22237428a892aa116bb263e.eot);
+  src: url(c4c76e5cb22237428a892aa116bb263e.eot?#iefix) format("embedded-opentype"),
+       url(af482e54ca3c90d0bf63fd4f3d507e97.woff) format("woff"),
+       url(0c0029bbd7629839a1193025ae690b61.ttf) format("truetype"),
+       url(fcf172606752e3005c74dd8821061521.svg#canopy-icons) format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -16,7 +16,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: "canopy-icons";
-    src: url(5801fbf82515b2d84e34cbb9a5168d71.svg#canopy-icons) format("svg");
+    src: url(fcf172606752e3005c74dd8821061521.svg#canopy-icons) format("svg");
   }
 }
 
@@ -31,7 +31,7 @@
 .cps-icon-bell:before,
 .cps-icon-billing:before,
 .cps-icon-business:before,
-.cps-icon-calendar-1x:before,
+.cps-icon-calendar:before,
 .cps-icon-cash:before,
 .cps-icon-center-aligned:before,
 .cps-icon-client:before,
@@ -77,6 +77,7 @@
 .cps-icon-phone:before,
 .cps-icon-print:before,
 .cps-icon-projects:before,
+.cps-icon-recent:before,
 .cps-icon-reports:before,
 .cps-icon-right-aligned:before,
 .cps-icon-right-caret:before,
@@ -120,7 +121,7 @@
 .cps-icon-bell:before { content: "\f105"; }
 .cps-icon-billing:before { content: "\f106"; }
 .cps-icon-business:before { content: "\f107"; }
-.cps-icon-calendar-1x:before { content: "\f108"; }
+.cps-icon-calendar:before { content: "\f14b"; }
 .cps-icon-cash:before { content: "\f109"; }
 .cps-icon-center-aligned:before { content: "\f10a"; }
 .cps-icon-client:before { content: "\f10b"; }
@@ -166,6 +167,7 @@
 .cps-icon-phone:before { content: "\f133"; }
 .cps-icon-print:before { content: "\f134"; }
 .cps-icon-projects:before { content: "\f135"; }
+.cps-icon-recent:before { content: "\f14c"; }
 .cps-icon-reports:before { content: "\f136"; }
 .cps-icon-right-aligned:before { content: "\f137"; }
 .cps-icon-right-caret:before { content: "\f138"; }
