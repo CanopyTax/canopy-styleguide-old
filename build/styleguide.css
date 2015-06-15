@@ -189,8 +189,8 @@
 .cps-icon-visible:before { content: "\f148"; }
 .cps-icon-work:before { content: "\f149"; }
 .cps-icon-wrench:before { content: "\f14a"; }
-
 /** components.less **/
+
 /** bootstrap-grid.less **/
 .cps-row {
   margin-right: -8px;
@@ -716,6 +716,21 @@
 }
 .depth-z5 {
   box-shadow: 0 25px 55px 0 rgba(0, 0, 0, 0.2), 0 16px 28px 0 rgba(0, 0, 0, 0.24);
+}
+.cps-depth-1 {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.26);
+}
+.cps-depth-2 {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.26);
+}
+.cps-depth-3 {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.26);
+}
+.cps-depth-4 {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.26);
+}
+.cps-depth-5 {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.26);
 }
 /************Labels************/
 .cps-label-square {
