@@ -412,6 +412,27 @@
 /************Variables************/
 /** colors.less **/
 /************Palettes************/
+/** mixins.less **/
+/************Mixins************/
+/** clearfix.less **/
+/** center-block.less **/
+/** depth.less **/
+/************Depth************/
+.depth-z1 {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.26);
+}
+.depth-z2 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.06), 0 2px 6px 0 rgba(0, 0, 0, 0.26);
+}
+.depth-z3 {
+  box-shadow: 0 6px 14px 0 rgba(0, 0, 0, 0.16), 0 4px 20px 0 rgba(0, 0, 0, 0.24);
+}
+.depth-z4 {
+  box-shadow: 0 17px 48px 0 rgba(0, 0, 0, 0.18), 0 12px 15px 0 rgba(0, 0, 0, 0.22);
+}
+.depth-z5 {
+  box-shadow: 0 25px 55px 0 rgba(0, 0, 0, 0.2), 0 16px 28px 0 rgba(0, 0, 0, 0.24);
+}
 /** for.less **/
 .cps-clearfix:before,
 .cps-clearfix:after {
@@ -695,43 +716,22 @@
 .cps-padding-left-32 {
   padding-left: 3.2rem!important;
 }
-/** labels.less **/
-/** mixins.less **/
-/************Mixins************/
-/** clearfix.less **/
-/** center-block.less **/
-/** depth.less **/
-/************Depth************/
-.depth-z1 {
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.26);
-}
-.depth-z2 {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.06), 0 2px 6px 0 rgba(0, 0, 0, 0.26);
-}
-.depth-z3 {
-  box-shadow: 0 6px 14px 0 rgba(0, 0, 0, 0.16), 0 4px 20px 0 rgba(0, 0, 0, 0.24);
-}
-.depth-z4 {
-  box-shadow: 0 17px 48px 0 rgba(0, 0, 0, 0.18), 0 12px 15px 0 rgba(0, 0, 0, 0.22);
-}
-.depth-z5 {
-  box-shadow: 0 25px 55px 0 rgba(0, 0, 0, 0.2), 0 16px 28px 0 rgba(0, 0, 0, 0.24);
-}
 .cps-depth-1 {
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.26);
 }
 .cps-depth-2 {
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.06), 0 2px 6px 0 rgba(0, 0, 0, 0.26);
 }
 .cps-depth-3 {
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 0 6px 14px 0 rgba(0, 0, 0, 0.16), 0 4px 20px 0 rgba(0, 0, 0, 0.24);
 }
 .cps-depth-4 {
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 0 17px 48px 0 rgba(0, 0, 0, 0.18), 0 12px 15px 0 rgba(0, 0, 0, 0.22);
 }
 .cps-depth-5 {
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 0 25px 55px 0 rgba(0, 0, 0, 0.2), 0 16px 28px 0 rgba(0, 0, 0, 0.24);
 }
+/** labels.less **/
 /************Labels************/
 .cps-label-square {
   display: block;
