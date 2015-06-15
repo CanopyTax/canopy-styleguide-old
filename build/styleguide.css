@@ -716,18 +716,23 @@
 .cps-padding-left-32 {
   padding-left: 3.2rem!important;
 }
+.cps-card.cps-depth-1,
 .cps-depth-1 {
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.26);
 }
+.cps-card.cps-depth-2,
 .cps-depth-2 {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.06), 0 2px 6px 0 rgba(0, 0, 0, 0.26);
 }
+.cps-card.cps-depth-3,
 .cps-depth-3 {
   box-shadow: 0 6px 14px 0 rgba(0, 0, 0, 0.16), 0 4px 20px 0 rgba(0, 0, 0, 0.24);
 }
+.cps-card.cps-depth-4,
 .cps-depth-4 {
   box-shadow: 0 17px 48px 0 rgba(0, 0, 0, 0.18), 0 12px 15px 0 rgba(0, 0, 0, 0.22);
 }
+.cps-card.cps-depth-5,
 .cps-depth-5 {
   box-shadow: 0 25px 55px 0 rgba(0, 0, 0, 0.2), 0 16px 28px 0 rgba(0, 0, 0, 0.24);
 }
