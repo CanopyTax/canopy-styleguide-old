@@ -189,8 +189,8 @@
 .cps-icon-visible:before { content: "\f148"; }
 .cps-icon-work:before { content: "\f149"; }
 .cps-icon-wrench:before { content: "\f14a"; }
-
 /** components.less **/
+
 /** bootstrap-grid.less **/
 .cps-row {
   margin-right: -8px;
@@ -1766,6 +1766,12 @@ input[type="text"].cps-form-control-resize::-ms-input-placeholder {
   border-left: 0;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+.cps-input-tip {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 10px;
+  color: #333333;
 }
 /** textarea.less **/
 textarea {

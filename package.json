@@ -1,6 +1,6 @@
 {
 	"name": "canopy-styleguide",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "Style-guide for Canopy",
 	"main": "build/styleguide.css",
 	"scripts": {
@@ -40,6 +40,6 @@
 		"url-loader": "^0.5.6"
 	},
 	"publishConfig": {
-		"registry": "http://52.25.158.189:4873"
+		"registry": "http://52.27.173.134:4873"
 	}
 }
