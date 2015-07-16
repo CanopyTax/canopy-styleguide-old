@@ -12,9 +12,9 @@ module.exports = [
 	{ title: "Textarea",		html: require('./components/forms/textarea.jsx') },
 	{ title: "Pickers",		html: require('./components/pickers/pickers.jsx') },
 	{ title: "Toasters & Banners",		html: require('./components/banners/banners.jsx') },
-	{ title: "Tooltip",		link: "http://canopytax.github.io/cp-tooltip/" },
 	{ title: "Menus",		html: require('./components/menus/menus.jsx') },
 	{ title: "Modals",		html: require('./components/modals/modals.jsx') },
 	{ title: "Lists",		html: require('./components/lists/lists.jsx') },
-	{ title: "Loaders",		html: require('./components/loaders/loaders.jsx') }
+	{ title: "Loaders",		html: require('./components/loaders/loaders.jsx') },
+	{ title: "JavaScript Widgets", html: require('./js-widgets.jsx')}
 ];

@@ -1,6 +1,7 @@
 /** utilities.less **/
 
 @import "./variables/variables.less";
+@import "./mixins/mixins.less";
 @import "../lib/for.less";
 
 .cps-clearfix {
@@ -118,3 +119,10 @@
 
 @sizes: 0, 4, 8, 12, 16, 24, 32;
 .createSizeClasses(@sizes);
+
+// Depth helpers
+.cps-card.cps-depth-1, .cps-depth-1 { .depth-z1; }
+.cps-card.cps-depth-2, .cps-depth-2 { .depth-z2; }
+.cps-card.cps-depth-3, .cps-depth-3 { .depth-z3; }
+.cps-card.cps-depth-4, .cps-depth-4 { .depth-z4; }
+.cps-card.cps-depth-5, .cps-depth-5 { .depth-z5; }
