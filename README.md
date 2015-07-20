@@ -1,5 +1,5 @@
-# Canopy Style Guide
-Canopy Style Guide
+# Beanstalk Style Guide
+Beanstalk Style Guide
 
 ## Requirements
 Node.js or Io.js
