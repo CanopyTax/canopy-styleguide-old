@@ -5,6 +5,10 @@
 
 /************Navigation************/
 
+@nav-height: 5.6rem;
+@half-nav-height: 2.8rem;
+@default-padding: 2.4rem;
+
 .cps-topnav {
 	position: fixed;
 	width: 100%;
@@ -15,6 +19,9 @@
 
 	&.\+banner-top {
 		top: 3.2rem;
+        height: @nav-height;
+        line-height: @nav-height;
+        vertical-align: middle;
 	}
 
 	&.\+add-box-shadow {
@@ -22,37 +29,28 @@
 	}
 
 	&__bar {
-		height: .3rem;
+		height: 0;
 		background-color: @primary-green;
 	}
-
-	// a {
-	// 	color: @dark-gray;
-	// 	text-decoration: none;
-	// 	border: 1rem solid @white;
-	// 	padding: 4rem 8rem;
-	// 	&:hover {
-	// 		color: @dark-gray;
-	// 		border: 1rem solid @gray6;
-	// 		border-radius: 2rem;
-	// 	}
-	// }
 
 	// PRIMARY GLOBAL NAV //
 	&__content {
 		background-color: @white;
-		height: 4.8rem;
-		padding-left: 2.4rem;
-		padding-right: 2.4rem;
+		height: @nav-height;
+        line-height: @nav-height;
+        vertical-align: middle;
+        padding-left: @default-padding;
+		padding-right: @default-padding;
 
 
 		&__brand {
 			cursor: pointer;
 			float: left;
-			width: 109px;
+			width: 32px;
 			> img {
-				height: 2.4rem;
-				margin-top: 1.6rem;
+				height: @half-nav-height;
+				line-height: @half-nav-height;
+				vertical-align: middle;
 			}
 		}
 
@@ -64,7 +62,7 @@
 			.clearfix;
 
 			&__form {
-				margin-top: .7rem;
+				margin-top: 1.2rem;
 			}
 
 			> li {
@@ -73,36 +71,35 @@
 				float: left;
 
 				> a {
-					margin-top: .5rem;
-					padding-top: 1.5rem;
 					padding-bottom: 1.5rem;
 					text-decoration: none;
 					color: @dark-gray;
 					font-size: 1.4rem;
 					position: relative;
 					display: block;
-					padding: 1.0rem 2.4rem;
+                    padding-right: @default-padding;
+                    padding-left: @default-padding;
 					&:hover,
 					&:focus {
 						color: @blue-link;
 					}
-
 					&.\+active {
 						font-weight: 600;
 						color: @dark-gray;
 					}
 				}
 			}
-
 		}
 
 		&__icon, &__title {
 			font-size: 1.6rem;
 			display: inline-block;
 		}
-
 	}
 
+  .cps-dropdown {
+    padding-top: 5px;
+  }
 }
 
 // SECONDARY GLOBAL NAV //
@@ -112,33 +109,32 @@
 	z-index: 99;
 	top: 5.1rem;
 	color: @dark-gray;
-	box-shadow:0 .3rem .5rem 0 rgba(0, 0, 0, 0.18);
+	box-shadow: 0 .3rem .5rem 0 rgba(0, 0, 0, 0.18);
 	min-width: 1024px;
 
 	&.\+banner-top {
-		margin-top: 2.9rem;
+		margin-top: 3.7rem;
 	}
-
 
 	&__content {
 		border-top: .1rem solid @gray6;
 		background-color: @gray3;
-		padding-left: 2.4rem;
-		padding-right: 2.4rem;
-		height: 4.8rem;
+		padding-left: @default-padding;
+		padding-right: @default-padding;
+        height: @nav-height;
 
 		&.\+green-banner {
 			background-color:#4CAF50;
 		}
 
 		&__menu {
-			padding: 1.2rem 0rem 0rem 0rem;
-			float: left;
-
+            padding-top: 1.5rem;
+            padding-left: 0;
+            float: left;
 		}
 
 		&__right-menu {
-			padding: .8rem 0rem 0rem 0rem;
+            padding-top: 1.0rem;
 			float: right;
 		}
 
@@ -177,26 +173,20 @@
 						color: @dark-gray;
 						cursor: default;
 					}
-
 				}
 
 				> a {
 					text-decoration: none;
 					color: inherit;
-					vertical-align: top;
 					&:hover,
 					&:focus {
 						color: @blue-link;
 					}
 				}
 			}
-
 		}
 	}
-
 }
-
-
 
 // FLEXIBLE SIDE NAV //
 
@@ -280,7 +270,7 @@
 .cps-nav-content {
 	margin-left: 24.0rem;
 	width: ~"calc(100% - 26.0rem)";
-	padding: 10.0rem 2.4rem;
+	padding: 10.0rem @default-padding;
 
 	&.\+tall-top {
 		padding-top: 14.0rem;
@@ -291,42 +281,39 @@
 	}
 
 	&.\+full {
-		margin-left: 0rem;
+		margin-left: 0;
 		width: 100%;
 	}
 }
 
-
-
 .cps-secondarynav {
-	margin-top:4.8rem;
-	position:fixed;
-	width:24.0rem;
+	margin-top: @nav-height;
+	position: fixed;
+	width: 24.0rem;
 	background-color: @white;
 	color: @dark-gray;
 	top: 0;
-	height:~'calc(100% - 4.8rem)';
+	height:~'calc(100% - 5.6rem)';
 	z-index: 98;
 	border-right: .1rem solid @breakline-light;
 
 	&.\+tall-top {
-		margin-top: 9.8rem !important;
-		height:~'calc(100% - 9.8rem)';
+		margin-top: 10.6rem !important;
+		height:~'calc(100% - 10.6rem)';
 	}
 
 	&.\+banner-top {
-		margin-top: 8rem !important;
-		height:~'calc(100% - 8rem)';
+		margin-top: 8.8rem !important;
+		height:~'calc(100% - 8.8rem)';
 	}
 
 	&.\+tall-top.\+banner-top {
-		margin-top: 13rem !important;
-		height:~'calc(100% - 13rem)';
+		margin-top: 13.8rem !important;
+		height:~'calc(100% - 13.8rem)';
 	}
 
 	&__title {
-
-		padding: 2.4rem;
+		padding: @default-padding;
 		border-bottom: .1rem solid @breakline-light;
 		font-size: 1.6rem;
 		font-weight: bold;
@@ -413,13 +400,13 @@
 				}
 			}
 		}
+
 		&__sub {
 			background-color: @gray2;
-			max-height: 0rem;
+			max-height: 0;
 			overflow: hidden;
 			transition: 300ms linear all;
 			position: relative;
-
 
 			&.\+active {
 				box-shadow: inset .2rem .5rem .6rem -.6rem rgba(153, 153, 153, 0.31);
@@ -449,6 +436,7 @@
 				&:hover {
 					text-decoration: underline;
 				}
+
 				&.\+active {
 					color: @dark-green;
 				}
