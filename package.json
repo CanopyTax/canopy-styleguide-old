@@ -5,8 +5,9 @@
 	"main": "build/styleguide.css",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "node node_modules/webpack/bin/webpack.js --config webpack.config.build.js"
-	},
+		"build": "node node_modules/webpack/bin/webpack.js --config webpack.config.build.js",
+    	"deploy": "cp build/* ../canopy/node_modules/canopy-styleguide/build/"
+  },
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/canopytax/styleguide.git"
