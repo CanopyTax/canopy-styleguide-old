@@ -1666,6 +1666,18 @@ label.cps-has-error {
 .cps-has-feedback label.sr-only ~ .cps-form-control-feedback {
   top: 0;
 }
+.cps-has-feedback-left .cps-form-control {
+  padding: 2px 12px 1px 12px;
+}
+.cps-has-feedback-left .cps-form-control {
+  padding-left: 32px;
+}
+.cps-has-feedback-left .cps-form-control {
+  padding-left: 32px;
+}
+.cps-has-feedback-left .cps-form-control-feedback {
+  left: 8px;
+}
 .cps-form-group-resize {
   display: block;
 }
@@ -1833,28 +1845,34 @@ textarea.cps-form-control.\+no-resize {
 }
 .cps-topnav.\+banner-top {
   top: 3.2rem;
+  height: 5.6rem;
+  line-height: 5.6rem;
+  vertical-align: middle;
 }
 .cps-topnav.\+add-box-shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.06), 0 2px 6px 0 rgba(0, 0, 0, 0.26);
 }
 .cps-topnav__bar {
-  height: .3rem;
+  height: 0;
   background-color: #4caf50;
 }
 .cps-topnav__content {
   background-color: white;
-  height: 4.8rem;
+  height: 5.6rem;
+  line-height: 5.6rem;
+  vertical-align: middle;
   padding-left: 2.4rem;
   padding-right: 2.4rem;
 }
 .cps-topnav__content__brand {
   cursor: pointer;
   float: left;
-  width: 109px;
+  width: 32px;
 }
 .cps-topnav__content__brand > img {
-  height: 2.4rem;
-  margin-top: 1.6rem;
+  height: 2.8rem;
+  line-height: 2.8rem;
+  vertical-align: middle;
 }
 .cps-topnav__content__menu {
   list-style: none;
@@ -1871,7 +1889,7 @@ textarea.cps-form-control.\+no-resize {
   clear: both;
 }
 .cps-topnav__content__menu__form {
-  margin-top: .7rem;
+  margin-top: 1.2rem;
 }
 .cps-topnav__content__menu > li {
   position: relative;
@@ -1879,15 +1897,14 @@ textarea.cps-form-control.\+no-resize {
   float: left;
 }
 .cps-topnav__content__menu > li > a {
-  margin-top: .5rem;
-  padding-top: 1.5rem;
   padding-bottom: 1.5rem;
   text-decoration: none;
   color: #333333;
   font-size: 1.4rem;
   position: relative;
   display: block;
-  padding: 1.0rem 2.4rem;
+  padding-right: 2.4rem;
+  padding-left: 2.4rem;
 }
 .cps-topnav__content__menu > li > a:hover,
 .cps-topnav__content__menu > li > a:focus {
@@ -1902,6 +1919,9 @@ textarea.cps-form-control.\+no-resize {
   font-size: 1.6rem;
   display: inline-block;
 }
+.cps-topnav .cps-dropdown {
+  padding-top: 5px;
+}
 .cps-topnav-secondary {
   position: fixed;
   width: 100%;
@@ -1912,24 +1932,25 @@ textarea.cps-form-control.\+no-resize {
   min-width: 1024px;
 }
 .cps-topnav-secondary.\+banner-top {
-  margin-top: 2.9rem;
+  margin-top: 3.7rem;
 }
 .cps-topnav-secondary__content {
   border-top: 0.1rem solid #e9e9e9;
   background-color: #f9f9f9;
   padding-left: 2.4rem;
   padding-right: 2.4rem;
-  height: 4.8rem;
+  height: 5.6rem;
 }
 .cps-topnav-secondary__content.\+green-banner {
   background-color: #4CAF50;
 }
 .cps-topnav-secondary__content__menu {
-  padding: 1.2rem 0rem 0rem 0rem;
+  padding-top: 1.5rem;
+  padding-left: 0;
   float: left;
 }
 .cps-topnav-secondary__content__right-menu {
-  padding: .8rem 0rem 0rem 0rem;
+  padding-top: 1.0rem;
   float: right;
 }
 .cps-topnav-secondary__content__menu,
@@ -1986,7 +2007,6 @@ textarea.cps-form-control.\+no-resize {
 .cps-topnav-secondary__content__right-menu > li > a {
   text-decoration: none;
   color: inherit;
-  vertical-align: top;
 }
 .cps-topnav-secondary__content__menu > li > a:hover,
 .cps-topnav-secondary__content__right-menu > li > a:hover,
@@ -2064,7 +2084,7 @@ textarea.cps-form-control.\+no-resize {
 .cps-nav-content {
   margin-left: 24.0rem;
   width: calc(100% - 26.0rem);
-  padding: 10.0rem 2.4rem;
+  padding: 10rem 2.4rem;
 }
 .cps-nav-content.\+tall-top {
   padding-top: 14.0rem;
@@ -2073,31 +2093,31 @@ textarea.cps-form-control.\+no-resize {
   padding-top: 16.9rem !important;
 }
 .cps-nav-content.\+full {
-  margin-left: 0rem;
+  margin-left: 0;
   width: 100%;
 }
 .cps-secondarynav {
-  margin-top: 4.8rem;
+  margin-top: 5.6rem;
   position: fixed;
   width: 24.0rem;
   background-color: white;
   color: #333333;
   top: 0;
-  height: calc(100% - 4.8rem);
+  height: calc(100% - 5.6rem);
   z-index: 98;
   border-right: 0.1rem solid #e9e9e9;
 }
 .cps-secondarynav.\+tall-top {
-  margin-top: 9.8rem !important;
-  height: calc(100% - 9.8rem);
+  margin-top: 10.6rem !important;
+  height: calc(100% - 10.6rem);
 }
 .cps-secondarynav.\+banner-top {
-  margin-top: 8rem !important;
-  height: calc(100% - 8rem);
+  margin-top: 8.8rem !important;
+  height: calc(100% - 8.8rem);
 }
 .cps-secondarynav.\+tall-top.\+banner-top {
-  margin-top: 13rem !important;
-  height: calc(100% - 13rem);
+  margin-top: 13.8rem !important;
+  height: calc(100% - 13.8rem);
 }
 .cps-secondarynav__title {
   padding: 2.4rem;
@@ -2179,7 +2199,7 @@ textarea.cps-form-control.\+no-resize {
 }
 .cps-secondarynav__menu__sub {
   background-color: #fafafa;
-  max-height: 0rem;
+  max-height: 0;
   overflow: hidden;
   -webkit-transition: 300ms linear all;
           transition: 300ms linear all;

@@ -93,7 +93,7 @@
 
 							React.createElement("div", {className: "cps-topnav__content"}, 
 								React.createElement("span", {className: "cps-topnav__content__brand", href: true}, 
-									React.createElement("img", {src: "canopy-logotype.svg", alt: "Company Logo"})
+									React.createElement("img", {src: "canopy-logomark.svg", alt: "Company Logo"})
 								), 
 								React.createElement("ul", {className: "cps-topnav__content__menu"}, 
 									React.createElement("li", null, React.createElement("a", {href: "#"}, "Canopy Style Guide")), 
@@ -47298,7 +47298,7 @@
 									), 
 									React.createElement("div", {className: "cps-form-group cps-has-error"}, 
 
-											React.createElement("label", {for: "exampleInputPassword1"}, "Phone Number"), 
+											React.createElement("label", {for: "exampleInputPhone"}, "Phone Number"), 
 											React.createElement("input", {type: "text", className: "cps-form-control", value: "234-343-3434"}), 
 											React.createElement("span", {className: "cps-icon-error cps-form-control-feedback", "aria-hidden": "true"}), 
 											React.createElement("span", {className: "cps-error-block"}, "This is an error!")
@@ -47345,7 +47345,7 @@
 
 					React.createElement(Highlight, {className: "html"}, 
 					
-	("<form>\n  <div class=\"cps-form-group\">\n    <label for=\"exampleInputEmail1\">Full Name</label>\n    <input type=\"text\" class=\"cps-form-control\" placeholder=\"Enter name\"/>\n  </div>\n  <div class=\"cps-form-group cps-has-feedback\">\n    <label for=\"exampleInputEmail1\">Email address</label>\n    <div class=\"cps-row\">\n      <div class=\"cps-col-xs-5\">\n        <input type=\"text\" class=\"cps-form-control\" placeholder=\"Enter email\"/>\n        <span class=\"cps-icon-client cps-form-control-feedback\" aria-hidden=\"true\"></span>\n        <span class=\"cps-error-block\">This error message is hidden unless cps-has-error is present</span>\n        <span class=\"cps-help-block\">Example help block</span>\n      </div>\n      <div className=\"cps-col-xs-6\">\n        <span class=\"cps-form-help-block\"><a href class=\"cps-link cps-padding-left-4 cps-padding-right-4\"><i class=\"cps-icon cps-icon-help cps-light-gray\"></i> <span class=\"cps-info cps-padding-left-8\">Need help?</span></a></span>\n      </div>\n    </div>\n  </div>\n  <div class=\"cps-form-group cps-has-error\">\n      <label for=\"exampleInputPassword1\">Phone Number</label>\n      <input type=\"text\" class=\"cps-form-control\" value=\"234-343-3434\"/>\n      <span class=\"cps-icon-error cps-form-control-feedback\" aria-hidden=\"true\"></span>\n      <span class=\"cps-error-block\">This is an error!</span>\n  </div>\n<div class=\"cps-form-group\">\n  <div class=\"cps-input-group\">\n    <span class=\"cps-input-group-addon cps-icon-addon\" id=\"basic-addon1\"><i class=\"cps-icon cps-icon-add-person\"></i></span>\n    <input type=\"text\" class=\"cps-form-control\" placeholder=\"Serial Number\" aria-describedby=\"basic-addon1\"/>\n  </div>\n  <span class=\"cps-error-block\">This is an error!</span>\n</div>\n<div class=\"cps-form-group cps-has-error\">\n  <div class=\"cps-input-group\">\n    <span class=\"cps-input-group-addon\" id=\"basic-addon1\">#</span>\n    <input type=\"text\" class=\"cps-form-control\" placeholder=\"Serial Number\" aria-describedby=\"basic-addon1\"/>\n  </div>\n  <span class=\"cps-error-block\">This is an error!</span>\n</div>\n  <div class=\"cps-form-group\">\n    <label for=\"exampleInputPassword1\">Disabled</label>\n    <input type=\"text\" class=\"cps-form-control\" value=\"234-343-3434\" disabled=\"true\"/>\n  </div>\n</form>"
+	("<form>\n  <div class=\"cps-form-group\">\n    <label for=\"exampleInputEmail1\">Full Name</label>\n    <input type=\"text\" class=\"cps-form-control\" placeholder=\"Enter name\"/>\n  </div>\n  <div class=\"cps-form-group cps-has-feedback\">\n    <label for=\"exampleInputEmail1\">Email address</label>\n    <div class=\"cps-row\">\n      <div class=\"cps-col-xs-5\">\n        <input type=\"text\" class=\"cps-form-control\" placeholder=\"Enter email\"/>\n        <span class=\"cps-icon-client cps-form-control-feedback\" aria-hidden=\"true\"></span>\n        <span class=\"cps-error-block\">This error message is hidden unless cps-has-error is present</span>\n        <span class=\"cps-help-block\">Example help block</span>\n      </div>\n      <div className=\"cps-col-xs-6\">\n        <span class=\"cps-form-help-block\"><a href class=\"cps-link cps-padding-left-4 cps-padding-right-4\"><i class=\"cps-icon cps-icon-help cps-light-gray\"></i> <span class=\"cps-info cps-padding-left-8\">Need help?</span></a></span>\n      </div>\n    </div>\n  </div>\n  <div class=\"cps-form-group cps-has-error\">\n      <label for=\"exampleInputPhone\">Phone Number</label>\n      <input type=\"text\" class=\"cps-form-control\" value=\"234-343-3434\"/>\n      <span class=\"cps-icon-error cps-form-control-feedback\" aria-hidden=\"true\"></span>\n      <span class=\"cps-error-block\">This is an error!</span>\n  </div>\n  <div class=\"cps-form-group\">\n    <div class=\"cps-input-group\">\n      <span class=\"cps-input-group-addon cps-icon-addon\" id=\"basic-addon1\"><i class=\"cps-icon cps-icon-add-person\"></i></span>\n      <input type=\"text\" class=\"cps-form-control\" placeholder=\"Serial Number\" aria-describedby=\"basic-addon1\"/>\n    </div>\n    <span class=\"cps-error-block\">This is an error!</span>\n  </div>\n  <div class=\"cps-form-group cps-has-error\">\n    <div class=\"cps-input-group\">\n      <span class=\"cps-input-group-addon\" id=\"basic-addon1\">#</span>\n      <input type=\"text\" class=\"cps-form-control\" placeholder=\"Serial Number\" aria-describedby=\"basic-addon1\"/>\n    </div>\n    <span class=\"cps-error-block\">This is an error!</span>\n  </div>\n  <div class=\"cps-form-group\">\n    <label for=\"exampleInputDisabled\">Disabled</label>\n    <input type=\"text\" class=\"cps-form-control\" value=\"234-343-3434\" disabled=\"true\"/>\n  </div>\n</form>"
 
 
 
@@ -47399,7 +47399,7 @@
 							React.createElement("div", {className: "cps-col-xs-12"}, 
 								React.createElement("form", {className: "cps-form-horizontal"}, 
 									React.createElement("div", {className: "cps-form-group"}, 
-										React.createElement("label", {for: "exampleInputEmail1", className: "cps-col-xs-2 cps-control-label"}, "Full Name"), 
+										React.createElement("label", {for: "exampleInputName", className: "cps-col-xs-2 cps-control-label"}, "Full Name"), 
 										React.createElement("div", {className: "cps-col-xs-3"}, 
 											React.createElement("input", {type: "text", className: "cps-form-control", placeholder: "Enter name"})
 										)
@@ -47414,7 +47414,7 @@
 										)
 									), 
 									React.createElement("div", {className: "cps-form-group cps-has-error"}, 
-										React.createElement("label", {for: "exampleInputPassword1", className: "cps-col-xs-2 cps-control-label"}, "Phone Number"), 
+										React.createElement("label", {for: "exampleInputPhone", className: "cps-col-xs-2 cps-control-label"}, "Phone Number"), 
 										React.createElement("div", {className: "cps-col-xs-6"}, 
 											React.createElement("input", {type: "text", className: "cps-form-control", value: "234-343-3434"}), 
 											React.createElement("span", {className: "cps-icon-error cps-form-control-feedback", "aria-hidden": "true"}), 
@@ -47422,7 +47422,7 @@
 										)
 									), 
 									React.createElement("div", {className: "cps-form-group"}, 
-										React.createElement("label", {for: "exampleInputPassword1", className: "cps-col-xs-2 cps-control-label"}, "Disabled"), 
+										React.createElement("label", {for: "exampleInputPhoneDisabled", className: "cps-col-xs-2 cps-control-label"}, "Disabled"), 
 										React.createElement("div", {className: "cps-col-xs-10"}, 
 											React.createElement("input", {type: "text", className: "cps-form-control", value: "234-343-3434", disabled: "true"})
 										)
@@ -47435,7 +47435,7 @@
 
 					React.createElement(Highlight, {className: "html"}, 
 					
-	("<form class=\"cps-form-horizontal\">\n  <div class=\"cps-form-group\">\n    <label for=\"exampleInputEmail1\" class=\"cps-col-xs-2\">Full Name</label>\n    <div class=\"cps-col-xs-3\">\n      <input type=\"text\" class=\"cps-form-control\" placeholder=\"Enter name\"/>\n    </div>\n  </div>\n  <div class=\"cps-form-group cps-has-feedback cps-has-error\">\n    <label for=\"exampleInputEmail1\" class=\"cps-col-xs-2\">Email address</label>\n    <div class=\"cps-col-xs-3\">\n      <input type=\"text\" className=\"cps-form-control\" placeholder=\"Enter email\"/>\n      <span class=\"cps-icon-client cps-form-control-feedback\" aria-hidden=\"true\"></span>\n      <span class=\"cps-error-block\">This error message is hidden unless cps-has-error is present</span>\n      <span class=\"cps-help-block\">Example help block</span>\n    </div>\n  </div>\n  <div class=\"cps-form-group cps-has-error\">\n    <label for=\"exampleInputPassword1\" class=\"cps-col-xs-2\">Phone Number</label>\n    <div class=\"cps-col-xs-6\">\n      <input type=\"text\" class=\"cps-form-control\" value=\"234-343-3434\"/>\n      <span class=\"cps-icon-error cps-form-control-feedback\" aria-hidden=\"true\"></span>\n      <span class=\"cps-error-block\">This is an error!</span>\n    </div>\n  </div>\n  <div class=\"cps-form-group\">\n    <label for=\"exampleInputPassword1\" class=\"cps-col-xs-2\">Disabled</label>\n    <div class=\"cps-col-xs-10\">\n      <input type=\"text\" class=\"cps-form-control\"value=\"234-343-3434\" disabled=\"true\"/>\n    </div>\n  </div>\n</form>"
+	("<form class=\"cps-form-horizontal\">\n  <div class=\"cps-form-group\">\n    <label for=\"exampleInputEmail1\" class=\"cps-col-xs-2\">Full Name</label>\n    <div class=\"cps-col-xs-3\">\n      <input type=\"text\" class=\"cps-form-control\" placeholder=\"Enter name\"/>\n    </div>\n  </div>\n  <div class=\"cps-form-group cps-has-feedback cps-has-error\">\n    <label for=\"exampleInputEmail1\" class=\"cps-col-xs-2\">Email address</label>\n    <div class=\"cps-col-xs-3\">\n      <input type=\"text\" className=\"cps-form-control\" placeholder=\"Enter email\"/>\n      <span class=\"cps-icon-client cps-form-control-feedback\" aria-hidden=\"true\"></span>\n      <span class=\"cps-error-block\">This error message is hidden unless cps-has-error is present</span>\n      <span class=\"cps-help-block\">Example help block</span>\n    </div>\n  </div>\n  <div class=\"cps-form-group cps-has-error\">\n    <label for=\"exampleInputPhone\" class=\"cps-col-xs-2\">Phone Number</label>\n    <div class=\"cps-col-xs-6\">\n      <input type=\"text\" class=\"cps-form-control\" value=\"234-343-3434\"/>\n      <span class=\"cps-icon-error cps-form-control-feedback\" aria-hidden=\"true\"></span>\n      <span class=\"cps-error-block\">This is an error!</span>\n    </div>\n  </div>\n  <div class=\"cps-form-group\">\n    <label for=\"exampleInputPhoneDisabled\" class=\"cps-col-xs-2\">Disabled</label>\n    <div class=\"cps-col-xs-10\">\n      <input type=\"text\" class=\"cps-form-control\"value=\"234-343-3434\" disabled=\"true\"/>\n    </div>\n  </div>\n</form>"
 
 
 
@@ -47471,17 +47471,71 @@
 
 				React.createElement("div", {className: "cps-flexible-focus cps-card"}, 
 					React.createElement("div", {className: "cps-card__body"}, 
+						React.createElement("div", {className: "cps-subheader-sm cps-margin-bottom-16 cps-margin-top-24"}, "Left-aligned Inputs"), 
+						React.createElement("div", {className: "cps-row"}, 
+							React.createElement("div", {className: "cps-col-xs-12"}, 
+								React.createElement("form", {className: "cps-form-horizontal"}, 
+									React.createElement("div", {className: "cps-form-group cps-has-feedback cps-has-error cps-has-feedback-left"}, 
+										React.createElement("label", {for: "exampleInputEmail1", className: "cps-col-xs-2 cps-control-label"}, "Email address"), 
+										React.createElement("div", {className: "cps-col-xs-3"}, 
+											React.createElement("input", {type: "text", className: "cps-form-control", placeholder: "Enter email"}), 
+											React.createElement("span", {className: "cps-icon-client cps-form-control-feedback", "aria-hidden": "true"}), 
+											React.createElement("span", {className: "cps-error-block"}, "This error message is hidden unless cps-has-error is present"), 
+											React.createElement("span", {className: "cps-help-block"}, "Example help block")
+										)
+									), 
+									React.createElement("div", {className: "cps-form-group cps-has-error cps-has-feedback-left"}, 
+										React.createElement("label", {for: "exampleInputPhone", className: "cps-col-xs-2 cps-control-label"}, "Phone Number"), 
+										React.createElement("div", {className: "cps-col-xs-6"}, 
+											React.createElement("input", {type: "text", className: "cps-form-control", value: "234-343-3434"}), 
+											React.createElement("span", {className: "cps-icon-error cps-form-control-feedback", "aria-hidden": "true"}), 
+											React.createElement("span", {className: "cps-error-block"}, "This is an error!")
+										)
+									)
+								)
+							)
+						)
+					)
+				), 
+
+				React.createElement(Highlight, {className: "html"}, 
+					
+	("<form className=\"cps-form-horizontal\">\n  <div className=\"cps-form-group cps-has-feedback cps-has-error cps-has-feedback-left\">\n    <label for=\"exampleInputEmail1\" className=\"cps-col-xs-2 cps-control-label\">Email address</label>\n    <div className=\"cps-col-xs-3\">\n      <input type=\"text\" className=\"cps-form-control\" placeholder=\"Enter email\"/>\n      <span className=\"cps-icon-client cps-form-control-feedback\" aria-hidden=\"true\"></span>\n      <span className=\"cps-error-block\">This error message is hidden unless cps-has-error is present</span>\n      <span className=\"cps-help-block\">Example help block</span>\n    </div>\n  </div>\n  <div className=\"cps-form-group cps-has-error cps-has-feedback-left\">\n    <label for=\"exampleInputPhone\" className=\"cps-col-xs-2 cps-control-label\">Phone Number</label>\n    <div className=\"cps-col-xs-6\">\n      <input type=\"text\" className=\"cps-form-control\" value=\"234-343-3434\"/>\n      <span className=\"cps-icon-error cps-form-control-feedback\" aria-hidden=\"true\"></span>\n      <span className=\"cps-error-block\">This is an error!</span>\n    </div>\n  </div>\n</form>"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	)
+					
+				), 
+
+
+				React.createElement("div", {className: "cps-flexible-focus cps-card"}, 
+					React.createElement("div", {className: "cps-card__body"}, 
 						React.createElement("div", {className: "cps-subheader-sm cps-margin-bottom-24 cps-margin-top-24"}, "Inline Form"), 
 						React.createElement("div", {className: "cps-row cps-padding-bottom-16"}, 
 							React.createElement("div", {className: "cps-col-xs-12"}, 
 								React.createElement("form", {className: "cps-form-inline"}, 
 									React.createElement("div", {className: "cps-form-group cps-has-feedback"}, 
-										React.createElement("label", {for: "exampleInputName2"}, "Email"), 
+										React.createElement("label", {for: "inlineEmail"}, "Email"), 
 										React.createElement("input", {type: "text", className: "cps-form-control", placeholder: "Enter email"}), 
 										React.createElement("span", {className: "cps-icon-client cps-form-control-feedback", "aria-hidden": "true"})
 									), 
 									React.createElement("div", {className: "cps-form-group cps-has-error"}, 
-										React.createElement("label", {for: "exampleInputName2"}, "Phone"), 
+										React.createElement("label", {for: "inlinePhone"}, "Phone"), 
 										React.createElement("input", {type: "text", className: "cps-form-control", value: "234-343-3434"}), 
 										React.createElement("span", {className: "cps-icon-error cps-form-control-feedback", "aria-hidden": "true"})
 									), 
@@ -47521,9 +47575,9 @@
 							React.createElement("div", {className: "cps-col-xs-12"}, 
 								React.createElement("form", {className: "cps-form-horizontal"}, 
 									React.createElement("div", {className: "cps-form-group-resize"}, 
-										React.createElement("label", {for: "Email", className: "cps-col-xs-2 cps-control-label"}, "Phone"), 
+										React.createElement("label", {for: "Phone", className: "cps-col-xs-2 cps-control-label"}, "Phone"), 
 										React.createElement("div", {className: "cps-col-xs-8"}, 
-											React.createElement("input", {type: "text", className: "cps-form-control-resize", placeholder: "Enter email"})
+											React.createElement("input", {type: "text", className: "cps-form-control-resize", placeholder: "Enter phone"})
 										)
 									), 
 									React.createElement("div", {className: "cps-form-group-resize"}, 
@@ -47533,20 +47587,20 @@
 										)
 									), 
 									React.createElement("div", {className: "cps-form-group-resize"}, 
-										React.createElement("label", {for: "Email", className: "cps-col-xs-2 cps-control-label"}, "Address 1"), 
+										React.createElement("label", {for: "Address1", className: "cps-col-xs-2 cps-control-label"}, "Address 1"), 
 										React.createElement("div", {className: "cps-col-xs-8"}, 
-											React.createElement("input", {type: "text", className: "cps-form-control-resize", placeholder: "Enter email"})
+											React.createElement("input", {type: "text", className: "cps-form-control-resize", placeholder: "Enter address 1"})
 										)
 									), 
 									React.createElement("div", {className: "cps-form-group-resize cps-has-error"}, 
-										React.createElement("label", {for: "Email", className: "cps-col-xs-2 cps-control-label"}, "Adress 2"), 
+										React.createElement("label", {for: "Address2", className: "cps-col-xs-2 cps-control-label"}, "Address 2"), 
 										React.createElement("div", {className: "cps-col-xs-8"}, 
-											React.createElement("input", {type: "text", className: "cps-form-control-resize", placeholder: "Enter email", value: "234-343-3434"}), 
+											React.createElement("input", {type: "text", className: "cps-form-control-resize", placeholder: "Enter address2", value: "234-343-3434"}), 
 											React.createElement("span", {className: "cps-error-block"}, "This is an error!")
 										)
 									), 
 									React.createElement("div", {className: "cps-form-group-resize"}, 
-										React.createElement("label", {for: "Phone", className: "cps-col-xs-2 cps-control-label"}, "Zip"), 
+										React.createElement("label", {for: "Zip", className: "cps-col-xs-2 cps-control-label"}, "Zip"), 
 										React.createElement("div", {className: "cps-col-xs-4"}, 
 											React.createElement("input", {type: "text", className: "cps-form-control-resize", value: "234-343-3434", readonly: "readonly"})
 										)
@@ -47554,12 +47608,23 @@
 								)
 							)
 						)
-
 					)
 				), 
 				React.createElement(Highlight, {className: "html"}, 
 
-	("<form class=\"cps-form-horizontal\">\n<div class=\"cps-form-group-resize\">\n  <label for=\"Email\" class=\"cps-col-xs-2\">Address 1</label>\n  <div class=\"cps-col-xs-8\">\n    <input type=\"text\" class=\"cps-form-control-resize\" placeholder=\"Enter email\"/>\n  </div>\n</div>\n<div className=\"cps-form-group-resize cps-has-error\">\n  <label for=\"Email\" class=\"cps-col-xs-2\">Adress 2</label>\n  <div class=\"cps-col-xs-8\">\n    <input type=\"text\" class=\"cps-form-control-resize\" placeholder=\"Enter email\" value=\"234-343-3434\"/>\n    <span class=\"cps-error-block\">This is an error!</span>\n  </div>\n</div>\n<div class=\"cps-form-group-resize\">\n  <label for=\"Phone\" class=\"cps-col-xs-2\">Zip</label>\n  <div class=\"cps-col-xs-4\">\n    <input type=\"text\" class=\"cps-form-control-resize\" value=\"234-343-3434\" readonly=\"readonly\"/>\n  </div>\n</div>\n</form>"
+	("<form class=\"cps-form-horizontal\">\n  <div className=\"cps-form-group-resize\">\n    <label for=\"Phone\" className=\"cps-col-xs-2 cps-control-label\">Phone</label>\n    <div className=\"cps-col-xs-8\">\n      <input type=\"text\" className=\"cps-form-control-resize\" placeholder=\"Enter phone\"/>\n    </div>\n  </div>\n  <div className=\"cps-form-group-resize\">\n    <label for=\"Email\" className=\"cps-col-xs-2 cps-control-label\">Email</label>\n    <div className=\"cps-col-xs-8\">\n      <input type=\"text\" className=\"cps-form-control-resize\" placeholder=\"Enter email\"/>\n    </div>\n  </div>\n  <div className=\"cps-form-group-resize\">\n    <label for=\"Address1\" className=\"cps-col-xs-2 cps-control-label\">Address 1</label>\n    <div className=\"cps-col-xs-8\">\n      <input type=\"text\" className=\"cps-form-control-resize\" placeholder=\"Enter address 1\"/>\n    </div>\n  </div>\n  <div className=\"cps-form-group-resize cps-has-error\">\n    <label for=\"Address2\" className=\"cps-col-xs-2 cps-control-label\">Address 2</label>\n    <div className=\"cps-col-xs-8\">\n      <input type=\"text\" className=\"cps-form-control-resize\" placeholder=\"Enter address2\" value=\"234-343-3434\"/>\n      <span className=\"cps-error-block\">This is an error!</span>\n    </div>\n  </div>\n  <div className=\"cps-form-group-resize\">\n    <label for=\"Zip\" className=\"cps-col-xs-2 cps-control-label\">Zip</label>\n    <div className=\"cps-col-xs-4\">\n      <input type=\"text\" className=\"cps-form-control-resize\" value=\"234-343-3434\" readonly=\"readonly\"/>\n    </div>\n  </div>\n</form>"
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -47595,8 +47660,8 @@
 										React.createElement("input", {type: "text", className: "cps-form-control-resize", placeholder: "Enter email", value: "exi@gm.com"})
 									), 
 									React.createElement("div", {className: "cps-form-group-resize"}, 
-										React.createElement("label", {for: "Email"}, "Phone"), 
-										React.createElement("input", {type: "text", className: "cps-form-control-resize", placeholder: "Enter email"})
+										React.createElement("label", {for: "Phone"}, "Phone"), 
+										React.createElement("input", {type: "text", className: "cps-form-control-resize", placeholder: "Enter phone"})
 									), 
 									React.createElement("div", {className: "cps-form-group-resize"}, 
 										React.createElement("input", {type: "text", className: "cps-form-control-resize cps-subheader", placeholder: "Enter zip code", value: "large font example"})
@@ -47613,7 +47678,7 @@
 
 				React.createElement(Highlight, {className: "html"}, 
 
-	("<form class=\"cps-form-inline\">\n  <div class=\"cps-form-group-resize\">\n    <label for=\"Email\" >Phone</label>\n    <input type=\"text\" class=\"cps-form-control-resize\" placeholder=\"Enter email\"/>\n  </div>\n  <div class=\"cps-form-group-resize\">\n    <label for=\"Email\" >Phone</label>\n    <input type=\"text\" class=\"cps-form-control-resize\" placeholder=\"Enter email\"/>\n  </div>\n  <div class=\"cps-form-group-resize\">\n    <input type=\"text\" class=\"cps-form-control-resize cps-subheader\" placeholder=\"Enter email\"/>\n  </div>\n  <div class=\"cps-form-group-resize cps-has-error\">\n    <input type=\"text\" class=\"cps-form-control-resize\" placeholder=\"Error example\"/>\n    <span class=\"cps-error-block\">This is an error</span>\n  </div>\n</form>"
+	("<form class=\"cps-form-inline\">\n  <div className=\"cps-form-group-resize\">\n    <label for=\"Email\">Email</label>\n    <input type=\"text\" className=\"cps-form-control-resize\" placeholder=\"Enter email\" value=\"exi@gm.com\"/>\n  </div>\n  <div className=\"cps-form-group-resize\">\n    <label for=\"Phone\">Phone</label>\n    <input type=\"text\" className=\"cps-form-control-resize\" placeholder=\"Enter phone\"/>\n  </div>\n  <div className=\"cps-form-group-resize\">\n    <input type=\"text\" className=\"cps-form-control-resize cps-subheader\" placeholder=\"Enter zip code\" value=\"large font example\"/>\n  </div>\n  <div className=\"cps-form-group-resize cps-has-error\">\n     <input type=\"text\" className=\"cps-form-control-resize\" placeholder=\"Error example\"/>\n     <span className=\"cps-error-block\">This is an error</span>\n   </div>\n</form>"
 
 
 
