@@ -97,9 +97,9 @@
 		}
 	}
 
-  .cps-dropdown {
-	padding-top: 5px;
-  }
+	.cps-dropdown {
+		padding-top: 5px;
+	}
 }
 
 // SECONDARY GLOBAL NAV //
@@ -128,13 +128,15 @@
 		}
 
 		&__menu {
-			padding-top: 1.5rem;
+			height: @nav-height;
+			line-height: @nav-height;
+			vertical-align: middle;
 			padding-left: 0;
 			float: left;
 		}
 
 		&__right-menu {
-			padding-top: 1.0rem;
+			padding-top: 1.6rem;
 			float: right;
 		}
 
@@ -159,6 +161,7 @@
 
 				> .cps-icon {
 					padding-left: 8px;
+					vertical-align: middle;
 				}
 
 				&:last-child {

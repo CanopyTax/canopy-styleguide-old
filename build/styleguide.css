@@ -1945,12 +1945,14 @@ textarea.cps-form-control.\+no-resize {
   background-color: #4CAF50;
 }
 .cps-topnav-secondary__content__menu {
-  padding-top: 1.5rem;
+  height: 5.6rem;
+  line-height: 5.6rem;
+  vertical-align: middle;
   padding-left: 0;
   float: left;
 }
 .cps-topnav-secondary__content__right-menu {
-  padding-top: 1.0rem;
+  padding-top: 1.6rem;
   float: right;
 }
 .cps-topnav-secondary__content__menu,
@@ -1987,6 +1989,7 @@ textarea.cps-form-control.\+no-resize {
 .cps-topnav-secondary__content__menu > li > .cps-icon,
 .cps-topnav-secondary__content__right-menu > li > .cps-icon {
   padding-left: 8px;
+  vertical-align: middle;
 }
 .cps-topnav-secondary__content__menu > li:last-child,
 .cps-topnav-secondary__content__right-menu > li:last-child {
