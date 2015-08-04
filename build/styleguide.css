@@ -1889,7 +1889,7 @@ textarea.cps-form-control.\+no-resize {
   clear: both;
 }
 .cps-topnav__content__menu__form {
-  margin-top: 1.2rem;
+  padding-top: 1.2rem;
 }
 .cps-topnav__content__menu > li {
   position: relative;
@@ -1897,7 +1897,6 @@ textarea.cps-form-control.\+no-resize {
   float: left;
 }
 .cps-topnav__content__menu > li > a {
-  padding-bottom: 1.5rem;
   text-decoration: none;
   color: #333333;
   font-size: 1.4rem;
@@ -1932,7 +1931,7 @@ textarea.cps-form-control.\+no-resize {
   min-width: 1024px;
 }
 .cps-topnav-secondary.\+banner-top {
-  margin-top: 3.7rem;
+  margin-top: 3.2rem;
 }
 .cps-topnav-secondary__content {
   border-top: 0.1rem solid #e9e9e9;
