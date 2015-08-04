@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-git-tasker
+node node_modules/git-tasker/bin/git-tasker

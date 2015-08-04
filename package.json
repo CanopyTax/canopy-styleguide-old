@@ -12,7 +12,7 @@
   "git-tasker": [
     {
       "matcher": "package.json",
-      "command": "node node_modules/git-tasker/bin/git-tasker"
+      "command": "npm install"
     }
   ],
   "repository": {
