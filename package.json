@@ -1,46 +1,54 @@
 {
-	"name": "canopy-styleguide",
-	"version": "1.4.4",
-	"description": "Style-guide for Canopy",
-	"main": "build/styleguide.css",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "node node_modules/webpack/bin/webpack.js --config webpack.config.build.js",
-		"deploy": "cp build/* ../canopy/node_modules/canopy-styleguide/build/"
+  "name": "canopy-styleguide",
+  "version": "1.4.4",
+  "description": "Style-guide for Canopy",
+  "main": "build/styleguide.css",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node node_modules/webpack/bin/webpack.js --config webpack.config.build.js",
+    "deploy": "cp build/* ../canopy/node_modules/canopy-styleguide/build/",
+    "prepublish": "npm run build"
   },
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/canopytax/styleguide.git"
-	},
-	"author": "Bret Little",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/canopytax/styleguide/issues"
-	},
-	"homepage": "https://github.com/canopytax/styleguide",
-	"devDependencies": {
-		"autoprefixer-loader": "^1.2.0",
-		"css-loader": "^0.9.1",
-		"extract-text-webpack-plugin": "^0.3.8",
-		"html-loader": "^0.2.3",
-		"json-loader": "^0.5.2",
-		"jsx-loader": "^0.12.2",
-		"less": "^2.4.0",
-		"less-loader": "^2.1.0",
-		"lodash": "^3.5.0",
-		"react": "^0.12.2",
-		"react-router": "^0.12.4",
-		"style-loader": "^0.8.3",
-		"webpack": "^1.7.2"
-	},
-	"dependencies": {
-		"canopy-iconography": "^1.2.3",
-		"file-loader": "^0.8.4",
-		"highlight.js": "^8.4.0",
-		"react-highlight": "^0.4.1",
-		"url-loader": "^0.5.6"
-	},
-	"publishConfig": {
-		"registry": "http://52.27.173.134:4873"
-	}
+  "git-tasker": [
+    {
+      "matcher": "package.json",
+      "command": "node node_modules/git-tasker/bin/git-tasker"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/canopytax/styleguide.git"
+  },
+  "author": "Bret Little",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/canopytax/styleguide/issues"
+  },
+  "homepage": "https://github.com/canopytax/styleguide",
+  "devDependencies": {
+    "autoprefixer-loader": "^1.2.0",
+    "css-loader": "^0.9.1",
+    "extract-text-webpack-plugin": "^0.3.8",
+    "git-tasker": "^1.0.1",
+    "html-loader": "^0.2.3",
+    "json-loader": "^0.5.2",
+    "jsx-loader": "^0.12.2",
+    "less": "^2.4.0",
+    "less-loader": "^2.1.0",
+    "lodash": "^3.5.0",
+    "react": "^0.12.2",
+    "react-router": "^0.12.4",
+    "style-loader": "^0.8.3",
+    "webpack": "^1.7.2"
+  },
+  "dependencies": {
+    "canopy-iconography": "^1.2.3",
+    "file-loader": "^0.8.4",
+    "highlight.js": "^8.4.0",
+    "react-highlight": "^0.4.1",
+    "url-loader": "^0.5.6"
+  },
+  "publishConfig": {
+    "registry": "http://52.27.173.134:4873"
+  }
 }

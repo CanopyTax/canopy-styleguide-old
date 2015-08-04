@@ -4,11 +4,11 @@
 
 @font-face {
   font-family: "canopy-icons";
-  src: url(c4c76e5cb22237428a892aa116bb263e.eot);
-  src: url(c4c76e5cb22237428a892aa116bb263e.eot?#iefix) format("embedded-opentype"),
-       url(af482e54ca3c90d0bf63fd4f3d507e97.woff) format("woff"),
-       url(0c0029bbd7629839a1193025ae690b61.ttf) format("truetype"),
-       url(fcf172606752e3005c74dd8821061521.svg#canopy-icons) format("svg");
+  src: url(03704cf84152178716fc530aa06717ed.eot);
+  src: url(03704cf84152178716fc530aa06717ed.eot?#iefix) format("embedded-opentype"),
+       url(a32f8d0ff6ed61b2ceb35eb6145e2c0d.woff) format("woff"),
+       url(65a1267a171ef7d929d7f7b64fd825cb.ttf) format("truetype"),
+       url(6403b14ee5a6bae1f5c2294e4f79a840.svg#canopy-icons) format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -16,7 +16,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: "canopy-icons";
-    src: url(fcf172606752e3005c74dd8821061521.svg#canopy-icons) format("svg");
+    src: url(6403b14ee5a6bae1f5c2294e4f79a840.svg#canopy-icons) format("svg");
   }
 }
 
@@ -76,7 +76,6 @@
 .cps-icon-pending:before,
 .cps-icon-phone:before,
 .cps-icon-print:before,
-.cps-icon-projects:before,
 .cps-icon-recent:before,
 .cps-icon-reports:before,
 .cps-icon-right-aligned:before,
@@ -90,6 +89,7 @@
 .cps-icon-sm-close:before,
 .cps-icon-sort:before,
 .cps-icon-statements:before,
+.cps-icon-tasks:before,
 .cps-icon-taxes:before,
 .cps-icon-tile-view:before,
 .cps-icon-transfer:before,
@@ -121,7 +121,7 @@
 .cps-icon-bell:before { content: "\f105"; }
 .cps-icon-billing:before { content: "\f106"; }
 .cps-icon-business:before { content: "\f107"; }
-.cps-icon-calendar:before { content: "\f14b"; }
+.cps-icon-calendar:before { content: "\f108"; }
 .cps-icon-cash:before { content: "\f109"; }
 .cps-icon-center-aligned:before { content: "\f10a"; }
 .cps-icon-client:before { content: "\f10b"; }
@@ -166,8 +166,7 @@
 .cps-icon-pending:before { content: "\f132"; }
 .cps-icon-phone:before { content: "\f133"; }
 .cps-icon-print:before { content: "\f134"; }
-.cps-icon-projects:before { content: "\f135"; }
-.cps-icon-recent:before { content: "\f14c"; }
+.cps-icon-recent:before { content: "\f135"; }
 .cps-icon-reports:before { content: "\f136"; }
 .cps-icon-right-aligned:before { content: "\f137"; }
 .cps-icon-right-caret:before { content: "\f138"; }
@@ -180,15 +179,16 @@
 .cps-icon-sm-close:before { content: "\f13f"; }
 .cps-icon-sort:before { content: "\f140"; }
 .cps-icon-statements:before { content: "\f141"; }
-.cps-icon-taxes:before { content: "\f142"; }
-.cps-icon-tile-view:before { content: "\f143"; }
-.cps-icon-transfer:before { content: "\f144"; }
-.cps-icon-trash:before { content: "\f145"; }
-.cps-icon-upload:before { content: "\f146"; }
-.cps-icon-valid:before { content: "\f147"; }
-.cps-icon-visible:before { content: "\f148"; }
-.cps-icon-work:before { content: "\f149"; }
-.cps-icon-wrench:before { content: "\f14a"; }
+.cps-icon-tasks:before { content: "\f142"; }
+.cps-icon-taxes:before { content: "\f143"; }
+.cps-icon-tile-view:before { content: "\f144"; }
+.cps-icon-transfer:before { content: "\f145"; }
+.cps-icon-trash:before { content: "\f146"; }
+.cps-icon-upload:before { content: "\f147"; }
+.cps-icon-valid:before { content: "\f148"; }
+.cps-icon-visible:before { content: "\f149"; }
+.cps-icon-work:before { content: "\f14a"; }
+.cps-icon-wrench:before { content: "\f14b"; }
 /** components.less **/
 
 /** bootstrap-grid.less **/

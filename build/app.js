@@ -46456,8 +46456,8 @@
 
 	module.exports = {
 		"checksum": {
-			"previous": "80785792b75462157966674134d23764525f0924f1a46c3046698e754c1ae2be",
-			"current": "80785792b75462157966674134d23764525f0924f1a46c3046698e754c1ae2be"
+			"previous": "3b3a20ee61a14997144dc24e6c723788b78e5ea588d0e2aa18dc51d285171bde",
+			"current": "3b3a20ee61a14997144dc24e6c723788b78e5ea588d0e2aa18dc51d285171bde"
 		},
 		"fonts": [
 			"build/canopy-icons.ttf",
@@ -46499,7 +46499,7 @@
 				"source": "icons/business.svg"
 			},
 			"calendar": {
-				"codepoint": 61771,
+				"codepoint": 61704,
 				"source": "icons/calendar.svg"
 			},
 			"cash": {
@@ -46678,12 +46678,8 @@
 				"codepoint": 61748,
 				"source": "icons/print.svg"
 			},
-			"projects": {
-				"codepoint": 61749,
-				"source": "icons/projects.svg"
-			},
 			"recent": {
-				"codepoint": 61772,
+				"codepoint": 61749,
 				"source": "icons/recent.svg"
 			},
 			"reports": {
@@ -46734,40 +46730,44 @@
 				"codepoint": 61761,
 				"source": "icons/statements.svg"
 			},
-			"taxes": {
+			"tasks": {
 				"codepoint": 61762,
+				"source": "icons/tasks.svg"
+			},
+			"taxes": {
+				"codepoint": 61763,
 				"source": "icons/taxes.svg"
 			},
 			"tile-view": {
-				"codepoint": 61763,
+				"codepoint": 61764,
 				"source": "icons/tile-view.svg"
 			},
 			"transfer": {
-				"codepoint": 61764,
+				"codepoint": 61765,
 				"source": "icons/transfer.svg"
 			},
 			"trash": {
-				"codepoint": 61765,
+				"codepoint": 61766,
 				"source": "icons/trash.svg"
 			},
 			"upload": {
-				"codepoint": 61766,
+				"codepoint": 61767,
 				"source": "icons/upload.svg"
 			},
 			"valid": {
-				"codepoint": 61767,
+				"codepoint": 61768,
 				"source": "icons/valid.svg"
 			},
 			"visible": {
-				"codepoint": 61768,
+				"codepoint": 61769,
 				"source": "icons/visible.svg"
 			},
 			"work": {
-				"codepoint": 61769,
+				"codepoint": 61770,
 				"source": "icons/work.svg"
 			},
 			"wrench": {
-				"codepoint": 61770,
+				"codepoint": 61771,
 				"source": "icons/wrench.svg"
 			}
 		},
@@ -46781,7 +46781,7 @@
 			"font_design_size": 16,
 			"font_em": 512,
 			"font_name": "canopy-icons",
-			"force": false,
+			"force": true,
 			"input": {
 				"templates": "icons",
 				"vectors": "icons"
