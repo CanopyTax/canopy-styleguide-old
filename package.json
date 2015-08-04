@@ -1,6 +1,6 @@
 {
 	"name": "canopy-styleguide",
-	"version": "1.4.3",
+	"version": "1.4.4",
 	"description": "Style-guide for Canopy",
 	"main": "build/styleguide.css",
 	"scripts": {

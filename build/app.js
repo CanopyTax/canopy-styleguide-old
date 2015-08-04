@@ -47725,7 +47725,9 @@
 							), 
 							React.createElement("div", {className: "cps-slat__actions +hover-show"}, 
 								React.createElement("i", {className: "cps-icon cps-icon-trash"}), 
-								React.createElement("i", {className: "cps-icon cps-icon-archive cps-margin-left-24"})
+								React.createElement("i", {className: "cps-icon cps-icon-archive cps-margin-left-24"}), 
+								React.createElement("span", {className: "cps-link cps-primary-green cps-margin-left-12"}, React.createElement("strong", null, "Move")), 
+								React.createElement("span", {className: "cps-link cps-primary-green"}, React.createElement("strong", null, "Rename"))
 							)
 						)
 					), 

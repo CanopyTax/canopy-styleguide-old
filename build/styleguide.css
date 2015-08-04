@@ -2312,6 +2312,10 @@ textarea.cps-form-control.\+no-resize {
   position: relative;
   top: -0.3rem;
 }
+.cps-slat__actions .cps-link {
+  position: relative;
+  top: -8px;
+}
 .cps-slat.\+small {
   height: 4.0rem;
 }

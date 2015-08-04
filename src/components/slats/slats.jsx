@@ -121,6 +121,8 @@ module.exports = React.createClass({
 						<div className="cps-slat__actions +hover-show">
 							<i className="cps-icon cps-icon-trash"></i>
 							<i className="cps-icon cps-icon-archive cps-margin-left-24"></i>
+							<span className="cps-link cps-primary-green cps-margin-left-12"><strong>Move</strong></span>
+							<span className="cps-link cps-primary-green"><strong>Rename</strong></span>
 						</div>
 					</div>
 				</div>
