@@ -1,14 +1,15 @@
 {
   "name": "canopy-styleguide",
-  "version": "1.4.6",
+  "version": "1.4.9",
   "description": "Style-guide for Canopy",
   "main": "build/styleguide.css",
   "scripts": {
-		"setup": "bin/install-git-hooks post-merge",
+    "setup": "bin/install-git-hooks post-merge",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node node_modules/webpack/bin/webpack.js --config webpack.config.build.js",
     "deploy": "cp build/* ../canopy/node_modules/canopy-styleguide/build/",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "patch-canopy": "echo 'Please ensure that your git working directory is clean' && npm version patch -m 'npm run patch-canopy has incremented the patch version of canopy-styleguide to %s' && npm publish && cd ../canopy && npm install && npm install --save canopy-styleguide@latest && npm shrinkwrap && echo 'Please make sure to commit and push any changed built files to source control'"
   },
   "git-tasker": [
     {
