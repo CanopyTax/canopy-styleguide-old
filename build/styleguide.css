@@ -4,11 +4,11 @@
 
 @font-face {
   font-family: "canopy-icons";
-  src: url(03704cf84152178716fc530aa06717ed.eot);
-  src: url(03704cf84152178716fc530aa06717ed.eot?#iefix) format("embedded-opentype"),
-       url(5c64cbc50abc8b3476dcc81018fd47c9.woff) format("woff"),
-       url(65a1267a171ef7d929d7f7b64fd825cb.ttf) format("truetype"),
-       url(6403b14ee5a6bae1f5c2294e4f79a840.svg#canopy-icons) format("svg");
+  src: url(e6be061cf17aa9a9be994ffcc30e5e09.eot);
+  src: url(e6be061cf17aa9a9be994ffcc30e5e09.eot?#iefix) format("embedded-opentype"),
+       url(7c15377ec5fb01ae4c579e0768c5c03a.woff) format("woff"),
+       url(8fc497ff9f2df9d29ae98a65c99438c7.ttf) format("truetype"),
+       url(a732943a8f60c0679580dc25294978f3.svg#canopy-icons) format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -16,7 +16,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: "canopy-icons";
-    src: url(6403b14ee5a6bae1f5c2294e4f79a840.svg#canopy-icons) format("svg");
+    src: url(a732943a8f60c0679580dc25294978f3.svg#canopy-icons) format("svg");
   }
 }
 
@@ -32,6 +32,7 @@
 .cps-icon-billing:before,
 .cps-icon-business:before,
 .cps-icon-calendar:before,
+.cps-icon-camera:before,
 .cps-icon-cash:before,
 .cps-icon-center-aligned:before,
 .cps-icon-client:before,
@@ -42,6 +43,7 @@
 .cps-icon-cloud:before,
 .cps-icon-cog:before,
 .cps-icon-compass:before,
+.cps-icon-conversation:before,
 .cps-icon-credits:before,
 .cps-icon-download:before,
 .cps-icon-duplicate:before,
@@ -66,6 +68,7 @@
 .cps-icon-list:before,
 .cps-icon-location:before,
 .cps-icon-lock:before,
+.cps-icon-megaphone:before,
 .cps-icon-menu-2:before,
 .cps-icon-more:before,
 .cps-icon-move:before,
@@ -77,6 +80,7 @@
 .cps-icon-phone:before,
 .cps-icon-print:before,
 .cps-icon-recent:before,
+.cps-icon-reorder:before,
 .cps-icon-reports:before,
 .cps-icon-right-aligned:before,
 .cps-icon-right-caret:before,
@@ -89,6 +93,7 @@
 .cps-icon-sm-close:before,
 .cps-icon-sort:before,
 .cps-icon-statements:before,
+.cps-icon-status:before,
 .cps-icon-tasks:before,
 .cps-icon-taxes:before,
 .cps-icon-tile-view:before,
@@ -122,6 +127,7 @@
 .cps-icon-billing:before { content: "\f106"; }
 .cps-icon-business:before { content: "\f107"; }
 .cps-icon-calendar:before { content: "\f108"; }
+.cps-icon-camera:before { content: "\f14c"; }
 .cps-icon-cash:before { content: "\f109"; }
 .cps-icon-center-aligned:before { content: "\f10a"; }
 .cps-icon-client:before { content: "\f10b"; }
@@ -132,6 +138,7 @@
 .cps-icon-cloud:before { content: "\f110"; }
 .cps-icon-cog:before { content: "\f111"; }
 .cps-icon-compass:before { content: "\f112"; }
+.cps-icon-conversation:before { content: "\f14d"; }
 .cps-icon-credits:before { content: "\f113"; }
 .cps-icon-download:before { content: "\f114"; }
 .cps-icon-duplicate:before { content: "\f115"; }
@@ -156,6 +163,7 @@
 .cps-icon-list:before { content: "\f128"; }
 .cps-icon-location:before { content: "\f129"; }
 .cps-icon-lock:before { content: "\f12a"; }
+.cps-icon-megaphone:before { content: "\f14e"; }
 .cps-icon-menu-2:before { content: "\f12b"; }
 .cps-icon-more:before { content: "\f12c"; }
 .cps-icon-move:before { content: "\f12d"; }
@@ -167,6 +175,7 @@
 .cps-icon-phone:before { content: "\f133"; }
 .cps-icon-print:before { content: "\f134"; }
 .cps-icon-recent:before { content: "\f135"; }
+.cps-icon-reorder:before { content: "\f150"; }
 .cps-icon-reports:before { content: "\f136"; }
 .cps-icon-right-aligned:before { content: "\f137"; }
 .cps-icon-right-caret:before { content: "\f138"; }
@@ -179,6 +188,7 @@
 .cps-icon-sm-close:before { content: "\f13f"; }
 .cps-icon-sort:before { content: "\f140"; }
 .cps-icon-statements:before { content: "\f141"; }
+.cps-icon-status:before { content: "\f14f"; }
 .cps-icon-tasks:before { content: "\f142"; }
 .cps-icon-taxes:before { content: "\f143"; }
 .cps-icon-tile-view:before { content: "\f144"; }
