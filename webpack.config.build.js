@@ -50,10 +50,6 @@ module.exports = {
 				loader: "file"
 			},
 			{
-				test: /\.woff$/,
-				loader: "file"
-			},
-			{
 				test: /\.svg$/,
 				loader: "file"
 			}

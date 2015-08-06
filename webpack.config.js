@@ -53,11 +53,6 @@ module.exports = {
 				loader: "file"
 			},
 			{
-				test: /\.woff$/,
-				loader: "file"
-				//loader: "url?limit=100&minetype=application/font-woff"
-			},
-			{
 				test: /\.svg$/,
 				loader: "file"
 				//loader: "url?limit=100&minetype=application/font-woff"
