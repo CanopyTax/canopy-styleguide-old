@@ -8,6 +8,7 @@
 @nav-height: 5.6rem;
 @half-nav-height: 2.8rem;
 @default-padding: 2.4rem;
+@banner-height: 3.2rem;
 
 .cps-topnav {
 	position: fixed;
@@ -18,7 +19,7 @@
 	min-width: 1024px;
 
 	&.\+banner-top {
-		top: 3.2rem;
+		top:@banner-height;
 		height: @nav-height;
 		line-height: @nav-height;
 		vertical-align: middle;
@@ -42,7 +43,6 @@
 		padding-left: @default-padding;
 		padding-right: @default-padding;
 
-
 		&__brand {
 			cursor: pointer;
 			float: left;
@@ -62,7 +62,7 @@
 			.clearfix;
 
 			&__form {
-				margin-top: 1.2rem;
+				padding-top: 1.2rem;
 			}
 
 			> li {
@@ -71,7 +71,6 @@
 				float: left;
 
 				> a {
-					padding-bottom: 1.5rem;
 					text-decoration: none;
 					color: @dark-gray;
 					font-size: 1.4rem;
@@ -113,7 +112,7 @@
 	min-width: 1024px;
 
 	&.\+banner-top {
-		margin-top: 3.7rem;
+		margin-top: @banner-height;
 	}
 
 	&__content {
