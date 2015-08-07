@@ -1939,6 +1939,7 @@ textarea.cps-form-control.\+no-resize {
   color: #333333;
   box-shadow: 0 0.3rem 0.5rem 0 rgba(0, 0, 0, 0.18);
   min-width: 1024px;
+  height: 5.6rem;
 }
 .cps-topnav-secondary.\+banner-top {
   margin-top: 3.2rem;
