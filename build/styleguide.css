@@ -1677,13 +1677,10 @@ label.cps-has-error {
   top: 0;
 }
 .cps-has-feedback-left .cps-form-control {
-  padding: 2px 12px 1px 12px;
+  padding: 0 12px 1px 12px;
 }
 .cps-has-feedback-left .cps-form-control {
-  padding-left: 32px;
-}
-.cps-has-feedback-left .cps-form-control {
-  padding-left: 32px;
+  padding-left: 44px;
 }
 .cps-has-feedback-left .cps-form-control-feedback {
   left: 8px;

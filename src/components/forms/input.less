@@ -72,7 +72,6 @@ fieldset[disabled] .cps-form-control {
 		margin-left: -8px;
 	}
 
-
 	.cps-control-label {
 		display: inline-block;
 		padding-top: 7px;
@@ -80,6 +79,7 @@ fieldset[disabled] .cps-form-control {
 		text-align: right;
 		padding-right: 16px;
 	}
+
 	.cps-has-feedback .cps-form-control-feedback, .cps-has-error .cps-form-control-feedback {
 		right: 11px;
 	}
@@ -123,8 +123,8 @@ fieldset[disabled] .cps-form-control {
 			float: none;
 			margin-left: 0;
 		}
-
 	}
+
 	.cps-has-feedback, .cps-has-error  {
 		label ~ .cps-form-control-feedback {
 			right: 3px;
@@ -168,13 +168,16 @@ fieldset[disabled] .cps-form-control {
 
 .cps-form-help-block {
 	display: block;
+
 	> i {
 		vertical-align: middle;
 	}
+
 	> a {
 		vertical-align: middle;
 	}
 }
+
 .cps-error-block {
 	display: none;
 	font-size: 12px;
@@ -193,10 +196,12 @@ label.cps-has-error {
 		display: block;
 		color: @warning;
 	}
+
 	.cps-form-group-resize > .cps-error-block {
 		display: inline-block;
 		color: black !important;
 	}
+
 	.cps-error-block, .cps-radio,
 	.cps-checkbox, .cps-radio-inline, .cps-checkbox-inline {
 		color: @warning;
@@ -211,7 +216,7 @@ label.cps-has-error {
 		box-shadow: none; /* emulate the border */
 	}
 
-		.cps-form-control:focus {
+	.cps-form-control:focus {
 		border-color: transparent; /* remove the border's color */
 		box-shadow: 0 0 0 2px rgba(254,153,108, .3); /* emulate the border */
 	}
@@ -226,6 +231,7 @@ label.cps-has-error {
 	label {
 		color: @warning !important;
 	}
+
 	.cps-input-group-addon {
 		background-color: @warning;
 		border-color: @warning;
@@ -234,7 +240,6 @@ label.cps-has-error {
 			color: white !important;
 		}
 	}
-
 }
 
 .cps-has-error, .cps-has-feedback {
@@ -248,20 +253,15 @@ label.cps-has-error {
 	}
 }
 
-
 .cps-has-feedback-left {
 	// Left Icon Input Padding
 	.cps-form-control {
 		//reset changes to right
-		padding: 2px 12px 1px 12px;
+		padding: 0 12px 1px 12px;
 	}
 
 	.cps-form-control {
-		padding-left: 32px;
-	}
-
-	.cps-form-control {
-		padding-left: 32px;
+		padding-left: 44px;
 	}
 }
 
@@ -281,7 +281,6 @@ label.cps-has-error {
 		padding-top: 0px;
 		padding-right: 8px !important; // 8px + 16px from col = 24px
 	}
-
 }
 
 .cps-form-control-resize {
@@ -299,12 +298,11 @@ label.cps-has-error {
 	color: @medium-gray;
 	height: 75%;
 
-		&:focus {
-			//background-color:  rgba(84,178,88, .3);
-			border: 1px solid @gray9;
-		}
+	&:focus {
+		//background-color:  rgba(84,178,88, .3);
+		border: 1px solid @gray9;
+	}
 }
-
 
 input[readonly="readonly"].cps-form-control-resize {
 	cursor: text;
@@ -315,20 +313,21 @@ input[type="text"].cps-form-control-resize::-webkit-input-placeholder {
 	font-size: inherit;
 	color: @gray9;
 }
+
 input[type="text"].cps-form-control-resize::-moz-placeholder {
 	font-size: inherit;
 	color: @gray9;
 }
+
 input[type="text"].cps-form-control-resize::-moz-placeholder {   /* Older versions of Firefox */
 	font-size: inherit;
 	color: @gray9;
 }
+
 input[type="text"].cps-form-control-resize::-ms-input-placeholder {
 	font-size: inherit;
 	color: @gray9;
 }
-
-
 
 @media (min-width: 768px) {
 	.cps-form-inline label {
@@ -401,11 +400,13 @@ input[type="text"].cps-form-control-resize::-ms-input-placeholder {
 	&.cps-icon-addon {
 		padding: 0px 4px;
 	}
+
 	&:first-child {
 		border-right: 0;
 		border-top-right-radius: 0;
 		border-bottom-right-radius: 0;
 	}
+
 	&:last-child {
 		border-left: 0;
 		border-top-left-radius: 0;
