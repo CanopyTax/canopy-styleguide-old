@@ -1488,6 +1488,12 @@ fieldset[disabled] .checkbox-inline {
   box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.3);
   /* emulate the border */
 }
+.cps-form-control:-moz-submit-invalid {
+  box-shadow: none;
+}
+.cps-form-control:-moz-ui-invalid {
+  box-shadow: none;
+}
 .cps-form-control[disabled],
 .cps-form-control[readonly],
 fieldset[disabled] .cps-form-control {

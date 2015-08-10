@@ -43,6 +43,14 @@
 		border-color: transparent; /* remove the border's color */
 		box-shadow: 0 0 0 2px rgba(76,175,80,.3); /* emulate the border */
 	}
+
+	&:-moz-submit-invalid {
+		box-shadow: none;
+	}
+
+	&:-moz-ui-invalid {
+		box-shadow:none;
+	}
 }
 
 .cps-form-control[disabled],
@@ -125,7 +133,7 @@ fieldset[disabled] .cps-form-control {
 		}
 	}
 
-	.cps-has-feedback, .cps-has-error  {
+	.cps-has-feedback, .cps-has-error	{
 		label ~ .cps-form-control-feedback {
 			right: 3px;
 		}
@@ -158,7 +166,7 @@ fieldset[disabled] .cps-form-control {
 	color: @light-gray;
 }
 
-.cps-form-group > .cps-row > *  > .cps-form-control-feedback {
+.cps-form-group > .cps-row > *	> .cps-form-control-feedback {
 	right: 8px;
 }
 
@@ -222,9 +230,9 @@ label.cps-has-error {
 	}
 
 	.cps-form-control-resize {
-		background-color:  rgba(254,143,108, .3);
+		background-color:	rgba(254,143,108, .3);
 		&:focus {
-			background-color:  rgba(254,143,108, .3) !important;
+			background-color:	rgba(254,143,108, .3) !important;
 		}
 	}
 
@@ -299,7 +307,7 @@ label.cps-has-error {
 	height: 75%;
 
 	&:focus {
-		//background-color:  rgba(84,178,88, .3);
+		//background-color:	rgba(84,178,88, .3);
 		border: 1px solid @gray9;
 	}
 }
@@ -319,7 +327,7 @@ input[type="text"].cps-form-control-resize::-moz-placeholder {
 	color: @gray9;
 }
 
-input[type="text"].cps-form-control-resize::-moz-placeholder {   /* Older versions of Firefox */
+input[type="text"].cps-form-control-resize::-moz-placeholder {	 /* Older versions of Firefox */
 	font-size: inherit;
 	color: @gray9;
 }
