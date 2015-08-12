@@ -803,28 +803,6 @@
   opacity: 1;
 }
 /** icons.less **/
-#cps-app [class^="cps-icon-"],
-#cps-app [class*=" cps-icon-"] {
-  font-family: inherit;
-  speak: inherit;
-  font-style: inherit;
-  font-weight: inherit;
-  font-variant: inherit;
-  text-transform: inherit;
-}
-#cps-app [class^="cps-icon-"]:before,
-#cps-app [class*=" cps-icon-"]:before {
-  font-family: 'canopy-icons';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 .cps-icon {
   font-size: 2.4rem;
   color: #777777;
