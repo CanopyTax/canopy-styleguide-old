@@ -12,8 +12,8 @@ var icons = _.map(require('canopy-iconography/.fontcustom-manifest.json').glyphs
 var Sidebar = React.createClass({
   render: function () {
 	    return (
-				<div className="cps-flexible-sidenav +tall-top">
-					<div className="cps-flexible-sidenav__menu">
+				<div className="cps-flexible-sidenav +tall-top" style={{height: '100%'}}>
+					<div className="cps-flexible-sidenav__menu" style={{overflow: 'auto', height: 'calc(100% - 175px)'}}>
 					{components.map(function(component, i) {
 						var classes = "cps-icon " + icons[i] + " cps-flexible-sidenav__menu__item__icon";
 						if(component.link) {

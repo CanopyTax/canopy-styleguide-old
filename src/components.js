@@ -16,5 +16,7 @@ module.exports = [
 	{ title: "Modals",		html: require('./components/modals/modals.jsx') },
 	{ title: "Lists",		html: require('./components/lists/lists.jsx') },
 	{ title: "Loaders",		html: require('./components/loaders/loaders.jsx') },
+	{ title: 'Animations', html: require('./components/animate.jsx')},
+	{ title: 'Utility Classes', html: require('./components/utilities.jsx')},
 	{ title: "JavaScript Widgets", html: require('./js-widgets.jsx')}
 ];

@@ -77,6 +77,16 @@ module.exports = React.createClass({
 						</div>
 					</div>
 				</div>
+				<hr/>
+				<div className='cps-card__header cps-subheader'>
+					Angular Helpers
+				</div>
+				<div className='cps-card__body'>
+					<b>form-helpers.service.js</b> includes useful form methods:
+					<ul>
+						<li><b>hasError</b> - Returns true if a form field is invalid or the outer form was submitted. Look at <b>edit-user.controller.js</b> and the associated template for an example.</li>
+					</ul>
+				</div>
 			</div>
 
 				<Highlight className="html">

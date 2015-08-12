@@ -169,7 +169,7 @@ module.exports = React.createClass({
 					People Picker / Multi-select
 				</div>
 				<div className="cps-card__body">
-					The mutli-selector widget is located in a <a href="http://canopytax.github.io/cp-multi-selector/">separate repository</a>.
+					The mutli-selector widget is located in a <a href="https://github.com/CanopyTax/cp-multi-selector">separate repository</a>.
 				</div>
 			</div>
 		</div>

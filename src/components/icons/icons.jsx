@@ -145,6 +145,9 @@ module.exports = React.createClass({
 <div class="cps-label-square +medium +active">
   <div class="cps-center-vertical">AC</div>
 </div>
+<div class="cps-label-square__add +medium">
+  <div class="cps-center-vertical"><i class="cps-icon cps-icon-add-person"></i></div>
+</div>
 `
 				}
 				</Highlight>
