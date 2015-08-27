@@ -1869,7 +1869,7 @@ textarea.cps-form-control.\+no-resize {
   list-style: none;
   float: left;
   margin: 0;
-  padding-left: 16px;
+  padding-left: 1rem;
 }
 .cps-topnav__content__menu:before,
 .cps-topnav__content__menu:after {
@@ -1893,8 +1893,8 @@ textarea.cps-form-control.\+no-resize {
   font-size: 1.4rem;
   position: relative;
   display: block;
-  padding-right: 2.4rem;
-  padding-left: 2.4rem;
+  padding-right: 1.6rem;
+  padding-left: 1.6rem;
 }
 .cps-topnav__content__menu > li > a:hover,
 .cps-topnav__content__menu > li > a:focus {
