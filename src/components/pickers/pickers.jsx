@@ -10,7 +10,7 @@ module.exports = React.createClass({
 				</div>
 				<div className="cps-card__body">
 					<p>
-						The styleguide provides some override styles for the bootstrap date picker. Generate a datepicker as usuall with
+						The styleguide provides some override styles for the bootstrap date picker. Generate a datepicker as usual with
 						bootstrap and make sure that the id "cps-app" is on the body tag. The date picker should automatically style correctly.
 					</p>
 					<div className="datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-top"
@@ -110,13 +110,11 @@ module.exports = React.createClass({
 								</thead>
 								<tbody>
 									<tr>
-										<td colSpan="7"><span className="month">Jan</span><span className="month">Feb</span><span className="month active">Mar</span>
-											<span
-											className="month">Apr</span><span className="month">May</span><span className="month">Jun</span>
-												<span
-												className="month">Jul</span><span className="month">Aug</span><span className="month">Sep</span>
-													<span
-													className="month">Oct</span><span className="month">Nov</span><span className="month">Dec</span>
+										<td colSpan="7">
+											<span className="month">Jan</span><span className="month">Feb</span><span className="month active">Mar</span>
+											<span className="month">Apr</span><span className="month">May</span><span className="month">Jun</span>
+											<span className="month">Jul</span><span className="month">Aug</span><span className="month">Sep</span>
+											<span className="month">Oct</span><span className="month">Nov</span><span className="month">Dec</span>
 										</td>
 									</tr>
 								</tbody>
@@ -141,13 +139,11 @@ module.exports = React.createClass({
 								</thead>
 								<tbody>
 									<tr>
-										<td colSpan="7"><span className="year old">2009</span><span className="year">2010</span><span className="year">2011</span>
-											<span
-											className="year">2012</span><span className="year">2013</span><span className="year">2014</span>
-												<span
-												className="year active">2015</span><span className="year">2016</span><span className="year">2017</span>
-													<span
-													className="year">2018</span><span className="year">2019</span><span className="year new">2020</span>
+										<td colSpan="7">
+											<span className="year old">2009</span><span className="year">2010</span><span className="year">2011</span>
+											<span className="year">2012</span><span className="year">2013</span><span className="year">2014</span>
+											<span className="year active">2015</span><span className="year">2016</span><span className="year">2017</span>
+											<span className="year">2018</span><span className="year">2019</span><span className="year new">2020</span>
 										</td>
 									</tr>
 								</tbody>
@@ -169,7 +165,7 @@ module.exports = React.createClass({
 					People Picker / Multi-select
 				</div>
 				<div className="cps-card__body">
-					The mutli-selector widget is located in a <a href="https://github.com/CanopyTax/cp-multi-selector">separate repository</a>.
+					The multi-selector widget is located in a <a href="https://github.com/CanopyTax/cp-multi-selector">separate repository</a>.
 				</div>
 			</div>
 		</div>

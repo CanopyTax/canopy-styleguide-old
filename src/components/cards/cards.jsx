@@ -31,14 +31,14 @@ module.exports = React.createClass({
 				{
 `<div class="cps-flexible-focus cps-card">
   <div class="cps-card__header cps-subheader">
-    The Header content goes here.
+	The Header content goes here.
   </div>
   <div class="cps-card__body">
-    Put card main content with a body tag.
+	Put card main content with a body tag.
   </div>
   <div class="cps-card__hr"></div>
   <div class="cps-card__body">
-    There can be multiple body tags, generally separated by an hr
+	There can be multiple body tags, generally separated by an hr
   </div>
 </div>`
 				}
@@ -70,20 +70,20 @@ module.exports = React.createClass({
 				{
 `<div class="cps-fixed-focus cps-card">
   <div class="cps-card__header cps-subheader">
-    The Header content goes here.
+	The Header content goes here.
   </div>
   <div class="cps-card__body">
-    Put card main content with a body tag.
-    Inline banners:
-    <div class="cps-card__banner cps-bg-success cps-white">A long banner can appear within a card</div>
+	Put card main content with a body tag.
+	Inline banners:
+	<div class="cps-card__banner cps-bg-success cps-white">A long banner can appear within a card</div>
   </div>
   <div class="cps-card__hr"></div>
   <div class="cps-card__body">
-    There can be multiple body tags, generally separated by an hr
+	There can be multiple body tags, generally separated by an hr
   </div>
   <div class="cps-card__banner +large +bg-warning"><i class="cps-icon cps-icon-error cps-warning"><span>A large banner can also appear in a card</span></i></div>
   <p>
-    Followed by more text.
+	Followed by more text.
   </p>
 </div>`
 				}
@@ -184,23 +184,23 @@ module.exports = React.createClass({
 				{
 `<div class="cps-fixed-masonry">
   <div class="cps-row">
-    <div class="cps-col-xs-6">
-      <div class="cps-fixed-masonry__card cps-card">
-        <div class="cps-card__header">
-          Card 1
-        </div>
-        <div class="cps-card__body">
-          Card Content
-        </div>
-      </div>
-    </div>
-    <div class="cps-col-xs-6">
-      <div class="cps-fixed-masonry__card cps-card">
-        <div class="cps-card__header">
-          Card 2
-        </div>
-      </div>
-    </div>
+	<div class="cps-col-xs-6">
+	  <div class="cps-fixed-masonry__card cps-card">
+		<div class="cps-card__header">
+		  Card 1
+		</div>
+		<div class="cps-card__body">
+		  Card Content
+		</div>
+	  </div>
+	</div>
+	<div class="cps-col-xs-6">
+	  <div class="cps-fixed-masonry__card cps-card">
+		<div class="cps-card__header">
+		  Card 2
+		</div>
+	  </div>
+	</div>
   </div>
 </div>`
 				}
@@ -276,25 +276,25 @@ module.exports = React.createClass({
 				<Highlight className="html">
 				{
 `
-<!-- The flexible masonry grid can be acheived purely in CSS or with the masonry JS lib available at http://masonry.desandro.com/ -->
-<!-- If you want to have the CSS functionality, wrapp all the cards in a "cps-flexible-masonry class". -->
+<!-- The flexible masonry grid can be achieved purely in CSS or with the masonry JS lib available at http://masonry.desandro.com/ -->
+<!-- If you want to have the CSS functionality, wrap all the cards in a "cps-flexible-masonry class". -->
 <!-- Give the cards a link style by adding the "+link" modifier -->
 <div class="cps-flexible-masonry cps-flexible-focus">
   <div class="cps-flexible-masonry-card +link">
-    <div class="cps-flexible-masonry-card__title">
-      Title of the note goes here
-    </div>
-    <div class="cps-flexible-masonry-card__body">
-      Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone.
-    </div>
+	<div class="cps-flexible-masonry-card__title">
+	  Title of the note goes here
+	</div>
+	<div class="cps-flexible-masonry-card__body">
+	  Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone.
+	</div>
   </div>
   <div class="cps-flexible-masonry-card">
-    <div class="cps-flexible-masonry-card__title">
-      Title of the note goes here
-    </div>
-    <div class="cps-flexible-masonry-card__body">
-      Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone.
-    </div>
+	<div class="cps-flexible-masonry-card__title">
+	  Title of the note goes here
+	</div>
+	<div class="cps-flexible-masonry-card__body">
+	  Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone.
+	</div>
   </div>
 </div>
 `
@@ -329,15 +329,15 @@ module.exports = React.createClass({
 				<Highlight className="html">
 				{
 `<!-- Small cards can be created with the "+small" class modifier -->
-<div className="cps-fixed-focus">
-  <div className="cps-flexible-masonry-card +small">
-    <div className="cps-flexible-masonry-card__title">
-      Title of the note goes here
-    </div>
-    <div className="cps-flexible-masonry-card__body">
-      Salami venison spare ribs shankle landjaeger tongue
-    </div>
-  </div>
+<div class="cps-fixed-focus">
+	<div class="cps-flexible-masonry-card +small">
+		<div class="cps-flexible-masonry-card__title">
+			Title of the note goes here
+		</div>
+		<div class="cps-flexible-masonry-card__body">
+			Salami venison spare ribs shankle landjaeger tongue
+		</div>
+	</div>
 </div>
 `
 				}

@@ -44,6 +44,13 @@ module.exports = React.createClass({
 <a href class="cps-btn +secondary">secondary link</a>
 <button class="cps-btn +primary"><span class="cps-icon cps-icon-upload"></span> primary</button>
 <a href class="cps-btn +primary">PRIMARY link <span class="cps-icon cps-icon-upload"></span></a>
+
+<button class="cps-btn +primary +disabled">PRIMARY</button>
+<button class="cps-btn +secondary" disabled>secondary</button>
+<a href class="cps-btn +primary +disabled">PRIMARY link</a>
+<a href class="cps-btn +secondary +disabled">secondary link</a>
+<button class="cps-btn +primary" disabled><span class="cps-icon cps-icon-upload"></span> primary</button>
+<a href class="cps-btn +primary" disabled>PRIMARY link <span class="cps-icon cps-icon-upload"></span></a>
 `
 				}
 				</Highlight>
@@ -64,7 +71,8 @@ module.exports = React.createClass({
 				</div>
 								<Highlight className="html">
 				{
-`<a href class="cps-link">PRIMARY link</a>
+`<span class="cps-link cps-primary-green"><strong>PRIMARY link</strong></span>
+<a href class="cps-link">PRIMARY link</a>
 <a href class="cps-link" disabled="disabled">PRIMARY link</a>
 <a href class="cps-link"><span class="cps-icon cps-icon-lg-check"></span> ACCEPT</a>
 <a href class="cps-link" disabled="disabled"><span class="cps-icon cps-icon-lg-check"></span> PRIMARY link</a>
@@ -93,9 +101,12 @@ module.exports = React.createClass({
 
 								<Highlight className="html">
 				{
-`<div className="cps-btn-icon">
-  <a href class="cps-link"><span class="cps-icon cps-icon-work"></span></a>
-  <a href class="cps-link"><span class="cps-icon cps-icon-cog"></span></a>
+`<div class="cps-btn-icon">
+	<a href class="cps-link"><span class="cps-icon cps-icon-work"></span></a>
+	<a href class="cps-link"><span class="cps-icon cps-icon-cog"></span></a>
+	<a href class="cps-link"><span class="cps-icon cps-icon-close"></span></a>
+	<a href class="cps-link"><span class="cps-icon cps-icon-help"></span></a>
+	<a href class="cps-link"><span class="cps-icon cps-icon-lg-check"></span></a>
 </div>`
 				}
 				</Highlight>
@@ -121,4 +132,4 @@ module.exports = React.createClass({
 			</div>
 			)
 		}
-})
+});

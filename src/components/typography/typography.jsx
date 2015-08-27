@@ -22,6 +22,9 @@ module.exports = React.createClass({
 							</div>
 						</div>
 					</div>
+				</div>
+				<hr />
+				<div className="cps-card__body">
 					<div className="cps-row cps-semibold ">
 						<div className="cps-col-xs-2"><span className="cps-pull-right">SEMIBOLD</span>
 						</div>
@@ -30,7 +33,7 @@ module.exports = React.createClass({
 						<div className="cps-col-xs-8 cps-text-muted-dark">An economy based on endless growth is unsustainable</div>
 					</div>
 				</div>
-				<div className="cps-card__hr"></div>
+				<hr />
 				<div className="cps-card__body">
 					<div className="cps-row">
 						<div className="cps-col-xs-2"><span className="cps-pull-right">LARGE HEADER</span>
@@ -42,6 +45,9 @@ module.exports = React.createClass({
 							<div>Line Height 52px</div>
 						</div>
 					</div>
+				</div>
+				<hr />
+				<div className="cps-card__body">
 					<div className="cps-row">
 						<div className="cps-col-xs-2"><span className="cps-pull-right">HEADER</span>
 						</div>
@@ -52,6 +58,9 @@ module.exports = React.createClass({
 							<div>Line Height 44px</div>
 						</div>
 					</div>
+				</div>
+				<hr />
+				<div className="cps-card__body">
 					<div className="cps-row ">
 						<div className="cps-col-xs-2"><span className="cps-pull-right">SUBHEADER</span>
 						</div>
@@ -62,6 +71,9 @@ module.exports = React.createClass({
 							<div>Line Height 32px</div>
 						</div>
 					</div>
+				</div>
+				<hr />
+				<div className="cps-card__body">
 					<div className="cps-row">
 						<div className="cps-col-xs-2"><span className="cps-pull-right">SUBHEADER 2</span>
 						</div>
@@ -72,6 +84,9 @@ module.exports = React.createClass({
 							<div>Line Height 28px</div>
 						</div>
 					</div>
+				</div>
+				<hr />
+				<div className="cps-card__body">
 					<div className="cps-row">
 						<div className="cps-col-xs-2"><span className="cps-pull-right">BODY</span>
 						</div>
@@ -82,6 +97,9 @@ module.exports = React.createClass({
 							<div>Line Height 24px</div>
 						</div>
 					</div>
+				</div>
+				<hr />
+				<div className="cps-card__body">
 					<div className="cps-row">
 						<div className="cps-col-xs-2"><span className="cps-pull-right">BODY 2</span>
 						</div>
@@ -92,6 +110,9 @@ module.exports = React.createClass({
 							<div>Line Height 20px</div>
 						</div>
 					</div>
+				</div>
+				<hr />
+				<div className="cps-card__body">
 					<div className="cps-row">
 						<div className="cps-col-xs-2"><span className="cps-pull-right">CAPTION</span>
 						</div>
