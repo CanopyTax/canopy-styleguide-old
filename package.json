@@ -1,6 +1,6 @@
 {
   "name": "canopy-styleguide",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Style-guide for Canopy",
   "main": "build/styleguide.css",
   "scripts": {
@@ -45,7 +45,7 @@
     "webpack": "^1.7.2"
   },
   "dependencies": {
-    "canopy-iconography": "^1.3.0",
+    "canopy-iconography": "^1.4.0",
     "file-loader": "^0.8.4",
     "highlight.js": "^8.4.0",
     "react-highlight": "^0.4.1",
