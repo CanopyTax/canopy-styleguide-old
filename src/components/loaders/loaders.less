@@ -1,21 +1,33 @@
 /** loaders.less **/
 
+@large: 42px;
+@small: 8px;
+
 .cps-loader {
 	padding:0 36px;
 	display: block;
 }
 
-.cps-loader span{
-	width:8px;
-	height:8px;
+.cps-loader.\+page span {
+	width: @large;
+	height: @large;
+}
+
+.cps-loader span {
+	width: @small;
+	height: @small;
 	float:left;
 	border-radius:50%;
 	opacity:0.2;
 	background-color:#e0e0e0;
 }
 
-.cps-loader span:not(:first-child){
-	margin-left:8px;
+.cps-loader span:not(:first-child) {
+	margin-left: @small;
+}
+
+.cps-loader.\+page span:not(:first-child) {
+	margin-left: @large;
 }
 
 .cps-loader span:first-child{

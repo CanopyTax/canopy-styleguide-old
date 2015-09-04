@@ -3537,6 +3537,10 @@ strong {
   padding: 0 36px;
   display: block;
 }
+.cps-loader.\+page span {
+  width: 42px;
+  height: 42px;
+}
 .cps-loader span {
   width: 8px;
   height: 8px;
@@ -3547,6 +3551,9 @@ strong {
 }
 .cps-loader span:not(:first-child) {
   margin-left: 8px;
+}
+.cps-loader.\+page span:not(:first-child) {
+  margin-left: 42px;
 }
 .cps-loader span:first-child {
   -webkit-animation: fball 1350ms infinite linear;

@@ -38,6 +38,13 @@ module.exports = React.createClass({
 `
 						}
 					</Highlight>
+					<div className='cps-flexible-focus'>
+						<div className='cps-loader +page'>
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+					</div>
 				</div>
 		)
 	}
