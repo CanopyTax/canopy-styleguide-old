@@ -49032,8 +49032,8 @@
 
 	module.exports = {
 		"checksum": {
-			"previous": "8d5b241d2884177bff70f56ca330db409d7a7500ce2300f8632de20034825607",
-			"current": "8d5b241d2884177bff70f56ca330db409d7a7500ce2300f8632de20034825607"
+			"previous": "8640a67eb228f9517943854cde2756f7d8c9340918f454306d8ff965833759a7",
+			"current": "8640a67eb228f9517943854cde2756f7d8c9340918f454306d8ff965833759a7"
 		},
 		"fonts": [
 			"build/canopy-icons.ttf",
@@ -49049,6 +49049,10 @@
 			"add-person": {
 				"codepoint": 61697,
 				"source": "icons/add-person.svg"
+			},
+			"alarm": {
+				"codepoint": 61779,
+				"source": "icons/alarm.svg"
 			},
 			"archive": {
 				"codepoint": 61698,
@@ -49133,6 +49137,10 @@
 			"download": {
 				"codepoint": 61716,
 				"source": "icons/download.svg"
+			},
+			"drag": {
+				"codepoint": 61780,
+				"source": "icons/drag.svg"
 			},
 			"duplicate": {
 				"codepoint": 61717,
@@ -49246,6 +49254,14 @@
 				"codepoint": 61741,
 				"source": "icons/move.svg"
 			},
+			"move-down": {
+				"codepoint": 61783,
+				"source": "icons/move-down.svg"
+			},
+			"move-up": {
+				"codepoint": 61784,
+				"source": "icons/move-up.svg"
+			},
 			"nav": {
 				"codepoint": 61742,
 				"source": "icons/nav.svg"
@@ -49274,6 +49290,10 @@
 				"codepoint": 61748,
 				"source": "icons/print.svg"
 			},
+			"projects": {
+				"codepoint": 61781,
+				"source": "icons/projects.svg"
+			},
 			"recent": {
 				"codepoint": 61749,
 				"source": "icons/recent.svg"
@@ -49297,6 +49317,10 @@
 			"search": {
 				"codepoint": 61753,
 				"source": "icons/search.svg"
+			},
+			"send": {
+				"codepoint": 61782,
+				"source": "icons/send.svg"
 			},
 			"sm-caret-down": {
 				"codepoint": 61754,

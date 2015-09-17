@@ -4,11 +4,11 @@
 
 @font-face {
   font-family: "canopy-icons";
-  src: url(9909c1335e418d38221ac603b9604636.eot);
-  src: url(9909c1335e418d38221ac603b9604636.eot?#iefix) format("embedded-opentype"),
-       url(36752c8ecd020bc95bba681f9bdf158e.woff) format("woff"),
-       url(6c582f5024a88c367a651483109dbbfd.ttf) format("truetype"),
-       url(ea688b46bfc5aba0d1df92284eff9162.svg#canopy-icons) format("svg");
+  src: url(34c7da6bace2cbb4151e6b5b5681cebf.eot);
+  src: url(34c7da6bace2cbb4151e6b5b5681cebf.eot?#iefix) format("embedded-opentype"),
+       url(1a7e07ab4ddc8f6e80f2cc27e0aa879f.woff) format("woff"),
+       url(d3775e6e668e4abd46946265e286a0f0.ttf) format("truetype"),
+       url(a7e983c5394698c44ab6d7ebca32a372.svg#canopy-icons) format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -16,7 +16,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: "canopy-icons";
-    src: url(ea688b46bfc5aba0d1df92284eff9162.svg#canopy-icons) format("svg");
+    src: url(a7e983c5394698c44ab6d7ebca32a372.svg#canopy-icons) format("svg");
   }
 }
 
@@ -25,6 +25,7 @@
 [data-icon]:before,
 .cps-icon-add:before,
 .cps-icon-add-person:before,
+.cps-icon-alarm:before,
 .cps-icon-archive:before,
 .cps-icon-arrow-left:before,
 .cps-icon-attachment:before,
@@ -46,6 +47,7 @@
 .cps-icon-conversation:before,
 .cps-icon-credits:before,
 .cps-icon-download:before,
+.cps-icon-drag:before,
 .cps-icon-duplicate:before,
 .cps-icon-email:before,
 .cps-icon-error:before,
@@ -74,6 +76,8 @@
 .cps-icon-menu-2:before,
 .cps-icon-more:before,
 .cps-icon-move:before,
+.cps-icon-move-down:before,
+.cps-icon-move-up:before,
 .cps-icon-nav:before,
 .cps-icon-notes:before,
 .cps-icon-number:before,
@@ -81,12 +85,14 @@
 .cps-icon-pending:before,
 .cps-icon-phone:before,
 .cps-icon-print:before,
+.cps-icon-projects:before,
 .cps-icon-recent:before,
 .cps-icon-reorder:before,
 .cps-icon-reports:before,
 .cps-icon-right-aligned:before,
 .cps-icon-right-caret:before,
 .cps-icon-search:before,
+.cps-icon-send:before,
 .cps-icon-sm-caret-down:before,
 .cps-icon-sm-caret-left:before,
 .cps-icon-sm-caret-right:before,
@@ -122,6 +128,7 @@
 
 .cps-icon-add:before { content: "\f100"; }
 .cps-icon-add-person:before { content: "\f101"; }
+.cps-icon-alarm:before { content: "\f153"; }
 .cps-icon-archive:before { content: "\f102"; }
 .cps-icon-arrow-left:before { content: "\f103"; }
 .cps-icon-attachment:before { content: "\f104"; }
@@ -143,6 +150,7 @@
 .cps-icon-conversation:before { content: "\f14d"; }
 .cps-icon-credits:before { content: "\f113"; }
 .cps-icon-download:before { content: "\f114"; }
+.cps-icon-drag:before { content: "\f154"; }
 .cps-icon-duplicate:before { content: "\f115"; }
 .cps-icon-email:before { content: "\f116"; }
 .cps-icon-error:before { content: "\f117"; }
@@ -171,6 +179,8 @@
 .cps-icon-menu-2:before { content: "\f12b"; }
 .cps-icon-more:before { content: "\f12c"; }
 .cps-icon-move:before { content: "\f12d"; }
+.cps-icon-move-down:before { content: "\f157"; }
+.cps-icon-move-up:before { content: "\f158"; }
 .cps-icon-nav:before { content: "\f12e"; }
 .cps-icon-notes:before { content: "\f12f"; }
 .cps-icon-number:before { content: "\f130"; }
@@ -178,12 +188,14 @@
 .cps-icon-pending:before { content: "\f132"; }
 .cps-icon-phone:before { content: "\f133"; }
 .cps-icon-print:before { content: "\f134"; }
+.cps-icon-projects:before { content: "\f155"; }
 .cps-icon-recent:before { content: "\f135"; }
 .cps-icon-reorder:before { content: "\f150"; }
 .cps-icon-reports:before { content: "\f136"; }
 .cps-icon-right-aligned:before { content: "\f137"; }
 .cps-icon-right-caret:before { content: "\f138"; }
 .cps-icon-search:before { content: "\f139"; }
+.cps-icon-send:before { content: "\f156"; }
 .cps-icon-sm-caret-down:before { content: "\f13a"; }
 .cps-icon-sm-caret-left:before { content: "\f13b"; }
 .cps-icon-sm-caret-right:before { content: "\f13c"; }

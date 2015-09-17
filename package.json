@@ -45,7 +45,7 @@
     "webpack": "^1.7.2"
   },
   "dependencies": {
-    "canopy-iconography": "^1.4.0",
+    "canopy-iconography": "1.5.1",
     "file-loader": "^0.8.4",
     "highlight.js": "^8.4.0",
     "react-highlight": "^0.4.1",
