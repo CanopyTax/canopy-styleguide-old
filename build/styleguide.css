@@ -2996,7 +2996,11 @@ textarea.cps-form-control.\+no-resize {
   text-decoration: underline;
 }
 .cps-secondarynav__menu__sub a.\+active {
-  color: #388e3c;
+  font-weight: bold;
+}
+.cps-secondarynav__menu__sub__flat__button:last-child {
+  margin-top: -0.5rem;
+  margin-bottom: .4rem;
 }
 /** slats.less **/
 .cps-slat {
