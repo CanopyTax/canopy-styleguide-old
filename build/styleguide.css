@@ -2832,7 +2832,6 @@ textarea.cps-form-control.\+no-resize {
   color: #333333;
 }
 .cps-flexible-sidenav__menu__item.\+active {
-  border-left: 0.4rem solid #4caf50;
   color: #4caf50;
 }
 .cps-flexible-sidenav__menu__item.\+active i {
@@ -2873,7 +2872,7 @@ textarea.cps-form-control.\+no-resize {
   border-right: 0.1rem solid #e9e9e9;
 }
 .cps-secondarynav.\+tall-top {
-  margin-top: 10.6rem !important;
+  margin-top: 11.2rem !important;
   height: calc(100% - 10.6rem);
 }
 .cps-secondarynav.\+banner-top {
@@ -2911,15 +2910,17 @@ textarea.cps-form-control.\+no-resize {
   vertical-align: top;
 }
 .cps-secondarynav__menu__item__bar {
+  display: none;
+  /* we're not showing the bar anymore */
   float: left;
-  width: .4rem;
+  width: 0;
   height: 100%;
   background-color: white;
 }
 .cps-secondarynav__menu__item__title {
   position: absolute;
   top: 1.0rem;
-  left: 5.6rem;
+  left: 6.0rem;
 }
 .cps-secondarynav__menu__item:hover {
   background-color: #f7f7f7;
@@ -2977,20 +2978,19 @@ textarea.cps-form-control.\+no-resize {
 }
 .cps-secondarynav__menu__sub a {
   display: block;
-  height: 3.5rem;
+  height: 2.8rem;
   left: 4.4rem;
-  padding-left: 2.6rem;
-  padding-top: .8rem;
+  padding-left: 2.4rem;
+  padding-top: .1rem;
   text-decoration: none;
-  border-left: 0.4rem solid #388e3c;
   color: #333333;
 }
 .cps-secondarynav__menu__sub a:first-child {
-  padding-top: 2.6rem;
-  height: 5.0rem;
+  padding-top: 1.7rem;
+  height: 4.4rem;
 }
 .cps-secondarynav__menu__sub a:last-child {
-  height: 5.0rem;
+  height: 4.0rem;
 }
 .cps-secondarynav__menu__sub a:hover {
   text-decoration: underline;
