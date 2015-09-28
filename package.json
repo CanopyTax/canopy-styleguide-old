@@ -1,6 +1,6 @@
 {
   "name": "canopy-styleguide",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "Style-guide for Canopy",
   "main": "build/styleguide.css",
   "scripts": {
@@ -49,8 +49,7 @@
     "url-loader": "^0.5.6",
     "webpack": "^1.7.2"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "publishConfig": {
     "registry": "http://npm.canopytax.com"
   }
