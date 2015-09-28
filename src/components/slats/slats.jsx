@@ -5,6 +5,9 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 			<div className="cps-flexible-focus">
+				<div className="cps-toaster +info">
+					<span className="cps-toaster__message">Note: Adding the class '+noclick' to a slat will remove the cursor:pointer and the background-color that appears on hover.</span>
+				</div>
 				<div className="cps-card">
 					<div className="cps-slat-lg">
 						<div className="cps-slat-lg__badge">

@@ -21,6 +21,7 @@ module.exports = React.createClass({
 					<div>cps-show</div>
 					<div>cps-hidden</div>
 					<div>cps-ellipsis</div>
+					<div>+noclick</div>
 				</div>
 				<hr/>
 				<div className="cps-card__header cps-subheader">
