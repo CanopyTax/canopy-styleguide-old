@@ -49431,7 +49431,7 @@
 			"build/canopy-icons.css",
 			"build/canopy-icons-preview.html"
 		]
-	}
+	};
 
 /***/ },
 /* 369 */
