@@ -50276,6 +50276,9 @@
 		render: function() {
 			return (
 				React.createElement("div", {className: "cps-flexible-focus"}, 
+					React.createElement("div", {className: "cps-toaster +info"}, 
+						React.createElement("span", {className: "cps-toaster__message"}, "Note: Adding the class '+noclick' to a slat will remove the cursor:pointer and the background-color that appears on hover.")
+					), 
 					React.createElement("div", {className: "cps-card"}, 
 						React.createElement("div", {className: "cps-slat-lg"}, 
 							React.createElement("div", {className: "cps-slat-lg__badge"}, 
@@ -52146,7 +52149,8 @@
 						React.createElement("div", null, "cps-center-vertical"), 
 						React.createElement("div", null, "cps-show"), 
 						React.createElement("div", null, "cps-hidden"), 
-						React.createElement("div", null, "cps-ellipsis")
+						React.createElement("div", null, "cps-ellipsis"), 
+						React.createElement("div", null, "+noclick")
 					), 
 					React.createElement("hr", null), 
 					React.createElement("div", {className: "cps-card__header cps-subheader"}, 
