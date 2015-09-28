@@ -10,7 +10,7 @@
     "build": "node node_modules/webpack/bin/webpack.js --config webpack.config.build.js",
     "deploy": "cp build/* ../workflow-ui/node_modules/canopy-styleguide/build/",
     "patch-workflowui": "echo 'Please ensure that your git working directory is clean' && npm version patch -m 'npm run patch-workflowui has incremented the patch version of canopy-styleguide to %s' && npm publish && cd ../workflow-ui && npm install && npm install canopy-styleguide@latest --save --save-exact && npm shrinkwrap && echo 'Please make sure to commit and push any changed built files to source control'",
-    "prepublish": "bin/confirm.sh \"Have you run 'npm run build' since your last change (y/N)?\" || exit 1"
+    "prepublish": "bin/confirm.sh \"Has't thee runneth 'npm run build' since thy last change (y/N)?\" || (echo \"Thou art a wretch whose natural gifts were poor.\" && exit 1)"
   },
   "git-tasker": [
     {
@@ -49,7 +49,8 @@
     "url-loader": "^0.5.6",
     "webpack": "^1.7.2"
   },
-  "dependencies": {},
+  "dependencies": {
+  },
   "publishConfig": {
     "registry": "http://npm.canopytax.com"
   }
