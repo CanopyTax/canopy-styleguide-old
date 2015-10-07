@@ -3,6 +3,11 @@ box:
   tag: latest
 build:
   steps:
+    - script:
+        name: move files into build
+        code: |
+          cp -a vendor build/vendor
+          cp index.html build/
     - create-file:
         name: add robots.txt
         filename: build/robots.txt
