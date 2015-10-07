@@ -1,0 +1,58 @@
+box:
+  id: canopytax/static-core
+  tag: latest
+build:
+  steps:
+    - script:
+        name: copy site output
+        code: |
+          mkdir -p "$WERCKER_OUTPUT_DIR/dist"
+          cp --recursive build/* "$WERCKER_OUTPUT_DIR/dist/"
+  after-steps:
+    - slack-notifier:
+        url: $SLACK_URL
+        channel: dev-camp
+        username: canopybot
+        notify_on: "failed"
+
+deploy:
+  steps:
+    - create-file:
+        name: add robots.txt
+        filename: dist/robots.txt
+        content: |
+          # Go away!
+          User-agent: *
+          Disallow: /
+    - script:
+        name: gzip files
+        code: |
+          find dist -type f -exec gzip "{}" \; -exec mv "{}.gz" "{}" \;
+    - script:
+        name: deploy files to s3
+        code: |
+          mkdir -p ~/.aws/
+          echo -e "[default]\nregion=us-west-2\naws_access_key_id = $AWS_ACCESS_KEY\naws_secret_access_key = $AWS_SECRET\n" > ~/.aws/config
+          aws s3 sync dist s3://styleguide.corp.canopytax.com --exclude=index.html --content-encoding gzip --delete
+    - script:
+        name: deploy index.html
+        code: |
+          aws s3 sync dist s3://styleguide.corp.canopytax.com --exclude=* --include=index.html --content-encoding gzip --cache-control "public, must-revalidate, proxy-revalidate, max-age=10"
+  dockerhub:
+    - script:
+        name: move files
+        code: |
+          mkdir -p /www
+          mv dist/* /www/    
+    - script:
+        name: clean wercker files
+        code: |
+          cd /www
+          rm -rf /pipeline/
+    - internal/docker-push:
+        repository: $REPO
+        tag: latest
+        username: $DOCKER_USERNAME
+        password: $DOCKER_PASSWORD
+        ports: "8000"
+        entrypoint: "python -m SimpleHTTPServer"
