@@ -8,6 +8,8 @@ build:
         code: |
           cp -a vendor build/vendor
           cp index.html build/
+          cp canopy-logomark.svg build/
+          cp canopy-logotype.svg build/
     - create-file:
         name: add robots.txt
         filename: build/robots.txt
