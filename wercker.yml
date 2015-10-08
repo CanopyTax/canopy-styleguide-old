@@ -28,7 +28,8 @@ build:
         code: |
           mkdir -p ~/.aws/
           echo -e "[default]\nregion=us-west-2\naws_access_key_id = $AWS_ACCESS_KEY\naws_secret_access_key = $AWS_SECRET\n" > ~/.aws/config
-          aws s3 sync build s3://styleguide.corp.canopytax.com --content-encoding gzip --delete
+          aws s3 sync build --exclude=* --include=design --cache-control "public, max-age=5184000" --content-encoding gzip
+          aws s3 sync build --exclude=design s3://styleguide.corp.canopytax.com --content-encoding gzip --delete
           
   after-steps:
     - slack-notifier:
