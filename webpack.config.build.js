@@ -4,8 +4,8 @@ module.exports = {
 	// The standard entry point and output config
 	entry: {
 		styleguide: "./src/components.less",
-		variables:  "./src/external-variables.less",
-		app:				"./src/app.jsx"
+		variables: "./src/external-variables.less",
+		app: "./src/app.jsx"
 	},
 	output: {
 		path: './build',
@@ -26,8 +26,9 @@ module.exports = {
 				loader: ExtractTextPlugin.extract("style-loader", "css-loader!autoprefixer!less-loader")
 			},
 			{
-				test: /\.jsx$/,
-				loader: 'jsx-loader?insertPragma=React.DOM&harmony'
+				test: /\.jsx?$/,
+				exclude: /(node_modules|bower_components)/,
+				loader: 'babel'
 			},
 			{
 				test: /\.json$/,

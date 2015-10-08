@@ -48,27 +48,27 @@ module.exports = React.createClass({
 				}
 				</Highlight>
 				<div style={{width: "100%", height: "350px", position: "relative"}} className="cps-flexible-focus cps-overlay-modal">
-					<div className="cps-overlay-modal__content" style={{'padding-top': "50px"}}>
+					<div className="cps-overlay-modal__content" style={{paddingTop: "50px"}}>
 						<div className="cps-overlay-modal__content__header">
 							Create a New Date
 						</div>
 						<div className="cps-overlay-modal__content__body">
 							<form className="cps-form-horizontal">
 								<div className="cps-form-group">
-									<label for="exampleInputEmail1" className="cps-col-xs-2">Date Title</label>
+									<label htmlFor="exampleInputEmail1" className="cps-col-xs-2">Date Title</label>
 									<div className="cps-col-xs-4">
 										<input type="text" className="cps-form-control" placeholder="New Event"/>
 									</div>
 								</div>
 								<div className="cps-form-group">
-									<label for="exampleInputEmail1" className="cps-col-xs-2">Date</label>
+									<label htmlFor="exampleInputEmail1" className="cps-col-xs-2">Date</label>
 									<div className="cps-col-xs-2">
 										<input type="text" className="cps-form-control" placeholder="2/7/2015"/>
 									</div>
 									<div className="cps-col-xs-2">
 										<input type="text" className="cps-form-control" placeholder="4:00 PM"/>
 									</div>
-									<label for="exampleInputEmail1" className="cps-col-xs-0">To</label>
+									<label htmlFor="exampleInputEmail1" className="cps-col-xs-0">To</label>
 									<div className="cps-col-xs-2">
 										<input type="text" className="cps-form-control" placeholder="2/9/2015"/>
 									</div>
@@ -77,13 +77,13 @@ module.exports = React.createClass({
 									</div>
 								</div>
 								<div className="cps-form-group">
-									<label for="exampleInputEmail1" className="cps-col-xs-2">Description</label>
+									<label htmlFor="exampleInputEmail1" className="cps-col-xs-2">Description</label>
 									<div className="cps-col-xs-6">
 										<textarea className="cps-form-control +no-resize"></textarea>
 									</div>
 								</div>
 								<div className="cps-form-group">
-									<label for="exampleInputEmail1" className="cps-col-xs-2"></label>
+									<label htmlFor="exampleInputEmail1" className="cps-col-xs-2"></label>
 									<div className="cps-col-xs-6">
 										<button className="cps-btn +primary">ADD DATE</button>
 										<a href="#" className="cps-link">CANCEL</a>
@@ -104,20 +104,20 @@ module.exports = React.createClass({
     <div class="cps-overlay-modal__content__body">
       <form class="cps-form-horizontal">
         <div class="cps-form-group">
-          <label for="exampleInputEmail1" class="cps-col-xs-2">Date Title</label>
+          <label htmlFor="exampleInputEmail1" class="cps-col-xs-2">Date Title</label>
           <div class="cps-col-xs-4">
             <input type="text" class="cps-form-control" placeholder="New Event"/>
           </div>
         </div>
         <div class="cps-form-group">
-          <label for="exampleInputEmail1" class="cps-col-xs-2">Date</label>
+          <label htmlFor="exampleInputEmail1" class="cps-col-xs-2">Date</label>
           <div class="cps-col-xs-2">
             <input type="text" class="cps-form-control" placeholder="2/7/2015"/>
           </div>
           <div class="cps-col-xs-2">
             <input type="text" class="cps-form-control" placeholder="4:00 PM"/>
           </div>
-          <label for="exampleInputEmail1" class="cps-col-xs-0">To</label>
+          <label htmlFor="exampleInputEmail1" class="cps-col-xs-0">To</label>
           <div class="cps-col-xs-2">
             <input type="text" class="cps-form-control" placeholder="2/9/2015"/>
           </div>
@@ -126,7 +126,7 @@ module.exports = React.createClass({
           </div>
         </div>
         <div class="cps-form-group">
-          <label for="exampleInputEmail1" class="cps-col-xs-2">Description</label>
+          <label htmlFor="exampleInputEmail1" class="cps-col-xs-2">Description</label>
           <div class="cps-col-xs-6">
             <textarea></textarea>
           </div>

@@ -13,7 +13,7 @@ module.exports = React.createClass({
 							<div className="cps-col-xs-12">
 								<form>
 									<div className="cps-form-group">
-										<label for="exampleInputEmail1">Email address</label>
+										<label htmlFor="exampleInputEmail1">Email address</label>
 										<textarea className="cps-form-control"></textarea>
 									</div>
 								</form>
@@ -44,7 +44,7 @@ module.exports = React.createClass({
 						<div className="cps-col-xs-12">
 							<form className="cps-form-horizontal">
 								<div className="cps-form-group">
-									<label for="exampleInputEmail1" className="cps-col-xs-2">Full Name</label>
+									<label htmlFor="exampleInputEmail1" className="cps-col-xs-2">Full Name</label>
 									<div className="cps-col-xs-3">
 										<textarea className="cps-form-control +no-resize"></textarea>
 									</div>

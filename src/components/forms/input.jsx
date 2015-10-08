@@ -15,11 +15,11 @@ module.exports = React.createClass({
 						<div className="cps-col-xs-12">
 							<form>
 								<div className="cps-form-group">
-									<label for="exampleInputEmail1">Full Name</label>
+									<label htmlFor="exampleInputEmail1">Full Name</label>
 									<input type="text" className="cps-form-control" placeholder="Enter name"/>
 								</div>
 								<div className="cps-form-group cps-has-feedback">
-									<label for="exampleInputEmail1">Email address</label>
+									<label htmlFor="exampleInputEmail1">Email address</label>
 									<div className="cps-row">
 										<div className="cps-col-xs-5">
 											<input type="text" className="cps-form-control" placeholder="Enter email"/>
@@ -34,7 +34,7 @@ module.exports = React.createClass({
 								</div>
 								<div className="cps-form-group cps-has-error">
 
-										<label for="exampleInputPhone">Phone Number</label>
+										<label htmlFor="exampleInputPhone">Phone Number</label>
 										<input type="text" className="cps-form-control" value="234-343-3434"/>
 										<span className="cps-icon-error cps-form-control-feedback" aria-hidden="true"></span>
 										<span className="cps-error-block">This is an error!</span>
@@ -93,11 +93,11 @@ module.exports = React.createClass({
 				{
 `<form>
 	<div class="cps-form-group">
-		<label for="exampleInputEmail1">Full Name</label>
+		<label htmlFor="exampleInputEmail1">Full Name</label>
 		<input type="text" class="cps-form-control" placeholder="Enter name"/>
 	</div>
 	<div class="cps-form-group cps-has-feedback">
-		<label for="exampleInputEmail1">Email address</label>
+		<label htmlFor="exampleInputEmail1">Email address</label>
 		<div class="cps-row">
 			<div class="cps-col-xs-5">
 				<input type="text" class="cps-form-control" placeholder="Enter email"/>
@@ -112,7 +112,7 @@ module.exports = React.createClass({
 	</div>
 	<div class="cps-form-group cps-has-error">
 
-			<label for="exampleInputPhone">Phone Number</label>
+			<label htmlFor="exampleInputPhone">Phone Number</label>
 			<input type="text" class="cps-form-control" value="234-343-3434"/>
 			<span class="cps-icon-error cps-form-control-feedback" aria-hidden="true"></span>
 			<span class="cps-error-block">This is an error!</span>
@@ -162,13 +162,13 @@ module.exports = React.createClass({
 						<div className="cps-col-xs-12">
 							<form className="cps-form-horizontal">
 								<div className="cps-form-group">
-									<label for="exampleInputName" className="cps-col-xs-2 cps-control-label">Full Name</label>
+									<label htmlFor="exampleInputName" className="cps-col-xs-2 cps-control-label">Full Name</label>
 									<div className="cps-col-xs-3">
 										<input type="text" className="cps-form-control" placeholder="Enter name"/>
 									</div>
 								</div>
 								<div className="cps-form-group cps-has-feedback cps-has-error">
-									<label for="exampleInputEmail1" className="cps-col-xs-2 cps-control-label">Email address</label>
+									<label htmlFor="exampleInputEmail1" className="cps-col-xs-2 cps-control-label">Email address</label>
 									<div className="cps-col-xs-3">
 										<input type="text" className="cps-form-control" placeholder="Enter email"/>
 										<span className="cps-icon-client cps-form-control-feedback" aria-hidden="true"></span>
@@ -177,7 +177,7 @@ module.exports = React.createClass({
 									</div>
 								</div>
 								<div className="cps-form-group cps-has-error">
-									<label for="exampleInputPhone" className="cps-col-xs-2 cps-control-label">Phone Number</label>
+									<label htmlFor="exampleInputPhone" className="cps-col-xs-2 cps-control-label">Phone Number</label>
 									<div className="cps-col-xs-6">
 										<input type="text" className="cps-form-control" value="234-343-3434"/>
 										<span className="cps-icon-error cps-form-control-feedback" aria-hidden="true"></span>
@@ -185,7 +185,7 @@ module.exports = React.createClass({
 									</div>
 								</div>
 								<div className="cps-form-group">
-									<label for="exampleInputPhoneDisabled" className="cps-col-xs-2 cps-control-label">Disabled</label>
+									<label htmlFor="exampleInputPhoneDisabled" className="cps-col-xs-2 cps-control-label">Disabled</label>
 									<div className="cps-col-xs-10">
 										<input type="text" className="cps-form-control" value="234-343-3434" disabled="true"/>
 									</div>
@@ -200,13 +200,13 @@ module.exports = React.createClass({
 				{
 `<form class="cps-form-horizontal">
   <div class="cps-form-group">
-	<label for="exampleInputEmail1" class="cps-col-xs-2">Full Name</label>
+	<label htmlFor="exampleInputEmail1" class="cps-col-xs-2">Full Name</label>
 	<div class="cps-col-xs-3">
 	  <input type="text" class="cps-form-control" placeholder="Enter name"/>
 	</div>
   </div>
   <div class="cps-form-group cps-has-feedback cps-has-error">
-	<label for="exampleInputEmail1" class="cps-col-xs-2">Email address</label>
+	<label htmlFor="exampleInputEmail1" class="cps-col-xs-2">Email address</label>
 	<div class="cps-col-xs-3">
 	  <input type="text" class="cps-form-control" placeholder="Enter email"/>
 	  <span class="cps-icon-client cps-form-control-feedback" aria-hidden="true"></span>
@@ -215,7 +215,7 @@ module.exports = React.createClass({
 	</div>
   </div>
   <div class="cps-form-group cps-has-error">
-	<label for="exampleInputPhone" class="cps-col-xs-2">Phone Number</label>
+	<label htmlFor="exampleInputPhone" class="cps-col-xs-2">Phone Number</label>
 	<div class="cps-col-xs-6">
 	  <input type="text" class="cps-form-control" value="234-343-3434"/>
 	  <span class="cps-icon-error cps-form-control-feedback" aria-hidden="true"></span>
@@ -223,7 +223,7 @@ module.exports = React.createClass({
 	</div>
   </div>
   <div class="cps-form-group">
-	<label for="exampleInputPhoneDisabled" class="cps-col-xs-2">Disabled</label>
+	<label htmlFor="exampleInputPhoneDisabled" class="cps-col-xs-2">Disabled</label>
 	<div class="cps-col-xs-10">
 	  <input type="text" class="cps-form-control"value="234-343-3434" disabled="true"/>
 	</div>
@@ -239,7 +239,7 @@ module.exports = React.createClass({
 						<div className="cps-col-xs-12">
 							<form className="cps-form-horizontal">
 								<div className="cps-form-group cps-has-feedback cps-has-error cps-has-feedback-left">
-									<label for="exampleInputEmail1" className="cps-col-xs-2 cps-control-label">Email address</label>
+									<label htmlFor="exampleInputEmail1" className="cps-col-xs-2 cps-control-label">Email address</label>
 									<div className="cps-col-xs-3">
 										<input type="text" className="cps-form-control" placeholder="Enter email"/>
 										<span className="cps-icon-client cps-form-control-feedback" aria-hidden="true"></span>
@@ -248,7 +248,7 @@ module.exports = React.createClass({
 									</div>
 								</div>
 								<div className="cps-form-group cps-has-error cps-has-feedback-left">
-									<label for="exampleInputPhone" className="cps-col-xs-2 cps-control-label">Phone Number</label>
+									<label htmlFor="exampleInputPhone" className="cps-col-xs-2 cps-control-label">Phone Number</label>
 									<div className="cps-col-xs-6">
 										<input type="text" className="cps-form-control" value="234-343-3434"/>
 										<span className="cps-icon-error cps-form-control-feedback" aria-hidden="true"></span>
@@ -265,7 +265,7 @@ module.exports = React.createClass({
 				{
 `<form class="cps-form-horizontal">
   <div class="cps-form-group cps-has-feedback cps-has-error cps-has-feedback-left">
-	<label for="exampleInputEmail1" class="cps-col-xs-2 cps-control-label">Email address</label>
+	<label htmlFor="exampleInputEmail1" class="cps-col-xs-2 cps-control-label">Email address</label>
 	<div class="cps-col-xs-3">
 	  <input type="text" class="cps-form-control" placeholder="Enter email"/>
 	  <span class="cps-icon-client cps-form-control-feedback" aria-hidden="true"></span>
@@ -274,7 +274,7 @@ module.exports = React.createClass({
 	</div>
   </div>
   <div class="cps-form-group cps-has-error cps-has-feedback-left">
-	<label for="exampleInputPhone" class="cps-col-xs-2 cps-control-label">Phone Number</label>
+	<label htmlFor="exampleInputPhone" class="cps-col-xs-2 cps-control-label">Phone Number</label>
 	<div class="cps-col-xs-6">
 	  <input type="text" class="cps-form-control" value="234-343-3434"/>
 	  <span class="cps-icon-error cps-form-control-feedback" aria-hidden="true"></span>
@@ -293,12 +293,12 @@ module.exports = React.createClass({
 						<div className="cps-col-xs-12">
 							<form className="cps-form-inline">
 								<div className="cps-form-group cps-has-feedback">
-									<label for="inlineEmail">Email</label>
+									<label htmlFor="inlineEmail">Email</label>
 									<input type="text" className="cps-form-control" placeholder="Enter email"/>
 									<span className="cps-icon-client cps-form-control-feedback" aria-hidden="true"></span>
 								</div>
 								<div className="cps-form-group cps-has-error">
-									<label for="inlinePhone">Phone</label>
+									<label htmlFor="inlinePhone">Phone</label>
 									<input type="text" className="cps-form-control" value="234-343-3434"/>
 									<span className="cps-icon-error cps-form-control-feedback" aria-hidden="true"></span>
 								</div>
@@ -314,12 +314,12 @@ module.exports = React.createClass({
 {
 `<form class="cps-form-inline">
   <div class="cps-form-group cps-has-feedback">
-	<label for="exampleInputName2">Email</label>
+	<label htmlFor="exampleInputName2">Email</label>
 	<input type="text" class="cps-form-control" placeholder="Enter email"/>
 	<span class="cps-icon-client cps-form-control-feedback" aria-hidden="true"></span>
   </div>
   <div class="cps-form-group cps-has-error">
-	<label for="exampleInputName2">Phone</label>
+	<label htmlFor="exampleInputName2">Phone</label>
 	<input type="text" class="cps-form-control" value="234-343-3434"/>
 	<span class="cps-icon-error cps-form-control-feedback" aria-hidden="true"></span>
   </div>
@@ -338,34 +338,34 @@ module.exports = React.createClass({
 						<div className="cps-col-xs-12">
 							<form className="cps-form-horizontal">
 								<div className="cps-form-group-resize">
-									<label for="Phone" className="cps-col-xs-2 cps-control-label">Phone</label>
+									<label htmlFor="Phone" className="cps-col-xs-2 cps-control-label">Phone</label>
 									<div className="cps-col-xs-8">
 										<input type="text" className="cps-form-control-resize" placeholder="Enter phone"/>
 									</div>
 								</div>
 								<div className="cps-form-group-resize">
-									<label for="Email" className="cps-col-xs-2 cps-control-label">Email</label>
+									<label htmlFor="Email" className="cps-col-xs-2 cps-control-label">Email</label>
 									<div className="cps-col-xs-8">
 										<input type="text" className="cps-form-control-resize" placeholder="Enter email"/>
 									</div>
 								</div>
 								<div className="cps-form-group-resize">
-									<label for="Address1" className="cps-col-xs-2 cps-control-label">Address 1</label>
+									<label htmlFor="Address1" className="cps-col-xs-2 cps-control-label">Address 1</label>
 									<div className="cps-col-xs-8">
 										<input type="text" className="cps-form-control-resize" placeholder="Enter address 1"/>
 									</div>
 								</div>
 								<div className="cps-form-group-resize cps-has-error">
-									<label for="Address2" className="cps-col-xs-2 cps-control-label">Address 2</label>
+									<label htmlFor="Address2" className="cps-col-xs-2 cps-control-label">Address 2</label>
 									<div className="cps-col-xs-8">
 										<input type="text" className="cps-form-control-resize" placeholder="Enter address2" value="234-343-3434"/>
 										<span className="cps-error-block">This is an error!</span>
 									</div>
 								</div>
 								<div className="cps-form-group-resize">
-									<label for="Zip" className="cps-col-xs-2 cps-control-label">Zip</label>
+									<label htmlFor="Zip" className="cps-col-xs-2 cps-control-label">Zip</label>
 									<div className="cps-col-xs-4">
-										<input type="text" className="cps-form-control-resize" value="234-343-3434" readonly="readonly"/>
+										<input type="text" className="cps-form-control-resize" value="234-343-3434" readOnly="readonly"/>
 									</div>
 								</div>
 							</form>
@@ -377,34 +377,34 @@ module.exports = React.createClass({
 {
 `<form class="cps-form-horizontal">
   <div class="cps-form-group-resize">
-	<label for="Phone" class="cps-col-xs-2 cps-control-label">Phone</label>
+	<label htmlFor="Phone" class="cps-col-xs-2 cps-control-label">Phone</label>
 	<div class="cps-col-xs-8">
 	  <input type="text" class="cps-form-control-resize" placeholder="Enter phone"/>
 	</div>
   </div>
   <div class="cps-form-group-resize">
-	<label for="Email" class="cps-col-xs-2 cps-control-label">Email</label>
+	<label htmlFor="Email" class="cps-col-xs-2 cps-control-label">Email</label>
 	<div class="cps-col-xs-8">
 	  <input type="text" class="cps-form-control-resize" placeholder="Enter email"/>
 	</div>
   </div>
   <div class="cps-form-group-resize">
-	<label for="Address1" class="cps-col-xs-2 cps-control-label">Address 1</label>
+	<label htmlFor="Address1" class="cps-col-xs-2 cps-control-label">Address 1</label>
 	<div class="cps-col-xs-8">
 	  <input type="text" class="cps-form-control-resize" placeholder="Enter address 1"/>
 	</div>
   </div>
   <div class="cps-form-group-resize cps-has-error">
-	<label for="Address2" class="cps-col-xs-2 cps-control-label">Address 2</label>
+	<label htmlFor="Address2" class="cps-col-xs-2 cps-control-label">Address 2</label>
 	<div class="cps-col-xs-8">
 	  <input type="text" class="cps-form-control-resize" placeholder="Enter address2" value="234-343-3434"/>
 	  <span class="cps-error-block">This is an error!</span>
 	</div>
   </div>
   <div class="cps-form-group-resize">
-	<label for="Zip" class="cps-col-xs-2 cps-control-label">Zip</label>
+	<label htmlFor="Zip" class="cps-col-xs-2 cps-control-label">Zip</label>
 	<div class="cps-col-xs-4">
-	  <input type="text" class="cps-form-control-resize" value="234-343-3434" readonly="readonly"/>
+	  <input type="text" class="cps-form-control-resize" value="234-343-3434" readonly="readOnly"/>
 	</div>
   </div>
 </form>`
@@ -419,11 +419,11 @@ module.exports = React.createClass({
 						<div className="cps-col-xs-12">
 							<form className="cps-form-inline">
 								<div className="cps-form-group-resize">
-									<label for="Email">Email</label>
+									<label htmlFor="Email">Email</label>
 									<input type="text" className="cps-form-control-resize" placeholder="Enter email" value="exi@gm.com"/>
 								</div>
 								<div className="cps-form-group-resize">
-									<label for="Phone">Phone</label>
+									<label htmlFor="Phone">Phone</label>
 									<input type="text" className="cps-form-control-resize" placeholder="Enter phone"/>
 								</div>
 								<div className="cps-form-group-resize">
@@ -443,11 +443,11 @@ module.exports = React.createClass({
 {
 `<form class="cps-form-inline">
   <div class="cps-form-group-resize">
-	<label for="Email">Email</label>
+	<label htmlFor="Email">Email</label>
 	<input type="text" class="cps-form-control-resize" placeholder="Enter email" value="exi@gm.com"/>
   </div>
   <div class="cps-form-group-resize">
-	<label for="Phone">Phone</label>
+	<label htmlFor="Phone">Phone</label>
 	<input type="text" class="cps-form-control-resize" placeholder="Enter phone"/>
   </div>
   <div class="cps-form-group-resize">

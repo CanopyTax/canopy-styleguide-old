@@ -91,7 +91,7 @@ module.exports = React.createClass({
 			<div className="cps-flexible-focus cps-margin-top-16">
 				<div className="cps-card">
 					<div className="cps-card__body">
-						*Don't forget to add the class '+banner-top' to (i) cps-topnav-secondary, (ii) cps-nav-content, and (iii) cps-flexible-sidenav when using the global banner. Also, remove the 3px cps-topnav__bar from the nav too! <a href class="cps-banner-global__action">Take Action</a>
+						*Don't forget to add the class '+banner-top' to (i) cps-topnav-secondary, (ii) cps-nav-content, and (iii) cps-flexible-sidenav when using the global banner. Also, remove the 3px cps-topnav__bar from the nav too! <a href className="cps-banner-global__action">Take Action</a>
 					</div>
 				</div>
 			</div>

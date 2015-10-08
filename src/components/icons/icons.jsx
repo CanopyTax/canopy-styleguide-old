@@ -25,9 +25,9 @@ module.exports = React.createClass({
 					<div className="cps-card__body">
 						<div className="cps-row">
 							{_.map(iconGroups, function(group, i) {
-								return <div className="cps-col-xs-4">
-										{group.map(function(obj) {
-											return <div className="cps-row cps-padding-top-8">
+								return <div className="cps-col-xs-4" key={i}>
+										{group.map(function(obj, j) {
+											return <div className="cps-row cps-padding-top-8" key={j}>
 												<div className="cps-col-xs-6 cps-center-vertical">
 													<span className="cps-pull-right">
 														{obj}

@@ -1,0 +1,18 @@
+export const designPrinciples = [
+	{ title: 'Buttons', icon: 'cps-icon-archive' },
+	{ title: 'Cards', icon: 'cps-icon-add' },
+	{ title: 'Grids & Metrics', icon: 'cps-icon-bell' },
+	{ title: 'Iconography', icon: 'cps-icon-error' },
+	{ title: 'Menus', icon: 'cps-icon-lock' },
+	{ title: 'Modals', icon: 'cps-icon-notes' },
+	{ title: 'Navigation', icon: 'cps-icon-statements' },
+	{ title: 'Palettes', icon: 'cps-icon-pending' },
+	{ title: 'Pickers', icon: 'cps-icon-visible' },
+	{ title: 'Selection Controls', icon: 'cps-icon-taxes' },
+	{ title: 'Slats & Tables', icon: 'cps-icon-valid' },
+	{ title: 'Text Fields & Pull Downs', icon: 'cps-icon-wrench' },
+	{ title: 'The Canvas & Cards', icon: 'cps-icon-nav' },
+	{ title: 'Toasters & Banners', icon: 'cps-icon-megaphone' },
+	{ title: 'Tooltips', icon: 'cps-icon-expand' },
+	{ title: 'Typography', icon: 'cps-icon-phone' },
+];
