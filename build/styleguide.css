@@ -2870,6 +2870,7 @@ textarea.cps-form-control.\+no-resize {
   height: calc(100% - 5.6rem);
   z-index: 98;
   border-right: 0.1rem solid #E9E9E9;
+  overflow: auto;
 }
 .cps-secondarynav.\+tall-top {
   margin-top: 11.2rem !important;
