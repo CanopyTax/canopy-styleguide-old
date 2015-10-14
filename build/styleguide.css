@@ -2847,7 +2847,7 @@ textarea.cps-form-control.\+no-resize {
 }
 .cps-nav-content {
   margin-left: 24.0rem;
-  width: calc(100% - 26.0rem);
+  width: calc(100% - 24.0rem);
   padding: 10rem 2.4rem;
 }
 .cps-nav-content.\+tall-top {
