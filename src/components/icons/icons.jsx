@@ -1,6 +1,5 @@
 var React = require('react');
 var _ = require('lodash');
-var Highlight = require('react-highlight');
 
 var icons = require('canopy-iconography/.fontcustom-manifest.json').glyphs;
 icons = _.map(icons, function(icon, name) {
@@ -18,6 +17,12 @@ module.exports = React.createClass({
 
 		return (
 			<div>
+				<div className="cps-flexible-focus cps-card">
+					<div className="cps-card__header cps-subheader">
+						Icons &amp; Labels
+					</div>
+				</div>
+			
 				<div className="cps-flexible-focus cps-card">
 					<div className="cps-card__header ">
 						Canopy Font Icons
@@ -83,91 +88,82 @@ module.exports = React.createClass({
 									<div className="cps-col-xs-6 cps-center-vertical">
 										<i className="cps-icon  cps-icon-sm-caret-down"></i>
 									</div>
-									<div className="cps-col-xs-6 cps-center-vertical">
-										<span className="cps-pull-right">
-											Wrapped Icons
-										</span>
-									</div>
-									<div className="cps-col-xs-6 cps-center-vertical">
-										<i className="cps-icon +round cps-bg-primary-green cps-white cps-icon-taxes"></i>
-									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div className="cps-flexible-focus cps-card cps-margin-top-24">
-					<div className="cps-card__header ">
-						Canopy Labels
-					</div>
-					<div className="cps-card__body">
-						<div className="cps-row">
-							<div className="cps-col-xs-12">
-								<ul className="cps-list-inline">
-									<li>
-										<div className="cps-label-square +x-large">
-											<div className="cps-center-vertical">AC</div>
-										</div>
-									</li>
-									<li>
-										<div className="cps-label-square +medium">
-											<div className="cps-center-vertical">AC</div>
-										</div>
-									</li>
+				<cp-edit-render-code section-title="Icon usage" dangerouslySetInnerHTML={ {__html:
+`<ul class="cps-list-inline">
+	<li>
+		<div class="cps-center-vertical">
+			<i class="cps-icon cps-icon-cog"></i>
+		</div>
+	</li>
+	<li>
+		<div class="cps-center-vertical">
+			<i class="cps-icon cps-icon-items"></i>
+		</div>
+	</li>
+	<li>
+		<div class="cps-center-vertical">
+			<i class="cps-icon cps-icon-transfer"></i>
+		</div>
+	</li>
+	<li>
+		<div class="cps-center-vertical">
+			<i class="cps-icon cps-icon-license cps-primary-green"></i>
+		</div>
+	</li>
+	<li>
+		<div class="cps-center-vertical">
+			<i class="cps-icon cps-icon-flag cps-red"></i>
+		</div>
+	</li>
+</ul>`} } />
 
-									<li>
-										<div className="cps-label-square +medium +active">
-											<div className="cps-center-vertical">AC</div>
-										</div>
-									</li>
-									<li>
-										<div className="cps-label-square__add +medium">
-											<div className="cps-center-vertical"><i className="cps-icon cps-icon-add-person"></i></div>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
+				<cp-edit-render-code section-title="Wrapped icons" dangerouslySetInnerHTML={ {__html:
+`<ul class="cps-list-inline">
+	<li>
+		<div class="cps-center-vertical">
+			<i class="cps-icon +round cps-bg-primary-green cps-white cps-icon-taxes"></i>
+		</div>
+	</li>
+	<li>
+		<div class="cps-center-vertical">
+			<i class="cps-icon +round cps-bg-primary-green cps-white cps-icon-lg-check"></i>
+		</div>
+	</li>
+</ul>`} } />
+
+				<cp-edit-render-code section-title="Canopy labels" dangerouslySetInnerHTML={ {__html:
+`<ul class="cps-list-inline">
+	<li>
+		<div class="cps-label-square +x-large">
+			<div class="cps-center-vertical">AC</div>
+		</div>
+	</li>
+	<li>
+		<div class="cps-label-square +medium">
+			<div class="cps-center-vertical">AC</div>
+		</div>
+	</li>
+
+	<li>
+		<div class="cps-label-square +medium +active">
+			<div class="cps-center-vertical">AC</div>
+		</div>
+	</li>
+	<li>
+		<div class="cps-label-square__add +medium">
+			<div class="cps-center-vertical"><i class="cps-icon cps-icon-add-person"></i></div>
+		</div>
+	</li>
+</ul>`} } />
 
 
-
-				<Highlight className="html">
-				{
-`<div class="cps-label-square +x-large">
-  <div class="cps-center-vertical">AC</div>
-</div>
-<div class="cps-label-square +medium">
-  <div class="cps-center-vertical">AC</div>
-</div>
-<div class="cps-label-square +medium +active">
-  <div class="cps-center-vertical">AC</div>
-</div>
-<div class="cps-label-square__add +medium">
-  <div class="cps-center-vertical"><i class="cps-icon cps-icon-add-person"></i></div>
-</div>
-`
-				}
-				</Highlight>
-
-				<div className="cps-fixed-focus cps-card cps-margin-top-24">
-					<div className="cps-card__header ">
-						Icons with inline text
-					</div>
-					<div className="cps-card__body">
-						<i className="cps-icon cps-icon-visible cps-warning"><span>Hello</span></i>
-					</div>
-				</div>
-
-
-
-				<Highlight className="html">
-				{
-					`<i className="cps-icon cps-icon-visible cps-warning"><span>Hello</span></i>`
-				}
-				</Highlight>
+				<cp-edit-render-code section-title="Icons with inline text" dangerouslySetInnerHTML={ {__html: `<i class="cps-icon cps-icon-visible cps-warning"><span>Hello</span></i>`} } />
 			</div>
 
 		)

@@ -1,0 +1,90 @@
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/mode/xml/xml.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/addon/edit/closebrackets.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/addon/edit/closetag.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/addon/edit/matchbrackets.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/addon/display/autorefresh.min.js"></script>
+
+<template id="cpEditRenderedCode">
+	<style>
+		@import url('//cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css');
+		@import url('//cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/theme/mdn-like.min.css');
+		@import url('//styleguide.corp.canopytax.com/styleguide.css');
+
+		.CodeMirror {
+			height: auto;
+		}
+	</style>
+
+	<div class="cps-flexible-focus cps-card">
+		<div class="cps-card__body">
+			<div id="title" class="cps-subheader-sm"></div>
+		</div>
+		<div class="cps-card__body">
+			<div class="cps-padding-left-16" id="renderedContent"></div>
+		</div>
+	</div>
+	<div class="cps-flexible-focus cps-card cps-margin-bottom-16">
+		<div class="cps-card__header cps-subheader-sm">Code (edit me)</div>
+		<div class="cps-card__body">
+			<textarea id="code"></textarea>
+		</div>
+	</div>
+
+</template>
+
+<script>
+	var importDoc = (document._currentScript || document.currentScript).ownerDocument;
+	var objectPrototype = Object.create(HTMLElement.prototype);
+
+	var defaultObjectProps = { writable: true };
+
+	Object.defineProperties(objectPrototype,  {
+		'section-title': defaultObjectProps,
+		'code-min-width': defaultObjectProps
+	});
+
+	objectPrototype.createdCallback = function () {		
+		var shadow = this.createShadowRoot();
+		var template = importDoc.querySelector('#cpEditRenderedCode');
+
+		shadow.appendChild(template.content.cloneNode(true));
+
+		this.sectionTitle = shadow.querySelector('#title');
+		this.sectionTitle.textContent = this.getAttribute('section-title') || 'Example';
+
+		var codeEl = shadow.getElementById('code');
+		var renderedContentEl  = shadow.querySelector('#renderedContent')
+
+		codeEl.value = this.innerHTML;
+
+		var myCodeMirror = CodeMirror.fromTextArea(codeEl, {
+			indentWithTabs: true,
+			dragDrop: false,
+			matchBrackets: true,
+			autoCloseBrackets: true,
+			autoCloseTags: true,
+			theme: 'mdn-like',
+			autoRefresh: true
+		});
+
+		myCodeMirror.on('focus', function (mirrorInstance, changeObj) {
+			updateRenderedContent();
+		});
+
+		myCodeMirror.on('change', function (mirrorInstance, changeObj) {
+			updateRenderedContent();
+		});
+
+		var updateRenderedContent = function () {
+			renderedContentEl.innerHTML = myCodeMirror.getValue();
+			myCodeMirror.refresh();
+		};
+
+		updateRenderedContent();
+	};
+
+	document.registerElement("cp-edit-render-code", {
+		prototype: objectPrototype
+	});
+</script>

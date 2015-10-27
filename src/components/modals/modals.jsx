@@ -5,6 +5,17 @@ module.exports = React.createClass({
 	render: function() {
 		return (
 			<div>
+				<div className="cps-flexible-focus cps-card">
+					<div className="cps-card__header">
+						<h3 className="cps-subheader">Modals</h3>
+					</div>
+					<div className="cps-card__body">
+						<p>
+							The dialog markup should be appended to the BODY tag.
+						</p>
+					</div>
+				</div>
+
 				<div style={{width: "100%", height: "350px"}} className="cps-flexible-focus cps-modal">
 					<div className="cps-modal__screen" style={{position: "relative"}}></div>
 					<div className="cps-modal__dialog cps-card" style={{position: "absolute", top: "200px"}}>
@@ -27,22 +38,24 @@ module.exports = React.createClass({
 				</div>
 				<Highlight className="html">
 				{
-`<!-- The dialog markup should be appended to the BODY tag.  -->
-<div class="cps-modal">
-  <div class="cps-modal__screen"></div>
-  <div class="cps-modal__dialog cps-card">
-    <div class="cps-card__header cps-subheader-sm"><span>Upload a File</span>
-      <a href="true" class="cps-modal__dialog__close cps-icon cps-icon-close"></a>
-    </div>
-    <div class="cps-card__banner +large +bg-warning"><i class="cps-icon cps-icon-error cps-warning"><span>This is a warning</span></i>
-    </div>
-			<div class="cps-card__body">Choose a file to upload to Canopy. You can upload asm any as you'd like— or
-      if you're not a huge fan of clicking you can drag and drop your files anywhere
-      on this page.</div>
-    <div class="cps-modal__dialog__actions">
-      <button class="cps-btn +primary">CHOOSE FILES</button><a href="#" class="cps-link">NEVERMIND</a>
-    </div>
-  </div>
+`<div class="cps-modal">
+	<div class="cps-modal__screen"></div>
+		<div class="cps-modal__dialog cps-card">
+		<div class="cps-card__header cps-subheader-sm"><span>Upload a File</span>
+		<a href="true" class="cps-modal__dialog__close cps-icon cps-icon-close"></a>
+		</div>
+		<div class="cps-card__banner +large +bg-warning">
+			<i class="cps-icon cps-icon-error cps-warning"><span>This is a warning</span></i>
+		</div>
+		<div class="cps-card__body">
+			Choose a file to upload to Canopy. You can upload as many as you'd like — or
+			if you're not a huge fan of clicking you can drag and drop your files anywhere
+			on this page.
+		</div>
+		<div class="cps-modal__dialog__actions">
+			<button class="cps-btn +primary">CHOOSE FILES</button><a href="#" class="cps-link">NEVERMIND</a>
+		</div>
+	</div>
 </div>
 `
 				}
@@ -95,8 +108,7 @@ module.exports = React.createClass({
 				</div>
 				<Highlight className="html">
 				{
-`<!-- The dialog markup should be appended to the BODY tag.  -->
-<div class="cps-overlay-modal">
+`<div class="cps-overlay-modal">
   <div class="cps-overlay-modal__content">
     <div class="cps-overlay-modal__content__header">
       Create a New Date

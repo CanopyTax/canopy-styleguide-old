@@ -7,45 +7,33 @@ module.exports = React.createClass({
 			<div>
 				<div className="cps-flexible-focus cps-card">
 					<div className="cps-card__header cps-subheader">
-						Loaders
-					</div>
-					<div className="cps-card__body">
-						<button className="cps-btn +primary">
-							<span className="cps-loader">
-								<span></span>
-								<span></span>
-								<span></span>
-							</span>
-						</button>
-						<button className="cps-btn +primary +large">
-							<span className="cps-loader">
-								<span></span>
-								<span></span>
-								<span></span>
-							</span>
-						</button>
+						Loading indicators
 					</div>
 				</div>
-				<Highlight className="html">
-						{
-`<button class="cps-btn +primary +large">
-  <span class="cps-loader">
-    <span></span>
-    <span></span>
-    <span></span>
-  </span>
+
+				<cp-edit-render-code dangerouslySetInnerHTML={ {__html:
+`<button class="cps-btn +primary">
+	<span class="cps-loader">
+		<span></span>
+		<span></span>
+		<span></span>
+	</span>
 </button>
-`
-						}
-					</Highlight>
-					<div className='cps-flexible-focus'>
-						<div className='cps-loader +page'>
-							<span></span>
-							<span></span>
-							<span></span>
-						</div>
-					</div>
-				</div>
+<button class="cps-btn +primary +large">
+	<span class="cps-loader">
+		<span></span>
+		<span></span>
+		<span></span>
+	</span>
+</button>`} } />
+
+<cp-edit-render-code dangerouslySetInnerHTML={ {__html:
+`<div class="cps-loader +page">
+	<span></span>
+	<span></span>
+	<span></span>
+</div>` } } />
+			</div>
 		)
 	}
 });

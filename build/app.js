@@ -60,7 +60,7 @@
 
 	var components = __webpack_require__(240);
 
-	var Highlight = __webpack_require__(244);
+	var Highlight = __webpack_require__(249);
 	var _ = __webpack_require__(392);
 
 	var icons = _.map(__webpack_require__(394).glyphs, function (icon, name) {
@@ -20468,6 +20468,18 @@
 	  var listenerCount = 0,
 	      stopHashChangeListener = undefined;
 
+	  function listenBefore(listener) {
+	    if (++listenerCount === 1) stopHashChangeListener = startHashChangeListener(history);
+
+	    var unlisten = history.listenBefore(listener);
+
+	    return function () {
+	      unlisten();
+
+	      if (--listenerCount === 0) stopHashChangeListener();
+	    };
+	  }
+
 	  function listen(listener) {
 	    if (++listenerCount === 1) stopHashChangeListener = startHashChangeListener(history);
 
@@ -20504,12 +20516,29 @@
 	    return '#' + history.createHref(path);
 	  }
 
+	  // deprecated
+	  function registerTransitionHook(hook) {
+	    if (++listenerCount === 1) stopHashChangeListener = startHashChangeListener(history);
+
+	    history.registerTransitionHook(hook);
+	  }
+
+	  // deprecated
+	  function unregisterTransitionHook(hook) {
+	    history.unregisterTransitionHook(hook);
+
+	    if (--listenerCount === 0) stopHashChangeListener();
+	  }
+
 	  return _extends({}, history, {
+	    listenBefore: listenBefore,
 	    listen: listen,
 	    pushState: pushState,
 	    replaceState: replaceState,
 	    go: go,
-	    createHref: createHref
+	    createHref: createHref,
+	    registerTransitionHook: registerTransitionHook,
+	    unregisterTransitionHook: unregisterTransitionHook
 	  });
 	}
 
@@ -20704,22 +20733,41 @@
 
 /***/ },
 /* 202 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	/*eslint-disable no-empty */
 	'use strict';
 
 	exports.__esModule = true;
 	exports.saveState = saveState;
 	exports.readState = readState;
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _warning = __webpack_require__(196);
+
+	var _warning2 = _interopRequireDefault(_warning);
+
+	/*eslint-disable no-empty */
 	var KeyPrefix = '@@History/';
+	var QuotaExceededError = 'QuotaExceededError';
 
 	function createKey(key) {
 	  return KeyPrefix + key;
 	}
 
 	function saveState(key, state) {
-	  window.sessionStorage.setItem(createKey(key), JSON.stringify(state));
+	  try {
+	    window.sessionStorage.setItem(createKey(key), JSON.stringify(state));
+	  } catch (error) {
+	    if (error.name === QuotaExceededError || window.sessionStorage.length === 0) {
+	      // Probably in Safari "private mode" where sessionStorage quota is 0. #42
+	      _warning2['default'](false, '[history] Unable to save state; sessionStorage is not available in Safari private mode');
+
+	      return;
+	    }
+
+	    throw error;
+	  }
 	}
 
 	function readState(key) {
@@ -21277,7 +21325,7 @@
 
 	function deprecate(fn, message) {
 	  return function () {
-	    _warning2['default'](false, message);
+	    _warning2['default'](false, '[history] ' + message);
 	    return fn.apply(this, arguments);
 	  };
 	}
@@ -22224,13 +22272,11 @@
 	            return prefix;
 	        }
 	    },
-	    strictNullHandling: false,
-	    skipNulls: false,
-	    encode: true
+	    strictNullHandling: false
 	};
 
 
-	internals.stringify = function (obj, prefix, generateArrayPrefix, strictNullHandling, skipNulls, encode, filter, sort) {
+	internals.stringify = function (obj, prefix, generateArrayPrefix, strictNullHandling, filter) {
 
 	    if (typeof filter === 'function') {
 	        obj = filter(prefix, obj);
@@ -22243,7 +22289,7 @@
 	    }
 	    else if (obj === null) {
 	        if (strictNullHandling) {
-	            return encode ? Utils.encode(prefix) : prefix;
+	            return Utils.encode(prefix);
 	        }
 
 	        obj = '';
@@ -22253,10 +22299,7 @@
 	        typeof obj === 'number' ||
 	        typeof obj === 'boolean') {
 
-	        if (encode) {
-	            return [Utils.encode(prefix) + '=' + Utils.encode(obj)];
-	        }
-	        return [prefix + '=' + obj];
+	        return [Utils.encode(prefix) + '=' + Utils.encode(obj)];
 	    }
 
 	    var values = [];
@@ -22265,28 +22308,15 @@
 	        return values;
 	    }
 
-	    var objKeys;
-	    if (Array.isArray(filter)) {
-	        objKeys = filter;
-	    } else {
-	        var keys = Object.keys(obj);
-	        objKeys = sort ? keys.sort(sort) : keys;
-	    }
-
+	    var objKeys = Array.isArray(filter) ? filter : Object.keys(obj);
 	    for (var i = 0, il = objKeys.length; i < il; ++i) {
 	        var key = objKeys[i];
 
-	        if (skipNulls &&
-	            obj[key] === null) {
-
-	            continue;
-	        }
-
 	        if (Array.isArray(obj)) {
-	            values = values.concat(internals.stringify(obj[key], generateArrayPrefix(prefix, key), generateArrayPrefix, strictNullHandling, skipNulls, encode, filter));
+	            values = values.concat(internals.stringify(obj[key], generateArrayPrefix(prefix, key), generateArrayPrefix, strictNullHandling, filter));
 	        }
 	        else {
-	            values = values.concat(internals.stringify(obj[key], prefix + '[' + key + ']', generateArrayPrefix, strictNullHandling, skipNulls, encode, filter));
+	            values = values.concat(internals.stringify(obj[key], prefix + '[' + key + ']', generateArrayPrefix, strictNullHandling, filter));
 	        }
 	    }
 
@@ -22299,9 +22329,6 @@
 	    options = options || {};
 	    var delimiter = typeof options.delimiter === 'undefined' ? internals.delimiter : options.delimiter;
 	    var strictNullHandling = typeof options.strictNullHandling === 'boolean' ? options.strictNullHandling : internals.strictNullHandling;
-	    var skipNulls = typeof options.skipNulls === 'boolean' ? options.skipNulls : internals.skipNulls;
-	    var encode = typeof options.encode === 'boolean' ? options.encode : internals.encode;
-	    var sort = typeof options.sort === 'function' ? options.sort : null;
 	    var objKeys;
 	    var filter;
 	    if (typeof options.filter === 'function') {
@@ -22336,21 +22363,9 @@
 	    if (!objKeys) {
 	        objKeys = Object.keys(obj);
 	    }
-
-	    if (sort) {
-	        objKeys.sort(sort);
-	    }
-
 	    for (var i = 0, il = objKeys.length; i < il; ++i) {
 	        var key = objKeys[i];
-
-	        if (skipNulls &&
-	            obj[key] === null) {
-
-	            continue;
-	        }
-
-	        keys = keys.concat(internals.stringify(obj[key], key, generateArrayPrefix, strictNullHandling, skipNulls, encode, filter, sort));
+	        keys = keys.concat(internals.stringify(obj[key], key, generateArrayPrefix, strictNullHandling, filter));
 	    }
 
 	    return keys.join(delimiter);
@@ -22571,8 +22586,7 @@
 	    parameterLimit: 1000,
 	    strictNullHandling: false,
 	    plainObjects: false,
-	    allowPrototypes: false,
-	    allowDots: false
+	    allowPrototypes: false
 	};
 
 
@@ -22717,7 +22731,7 @@
 	    options.depth = typeof options.depth === 'number' ? options.depth : internals.depth;
 	    options.arrayLimit = typeof options.arrayLimit === 'number' ? options.arrayLimit : internals.arrayLimit;
 	    options.parseArrays = options.parseArrays !== false;
-	    options.allowDots = typeof options.allowDots === 'boolean' ? options.allowDots : internals.allowDots;
+	    options.allowDots = options.allowDots !== false;
 	    options.plainObjects = typeof options.plainObjects === 'boolean' ? options.plainObjects : internals.plainObjects;
 	    options.allowPrototypes = typeof options.allowPrototypes === 'boolean' ? options.allowPrototypes : internals.allowPrototypes;
 	    options.parameterLimit = typeof options.parameterLimit === 'number' ? options.parameterLimit : internals.parameterLimit;
@@ -24324,7 +24338,7 @@
 
 	"use strict";
 
-	module.exports = [{ title: "Typography", html: __webpack_require__(241) }, { title: "Color Palette", html: __webpack_require__(242) }, { title: "Inputs", html: __webpack_require__(243) }, { title: "Buttons & Links", html: __webpack_require__(383) }, { title: "Checkboxes & Radios", html: __webpack_require__(384) }, { title: "Textarea", html: __webpack_require__(385) }, { title: "Pickers", html: __webpack_require__(386) }, { title: "Cards", html: __webpack_require__(387) }, { title: "Slats", html: __webpack_require__(388) }, { title: "Navigation", html: __webpack_require__(389) }, { title: "Menus", html: __webpack_require__(390) }, { title: "Icons & Labels", html: __webpack_require__(391) }, { title: "Tables", html: __webpack_require__(395) }, { title: "Toasters & Banners", html: __webpack_require__(396) }, { title: "Modals", html: __webpack_require__(397) }, { title: "Lists", html: __webpack_require__(398) }, { title: "Loaders", html: __webpack_require__(399) }, { title: 'Animations', html: __webpack_require__(400) }, { title: 'Utility Classes', html: __webpack_require__(401) }, { title: "JavaScript Widgets", html: __webpack_require__(402) }];
+	module.exports = [{ title: "Typography", html: __webpack_require__(241) }, { title: "Color Palette", html: __webpack_require__(242) }, { title: "Inputs", html: __webpack_require__(243) }, { title: "Buttons & Links", html: __webpack_require__(244) }, { title: "Checkboxes & Radios", html: __webpack_require__(245) }, { title: "Textarea", html: __webpack_require__(246) }, { title: "Pickers", html: __webpack_require__(247) }, { title: "Cards", html: __webpack_require__(248) }, { title: "Slats", html: __webpack_require__(388) }, { title: "Navigation", html: __webpack_require__(389) }, { title: "Menus", html: __webpack_require__(390) }, { title: "Icons & Labels", html: __webpack_require__(391) }, { title: "Tables", html: __webpack_require__(395) }, { title: "Toasters & Banners", html: __webpack_require__(396) }, { title: "Modals", html: __webpack_require__(397) }, { title: "Lists", html: __webpack_require__(398) }, { title: "Loaders", html: __webpack_require__(399) }, { title: 'Animations', html: __webpack_require__(400) }, { title: 'Utility Classes', html: __webpack_require__(401) }, { title: "JavaScript Widgets", html: __webpack_require__(402) }];
 
 /***/ },
 /* 241 */
@@ -25358,10 +25372,856 @@
 /* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	var React = __webpack_require__(37);
+
+	module.exports = React.createClass({
+		displayName: "exports",
+
+		render: function render() {
+			return React.createElement(
+				"div",
+				null,
+				React.createElement(
+					"div",
+					{ className: "cps-flexible-focus cps-card" },
+					React.createElement(
+						"div",
+						{ className: "cps-card__header cps-subheader" },
+						"Inputs"
+					)
+				),
+				React.createElement("cp-edit-render-code", { "section-title": "Top-aligned labels", dangerouslySetInnerHTML: { __html: "<form>\n\t<div class=\"cps-form-group\">\n\t\t<label htmlFor=\"exampleInputEmail1\">Full Name</label>\n\t\t<input type=\"text\" class=\"cps-form-control\" placeholder=\"Enter name\"/>\n\t</div>\n\t<div class=\"cps-form-group cps-has-feedback\">\n\t\t<label htmlFor=\"exampleInputEmail1\">Email address</label>\n\t\t<div class=\"cps-row\">\n\t\t\t<div class=\"cps-col-xs-5\">\n\t\t\t\t<input type=\"text\" class=\"cps-form-control\" placeholder=\"Enter email\"/>\n\t\t\t\t<span class=\"cps-icon-client cps-form-control-feedback\" aria-hidden=\"true\"></span>\n\t\t\t\t<span class=\"cps-error-block\">This error message is hidden unless cps-has-error is present</span>\n\t\t\t\t<span class=\"cps-help-block\">Example help block</span>\n\t\t\t</div>\n\t\t\t<div class=\"cps-col-xs-6\">\n\t\t\t\t<span class=\"cps-form-help-block\"><a class=\"cps-link cps-padding-left-4 cps-padding-right-4\"><i class=\"cps-icon cps-icon-help cps-light-gray\"></i> <span class=\"cps-info cps-padding-left-8\">Need help?</span></a></span>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<div class=\"cps-form-group cps-has-error\">\n\t\t<label htmlFor=\"exampleInputPhone\">Phone Number</label>\n\t\t<input type=\"text\" class=\"cps-form-control\" value=\"234-343-3434\"/>\n\t\t<span class=\"cps-icon-error cps-form-control-feedback\" aria-hidden=\"true\"></span>\n\t\t<span class=\"cps-error-block\">This is an error!</span>\n\t</div>\n</form>" } }),
+				React.createElement("cp-edit-render-code", { "section-title": "Left-aligned labels", dangerouslySetInnerHTML: { __html: "<form class=\"cps-form-horizontal\">\n\t<div class=\"cps-form-group\">\n\t\t<label htmlFor=\"exampleInputName\" class=\"cps-col-xs-2 cps-control-label\">Full Name</label>\n\t\t<div class=\"cps-col-xs-3\">\n\t\t\t<input type=\"text\" class=\"cps-form-control\" placeholder=\"Enter name\"/>\n\t\t</div>\n\t</div>\n\t<div class=\"cps-form-group cps-has-feedback cps-has-error\">\n\t\t<label htmlFor=\"exampleInputEmail1\" class=\"cps-col-xs-2 cps-control-label\">Email address</label>\n\t\t<div class=\"cps-col-xs-3\">\n\t\t\t<input type=\"text\" class=\"cps-form-control\" placeholder=\"Enter email\"/>\n\t\t\t<span class=\"cps-icon-client cps-form-control-feedback\" aria-hidden=\"true\"></span>\n\t\t\t<span class=\"cps-error-block\">This error message is hidden unless cps-has-error is present</span>\n\t\t\t<span class=\"cps-help-block\">Example help block</span>\n\t\t</div>\n\t</div>\n\t<div class=\"cps-form-group cps-has-error\">\n\t\t<label htmlFor=\"exampleInputPhone\" class=\"cps-col-xs-2 cps-control-label\">Phone Number</label>\n\t\t<div class=\"cps-col-xs-6\">\n\t\t\t<input type=\"text\" class=\"cps-form-control\" value=\"234-343-3434\"/>\n\t\t\t<span class=\"cps-icon-error cps-form-control-feedback\" aria-hidden=\"true\"></span>\n\t\t\t<span class=\"cps-error-block\">This is an error!</span>\n\t\t</div>\n\t</div>\n\t<div class=\"cps-form-group\">\n\t\t<label htmlFor=\"exampleInputPhoneDisabled\" class=\"cps-col-xs-2 cps-control-label\">Disabled</label>\n\t\t<div class=\"cps-col-xs-10\">\n\t\t\t<input type=\"text\" class=\"cps-form-control\" value=\"234-343-3434\" disabled=\"true\"/>\n\t\t</div>\n\t</div>\n</form>" } }),
+				React.createElement("cp-edit-render-code", { "section-title": "Input icon badges", dangerouslySetInnerHTML: { __html: "<form>\n\t<div class=\"cps-form-group\">\n\t\t<div class=\"cps-input-group\">\n\t\t\t<span class=\"cps-input-group-addon cps-icon-addon\" id=\"basic-addon1\"><i class=\"cps-icon cps-icon-add-person\"></i></span>\n\t\t\t<input type=\"text\" class=\"cps-form-control\" placeholder=\"Username\" aria-describedby=\"basic-addon1\"/>\n\t\t</div>\n\t</div>\n\t<div class=\"cps-form-group\">\n\t\t<div class=\"cps-input-group\">\n\t\t\t<input type=\"text\" class=\"cps-form-control\" placeholder=\"Username\" aria-describedby=\"basic-addon1\"/>\n\t\t\t<span class=\"cps-input-group-addon cps-icon-addon\" id=\"basic-addon1\"><i class=\"cps-icon cps-icon-add-person\"></i></span>\n\t\t</div>\n\t</div>\n\t<div class=\"cps-form-group cps-has-error\">\n\t\t<div class=\"cps-input-group\">\n\t\t\t<span class=\"cps-input-group-addon\" id=\"basic-addon1\">#</span>\n\t\t\t<input type=\"text\" class=\"cps-form-control\" placeholder=\"Serial Number\" aria-describedby=\"basic-addon1\"/>\n\t\t</div>\n\t\t<span class=\"cps-error-block\">This is an error!</span>\n\t</div>\n\t<div class=\"cps-form-group cps-has-feedback\">\n\t\t<div class=\"cps-input-group\">\n\t\t\t<span class=\"cps-input-group-addon cps-icon-addon cps-bg-primary-green\" id=\"basic-addon1\"><i class=\"cps-icon cps-icon-lg-check cps-white\"></i></span>\n\t\t\t<input type=\"text\" class=\"cps-form-control\" placeholder=\"Serial Number\" aria-describedby=\"basic-addon1\"/>\n\t\t</div>\n\t\t<span class=\"cps-error-block\">This is an error!</span>\n\t</div>\n\t<div class=\"cps-form-group cps-has-error\">\n\t\t<div class=\"cps-input-group\">\n\t\t\t<span class=\"cps-input-group-addon\" id=\"basic-addon1\">#</span>\n\t\t\t<input type=\"text\" class=\"cps-form-control\" placeholder=\"Serial Number\" aria-describedby=\"basic-addon1\"/>\n\t\t</div>\n\t\t<span class=\"cps-error-block\">This is an error!</span>\n\t</div>\n</form>" } }),
+				React.createElement("cp-edit-render-code", { "section-title": "Inline icons within inputs", dangerouslySetInnerHTML: { __html: "<form class=\"cps-form-horizontal\">\n\t<div class=\"cps-form-group cps-has-feedback cps-has-error\">\n\t\t<label htmlFor=\"exampleInputEmail1\" class=\"cps-col-xs-2 cps-control-label\">Email address</label>\n\t\t<div class=\"cps-col-xs-3\">\n\t\t\t<input type=\"text\" class=\"cps-form-control\" placeholder=\"Enter email\"/>\n\t\t\t<span class=\"cps-icon-client cps-form-control-feedback\" aria-hidden=\"true\"></span>\n\t\t\t<span class=\"cps-error-block\">This error message is hidden unless cps-has-error is present</span>\n\t\t\t<span class=\"cps-help-block\">Example help block</span>\n\t\t</div>\n\t</div>\n\t<div class=\"cps-form-group cps-has-error\">\n\t\t<label htmlFor=\"exampleInputPhone\" class=\"cps-col-xs-2 cps-control-label\">Phone Number</label>\n\t\t<div class=\"cps-col-xs-6\">\n\t\t\t<input type=\"text\" class=\"cps-form-control\" value=\"234-343-3434\"/>\n\t\t\t<span class=\"cps-icon-error cps-form-control-feedback\" aria-hidden=\"true\"></span>\n\t\t\t<span class=\"cps-error-block\">This is an error!</span>\n\t\t</div>\n\t</div>\n\t<div class=\"cps-form-group cps-has-feedback cps-has-error cps-has-feedback-left\">\n\t\t<label htmlFor=\"exampleInputEmail1\" class=\"cps-col-xs-2 cps-control-label\">Email address</label>\n\t\t<div class=\"cps-col-xs-3\">\n\t\t\t<input type=\"text\" class=\"cps-form-control\" placeholder=\"Enter email\"/>\n\t\t\t<span class=\"cps-icon-client cps-form-control-feedback\" aria-hidden=\"true\"></span>\n\t\t\t<span class=\"cps-error-block\">This error message is hidden unless cps-has-error is present</span>\n\t\t\t<span class=\"cps-help-block\">Example help block</span>\n\t\t</div>\n\t</div>\n\t<div class=\"cps-form-group cps-has-error cps-has-feedback-left\">\n\t\t<label htmlFor=\"exampleInputPhone\" class=\"cps-col-xs-2 cps-control-label\">Phone Number</label>\n\t\t<div class=\"cps-col-xs-6\">\n\t\t\t<input type=\"text\" class=\"cps-form-control\" value=\"234-343-3434\"/>\n\t\t\t<span class=\"cps-icon-error cps-form-control-feedback\" aria-hidden=\"true\"></span>\n\t\t\t<span class=\"cps-error-block\">This is an error!</span>\n\t\t</div>\n\t</div>\n</form>" } }),
+				React.createElement("cp-edit-render-code", { "section-title": "Horizontal layout", dangerouslySetInnerHTML: { __html: "<form class=\"cps-form-inline\">\n\t<div class=\"cps-form-group cps-has-feedback\">\n\t\t<label htmlFor=\"inlineEmail\">Email</label>\n\t\t<input type=\"text\" class=\"cps-form-control\" placeholder=\"Enter email\"/>\n\t\t<span class=\"cps-icon-client cps-form-control-feedback\" aria-hidden=\"true\"></span>\n\t</div>\n\t<div class=\"cps-form-group cps-has-error\">\n\t\t<label htmlFor=\"inlinePhone\">Phone</label>\n\t\t<input type=\"text\" class=\"cps-form-control\" value=\"234-343-3434\"/>\n\t\t<span class=\"cps-icon-error cps-form-control-feedback\" aria-hidden=\"true\"></span>\n\t</div>\n\t<div class=\"cps-form-group\">\n\t\t<input type=\"text\" class=\"cps-form-control\" value=\"234-343-3434\" disabled=\"true\"/>\n\t</div>\n</form>" } }),
+				React.createElement("cp-edit-render-code", { "section-title": "Auto-sized inputs", dangerouslySetInnerHTML: { __html: "<form class=\"cps-form-horizontal\">\n\t<div class=\"cps-form-group-resize\">\n\t\t<label htmlFor=\"Phone\" class=\"cps-col-xs-2 cps-control-label\">Phone</label>\n\t\t<div class=\"cps-col-xs-8\">\n\t\t\t<input type=\"text\" class=\"cps-form-control-resize\" placeholder=\"Enter phone\"/>\n\t\t</div>\n\t</div>\n\t<div class=\"cps-form-group-resize\">\n\t\t<label htmlFor=\"Email\" class=\"cps-col-xs-2 cps-control-label\">Email</label>\n\t\t<div class=\"cps-col-xs-8\">\n\t\t\t<input type=\"text\" class=\"cps-form-control-resize\" placeholder=\"Enter email\"/>\n\t\t</div>\n\t</div>\n\t<div class=\"cps-form-group-resize\">\n\t\t<label htmlFor=\"Address1\" class=\"cps-col-xs-2 cps-control-label\">Address 1</label>\n\t\t<div class=\"cps-col-xs-8\">\n\t\t\t<input type=\"text\" class=\"cps-form-control-resize\" placeholder=\"Enter address 1\"/>\n\t\t</div>\n\t</div>\n\t<div class=\"cps-form-group-resize cps-has-error\">\n\t\t<label htmlFor=\"Address2\" class=\"cps-col-xs-2 cps-control-label\">Address 2</label>\n\t\t<div class=\"cps-col-xs-8\">\n\t\t\t<input type=\"text\" class=\"cps-form-control-resize\" placeholder=\"Enter address2\" value=\"234-343-3434\"/>\n\t\t\t<span class=\"cps-error-block\">This is an error!</span>\n\t\t</div>\n\t</div>\n\t<div class=\"cps-form-group-resize\">\n\t\t<label htmlFor=\"Zip\" class=\"cps-col-xs-2 cps-control-label\">Zip</label>\n\t\t<div class=\"cps-col-xs-4\">\n\t\t\t<input type=\"text\" class=\"cps-form-control-resize\" value=\"234-343-3434\" readOnly=\"readonly\"/>\n\t\t</div>\n\t</div>\n</form>" } }),
+				React.createElement("cp-edit-render-code", { "section-title": "Auto-sized inputs -- horizontal layout", dangerouslySetInnerHTML: { __html: "<form class=\"cps-form-inline\">\n\t<div class=\"cps-form-group-resize\">\n\t\t<label htmlFor=\"Email\">Email</label>\n\t\t<input type=\"text\" class=\"cps-form-control-resize\" placeholder=\"Enter email\" value=\"exi@gm.com\"/>\n\t</div>\n\t<div class=\"cps-form-group-resize\">\n\t\t<label htmlFor=\"Phone\">Phone</label>\n\t\t<input type=\"text\" class=\"cps-form-control-resize\" placeholder=\"Enter phone\"/>\n\t</div>\n\t<div class=\"cps-form-group-resize\">\n\t\t<input type=\"text\" class=\"cps-form-control-resize cps-subheader\" placeholder=\"Enter zip code\" value=\"large font example\"/>\n\t</div>\n\t<div class=\"cps-form-group-resize cps-has-error\">\n\t\t<input type=\"text\" class=\"cps-form-control-resize\" placeholder=\"Error example\"/>\n\t\t<span class=\"cps-error-block\">This is an error</span>\n\t</div>\n</form>" } }),
+				React.createElement(
+					"div",
+					{ className: "cps-flexible-focus cps-card" },
+					React.createElement(
+						"div",
+						{ className: "cps-card__header cps-subheader" },
+						"Angular Helpers"
+					),
+					React.createElement(
+						"div",
+						{ className: "cps-card__body" },
+						React.createElement(
+							"b",
+							null,
+							"form-helpers.service.js"
+						),
+						" includes useful form methods:",
+						React.createElement(
+							"ul",
+							null,
+							React.createElement(
+								"li",
+								null,
+								React.createElement(
+									"b",
+									null,
+									"hasError"
+								),
+								" - Returns true if a form field is invalid or the outer form was submitted. Look at ",
+								React.createElement(
+									"b",
+									null,
+									"edit-user.controller.js"
+								),
+								" and the associated template for an example."
+							)
+						)
+					)
+				)
+			);
+		}
+	});
+
+/***/ },
+/* 244 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(37);
+
+	module.exports = React.createClass({
+		displayName: "exports",
+
+		render: function render() {
+			return React.createElement(
+				"div",
+				null,
+				React.createElement(
+					"div",
+					{ className: "cps-flexible-focus cps-card" },
+					React.createElement(
+						"div",
+						{ className: "cps-card__header" },
+						React.createElement(
+							"h3",
+							{ className: "cps-subheader" },
+							"Buttons"
+						)
+					)
+				),
+				React.createElement("cp-edit-render-code", { "section-title": "Raised Buttons", dangerouslySetInnerHTML: { __html: "<div class=\"cps-row cps-margin-bottom-12\">\n\t<button class=\"cps-btn +primary\">primary</button>\n\t<button class=\"cps-btn +secondary\">secondary</button>\n\t<a href class=\"cps-btn +primary\">PRIMARY link</a>\n\t<a href class=\"cps-btn +secondary\">secondary link</a>\n\t<button class=\"cps-btn +primary\"><span class=\"cps-icon cps-icon-upload\"></span> primary</button>\n\t<a href class=\"cps-btn +primary\">PRIMARY link <span class=\"cps-icon cps-icon-upload\"></span></a>\n</div>\n<div class=\"cps-row margin-top-24\">\n\t<button class=\"cps-btn +primary +disabled\">PRIMARY</button>\n\t<button class=\"cps-btn +secondary\" disabled>secondary</button>\n\t<a href class=\"cps-btn +primary +disabled\">PRIMARY link</a>\n\t<a href class=\"cps-btn +secondary +disabled\">secondary link</a>\n\t<button class=\"cps-btn +primary\" disabled><span class=\"cps-icon cps-icon-upload\"></span> primary</button>\n\t<a href class=\"cps-btn +primary\" disabled>PRIMARY link <span class=\"cps-icon cps-icon-upload\"></span></a>\n</div>" } }),
+				React.createElement("cp-edit-render-code", { "section-title": "Flat Buttons", dangerouslySetInnerHTML: { __html: "<span class=\"cps-link cps-primary-green\"><strong>PRIMARY link</strong></span\n\n<a href class=\"cps-link\">PRIMARY link</a>\n\n<a href class=\"cps-link\" disabled=\"disabled\">PRIMARY link</a>\n\n<a href class=\"cps-link\"><span class=\"cps-icon cps-icon-lg-check\"></span> ACCEPT</a>\n\n<a href class=\"cps-link\" disabled=\"disabled\">\n\n<span class=\"cps-icon cps-icon-lg-check\"></span> PRIMARY link</a>" } }),
+				React.createElement("cp-edit-render-code", { "section-title": "Icon Buttons", dangerouslySetInnerHTML: { __html: "<div class=\"cps-btn-icon\">\n\t<a href class=\"cps-link\"><span class=\"cps-icon cps-icon-work\"></span></a>\n\t<a href class=\"cps-link\"><span class=\"cps-icon cps-icon-cog\"></span></a>\n\t<a href class=\"cps-link\"><span class=\"cps-icon cps-icon-close\"></span></a>\n\t<a href class=\"cps-link\"><span class=\"cps-icon cps-icon-help\"></span></a>\n\t<a href class=\"cps-link\"><span class=\"cps-icon cps-icon-lg-check\"></span></a>\n</div>" } }),
+				React.createElement("cp-edit-render-code", { "section-title": "Links", dangerouslySetInnerHTML: { __html: "<div class=\"cps-row cps-margin-12\">\n\t<a href>this is a standard link</a>\n</div>" } })
+			);
+		}
+	});
+
+/***/ },
+/* 245 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(37);
+
+	module.exports = React.createClass({
+		displayName: "exports",
+
+		render: function render() {
+			return React.createElement(
+				"div",
+				null,
+				React.createElement(
+					"div",
+					{ className: "cps-flexible-focus cps-card" },
+					React.createElement(
+						"div",
+						{ className: "cps-card__header cps-subheader" },
+						"Checkboxes and Radios"
+					),
+					React.createElement(
+						"div",
+						{ className: "cps-card__body" },
+						React.createElement(
+							"p",
+							null,
+							"Note that the radio and checkboxes need to be wrapped inside a label. ",
+							React.createElement(
+								"strong",
+								null,
+								"This is a requirement."
+							),
+							"The text beside the input also needs to be wrapped in a span tag."
+						)
+					)
+				),
+				React.createElement("cp-edit-render-code", { "section-title": "Radios", dangerouslySetInnerHTML: { __html: "<div class=\"cps-row\">\n\t<form>\n\t\t<label class=\"cps-radio\">\n\t\t\t<input type=\"radio\" value=\"1\" name=\"testQuestion\" /><span>Yes</span>\n\t\t</label>\n\t\t<label clas=\"cps-radio\">\n\t\t\t<input type=\"radio\" value=\"0\" name=\"testQuestion\" /><span>No</span>\n\t\t</label>\n\t</form>\n</div>\n<div class=\"cps-row\">\n\t<form>\n\t\t<label class=\"cps-radio\">\n\t\t\t<input type=\"radio\" value=\"1\" checked disabled name=\"testQuestion\" /><span>Yes</span>\n\t\t</label>\n\t\t<label class=\"cps-radio\">\n\t\t\t<input type=\"radio\" value=\"0\" disabled name=\"testQuestion\" /><span>No</span>\n\t\t</label>\n\t</form>\n</div>" } }),
+				React.createElement("cp-edit-render-code", { "section-title": "Checkboxes", dangerouslySetInnerHTML: { __html: "<div class=\"cps-row margin-top-16\">\n\t<form>\n\t\t<label class=\"cps-checkbox\">\n\t\t\t<input type=\"checkbox\" value=\"option1\"/><span>1</span>\n\t\t</label>\n\t\t<label class=\"cps-checkbox\">\n\t\t\t<input type=\"checkbox\" value=\"option1\" disabled/><span>1</span>\n\t\t</label>\n\t\t<label class=\"cps-checkbox\">\n\t\t\t<input type=\"checkbox\" value=\"option2\" disabled checked/><span>2</span>\n\t\t</label>\n\t</form>\n</div>\n<div class=\"cps-row cps-margin-top-16\">\n\t<form>\n\t\t<label class=\"cps-checkbox-large\">\n\t\t\t<input type=\"checkbox\" value=\"option1\"/><span>1</span>\n\t\t</label>\n\t\t<label class=\"cps-checkbox-large\">\n\t\t\t<input type=\"checkbox\" value=\"option1\" disabled/><span>2</span>\n\t\t</label>\n\t\t<label class=\"cps-checkbox-large\">\n\t\t\t<input type=\"checkbox\" value=\"option2\" disabled checked/><span>3</span>\n\t\t</label>\n\t\t<label class=\"cps-checkbox-large\">\n\t\t\t<input type=\"checkbox\" value=\"option2\"/><span></span>\n\t\t</label>\n\t</form>\n</div>" } }),
+				React.createElement("cp-edit-render-code", { "section-title": "Stacked checkboxes and radios", dangerouslySetInnerHTML: { __html: "<div class=\"cps-row\">\n\t<form>\n\t\t<div>\n\t\t\t<label class=\"cps-radio\">\n\t\t\t\t<input type=\"radio\" name=\"optionsRadios\" value=\"option1\"/><span>Option one is this and that&mdash;be sure to include why it's great</span>\n\t\t\t</label>\n\t\t</div>\n\t\t<div>\n\t\t\t<label class=\"cps-radio\">\n\t\t\t\t<input type=\"radio\" name=\"optionsRadios\" value=\"option1\"/><span>Option two is this and that&mdash;be sure to include why it's great</span>\n\t\t\t</label>\n\t\t</div>\n\t\t<div>\n\t\t\t<label class=\"cps-radio\">\n\t\t\t\t<input type=\"radio\" name=\"optionsRadios\" value=\"option1\"/><span>Option one is this and that&mdash;be sure to include why it's great</span>\n\t\t\t</label>\n\t\t</div>\n\t</form>\n</div>\n<div class=\"cps-row cps-padding-top-16\">\n\t<form>\n\t\t<div>\n\t\t\t<label class=\"cps-checkbox\">\n\t\t\t\t<input type=\"checkbox\"/><span>Check me out</span>\n\t\t\t</label>\n\t\t</div>\n\t\t<div>\n\t\t\t<label class=\"cps-checkbox\">\n\t\t\t\t<input type=\"checkbox\"/><span>Check me out</span>\n\t\t\t</label>\n\t\t</div>\n\t\t<div>\n\t\t\t<label class=\"cps-checkbox\">\n\t\t\t\t<input type=\"checkbox\"/><span>Check me out</span>\n\t\t\t</label>\n\t\t</div>\n\t</form>\n</div>" } }),
+				React.createElement(
+					"div",
+					{ className: "cps-flexible-focus cps-card" },
+					React.createElement(
+						"div",
+						{ className: "cps-card__body" },
+						React.createElement(
+							"p",
+							null,
+							"Toggles should be used for single instance values that need an \"on\" or \"off\" state. It's also importatnt to note that the toggle only has one disabled state. When a toggle is disabled within the application, then the value must be set to \"off\"."
+						)
+					)
+				),
+				React.createElement("cp-edit-render-code", { "section-title": "Toggle switches", dangerouslySetInnerHTML: { __html: "<div class=\"cps-row\">\n\t<form>\n\t\t<label class=\"cps-toggle\">\n\t\t\t<input type=\"checkbox\" value=\"option1\" checked/><span></span>\n\t\t</label>\n\t\t<label class=\"cps-toggle\">\n\t\t\t<input type=\"checkbox\" value=\"option1\"/><span></span>\n\t\t</label>\n\t\t<label class=\"cps-toggle\">\n\t\t\t<input type=\"checkbox\" value=\"option1\" disabled=\"true\"/><span></span>\n\t\t</label>\n\t\t<label class=\"cps-toggle\">\n\t\t\t<input type=\"checkbox\" value=\"option1\" checked disabled=\"true\"/><span></span>\n\t\t</label>\n\t</form>\n</div>" } })
+			);
+		}
+	});
+
+/***/ },
+/* 246 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(37);
+
+	module.exports = React.createClass({
+		displayName: "exports",
+
+		render: function render() {
+			return React.createElement(
+				"div",
+				null,
+				React.createElement(
+					"div",
+					{ className: "cps-flexible-focus cps-card" },
+					React.createElement(
+						"div",
+						{ className: "cps-card__header" },
+						React.createElement(
+							"h3",
+							{ className: "cps-subheader" },
+							"Textareas"
+						)
+					)
+				),
+				React.createElement("cp-edit-render-code", { "section-title": "Textarea with top-aligned label", dangerouslySetInnerHTML: { __html: "<form>\n\t<div class=\"cps-form-group\">\n\t\t<label htmlFor=\"exampleInputEmail1\">Email address</label>\n\t\t<textarea class=\"cps-form-control\"></textarea>\n\t</div>\n</form>" } }),
+				React.createElement("cp-edit-render-code", { "section-title": "Textarea with left-aligned label and no resize handle", dangerouslySetInnerHTML: { __html: "<form class=\"cps-form-horizontal\">\n\t<div class=\"cps-form-group\">\n\t\t<label htmlFor=\"exampleInputEmail1\" class=\"cps-col-xs-1\">Full Name</label>\n\t\t<div class=\"cps-col-xs-3\">\n\t\t\t<textarea class=\"cps-form-control +no-resize\"></textarea>\n\t\t</div>\n\t</div>\n</form>" } })
+			);
+		}
+	});
+
+/***/ },
+/* 247 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(37);
+
+	module.exports = React.createClass({
+		displayName: "exports",
+
+		render: function render() {
+			return React.createElement(
+				"div",
+				null,
+				React.createElement(
+					"div",
+					{ className: "cps-flexible-focus cps-card" },
+					React.createElement(
+						"div",
+						{ className: "cps-card__header cps-subheader" },
+						"Date Pickers"
+					),
+					React.createElement(
+						"div",
+						{ className: "cps-card__body" },
+						React.createElement(
+							"p",
+							null,
+							"The styleguide provides some override styles for the bootstrap date picker. Generate a datepicker as usual with bootstrap and make sure that the id \"cps-app\" is on the body tag. The date picker should automatically style correctly."
+						),
+						React.createElement(
+							"div",
+							{ className: "datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-top",
+								style: { position: 'relative', display: 'block', float: 'none' } },
+							React.createElement(
+								"div",
+								{ className: "datepicker-days", style: { display: 'block' } },
+								React.createElement(
+									"table",
+									{ className: " table-condensed" },
+									React.createElement(
+										"thead",
+										null,
+										React.createElement(
+											"tr",
+											null,
+											React.createElement(
+												"th",
+												{ className: "prev" },
+												"«"
+											),
+											React.createElement(
+												"th",
+												{ colSpan: "5", className: "datepicker-switch" },
+												"March 2015"
+											),
+											React.createElement(
+												"th",
+												{ className: "next" },
+												"»"
+											)
+										),
+										React.createElement(
+											"tr",
+											null,
+											React.createElement(
+												"th",
+												{ className: "dow" },
+												"S"
+											),
+											React.createElement(
+												"th",
+												{ className: "dow" },
+												"M"
+											),
+											React.createElement(
+												"th",
+												{ className: "dow" },
+												"T"
+											),
+											React.createElement(
+												"th",
+												{ className: "dow" },
+												"W"
+											),
+											React.createElement(
+												"th",
+												{ className: "dow" },
+												"T"
+											),
+											React.createElement(
+												"th",
+												{ className: "dow" },
+												"F"
+											),
+											React.createElement(
+												"th",
+												{ className: "dow" },
+												"S"
+											)
+										)
+									),
+									React.createElement(
+										"tbody",
+										null,
+										React.createElement(
+											"tr",
+											null,
+											React.createElement(
+												"td",
+												{ className: "old day" },
+												"22"
+											),
+											React.createElement(
+												"td",
+												{ className: "old day" },
+												"23"
+											),
+											React.createElement(
+												"td",
+												{ className: "old day" },
+												"24"
+											),
+											React.createElement(
+												"td",
+												{ className: "old day" },
+												"25"
+											),
+											React.createElement(
+												"td",
+												{ className: "old day" },
+												"26"
+											),
+											React.createElement(
+												"td",
+												{ className: "old day" },
+												"27"
+											),
+											React.createElement(
+												"td",
+												{ className: "old day" },
+												"28"
+											)
+										),
+										React.createElement(
+											"tr",
+											null,
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"1"
+											),
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"2"
+											),
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"3"
+											),
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"4"
+											),
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"5"
+											),
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"6"
+											),
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"7"
+											)
+										),
+										React.createElement(
+											"tr",
+											null,
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"8"
+											),
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"9"
+											),
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"10"
+											),
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"11"
+											),
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"12"
+											),
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"13"
+											),
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"14"
+											)
+										),
+										React.createElement(
+											"tr",
+											null,
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"15"
+											),
+											React.createElement(
+												"td",
+												{ className: "active day" },
+												"16"
+											),
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"17"
+											),
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"18"
+											),
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"19"
+											),
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"20"
+											),
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"21"
+											)
+										),
+										React.createElement(
+											"tr",
+											null,
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"22"
+											),
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"23"
+											),
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"24"
+											),
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"25"
+											),
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"26"
+											),
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"27"
+											),
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"28"
+											)
+										),
+										React.createElement(
+											"tr",
+											null,
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"29"
+											),
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"30"
+											),
+											React.createElement(
+												"td",
+												{ className: "day" },
+												"31"
+											),
+											React.createElement(
+												"td",
+												{ className: "new day" },
+												"1"
+											),
+											React.createElement(
+												"td",
+												{ className: "new day" },
+												"2"
+											),
+											React.createElement(
+												"td",
+												{ className: "new day" },
+												"3"
+											),
+											React.createElement(
+												"td",
+												{ className: "new day" },
+												"4"
+											)
+										)
+									),
+									React.createElement(
+										"tfoot",
+										null,
+										React.createElement(
+											"tr",
+											null,
+											React.createElement(
+												"th",
+												{ colSpan: "7", className: "today", style: { display: 'none' } },
+												"Today"
+											)
+										),
+										React.createElement(
+											"tr",
+											null,
+											React.createElement(
+												"th",
+												{ colSpan: "7", className: "clear", style: { display: 'none' } },
+												"Clear"
+											)
+										)
+									)
+								)
+							),
+							React.createElement(
+								"div",
+								{ className: "datepicker-months", style: { display: 'none' } },
+								React.createElement(
+									"table",
+									{ className: "table-condensed" },
+									React.createElement(
+										"thead",
+										null,
+										React.createElement(
+											"tr",
+											null,
+											React.createElement(
+												"th",
+												{ className: "prev" },
+												"«"
+											),
+											React.createElement(
+												"th",
+												{ colSpan: "5", className: "datepicker-switch" },
+												"2015"
+											),
+											React.createElement(
+												"th",
+												{ className: "next" },
+												"»"
+											)
+										)
+									),
+									React.createElement(
+										"tbody",
+										null,
+										React.createElement(
+											"tr",
+											null,
+											React.createElement(
+												"td",
+												{ colSpan: "7" },
+												React.createElement(
+													"span",
+													{ className: "month" },
+													"Jan"
+												),
+												React.createElement(
+													"span",
+													{ className: "month" },
+													"Feb"
+												),
+												React.createElement(
+													"span",
+													{ className: "month active" },
+													"Mar"
+												),
+												React.createElement(
+													"span",
+													{ className: "month" },
+													"Apr"
+												),
+												React.createElement(
+													"span",
+													{ className: "month" },
+													"May"
+												),
+												React.createElement(
+													"span",
+													{ className: "month" },
+													"Jun"
+												),
+												React.createElement(
+													"span",
+													{ className: "month" },
+													"Jul"
+												),
+												React.createElement(
+													"span",
+													{ className: "month" },
+													"Aug"
+												),
+												React.createElement(
+													"span",
+													{ className: "month" },
+													"Sep"
+												),
+												React.createElement(
+													"span",
+													{ className: "month" },
+													"Oct"
+												),
+												React.createElement(
+													"span",
+													{ className: "month" },
+													"Nov"
+												),
+												React.createElement(
+													"span",
+													{ className: "month" },
+													"Dec"
+												)
+											)
+										)
+									),
+									React.createElement(
+										"tfoot",
+										null,
+										React.createElement(
+											"tr",
+											null,
+											React.createElement(
+												"th",
+												{ colSpan: "7", className: "today", style: { display: 'none' } },
+												"Today"
+											)
+										),
+										React.createElement(
+											"tr",
+											null,
+											React.createElement(
+												"th",
+												{ colSpan: "7", className: "clear", style: { display: 'none' } },
+												"Clear"
+											)
+										)
+									)
+								)
+							),
+							React.createElement(
+								"div",
+								{ className: "datepicker-years", style: { display: 'none' } },
+								React.createElement(
+									"table",
+									{ className: "table-condensed" },
+									React.createElement(
+										"thead",
+										null,
+										React.createElement(
+											"tr",
+											null,
+											React.createElement(
+												"th",
+												{ className: "prev" },
+												"«"
+											),
+											React.createElement(
+												"th",
+												{ colSpan: "5", className: "datepicker-switch" },
+												"2010-2019"
+											),
+											React.createElement(
+												"th",
+												{ className: "next" },
+												"»"
+											)
+										)
+									),
+									React.createElement(
+										"tbody",
+										null,
+										React.createElement(
+											"tr",
+											null,
+											React.createElement(
+												"td",
+												{ colSpan: "7" },
+												React.createElement(
+													"span",
+													{ className: "year old" },
+													"2009"
+												),
+												React.createElement(
+													"span",
+													{ className: "year" },
+													"2010"
+												),
+												React.createElement(
+													"span",
+													{ className: "year" },
+													"2011"
+												),
+												React.createElement(
+													"span",
+													{ className: "year" },
+													"2012"
+												),
+												React.createElement(
+													"span",
+													{ className: "year" },
+													"2013"
+												),
+												React.createElement(
+													"span",
+													{ className: "year" },
+													"2014"
+												),
+												React.createElement(
+													"span",
+													{ className: "year active" },
+													"2015"
+												),
+												React.createElement(
+													"span",
+													{ className: "year" },
+													"2016"
+												),
+												React.createElement(
+													"span",
+													{ className: "year" },
+													"2017"
+												),
+												React.createElement(
+													"span",
+													{ className: "year" },
+													"2018"
+												),
+												React.createElement(
+													"span",
+													{ className: "year" },
+													"2019"
+												),
+												React.createElement(
+													"span",
+													{ className: "year new" },
+													"2020"
+												)
+											)
+										)
+									),
+									React.createElement(
+										"tfoot",
+										null,
+										React.createElement(
+											"tr",
+											null,
+											React.createElement(
+												"th",
+												{ colSpan: "7", className: "today", style: { display: 'none' } },
+												"Today"
+											)
+										),
+										React.createElement(
+											"tr",
+											null,
+											React.createElement(
+												"th",
+												{ colSpan: "7", className: "clear", style: { display: 'none' } },
+												"Clear"
+											)
+										)
+									)
+								)
+							)
+						)
+					)
+				),
+				React.createElement(
+					"div",
+					{ className: "cps-flexible-focus cps-card cps-margin-top-24" },
+					React.createElement(
+						"div",
+						{ className: "cps-card__header cps-subheader" },
+						"People Picker / Multi-select"
+					),
+					React.createElement(
+						"div",
+						{ className: "cps-card__body" },
+						"The multi-selector widget is located in a ",
+						React.createElement(
+							"a",
+							{ href: "https://github.com/CanopyTax/cp-multi-selector" },
+							"separate repository"
+						),
+						"."
+					)
+				)
+			);
+		}
+	});
+
+/***/ },
+/* 248 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	var React = __webpack_require__(37);
-	var Highlight = __webpack_require__(244);
+	var Highlight = __webpack_require__(249);
 
 	module.exports = React.createClass({
 		displayName: 'exports',
@@ -25372,656 +26232,452 @@
 				null,
 				React.createElement(
 					'div',
-					{ className: 'cps-flexible-focus cps-card' },
+					{ className: 'cps-flexible-focus cps-card cps-margin-bottom-16' },
 					React.createElement(
 						'div',
 						{ className: 'cps-card__header cps-subheader' },
-						'Inputs'
+						'Cards'
+					)
+				),
+				React.createElement(
+					'div',
+					{ className: 'cps-flexible-focus cps-card cps-margin-bottom-16' },
+					React.createElement(
+						'div',
+						{ className: 'cps-card__header cps-subheader' },
+						'Flexible Focus cards'
 					),
 					React.createElement(
 						'div',
 						{ className: 'cps-card__body' },
+						'This card is within a flexible focus layout. This layout encourages a focus on a particular type of content like files or dates. Generally the card grows vertically rather than stacking sequential cards.',
 						React.createElement(
-							'div',
-							{ className: 'cps-subheader-sm cps-margin-bottom-24' },
-							'Top-aligned Inputs'
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-row' },
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-12' },
-								React.createElement(
-									'form',
-									null,
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group' },
-										React.createElement(
-											'label',
-											{ htmlFor: 'exampleInputEmail1' },
-											'Full Name'
-										),
-										React.createElement('input', { type: 'text', className: 'cps-form-control', placeholder: 'Enter name' })
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group cps-has-feedback' },
-										React.createElement(
-											'label',
-											{ htmlFor: 'exampleInputEmail1' },
-											'Email address'
-										),
-										React.createElement(
-											'div',
-											{ className: 'cps-row' },
-											React.createElement(
-												'div',
-												{ className: 'cps-col-xs-5' },
-												React.createElement('input', { type: 'text', className: 'cps-form-control', placeholder: 'Enter email' }),
-												React.createElement('span', { className: 'cps-icon-client cps-form-control-feedback', 'aria-hidden': 'true' }),
-												React.createElement(
-													'span',
-													{ className: 'cps-error-block' },
-													'This error message is hidden unless cps-has-error is present'
-												),
-												React.createElement(
-													'span',
-													{ className: 'cps-help-block' },
-													'Example help block'
-												)
-											),
-											React.createElement(
-												'div',
-												{ className: 'cps-col-xs-6' },
-												React.createElement(
-													'span',
-													{ className: 'cps-form-help-block' },
-													React.createElement(
-														'a',
-														{ href: true, className: 'cps-link cps-padding-left-4 cps-padding-right-4' },
-														React.createElement('i', { className: 'cps-icon cps-icon-help cps-light-gray' }),
-														' ',
-														React.createElement(
-															'span',
-															{ className: 'cps-info cps-padding-left-8' },
-															'Need help?'
-														)
-													)
-												)
-											)
-										)
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group cps-has-error' },
-										React.createElement(
-											'label',
-											{ htmlFor: 'exampleInputPhone' },
-											'Phone Number'
-										),
-										React.createElement('input', { type: 'text', className: 'cps-form-control', value: '234-343-3434' }),
-										React.createElement('span', { className: 'cps-icon-error cps-form-control-feedback', 'aria-hidden': 'true' }),
-										React.createElement(
-											'span',
-											{ className: 'cps-error-block' },
-											'This is an error!'
-										)
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group' },
-										React.createElement(
-											'div',
-											{ className: 'cps-input-group' },
-											React.createElement(
-												'span',
-												{ className: 'cps-input-group-addon cps-icon-addon', id: 'basic-addon1' },
-												React.createElement('i', { className: 'cps-icon cps-icon-add-person' })
-											),
-											React.createElement('input', { type: 'text', className: 'cps-form-control', placeholder: 'Username', 'aria-describedby': 'basic-addon1' })
-										)
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group' },
-										React.createElement(
-											'div',
-											{ className: 'cps-input-group' },
-											React.createElement('input', { type: 'text', className: 'cps-form-control', placeholder: 'Username', 'aria-describedby': 'basic-addon1' }),
-											React.createElement(
-												'span',
-												{ className: 'cps-input-group-addon cps-icon-addon', id: 'basic-addon1' },
-												React.createElement('i', { className: 'cps-icon cps-icon-add-person' })
-											)
-										)
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group cps-has-error' },
-										React.createElement(
-											'div',
-											{ className: 'cps-input-group' },
-											React.createElement(
-												'span',
-												{ className: 'cps-input-group-addon', id: 'basic-addon1' },
-												'#'
-											),
-											React.createElement('input', { type: 'text', className: 'cps-form-control', placeholder: 'Serial Number', 'aria-describedby': 'basic-addon1' })
-										),
-										React.createElement(
-											'span',
-											{ className: 'cps-error-block' },
-											'This is an error!'
-										)
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group cps-has-feedback' },
-										React.createElement(
-											'div',
-											{ className: 'cps-input-group' },
-											React.createElement(
-												'span',
-												{ className: 'cps-input-group-addon cps-icon-addon cps-bg-primary-green', id: 'basic-addon1' },
-												React.createElement('i', { className: 'cps-icon cps-icon-lg-check cps-white' })
-											),
-											React.createElement('input', { type: 'text', className: 'cps-form-control', placeholder: 'Serial Number', 'aria-describedby': 'basic-addon1' })
-										),
-										React.createElement(
-											'span',
-											{ className: 'cps-error-block' },
-											'This is an error!'
-										)
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group cps-has-error' },
-										React.createElement(
-											'div',
-											{ className: 'cps-input-group' },
-											React.createElement(
-												'span',
-												{ className: 'cps-input-group-addon', id: 'basic-addon1' },
-												'#'
-											),
-											React.createElement('input', { type: 'text', className: 'cps-form-control', placeholder: 'Serial Number', 'aria-describedby': 'basic-addon1' })
-										),
-										React.createElement(
-											'span',
-											{ className: 'cps-error-block' },
-											'This is an error!'
-										)
-									)
-								)
-							)
-						)
-					),
-					React.createElement('hr', null),
-					React.createElement(
-						'div',
-						{ className: 'cps-card__header cps-subheader' },
-						'Angular Helpers'
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-card__body' },
-						React.createElement(
-							'b',
+							'p',
 							null,
-							'form-helpers.service.js'
-						),
-						' includes useful form methods:',
-						React.createElement(
-							'ul',
-							null,
+							'Flexible focus really only defines a max and min width for the content. It also centers it.',
 							React.createElement(
-								'li',
+								'strong',
 								null,
+								'The class name "cps-card" is what makes the card look with a white background.'
+							),
+							'This same class name is used for the card look and feel of the slat and table components.'
+						),
+						React.createElement('hr', { className: 'cps-card__hr' }),
+						React.createElement(
+							'p',
+							null,
+							'The thinner card headers can be used by adding the class modifier "+thin" to the cps-card element.'
+						)
+					)
+				),
+				React.createElement('cp-edit-render-code', { dangerouslySetInnerHTML: { __html: '<div class="cps-flexible-focus cps-card">\n\t<div class="cps-card__header cps-subheader">\n\t\tThe Header content goes here.\n\t</div>\n\t<div class="cps-card__body">\n\t\tPut card main content with a body tag.\n\t</div>\n\t<hr />\n\t<div class="cps-card__body">\n\t\tThere can be multiple body tags, generally separated by an hr\n\t</div>\n</div>' } }),
+				React.createElement(
+					'div',
+					{ className: 'cps-flexible-focus cps-card cps-margin-bottom-16 cps-margin-top-32' },
+					React.createElement(
+						'div',
+						{ className: 'cps-card__header cps-subheader' },
+						'Fixed Focus cards'
+					)
+				),
+				React.createElement(
+					'div',
+					{ className: 'cps-fixed-focus cps-card cps-margin-bottom-16' },
+					React.createElement(
+						'div',
+						{ className: 'cps-card__header cps-subheader' },
+						'Fixed Focus'
+					),
+					React.createElement(
+						'div',
+						{ className: 'cps-card__body' },
+						'This card is within a fixed focus layout. This layout encourages a focus on a particular type of content like files or dates. Generally the card grows vertically but does not resize horizontally with the screen.',
+						React.createElement(
+							'div',
+							{ className: 'cps-card__banner cps-bg-success cps-white' },
+							'A long banner can appear within a card'
+						),
+						React.createElement(
+							'p',
+							null,
+							'Fixed focus  defines a 760px width for the content. It also centers it. It  generally does not account for navigation menus.',
+							React.createElement(
+								'strong',
+								null,
+								'The class name "cps-card" is what makes the card look with a white background.'
+							),
+							'This same class name is used for the card look and feel of the slat and table components.'
+						),
+						React.createElement(
+							'div',
+							{ className: 'cps-card__banner +large +bg-warning' },
+							React.createElement(
+								'i',
+								{ className: 'cps-icon cps-icon-error cps-warning' },
 								React.createElement(
-									'b',
+									'span',
 									null,
-									'hasError'
+									'A large banner can also appear in a card'
+								)
+							)
+						),
+						React.createElement(
+							'p',
+							null,
+							'Followed by more text.'
+						)
+					)
+				),
+				React.createElement('cp-edit-render-code', { dangerouslySetInnerHTML: { __html: '<div class="cps-fixed-focus cps-card">\n\t<div class="cps-card__header cps-subheader">\n\t\tThe Header content goes here.\n\t</div>\n\t<div class="cps-card__body">\n\t\tPut card main content with a body tag.\n\t\t<p>\n\t\t\tInline banners:\n\t\t<p>\n\t\t<div class="cps-card__banner cps-bg-success cps-white">A long banner can appear within a card</div>\n\t</div>\n\t<hr />\n\t<div class="cps-card__body">\n\t\tThere can be multiple body tags, generally separated by an hr\n\t</div>\n\t<hr />\n\t<div class="cps-card__body">\n\t\t<div class="cps-card__banner +large +bg-warning"><i class="cps-icon cps-icon-error cps-warning"><span>A large banner can also appear in a card</span></i></div>\n\t\t<p>\n\t\t\tFollowed by more text.\n\t\t</p>\n\t</div>\n</div>' } }),
+				React.createElement(
+					'div',
+					{ className: 'cps-flexible-focus cps-card cps-margin-bottom-16 cps-margin-top-32' },
+					React.createElement(
+						'div',
+						{ className: 'cps-card__header cps-subheader' },
+						'Fixed Masonry cards'
+					)
+				),
+				React.createElement(
+					'div',
+					{ className: 'cps-fixed-masonry cps-margin-bottom-16' },
+					React.createElement(
+						'div',
+						{ className: 'cps-row' },
+						React.createElement(
+							'div',
+							{ className: 'cps-col-xs-6' },
+							React.createElement(
+								'div',
+								{ className: 'cps-fixed-masonry__card cps-card +thin' },
+								React.createElement(
+									'div',
+									{ className: 'cps-card__header' },
+									'Card 1',
+									React.createElement(
+										'a',
+										{ href: true, className: 'cps-pull-right cps-blue-link' },
+										'+ Take some action'
+									)
 								),
-								' - Returns true if a form field is invalid or the outer form was submitted. Look at ',
 								React.createElement(
-									'b',
-									null,
-									'edit-user.controller.js'
+									'div',
+									{ className: 'cps-card__body' },
+									'These cards are within a fixed masonry layout. The layout of these cards is arranged with bootstrap classes. The actual layout and structure of the cards are the same as others. The cards have a min height of 296px and depending on the content cards may need manually defined max height.'
+								)
+							)
+						),
+						React.createElement(
+							'div',
+							{ className: 'cps-col-xs-6' },
+							React.createElement(
+								'div',
+								{ className: 'cps-fixed-masonry__card cps-card +thin' },
+								React.createElement(
+									'div',
+									{ className: 'cps-card__header' },
+									'Card 2'
 								),
-								' and the associated template for an example.'
+								React.createElement(
+									'div',
+									{ className: 'cps-slat' },
+									React.createElement(
+										'div',
+										{ className: 'cps-slat__badge' },
+										React.createElement('i', { className: 'cps-icon cps-subheader cps-icon-taxes' })
+									),
+									React.createElement(
+										'div',
+										{ className: 'cps-slat__content' },
+										React.createElement(
+											'div',
+											{ className: 'cps-slat__content__title' },
+											'Filename'
+										),
+										React.createElement(
+											'div',
+											{ className: 'cps-slat__content__description' },
+											'Document'
+										)
+									),
+									React.createElement(
+										'div',
+										{ className: 'cps-slat__actions' },
+										'2:30PM - 3:30PM'
+									)
+								),
+								React.createElement(
+									'div',
+									{ className: 'cps-slat' },
+									React.createElement(
+										'div',
+										{ className: 'cps-slat__badge' },
+										React.createElement('i', { className: 'cps-icon cps-subheader cps-icon-taxes' })
+									),
+									React.createElement(
+										'div',
+										{ className: 'cps-slat__content' },
+										React.createElement(
+											'div',
+											null,
+											'Filename'
+										)
+									),
+									React.createElement(
+										'div',
+										{ className: 'cps-slat__actions' },
+										'2:30PM - 3:30PM'
+									)
+								),
+								React.createElement(
+									'div',
+									{ className: 'cps-slat' },
+									React.createElement(
+										'div',
+										{ className: 'cps-slat__badge' },
+										React.createElement('i', { className: 'cps-icon cps-subheader cps-icon-taxes' })
+									),
+									React.createElement(
+										'div',
+										{ className: 'cps-slat__content' },
+										React.createElement(
+											'div',
+											{ className: 'cps-slat__content__title' },
+											'Filename'
+										),
+										React.createElement(
+											'div',
+											{ className: 'cps-slat__content__description' },
+											'Document'
+										)
+									),
+									React.createElement(
+										'div',
+										{ className: 'cps-slat__actions' },
+										'2:30PM - 3:30PM'
+									)
+								)
 							)
 						)
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<form>\n\t<div class="cps-form-group">\n\t\t<label htmlFor="exampleInputEmail1">Full Name</label>\n\t\t<input type="text" class="cps-form-control" placeholder="Enter name"/>\n\t</div>\n\t<div class="cps-form-group cps-has-feedback">\n\t\t<label htmlFor="exampleInputEmail1">Email address</label>\n\t\t<div class="cps-row">\n\t\t\t<div class="cps-col-xs-5">\n\t\t\t\t<input type="text" class="cps-form-control" placeholder="Enter email"/>\n\t\t\t\t<span class="cps-icon-client cps-form-control-feedback" aria-hidden="true"></span>\n\t\t\t\t<span class="cps-error-block">This error message is hidden unless cps-has-error is present</span>\n\t\t\t\t<span class="cps-help-block">Example help block</span>\n\t\t\t</div>\n\t\t\t<div class="cps-col-xs-6">\n\t\t\t\t<span class="cps-form-help-block"><a href class="cps-link cps-padding-left-4 cps-padding-right-4"><i class="cps-icon cps-icon-help cps-light-gray"></i> <span class="cps-info cps-padding-left-8">Need help?</span></a></span>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<div class="cps-form-group cps-has-error">\n\n\t\t\t<label htmlFor="exampleInputPhone">Phone Number</label>\n\t\t\t<input type="text" class="cps-form-control" value="234-343-3434"/>\n\t\t\t<span class="cps-icon-error cps-form-control-feedback" aria-hidden="true"></span>\n\t\t\t<span class="cps-error-block">This is an error!</span>\n\n\t</div>\n\t<div class="cps-form-group">\n\t\t<div class="cps-input-group">\n\t\t\t<span class="cps-input-group-addon cps-icon-addon" id="basic-addon1"><i class="cps-icon cps-icon-add-person"></i></span>\n\t\t\t<input type="text" class="cps-form-control" placeholder="Username" aria-describedby="basic-addon1"/>\n\t\t</div>\n\t</div>\n\t<div class="cps-form-group">\n\t\t<div class="cps-input-group">\n\t\t\t<input type="text" class="cps-form-control" placeholder="Username" aria-describedby="basic-addon1"/>\n\t\t\t<span class="cps-input-group-addon cps-icon-addon" id="basic-addon1"><i class="cps-icon cps-icon-add-person"></i></span>\n\t\t</div>\n\t</div>\n\t<div class="cps-form-group cps-has-error">\n\t\t<div class="cps-input-group">\n\t\t\t<span class="cps-input-group-addon" id="basic-addon1">#</span>\n\t\t\t<input type="text" class="cps-form-control" placeholder="Serial Number" aria-describedby="basic-addon1"/>\n\t\t</div>\n\t\t<span class="cps-error-block">This is an error!</span>\n\t</div>\n\t<div class="cps-form-group cps-has-feedback">\n\t\t<div class="cps-input-group">\n\t\t\t<span class="cps-input-group-addon cps-icon-addon cps-bg-primary-green" id="basic-addon1"><i class="cps-icon cps-icon-lg-check cps-white"></i></span>\n\t\t\t<input type="text" class="cps-form-control" placeholder="Serial Number" aria-describedby="basic-addon1"/>\n\t\t</div>\n\t\t<span class="cps-error-block">This is an error!</span>\n\t</div>\n\t<div class="cps-form-group cps-has-error">\n\t\t<div class="cps-input-group">\n\t\t\t<span class="cps-input-group-addon" id="basic-addon1">#</span>\n\t\t\t<input type="text" class="cps-form-control" placeholder="Serial Number" aria-describedby="basic-addon1"/>\n\t\t</div>\n\t\t<span class="cps-error-block">This is an error!</span>\n\t</div>\n</form>'
-				),
-				React.createElement(
-					'div',
-					{ className: 'cps-flexible-focus cps-card' },
+					),
 					React.createElement(
 						'div',
-						{ className: 'cps-card__body' },
+						{ className: 'cps-row' },
 						React.createElement(
 							'div',
-							{ className: 'cps-subheader-sm cps-margin-bottom-16 cps-margin-top-24' },
-							'Right-aligned Inputs'
+							{ className: 'cps-col-xs-4' },
+							React.createElement(
+								'div',
+								{ className: 'cps-fixed-masonry__card cps-card' },
+								React.createElement(
+									'div',
+									{ className: 'cps-card__header' },
+									'Card 3'
+								)
+							)
 						),
 						React.createElement(
 							'div',
-							{ className: 'cps-row' },
+							{ className: 'cps-col-xs-4' },
 							React.createElement(
 								'div',
-								{ className: 'cps-col-xs-12' },
+								{ className: 'cps-fixed-masonry__card cps-card' },
 								React.createElement(
-									'form',
-									{ className: 'cps-form-horizontal' },
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group' },
-										React.createElement(
-											'label',
-											{ htmlFor: 'exampleInputName', className: 'cps-col-xs-2 cps-control-label' },
-											'Full Name'
-										),
-										React.createElement(
-											'div',
-											{ className: 'cps-col-xs-3' },
-											React.createElement('input', { type: 'text', className: 'cps-form-control', placeholder: 'Enter name' })
-										)
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group cps-has-feedback cps-has-error' },
-										React.createElement(
-											'label',
-											{ htmlFor: 'exampleInputEmail1', className: 'cps-col-xs-2 cps-control-label' },
-											'Email address'
-										),
-										React.createElement(
-											'div',
-											{ className: 'cps-col-xs-3' },
-											React.createElement('input', { type: 'text', className: 'cps-form-control', placeholder: 'Enter email' }),
-											React.createElement('span', { className: 'cps-icon-client cps-form-control-feedback', 'aria-hidden': 'true' }),
-											React.createElement(
-												'span',
-												{ className: 'cps-error-block' },
-												'This error message is hidden unless cps-has-error is present'
-											),
-											React.createElement(
-												'span',
-												{ className: 'cps-help-block' },
-												'Example help block'
-											)
-										)
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group cps-has-error' },
-										React.createElement(
-											'label',
-											{ htmlFor: 'exampleInputPhone', className: 'cps-col-xs-2 cps-control-label' },
-											'Phone Number'
-										),
-										React.createElement(
-											'div',
-											{ className: 'cps-col-xs-6' },
-											React.createElement('input', { type: 'text', className: 'cps-form-control', value: '234-343-3434' }),
-											React.createElement('span', { className: 'cps-icon-error cps-form-control-feedback', 'aria-hidden': 'true' }),
-											React.createElement(
-												'span',
-												{ className: 'cps-error-block' },
-												'This is an error!'
-											)
-										)
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group' },
-										React.createElement(
-											'label',
-											{ htmlFor: 'exampleInputPhoneDisabled', className: 'cps-col-xs-2 cps-control-label' },
-											'Disabled'
-										),
-										React.createElement(
-											'div',
-											{ className: 'cps-col-xs-10' },
-											React.createElement('input', { type: 'text', className: 'cps-form-control', value: '234-343-3434', disabled: 'true' })
-										)
-									)
+									'div',
+									{ className: 'cps-card__header' },
+									'Card 4'
+								)
+							)
+						),
+						React.createElement(
+							'div',
+							{ className: 'cps-col-xs-4' },
+							React.createElement(
+								'div',
+								{ className: 'cps-fixed-masonry__card cps-card' },
+								React.createElement(
+									'div',
+									{ className: 'cps-card__header' },
+									'Card 5'
 								)
 							)
 						)
 					)
 				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<form class="cps-form-horizontal">\n  <div class="cps-form-group">\n\t<label htmlFor="exampleInputEmail1" class="cps-col-xs-2">Full Name</label>\n\t<div class="cps-col-xs-3">\n\t  <input type="text" class="cps-form-control" placeholder="Enter name"/>\n\t</div>\n  </div>\n  <div class="cps-form-group cps-has-feedback cps-has-error">\n\t<label htmlFor="exampleInputEmail1" class="cps-col-xs-2">Email address</label>\n\t<div class="cps-col-xs-3">\n\t  <input type="text" class="cps-form-control" placeholder="Enter email"/>\n\t  <span class="cps-icon-client cps-form-control-feedback" aria-hidden="true"></span>\n\t  <span class="cps-error-block">This error message is hidden unless cps-has-error is present</span>\n\t  <span class="cps-help-block">Example help block</span>\n\t</div>\n  </div>\n  <div class="cps-form-group cps-has-error">\n\t<label htmlFor="exampleInputPhone" class="cps-col-xs-2">Phone Number</label>\n\t<div class="cps-col-xs-6">\n\t  <input type="text" class="cps-form-control" value="234-343-3434"/>\n\t  <span class="cps-icon-error cps-form-control-feedback" aria-hidden="true"></span>\n\t  <span class="cps-error-block">This is an error!</span>\n\t</div>\n  </div>\n  <div class="cps-form-group">\n\t<label htmlFor="exampleInputPhoneDisabled" class="cps-col-xs-2">Disabled</label>\n\t<div class="cps-col-xs-10">\n\t  <input type="text" class="cps-form-control"value="234-343-3434" disabled="true"/>\n\t</div>\n  </div>\n</form>'
-				),
+				React.createElement('cp-edit-render-code', { dangerouslySetInnerHTML: { __html: '<div class="cps-fixed-masonry">\n\t<div class="cps-row">\n\t\t<div class="cps-col-xs-6">\n\t\t\t<div class="cps-fixed-masonry__card cps-card +thin">\n\t\t\t\t<div class="cps-card__header">\n\t\t\t\t\tCard 1\n\t\t\t\t\t<a href class="cps-pull-right cps-blue-link">+ Take some action</a>\n\t\t\t\t</div>\n\t\t\t\t<div class="cps-card__body">\n\t\t\t\t\tThese cards are within a fixed masonry layout. The layout of these cards is arranged with bootstrap classes.\n\t\t\t\t\tThe actual layout and structure of the cards are the same as others. The cards have a min height of 296px and\n\t\t\t\t\t\tdepending on the content cards may need manually defined max height.\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class="cps-col-xs-6">\n\t\t\t<div class="cps-fixed-masonry__card cps-card +thin">\n\t\t\t\t<div class="cps-card__header">\n\t\t\t\t\tCard 2\n\t\t\t\t</div>\n\t\t\t\t<div class="cps-slat">\n\t\t\t\t\t<div class="cps-slat__badge">\n\t\t\t\t\t\t<i class="cps-icon cps-subheader cps-icon-taxes"></i>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="cps-slat__content">\n\t\t\t\t\t\t<div class="cps-slat__content__title">\n\t\t\t\t\t\t\tFilename\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class="cps-slat__content__description">\n\t\t\t\t\t\t\tDocument\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="cps-slat__actions">\n\t\t\t\t\t\t2:30PM - 3:30PM\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class="cps-slat">\n\t\t\t\t\t<div class="cps-slat__badge">\n\t\t\t\t\t\t<i class="cps-icon cps-subheader cps-icon-taxes"></i>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="cps-slat__content">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\tFilename\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="cps-slat__actions">\n\t\t\t\t\t\t2:30PM - 3:30PM\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class="cps-slat">\n\t\t\t\t\t<div class="cps-slat__badge">\n\t\t\t\t\t\t<i class="cps-icon cps-subheader cps-icon-taxes"></i>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="cps-slat__content">\n\t\t\t\t\t\t<div class="cps-slat__content__title">\n\t\t\t\t\t\t\tFilename\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class="cps-slat__content__description">\n\t\t\t\t\t\t\tDocument\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="cps-slat__actions">\n\t\t\t\t\t\t2:30PM - 3:30PM\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<div class="cps-row">\n\t\t<div class="cps-col-xs-4">\n\t\t\t<div class="cps-fixed-masonry__card cps-card">\n\t\t\t\t<div class="cps-card__header">\n\t\t\t\t\tCard 3\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class="cps-col-xs-4">\n\t\t\t<div class="cps-fixed-masonry__card cps-card">\n\t\t\t\t<div class="cps-card__header">\n\t\t\t\t\tCard 4\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class="cps-col-xs-4">\n\t\t\t<div class="cps-fixed-masonry__card cps-card">\n\t\t\t\t<div class="cps-card__header">\n\t\t\t\t\tCard 5\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>' } }),
 				React.createElement(
 					'div',
-					{ className: 'cps-flexible-focus cps-card' },
+					{ className: 'cps-flexible-focus cps-card cps-margin-bottom-16 cps-margin-top-32' },
+					React.createElement(
+						'div',
+						{ className: 'cps-card__header cps-subheader' },
+						'Flexible Masonry cards'
+					),
 					React.createElement(
 						'div',
 						{ className: 'cps-card__body' },
+						'The flexible masonry grid can be achieved purely in CSS or with the masonry JS lib available at http://masonry.desandro.com/.',
 						React.createElement(
-							'div',
-							{ className: 'cps-subheader-sm cps-margin-bottom-16 cps-margin-top-24' },
-							'Left-aligned Inputs'
+							'p',
+							null,
+							'If you want to have the CSS functionality, wrap all the cards in a "cps-flexible-masonry class".'
 						),
 						React.createElement(
-							'div',
-							{ className: 'cps-row' },
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-12' },
-								React.createElement(
-									'form',
-									{ className: 'cps-form-horizontal' },
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group cps-has-feedback cps-has-error cps-has-feedback-left' },
-										React.createElement(
-											'label',
-											{ htmlFor: 'exampleInputEmail1', className: 'cps-col-xs-2 cps-control-label' },
-											'Email address'
-										),
-										React.createElement(
-											'div',
-											{ className: 'cps-col-xs-3' },
-											React.createElement('input', { type: 'text', className: 'cps-form-control', placeholder: 'Enter email' }),
-											React.createElement('span', { className: 'cps-icon-client cps-form-control-feedback', 'aria-hidden': 'true' }),
-											React.createElement(
-												'span',
-												{ className: 'cps-error-block' },
-												'This error message is hidden unless cps-has-error is present'
-											),
-											React.createElement(
-												'span',
-												{ className: 'cps-help-block' },
-												'Example help block'
-											)
-										)
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group cps-has-error cps-has-feedback-left' },
-										React.createElement(
-											'label',
-											{ htmlFor: 'exampleInputPhone', className: 'cps-col-xs-2 cps-control-label' },
-											'Phone Number'
-										),
-										React.createElement(
-											'div',
-											{ className: 'cps-col-xs-6' },
-											React.createElement('input', { type: 'text', className: 'cps-form-control', value: '234-343-3434' }),
-											React.createElement('span', { className: 'cps-icon-error cps-form-control-feedback', 'aria-hidden': 'true' }),
-											React.createElement(
-												'span',
-												{ className: 'cps-error-block' },
-												'This is an error!'
-											)
-										)
-									)
-								)
-							)
+							'p',
+							null,
+							'Give the cards a link style by adding the "+link" modifier'
 						)
 					)
 				),
 				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<form class="cps-form-horizontal">\n  <div class="cps-form-group cps-has-feedback cps-has-error cps-has-feedback-left">\n\t<label htmlFor="exampleInputEmail1" class="cps-col-xs-2 cps-control-label">Email address</label>\n\t<div class="cps-col-xs-3">\n\t  <input type="text" class="cps-form-control" placeholder="Enter email"/>\n\t  <span class="cps-icon-client cps-form-control-feedback" aria-hidden="true"></span>\n\t  <span class="cps-error-block">This error message is hidden unless cps-has-error is present</span>\n\t  <span class="cps-help-block">Example help block</span>\n\t</div>\n  </div>\n  <div class="cps-form-group cps-has-error cps-has-feedback-left">\n\t<label htmlFor="exampleInputPhone" class="cps-col-xs-2 cps-control-label">Phone Number</label>\n\t<div class="cps-col-xs-6">\n\t  <input type="text" class="cps-form-control" value="234-343-3434"/>\n\t  <span class="cps-icon-error cps-form-control-feedback" aria-hidden="true"></span>\n\t  <span class="cps-error-block">This is an error!</span>\n\t</div>\n  </div>\n</form>'
-				),
-				React.createElement(
 					'div',
-					{ className: 'cps-flexible-focus cps-card' },
+					{ className: 'cps-flexible-masonry cps-flexible-focus' },
 					React.createElement(
 						'div',
-						{ className: 'cps-card__body' },
+						{ className: 'cps-flexible-masonry-card' },
 						React.createElement(
 							'div',
-							{ className: 'cps-subheader-sm cps-margin-bottom-24 cps-margin-top-24' },
-							'Inline Form'
+							{ className: 'cps-flexible-masonry-card__title' },
+							'Title of the note goes here'
 						),
 						React.createElement(
 							'div',
-							{ className: 'cps-row cps-padding-bottom-16' },
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-12' },
-								React.createElement(
-									'form',
-									{ className: 'cps-form-inline' },
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group cps-has-feedback' },
-										React.createElement(
-											'label',
-											{ htmlFor: 'inlineEmail' },
-											'Email'
-										),
-										React.createElement('input', { type: 'text', className: 'cps-form-control', placeholder: 'Enter email' }),
-										React.createElement('span', { className: 'cps-icon-client cps-form-control-feedback', 'aria-hidden': 'true' })
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group cps-has-error' },
-										React.createElement(
-											'label',
-											{ htmlFor: 'inlinePhone' },
-											'Phone'
-										),
-										React.createElement('input', { type: 'text', className: 'cps-form-control', value: '234-343-3434' }),
-										React.createElement('span', { className: 'cps-icon-error cps-form-control-feedback', 'aria-hidden': 'true' })
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group' },
-										React.createElement('input', { type: 'text', className: 'cps-form-control', value: '234-343-3434', disabled: 'true' })
-									)
-								)
-							)
+							{ className: 'cps-flexible-masonry-card__body' },
+							'Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.'
 						)
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<form class="cps-form-inline">\n  <div class="cps-form-group cps-has-feedback">\n\t<label htmlFor="exampleInputName2">Email</label>\n\t<input type="text" class="cps-form-control" placeholder="Enter email"/>\n\t<span class="cps-icon-client cps-form-control-feedback" aria-hidden="true"></span>\n  </div>\n  <div class="cps-form-group cps-has-error">\n\t<label htmlFor="exampleInputName2">Phone</label>\n\t<input type="text" class="cps-form-control" value="234-343-3434"/>\n\t<span class="cps-icon-error cps-form-control-feedback" aria-hidden="true"></span>\n  </div>\n  <div class="cps-form-group">\n\t<input type="text" class="cps-form-control" value="234-343-3434" disabled="true"/>\n  </div>\n</form>'
-				),
-				React.createElement(
-					'div',
-					{ className: 'cps-flexible-focus cps-card' },
+					),
 					React.createElement(
 						'div',
-						{ className: 'cps-card__body' },
+						{ className: 'cps-flexible-masonry-card' },
 						React.createElement(
 							'div',
-							{ className: 'cps-subheader-sm cps-margin-bottom-24 cps-margin-top-24' },
-							'Auto sized Inputs -- Right Aligned'
+							{ className: 'cps-flexible-masonry-card__title' },
+							'Title of the note goes here'
 						),
 						React.createElement(
 							'div',
-							{ className: 'cps-row cps-padding-bottom-16' },
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-12' },
-								React.createElement(
-									'form',
-									{ className: 'cps-form-horizontal' },
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group-resize' },
-										React.createElement(
-											'label',
-											{ htmlFor: 'Phone', className: 'cps-col-xs-2 cps-control-label' },
-											'Phone'
-										),
-										React.createElement(
-											'div',
-											{ className: 'cps-col-xs-8' },
-											React.createElement('input', { type: 'text', className: 'cps-form-control-resize', placeholder: 'Enter phone' })
-										)
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group-resize' },
-										React.createElement(
-											'label',
-											{ htmlFor: 'Email', className: 'cps-col-xs-2 cps-control-label' },
-											'Email'
-										),
-										React.createElement(
-											'div',
-											{ className: 'cps-col-xs-8' },
-											React.createElement('input', { type: 'text', className: 'cps-form-control-resize', placeholder: 'Enter email' })
-										)
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group-resize' },
-										React.createElement(
-											'label',
-											{ htmlFor: 'Address1', className: 'cps-col-xs-2 cps-control-label' },
-											'Address 1'
-										),
-										React.createElement(
-											'div',
-											{ className: 'cps-col-xs-8' },
-											React.createElement('input', { type: 'text', className: 'cps-form-control-resize', placeholder: 'Enter address 1' })
-										)
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group-resize cps-has-error' },
-										React.createElement(
-											'label',
-											{ htmlFor: 'Address2', className: 'cps-col-xs-2 cps-control-label' },
-											'Address 2'
-										),
-										React.createElement(
-											'div',
-											{ className: 'cps-col-xs-8' },
-											React.createElement('input', { type: 'text', className: 'cps-form-control-resize', placeholder: 'Enter address2', value: '234-343-3434' }),
-											React.createElement(
-												'span',
-												{ className: 'cps-error-block' },
-												'This is an error!'
-											)
-										)
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group-resize' },
-										React.createElement(
-											'label',
-											{ htmlFor: 'Zip', className: 'cps-col-xs-2 cps-control-label' },
-											'Zip'
-										),
-										React.createElement(
-											'div',
-											{ className: 'cps-col-xs-4' },
-											React.createElement('input', { type: 'text', className: 'cps-form-control-resize', value: '234-343-3434', readOnly: 'readonly' })
-										)
-									)
-								)
-							)
+							{ className: 'cps-flexible-masonry-card__body' },
+							'Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone.'
 						)
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<form class="cps-form-horizontal">\n  <div class="cps-form-group-resize">\n\t<label htmlFor="Phone" class="cps-col-xs-2 cps-control-label">Phone</label>\n\t<div class="cps-col-xs-8">\n\t  <input type="text" class="cps-form-control-resize" placeholder="Enter phone"/>\n\t</div>\n  </div>\n  <div class="cps-form-group-resize">\n\t<label htmlFor="Email" class="cps-col-xs-2 cps-control-label">Email</label>\n\t<div class="cps-col-xs-8">\n\t  <input type="text" class="cps-form-control-resize" placeholder="Enter email"/>\n\t</div>\n  </div>\n  <div class="cps-form-group-resize">\n\t<label htmlFor="Address1" class="cps-col-xs-2 cps-control-label">Address 1</label>\n\t<div class="cps-col-xs-8">\n\t  <input type="text" class="cps-form-control-resize" placeholder="Enter address 1"/>\n\t</div>\n  </div>\n  <div class="cps-form-group-resize cps-has-error">\n\t<label htmlFor="Address2" class="cps-col-xs-2 cps-control-label">Address 2</label>\n\t<div class="cps-col-xs-8">\n\t  <input type="text" class="cps-form-control-resize" placeholder="Enter address2" value="234-343-3434"/>\n\t  <span class="cps-error-block">This is an error!</span>\n\t</div>\n  </div>\n  <div class="cps-form-group-resize">\n\t<label htmlFor="Zip" class="cps-col-xs-2 cps-control-label">Zip</label>\n\t<div class="cps-col-xs-4">\n\t  <input type="text" class="cps-form-control-resize" value="234-343-3434" readonly="readOnly"/>\n\t</div>\n  </div>\n</form>'
-				),
-				React.createElement(
-					'div',
-					{ className: 'cps-flexible-focus cps-card' },
+					),
 					React.createElement(
 						'div',
-						{ className: 'cps-card__body' },
+						{ className: 'cps-flexible-masonry-card' },
 						React.createElement(
 							'div',
-							{ className: 'cps-subheader-sm cps-margin-bottom-24 cps-margin-top-24' },
-							'Auto sized Inputs -- Inline Form'
+							{ className: 'cps-flexible-masonry-card__title' },
+							'Title of the note goes here'
 						),
 						React.createElement(
 							'div',
-							{ className: 'cps-row cps-padding-bottom-16' },
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-12' },
-								React.createElement(
-									'form',
-									{ className: 'cps-form-inline' },
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group-resize' },
-										React.createElement(
-											'label',
-											{ htmlFor: 'Email' },
-											'Email'
-										),
-										React.createElement('input', { type: 'text', className: 'cps-form-control-resize', placeholder: 'Enter email', value: 'exi@gm.com' })
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group-resize' },
-										React.createElement(
-											'label',
-											{ htmlFor: 'Phone' },
-											'Phone'
-										),
-										React.createElement('input', { type: 'text', className: 'cps-form-control-resize', placeholder: 'Enter phone' })
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group-resize' },
-										React.createElement('input', { type: 'text', className: 'cps-form-control-resize cps-subheader', placeholder: 'Enter zip code', value: 'large font example' })
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group-resize cps-has-error' },
-										React.createElement('input', { type: 'text', className: 'cps-form-control-resize', placeholder: 'Error example' }),
-										React.createElement(
-											'span',
-											{ className: 'cps-error-block' },
-											'This is an error'
-										)
-									)
-								)
-							)
+							{ className: 'cps-flexible-masonry-card__body' },
+							'iltong brisket tri-tip venison pig ham rump shank.'
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'cps-flexible-masonry-card' },
+						React.createElement(
+							'div',
+							{ className: 'cps-flexible-masonry-card__title' },
+							'Title of the note goes here'
+						),
+						React.createElement(
+							'div',
+							{ className: 'cps-flexible-masonry-card__body' },
+							'Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.'
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'cps-flexible-masonry-card' },
+						React.createElement(
+							'div',
+							{ className: 'cps-flexible-masonry-card__title' },
+							'Title of the note goes here'
+						),
+						React.createElement(
+							'div',
+							{ className: 'cps-flexible-masonry-card__body' },
+							'chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.'
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'cps-flexible-masonry-card' },
+						React.createElement(
+							'div',
+							{ className: 'cps-flexible-masonry-card__title' },
+							'Title of the note goes here'
+						),
+						React.createElement(
+							'div',
+							{ className: 'cps-flexible-masonry-card__body' },
+							'Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank. Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.'
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'cps-flexible-masonry-card' },
+						React.createElement(
+							'div',
+							{ className: 'cps-flexible-masonry-card__title' },
+							'Title of the note goes here'
+						),
+						React.createElement(
+							'div',
+							{ className: 'cps-flexible-masonry-card__body' },
+							'Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.'
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'cps-flexible-masonry-card +link' },
+						React.createElement(
+							'div',
+							{ className: 'cps-flexible-masonry-card__title' },
+							'Title of the note goes here'
+						),
+						React.createElement(
+							'div',
+							{ className: 'cps-flexible-masonry-card__body' },
+							'Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank. Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.'
 						)
 					)
 				),
+				React.createElement('cp-edit-render-code', { dangerouslySetInnerHTML: { __html: '<div class="cps-flexible-masonry cps-flexible-focus">\n\t<div class="cps-flexible-masonry-card">\n\t\t<div class="cps-flexible-masonry-card__title">\n\t\t\tTitle of the note goes here\n\t\t</div>\n\t\t<div class="cps-flexible-masonry-card__body">\n\t\t\tSalami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.\n\t\t</div>\n\t</div>\n\t<div class="cps-flexible-masonry-card">\n\t\t<div class="cps-flexible-masonry-card__title">\n\t\t\tTitle of the note goes here\n\t\t</div>\n\t\t<div class="cps-flexible-masonry-card__body">\n\t\t\tSalami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone.\n\t\t</div>\n\t</div>\n\t<div class="cps-flexible-masonry-card">\n\t\t<div class="cps-flexible-masonry-card__title">\n\t\t\tTitle of the note goes here\n\t\t</div>\n\t\t<div class="cps-flexible-masonry-card__body">\n\t\t\tiltong brisket tri-tip venison pig ham rump shank.\n\t\t</div>\n\t</div>\n\t<div class="cps-flexible-masonry-card">\n\t\t<div class="cps-flexible-masonry-card__title">\n\t\t\tTitle of the note goes here\n\t\t</div>\n\t\t<div class="cps-flexible-masonry-card__body">\n\t\t\tSalami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.\n\t\t</div>\n\t</div>\n\t<div class="cps-flexible-masonry-card">\n\t\t<div class="cps-flexible-masonry-card__title">\n\t\t\tTitle of the note goes here\n\t\t</div>\n\t\t<div class="cps-flexible-masonry-card__body">\n\t\t\tchicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.\n\t\t</div>\n\t</div>\n\t<div class="cps-flexible-masonry-card">\n\t\t<div class="cps-flexible-masonry-card__title">\n\t\t\tTitle of the note goes here\n\t\t</div>\n\t\t<div class="cps-flexible-masonry-card__body">\n\t\t\tSalami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.\n\t\t\tSalami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.\n\t\t</div>\n\t</div>\n\t<div class="cps-flexible-masonry-card">\n\t\t<div class="cps-flexible-masonry-card__title">\n\t\t\tTitle of the note goes here\n\t\t</div>\n\t\t<div class="cps-flexible-masonry-card__body">\n\t\t\tSalami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.\n\t\t</div>\n\t</div>\n\t<div class="cps-flexible-masonry-card +link">\n\t\t<div class="cps-flexible-masonry-card__title">\n\t\t\tTitle of the note goes here\n\t\t</div>\n\t\t<div class="cps-flexible-masonry-card__body">\n\t\t\tSalami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.\n\t\t\tSalami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.\n\t\t</div>\n\t</div>\n</div>' } }),
 				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<form class="cps-form-inline">\n  <div class="cps-form-group-resize">\n\t<label htmlFor="Email">Email</label>\n\t<input type="text" class="cps-form-control-resize" placeholder="Enter email" value="exi@gm.com"/>\n  </div>\n  <div class="cps-form-group-resize">\n\t<label htmlFor="Phone">Phone</label>\n\t<input type="text" class="cps-form-control-resize" placeholder="Enter phone"/>\n  </div>\n  <div class="cps-form-group-resize">\n\t<input type="text" class="cps-form-control-resize cps-subheader" placeholder="Enter zip code" value="large font example"/>\n  </div>\n  <div class="cps-form-group-resize cps-has-error">\n\t <input type="text" class="cps-form-control-resize" placeholder="Error example"/>\n\t <span class="cps-error-block">This is an error</span>\n   </div>\n</form>'
-				)
+					'div',
+					{ className: 'cps-flexible-focus cps-card cps-margin-bottom-16 cps-margin-top-32' },
+					React.createElement(
+						'div',
+						{ className: 'cps-card__header cps-subheader' },
+						'Small Flexible Masonry cards'
+					),
+					React.createElement(
+						'div',
+						{ className: 'cps-card__body' },
+						'Small cards can be created with the "+small" class modifier.'
+					)
+				),
+				React.createElement('cp-edit-render-code', { dangerouslySetInnerHTML: { __html: '<div class="cps-fixed-focus">\n\t<div class="cps-flexible-masonry-card +small">\n\t\t<div class="cps-flexible-masonry-card__title">\n\t\t\tTitle of the note goes here\n\t\t</div>\n\t\t<div class="cps-flexible-masonry-card__body">\n\t\t\tSalami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.\n\t\t</div>\n\t</div>\n\t<div class="cps-flexible-masonry-card +small">\n\t\t<div class="cps-flexible-masonry-card__title">\n\t\t\tTitle of the note\n\t\t</div>\n\t\t<div class="cps-flexible-masonry-card__body">\n\t\t\tSalami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.\n\t\t</div>\n\t</div>\n\t<div class="cps-flexible-masonry-card +small">\n\t\t<div class="cps-flexible-masonry-card__title">\n\t\t\tTitle of the note goes here\n\t\t</div>\n\t\t<div class="cps-flexible-masonry-card__body">\n\t\t\tSalami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.\n\t\t</div>\n\t</div>\n</div>' } })
 			);
 		}
 	});
 
 /***/ },
-/* 244 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(245);
+	module.exports = __webpack_require__(250);
 
 /***/ },
-/* 245 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var hljs = __webpack_require__(246);
+	var hljs = __webpack_require__(251);
 	var React = __webpack_require__(37);
 
 	var Highlight = React.createClass({
@@ -26068,151 +26724,151 @@
 	module.exports = Highlight;
 
 /***/ },
-/* 246 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var hljs = __webpack_require__(247);
+	var hljs = __webpack_require__(252);
 
-	hljs.registerLanguage('1c', __webpack_require__(248));
-	hljs.registerLanguage('accesslog', __webpack_require__(249));
-	hljs.registerLanguage('actionscript', __webpack_require__(250));
-	hljs.registerLanguage('apache', __webpack_require__(251));
-	hljs.registerLanguage('applescript', __webpack_require__(252));
-	hljs.registerLanguage('armasm', __webpack_require__(253));
-	hljs.registerLanguage('xml', __webpack_require__(254));
-	hljs.registerLanguage('asciidoc', __webpack_require__(255));
-	hljs.registerLanguage('aspectj', __webpack_require__(256));
-	hljs.registerLanguage('autohotkey', __webpack_require__(257));
-	hljs.registerLanguage('autoit', __webpack_require__(258));
-	hljs.registerLanguage('avrasm', __webpack_require__(259));
-	hljs.registerLanguage('axapta', __webpack_require__(260));
-	hljs.registerLanguage('bash', __webpack_require__(261));
-	hljs.registerLanguage('brainfuck', __webpack_require__(262));
-	hljs.registerLanguage('cal', __webpack_require__(263));
-	hljs.registerLanguage('capnproto', __webpack_require__(264));
-	hljs.registerLanguage('ceylon', __webpack_require__(265));
-	hljs.registerLanguage('clojure', __webpack_require__(266));
-	hljs.registerLanguage('clojure-repl', __webpack_require__(267));
-	hljs.registerLanguage('cmake', __webpack_require__(268));
-	hljs.registerLanguage('coffeescript', __webpack_require__(269));
-	hljs.registerLanguage('cpp', __webpack_require__(270));
-	hljs.registerLanguage('crystal', __webpack_require__(271));
-	hljs.registerLanguage('cs', __webpack_require__(272));
-	hljs.registerLanguage('css', __webpack_require__(273));
-	hljs.registerLanguage('d', __webpack_require__(274));
-	hljs.registerLanguage('markdown', __webpack_require__(275));
-	hljs.registerLanguage('dart', __webpack_require__(276));
-	hljs.registerLanguage('delphi', __webpack_require__(277));
-	hljs.registerLanguage('diff', __webpack_require__(278));
-	hljs.registerLanguage('django', __webpack_require__(279));
-	hljs.registerLanguage('dns', __webpack_require__(280));
-	hljs.registerLanguage('dockerfile', __webpack_require__(281));
-	hljs.registerLanguage('dos', __webpack_require__(282));
-	hljs.registerLanguage('dust', __webpack_require__(283));
-	hljs.registerLanguage('elixir', __webpack_require__(284));
-	hljs.registerLanguage('elm', __webpack_require__(285));
-	hljs.registerLanguage('ruby', __webpack_require__(286));
-	hljs.registerLanguage('erb', __webpack_require__(287));
-	hljs.registerLanguage('erlang-repl', __webpack_require__(288));
-	hljs.registerLanguage('erlang', __webpack_require__(289));
-	hljs.registerLanguage('fix', __webpack_require__(290));
-	hljs.registerLanguage('fortran', __webpack_require__(291));
-	hljs.registerLanguage('fsharp', __webpack_require__(292));
-	hljs.registerLanguage('gams', __webpack_require__(293));
-	hljs.registerLanguage('gcode', __webpack_require__(294));
-	hljs.registerLanguage('gherkin', __webpack_require__(295));
-	hljs.registerLanguage('glsl', __webpack_require__(296));
-	hljs.registerLanguage('go', __webpack_require__(297));
-	hljs.registerLanguage('golo', __webpack_require__(298));
-	hljs.registerLanguage('gradle', __webpack_require__(299));
-	hljs.registerLanguage('groovy', __webpack_require__(300));
-	hljs.registerLanguage('haml', __webpack_require__(301));
-	hljs.registerLanguage('handlebars', __webpack_require__(302));
-	hljs.registerLanguage('haskell', __webpack_require__(303));
-	hljs.registerLanguage('haxe', __webpack_require__(304));
-	hljs.registerLanguage('http', __webpack_require__(305));
-	hljs.registerLanguage('inform7', __webpack_require__(306));
-	hljs.registerLanguage('ini', __webpack_require__(307));
-	hljs.registerLanguage('irpf90', __webpack_require__(308));
-	hljs.registerLanguage('java', __webpack_require__(309));
-	hljs.registerLanguage('javascript', __webpack_require__(310));
-	hljs.registerLanguage('json', __webpack_require__(311));
-	hljs.registerLanguage('julia', __webpack_require__(312));
-	hljs.registerLanguage('kotlin', __webpack_require__(313));
-	hljs.registerLanguage('lasso', __webpack_require__(314));
-	hljs.registerLanguage('less', __webpack_require__(315));
-	hljs.registerLanguage('lisp', __webpack_require__(316));
-	hljs.registerLanguage('livecodeserver', __webpack_require__(317));
-	hljs.registerLanguage('livescript', __webpack_require__(318));
-	hljs.registerLanguage('lua', __webpack_require__(319));
-	hljs.registerLanguage('makefile', __webpack_require__(320));
-	hljs.registerLanguage('mathematica', __webpack_require__(321));
-	hljs.registerLanguage('matlab', __webpack_require__(322));
-	hljs.registerLanguage('mel', __webpack_require__(323));
-	hljs.registerLanguage('mercury', __webpack_require__(324));
-	hljs.registerLanguage('mizar', __webpack_require__(325));
-	hljs.registerLanguage('perl', __webpack_require__(326));
-	hljs.registerLanguage('mojolicious', __webpack_require__(327));
-	hljs.registerLanguage('monkey', __webpack_require__(328));
-	hljs.registerLanguage('nginx', __webpack_require__(329));
-	hljs.registerLanguage('nimrod', __webpack_require__(330));
-	hljs.registerLanguage('nix', __webpack_require__(331));
-	hljs.registerLanguage('nsis', __webpack_require__(332));
-	hljs.registerLanguage('objectivec', __webpack_require__(333));
-	hljs.registerLanguage('ocaml', __webpack_require__(334));
-	hljs.registerLanguage('openscad', __webpack_require__(335));
-	hljs.registerLanguage('oxygene', __webpack_require__(336));
-	hljs.registerLanguage('parser3', __webpack_require__(337));
-	hljs.registerLanguage('pf', __webpack_require__(338));
-	hljs.registerLanguage('php', __webpack_require__(339));
-	hljs.registerLanguage('powershell', __webpack_require__(340));
-	hljs.registerLanguage('processing', __webpack_require__(341));
-	hljs.registerLanguage('profile', __webpack_require__(342));
-	hljs.registerLanguage('prolog', __webpack_require__(343));
-	hljs.registerLanguage('protobuf', __webpack_require__(344));
-	hljs.registerLanguage('puppet', __webpack_require__(345));
-	hljs.registerLanguage('python', __webpack_require__(346));
-	hljs.registerLanguage('q', __webpack_require__(347));
-	hljs.registerLanguage('r', __webpack_require__(348));
-	hljs.registerLanguage('rib', __webpack_require__(349));
-	hljs.registerLanguage('roboconf', __webpack_require__(350));
-	hljs.registerLanguage('rsl', __webpack_require__(351));
-	hljs.registerLanguage('ruleslanguage', __webpack_require__(352));
-	hljs.registerLanguage('rust', __webpack_require__(353));
-	hljs.registerLanguage('scala', __webpack_require__(354));
-	hljs.registerLanguage('scheme', __webpack_require__(355));
-	hljs.registerLanguage('scilab', __webpack_require__(356));
-	hljs.registerLanguage('scss', __webpack_require__(357));
-	hljs.registerLanguage('smali', __webpack_require__(358));
-	hljs.registerLanguage('smalltalk', __webpack_require__(359));
-	hljs.registerLanguage('sml', __webpack_require__(360));
-	hljs.registerLanguage('sql', __webpack_require__(361));
-	hljs.registerLanguage('stata', __webpack_require__(362));
-	hljs.registerLanguage('step21', __webpack_require__(363));
-	hljs.registerLanguage('stylus', __webpack_require__(364));
-	hljs.registerLanguage('swift', __webpack_require__(365));
-	hljs.registerLanguage('tcl', __webpack_require__(366));
-	hljs.registerLanguage('tex', __webpack_require__(367));
-	hljs.registerLanguage('thrift', __webpack_require__(368));
-	hljs.registerLanguage('tp', __webpack_require__(369));
-	hljs.registerLanguage('twig', __webpack_require__(370));
-	hljs.registerLanguage('typescript', __webpack_require__(371));
-	hljs.registerLanguage('vala', __webpack_require__(372));
-	hljs.registerLanguage('vbnet', __webpack_require__(373));
-	hljs.registerLanguage('vbscript', __webpack_require__(374));
-	hljs.registerLanguage('vbscript-html', __webpack_require__(375));
-	hljs.registerLanguage('verilog', __webpack_require__(376));
-	hljs.registerLanguage('vhdl', __webpack_require__(377));
-	hljs.registerLanguage('vim', __webpack_require__(378));
-	hljs.registerLanguage('x86asm', __webpack_require__(379));
-	hljs.registerLanguage('xl', __webpack_require__(380));
-	hljs.registerLanguage('xquery', __webpack_require__(381));
-	hljs.registerLanguage('zephir', __webpack_require__(382));
+	hljs.registerLanguage('1c', __webpack_require__(253));
+	hljs.registerLanguage('accesslog', __webpack_require__(254));
+	hljs.registerLanguage('actionscript', __webpack_require__(255));
+	hljs.registerLanguage('apache', __webpack_require__(256));
+	hljs.registerLanguage('applescript', __webpack_require__(257));
+	hljs.registerLanguage('armasm', __webpack_require__(258));
+	hljs.registerLanguage('xml', __webpack_require__(259));
+	hljs.registerLanguage('asciidoc', __webpack_require__(260));
+	hljs.registerLanguage('aspectj', __webpack_require__(261));
+	hljs.registerLanguage('autohotkey', __webpack_require__(262));
+	hljs.registerLanguage('autoit', __webpack_require__(263));
+	hljs.registerLanguage('avrasm', __webpack_require__(264));
+	hljs.registerLanguage('axapta', __webpack_require__(265));
+	hljs.registerLanguage('bash', __webpack_require__(266));
+	hljs.registerLanguage('brainfuck', __webpack_require__(267));
+	hljs.registerLanguage('cal', __webpack_require__(268));
+	hljs.registerLanguage('capnproto', __webpack_require__(269));
+	hljs.registerLanguage('ceylon', __webpack_require__(270));
+	hljs.registerLanguage('clojure', __webpack_require__(271));
+	hljs.registerLanguage('clojure-repl', __webpack_require__(272));
+	hljs.registerLanguage('cmake', __webpack_require__(273));
+	hljs.registerLanguage('coffeescript', __webpack_require__(274));
+	hljs.registerLanguage('cpp', __webpack_require__(275));
+	hljs.registerLanguage('crystal', __webpack_require__(276));
+	hljs.registerLanguage('cs', __webpack_require__(277));
+	hljs.registerLanguage('css', __webpack_require__(278));
+	hljs.registerLanguage('d', __webpack_require__(279));
+	hljs.registerLanguage('markdown', __webpack_require__(280));
+	hljs.registerLanguage('dart', __webpack_require__(281));
+	hljs.registerLanguage('delphi', __webpack_require__(282));
+	hljs.registerLanguage('diff', __webpack_require__(283));
+	hljs.registerLanguage('django', __webpack_require__(284));
+	hljs.registerLanguage('dns', __webpack_require__(285));
+	hljs.registerLanguage('dockerfile', __webpack_require__(286));
+	hljs.registerLanguage('dos', __webpack_require__(287));
+	hljs.registerLanguage('dust', __webpack_require__(288));
+	hljs.registerLanguage('elixir', __webpack_require__(289));
+	hljs.registerLanguage('elm', __webpack_require__(290));
+	hljs.registerLanguage('ruby', __webpack_require__(291));
+	hljs.registerLanguage('erb', __webpack_require__(292));
+	hljs.registerLanguage('erlang-repl', __webpack_require__(293));
+	hljs.registerLanguage('erlang', __webpack_require__(294));
+	hljs.registerLanguage('fix', __webpack_require__(295));
+	hljs.registerLanguage('fortran', __webpack_require__(296));
+	hljs.registerLanguage('fsharp', __webpack_require__(297));
+	hljs.registerLanguage('gams', __webpack_require__(298));
+	hljs.registerLanguage('gcode', __webpack_require__(299));
+	hljs.registerLanguage('gherkin', __webpack_require__(300));
+	hljs.registerLanguage('glsl', __webpack_require__(301));
+	hljs.registerLanguage('go', __webpack_require__(302));
+	hljs.registerLanguage('golo', __webpack_require__(303));
+	hljs.registerLanguage('gradle', __webpack_require__(304));
+	hljs.registerLanguage('groovy', __webpack_require__(305));
+	hljs.registerLanguage('haml', __webpack_require__(306));
+	hljs.registerLanguage('handlebars', __webpack_require__(307));
+	hljs.registerLanguage('haskell', __webpack_require__(308));
+	hljs.registerLanguage('haxe', __webpack_require__(309));
+	hljs.registerLanguage('http', __webpack_require__(310));
+	hljs.registerLanguage('inform7', __webpack_require__(311));
+	hljs.registerLanguage('ini', __webpack_require__(312));
+	hljs.registerLanguage('irpf90', __webpack_require__(313));
+	hljs.registerLanguage('java', __webpack_require__(314));
+	hljs.registerLanguage('javascript', __webpack_require__(315));
+	hljs.registerLanguage('json', __webpack_require__(316));
+	hljs.registerLanguage('julia', __webpack_require__(317));
+	hljs.registerLanguage('kotlin', __webpack_require__(318));
+	hljs.registerLanguage('lasso', __webpack_require__(319));
+	hljs.registerLanguage('less', __webpack_require__(320));
+	hljs.registerLanguage('lisp', __webpack_require__(321));
+	hljs.registerLanguage('livecodeserver', __webpack_require__(322));
+	hljs.registerLanguage('livescript', __webpack_require__(323));
+	hljs.registerLanguage('lua', __webpack_require__(324));
+	hljs.registerLanguage('makefile', __webpack_require__(325));
+	hljs.registerLanguage('mathematica', __webpack_require__(326));
+	hljs.registerLanguage('matlab', __webpack_require__(327));
+	hljs.registerLanguage('mel', __webpack_require__(328));
+	hljs.registerLanguage('mercury', __webpack_require__(329));
+	hljs.registerLanguage('mizar', __webpack_require__(330));
+	hljs.registerLanguage('perl', __webpack_require__(331));
+	hljs.registerLanguage('mojolicious', __webpack_require__(332));
+	hljs.registerLanguage('monkey', __webpack_require__(333));
+	hljs.registerLanguage('nginx', __webpack_require__(334));
+	hljs.registerLanguage('nimrod', __webpack_require__(335));
+	hljs.registerLanguage('nix', __webpack_require__(336));
+	hljs.registerLanguage('nsis', __webpack_require__(337));
+	hljs.registerLanguage('objectivec', __webpack_require__(338));
+	hljs.registerLanguage('ocaml', __webpack_require__(339));
+	hljs.registerLanguage('openscad', __webpack_require__(340));
+	hljs.registerLanguage('oxygene', __webpack_require__(341));
+	hljs.registerLanguage('parser3', __webpack_require__(342));
+	hljs.registerLanguage('pf', __webpack_require__(343));
+	hljs.registerLanguage('php', __webpack_require__(344));
+	hljs.registerLanguage('powershell', __webpack_require__(345));
+	hljs.registerLanguage('processing', __webpack_require__(346));
+	hljs.registerLanguage('profile', __webpack_require__(347));
+	hljs.registerLanguage('prolog', __webpack_require__(348));
+	hljs.registerLanguage('protobuf', __webpack_require__(349));
+	hljs.registerLanguage('puppet', __webpack_require__(350));
+	hljs.registerLanguage('python', __webpack_require__(351));
+	hljs.registerLanguage('q', __webpack_require__(352));
+	hljs.registerLanguage('r', __webpack_require__(353));
+	hljs.registerLanguage('rib', __webpack_require__(354));
+	hljs.registerLanguage('roboconf', __webpack_require__(355));
+	hljs.registerLanguage('rsl', __webpack_require__(356));
+	hljs.registerLanguage('ruleslanguage', __webpack_require__(357));
+	hljs.registerLanguage('rust', __webpack_require__(358));
+	hljs.registerLanguage('scala', __webpack_require__(359));
+	hljs.registerLanguage('scheme', __webpack_require__(360));
+	hljs.registerLanguage('scilab', __webpack_require__(361));
+	hljs.registerLanguage('scss', __webpack_require__(362));
+	hljs.registerLanguage('smali', __webpack_require__(363));
+	hljs.registerLanguage('smalltalk', __webpack_require__(364));
+	hljs.registerLanguage('sml', __webpack_require__(365));
+	hljs.registerLanguage('sql', __webpack_require__(366));
+	hljs.registerLanguage('stata', __webpack_require__(367));
+	hljs.registerLanguage('step21', __webpack_require__(368));
+	hljs.registerLanguage('stylus', __webpack_require__(369));
+	hljs.registerLanguage('swift', __webpack_require__(370));
+	hljs.registerLanguage('tcl', __webpack_require__(371));
+	hljs.registerLanguage('tex', __webpack_require__(372));
+	hljs.registerLanguage('thrift', __webpack_require__(373));
+	hljs.registerLanguage('tp', __webpack_require__(374));
+	hljs.registerLanguage('twig', __webpack_require__(375));
+	hljs.registerLanguage('typescript', __webpack_require__(376));
+	hljs.registerLanguage('vala', __webpack_require__(377));
+	hljs.registerLanguage('vbnet', __webpack_require__(378));
+	hljs.registerLanguage('vbscript', __webpack_require__(379));
+	hljs.registerLanguage('vbscript-html', __webpack_require__(380));
+	hljs.registerLanguage('verilog', __webpack_require__(381));
+	hljs.registerLanguage('vhdl', __webpack_require__(382));
+	hljs.registerLanguage('vim', __webpack_require__(383));
+	hljs.registerLanguage('x86asm', __webpack_require__(384));
+	hljs.registerLanguage('xl', __webpack_require__(385));
+	hljs.registerLanguage('xquery', __webpack_require__(386));
+	hljs.registerLanguage('zephir', __webpack_require__(387));
 
 	module.exports = hljs;
 
 /***/ },
-/* 247 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -26989,7 +27645,7 @@
 
 
 /***/ },
-/* 248 */
+/* 253 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs){
@@ -27079,7 +27735,7 @@
 	};
 
 /***/ },
-/* 249 */
+/* 254 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -27121,7 +27777,7 @@
 	};
 
 /***/ },
-/* 250 */
+/* 255 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -27200,7 +27856,7 @@
 	};
 
 /***/ },
-/* 251 */
+/* 256 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -27250,7 +27906,7 @@
 	};
 
 /***/ },
-/* 252 */
+/* 257 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -27351,7 +28007,7 @@
 	};
 
 /***/ },
-/* 253 */
+/* 258 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -27447,7 +28103,7 @@
 	};
 
 /***/ },
-/* 254 */
+/* 259 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -27554,7 +28210,7 @@
 	};
 
 /***/ },
-/* 255 */
+/* 260 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -27750,7 +28406,7 @@
 	};
 
 /***/ },
-/* 256 */
+/* 261 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -27892,7 +28548,7 @@
 	};
 
 /***/ },
-/* 257 */
+/* 262 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -27958,7 +28614,7 @@
 	};
 
 /***/ },
-/* 258 */
+/* 263 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -29716,7 +30372,7 @@
 	};
 
 /***/ },
-/* 259 */
+/* 264 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -29782,7 +30438,7 @@
 	};
 
 /***/ },
-/* 260 */
+/* 265 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -29817,7 +30473,7 @@
 	};
 
 /***/ },
-/* 261 */
+/* 266 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -29897,7 +30553,7 @@
 	};
 
 /***/ },
-/* 262 */
+/* 267 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs){
@@ -29938,7 +30594,7 @@
 	};
 
 /***/ },
-/* 263 */
+/* 268 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -30021,7 +30677,7 @@
 	};
 
 /***/ },
-/* 264 */
+/* 269 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -30074,7 +30730,7 @@
 	};
 
 /***/ },
-/* 265 */
+/* 270 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -30146,7 +30802,7 @@
 	};
 
 /***/ },
-/* 266 */
+/* 271 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -30247,7 +30903,7 @@
 	};
 
 /***/ },
-/* 267 */
+/* 272 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -30266,7 +30922,7 @@
 	};
 
 /***/ },
-/* 268 */
+/* 273 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -30309,7 +30965,7 @@
 	};
 
 /***/ },
-/* 269 */
+/* 274 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -30454,7 +31110,7 @@
 	};
 
 /***/ },
-/* 270 */
+/* 275 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -30599,7 +31255,7 @@
 	};
 
 /***/ },
-/* 271 */
+/* 276 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -30756,7 +31412,7 @@
 	};
 
 /***/ },
-/* 272 */
+/* 277 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -30879,7 +31535,7 @@
 	};
 
 /***/ },
-/* 273 */
+/* 278 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -30986,7 +31642,7 @@
 	};
 
 /***/ },
-/* 274 */
+/* 279 */
 /***/ function(module, exports) {
 
 	module.exports = /**
@@ -31248,7 +31904,7 @@
 	};
 
 /***/ },
-/* 275 */
+/* 280 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -31354,7 +32010,7 @@
 	};
 
 /***/ },
-/* 276 */
+/* 281 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -31459,7 +32115,7 @@
 	};
 
 /***/ },
-/* 277 */
+/* 282 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -31530,7 +32186,7 @@
 	};
 
 /***/ },
-/* 278 */
+/* 283 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -31574,7 +32230,7 @@
 	};
 
 /***/ },
-/* 279 */
+/* 284 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -31628,7 +32284,7 @@
 	};
 
 /***/ },
-/* 280 */
+/* 285 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -31660,7 +32316,7 @@
 	};
 
 /***/ },
-/* 281 */
+/* 286 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -31699,7 +32355,7 @@
 	};
 
 /***/ },
-/* 282 */
+/* 287 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -31751,7 +32407,7 @@
 	};
 
 /***/ },
-/* 283 */
+/* 288 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -31790,7 +32446,7 @@
 	};
 
 /***/ },
-/* 284 */
+/* 289 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -31896,7 +32552,7 @@
 	};
 
 /***/ },
-/* 285 */
+/* 290 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -31986,7 +32642,7 @@
 	};
 
 /***/ },
-/* 286 */
+/* 291 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -32159,7 +32815,7 @@
 	};
 
 /***/ },
-/* 287 */
+/* 292 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -32178,7 +32834,7 @@
 	};
 
 /***/ },
-/* 288 */
+/* 293 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -32230,7 +32886,7 @@
 	};
 
 /***/ },
-/* 289 */
+/* 294 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -32386,7 +33042,7 @@
 	};
 
 /***/ },
-/* 290 */
+/* 295 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -32419,7 +33075,7 @@
 	};
 
 /***/ },
-/* 291 */
+/* 296 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -32493,7 +33149,7 @@
 	};
 
 /***/ },
-/* 292 */
+/* 297 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -32555,7 +33211,7 @@
 	};
 
 /***/ },
-/* 293 */
+/* 298 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -32596,7 +33252,7 @@
 	};
 
 /***/ },
-/* 294 */
+/* 299 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -32673,7 +33329,7 @@
 	};
 
 /***/ },
-/* 295 */
+/* 300 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -32710,7 +33366,7 @@
 	};
 
 /***/ },
-/* 296 */
+/* 301 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -32808,7 +33464,7 @@
 	};
 
 /***/ },
-/* 297 */
+/* 302 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -32851,7 +33507,7 @@
 	};
 
 /***/ },
-/* 298 */
+/* 303 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -32879,7 +33535,7 @@
 	};
 
 /***/ },
-/* 299 */
+/* 304 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -32918,7 +33574,7 @@
 	};
 
 /***/ },
-/* 300 */
+/* 305 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -33010,7 +33666,7 @@
 	};
 
 /***/ },
-/* 301 */
+/* 306 */
 /***/ function(module, exports) {
 
 	module.exports = // TODO support filter tags like :javascript, support inline HTML
@@ -33122,7 +33778,7 @@
 	};
 
 /***/ },
-/* 302 */
+/* 307 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -33159,7 +33815,7 @@
 	};
 
 /***/ },
-/* 303 */
+/* 308 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -33287,7 +33943,7 @@
 	};
 
 /***/ },
-/* 304 */
+/* 309 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -33352,7 +34008,7 @@
 	};
 
 /***/ },
-/* 305 */
+/* 310 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -33391,7 +34047,7 @@
 	};
 
 /***/ },
-/* 306 */
+/* 311 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -33453,7 +34109,7 @@
 	};
 
 /***/ },
-/* 307 */
+/* 312 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -33517,7 +34173,7 @@
 	};
 
 /***/ },
-/* 308 */
+/* 313 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -33596,7 +34252,7 @@
 	};
 
 /***/ },
-/* 309 */
+/* 314 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -33700,7 +34356,7 @@
 	};
 
 /***/ },
-/* 310 */
+/* 315 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -33816,7 +34472,7 @@
 	};
 
 /***/ },
-/* 311 */
+/* 316 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -33858,7 +34514,7 @@
 	};
 
 /***/ },
-/* 312 */
+/* 317 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -34023,7 +34679,7 @@
 	};
 
 /***/ },
-/* 313 */
+/* 318 */
 /***/ function(module, exports) {
 
 	module.exports = function (hljs) {
@@ -34128,7 +34784,7 @@
 	};
 
 /***/ },
-/* 314 */
+/* 319 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -34318,7 +34974,7 @@
 	};
 
 /***/ },
-/* 315 */
+/* 320 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -34459,7 +35115,7 @@
 	};
 
 /***/ },
-/* 316 */
+/* 321 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -34570,7 +35226,7 @@
 	};
 
 /***/ },
-/* 317 */
+/* 322 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -34732,7 +35388,7 @@
 	};
 
 /***/ },
-/* 318 */
+/* 323 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -34887,7 +35543,7 @@
 	};
 
 /***/ },
-/* 319 */
+/* 324 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -34947,7 +35603,7 @@
 	};
 
 /***/ },
-/* 320 */
+/* 325 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -34997,7 +35653,7 @@
 	};
 
 /***/ },
-/* 321 */
+/* 326 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -35060,7 +35716,7 @@
 	};
 
 /***/ },
-/* 322 */
+/* 327 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -35155,7 +35811,7 @@
 	};
 
 /***/ },
-/* 323 */
+/* 328 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -35389,7 +36045,7 @@
 	};
 
 /***/ },
-/* 324 */
+/* 329 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -35482,7 +36138,7 @@
 	};
 
 /***/ },
-/* 325 */
+/* 330 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -35505,7 +36161,7 @@
 	};
 
 /***/ },
-/* 326 */
+/* 331 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -35666,7 +36322,7 @@
 	};
 
 /***/ },
-/* 327 */
+/* 332 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -35695,7 +36351,7 @@
 	};
 
 /***/ },
-/* 328 */
+/* 333 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -35777,7 +36433,7 @@
 	};
 
 /***/ },
-/* 329 */
+/* 334 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -35863,7 +36519,7 @@
 	};
 
 /***/ },
-/* 330 */
+/* 335 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -35919,7 +36575,7 @@
 	};
 
 /***/ },
-/* 331 */
+/* 336 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -35974,7 +36630,7 @@
 	};
 
 /***/ },
-/* 332 */
+/* 337 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36066,7 +36722,7 @@
 	};
 
 /***/ },
-/* 333 */
+/* 338 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36149,7 +36805,7 @@
 	};
 
 /***/ },
-/* 334 */
+/* 339 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36224,7 +36880,7 @@
 	};
 
 /***/ },
-/* 335 */
+/* 340 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36286,7 +36942,7 @@
 	};
 
 /***/ },
-/* 336 */
+/* 341 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36359,7 +37015,7 @@
 	};
 
 /***/ },
-/* 337 */
+/* 342 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36411,7 +37067,7 @@
 	};
 
 /***/ },
-/* 338 */
+/* 343 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36467,7 +37123,7 @@
 	};
 
 /***/ },
-/* 339 */
+/* 344 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36596,7 +37252,7 @@
 	};
 
 /***/ },
-/* 340 */
+/* 345 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36648,7 +37304,7 @@
 	};
 
 /***/ },
-/* 341 */
+/* 346 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36700,7 +37356,7 @@
 	};
 
 /***/ },
-/* 342 */
+/* 347 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36746,7 +37402,7 @@
 	};
 
 /***/ },
-/* 343 */
+/* 348 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36839,7 +37495,7 @@
 	};
 
 /***/ },
-/* 344 */
+/* 349 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36880,7 +37536,7 @@
 	};
 
 /***/ },
-/* 345 */
+/* 350 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -36992,7 +37648,7 @@
 	};
 
 /***/ },
-/* 346 */
+/* 351 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -37081,7 +37737,7 @@
 	};
 
 /***/ },
-/* 347 */
+/* 352 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -37108,7 +37764,7 @@
 	};
 
 /***/ },
-/* 348 */
+/* 353 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -37182,7 +37838,7 @@
 	};
 
 /***/ },
-/* 349 */
+/* 354 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -37213,7 +37869,7 @@
 	};
 
 /***/ },
-/* 350 */
+/* 355 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -37277,7 +37933,7 @@
 	};
 
 /***/ },
-/* 351 */
+/* 356 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -37318,7 +37974,7 @@
 	};
 
 /***/ },
-/* 352 */
+/* 357 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -37383,7 +38039,7 @@
 	};
 
 /***/ },
-/* 353 */
+/* 358 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -37473,7 +38129,7 @@
 	};
 
 /***/ },
-/* 354 */
+/* 359 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -37540,7 +38196,7 @@
 	};
 
 /***/ },
-/* 355 */
+/* 360 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -37666,7 +38322,7 @@
 	};
 
 /***/ },
-/* 356 */
+/* 361 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -37725,7 +38381,7 @@
 	};
 
 /***/ },
-/* 357 */
+/* 362 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -37846,7 +38502,7 @@
 	};
 
 /***/ },
-/* 358 */
+/* 363 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -37933,7 +38589,7 @@
 	};
 
 /***/ },
-/* 359 */
+/* 364 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -37990,7 +38646,7 @@
 	};
 
 /***/ },
-/* 360 */
+/* 365 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -38059,7 +38715,7 @@
 	};
 
 /***/ },
-/* 361 */
+/* 366 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -38223,7 +38879,7 @@
 	};
 
 /***/ },
-/* 362 */
+/* 367 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -38265,7 +38921,7 @@
 	};
 
 /***/ },
-/* 363 */
+/* 368 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -38321,7 +38977,7 @@
 	};
 
 /***/ },
-/* 364 */
+/* 369 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -38768,7 +39424,7 @@
 	};
 
 /***/ },
-/* 365 */
+/* 370 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -38887,7 +39543,7 @@
 	};
 
 /***/ },
-/* 366 */
+/* 371 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -38953,7 +39609,7 @@
 	};
 
 /***/ },
-/* 367 */
+/* 372 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -39012,7 +39668,7 @@
 	};
 
 /***/ },
-/* 368 */
+/* 373 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -39051,7 +39707,7 @@
 	};
 
 /***/ },
-/* 369 */
+/* 374 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -39139,7 +39795,7 @@
 	};
 
 /***/ },
-/* 370 */
+/* 375 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -39200,7 +39856,7 @@
 	};
 
 /***/ },
-/* 371 */
+/* 376 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -39302,7 +39958,7 @@
 	};
 
 /***/ },
-/* 372 */
+/* 377 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -39361,7 +40017,7 @@
 	};
 
 /***/ },
-/* 373 */
+/* 378 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -39421,7 +40077,7 @@
 	};
 
 /***/ },
-/* 374 */
+/* 379 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -39464,7 +40120,7 @@
 	};
 
 /***/ },
-/* 375 */
+/* 380 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -39480,7 +40136,7 @@
 	};
 
 /***/ },
-/* 376 */
+/* 381 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -39534,7 +40190,7 @@
 	};
 
 /***/ },
-/* 377 */
+/* 382 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -39594,7 +40250,7 @@
 	};
 
 /***/ },
-/* 378 */
+/* 383 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -39661,7 +40317,7 @@
 	};
 
 /***/ },
-/* 379 */
+/* 384 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -39801,7 +40457,7 @@
 	};
 
 /***/ },
-/* 380 */
+/* 385 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -39892,7 +40548,7 @@
 	};
 
 /***/ },
-/* 381 */
+/* 386 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -39969,7 +40625,7 @@
 	};
 
 /***/ },
-/* 382 */
+/* 387 */
 /***/ function(module, exports) {
 
 	module.exports = function(hljs) {
@@ -40080,763 +40736,116 @@
 	};
 
 /***/ },
-/* 383 */
+/* 388 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(37);
-	var Highlight = __webpack_require__(244);
 
 	module.exports = React.createClass({
-		displayName: 'exports',
+		displayName: "exports",
 
 		render: function render() {
 			return React.createElement(
-				'div',
+				"div",
 				null,
 				React.createElement(
-					'div',
-					{ className: 'cps-flexible-focus cps-card' },
+					"div",
+					{ className: "cps-flexible-focus cps-card cps-margin-bottom-32" },
 					React.createElement(
-						'div',
-						{ className: 'cps-card__header' },
-						React.createElement(
-							'h3',
-							{ className: 'cps-subheader' },
-							'Buttons'
-						)
+						"div",
+						{ className: "cps-card__header cps-subheader" },
+						"Slats"
 					),
 					React.createElement(
-						'div',
-						{ className: 'cps-card__body' },
+						"div",
+						{ className: "cps-card__body" },
 						React.createElement(
-							'div',
-							{ className: 'cps-subheader-sm cps-margin-bottom-8' },
-							'Raised Buttons'
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-row cps-margin-bottom-12' },
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-12' },
-								React.createElement(
-									'button',
-									{ className: 'cps-btn +primary' },
-									'primary'
-								),
-								React.createElement(
-									'button',
-									{ className: 'cps-btn +secondary' },
-									'secondary'
-								),
-								React.createElement(
-									'a',
-									{ href: true, className: 'cps-btn +primary' },
-									'PRIMARY link'
-								),
-								React.createElement(
-									'a',
-									{ href: true, className: 'cps-btn +secondary' },
-									'secondary link'
-								),
-								React.createElement(
-									'button',
-									{ className: 'cps-btn +primary' },
-									React.createElement('span', { className: 'cps-icon cps-icon-upload' }),
-									' primary'
-								),
-								React.createElement(
-									'a',
-									{ href: true, className: 'cps-btn +primary' },
-									'PRIMARY link ',
-									React.createElement('span', { className: 'cps-icon cps-icon-upload' })
-								)
-							)
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-row margin-top-24' },
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-12' },
-								React.createElement(
-									'button',
-									{ className: 'cps-btn +primary +disabled' },
-									'PRIMARY'
-								),
-								React.createElement(
-									'button',
-									{ className: 'cps-btn +secondary', disabled: true },
-									'secondary'
-								),
-								React.createElement(
-									'a',
-									{ href: true, className: 'cps-btn +primary +disabled' },
-									'PRIMARY link'
-								),
-								React.createElement(
-									'a',
-									{ href: true, className: 'cps-btn +secondary +disabled' },
-									'secondary link'
-								),
-								React.createElement(
-									'button',
-									{ className: 'cps-btn +primary', disabled: true },
-									React.createElement('span', { className: 'cps-icon cps-icon-upload' }),
-									' primary'
-								),
-								React.createElement(
-									'a',
-									{ href: true, className: 'cps-btn +primary', disabled: true },
-									'PRIMARY link ',
-									React.createElement('span', { className: 'cps-icon cps-icon-upload' })
-								)
-							)
-						)
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<button class="cps-btn +primary">primary</button>\n<button class="cps-btn +secondary">secondary</button>\n<a href class="cps-btn +primary">PRIMARY link</a>\n<a href class="cps-btn +secondary">secondary link</a>\n<button class="cps-btn +primary"><span class="cps-icon cps-icon-upload"></span> primary</button>\n<a href class="cps-btn +primary">PRIMARY link <span class="cps-icon cps-icon-upload"></span></a>\n\n<button class="cps-btn +primary +disabled">PRIMARY</button>\n<button class="cps-btn +secondary" disabled>secondary</button>\n<a href class="cps-btn +primary +disabled">PRIMARY link</a>\n<a href class="cps-btn +secondary +disabled">secondary link</a>\n<button class="cps-btn +primary" disabled><span class="cps-icon cps-icon-upload"></span> primary</button>\n<a href class="cps-btn +primary" disabled>PRIMARY link <span class="cps-icon cps-icon-upload"></span></a>\n'
-				),
-				React.createElement(
-					'div',
-					{ className: 'cps-flexible-focus cps-card' },
-					React.createElement(
-						'div',
-						{ className: 'cps-card__body' },
-						React.createElement(
-							'div',
-							{ className: 'cps-subheader-sm' },
-							'Flat Buttons'
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-row' },
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-12' },
-								React.createElement(
-									'span',
-									{ className: 'cps-link cps-primary-green' },
-									React.createElement(
-										'strong',
-										null,
-										'PRIMARY link'
-									)
-								),
-								React.createElement(
-									'a',
-									{ href: true, className: 'cps-link' },
-									'PRIMARY link'
-								),
-								React.createElement(
-									'a',
-									{ href: true, className: 'cps-link', disabled: 'disabled' },
-									'PRIMARY link'
-								),
-								React.createElement(
-									'a',
-									{ href: true, className: 'cps-link' },
-									React.createElement('span', { className: 'cps-icon cps-icon-lg-check' }),
-									' ACCEPT'
-								),
-								React.createElement(
-									'a',
-									{ href: true, className: 'cps-link', disabled: 'disabled' },
-									React.createElement('span', { className: 'cps-icon cps-icon-lg-check' }),
-									' PRIMARY link'
-								)
-							)
-						)
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<span class="cps-link cps-primary-green"><strong>PRIMARY link</strong></span>\n<a href class="cps-link">PRIMARY link</a>\n<a href class="cps-link" disabled="disabled">PRIMARY link</a>\n<a href class="cps-link"><span class="cps-icon cps-icon-lg-check"></span> ACCEPT</a>\n<a href class="cps-link" disabled="disabled"><span class="cps-icon cps-icon-lg-check"></span> PRIMARY link</a>\n'
-				),
-				React.createElement(
-					'div',
-					{ className: 'cps-flexible-focus cps-card' },
-					React.createElement(
-						'div',
-						{ className: 'cps-card__body' },
-						React.createElement(
-							'div',
-							{ className: 'cps-subheader-sm' },
-							'Icon Button'
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-row' },
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-12' },
-								React.createElement(
-									'div',
-									{ className: 'cps-btn-icon' },
-									React.createElement(
-										'a',
-										{ href: true, className: 'cps-link' },
-										React.createElement('span', { className: 'cps-icon cps-icon-work' })
-									),
-									React.createElement(
-										'a',
-										{ href: true, className: 'cps-link' },
-										React.createElement('span', { className: 'cps-icon cps-icon-cog' })
-									),
-									React.createElement(
-										'a',
-										{ href: true, className: 'cps-link' },
-										React.createElement('span', { className: 'cps-icon cps-icon-close' })
-									),
-									React.createElement(
-										'a',
-										{ href: true, className: 'cps-link' },
-										React.createElement('span', { className: 'cps-icon cps-icon-help' })
-									),
-									React.createElement(
-										'a',
-										{ href: true, className: 'cps-link' },
-										React.createElement('span', { className: 'cps-icon cps-icon-lg-check' })
-									)
-								)
-							)
-						)
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<div class="cps-btn-icon">\n\t<a href class="cps-link"><span class="cps-icon cps-icon-work"></span></a>\n\t<a href class="cps-link"><span class="cps-icon cps-icon-cog"></span></a>\n\t<a href class="cps-link"><span class="cps-icon cps-icon-close"></span></a>\n\t<a href class="cps-link"><span class="cps-icon cps-icon-help"></span></a>\n\t<a href class="cps-link"><span class="cps-icon cps-icon-lg-check"></span></a>\n</div>'
-				),
-				React.createElement(
-					'div',
-					{ className: 'cps-flexible-focus cps-card' },
-					React.createElement(
-						'div',
-						{ className: 'cps-card__body' },
-						React.createElement(
-							'div',
-							{ className: 'cps-subheader-sm' },
-							'Links'
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-row cps-margin-top-16' },
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-12' },
-								React.createElement(
-									'a',
-									{ href: true },
-									'this is a standard link'
-								)
-							)
-						)
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<a href>this is a standard link</a>'
-				)
-			);
-		}
-	});
-
-/***/ },
-/* 384 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(37);
-	var Highlight = __webpack_require__(244);
-
-	module.exports = React.createClass({
-		displayName: 'exports',
-
-		render: function render() {
-			return React.createElement(
-				'div',
-				null,
-				React.createElement(
-					'div',
-					{ className: 'cps-flexible-focus cps-card' },
-					React.createElement(
-						'div',
-						{ className: 'cps-card__header cps-subheader' },
-						'Checkboxes and Radios'
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-card__body' },
-						React.createElement(
-							'p',
+							"strong",
 							null,
-							'Note that the radio and checkboxes need to be wrapped inside a label. ',
-							React.createElement(
-								'strong',
-								null,
-								'This is a requirement.'
-							),
-							'The text beside the input also needs to be wrapped in a span tag.'
+							"Note:"
 						),
-						React.createElement(
-							'div',
-							{ className: 'cps-row' },
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-12' },
-								React.createElement(
-									'form',
-									null,
-									React.createElement(
-										'label',
-										{ className: 'cps-radio' },
-										React.createElement('input', { type: 'radio', value: '1', name: 'testQuestion' }),
-										React.createElement(
-											'span',
-											null,
-											'Yes'
-										)
-									),
-									React.createElement(
-										'label',
-										{ className: 'cps-radio' },
-										React.createElement('input', { type: 'radio', value: '3', name: 'testQuestion' }),
-										React.createElement(
-											'span',
-											null,
-											'No'
-										)
-									)
-								)
-							)
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-row' },
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-12' },
-								React.createElement(
-									'form',
-									null,
-									React.createElement(
-										'label',
-										{ className: 'cps-radio' },
-										React.createElement('input', { type: 'radio', value: '1', checked: true, disabled: true, name: 'testQuestion' }),
-										'Yes'
-									),
-									React.createElement(
-										'label',
-										{ className: 'cps-radio' },
-										React.createElement('input', { type: 'radio', value: '3', disabled: true, name: 'testQuestion' }),
-										'No'
-									)
-								)
-							)
-						)
+						" Adding the class '+noclick' to a slat will remove the cursor:pointer and the background-color that appears on hover."
 					)
 				),
 				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<form>\n  <label class="cps-radio">\n    <input type="radio" value="1" name="testQuestion"/><span>Yes</span>\n  </label>\n  <label class="cps-radio">\n    <input type="radio" value="3" name="testQuestion"/><span>No</span>\n  </label>\n</form>'
-				),
-				React.createElement(
-					'div',
-					{ className: 'cps-flexible-focus cps-card' },
+					"div",
+					{ className: "cps-flexible-focus cps-card" },
 					React.createElement(
-						'div',
-						{ className: 'cps-card__body' },
+						"div",
+						{ className: "cps-card__body" },
 						React.createElement(
-							'div',
-							{ className: 'cps-row margin-top-16' },
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-12' },
-								React.createElement(
-									'form',
-									null,
-									React.createElement(
-										'label',
-										{ className: 'cps-checkbox' },
-										React.createElement('input', { type: 'checkbox', value: 'option1' }),
-										React.createElement(
-											'span',
-											null,
-											'1'
-										)
-									),
-									React.createElement(
-										'label',
-										{ className: 'cps-checkbox' },
-										React.createElement('input', { type: 'checkbox', value: 'option1', disabled: true }),
-										React.createElement(
-											'span',
-											null,
-											'1'
-										)
-									),
-									React.createElement(
-										'label',
-										{ className: 'cps-checkbox' },
-										React.createElement('input', { type: 'checkbox', value: 'option2', disabled: true, checked: true }),
-										React.createElement(
-											'span',
-											null,
-											'2'
-										)
-									)
-								)
-							)
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-row cps-margin-top-16' },
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-12' },
-								React.createElement(
-									'form',
-									null,
-									React.createElement(
-										'label',
-										{ className: 'cps-checkbox-large' },
-										React.createElement('input', { type: 'checkbox', value: 'option1' }),
-										React.createElement(
-											'span',
-											null,
-											'1'
-										)
-									),
-									React.createElement(
-										'label',
-										{ className: 'cps-checkbox-large' },
-										React.createElement('input', { type: 'checkbox', value: 'option1', disabled: true }),
-										React.createElement(
-											'span',
-											null,
-											'2'
-										)
-									),
-									React.createElement(
-										'label',
-										{ className: 'cps-checkbox-large' },
-										React.createElement('input', { type: 'checkbox', value: 'option2', disabled: true, checked: true }),
-										React.createElement(
-											'span',
-											null,
-											'3'
-										)
-									),
-									React.createElement(
-										'label',
-										{ className: 'cps-checkbox-large' },
-										React.createElement('input', { type: 'checkbox', value: 'option2' }),
-										React.createElement('span', null)
-									)
-								)
-							)
+							"div",
+							{ id: "title", className: "cps-subheader-sm" },
+							"Large slats"
 						)
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<form>\n  <label class="cps-checkbox">\n    <input type="checkbox" value="option1"/><span>1</span>\n  </label>\n  <label class="cps-checkbox">\n    <input type="checkbox" value="option1" disabled/><span>1</span>\n  </label>\n  <label class="cps-checkbox">\n    <input type="checkbox" value="option2" disabled checked/><span>2</span>\n  </label>\n</form>'
-				),
-				React.createElement(
-					'div',
-					{ className: 'cps-flexible-focus cps-card' },
-					React.createElement(
-						'div',
-						{ className: 'cps-card__header cps-subheader-sm' },
-						'Stacked checkboxes and radios'
 					),
+					React.createElement("hr", null),
 					React.createElement(
-						'div',
-						{ className: 'cps-card__body' },
+						"div",
+						{ className: "cps-card__body" },
+						"Large slats have a max of two separate lines of slat content.",
 						React.createElement(
-							'div',
-							{ className: 'cps-row' },
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-12' },
-								React.createElement(
-									'form',
-									null,
-									React.createElement(
-										'div',
-										null,
-										React.createElement(
-											'label',
-											{ className: 'cps-radio' },
-											React.createElement('input', { type: 'radio', name: 'optionsRadios', value: 'option1' }),
-											React.createElement(
-												'span',
-												null,
-												'Option one is this and that—be sure to include why it\'s great'
-											)
-										)
-									),
-									React.createElement(
-										'div',
-										null,
-										React.createElement(
-											'label',
-											{ className: 'cps-radio' },
-											React.createElement('input', { type: 'radio', name: 'optionsRadios', value: 'option1' }),
-											React.createElement(
-												'span',
-												null,
-												'Option two is this and that—be sure to include why it\'s great'
-											)
-										)
-									),
-									React.createElement(
-										'div',
-										null,
-										React.createElement(
-											'label',
-											{ className: 'cps-radio' },
-											React.createElement('input', { type: 'radio', name: 'optionsRadios', value: 'option1' }),
-											React.createElement(
-												'span',
-												null,
-												'Option one is this and that—be sure to include why it\'s great'
-											)
-										)
-									)
-								)
-							)
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-row' },
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-12' },
-								React.createElement(
-									'form',
-									null,
-									React.createElement(
-										'div',
-										null,
-										React.createElement(
-											'label',
-											{ className: 'cps-checkbox' },
-											React.createElement('input', { type: 'checkbox' }),
-											React.createElement(
-												'span',
-												null,
-												'Check me out'
-											)
-										)
-									),
-									React.createElement(
-										'div',
-										null,
-										React.createElement(
-											'label',
-											{ className: 'cps-checkbox' },
-											React.createElement('input', { type: 'checkbox' }),
-											React.createElement(
-												'span',
-												null,
-												'Check me out'
-											)
-										)
-									),
-									React.createElement(
-										'div',
-										null,
-										React.createElement(
-											'label',
-											{ className: 'cps-checkbox' },
-											React.createElement('input', { type: 'checkbox' }),
-											React.createElement(
-												'span',
-												null,
-												'Check me out'
-											)
-										)
-									)
-								)
-							)
-						)
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<form>\n  <div class="cps-radio">\n    <label>\n      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1"/><span>Option one is this and that&mdash;be sure to include why it\'s great</span>\n    </label>\n  </div>\n  <div class="cps-checkbox">\n    <label>\n      <input type="checkbox"/><span>Check me out</span>\n    </label>\n  </div>\n</form>'
-				),
-				React.createElement(
-					'div',
-					{ className: 'cps-flexible-focus cps-card' },
-					React.createElement(
-						'div',
-						{ className: 'cps-card__header cps-subheader-sm' },
-						'Toggle Switch'
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-card__body' },
-						React.createElement(
-							'p',
+							"p",
 							null,
-							'Toggles should be used for single instance values that need an "on" or "off" state. It\'s also importatnt to note that the toggle only has one disabled state. When a toggle is disabled within the application, then the value must be set to "off".'
+							"The first line of slat content should be a title or primary description for the slat."
 						),
 						React.createElement(
-							'div',
-							{ className: 'cps-row' },
-							React.createElement(
-								'form',
-								null,
-								React.createElement(
-									'label',
-									{ className: 'cps-toggle' },
-									React.createElement('input', { type: 'checkbox', value: 'option1' }),
-									React.createElement('span', null)
-								),
-								React.createElement(
-									'label',
-									{ className: 'cps-toggle' },
-									React.createElement('input', { type: 'checkbox', value: 'option1', disabled: true }),
-									React.createElement('span', null)
-								),
-								React.createElement(
-									'label',
-									{ className: 'cps-toggle' },
-									React.createElement('input', { type: 'checkbox', value: 'option1', disabled: true, checked: true }),
-									React.createElement('span', null)
-								)
-							)
+							"p",
+							null,
+							"The second line should be meta data directly related to the slat."
 						)
 					)
 				),
+				React.createElement("cp-edit-render-code", { dangerouslySetInnerHTML: { __html: "<div class=\"cps-flexible-focus\">\n\t<div class=\"cps-card\">\n\t\t<a class=\"cps-slat-lg\">\n\t\t\t<div class=\"cps-slat-lg__badge\">\n\t\t\t\t<div class=\"cps-slat-lg__badge__main\">21</div>\n\t\t\t\t<div class=\"cps-slat-lg__badge__sub\">Jan</div>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat-lg__content\">\n\t\t\t\t<div class=\"cps-slat-lg__content__title\">\n\t\t\t\t\tDate Title\n\t\t\t\t</div>\n\t\t\t\tSalami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin\n\t\t\t\ttri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter\n\t\t\t\tprosciutto ham rump tail.\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat-lg__actions\">\n\t\t\t\t2:30PM - 3:30PM\n\t\t\t</div>\n\t\t</a>\n\t\t<div class=\"cps-slat-lg\">\n\t\t\t<div class=\"cps-slat-lg__content\">\n\t\t\t\t<div class=\"cps-slat-lg__content__title\">\n\t\t\t\t\tDate Title\n\t\t\t\t</div>\n\t\t\t\tSalami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin\n\t\t\t\ttri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter\n\t\t\t\tprosciutto ham rump tail.\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat-lg__actions +hover-show\">\n\t\t\t\t<span class=\"cps-link cps-primary-green\"><strong>PRIMARY link</strong></span>\n\t\t\t</div>\n\t\t</div>\n\t\t<a class=\"cps-slat-lg\">\n\t\t\t<div class=\"cps-slat-lg__badge\">\n\t\t\t\t<div class=\"cps-slat-lg__badge__main\">21</div>\n\t\t\t\t<div class=\"cps-slat-lg__badge__sub\">Jan</div>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat-lg__content\">\n\t\t\t\t<div class=\"cps-slat-lg__content__title\">\n\t\t\t\t\tDate Title\n\t\t\t\t</div>\n\t\t\t\tSalami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin\n\t\t\t\ttri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter\n\t\t\t\tprosciutto ham rump tail.\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat-lg__actions +hover-show\">\n\t\t\t\t<i class=\"cps-icon cps-icon-trash\"></i>\n\t\t\t\t<i class=\"cps-icon cps-icon-archive cps-margin-left-24\"></i>\n\t\t\t</div>\n\t\t</a>\n\t</div>\n</div>" } }),
 				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<form>\n  <label class="cps-toggle">\n    <input type="checkbox" value="option1"/><span></span>\n  </label>\n  <label class="cps-toggle">\n    <input type="checkbox" value="option1" disabled/><span></span>\n  </label>\n  <label class="cps-toggle">\n    <input type="checkbox" value="option1" disabled checked/><span></span>\n  </label>\n</form>\n'
-				)
+					"div",
+					{ className: "cps-flexible-focus cps-card" },
+					React.createElement(
+						"div",
+						{ className: "cps-card__body" },
+						React.createElement(
+							"div",
+							{ id: "title", className: "cps-subheader-sm" },
+							"Medium slats"
+						)
+					),
+					React.createElement("hr", null),
+					React.createElement(
+						"div",
+						{ className: "cps-card__body" },
+						"Medium slats have a max of one line of slat content. There needs to be a title and an option for descriptions. The primary description should be listed directly after the title."
+					)
+				),
+				React.createElement("cp-edit-render-code", { dangerouslySetInnerHTML: { __html: "<div class=\"cps-flexible-focus\">\n\t<div class=\"cps-card\">\n\t\t<a class=\"cps-slat\">\n\t\t\t<div class=\"cps-slat__badge\">\n\t\t\t\t<i class=\"cps-icon cps-subheader cps-icon-taxes\"></i>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat__content\">\n\t\t\t\t<div class=\"cps-slat__content__title\">\n\t\t\t\t\tFilename\n\t\t\t\t</div>\n\t\t\t\t<div class=\"cps-slat__content__description\">\n\t\t\t\t\tDocument\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat__actions\">\n\t\t\t\t2:30PM - 3:30PM\n\t\t\t</div>\n\t\t</a>\n\t\t<div class=\"cps-slat\">\n\t\t\t<div class=\"cps-slat__content\">\n\t\t\t\t<div class=\"cps-slat__content__title\">\n\t\t\t\t\tFilename\n\t\t\t\t</div>\n\t\t\t\t<div class=\"cps-slat__content__description\">\n\t\t\t\t\tDocument\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat__actions\">\n\t\t\t\t2:30PM - 3:30PM\n\t\t\t</div>\n\t\t</div>\n\t\t<a class=\"cps-slat\">\n\t\t\t<div class=\"cps-slat__badge\">\n\t\t\t\t<i class=\"cps-icon cps-subheader cps-icon-taxes\"></i>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat__content\">\n\t\t\t\t<div class=\"cps-slat__content__title\">\n\t\t\t\t\tFilename\n\t\t\t\t</div>\n\t\t\t\t<div class=\"cps-slat__content__description\">\n\t\t\t\t\tDocument\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat__actions +hover-show\">\n\t\t\t\t<i class=\"cps-icon cps-icon-trash\"></i>\n\t\t\t\t<i class=\"cps-icon cps-icon-archive cps-margin-left-24\"></i>\n\t\t\t\t<span class=\"cps-link cps-primary-green cps-margin-left-12\"><strong>Move</strong></span>\n\t\t\t\t<span class=\"cps-link cps-primary-green\"><strong>Rename</strong></span>\n\t\t\t</div>\n\t\t</a>\n\t</div>\n</div>" } }),
+				React.createElement(
+					"div",
+					{ className: "cps-flexible-focus cps-card" },
+					React.createElement(
+						"div",
+						{ className: "cps-card__body" },
+						React.createElement(
+							"div",
+							{ id: "title", className: "cps-subheader-sm" },
+							"Small slats"
+						)
+					),
+					React.createElement("hr", null),
+					React.createElement(
+						"div",
+						{ className: "cps-card__body" },
+						"Create a small slat by simply adding the class modifier +small to the medium slat"
+					)
+				),
+				React.createElement("cp-edit-render-code", { dangerouslySetInnerHTML: { __html: "<div class=\"cps-flexible-focus\">\n\t<div class=\"cps-card\">\n\t\t<a class=\"cps-slat +small\">\n\t\t\t<div class=\"cps-slat__badge\">\n\t\t\t\t<i class=\"cps-icon cps-subheader cps-icon-taxes\"></i>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat__content\">\n\t\t\t\t<div class=\"cps-slat__content__title\">\n\t\t\t\t\tFilename\n\t\t\t\t</div>\n\t\t\t\t<div class=\"cps-slat__content__description\">\n\t\t\t\t\tDocument\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat__actions\">\n\t\t\t\t2:30PM - 3:30PM\n\t\t\t</div>\n\t\t</a>\n\t\t<div class=\"cps-slat +small\">\n\t\t\t<div class=\"cps-slat__content\">\n\t\t\t\t<div class=\"cps-slat__content__title\">\n\t\t\t\t\tFilename\n\t\t\t\t</div>\n\t\t\t\t<div class=\"cps-slat__content__description\">\n\t\t\t\t\tDocument\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat__actions\">\n\t\t\t\t2:30PM - 3:30PM\n\t\t\t</div>\n\t\t</div>\n\t\t<a class=\"cps-slat +small\">\n\t\t\t<div class=\"cps-slat__badge\">\n\t\t\t\t<i class=\"cps-icon cps-subheader cps-icon-taxes\"></i>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat__content\">\n\t\t\t\t<div class=\"cps-slat__content__title\">\n\t\t\t\t\tFilename\n\t\t\t\t</div>\n\t\t\t\t<div class=\"cps-slat__content__description\">\n\t\t\t\t\tDocument\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat__actions +hover-show\">\n\t\t\t\t<i class=\"cps-icon cps-icon-trash\"></i>\n\t\t\t\t<i class=\"cps-icon cps-icon-archive cps-margin-left-24\"></i>\n\t\t\t\t<span class=\"cps-link cps-primary-green cps-margin-left-12\"><strong>Move</strong></span>\n\t\t\t\t<span class=\"cps-link cps-primary-green\"><strong>Rename</strong></span>\n\t\t\t</div>\n\t\t</a>\n\t</div>\n</div>" } }),
+				React.createElement("cp-edit-render-code", { dangerouslySetInnerHTML: { __html: "<div class=\"cps-flexible-focus\">\n\t<div class=\"cps-card\">\n\t\t<div class=\"cps-card__header cps-subheader\">\n\t\t\tThis slat appears within a card.\n\t\t</div>\n\t\t<a class=\"cps-slat-lg\">\n\t\t\t<div class=\"cps-slat-lg__badge\">\n\t\t\t\t<div class=\"cps-slat-lg__badge__main\">21</div>\n\t\t\t\t<div class=\"cps-slat-lg__badge__sub\">Jan</div>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat-lg__content\">\n\t\t\t\t<div class=\"cps-slat-lg__content__title\">\n\t\t\t\t\tDate Title\n\t\t\t\t</div>\n\t\t\t\tSalami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin\n\t\t\t\ttri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter\n\t\t\t\tprosciutto ham rump tail.\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat-lg__actions\">\n\t\t\t\t2:30PM - 3:30PM\n\t\t\t</div>\n\t\t</a>\n\t\t<a class=\"cps-slat-lg\">\n\t\t\t<div class=\"cps-slat-lg__badge\">\n\t\t\t\t<div class=\"cps-slat-lg__badge__main\">21</div>\n\t\t\t\t<div class=\"cps-slat-lg__badge__sub\">Jan</div>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat-lg__content\">\n\t\t\t\t<div class=\"cps-slat-lg__content__title\">\n\t\t\t\t\tDate Title\n\t\t\t\t</div>\n\t\t\t\tSalami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin\n\t\t\t\ttri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter\n\t\t\t\tprosciutto ham rump tail.\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat-lg__actions\">\n\t\t\t\t2:30PM - 3:30PM\n\t\t\t</div>\n\t\t</a>\n\t</div>\n</div>" } })
 			);
 		}
 	});
 
 /***/ },
-/* 385 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(37);
-	var Highlight = __webpack_require__(244);
-	module.exports = React.createClass({
-		displayName: 'exports',
-
-		render: function render() {
-			return React.createElement(
-				'div',
-				null,
-				React.createElement(
-					'div',
-					{ className: 'cps-flexible-focus cps-card' },
-					React.createElement(
-						'div',
-						{ className: 'cps-card__header cps-subheader' },
-						'Top-aligned textarea (with resize handle)'
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-card__body' },
-						React.createElement(
-							'div',
-							{ className: 'cps-row' },
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-12' },
-								React.createElement(
-									'form',
-									null,
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group' },
-										React.createElement(
-											'label',
-											{ htmlFor: 'exampleInputEmail1' },
-											'Email address'
-										),
-										React.createElement('textarea', { className: 'cps-form-control' })
-									)
-								)
-							)
-						)
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<form>\n  <div class="cps-form-group">\n    <label for="exampleInputEmail1">Email address</label>\n    <textarea class="cps-form-control"></textarea>\n  </div>\n</form>'
-				),
-				React.createElement(
-					'div',
-					{ className: 'cps-flexible-focus cps-card' },
-					React.createElement(
-						'div',
-						{ className: 'cps-card__header cps-subheader' },
-						'Right-aligned textarea (without resize handle)'
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-card__body' },
-						React.createElement(
-							'div',
-							{ className: 'cps-row' },
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-12' },
-								React.createElement(
-									'form',
-									{ className: 'cps-form-horizontal' },
-									React.createElement(
-										'div',
-										{ className: 'cps-form-group' },
-										React.createElement(
-											'label',
-											{ htmlFor: 'exampleInputEmail1', className: 'cps-col-xs-2' },
-											'Full Name'
-										),
-										React.createElement(
-											'div',
-											{ className: 'cps-col-xs-3' },
-											React.createElement('textarea', { className: 'cps-form-control +no-resize' })
-										)
-									)
-								)
-							)
-						)
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<form class="cps-form-horizontal">\n  <div class="cps-form-group">\n    <label for="exampleInputEmail1" class="cps-col-xs-2">Full Name</label>\n    <div class="cps-col-xs-3">\n      <textarea class="cps-form-control +no-resize"></textarea>\n    </div>\n  </div>\n</form>'
-				)
-			);
-		}
-	});
-
-/***/ },
-/* 386 */
+/* 389 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -40856,1642 +40865,10 @@
 					React.createElement(
 						"div",
 						{ className: "cps-card__header cps-subheader" },
-						"Date Pickers"
-					),
-					React.createElement(
-						"div",
-						{ className: "cps-card__body" },
-						React.createElement(
-							"p",
-							null,
-							"The styleguide provides some override styles for the bootstrap date picker. Generate a datepicker as usual with bootstrap and make sure that the id \"cps-app\" is on the body tag. The date picker should automatically style correctly."
-						),
-						React.createElement(
-							"div",
-							{ className: "datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-top",
-								style: { position: 'relative', display: 'block', float: 'none' } },
-							React.createElement(
-								"div",
-								{ className: "datepicker-days", style: { display: 'block' } },
-								React.createElement(
-									"table",
-									{ className: " table-condensed" },
-									React.createElement(
-										"thead",
-										null,
-										React.createElement(
-											"tr",
-											null,
-											React.createElement(
-												"th",
-												{ className: "prev" },
-												"«"
-											),
-											React.createElement(
-												"th",
-												{ colSpan: "5", className: "datepicker-switch" },
-												"March 2015"
-											),
-											React.createElement(
-												"th",
-												{ className: "next" },
-												"»"
-											)
-										),
-										React.createElement(
-											"tr",
-											null,
-											React.createElement(
-												"th",
-												{ className: "dow" },
-												"S"
-											),
-											React.createElement(
-												"th",
-												{ className: "dow" },
-												"M"
-											),
-											React.createElement(
-												"th",
-												{ className: "dow" },
-												"T"
-											),
-											React.createElement(
-												"th",
-												{ className: "dow" },
-												"W"
-											),
-											React.createElement(
-												"th",
-												{ className: "dow" },
-												"T"
-											),
-											React.createElement(
-												"th",
-												{ className: "dow" },
-												"F"
-											),
-											React.createElement(
-												"th",
-												{ className: "dow" },
-												"S"
-											)
-										)
-									),
-									React.createElement(
-										"tbody",
-										null,
-										React.createElement(
-											"tr",
-											null,
-											React.createElement(
-												"td",
-												{ className: "old day" },
-												"22"
-											),
-											React.createElement(
-												"td",
-												{ className: "old day" },
-												"23"
-											),
-											React.createElement(
-												"td",
-												{ className: "old day" },
-												"24"
-											),
-											React.createElement(
-												"td",
-												{ className: "old day" },
-												"25"
-											),
-											React.createElement(
-												"td",
-												{ className: "old day" },
-												"26"
-											),
-											React.createElement(
-												"td",
-												{ className: "old day" },
-												"27"
-											),
-											React.createElement(
-												"td",
-												{ className: "old day" },
-												"28"
-											)
-										),
-										React.createElement(
-											"tr",
-											null,
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"1"
-											),
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"2"
-											),
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"3"
-											),
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"4"
-											),
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"5"
-											),
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"6"
-											),
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"7"
-											)
-										),
-										React.createElement(
-											"tr",
-											null,
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"8"
-											),
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"9"
-											),
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"10"
-											),
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"11"
-											),
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"12"
-											),
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"13"
-											),
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"14"
-											)
-										),
-										React.createElement(
-											"tr",
-											null,
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"15"
-											),
-											React.createElement(
-												"td",
-												{ className: "active day" },
-												"16"
-											),
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"17"
-											),
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"18"
-											),
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"19"
-											),
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"20"
-											),
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"21"
-											)
-										),
-										React.createElement(
-											"tr",
-											null,
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"22"
-											),
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"23"
-											),
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"24"
-											),
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"25"
-											),
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"26"
-											),
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"27"
-											),
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"28"
-											)
-										),
-										React.createElement(
-											"tr",
-											null,
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"29"
-											),
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"30"
-											),
-											React.createElement(
-												"td",
-												{ className: "day" },
-												"31"
-											),
-											React.createElement(
-												"td",
-												{ className: "new day" },
-												"1"
-											),
-											React.createElement(
-												"td",
-												{ className: "new day" },
-												"2"
-											),
-											React.createElement(
-												"td",
-												{ className: "new day" },
-												"3"
-											),
-											React.createElement(
-												"td",
-												{ className: "new day" },
-												"4"
-											)
-										)
-									),
-									React.createElement(
-										"tfoot",
-										null,
-										React.createElement(
-											"tr",
-											null,
-											React.createElement(
-												"th",
-												{ colSpan: "7", className: "today", style: { display: 'none' } },
-												"Today"
-											)
-										),
-										React.createElement(
-											"tr",
-											null,
-											React.createElement(
-												"th",
-												{ colSpan: "7", className: "clear", style: { display: 'none' } },
-												"Clear"
-											)
-										)
-									)
-								)
-							),
-							React.createElement(
-								"div",
-								{ className: "datepicker-months", style: { display: 'none' } },
-								React.createElement(
-									"table",
-									{ className: "table-condensed" },
-									React.createElement(
-										"thead",
-										null,
-										React.createElement(
-											"tr",
-											null,
-											React.createElement(
-												"th",
-												{ className: "prev" },
-												"«"
-											),
-											React.createElement(
-												"th",
-												{ colSpan: "5", className: "datepicker-switch" },
-												"2015"
-											),
-											React.createElement(
-												"th",
-												{ className: "next" },
-												"»"
-											)
-										)
-									),
-									React.createElement(
-										"tbody",
-										null,
-										React.createElement(
-											"tr",
-											null,
-											React.createElement(
-												"td",
-												{ colSpan: "7" },
-												React.createElement(
-													"span",
-													{ className: "month" },
-													"Jan"
-												),
-												React.createElement(
-													"span",
-													{ className: "month" },
-													"Feb"
-												),
-												React.createElement(
-													"span",
-													{ className: "month active" },
-													"Mar"
-												),
-												React.createElement(
-													"span",
-													{ className: "month" },
-													"Apr"
-												),
-												React.createElement(
-													"span",
-													{ className: "month" },
-													"May"
-												),
-												React.createElement(
-													"span",
-													{ className: "month" },
-													"Jun"
-												),
-												React.createElement(
-													"span",
-													{ className: "month" },
-													"Jul"
-												),
-												React.createElement(
-													"span",
-													{ className: "month" },
-													"Aug"
-												),
-												React.createElement(
-													"span",
-													{ className: "month" },
-													"Sep"
-												),
-												React.createElement(
-													"span",
-													{ className: "month" },
-													"Oct"
-												),
-												React.createElement(
-													"span",
-													{ className: "month" },
-													"Nov"
-												),
-												React.createElement(
-													"span",
-													{ className: "month" },
-													"Dec"
-												)
-											)
-										)
-									),
-									React.createElement(
-										"tfoot",
-										null,
-										React.createElement(
-											"tr",
-											null,
-											React.createElement(
-												"th",
-												{ colSpan: "7", className: "today", style: { display: 'none' } },
-												"Today"
-											)
-										),
-										React.createElement(
-											"tr",
-											null,
-											React.createElement(
-												"th",
-												{ colSpan: "7", className: "clear", style: { display: 'none' } },
-												"Clear"
-											)
-										)
-									)
-								)
-							),
-							React.createElement(
-								"div",
-								{ className: "datepicker-years", style: { display: 'none' } },
-								React.createElement(
-									"table",
-									{ className: "table-condensed" },
-									React.createElement(
-										"thead",
-										null,
-										React.createElement(
-											"tr",
-											null,
-											React.createElement(
-												"th",
-												{ className: "prev" },
-												"«"
-											),
-											React.createElement(
-												"th",
-												{ colSpan: "5", className: "datepicker-switch" },
-												"2010-2019"
-											),
-											React.createElement(
-												"th",
-												{ className: "next" },
-												"»"
-											)
-										)
-									),
-									React.createElement(
-										"tbody",
-										null,
-										React.createElement(
-											"tr",
-											null,
-											React.createElement(
-												"td",
-												{ colSpan: "7" },
-												React.createElement(
-													"span",
-													{ className: "year old" },
-													"2009"
-												),
-												React.createElement(
-													"span",
-													{ className: "year" },
-													"2010"
-												),
-												React.createElement(
-													"span",
-													{ className: "year" },
-													"2011"
-												),
-												React.createElement(
-													"span",
-													{ className: "year" },
-													"2012"
-												),
-												React.createElement(
-													"span",
-													{ className: "year" },
-													"2013"
-												),
-												React.createElement(
-													"span",
-													{ className: "year" },
-													"2014"
-												),
-												React.createElement(
-													"span",
-													{ className: "year active" },
-													"2015"
-												),
-												React.createElement(
-													"span",
-													{ className: "year" },
-													"2016"
-												),
-												React.createElement(
-													"span",
-													{ className: "year" },
-													"2017"
-												),
-												React.createElement(
-													"span",
-													{ className: "year" },
-													"2018"
-												),
-												React.createElement(
-													"span",
-													{ className: "year" },
-													"2019"
-												),
-												React.createElement(
-													"span",
-													{ className: "year new" },
-													"2020"
-												)
-											)
-										)
-									),
-									React.createElement(
-										"tfoot",
-										null,
-										React.createElement(
-											"tr",
-											null,
-											React.createElement(
-												"th",
-												{ colSpan: "7", className: "today", style: { display: 'none' } },
-												"Today"
-											)
-										),
-										React.createElement(
-											"tr",
-											null,
-											React.createElement(
-												"th",
-												{ colSpan: "7", className: "clear", style: { display: 'none' } },
-												"Clear"
-											)
-										)
-									)
-								)
-							)
-						)
+						"Navigation"
 					)
 				),
-				React.createElement(
-					"div",
-					{ className: "cps-flexible-focus cps-card cps-margin-top-24" },
-					React.createElement(
-						"div",
-						{ className: "cps-card__header cps-subheader" },
-						"People Picker / Multi-select"
-					),
-					React.createElement(
-						"div",
-						{ className: "cps-card__body" },
-						"The multi-selector widget is located in a ",
-						React.createElement(
-							"a",
-							{ href: "https://github.com/CanopyTax/cp-multi-selector" },
-							"separate repository"
-						),
-						"."
-					)
-				)
-			);
-		}
-	});
-
-/***/ },
-/* 387 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(37);
-	var Highlight = __webpack_require__(244);
-
-	module.exports = React.createClass({
-		displayName: 'exports',
-
-		render: function render() {
-			return React.createElement(
-				'div',
-				null,
-				React.createElement(
-					'div',
-					{ className: 'cps-flexible-focus cps-card' },
-					React.createElement(
-						'div',
-						{ className: 'cps-card__header cps-subheader' },
-						'Flexible Focus'
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-card__body' },
-						React.createElement(
-							'p',
-							null,
-							'This card is within a flexible focus layout. This layout encourages a focus on a particular type of content like files or dates. Generally the card grows vertically rather than stacking sequential cards.'
-						),
-						React.createElement(
-							'p',
-							null,
-							'Flexible focus really only defines a max and min width for the content. It also centers it.',
-							React.createElement(
-								'strong',
-								null,
-								'The class name "cps-card" is what makes the card look with a white background.'
-							),
-							'This same class name is used for the card look and feel of the slat and table components.'
-						),
-						React.createElement('hr', { className: 'cps-card__hr' }),
-						React.createElement(
-							'p',
-							null,
-							'The thinner card headers can be used by adding the class modifier "+thin" to the cps-card element.'
-						)
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<div class="cps-flexible-focus cps-card">\n  <div class="cps-card__header cps-subheader">\n\tThe Header content goes here.\n  </div>\n  <div class="cps-card__body">\n\tPut card main content with a body tag.\n  </div>\n  <div class="cps-card__hr"></div>\n  <div class="cps-card__body">\n\tThere can be multiple body tags, generally separated by an hr\n  </div>\n</div>'
-				),
-				React.createElement(
-					'div',
-					{ className: 'cps-fixed-focus cps-card' },
-					React.createElement(
-						'div',
-						{ className: 'cps-card__header cps-subheader' },
-						'Fixed Focus'
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-card__body' },
-						React.createElement(
-							'p',
-							null,
-							'This card is within a fixed focus layout. This layout encourages a focus on a particular type of content like files or dates. Generally the card grows vertically but does not resize horizontally with the screen.'
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-card__banner cps-bg-success cps-white' },
-							'A long banner can appear within a card'
-						),
-						React.createElement(
-							'p',
-							null,
-							'Fixed focus  defines a 760px width for the content. It also centers it. It  generally does not account for navigation menus.',
-							React.createElement(
-								'strong',
-								null,
-								'The class name "cps-card" is what makes the card look with a white background.'
-							),
-							'This same class name is used for the card look and feel of the slat and table components.'
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-card__banner +large +bg-warning' },
-							React.createElement(
-								'i',
-								{ className: 'cps-icon cps-icon-error cps-warning' },
-								React.createElement(
-									'span',
-									null,
-									'A large banner can also appear in a card'
-								)
-							)
-						),
-						React.createElement(
-							'p',
-							null,
-							'Followed by more text.'
-						)
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<div class="cps-fixed-focus cps-card">\n  <div class="cps-card__header cps-subheader">\n\tThe Header content goes here.\n  </div>\n  <div class="cps-card__body">\n\tPut card main content with a body tag.\n\tInline banners:\n\t<div class="cps-card__banner cps-bg-success cps-white">A long banner can appear within a card</div>\n  </div>\n  <div class="cps-card__hr"></div>\n  <div class="cps-card__body">\n\tThere can be multiple body tags, generally separated by an hr\n  </div>\n  <div class="cps-card__banner +large +bg-warning"><i class="cps-icon cps-icon-error cps-warning"><span>A large banner can also appear in a card</span></i></div>\n  <p>\n\tFollowed by more text.\n  </p>\n</div>'
-				),
-				React.createElement(
-					'div',
-					{ className: 'cps-fixed-masonry' },
-					React.createElement(
-						'div',
-						{ className: 'cps-row' },
-						React.createElement(
-							'div',
-							{ className: 'cps-col-xs-6' },
-							React.createElement(
-								'div',
-								{ className: 'cps-fixed-masonry__card cps-card +thin' },
-								React.createElement(
-									'div',
-									{ className: 'cps-card__header' },
-									'Card 1',
-									React.createElement(
-										'a',
-										{ href: true, className: 'cps-pull-right cps-blue-link' },
-										'+ Take some action'
-									)
-								),
-								React.createElement(
-									'div',
-									{ className: 'cps-card__body' },
-									'These cards are within a fixed masonry layout. The layout of these cards is arranged with bootstrap classes. The actual layout and structure of the cards are the same as others. The cards have a min height of 296px and depending on the content cards may need manually defined max height.'
-								)
-							)
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-col-xs-6' },
-							React.createElement(
-								'div',
-								{ className: 'cps-fixed-masonry__card cps-card +thin' },
-								React.createElement(
-									'div',
-									{ className: 'cps-card__header' },
-									'Card 2'
-								),
-								React.createElement(
-									'div',
-									{ className: 'cps-slat' },
-									React.createElement(
-										'div',
-										{ className: 'cps-slat__badge' },
-										React.createElement('i', { className: 'cps-icon cps-subheader cps-icon-taxes' })
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-slat__content' },
-										React.createElement(
-											'div',
-											{ className: 'cps-slat__content__title' },
-											'Filename'
-										),
-										React.createElement(
-											'div',
-											{ className: 'cps-slat__content__description' },
-											'Document'
-										)
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-slat__actions' },
-										'2:30PM - 3:30PM'
-									)
-								),
-								React.createElement(
-									'div',
-									{ className: 'cps-slat' },
-									React.createElement(
-										'div',
-										{ className: 'cps-slat__badge' },
-										React.createElement('i', { className: 'cps-icon cps-subheader cps-icon-taxes' })
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-slat__content' },
-										React.createElement(
-											'div',
-											null,
-											'Filename'
-										)
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-slat__actions' },
-										'2:30PM - 3:30PM'
-									)
-								),
-								React.createElement(
-									'div',
-									{ className: 'cps-slat' },
-									React.createElement(
-										'div',
-										{ className: 'cps-slat__badge' },
-										React.createElement('i', { className: 'cps-icon cps-subheader cps-icon-taxes' })
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-slat__content' },
-										React.createElement(
-											'div',
-											{ className: 'cps-slat__content__title' },
-											'Filename'
-										),
-										React.createElement(
-											'div',
-											{ className: 'cps-slat__content__description' },
-											'Document'
-										)
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-slat__actions' },
-										'2:30PM - 3:30PM'
-									)
-								)
-							)
-						)
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-row' },
-						React.createElement(
-							'div',
-							{ className: 'cps-col-xs-4' },
-							React.createElement(
-								'div',
-								{ className: 'cps-fixed-masonry__card cps-card' },
-								React.createElement(
-									'div',
-									{ className: 'cps-card__header' },
-									'Card 3'
-								)
-							)
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-col-xs-4' },
-							React.createElement(
-								'div',
-								{ className: 'cps-fixed-masonry__card cps-card' },
-								React.createElement(
-									'div',
-									{ className: 'cps-card__header' },
-									'Card 4'
-								)
-							)
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-col-xs-4' },
-							React.createElement(
-								'div',
-								{ className: 'cps-fixed-masonry__card cps-card' },
-								React.createElement(
-									'div',
-									{ className: 'cps-card__header' },
-									'Card 5'
-								)
-							)
-						)
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<div class="cps-fixed-masonry">\n  <div class="cps-row">\n\t<div class="cps-col-xs-6">\n\t  <div class="cps-fixed-masonry__card cps-card">\n\t\t<div class="cps-card__header">\n\t\t  Card 1\n\t\t</div>\n\t\t<div class="cps-card__body">\n\t\t  Card Content\n\t\t</div>\n\t  </div>\n\t</div>\n\t<div class="cps-col-xs-6">\n\t  <div class="cps-fixed-masonry__card cps-card">\n\t\t<div class="cps-card__header">\n\t\t  Card 2\n\t\t</div>\n\t  </div>\n\t</div>\n  </div>\n</div>'
-				),
-				React.createElement(
-					'div',
-					{ className: 'cps-flexible-masonry cps-flexible-focus' },
-					React.createElement(
-						'div',
-						{ className: 'cps-flexible-masonry-card' },
-						React.createElement(
-							'div',
-							{ className: 'cps-flexible-masonry-card__title' },
-							'Title of the note goes here'
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-flexible-masonry-card__body' },
-							'Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.'
-						)
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-flexible-masonry-card' },
-						React.createElement(
-							'div',
-							{ className: 'cps-flexible-masonry-card__title' },
-							'Title of the note goes here'
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-flexible-masonry-card__body' },
-							'Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone.'
-						)
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-flexible-masonry-card' },
-						React.createElement(
-							'div',
-							{ className: 'cps-flexible-masonry-card__title' },
-							'Title of the note goes here'
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-flexible-masonry-card__body' },
-							'iltong brisket tri-tip venison pig ham rump shank.'
-						)
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-flexible-masonry-card' },
-						React.createElement(
-							'div',
-							{ className: 'cps-flexible-masonry-card__title' },
-							'Title of the note goes here'
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-flexible-masonry-card__body' },
-							'Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.'
-						)
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-flexible-masonry-card' },
-						React.createElement(
-							'div',
-							{ className: 'cps-flexible-masonry-card__title' },
-							'Title of the note goes here'
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-flexible-masonry-card__body' },
-							'chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.'
-						)
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-flexible-masonry-card' },
-						React.createElement(
-							'div',
-							{ className: 'cps-flexible-masonry-card__title' },
-							'Title of the note goes here'
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-flexible-masonry-card__body' },
-							'Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank. Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.'
-						)
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-flexible-masonry-card' },
-						React.createElement(
-							'div',
-							{ className: 'cps-flexible-masonry-card__title' },
-							'Title of the note goes here'
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-flexible-masonry-card__body' },
-							'Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.'
-						)
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-flexible-masonry-card +link' },
-						React.createElement(
-							'div',
-							{ className: 'cps-flexible-masonry-card__title' },
-							'Title of the note goes here'
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-flexible-masonry-card__body' },
-							'Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank. Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.'
-						)
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'\n<!-- The flexible masonry grid can be achieved purely in CSS or with the masonry JS lib available at http://masonry.desandro.com/ -->\n<!-- If you want to have the CSS functionality, wrap all the cards in a "cps-flexible-masonry class". -->\n<!-- Give the cards a link style by adding the "+link" modifier -->\n<div class="cps-flexible-masonry cps-flexible-focus">\n  <div class="cps-flexible-masonry-card +link">\n\t<div class="cps-flexible-masonry-card__title">\n\t  Title of the note goes here\n\t</div>\n\t<div class="cps-flexible-masonry-card__body">\n\t  Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone.\n\t</div>\n  </div>\n  <div class="cps-flexible-masonry-card">\n\t<div class="cps-flexible-masonry-card__title">\n\t  Title of the note goes here\n\t</div>\n\t<div class="cps-flexible-masonry-card__body">\n\t  Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone.\n\t</div>\n  </div>\n</div>\n'
-				),
-				React.createElement(
-					'div',
-					{ className: 'cps-fixed-focus' },
-					React.createElement(
-						'div',
-						{ className: 'cps-flexible-masonry-card +small' },
-						React.createElement(
-							'div',
-							{ className: 'cps-flexible-masonry-card__title' },
-							'Title of the note goes here'
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-flexible-masonry-card__body' },
-							'Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.'
-						)
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-flexible-masonry-card +small' },
-						React.createElement(
-							'div',
-							{ className: 'cps-flexible-masonry-card__title' },
-							'Title of the note'
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-flexible-masonry-card__body' },
-							'Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.'
-						)
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-flexible-masonry-card +small' },
-						React.createElement(
-							'div',
-							{ className: 'cps-flexible-masonry-card__title' },
-							'Title of the note goes here'
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-flexible-masonry-card__body' },
-							'Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.'
-						)
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<!-- Small cards can be created with the "+small" class modifier -->\n<div class="cps-fixed-focus">\n\t<div class="cps-flexible-masonry-card +small">\n\t\t<div class="cps-flexible-masonry-card__title">\n\t\t\tTitle of the note goes here\n\t\t</div>\n\t\t<div class="cps-flexible-masonry-card__body">\n\t\t\tSalami venison spare ribs shankle landjaeger tongue\n\t\t</div>\n\t</div>\n</div>\n'
-				)
-			);
-		}
-	});
-
-/***/ },
-/* 388 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(37);
-	var Highlight = __webpack_require__(244);
-
-	module.exports = React.createClass({
-		displayName: 'exports',
-
-		render: function render() {
-			return React.createElement(
-				'div',
-				{ className: 'cps-flexible-focus' },
-				React.createElement(
-					'div',
-					{ className: 'cps-toaster +info' },
-					React.createElement(
-						'span',
-						{ className: 'cps-toaster__message' },
-						'Note: Adding the class \'+noclick\' to a slat will remove the cursor:pointer and the background-color that appears on hover.'
-					)
-				),
-				React.createElement(
-					'div',
-					{ className: 'cps-card' },
-					React.createElement(
-						'div',
-						{ className: 'cps-slat-lg' },
-						React.createElement(
-							'div',
-							{ className: 'cps-slat-lg__badge' },
-							React.createElement(
-								'div',
-								{ className: 'cps-slat-lg__badge__main' },
-								'21'
-							),
-							React.createElement(
-								'div',
-								{ className: 'cps-slat-lg__badge__sub' },
-								'Jan'
-							)
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-slat-lg__content' },
-							React.createElement(
-								'div',
-								{ className: 'cps-slat-lg__content__title' },
-								'Date Title'
-							),
-							'Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail.'
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-slat-lg__actions' },
-							'2:30PM - 3:30PM'
-						)
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-slat-lg' },
-						React.createElement(
-							'div',
-							{ className: 'cps-slat-lg__content' },
-							React.createElement(
-								'div',
-								{ className: 'cps-slat-lg__content__title' },
-								'Date Title'
-							),
-							'Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail.'
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-slat-lg__actions +hover-show' },
-							React.createElement(
-								'span',
-								{ className: 'cps-link cps-primary-green' },
-								React.createElement(
-									'strong',
-									null,
-									'PRIMARY link'
-								)
-							)
-						)
-					),
-					React.createElement(
-						'a',
-						{ className: 'cps-slat-lg' },
-						React.createElement(
-							'div',
-							{ className: 'cps-slat-lg__badge' },
-							React.createElement(
-								'div',
-								{ className: 'cps-slat-lg__badge__main' },
-								'21'
-							),
-							React.createElement(
-								'div',
-								{ className: 'cps-slat-lg__badge__sub' },
-								'Jan'
-							)
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-slat-lg__content' },
-							React.createElement(
-								'div',
-								{ className: 'cps-slat-lg__content__title' },
-								'Date Title'
-							),
-							'Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail.'
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-slat-lg__actions +hover-show' },
-							React.createElement('i', { className: 'cps-icon cps-icon-trash' }),
-							React.createElement('i', { className: 'cps-icon cps-icon-archive cps-margin-left-24' })
-						)
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<!-- Large slats have a max of two separate lines of slat content. The first line  -->\n<!-- of slat content should be a title or primary description for the slat. The    -->\n<!-- second line should be meta data directly related to the slat.                 -->\n<div class="cps-slat-lg">\n  <div class="cps-slat-lg__badge">\n    <div class="cps-slat-lg__badge__main">21</div>\n    <div class="cps-slat-lg__badge__sub">Jan</div>\n  </div>\n  <div class="cps-slat-lg__content">\n    <div class="cps-slat-lg__content__title">Date Title</div>\n    <span>Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner... </span>\n  </div>\n  <div class="cps-slat-lg__actions">2:30PM - 3:30PM</div>\n</div>\n'
-				),
-				React.createElement(
-					'div',
-					{ className: 'cps-card' },
-					React.createElement(
-						'a',
-						{ className: 'cps-slat' },
-						React.createElement(
-							'div',
-							{ className: 'cps-slat__badge' },
-							React.createElement('i', { className: 'cps-icon cps-subheader cps-icon-taxes' })
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-slat__content' },
-							React.createElement(
-								'div',
-								{ className: 'cps-slat__content__title' },
-								'Filename'
-							),
-							React.createElement(
-								'div',
-								{ className: 'cps-slat__content__description' },
-								'Document'
-							)
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-slat__actions' },
-							'2:30PM - 3:30PM'
-						)
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-slat' },
-						React.createElement(
-							'div',
-							{ className: 'cps-slat__content' },
-							React.createElement(
-								'div',
-								{ className: 'cps-slat__content__title' },
-								'Filename'
-							),
-							React.createElement(
-								'div',
-								{ className: 'cps-slat__content__description' },
-								'Document'
-							)
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-slat__actions' },
-							'2:30PM - 3:30PM'
-						)
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-slat' },
-						React.createElement(
-							'div',
-							{ className: 'cps-slat__badge' },
-							React.createElement('i', { className: 'cps-icon cps-subheader cps-icon-taxes' })
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-slat__content' },
-							React.createElement(
-								'div',
-								{ className: 'cps-slat__content__title' },
-								'Filename'
-							),
-							React.createElement(
-								'div',
-								{ className: 'cps-slat__content__description' },
-								'Document'
-							)
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-slat__actions +hover-show' },
-							React.createElement('i', { className: 'cps-icon cps-icon-trash' }),
-							React.createElement('i', { className: 'cps-icon cps-icon-archive cps-margin-left-24' }),
-							React.createElement(
-								'span',
-								{ className: 'cps-link cps-primary-green cps-margin-left-12' },
-								React.createElement(
-									'strong',
-									null,
-									'Move'
-								)
-							),
-							React.createElement(
-								'span',
-								{ className: 'cps-link cps-primary-green' },
-								React.createElement(
-									'strong',
-									null,
-									'Rename'
-								)
-							)
-						)
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<!-- Medium slats have a max of one line of slat content. There needs to be a title  -->\n<!-- and an option for descriptions. The primary description should be listed        -->\n<!-- directly after the title.                                                       -->\n<div class="cps-slat">\n  <div class="cps-slat__badge">\n    <i class="cps-icon cps-subheader cps-icon-taxes"></i>\n  </div>\n  <div class="cps-slat__content">\n    <div class="cps-slat__content__title">Filename</div>\n    <div class="cps-slat__content__description">Document</div>\n  </div>\n  <div class="cps-slat__actions">2:30PM - 3:30PM</div>\n</div>\n'
-				),
-				React.createElement(
-					'div',
-					{ className: 'cps-card' },
-					React.createElement(
-						'div',
-						{ className: 'cps-slat +small' },
-						React.createElement(
-							'div',
-							{ className: 'cps-slat__badge' },
-							React.createElement('i', { className: 'cps-icon cps-subheader cps-icon-taxes' })
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-slat__content' },
-							React.createElement(
-								'div',
-								{ className: 'cps-slat__content__title' },
-								'Filename'
-							),
-							React.createElement(
-								'div',
-								{ className: 'cps-slat__content__description' },
-								'Document'
-							)
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-slat__actions' },
-							'2:30PM - 3:30PM'
-						)
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-slat +small' },
-						React.createElement(
-							'div',
-							{ className: 'cps-slat__content' },
-							React.createElement(
-								'div',
-								{ className: 'cps-slat__content__title' },
-								'Filename'
-							),
-							React.createElement(
-								'div',
-								{ className: 'cps-slat__content__description' },
-								'Document'
-							)
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-slat__actions' },
-							'2:30PM - 3:30PM'
-						)
-					),
-					React.createElement(
-						'a',
-						{ className: 'cps-slat +small' },
-						React.createElement(
-							'div',
-							{ className: 'cps-slat__badge' },
-							React.createElement('i', { className: 'cps-icon cps-subheader cps-icon-taxes' })
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-slat__content' },
-							React.createElement(
-								'div',
-								{ className: 'cps-slat__content__title' },
-								'Filename'
-							),
-							React.createElement(
-								'div',
-								{ className: 'cps-slat__content__description' },
-								'Document'
-							)
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-slat__actions +hover-show' },
-							React.createElement('i', { className: 'cps-icon cps-icon-trash' }),
-							React.createElement('i', { className: 'cps-icon cps-icon-archive cps-margin-left-24' })
-						)
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<!-- Crate a small slat by simply adding the class modifier +small to the medium slat -->\n<div class="cps-slat +small">\n  <div class="cps-slat__badge">\n    <i class="cps-icon cps-subheader cps-icon-taxes"></i>\n  </div>\n  <div class="cps-slat__content">\n    <div class="cps-slat__content__title">Filename</div>\n    <div class="cps-slat__content__description">Document</div>\n  </div>\n  <div class="cps-slat__actions">2:30PM - 3:30PM</div>\n</div>\n'
-				),
-				React.createElement(
-					'div',
-					{ className: 'cps-card' },
-					React.createElement(
-						'div',
-						{ className: 'cps-card__header cps-subheader' },
-						'This slat appears within a card.'
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-slat-lg' },
-						React.createElement(
-							'div',
-							{ className: 'cps-slat-lg__badge' },
-							React.createElement(
-								'div',
-								{ className: 'cps-slat-lg__badge__main' },
-								'21'
-							),
-							React.createElement(
-								'div',
-								{ className: 'cps-slat-lg__badge__sub' },
-								'Jan'
-							)
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-slat-lg__content' },
-							React.createElement(
-								'div',
-								{ className: 'cps-slat-lg__content__title' },
-								'Date Title'
-							),
-							'Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail.'
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-slat-lg__actions' },
-							'2:30PM - 3:30PM'
-						)
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-slat-lg' },
-						React.createElement(
-							'div',
-							{ className: 'cps-slat-lg__badge' },
-							React.createElement(
-								'div',
-								{ className: 'cps-slat-lg__badge__main' },
-								'21'
-							),
-							React.createElement(
-								'div',
-								{ className: 'cps-slat-lg__badge__sub' },
-								'Jan'
-							)
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-slat-lg__content' },
-							React.createElement(
-								'div',
-								{ className: 'cps-slat-lg__content__title' },
-								'Date Title'
-							),
-							'Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail.'
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-slat-lg__actions' },
-							'2:30PM - 3:30PM'
-						)
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<div class="cps-card">\n  <div class="cps-card__header cps-subheader">\n    This slat appears within a card.\n  </div>\n  <div class="cps-slat-lg">\n    <div class="cps-slat-lg__badge">\n      <div class="cps-slat-lg__badge__main">21</div>\n      <div class="cps-slat-lg__badge__sub">Jan</div>\n    </div>\n    <div class="cps-slat-lg__content">\n      <div class="cps-slat-lg__content__title">\n        Date Title\n      </div>\n      Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin\n      tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter\n      prosciutto ham rump tail.\n    </div>\n    <div class="cps-slat-lg__actions">\n      2:30PM - 3:30PM\n    </div>\n  </div>\n</div>\n'
-				)
-			);
-		}
-	});
-
-/***/ },
-/* 389 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(37);
-	var Highlight = __webpack_require__(244);
-
-	module.exports = React.createClass({
-		displayName: 'exports',
-
-		render: function render() {
-			return React.createElement(
-				'div',
-				null,
-				React.createElement(
-					'div',
-					{ style: { float: 'right', "width": "calc(100% - 300px)" } },
-					React.createElement(
-						Highlight,
-						{ className: 'html' },
-						'\n<div class="cps-secondarynav">\n  <div class="cps-secondarynav__title">\n    Some Title\n  </div>\n  <div class="cps-secondarynav__menu">\n    <a href="#" class="cps-secondarynav__menu__item +expanded">\n      <div class="cps-secondarynav__menu__item__bar"></div>\n      <i class="cps-secondarynav__menu__item__icon cps-icon cps-icon-compass"></i>\n      <span class="cps-secondarynav__menu__item__title">Planning</span>\n      <i class="cps-icon cps-icon-left-caret"></i>\n    </a>\n    <div class="cps-secondarynav__menu__sub +active">\n      <a href="#" class="+active"><span>Power of Attorney</span></a>\n      <a href="#"><span>Collection Survey</span></a>\n    </div>\n    <a href="#" class="cps-secondarynav__menu__item +expanded">\n      <div class="cps-secondarynav__menu__item__bar"></div>\n      <i class="cps-secondarynav__menu__item__icon cps-icon cps-icon-work"></i>\n      <span class="cps-secondarynav__menu__item__title">Program</span>\n      <i class="cps-icon cps-icon-left-caret"></i>\n    </a>\n    <div class="cps-secondarynav__menu__sub +active">\n      <a href="#"><span>Offer in Compromise</span></a>\n      <a href="#"><span>Payment Plan</span></a>\n      <a href="#"><span>Currently Not Collectible</span></a>\n    </div>\n    <a href="#" class="cps-secondarynav__menu__item">\n      <div class="cps-secondarynav__menu__item__bar"></div>\n      <i class="cps-secondarynav__menu__item__icon cps-icon cps-icon-taxes"></i>\n      <span class="cps-secondarynav__menu__item__title">File & Complete</span>\n    </a>\n    <a href="#" class="cps-secondarynav__menu__item +active">\n      <div class="cps-secondarynav__menu__item__bar"></div>\n      <i class="cps-secondarynav__menu__item__icon cps-icon cps-icon-work"></i>\n      <span class="cps-secondarynav__menu__item__title">Lock & Archive</span>\n    </a>\n    <a class="cps-secondarynav__menu__item +anchor-bottom">\n      <i class="cps-secondarynav__menu__item__icon cps-icon cps-icon-cog"></i>\n      <span class="cps-secondarynav__menu__item__title">Engagement Settings</span>\n    </a>\n  </div>\n</div>\n'
-					)
-				),
-				React.createElement(
-					'div',
-					{ className: 'cps-secondarynav', style: { position: "relative", height: "500px", float: "left" } },
-					React.createElement(
-						'div',
-						{ className: 'cps-secondarynav__title' },
-						'Some Title'
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-secondarynav__menu' },
-						React.createElement(
-							'a',
-							{ href: '#', className: 'cps-secondarynav__menu__item +expanded' },
-							React.createElement('div', { className: 'cps-secondarynav__menu__item__bar' }),
-							React.createElement('i', { className: 'cps-secondarynav__menu__item__icon cps-icon cps-icon-compass' }),
-							React.createElement(
-								'span',
-								{ className: 'cps-secondarynav__menu__item__title' },
-								'Planning'
-							),
-							React.createElement('i', { className: 'cps-icon cps-icon-left-caret' })
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-secondarynav__menu__sub +active' },
-							React.createElement(
-								'a',
-								{ href: '#', className: '+active' },
-								React.createElement(
-									'span',
-									null,
-									'Power of Attorney'
-								)
-							),
-							React.createElement(
-								'a',
-								{ href: '#' },
-								React.createElement(
-									'span',
-									null,
-									'Collection Survey'
-								)
-							)
-						),
-						React.createElement(
-							'a',
-							{ href: '#', className: 'cps-secondarynav__menu__item' },
-							React.createElement('div', { className: 'cps-secondarynav__menu__item__bar' }),
-							React.createElement('i', { className: 'cps-secondarynav__menu__item__icon cps-icon cps-icon-work' }),
-							React.createElement(
-								'span',
-								{ className: 'cps-secondarynav__menu__item__title' },
-								'Program'
-							),
-							React.createElement('i', { className: 'cps-icon cps-icon-left-caret' })
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-secondarynav__menu__sub' },
-							React.createElement(
-								'a',
-								{ href: '#' },
-								React.createElement(
-									'span',
-									null,
-									'Offer in Compromise'
-								)
-							),
-							React.createElement(
-								'a',
-								{ href: '#' },
-								React.createElement(
-									'span',
-									null,
-									'Payment Plan'
-								)
-							),
-							React.createElement(
-								'a',
-								{ href: '#' },
-								React.createElement(
-									'span',
-									null,
-									'Currently Not Collectible'
-								)
-							)
-						),
-						React.createElement(
-							'a',
-							{ href: '#', className: 'cps-secondarynav__menu__item' },
-							React.createElement('div', { className: 'cps-secondarynav__menu__item__bar' }),
-							React.createElement('i', { className: 'cps-secondarynav__menu__item__icon cps-icon cps-icon-taxes' }),
-							React.createElement(
-								'span',
-								{ className: 'cps-secondarynav__menu__item__title' },
-								'File & Complete'
-							)
-						),
-						React.createElement(
-							'a',
-							{ href: '#', className: 'cps-secondarynav__menu__item +active' },
-							React.createElement('div', { className: 'cps-secondarynav__menu__item__bar' }),
-							React.createElement('i', { className: 'cps-secondarynav__menu__item__icon cps-icon cps-icon-work' }),
-							React.createElement(
-								'span',
-								{ className: 'cps-secondarynav__menu__item__title' },
-								'Lock & Archive'
-							)
-						),
-						React.createElement(
-							'a',
-							{ className: 'cps-secondarynav__menu__item +anchor-bottom' },
-							React.createElement('i', { className: 'cps-secondarynav__menu__item__icon cps-icon cps-icon-cog' }),
-							React.createElement(
-								'span',
-								{ className: 'cps-secondarynav__menu__item__title' },
-								'Engagement Settings'
-							)
-						)
-					)
-				)
+				React.createElement("cp-edit-render-code", { "section-title": "(rendered output should appear to the left)", dangerouslySetInnerHTML: { __html: "<div style=\"position: absolute; left: 350px;\"> <!-- NOTE: These inline styles are only present for the placement of the rendered output -->\n\t<div class=\"cps-secondarynav\" style=\"top: 85px; height: 800px;\"> <!-- NOTE: These inline styles are only present for the placement of the rendered output -->\n\t\t<div class=\"cps-secondarynav__title\">\n\t\t\tSome Title\n\t\t</div>\n\t\t<div class=\"cps-secondarynav__menu\">\n\t\t\t<a href=\"#\" class=\"cps-secondarynav__menu__item +expanded\">\n\t\t\t\t<div class=\"cps-secondarynav__menu__item__bar\"></div>\n\t\t\t\t<i class=\"cps-secondarynav__menu__item__icon cps-icon cps-icon-compass\"></i>\n\t\t\t\t<span class=\"cps-secondarynav__menu__item__title\">Planning</span>\n\t\t\t\t<i class=\"cps-icon cps-icon-left-caret\"></i>\n\t\t\t</a>\n\t\t\t<div class=\"cps-secondarynav__menu__sub +active\">\n\t\t\t\t<a href=\"#\" class=\"+active\"><span>Power of Attorney</span></a>\n\t\t\t\t<a href=\"#\"><span>Collection Survey</span></a>\n\t\t\t</div>\n\t\t\t<a href=\"#\" class=\"cps-secondarynav__menu__item +expanded\">\n\t\t\t\t<div class=\"cps-secondarynav__menu__item__bar\"></div>\n\t\t\t\t<i class=\"cps-secondarynav__menu__item__icon cps-icon cps-icon-work\"></i>\n\t\t\t\t<span class=\"cps-secondarynav__menu__item__title\">Program</span>\n\t\t\t\t<i class=\"cps-icon cps-icon-left-caret\"></i>\n\t\t\t</a>\n\t\t\t<div class=\"cps-secondarynav__menu__sub +active\">\n\t\t\t\t<a href=\"#\"><span>Offer in Compromise</span></a>\n\t\t\t\t<a href=\"#\"><span>Payment Plan</span></a>\n\t\t\t\t<a href=\"#\"><span>Currently Not Collectible</span></a>\n\t\t\t</div>\n\t\t\t<a href=\"#\" class=\"cps-secondarynav__menu__item\">\n\t\t\t\t<div class=\"cps-secondarynav__menu__item__bar\"></div>\n\t\t\t\t<i class=\"cps-secondarynav__menu__item__icon cps-icon cps-icon-taxes\"></i>\n\t\t\t\t<span class=\"cps-secondarynav__menu__item__title\">File & Complete</span>\n\t\t\t</a>\n\t\t\t<a href=\"#\" class=\"cps-secondarynav__menu__item +active\">\n\t\t\t\t<div class=\"cps-secondarynav__menu__item__bar\"></div>\n\t\t\t\t<i class=\"cps-secondarynav__menu__item__icon cps-icon cps-icon-work\"></i>\n\t\t\t\t<span class=\"cps-secondarynav__menu__item__title\">Lock & Archive</span>\n\t\t\t</a>\n\t\t\t<a class=\"cps-secondarynav__menu__item +anchor-bottom\">\n\t\t\t\t<i class=\"cps-secondarynav__menu__item__icon cps-icon cps-icon-cog\"></i>\n\t\t\t\t<span class=\"cps-secondarynav__menu__item__title\">Engagement Settings</span>\n\t\t\t</a>\n\t\t</div>\n\t</div>\n</div>" } })
 			);
 		}
 	});
@@ -42500,426 +40877,27 @@
 /* 390 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(37);
-	var Highlight = __webpack_require__(244);
 
 	module.exports = React.createClass({
-		displayName: 'exports',
+		displayName: "exports",
 
 		render: function render() {
 			return React.createElement(
-				'div',
+				"div",
 				null,
 				React.createElement(
-					'div',
-					{ className: 'cps-flexible-focus cps-card ' },
+					"div",
+					{ className: "cps-flexible-focus cps-card " },
 					React.createElement(
-						'div',
-						{ className: 'cps-card__header cps-subheader' },
-						'Menus'
+						"div",
+						{ className: "cps-card__header cps-subheader" },
+						"Menus"
 					)
 				),
-				React.createElement(
-					Highlight,
-					{ className: 'html ' },
-					'<div class="cps-dropdown cps-open">\n  <a href class="cps-btn +primary">\n   New <span class="cps-caret"></span>\n  </a>\n  <ul class="cps-dropdown-menu" role="menu">\n    <li><a href>My Profile</a></li>\n    <li><a href>Team Members</a></li>\n    <li><a href>Company Profile</a></li>\n\n    <li class="cps-divider"></li>\n    <li><a>Help</a>\n    </li>\n    <li class="cps-divider"></li>\n    <li><a href="/signout">Sign out</a>\n    </li>\n  </ul>\n</div>'
-				),
-				React.createElement(
-					'div',
-					{ className: 'cps-flexible-focus cps-card' },
-					React.createElement(
-						'div',
-						{ className: 'cps-card__body' },
-						React.createElement(
-							'div',
-							{ className: 'cps-row' },
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-2' },
-								React.createElement(
-									'div',
-									{ className: 'cps-dropdown cps-open' },
-									React.createElement(
-										'a',
-										{ href: true, className: 'cps-btn +primary' },
-										'New ',
-										React.createElement('span', { className: 'cps-caret' })
-									),
-									React.createElement(
-										'ul',
-										{ className: 'cps-dropdown-menu', role: 'menu' },
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												{ href: true },
-												'My Profile'
-											)
-										),
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												{ href: true },
-												'Team Members'
-											)
-										),
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												{ href: true },
-												'Company Profile'
-											)
-										),
-										React.createElement('li', { className: 'cps-divider' }),
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												null,
-												'Help'
-											)
-										),
-										React.createElement('li', { className: 'cps-divider' }),
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												{ href: '/signout' },
-												'Sign out'
-											)
-										)
-									)
-								)
-							),
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-2' },
-								React.createElement(
-									'div',
-									{ className: 'cps-dropdown cps-open' },
-									React.createElement(
-										'div',
-										{ className: 'cps-btn-icon' },
-										React.createElement(
-											'a',
-											{ href: true, className: 'cps-link' },
-											React.createElement('span', { className: 'cps-icon cps-icon-cog' })
-										)
-									),
-									React.createElement(
-										'ul',
-										{ className: 'cps-dropdown-menu', role: 'menu' },
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												{ href: true },
-												React.createElement('i', { className: 'cps-icon cps-icon-add-person cps-dropdown-menu__icon' }),
-												'Share'
-											)
-										),
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												{ href: true },
-												React.createElement('i', { className: 'cps-icon cps-icon-download cps-dropdown-menu__icon' }),
-												'Download'
-											)
-										),
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												{ href: true },
-												React.createElement('i', { className: 'cps-icon cps-icon-notes cps-dropdown-menu__icon' }),
-												'Rename'
-											)
-										),
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												{ href: true },
-												React.createElement('i', { className: 'cps-icon cps-icon-trash cps-dropdown-menu__icon' }),
-												'Delete'
-											)
-										)
-									)
-								)
-							),
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-2' },
-								React.createElement(
-									'div',
-									{ className: 'cps-dropdown cps-pull-right cps-open' },
-									React.createElement(
-										'div',
-										{ className: 'cps-btn-icon' },
-										React.createElement(
-											'a',
-											{ href: true, className: 'cps-link' },
-											React.createElement('span', { className: 'cps-icon cps-icon-cog' })
-										)
-									),
-									React.createElement(
-										'ul',
-										{ className: 'cps-dropdown-menu cps-pull-right', role: 'menu' },
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												{ href: true },
-												React.createElement('i', { className: 'cps-icon cps-icon-add-person cps-dropdown-menu__icon' }),
-												'Share'
-											)
-										),
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												{ href: true },
-												React.createElement('i', { className: 'cps-icon cps-icon-download cps-dropdown-menu__icon' }),
-												'Download'
-											)
-										),
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												{ href: true },
-												React.createElement('i', { className: 'cps-icon cps-icon-notes cps-dropdown-menu__icon' }),
-												'Rename'
-											)
-										),
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												{ href: true },
-												React.createElement('i', { className: 'cps-icon cps-icon-trash cps-dropdown-menu__icon' }),
-												'Delete'
-											)
-										)
-									)
-								)
-							),
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-2' },
-								React.createElement(
-									'div',
-									{ className: 'cps-dropdown' },
-									React.createElement(
-										'a',
-										{ href: true, className: 'cps-link' },
-										'Settings ',
-										React.createElement('span', { className: 'cps-caret' })
-									),
-									React.createElement(
-										'ul',
-										{ className: 'cps-dropdown-menu', role: 'menu' },
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												{ href: true },
-												'My Profile'
-											)
-										),
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												{ href: true },
-												'Team Members'
-											)
-										),
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												{ href: true },
-												'Company Profile'
-											)
-										),
-										React.createElement('li', { className: 'cps-divider' }),
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												null,
-												'Help'
-											)
-										),
-										React.createElement('li', { className: 'cps-divider' }),
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												{ href: '/signout' },
-												'Sign out'
-											)
-										)
-									)
-								)
-							),
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-2' },
-								React.createElement(
-									'div',
-									{ className: 'cps-dropdown cps-open' },
-									React.createElement(
-										'a',
-										{ href: true, className: 'cps-link' },
-										'Settings ',
-										React.createElement('span', { className: 'cps-caret' })
-									),
-									React.createElement(
-										'ul',
-										{ className: 'cps-dropdown-menu', role: 'menu' },
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												{ href: true },
-												'My Profile'
-											)
-										),
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												{ href: true },
-												'Team Members'
-											)
-										),
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												{ href: true },
-												'Company Profile'
-											)
-										),
-										React.createElement('li', { className: 'cps-divider' }),
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												null,
-												'Help'
-											)
-										),
-										React.createElement('li', { className: 'cps-divider' }),
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												{ href: '/signout' },
-												'Sign out'
-											)
-										)
-									)
-								)
-							),
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-2' },
-								React.createElement(
-									'div',
-									{ className: 'cps-dropdown cps-pull-right cps-open' },
-									React.createElement(
-										'a',
-										{ href: true, className: 'cps-link' },
-										'Settings ',
-										React.createElement('span', { className: 'cps-caret' })
-									),
-									React.createElement(
-										'ul',
-										{ className: 'cps-dropdown-menu cps-pull-right', role: 'menu' },
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												{ href: true },
-												'My Profile'
-											)
-										),
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												{ href: true },
-												'Team Members'
-											)
-										),
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												{ href: true },
-												'Company Profile'
-											)
-										),
-										React.createElement('li', { className: 'cps-divider' }),
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												null,
-												'Help'
-											)
-										),
-										React.createElement('li', { className: 'cps-divider' }),
-										React.createElement(
-											'li',
-											null,
-											React.createElement(
-												'a',
-												{ href: '/signout' },
-												'Sign out'
-											)
-										)
-									)
-								)
-							)
-						)
-					)
-				)
+				React.createElement("cp-edit-render-code", { "section-title": "Examples", dangerouslySetInnerHTML: { __html: "<div class=\"cps-row\" style=\"height: 27.5rem;\">\n\t<div class=\"cps-col-xs-2\">\n\t\t<ul class=\"cps-topnav__content__menu\">\n\t\t\t<li class=\"cps-dropdown cps-open\">\n\t\t\t\t<a class=\"cps-btn +primary cps-white\">\n\t\t\t\t\tNew <span class=\"cps-caret\"></span>\n\t\t\t\t</a>\n\t\t\t\t<ul class=\"cps-dropdown-menu\" role=\"menu\">\n\t\t\t\t\t<li><a>My Profile</a>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><a>Team Members</a>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><a>Company Profile</a>\n\t\t\t\t\t</li>\n\n\t\t\t\t\t<li class=\"cps-divider\"></li>\n\t\t\t\t\t<li><a>Help</a>\n\t\t\t\t\t</li>\n\n\t\t\t\t\t<li class=\"cps-divider\"></li>\n\t\t\t\t\t<li><a href=\"/signout\">Sign out</a>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n\t<div class=\"cps-col-xs-2\">\n\t\t<div class=\"cps-dropdown cps-open\">\n\t\t\t<div class=\"cps-btn-icon\">\n\t\t\t\t<a class=\"cps-link\">\n\t\t\t\t\t<span class=\"cps-icon cps-icon-cog\"></span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t\t<ul class=\"cps-dropdown-menu\" role=\"menu\">\n\t\t\t\t<li><a><i class=\"cps-icon cps-icon-add-person cps-dropdown-menu__icon\"></i>Share</a></li>\n\t\t\t\t<li><a><i class=\"cps-icon cps-icon-download cps-dropdown-menu__icon\"></i>Download</a></li>\n\t\t\t\t<li><a><i class=\"cps-icon cps-icon-notes cps-dropdown-menu__icon\"></i>Rename</a></li>\n\t\t\t\t<li><a><i class=\"cps-icon cps-icon-trash cps-dropdown-menu__icon\"></i>Delete</a></li>\n\t\t\t</ul>\n\t\t</div>\n\t</div>\n\t<div class=\"cps-col-xs-2\">\n\t\t<div class=\"cps-dropdown cps-pull-right cps-open\">\n\t\t\t<div class=\"cps-btn-icon\">\n\t\t\t\t<a class=\"cps-link\">\n\t\t\t\t\t<span class=\"cps-icon cps-icon-cog\"></span>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t\t<ul class=\"cps-dropdown-menu cps-pull-right\" role=\"menu\">\n\t\t\t\t<li><a><i class=\"cps-icon cps-icon-add-person cps-dropdown-menu__icon\"></i>Share</a></li>\n\t\t\t\t<li><a><i class=\"cps-icon cps-icon-download cps-dropdown-menu__icon\"></i>Download</a></li>\n\t\t\t\t<li><a><i class=\"cps-icon cps-icon-notes cps-dropdown-menu__icon\"></i>Rename</a></li>\n\t\t\t\t<li><a><i class=\"cps-icon cps-icon-trash cps-dropdown-menu__icon\"></i>Delete</a></li>\n\t\t\t</ul>\n\t\t</div>\n\t</div>\n\t<div class=\"cps-col-xs-2\">\n\t\t<div class=\"cps-dropdown cps-open\">\n\t\t\t<a class=\"cps-link\">\n\t\t\t\tSettings <span class=\"cps-caret\"></span>\n\t\t\t</a>\n\t\t\t<ul class=\"cps-dropdown-menu\" role=\"menu\">\n\t\t\t\t<li><a>My Profile</a></li>\n\t\t\t\t<li><a>Team Members</a></li>\n\t\t\t\t<li><a>Company Profile</a></li>\n\n\t\t\t\t<li class=\"cps-divider\"></li>\n\t\t\t\t<li><a>Help</a></li>\n\n\t\t\t\t<li class=\"cps-divider\"></li>\n\t\t\t\t<li><a href=\"/signout\">Sign out</a></li>\n\t\t\t</ul>\n\t\t</div>\n\t</div>\n\t<div class=\"cps-col-xs-2\">\n\t\t<div class=\"cps-dropdown cps-open\">\n\t\t\t<a class=\"cps-link\">\n\t\t\t\tSettings <span class=\"cps-caret\"></span>\n\t\t\t</a>\n\t\t\t<ul class=\"cps-dropdown-menu\" role=\"menu\">\n\t\t\t\t<li><a>My Profile</a></li>\n\t\t\t\t<li><a>Team Members</a></li>\n\t\t\t\t<li><a>Company Profile</a></li>\n\n\t\t\t\t<li class=\"cps-divider\"></li>\n\t\t\t\t<li><a>Help</a></li>\n\n\t\t\t\t<li class=\"cps-divider\"></li>\n\t\t\t\t<li><a href=\"/signout\">Sign out</a></li>\n\t\t\t</ul>\n\t\t</div>\n\t</div>\n\t<div class=\"cps-col-xs-2\">\n\t\t<div class=\"cps-dropdown cps-pull-right cps-open\">\n\t\t\t<a class=\"cps-link\">\n\t\t\t\tSettings <span class=\"cps-caret\"></span>\n\t\t\t</a>\n\t\t\t<ul class=\"cps-dropdown-menu cps-pull-right\" role=\"menu\">\n\t\t\t\t<li><a>My Profile</a></li>\n\t\t\t\t<li><a>Team Members</a></li>\n\t\t\t\t<li><a>Company Profile</a></li>\n\n\t\t\t\t<li class=\"cps-divider\"></li>\n\t\t\t\t<li><a>Help</a></li>\n\n\t\t\t\t<li class=\"cps-divider\"></li>\n\t\t\t\t<li><a href=\"/signout\">Sign out</a></li>\n\t\t\t</ul>\n\t\t</div>\n\t</div>\n</div>" } })
 			);
 		}
 	});
@@ -42932,7 +40910,6 @@
 
 	var React = __webpack_require__(37);
 	var _ = __webpack_require__(392);
-	var Highlight = __webpack_require__(244);
 
 	var icons = __webpack_require__(394).glyphs;
 	icons = _.map(icons, function (icon, name) {
@@ -42953,6 +40930,15 @@
 			return React.createElement(
 				'div',
 				null,
+				React.createElement(
+					'div',
+					{ className: 'cps-flexible-focus cps-card' },
+					React.createElement(
+						'div',
+						{ className: 'cps-card__header cps-subheader' },
+						'Icons & Labels'
+					)
+				),
 				React.createElement(
 					'div',
 					{ className: 'cps-flexible-focus cps-card' },
@@ -43068,135 +41054,16 @@
 										'div',
 										{ className: 'cps-col-xs-6 cps-center-vertical' },
 										React.createElement('i', { className: 'cps-icon  cps-icon-sm-caret-down' })
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-col-xs-6 cps-center-vertical' },
-										React.createElement(
-											'span',
-											{ className: 'cps-pull-right' },
-											'Wrapped Icons'
-										)
-									),
-									React.createElement(
-										'div',
-										{ className: 'cps-col-xs-6 cps-center-vertical' },
-										React.createElement('i', { className: 'cps-icon +round cps-bg-primary-green cps-white cps-icon-taxes' })
 									)
 								)
 							)
 						)
 					)
 				),
-				React.createElement(
-					'div',
-					{ className: 'cps-flexible-focus cps-card cps-margin-top-24' },
-					React.createElement(
-						'div',
-						{ className: 'cps-card__header ' },
-						'Canopy Labels'
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-card__body' },
-						React.createElement(
-							'div',
-							{ className: 'cps-row' },
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-12' },
-								React.createElement(
-									'ul',
-									{ className: 'cps-list-inline' },
-									React.createElement(
-										'li',
-										null,
-										React.createElement(
-											'div',
-											{ className: 'cps-label-square +x-large' },
-											React.createElement(
-												'div',
-												{ className: 'cps-center-vertical' },
-												'AC'
-											)
-										)
-									),
-									React.createElement(
-										'li',
-										null,
-										React.createElement(
-											'div',
-											{ className: 'cps-label-square +medium' },
-											React.createElement(
-												'div',
-												{ className: 'cps-center-vertical' },
-												'AC'
-											)
-										)
-									),
-									React.createElement(
-										'li',
-										null,
-										React.createElement(
-											'div',
-											{ className: 'cps-label-square +medium +active' },
-											React.createElement(
-												'div',
-												{ className: 'cps-center-vertical' },
-												'AC'
-											)
-										)
-									),
-									React.createElement(
-										'li',
-										null,
-										React.createElement(
-											'div',
-											{ className: 'cps-label-square__add +medium' },
-											React.createElement(
-												'div',
-												{ className: 'cps-center-vertical' },
-												React.createElement('i', { className: 'cps-icon cps-icon-add-person' })
-											)
-										)
-									)
-								)
-							)
-						)
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<div class="cps-label-square +x-large">\n  <div class="cps-center-vertical">AC</div>\n</div>\n<div class="cps-label-square +medium">\n  <div class="cps-center-vertical">AC</div>\n</div>\n<div class="cps-label-square +medium +active">\n  <div class="cps-center-vertical">AC</div>\n</div>\n<div class="cps-label-square__add +medium">\n  <div class="cps-center-vertical"><i class="cps-icon cps-icon-add-person"></i></div>\n</div>\n'
-				),
-				React.createElement(
-					'div',
-					{ className: 'cps-fixed-focus cps-card cps-margin-top-24' },
-					React.createElement(
-						'div',
-						{ className: 'cps-card__header ' },
-						'Icons with inline text'
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-card__body' },
-						React.createElement(
-							'i',
-							{ className: 'cps-icon cps-icon-visible cps-warning' },
-							React.createElement(
-								'span',
-								null,
-								'Hello'
-							)
-						)
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<i className="cps-icon cps-icon-visible cps-warning"><span>Hello</span></i>'
-				)
+				React.createElement('cp-edit-render-code', { 'section-title': 'Icon usage', dangerouslySetInnerHTML: { __html: '<ul class="cps-list-inline">\n\t<li>\n\t\t<div class="cps-center-vertical">\n\t\t\t<i class="cps-icon cps-icon-cog"></i>\n\t\t</div>\n\t</li>\n\t<li>\n\t\t<div class="cps-center-vertical">\n\t\t\t<i class="cps-icon cps-icon-items"></i>\n\t\t</div>\n\t</li>\n\t<li>\n\t\t<div class="cps-center-vertical">\n\t\t\t<i class="cps-icon cps-icon-transfer"></i>\n\t\t</div>\n\t</li>\n\t<li>\n\t\t<div class="cps-center-vertical">\n\t\t\t<i class="cps-icon cps-icon-license cps-primary-green"></i>\n\t\t</div>\n\t</li>\n\t<li>\n\t\t<div class="cps-center-vertical">\n\t\t\t<i class="cps-icon cps-icon-flag cps-red"></i>\n\t\t</div>\n\t</li>\n</ul>' } }),
+				React.createElement('cp-edit-render-code', { 'section-title': 'Wrapped icons', dangerouslySetInnerHTML: { __html: '<ul class="cps-list-inline">\n\t<li>\n\t\t<div class="cps-center-vertical">\n\t\t\t<i class="cps-icon +round cps-bg-primary-green cps-white cps-icon-taxes"></i>\n\t\t</div>\n\t</li>\n\t<li>\n\t\t<div class="cps-center-vertical">\n\t\t\t<i class="cps-icon +round cps-bg-primary-green cps-white cps-icon-lg-check"></i>\n\t\t</div>\n\t</li>\n</ul>' } }),
+				React.createElement('cp-edit-render-code', { 'section-title': 'Canopy labels', dangerouslySetInnerHTML: { __html: '<ul class="cps-list-inline">\n\t<li>\n\t\t<div class="cps-label-square +x-large">\n\t\t\t<div class="cps-center-vertical">AC</div>\n\t\t</div>\n\t</li>\n\t<li>\n\t\t<div class="cps-label-square +medium">\n\t\t\t<div class="cps-center-vertical">AC</div>\n\t\t</div>\n\t</li>\n\n\t<li>\n\t\t<div class="cps-label-square +medium +active">\n\t\t\t<div class="cps-center-vertical">AC</div>\n\t\t</div>\n\t</li>\n\t<li>\n\t\t<div class="cps-label-square__add +medium">\n\t\t\t<div class="cps-center-vertical"><i class="cps-icon cps-icon-add-person"></i></div>\n\t\t</div>\n\t</li>\n</ul>' } }),
+				React.createElement('cp-edit-render-code', { 'section-title': 'Icons with inline text', dangerouslySetInnerHTML: { __html: '<i class="cps-icon cps-icon-visible cps-warning"><span>Hello</span></i>' } })
 			);
 		}
 	});
@@ -55990,444 +53857,7 @@
 	'use strict';
 
 	var React = __webpack_require__(37);
-	var Highlight = __webpack_require__(244);
-
-	module.exports = React.createClass({
-		displayName: 'exports',
-
-		render: function render() {
-			return React.createElement(
-				'div',
-				{ className: 'cps-flexible-focus' },
-				React.createElement(
-					'div',
-					{ className: 'cps-card' },
-					React.createElement(
-						'div',
-						{ className: 'cps-card__body' },
-						React.createElement(
-							'table',
-							{ className: 'cps-inset-table' },
-							React.createElement(
-								'thead',
-								null,
-								React.createElement(
-									'tr',
-									null,
-									React.createElement(
-										'th',
-										null,
-										'Date'
-									),
-									React.createElement(
-										'th',
-										null,
-										'Transaction #'
-									),
-									React.createElement(
-										'th',
-										null,
-										'Billed'
-									)
-								)
-							),
-							React.createElement(
-								'tbody',
-								null,
-								React.createElement(
-									'tr',
-									null,
-									React.createElement(
-										'td',
-										null,
-										'02/03/15'
-									),
-									React.createElement(
-										'td',
-										null,
-										'LK35JKL221DIIE'
-									),
-									React.createElement(
-										'td',
-										null,
-										'$ 105.00'
-									)
-								),
-								React.createElement(
-									'tr',
-									null,
-									React.createElement(
-										'td',
-										null,
-										'02/03/15'
-									),
-									React.createElement(
-										'td',
-										null,
-										'PJ22DNVZ7199'
-									),
-									React.createElement(
-										'td',
-										null,
-										'$ 105.00'
-									)
-								),
-								React.createElement(
-									'tr',
-									null,
-									React.createElement(
-										'td',
-										null,
-										'02/03/15'
-									),
-									React.createElement(
-										'td',
-										null,
-										'LK35JKL221DIIE'
-									),
-									React.createElement(
-										'td',
-										null,
-										'$ 105.00'
-									)
-								)
-							)
-						)
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<!-- Sometimes making an entire card a full table can be too heavy and not entirely relavent  -->\n<!-- to the context of the rest of the card. For these situations we have created inset tables-->\n<!-- If you need to specifically size columns use the bootstrap grid system.                  -->\n<table class="cps-inset-table">\n  <thead>\n    <tr>\n      <th>Date</th>\n      <th>Transaction #</th>\n      <th>Billed</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>02/03/15</td>\n      <td>LK35JKL221DIIE</td>\n      <td>$ 105.00</td>\n    </tr>\n    <tr>\n      <td>02/03/15</td>\n      <td>PJ22DNVZ7199</td>\n      <td>$ 105.00</td>\n    </tr>\n    <tr>\n      <td>02/03/15</td>\n      <td>LK35JKL221DIIE</td>\n      <td>$ 105.00</td>\n    </tr>\n  </tbody>\n</table>\n'
-				),
-				React.createElement(
-					'div',
-					{ className: 'cps-card-table cps-card' },
-					React.createElement(
-						'table',
-						null,
-						React.createElement(
-							'thead',
-							null,
-							React.createElement(
-								'tr',
-								null,
-								React.createElement(
-									'th',
-									null,
-									'Filename'
-								),
-								React.createElement(
-									'th',
-									null,
-									'Type'
-								),
-								React.createElement(
-									'th',
-									null,
-									'Last Modified'
-								)
-							),
-							React.createElement(
-								'tr',
-								null,
-								React.createElement('th', { colSpan: '3' })
-							)
-						),
-						React.createElement(
-							'tbody',
-							null,
-							React.createElement(
-								'tr',
-								null,
-								React.createElement(
-									'td',
-									null,
-									'some_filename.pdf'
-								),
-								React.createElement(
-									'td',
-									null,
-									'PDF'
-								),
-								React.createElement(
-									'td',
-									null,
-									'Jan 21 ',
-									React.createElement(
-										'span',
-										{ className: 'cps-l-gray' },
-										'Kurt Avarell'
-									)
-								)
-							),
-							React.createElement(
-								'tr',
-								null,
-								React.createElement(
-									'td',
-									null,
-									'secondquarter-tracking.doc'
-								),
-								React.createElement(
-									'td',
-									null,
-									'Document'
-								),
-								React.createElement(
-									'td',
-									null,
-									'Jan 19 ',
-									React.createElement(
-										'span',
-										{ className: 'cps-l-gray' },
-										'Kurt Avarell'
-									)
-								)
-							),
-							React.createElement(
-								'tr',
-								null,
-								React.createElement(
-									'td',
-									null,
-									'client-list.docx'
-								),
-								React.createElement(
-									'td',
-									null,
-									'Document'
-								),
-								React.createElement(
-									'td',
-									null,
-									'Jan 02 ',
-									React.createElement(
-										'span',
-										{ className: 'cps-l-gray' },
-										'Kurt Avarell'
-									)
-								)
-							)
-						)
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<!-- Card table  -->\n<div class="cps-card-table cps-card">\n  <table>\n    <thead>\n      <tr>\n        <th>Filename</th>\n        <th>Type</th>\n        <th>Last Modified</th>\n      </tr>\n      <tr>\n        <th colspan="3"></th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr>\n        <td>some_filename.pdf</td>\n        <td>PDF</td>\n        <td>Jan 21 <span class="cps-l-gray">Kurt Avarell</span></td>\n      </tr>\n      <tr>\n        <td>secondquarter-tracking.doc</td>\n        <td>Document</td>\n        <td>Jan 19 <span class="cps-l-gray">Kurt Avarell</span></td>\n      </tr>\n      <tr>\n        <td>client-list.docx</td>\n        <td>Document</td>\n        <td>Jan 02 <span class="cps-l-gray">Kurt Avarell</span></td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n'
-				),
-				React.createElement(
-					'div',
-					{ className: 'cps-card-table cps-card' },
-					React.createElement(
-						'div',
-						{ className: 'cps-card-table__headcontent' },
-						React.createElement(
-							'div',
-							{ className: 'cps-card-table__actions' },
-							React.createElement(
-								'div',
-								{ className: 'cps-card-table__actions__icons' },
-								React.createElement(
-									'a',
-									{ className: 'cps-link' },
-									React.createElement('i', { className: 'cps-icon cps-icon-download' })
-								),
-								React.createElement(
-									'a',
-									{ className: 'cps-link' },
-									React.createElement('i', { className: 'cps-icon cps-icon-notes' })
-								),
-								React.createElement(
-									'a',
-									{ className: 'cps-link' },
-									React.createElement('i', { className: 'cps-icon cps-icon-trash' })
-								),
-								React.createElement(
-									'a',
-									{ className: 'cps-link' },
-									React.createElement('i', { className: 'cps-icon cps-icon-sort' })
-								)
-							),
-							React.createElement(
-								'a',
-								{ href: '#', className: 'cps-link' },
-								'ADD A FILE'
-							)
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-subheader' },
-							'Files'
-						)
-					),
-					React.createElement(
-						'table',
-						null,
-						React.createElement(
-							'thead',
-							null,
-							React.createElement(
-								'tr',
-								{ className: 'cps-card-table__thin' },
-								React.createElement(
-									'th',
-									{ className: 'cps-card-table__select-column' },
-									React.createElement(
-										'label',
-										{ className: 'cps-checkbox' },
-										React.createElement('input', { type: 'checkbox', value: 'option1' }),
-										React.createElement('span', null)
-									)
-								),
-								React.createElement(
-									'th',
-									null,
-									'Filename'
-								),
-								React.createElement(
-									'th',
-									null,
-									'Type'
-								),
-								React.createElement(
-									'th',
-									null,
-									'Last Modified'
-								)
-							),
-							React.createElement(
-								'tr',
-								{ className: '+thin' },
-								React.createElement('th', { colSpan: '3' })
-							)
-						),
-						React.createElement(
-							'tbody',
-							null,
-							React.createElement(
-								'tr',
-								{ className: '+active +hover' },
-								React.createElement(
-									'td',
-									{ className: 'cps-card-table__select-column' },
-									React.createElement(
-										'label',
-										{ className: 'cps-checkbox' },
-										React.createElement('input', { type: 'checkbox', value: 'option1' }),
-										React.createElement('span', null)
-									)
-								),
-								React.createElement(
-									'td',
-									null,
-									'some_filename.pdf'
-								),
-								React.createElement(
-									'td',
-									null,
-									'PDF'
-								),
-								React.createElement(
-									'td',
-									null,
-									'Jan 21 ',
-									React.createElement(
-										'span',
-										{ className: 'cps-l-gray' },
-										'Kurt Avarell'
-									)
-								)
-							),
-							React.createElement(
-								'tr',
-								{ className: '+hover' },
-								React.createElement(
-									'td',
-									{ className: 'cps-card-table__select-column' },
-									React.createElement(
-										'label',
-										{ className: 'cps-checkbox' },
-										React.createElement('input', { type: 'checkbox', value: 'option1' }),
-										React.createElement('span', null)
-									)
-								),
-								React.createElement(
-									'td',
-									null,
-									'secondquarter-tracking.doc'
-								),
-								React.createElement(
-									'td',
-									null,
-									'Document'
-								),
-								React.createElement(
-									'td',
-									null,
-									'Jan 19 ',
-									React.createElement(
-										'span',
-										{ className: 'cps-l-gray' },
-										'Kurt Avarell'
-									)
-								)
-							),
-							React.createElement(
-								'tr',
-								{ className: '+hover' },
-								React.createElement(
-									'td',
-									{ className: 'cps-card-table__select-column' },
-									React.createElement(
-										'label',
-										{ className: 'cps-checkbox' },
-										React.createElement('input', { type: 'checkbox', value: 'option1' }),
-										React.createElement('span', null)
-									)
-								),
-								React.createElement(
-									'td',
-									null,
-									'client-list.docx'
-								),
-								React.createElement(
-									'td',
-									null,
-									'Document'
-								),
-								React.createElement(
-									'td',
-									null,
-									'Jan 02 ',
-									React.createElement(
-										'span',
-										{ className: 'cps-l-gray' },
-										'Kurt Avarell'
-									)
-								)
-							)
-						)
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<!-- Card table with a header  -->\n<div class="cps-card-table cps-card">\n  <div class="cps-card-table__headcontent">\n    <div class="cps-card-table__actions">\n      <div class="cps-card-table__actions__icons">\n        <a class="cps-link"><i class="cps-icon cps-icon-download"></i></a>\n        <a class="cps-link"><i class="cps-icon cps-icon-notes"></i></a>\n        <a class="cps-link"><i class="cps-icon cps-icon-trash"></i></a>\n        <a class="cps-link"><i class="cps-icon cps-icon-sort"></i></a>\n      </div>\n      <a href="#" class="cps-link">ADD A FILE</a>\n    </div>\n    <div class="cps-subheader">Files</div>\n  </div>\n  <table>\n    <thead>\n      <tr class="cps-card-table__thin">\n        <th class="cps-card-table__select-column">\n          <label class="cps-checkbox">\n            <input type="checkbox" value="option1"/><span></span>\n          </label>\n        </th>\n        <th>Filename</th>\n        <th>Type</th>\n        <th>Last Modified</th>\n      </tr>\n      <tr class="+thin">\n        <th colSpan="3"></th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr class="+active +hover">\n        <td class="cps-card-table__select-column">\n          <label class="cps-checkbox">\n            <input type="checkbox" value="option1"/><span></span>\n          </label>\n        </td>\n        <td>some_filename.pdf</td>\n        <td>PDF</td>\n        <td>Jan 21 <span class="cps-l-gray">Kurt Avarell</span></td>\n      </tr>\n      <tr class="+hover">\n        <td class="cps-card-table__select-column">\n          <label class="cps-checkbox">\n            <input type="checkbox" value="option1"/><span></span>\n          </label>\n        </td>\n        <td>secondquarter-tracking.doc</td>\n        <td>Document</td>\n        <td>Jan 19 <span class="cps-l-gray">Kurt Avarell</span></td>\n      </tr>\n      <tr class="+hover">\n        <td class="cps-card-table__select-column">\n          <label class="cps-checkbox">\n            <input type="checkbox" value="option1"/><span></span>\n          </label>\n        </td>\n        <td>client-list.docx</td>\n        <td>Document</td>\n        <td>Jan 02 <span class="cps-l-gray">Kurt Avarell</span></td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n'
-				)
-			);
-		}
-	});
-
-/***/ },
-/* 396 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(37);
-	var Highlight = __webpack_require__(244);
+	var Highlight = __webpack_require__(249);
 
 	module.exports = React.createClass({
 		displayName: 'exports',
@@ -56438,143 +53868,88 @@
 				null,
 				React.createElement(
 					'div',
-					{ className: 'cps-flexible-focus' },
+					{ className: 'cps-flexible-focus cps-card' },
 					React.createElement(
 						'div',
-						{ className: 'cps-card' },
+						{ className: 'cps-card__header cps-subheader' },
+						'Tables'
+					),
+					React.createElement(
+						'div',
+						{ className: 'cps-card__body' },
 						React.createElement(
-							'div',
-							{ className: 'cps-card__header cps-subheader' },
-							'Toasters & Banners'
+							'p',
+							null,
+							'Sometimes making an entire card a full table can be too heavy and not entirely relevent to the context of the rest of the card. For these situations we have created inset tables.'
 						),
 						React.createElement(
-							'div',
-							{ className: 'cps-card__body' },
+							'p',
+							null,
+							'CSS offers a range of \'display:\' properties, namely the table, table-row, and table-cell properties which mimic their respective <table>, <row>, and <td>'
+						),
+						React.createElement(
+							'p',
+							null,
+							'If you need to specifically size columns use the bootstrap grid system.'
+						)
+					)
+				),
+				React.createElement('cp-edit-render-code', { 'section-title': 'Inset table', dangerouslySetInnerHTML: { __html: '<table class="cps-inset-table">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>Date</th>\n\t\t\t<th>Transaction #</th>\n\t\t\t<th>Billed</th>\n\t\t</tr>\n\t</thead>\n\t<tbody>\n\t\t<tr>\n\t\t\t<td>02/03/15</td>\n\t\t\t<td>LK35JKL221DIIE</td>\n\t\t\t<td>$ 105.00</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>02/03/15</td>\n\t\t\t<td>PJ22DNVZ7199</td>\n\t\t\t<td>$ 105.00</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>02/03/15</td>\n\t\t\t<td>LK35JKL221DIIE</td>\n\t\t\t<td>$ 105.00</td>\n\t\t</tr>\n\t</tbody>\n</table>' } }),
+				React.createElement('cp-edit-render-code', { 'section-title': 'Card table', dangerouslySetInnerHTML: { __html: '<div class="cps-card-table cps-card">\n\t<table>\n\t\t<thead>\n\t\t\t<tr>\n\t\t\t\t<th>Filename</th>\n\t\t\t\t<th>Type</th>\n\t\t\t\t<th>Last Modified</th>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<th colSpan="3"></th>\n\t\t\t</tr>\n\t\t</thead>\n\t\t<tbody>\n\t\t\t<tr>\n\t\t\t\t<td>some_filename.pdf</td>\n\t\t\t\t<td>PDF</td>\n\t\t\t\t<td>Jan 21 <span class="cps-l-gray">Kurt Avarell</span></td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td>secondquarter-tracking.doc</td>\n\t\t\t\t<td>Document</td>\n\t\t\t\t<td>Jan 19 <span class="cps-l-gray">Kurt Avarell</span></td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<td>client-list.docx</td>\n\t\t\t\t<td>Document</td>\n\t\t\t\t<td>Jan 02 <span class="cps-l-gray">Kurt Avarell</span></td>\n\t\t\t</tr>\n\t\t</tbody>\n\t</table>\n</div>' } }),
+				React.createElement('cp-edit-render-code', { 'section-title': 'Card table with header', dangerouslySetInnerHTML: { __html: '<div class="cps-card-table cps-card">\n\t<div class="cps-card-table__headcontent">\n\t\t<div class="cps-card-table__actions">\n\t\t\t<div class="cps-card-table__actions__icons">\n\t\t\t\t<a class="cps-link"><i class="cps-icon cps-icon-download"></i></a>\n\t\t\t\t<a class="cps-link"><i class="cps-icon cps-icon-notes"></i></a>\n\t\t\t\t<a class="cps-link"><i class="cps-icon cps-icon-trash"></i></a>\n\t\t\t\t<a class="cps-link"><i class="cps-icon cps-icon-sort"></i></a>\n\t\t\t</div>\n\t\t\t<a href="#" class="cps-link">ADD A FILE</a>\n\t\t</div>\n\t\t<div class="cps-subheader">Files</div>\n\t</div>\n\t<table>\n\t\t<thead>\n\t\t\t<tr class="cps-card-table__thin">\n\t\t\t\t<th class="cps-card-table__select-column">\n\t\t\t\t\t<label class="cps-checkbox">\n\t\t\t\t\t\t<input type="checkbox" value="selectAll"/><span></span>\n\t\t\t\t\t</label>\n\t\t\t\t</th>\n\t\t\t\t<th>Filename</th>\n\t\t\t\t<th>Type</th>\n\t\t\t\t<th>Last Modified</th>\n\t\t\t</tr>\n\t\t\t<tr class="+thin">\n\t\t\t\t<th colSpan="3"></th>\n\t\t\t</tr>\n\t\t</thead>\n\t\t<tbody>\n\t\t\t<tr class="+active +hover">\n\t\t\t\t<td class="cps-card-table__select-column">\n\t\t\t\t\t<label class="cps-checkbox">\n\t\t\t\t\t\t<input type="checkbox" value="option1"/><span></span>\n\t\t\t\t\t</label>\n\t\t\t\t</td>\n\t\t\t\t<td>some_filename.pdf</td>\n\t\t\t\t<td>PDF</td>\n\t\t\t\t<td>Jan 21 <span class="cps-l-gray">Kurt Avarell</span></td>\n\t\t\t</tr>\n\t\t\t<tr class="+hover">\n\t\t\t\t<td class="cps-card-table__select-column">\n\t\t\t\t\t<label class="cps-checkbox">\n\t\t\t\t\t\t<input type="checkbox" value="option2"/><span></span>\n\t\t\t\t\t</label>\n\t\t\t\t</td>\n\t\t\t\t<td>secondquarter-tracking.doc</td>\n\t\t\t\t<td>Word Document</td>\n\t\t\t\t<td>Jan 19 <span class="cps-l-gray">Kent McLean</span></td>\n\t\t\t</tr>\n\t\t\t<tr class="+hover">\n\t\t\t\t<td class="cps-card-table__select-column">\n\t\t\t\t\t<label class="cps-checkbox">\n\t\t\t\t\t\t<input type="checkbox" value="option3"/><span></span>\n\t\t\t\t\t</label>\n\t\t\t\t</td>\n\t\t\t\t<td>client-list.docx</td>\n\t\t\t\t<td>Word Document</td>\n\t\t\t\t<td>Jan 02 <span class="cps-l-gray">Nate Sanders</span></td>\n\t\t\t</tr>\n\t\t</tbody>\n\t</table>\n</div>' } })
+			);
+		}
+	});
+
+/***/ },
+/* 396 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(37);
+
+	module.exports = React.createClass({
+		displayName: "exports",
+
+		render: function render() {
+			return React.createElement(
+				"div",
+				null,
+				React.createElement(
+					"div",
+					{ className: "cps-flexible-focus" },
+					React.createElement(
+						"div",
+						{ className: "cps-card" },
+						React.createElement(
+							"div",
+							{ className: "cps-card__header cps-subheader" },
+							"Toasters & Banners"
+						)
+					)
+				),
+				React.createElement("cp-edit-render-code", { "section-title": "Toasters", dangerouslySetInnerHTML: { __html: "<div class=\"cps-toaster +general\">\n\t<span class=\"cps-toaster__message\">Error: Please contact support</span>\n\t<a href>RETRY</a>\n</div>\n<div class=\"cps-toaster +success\">\n\t<span class=\"cps-toaster__message\">Client updated successfully</span>\n\t<a href>UNDO</a>\n</div>\n<div class=\"cps-toaster +info\">\n\t<span class=\"cps-toaster__message\">this is working!</span>\n</div>\n<div class=\"cps-toaster +warning\">\n\t<span class=\"cps-toaster__message\">I really want to  see how well it does in this scenario</span>\n\t<a href>DISMISS</a>\n</div>" } }),
+				React.createElement("cp-edit-render-code", { "section-title": "Banners", dangerouslySetInnerHTML: { __html: "<div class=\"cps-banner-inline\">\n\t<div class=\"cps-banner-inline__title\">Welcome back!</div>\n\t<div class=\"cps-banner-inline__content\">Here is my message to you!</div>\n\t<a href class=\"cps-banner-inline__action\">Take Action</a>\n</div>" } }),
+				React.createElement(
+					"div",
+					{ className: "cps-flexible-focus cps-margin-top-16" },
+					React.createElement(
+						"div",
+						{ className: "cps-card" },
+						React.createElement(
+							"div",
+							{ className: "cps-card__body" },
+							"*Don't forget to add the class '+banner-top' to (i) cps-topnav-secondary, (ii) cps-nav-content, and (iii) cps-flexible-sidenav when using the global banner. Also, remove the 3px cps-topnav__bar from the nav too! ",
 							React.createElement(
-								'div',
-								{ className: 'cps-toaster +general' },
-								React.createElement(
-									'span',
-									{ className: 'cps-toaster__message' },
-									'Error: Please contact support'
-								),
-								React.createElement(
-									'a',
-									{ href: true },
-									'RETRY'
-								)
-							),
-							React.createElement(
-								'div',
-								{ className: 'cps-toaster +success' },
-								React.createElement(
-									'span',
-									{ className: 'cps-toaster__message' },
-									'Client updated successfully'
-								),
-								React.createElement(
-									'a',
-									{ href: true },
-									'UNDO'
-								)
-							),
-							React.createElement(
-								'div',
-								{ className: 'cps-toaster +info' },
-								React.createElement(
-									'span',
-									{ className: 'cps-toaster__message' },
-									'this is working!'
-								)
-							),
-							React.createElement(
-								'div',
-								{ className: 'cps-toaster +warning' },
-								React.createElement(
-									'span',
-									{ className: 'cps-toaster__message' },
-									'I really want to  see how well it does in this scenario'
-								),
-								React.createElement(
-									'a',
-									{ href: true },
-									'DISMISS'
-								)
+								"a",
+								{ href: true, className: "cps-banner-global__action" },
+								"Take Action"
 							)
 						)
 					)
 				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<div class="cps-toaster +general">\n  <span class="cps-toaster__message">Error: Please contact support</span>\n  <a href>RETRY</a>\n</div>\n<div class="cps-toaster +success">\n  <span class="cps-toaster__message">Client updated successfully</span>\n  <a href>UNDO</a>\n</div>\n<div class="cps-toaster +info">\n  <span class="cps-toaster__message">this is working!</span>\n</div>\n<div class="cps-toaster +warning">\n  <span class="cps-toaster__message">I really want to  see how well it does in this scenario</span>\n  <a href>DISMISS</a>\n</div>'
-				),
-				React.createElement(
-					'div',
-					{ className: 'cps-banner-inline' },
-					React.createElement(
-						'div',
-						{ className: 'cps-banner-inline__title' },
-						'Welcome back!'
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-banner-inline__content' },
-						'Here is my message to you!'
-					),
-					React.createElement(
-						'a',
-						{ href: true, className: 'cps-banner-inline__action' },
-						'Take Action'
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<div class="cps-banner-inline">\n <div class="cps-banner-inline__title">Welcome back!</div>\n <div class="cps-banner-inline__content">Here is my message to you!</div>\n <a href class="cps-banner-inline__action">Take Action</a>\n</div>'
-				),
-				React.createElement(
-					'div',
-					{ className: 'cps-banner-global' },
-					React.createElement(
-						'div',
-						{ className: 'cps-banner-global__content' },
-						'Don\'t forget to add +tall-top to the secondary nav when using this banner. Also, remove the 3px cps-topnav__bar from the nav too! ',
-						React.createElement(
-							'a',
-							{ href: true, className: 'cps-banner-global__action' },
-							'Take Action'
-						)
-					),
-					React.createElement(
-						'a',
-						{ href: true, className: 'cps-pull-right' },
-						React.createElement('i', { className: 'cps-icon cps-icon-close' })
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<div class="cps-banner-global">\n  <div class="cps-banner-global__content">\n\tDon\'t forget to add the class \'+banner-top\' to (i) cps-topnav-secondary, (ii) cps-nav-content, and (iii) cps-flexible-sidenav when using this banner. Also, remove the 3px cps-topnav__bar from the nav too! <a href class="cps-banner-global__action">Take Action</a>\n  </div>\n  <a href class="cps-pull-right"><i class="cps-icon cps-icon-close"></i></a>\n</div>'
-				),
-				React.createElement(
-					'div',
-					{ className: 'cps-flexible-focus cps-margin-top-16' },
-					React.createElement(
-						'div',
-						{ className: 'cps-card' },
-						React.createElement(
-							'div',
-							{ className: 'cps-card__body' },
-							'*Don\'t forget to add the class \'+banner-top\' to (i) cps-topnav-secondary, (ii) cps-nav-content, and (iii) cps-flexible-sidenav when using the global banner. Also, remove the 3px cps-topnav__bar from the nav too! ',
-							React.createElement(
-								'a',
-								{ href: true, className: 'cps-banner-global__action' },
-								'Take Action'
-							)
-						)
-					)
-				)
+				React.createElement("cp-edit-render-code", { "section-title": "NOTE: This example renders at the top of the page/window", dangerouslySetInnerHTML: { __html: "<div class=\"cps-banner-global\">\n\t<div class=\"cps-banner-global__content\">\n\t\tDon't forget to add +tall-top to the secondary nav when using this banner. Also, remove the 3px cps-topnav__bar from the nav too! <a href class=\"cps-banner-global__action\">Take Action</a>\n\t</div>\n\t<a href class=\"cps-pull-right\"><i class=\"cps-icon cps-icon-close\"></i></a>\n</div>" } })
 			);
 		}
 	});
@@ -56586,7 +53961,7 @@
 	'use strict';
 
 	var React = __webpack_require__(37);
-	var Highlight = __webpack_require__(244);
+	var Highlight = __webpack_require__(249);
 
 	module.exports = React.createClass({
 		displayName: 'exports',
@@ -56595,6 +53970,28 @@
 			return React.createElement(
 				'div',
 				null,
+				React.createElement(
+					'div',
+					{ className: 'cps-flexible-focus cps-card' },
+					React.createElement(
+						'div',
+						{ className: 'cps-card__header' },
+						React.createElement(
+							'h3',
+							{ className: 'cps-subheader' },
+							'Modals'
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'cps-card__body' },
+						React.createElement(
+							'p',
+							null,
+							'The dialog markup should be appended to the BODY tag.'
+						)
+					)
+				),
 				React.createElement(
 					'div',
 					{ style: { width: "100%", height: "350px" }, className: 'cps-flexible-focus cps-modal' },
@@ -56645,7 +54042,7 @@
 				React.createElement(
 					Highlight,
 					{ className: 'html' },
-					'<!-- The dialog markup should be appended to the BODY tag.  -->\n<div class="cps-modal">\n  <div class="cps-modal__screen"></div>\n  <div class="cps-modal__dialog cps-card">\n    <div class="cps-card__header cps-subheader-sm"><span>Upload a File</span>\n      <a href="true" class="cps-modal__dialog__close cps-icon cps-icon-close"></a>\n    </div>\n    <div class="cps-card__banner +large +bg-warning"><i class="cps-icon cps-icon-error cps-warning"><span>This is a warning</span></i>\n    </div>\n\t\t\t<div class="cps-card__body">Choose a file to upload to Canopy. You can upload asm any as you\'d like— or\n      if you\'re not a huge fan of clicking you can drag and drop your files anywhere\n      on this page.</div>\n    <div class="cps-modal__dialog__actions">\n      <button class="cps-btn +primary">CHOOSE FILES</button><a href="#" class="cps-link">NEVERMIND</a>\n    </div>\n  </div>\n</div>\n'
+					'<div class="cps-modal">\n\t<div class="cps-modal__screen"></div>\n\t\t<div class="cps-modal__dialog cps-card">\n\t\t<div class="cps-card__header cps-subheader-sm"><span>Upload a File</span>\n\t\t<a href="true" class="cps-modal__dialog__close cps-icon cps-icon-close"></a>\n\t\t</div>\n\t\t<div class="cps-card__banner +large +bg-warning">\n\t\t\t<i class="cps-icon cps-icon-error cps-warning"><span>This is a warning</span></i>\n\t\t</div>\n\t\t<div class="cps-card__body">\n\t\t\tChoose a file to upload to Canopy. You can upload as many as you\'d like — or\n\t\t\tif you\'re not a huge fan of clicking you can drag and drop your files anywhere\n\t\t\ton this page.\n\t\t</div>\n\t\t<div class="cps-modal__dialog__actions">\n\t\t\t<button class="cps-btn +primary">CHOOSE FILES</button><a href="#" class="cps-link">NEVERMIND</a>\n\t\t</div>\n\t</div>\n</div>\n'
 				),
 				React.createElement(
 					'div',
@@ -56752,7 +54149,7 @@
 				React.createElement(
 					Highlight,
 					{ className: 'html' },
-					'<!-- The dialog markup should be appended to the BODY tag.  -->\n<div class="cps-overlay-modal">\n  <div class="cps-overlay-modal__content">\n    <div class="cps-overlay-modal__content__header">\n      Create a New Date\n    </div>\n    <div class="cps-overlay-modal__content__body">\n      <form class="cps-form-horizontal">\n        <div class="cps-form-group">\n          <label htmlFor="exampleInputEmail1" class="cps-col-xs-2">Date Title</label>\n          <div class="cps-col-xs-4">\n            <input type="text" class="cps-form-control" placeholder="New Event"/>\n          </div>\n        </div>\n        <div class="cps-form-group">\n          <label htmlFor="exampleInputEmail1" class="cps-col-xs-2">Date</label>\n          <div class="cps-col-xs-2">\n            <input type="text" class="cps-form-control" placeholder="2/7/2015"/>\n          </div>\n          <div class="cps-col-xs-2">\n            <input type="text" class="cps-form-control" placeholder="4:00 PM"/>\n          </div>\n          <label htmlFor="exampleInputEmail1" class="cps-col-xs-0">To</label>\n          <div class="cps-col-xs-2">\n            <input type="text" class="cps-form-control" placeholder="2/9/2015"/>\n          </div>\n          <div class="cps-col-xs-2">\n            <input type="text" class="cps-form-control" placeholder="5:00 PM"/>\n          </div>\n        </div>\n        <div class="cps-form-group">\n          <label htmlFor="exampleInputEmail1" class="cps-col-xs-2">Description</label>\n          <div class="cps-col-xs-6">\n            <textarea></textarea>\n          </div>\n        </div>\n        <div class="cps-form-group">\n            <button class="cps-btn +primary">ADD DATE</button>\n            <a href="#" class="cps-link">CANCEL</a>\n        </div>\n      </form>\n\n    </div>\n  </div>\n</div>\n'
+					'<div class="cps-overlay-modal">\n  <div class="cps-overlay-modal__content">\n    <div class="cps-overlay-modal__content__header">\n      Create a New Date\n    </div>\n    <div class="cps-overlay-modal__content__body">\n      <form class="cps-form-horizontal">\n        <div class="cps-form-group">\n          <label htmlFor="exampleInputEmail1" class="cps-col-xs-2">Date Title</label>\n          <div class="cps-col-xs-4">\n            <input type="text" class="cps-form-control" placeholder="New Event"/>\n          </div>\n        </div>\n        <div class="cps-form-group">\n          <label htmlFor="exampleInputEmail1" class="cps-col-xs-2">Date</label>\n          <div class="cps-col-xs-2">\n            <input type="text" class="cps-form-control" placeholder="2/7/2015"/>\n          </div>\n          <div class="cps-col-xs-2">\n            <input type="text" class="cps-form-control" placeholder="4:00 PM"/>\n          </div>\n          <label htmlFor="exampleInputEmail1" class="cps-col-xs-0">To</label>\n          <div class="cps-col-xs-2">\n            <input type="text" class="cps-form-control" placeholder="2/9/2015"/>\n          </div>\n          <div class="cps-col-xs-2">\n            <input type="text" class="cps-form-control" placeholder="5:00 PM"/>\n          </div>\n        </div>\n        <div class="cps-form-group">\n          <label htmlFor="exampleInputEmail1" class="cps-col-xs-2">Description</label>\n          <div class="cps-col-xs-6">\n            <textarea></textarea>\n          </div>\n        </div>\n        <div class="cps-form-group">\n            <button class="cps-btn +primary">ADD DATE</button>\n            <a href="#" class="cps-link">CANCEL</a>\n        </div>\n      </form>\n\n    </div>\n  </div>\n</div>\n'
 				)
 			);
 		}
@@ -56765,115 +54162,7 @@
 	'use strict';
 
 	var React = __webpack_require__(37);
-	var Highlight = __webpack_require__(244);
-
-	module.exports = React.createClass({
-		displayName: 'exports',
-
-		render: function render() {
-			return React.createElement(
-				'div',
-				null,
-				React.createElement(
-					'div',
-					{ className: 'cps-flexible-focus cps-card' },
-					React.createElement(
-						'div',
-						{ className: 'cps-card__header ' },
-						'Lists'
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-card__body' },
-						React.createElement(
-							'div',
-							{ className: 'cps-subheader-sm cps-margin-bottom-8' },
-							'Inline Lists'
-						),
-						React.createElement(
-							'div',
-							{ className: 'cps-row' },
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-4' },
-								React.createElement(
-									'ul',
-									{ className: 'cps-list-inline +pipes +underline' },
-									React.createElement(
-										'li',
-										null,
-										React.createElement(
-											'a',
-											{ href: true },
-											'active'
-										)
-									),
-									React.createElement(
-										'li',
-										null,
-										React.createElement(
-											'a',
-											{ href: true },
-											'archived'
-										)
-									),
-									React.createElement(
-										'li',
-										null,
-										React.createElement(
-											'a',
-											{ href: true },
-											'deleted'
-										)
-									)
-								)
-							),
-							React.createElement(
-								'div',
-								{ className: 'cps-col-xs-4' },
-								React.createElement(
-									'ul',
-									{ className: 'cps-list-inline' },
-									React.createElement(
-										'li',
-										null,
-										React.createElement(
-											'a',
-											{ href: true },
-											React.createElement('i', { className: 'cps-icon cps-icon-list' })
-										)
-									),
-									React.createElement(
-										'li',
-										null,
-										React.createElement(
-											'a',
-											{ href: true },
-											React.createElement('i', { className: 'cps-icon cps-icon-grid-view' })
-										)
-									)
-								)
-							)
-						)
-					)
-				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<ul class="cps-list-inline +pipes +underline">\n  <li>active</li>\n  <li>archived</li>\n  <li>deleted</li>\n</ul>\n\n\n<ul class="cps-list-inline">\n  <li><a href><i class="cps-icon cps-icon-list"></i></a></li>\n  <li><a href><i class="cps-icon cps-icon-grid-view"></i></a></li>\n</ul>\n'
-				)
-			);
-		}
-	});
-
-/***/ },
-/* 399 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(37);
-	var Highlight = __webpack_require__(244);
+	var Highlight = __webpack_require__(249);
 
 	module.exports = React.createClass({
 		displayName: 'exports',
@@ -56888,51 +54177,41 @@
 					React.createElement(
 						'div',
 						{ className: 'cps-card__header cps-subheader' },
-						'Loaders'
-					),
-					React.createElement(
-						'div',
-						{ className: 'cps-card__body' },
-						React.createElement(
-							'button',
-							{ className: 'cps-btn +primary' },
-							React.createElement(
-								'span',
-								{ className: 'cps-loader' },
-								React.createElement('span', null),
-								React.createElement('span', null),
-								React.createElement('span', null)
-							)
-						),
-						React.createElement(
-							'button',
-							{ className: 'cps-btn +primary +large' },
-							React.createElement(
-								'span',
-								{ className: 'cps-loader' },
-								React.createElement('span', null),
-								React.createElement('span', null),
-								React.createElement('span', null)
-							)
-						)
+						'Lists'
 					)
 				),
-				React.createElement(
-					Highlight,
-					{ className: 'html' },
-					'<button class="cps-btn +primary +large">\n  <span class="cps-loader">\n    <span></span>\n    <span></span>\n    <span></span>\n  </span>\n</button>\n'
-				),
+				React.createElement('cp-edit-render-code', { 'section-title': 'Inline lists', dangerouslySetInnerHTML: { __html: '<div class="cps-col-xs-4 cps-clear-top">\n\t<ul class="cps-list-inline +pipes +underline">\n\t\t<li><a>active</a></li>\n\t\t<li><a>archived</a></li>\n\t\t<li><a>deleted</a></li>\n\t</ul>\n</div>\n<div class="cps-col-xs-4">\n\t<ul class="cps-list-inline">\n\t\t<li><a><i class="cps-icon cps-icon-list"></i></a></li>\n\t\t<li><a><i class="cps-icon cps-icon-grid-view"></i></a></li>\n\t</ul>\n</div>' } })
+			);
+		}
+	});
+
+/***/ },
+/* 399 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(37);
+	var Highlight = __webpack_require__(249);
+
+	module.exports = React.createClass({
+		displayName: 'exports',
+
+		render: function render() {
+			return React.createElement(
+				'div',
+				null,
 				React.createElement(
 					'div',
-					{ className: 'cps-flexible-focus' },
+					{ className: 'cps-flexible-focus cps-card' },
 					React.createElement(
 						'div',
-						{ className: 'cps-loader +page' },
-						React.createElement('span', null),
-						React.createElement('span', null),
-						React.createElement('span', null)
+						{ className: 'cps-card__header cps-subheader' },
+						'Loading indicators'
 					)
-				)
+				),
+				React.createElement('cp-edit-render-code', { dangerouslySetInnerHTML: { __html: '<button class="cps-btn +primary">\n\t<span class="cps-loader">\n\t\t<span></span>\n\t\t<span></span>\n\t\t<span></span>\n\t</span>\n</button>\n<button class="cps-btn +primary +large">\n\t<span class="cps-loader">\n\t\t<span></span>\n\t\t<span></span>\n\t\t<span></span>\n\t</span>\n</button>' } }),
+				React.createElement('cp-edit-render-code', { dangerouslySetInnerHTML: { __html: '<div class="cps-loader +page">\n\t<span></span>\n\t<span></span>\n\t<span></span>\n</div>' } })
 			);
 		}
 	});
