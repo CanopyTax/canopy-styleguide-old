@@ -73,20 +73,20 @@ var TopNav = ({route}) =>  {
 							<div client-search></div>
 						</li>
 						<li className="cps-dropdown" dropdown on-toggle="toggled(cps-open)">
-							<a href className="cps-link" dropdown-toggle>
+							<a className="cps-link" dropdown-toggle>
 								Mike Hewitt
 								<span className="cps-caret"></span>
 							</a>
 							<ul className="cps-dropdown-menu" role="menu">
-								<li><a href>My Profile</a></li>
-								<li><a href>Team Members</a></li>
-								<li><a href>Company Profile</a></li>
+								<li><a>My Profile</a></li>
+								<li><a>Team Members</a></li>
+								<li><a>Company Profile</a></li>
 
 								<li className="cps-divider"></li>
 								<li><a>Help</a>
 								</li>
 								<li className="cps-divider"></li>
-								<li><a href="/signout">Sign out</a>
+								<li><a>Sign out</a>
 								</li>
 							</ul>
 						</li>
@@ -97,15 +97,15 @@ var TopNav = ({route}) =>  {
 				<div className="cps-topnav-secondary__content" >
 					<ul className="cps-topnav-secondary__content__menu">
 						<li>
-							<a href>Mike Lewis</a>
+							<a>Mike Lewis</a>
 							<i className="cps-icon cps-icon-right-caret"></i>
 						</li>
 						<li>
-							<a href>Level 2</a>
+							<a>Level 2</a>
 							<i className="cps-icon cps-icon-right-caret"></i>
 						</li>
 						<li>
-							<a href>Level 3</a>
+							<a>Level 3</a>
 							<i className="cps-icon cps-icon-right-caret"></i>
 						</li>
 					</ul>
