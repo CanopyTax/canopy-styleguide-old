@@ -20,7 +20,7 @@ module.exports = React.createClass({
 	<button class="cps-btn +primary"><span class="cps-icon cps-icon-upload"></span> primary</button>
 	<a href class="cps-btn +primary">PRIMARY link <span class="cps-icon cps-icon-upload"></span></a>
 </div>
-<div class="cps-row margin-top-24">
+<div class="cps-row">
 	<button class="cps-btn +primary +disabled">PRIMARY</button>
 	<button class="cps-btn +secondary" disabled>secondary</button>
 	<a href class="cps-btn +primary +disabled">PRIMARY link</a>
@@ -51,10 +51,7 @@ module.exports = React.createClass({
 	<a href class="cps-link"><span class="cps-icon cps-icon-lg-check"></span></a>
 </div>`} } />
 	
-				<cp-edit-render-code section-title="Links" dangerouslySetInnerHTML={ {__html:
-`<div class="cps-row cps-margin-12">
-	<a href>this is a standard link</a>
-</div>`} } />
+				<cp-edit-render-code section-title="Links" dangerouslySetInnerHTML={ {__html: `<a href>this is a standard link</a>`} } />
 
 			</div>
 		)
