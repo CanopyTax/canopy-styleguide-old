@@ -1,0 +1,119 @@
+<template id="cpProgressBar">
+	<style>
+		.cp-progress-bar__table {
+			display: table;
+			width: 100%;
+		}
+
+		.cp-progress-bar__row {
+			display: table-row;
+			width: 100%;
+		}
+
+		.cp-progress-bar__cell {
+			display: table-cell;
+			padding: 2px;
+		}
+
+		.cp-progress-bar__progress-container {
+			border-width: 1;
+			border-style: solid;
+			border-color: #F2F2F2;
+			border-radius: 2px;
+			height: 20px;
+			line-height: 20px;
+			background-color: #F2F2F2;
+		}
+
+		.cp-progress-bar__progress-bar {
+			position: relative;
+			margin-left: 0;
+			padding-left: 0;
+			border-width: 1;
+			border-style: solid;
+			border-radius: 2px;
+			height: 18px;
+			line-height: 18px;
+			width: 0;
+			transition: 300ms ease-out width;
+		}
+
+		.cp-progress-bar__min-label {
+			width: 50%;
+			font-family: OpenSans;
+			font-size: 12px;
+			color: #AFAFAF;
+			line-height: 17px;
+		}
+
+		.cp-progress-bar__max-label {
+			width: 50%;
+			font-family: OpenSans;
+			font-size: 12px;
+			color: #AFAFAF;
+			line-height: 17px;
+			text-align: right;
+		}
+	</style>
+	<div class="cp-progress-bar__table">
+		<div class="cp-progress-bar__row">
+			<div id="minLabel" class="cp-progress-bar__cell cp-progress-bar__min-label"></div>
+			<div id="maxLabel" class="cp-progress-bar__cell cp-progress-bar__max-label"></div>
+		</div>
+	</div>
+	<div id="progressContainer" class="cp-progress-bar__progress-container">
+		<div id="progressBar" class="cp-progress-bar__progress-bar">&nbsp;</div>
+	</div>
+</template>
+
+<script>
+var importDoc = (document._currentScript || document.currentScript).ownerDocument;
+var objectPrototype = Object.create(HTMLElement.prototype);
+
+var defaultObjectProps = { writable: true };
+
+Object.defineProperties(objectPrototype,  {
+	'min-label': defaultObjectProps,
+	'max-label': defaultObjectProps,
+	'progress-percent': {
+		writable: true,
+		value: 0
+	},
+	'progress-bar-color': defaultObjectProps,
+	'progress-bar-border-color': defaultObjectProps
+});
+
+objectPrototype.createdCallback = function() {
+	var shadow = this.createShadowRoot();
+	var template = importDoc.querySelector('#cpProgressBar');
+
+	shadow.appendChild(template.content.cloneNode(true));
+
+	this.minLabel = shadow.querySelector('#minLabel');
+	this.maxLabel = shadow.querySelector('#maxLabel');
+	this.progressContainer = shadow.querySelector('#progressContainer');
+	this.progressBar = shadow.querySelector('#progressBar');
+
+	this.minLabel.textContent = this.getAttribute('min-label') || "0%";
+	this.maxLabel.textContent = this.getAttribute('max-label') || "100%";
+	this.setProgress(this.getAttribute('progress-percent') || 0);
+	this.progressBar.style.backgroundColor = (this.getAttribute('progress-bar-color') || "#67BB6A");
+	this.progressBar.style.borderColor = (this.getAttribute('progress-bar-border-color') || this.progressBar.style.backgroundColor);
+};
+
+objectPrototype.attributeChangedCallback = function(attributeName, oldVal, newValue) {
+	if (attributeName == "progress-percent") {
+		this.setProgress(newValue);
+	}
+}
+
+objectPrototype.setProgress = function(progressValue) {
+	if (progressValue >= 0 && progressValue <= 100) {
+		this.progressBar.style.width = progressValue + "%";
+	}
+};
+
+document.registerElement("cp-progress-bar", {
+	prototype: objectPrototype
+});
+</script>

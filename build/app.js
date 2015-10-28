@@ -185,7 +185,7 @@
 							{ className: 'cps-dropdown', dropdown: true, 'on-toggle': 'toggled(cps-open)' },
 							React.createElement(
 								'a',
-								{ href: true, className: 'cps-link', 'dropdown-toggle': true },
+								{ className: 'cps-link', 'dropdown-toggle': true },
 								'Mike Hewitt',
 								React.createElement('span', { className: 'cps-caret' })
 							),
@@ -197,7 +197,7 @@
 									null,
 									React.createElement(
 										'a',
-										{ href: true },
+										null,
 										'My Profile'
 									)
 								),
@@ -206,7 +206,7 @@
 									null,
 									React.createElement(
 										'a',
-										{ href: true },
+										null,
 										'Team Members'
 									)
 								),
@@ -215,7 +215,7 @@
 									null,
 									React.createElement(
 										'a',
-										{ href: true },
+										null,
 										'Company Profile'
 									)
 								),
@@ -235,7 +235,7 @@
 									null,
 									React.createElement(
 										'a',
-										{ href: '/signout' },
+										null,
 										'Sign out'
 									)
 								)
@@ -258,7 +258,7 @@
 							null,
 							React.createElement(
 								'a',
-								{ href: true },
+								null,
 								'Mike Lewis'
 							),
 							React.createElement('i', { className: 'cps-icon cps-icon-right-caret' })
@@ -268,7 +268,7 @@
 							null,
 							React.createElement(
 								'a',
-								{ href: true },
+								null,
 								'Level 2'
 							),
 							React.createElement('i', { className: 'cps-icon cps-icon-right-caret' })
@@ -278,7 +278,7 @@
 							null,
 							React.createElement(
 								'a',
-								{ href: true },
+								null,
 								'Level 3'
 							),
 							React.createElement('i', { className: 'cps-icon cps-icon-right-caret' })
@@ -24338,7 +24338,7 @@
 
 	"use strict";
 
-	module.exports = [{ title: "Typography", html: __webpack_require__(241) }, { title: "Color Palette", html: __webpack_require__(242) }, { title: "Inputs", html: __webpack_require__(243) }, { title: "Buttons & Links", html: __webpack_require__(244) }, { title: "Checkboxes & Radios", html: __webpack_require__(245) }, { title: "Textarea", html: __webpack_require__(246) }, { title: "Pickers", html: __webpack_require__(247) }, { title: "Cards", html: __webpack_require__(248) }, { title: "Slats", html: __webpack_require__(388) }, { title: "Navigation", html: __webpack_require__(389) }, { title: "Menus", html: __webpack_require__(390) }, { title: "Icons & Labels", html: __webpack_require__(391) }, { title: "Tables", html: __webpack_require__(395) }, { title: "Toasters & Banners", html: __webpack_require__(396) }, { title: "Modals", html: __webpack_require__(397) }, { title: "Lists", html: __webpack_require__(398) }, { title: "Loaders", html: __webpack_require__(399) }, { title: 'Animations', html: __webpack_require__(400) }, { title: 'Utility Classes', html: __webpack_require__(401) }, { title: "JavaScript Widgets", html: __webpack_require__(402) }];
+	module.exports = [{ title: "Typography", html: __webpack_require__(241) }, { title: "Color Palette", html: __webpack_require__(242) }, { title: "Inputs", html: __webpack_require__(243) }, { title: "Buttons & Links", html: __webpack_require__(244) }, { title: "Checkboxes & Radios", html: __webpack_require__(245) }, { title: "Textarea", html: __webpack_require__(246) }, { title: "Pickers", html: __webpack_require__(247) }, { title: "Cards", html: __webpack_require__(248) }, { title: "Slats", html: __webpack_require__(388) }, { title: "Navigation", html: __webpack_require__(389) }, { title: "Menus", html: __webpack_require__(390) }, { title: "Icons & Labels", html: __webpack_require__(391) }, { title: "Tables", html: __webpack_require__(395) }, { title: "Toasters & Banners", html: __webpack_require__(396) }, { title: "Modals", html: __webpack_require__(397) }, { title: "Lists", html: __webpack_require__(398) }, { title: "Progress Indicators", html: __webpack_require__(399) }, { title: "Loaders", html: __webpack_require__(400) }, { title: 'Animations', html: __webpack_require__(401) }, { title: 'Utility Classes', html: __webpack_require__(402) }, { title: "JavaScript Widgets", html: __webpack_require__(403) }];
 
 /***/ },
 /* 241 */
@@ -25470,10 +25470,10 @@
 						)
 					)
 				),
-				React.createElement("cp-edit-render-code", { "section-title": "Raised Buttons", dangerouslySetInnerHTML: { __html: "<div class=\"cps-row cps-margin-bottom-12\">\n\t<button class=\"cps-btn +primary\">primary</button>\n\t<button class=\"cps-btn +secondary\">secondary</button>\n\t<a href class=\"cps-btn +primary\">PRIMARY link</a>\n\t<a href class=\"cps-btn +secondary\">secondary link</a>\n\t<button class=\"cps-btn +primary\"><span class=\"cps-icon cps-icon-upload\"></span> primary</button>\n\t<a href class=\"cps-btn +primary\">PRIMARY link <span class=\"cps-icon cps-icon-upload\"></span></a>\n</div>\n<div class=\"cps-row margin-top-24\">\n\t<button class=\"cps-btn +primary +disabled\">PRIMARY</button>\n\t<button class=\"cps-btn +secondary\" disabled>secondary</button>\n\t<a href class=\"cps-btn +primary +disabled\">PRIMARY link</a>\n\t<a href class=\"cps-btn +secondary +disabled\">secondary link</a>\n\t<button class=\"cps-btn +primary\" disabled><span class=\"cps-icon cps-icon-upload\"></span> primary</button>\n\t<a href class=\"cps-btn +primary\" disabled>PRIMARY link <span class=\"cps-icon cps-icon-upload\"></span></a>\n</div>" } }),
+				React.createElement("cp-edit-render-code", { "section-title": "Raised Buttons", dangerouslySetInnerHTML: { __html: "<div class=\"cps-row cps-margin-bottom-12\">\n\t<button class=\"cps-btn +primary\">primary</button>\n\t<button class=\"cps-btn +secondary\">secondary</button>\n\t<a href class=\"cps-btn +primary\">PRIMARY link</a>\n\t<a href class=\"cps-btn +secondary\">secondary link</a>\n\t<button class=\"cps-btn +primary\"><span class=\"cps-icon cps-icon-upload\"></span> primary</button>\n\t<a href class=\"cps-btn +primary\">PRIMARY link <span class=\"cps-icon cps-icon-upload\"></span></a>\n</div>\n<div class=\"cps-row\">\n\t<button class=\"cps-btn +primary +disabled\">PRIMARY</button>\n\t<button class=\"cps-btn +secondary\" disabled>secondary</button>\n\t<a href class=\"cps-btn +primary +disabled\">PRIMARY link</a>\n\t<a href class=\"cps-btn +secondary +disabled\">secondary link</a>\n\t<button class=\"cps-btn +primary\" disabled><span class=\"cps-icon cps-icon-upload\"></span> primary</button>\n\t<a href class=\"cps-btn +primary\" disabled>PRIMARY link <span class=\"cps-icon cps-icon-upload\"></span></a>\n</div>" } }),
 				React.createElement("cp-edit-render-code", { "section-title": "Flat Buttons", dangerouslySetInnerHTML: { __html: "<span class=\"cps-link cps-primary-green\"><strong>PRIMARY link</strong></span\n\n<a href class=\"cps-link\">PRIMARY link</a>\n\n<a href class=\"cps-link\" disabled=\"disabled\">PRIMARY link</a>\n\n<a href class=\"cps-link\"><span class=\"cps-icon cps-icon-lg-check\"></span> ACCEPT</a>\n\n<a href class=\"cps-link\" disabled=\"disabled\">\n\n<span class=\"cps-icon cps-icon-lg-check\"></span> PRIMARY link</a>" } }),
 				React.createElement("cp-edit-render-code", { "section-title": "Icon Buttons", dangerouslySetInnerHTML: { __html: "<div class=\"cps-btn-icon\">\n\t<a href class=\"cps-link\"><span class=\"cps-icon cps-icon-work\"></span></a>\n\t<a href class=\"cps-link\"><span class=\"cps-icon cps-icon-cog\"></span></a>\n\t<a href class=\"cps-link\"><span class=\"cps-icon cps-icon-close\"></span></a>\n\t<a href class=\"cps-link\"><span class=\"cps-icon cps-icon-help\"></span></a>\n\t<a href class=\"cps-link\"><span class=\"cps-icon cps-icon-lg-check\"></span></a>\n</div>" } }),
-				React.createElement("cp-edit-render-code", { "section-title": "Links", dangerouslySetInnerHTML: { __html: "<div class=\"cps-row cps-margin-12\">\n\t<a href>this is a standard link</a>\n</div>" } })
+				React.createElement("cp-edit-render-code", { "section-title": "Links", dangerouslySetInnerHTML: { __html: "<a href>this is a standard link</a>" } })
 			);
 		}
 	});
@@ -54189,6 +54189,219 @@
 /* 399 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	var React = __webpack_require__(37);
+
+	module.exports = React.createClass({
+		displayName: "exports",
+
+		render: function render() {
+			return React.createElement(
+				"div",
+				null,
+				React.createElement(
+					"div",
+					{ className: "cps-flexible-focus cps-card" },
+					React.createElement(
+						"div",
+						{ className: "cps-card__header cps-subheader" },
+						"Progress indicators"
+					),
+					React.createElement(
+						"div",
+						{ className: "cps-card__body" },
+						React.createElement(
+							"div",
+							{ "class": "cps-card-table cps-card" },
+							React.createElement(
+								"table",
+								null,
+								React.createElement(
+									"thead",
+									null,
+									React.createElement(
+										"tr",
+										null,
+										React.createElement(
+											"th",
+											null,
+											"Attribute"
+										),
+										React.createElement(
+											"th",
+											null,
+											"Options"
+										),
+										React.createElement(
+											"th",
+											null,
+											"Default"
+										),
+										React.createElement(
+											"th",
+											null,
+											"Description"
+										)
+									)
+								),
+								React.createElement(
+									"tbody",
+									null,
+									React.createElement(
+										"tr",
+										null,
+										React.createElement(
+											"td",
+											null,
+											"min-label"
+										),
+										React.createElement(
+											"td",
+											null,
+											React.createElement(
+												"i",
+												null,
+												"string"
+											)
+										),
+										React.createElement(
+											"td",
+											null,
+											"0%"
+										),
+										React.createElement(
+											"td",
+											null,
+											"The text that appears over the left-most side of the progress bar, usually indicating the minimum possible value."
+										)
+									),
+									React.createElement(
+										"tr",
+										null,
+										React.createElement(
+											"td",
+											null,
+											"max-label"
+										),
+										React.createElement(
+											"td",
+											null,
+											React.createElement(
+												"i",
+												null,
+												"string"
+											)
+										),
+										React.createElement(
+											"td",
+											null,
+											"100%"
+										),
+										React.createElement(
+											"td",
+											null,
+											"The text that appears over the right-most side of the progress bar, usually indicating the maximum possible value."
+										)
+									),
+									React.createElement(
+										"tr",
+										null,
+										React.createElement(
+											"td",
+											null,
+											"progress-bar-color"
+										),
+										React.createElement(
+											"td",
+											null,
+											React.createElement(
+												"i",
+												null,
+												"string"
+											)
+										),
+										React.createElement(
+											"td",
+											null,
+											"#67BB6A"
+										),
+										React.createElement(
+											"td",
+											null,
+											"The browser-interpretable color that the progress indicator will be."
+										)
+									),
+									React.createElement(
+										"tr",
+										null,
+										React.createElement(
+											"td",
+											null,
+											"progress-bar-border-color"
+										),
+										React.createElement(
+											"td",
+											null,
+											React.createElement(
+												"i",
+												null,
+												"string"
+											)
+										),
+										React.createElement(
+											"td",
+											null,
+											"#67BB6A"
+										),
+										React.createElement(
+											"td",
+											null,
+											"The browser-interpretable color that the progress indicator's border will be."
+										)
+									),
+									React.createElement(
+										"tr",
+										null,
+										React.createElement(
+											"td",
+											null,
+											"progress-percent"
+										),
+										React.createElement(
+											"td",
+											null,
+											React.createElement(
+												"i",
+												null,
+												"integer"
+											)
+										),
+										React.createElement(
+											"td",
+											null,
+											"0"
+										),
+										React.createElement(
+											"td",
+											null,
+											"The value, inclusive between 0 and 100, that indicates the amount complete."
+										)
+									)
+								)
+							)
+						)
+					)
+				),
+				React.createElement("cp-edit-render-code", { dangerouslySetInnerHTML: { __html: "<cp-progress-bar id=\"progressBar1\" progress-percent=\"50\" min-label=\"Jun 2\" max-label=\"Sep 21\"></cp-progress-bar>" } })
+			);
+		}
+	});
+
+/***/ },
+/* 400 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	var React = __webpack_require__(37);
@@ -54217,7 +54430,7 @@
 	});
 
 /***/ },
-/* 400 */
+/* 401 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54269,7 +54482,7 @@
 	});
 
 /***/ },
-/* 401 */
+/* 402 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -54467,7 +54680,7 @@
 	});
 
 /***/ },
-/* 402 */
+/* 403 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
