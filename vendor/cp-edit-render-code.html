@@ -33,7 +33,7 @@
 </template>
 
 <script>
-	var importDoc = (document._currentScript || document.currentScript).ownerDocument;
+	var renderCodeOwner = (document._currentScript || document.currentScript).ownerDocument;
 	var objectPrototype = Object.create(HTMLElement.prototype);
 
 	var defaultObjectProps = { writable: true };
@@ -45,7 +45,7 @@
 
 	objectPrototype.createdCallback = function () {		
 		var shadow = this.createShadowRoot();
-		var template = importDoc.querySelector('#cpEditRenderedCode');
+		var template = renderCodeOwner.querySelector('#cpEditRenderedCode');
 
 		shadow.appendChild(template.content.cloneNode(true));
 

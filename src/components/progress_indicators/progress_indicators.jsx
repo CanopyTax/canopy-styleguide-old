@@ -19,7 +19,7 @@ module.exports = React.createClass({
 										<th>Description</th>
 									</tr>
 									<tr>
-										<th colspan="4"></th>
+										<th colSpan="4"></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -60,7 +60,29 @@ module.exports = React.createClass({
 				</div>
 
 				<cp-edit-render-code dangerouslySetInnerHTML={ {__html:
-`<cp-progress-bar id="progressBar1" progress-percent="50" min-label="Jun 2" max-label="Sep 21"></cp-progress-bar>` } } />
+`
+<div style="display: table; width: 100%;">
+	<div style="display: table-row;">
+		<div style="display: table-cell; padding: 2rem;">
+			<cp-progress-bar></cp-progress-bar>
+		</div>
+	</div>
+	<div style="display: table-row;">
+		<div style="display: table-cell; padding: 2rem;">
+			<cp-progress-bar progress-percent="88" min-label="Slow" max-label="Fast"></cp-progress-bar>
+		</div>
+	</div>
+	<div style="display: table-row;">
+		<div style="display: table-cell; padding: 2rem;">
+			<cp-progress-bar progress-percent="50" min-label="Cold" max-label="Hot"></cp-progress-bar>
+		</div>
+	</div>
+	<div style="display: table-row;">
+		<div style="display: table-cell; padding: 2rem;">
+			<cp-progress-bar progress-percent="15" min-label="Jun 2" max-label="Sep 21"></cp-progress-bar>
+		</div>
+	</div>
+</div>` } } />
 			</div>
 		)
 	}
