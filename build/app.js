@@ -54213,7 +54213,7 @@
 						{ className: "cps-card__body" },
 						React.createElement(
 							"div",
-							{ "class": "cps-card-table cps-card" },
+							{ className: "cps-card-table cps-card" },
 							React.createElement(
 								"table",
 								null,
@@ -54243,6 +54243,11 @@
 											null,
 											"Description"
 										)
+									),
+									React.createElement(
+										"tr",
+										null,
+										React.createElement("th", { colspan: "4" })
 									)
 								),
 								React.createElement(

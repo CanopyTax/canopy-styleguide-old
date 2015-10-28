@@ -9,7 +9,7 @@ module.exports = React.createClass({
 						Progress indicators
 					</div>
 					<div className="cps-card__body">
-						<div class="cps-card-table cps-card">
+						<div className="cps-card-table cps-card">
 							<table>
 								<thead>
 									<tr>
@@ -17,6 +17,9 @@ module.exports = React.createClass({
 										<th>Options</th>
 										<th>Default</th>
 										<th>Description</th>
+									</tr>
+									<tr>
+										<th colspan="4"></th>
 									</tr>
 								</thead>
 								<tbody>
