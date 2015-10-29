@@ -26379,7 +26379,7 @@
 									'Card 2'
 								),
 								React.createElement(
-									'div',
+									'a',
 									{ className: 'cps-slat' },
 									React.createElement(
 										'div',
@@ -26407,7 +26407,7 @@
 									)
 								),
 								React.createElement(
-									'div',
+									'a',
 									{ className: 'cps-slat' },
 									React.createElement(
 										'div',
@@ -26430,7 +26430,7 @@
 									)
 								),
 								React.createElement(
-									'div',
+									'a',
 									{ className: 'cps-slat' },
 									React.createElement(
 										'div',
@@ -26504,7 +26504,7 @@
 						)
 					)
 				),
-				React.createElement('cp-edit-render-code', { dangerouslySetInnerHTML: { __html: '<div class="cps-fixed-masonry">\n\t<div class="cps-row">\n\t\t<div class="cps-col-xs-6">\n\t\t\t<div class="cps-fixed-masonry__card cps-card +thin">\n\t\t\t\t<div class="cps-card__header">\n\t\t\t\t\tCard 1\n\t\t\t\t\t<a href class="cps-pull-right cps-blue-link">+ Take some action</a>\n\t\t\t\t</div>\n\t\t\t\t<div class="cps-card__body">\n\t\t\t\t\tThese cards are within a fixed masonry layout. The layout of these cards is arranged with bootstrap classes.\n\t\t\t\t\tThe actual layout and structure of the cards are the same as others. The cards have a min height of 296px and\n\t\t\t\t\t\tdepending on the content cards may need manually defined max height.\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class="cps-col-xs-6">\n\t\t\t<div class="cps-fixed-masonry__card cps-card +thin">\n\t\t\t\t<div class="cps-card__header">\n\t\t\t\t\tCard 2\n\t\t\t\t</div>\n\t\t\t\t<div class="cps-slat">\n\t\t\t\t\t<div class="cps-slat__badge">\n\t\t\t\t\t\t<i class="cps-icon cps-subheader cps-icon-taxes"></i>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="cps-slat__content">\n\t\t\t\t\t\t<div class="cps-slat__content__title">\n\t\t\t\t\t\t\tFilename\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class="cps-slat__content__description">\n\t\t\t\t\t\t\tDocument\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="cps-slat__actions">\n\t\t\t\t\t\t2:30PM - 3:30PM\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class="cps-slat">\n\t\t\t\t\t<div class="cps-slat__badge">\n\t\t\t\t\t\t<i class="cps-icon cps-subheader cps-icon-taxes"></i>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="cps-slat__content">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\tFilename\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="cps-slat__actions">\n\t\t\t\t\t\t2:30PM - 3:30PM\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class="cps-slat">\n\t\t\t\t\t<div class="cps-slat__badge">\n\t\t\t\t\t\t<i class="cps-icon cps-subheader cps-icon-taxes"></i>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="cps-slat__content">\n\t\t\t\t\t\t<div class="cps-slat__content__title">\n\t\t\t\t\t\t\tFilename\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class="cps-slat__content__description">\n\t\t\t\t\t\t\tDocument\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="cps-slat__actions">\n\t\t\t\t\t\t2:30PM - 3:30PM\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<div class="cps-row">\n\t\t<div class="cps-col-xs-4">\n\t\t\t<div class="cps-fixed-masonry__card cps-card">\n\t\t\t\t<div class="cps-card__header">\n\t\t\t\t\tCard 3\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class="cps-col-xs-4">\n\t\t\t<div class="cps-fixed-masonry__card cps-card">\n\t\t\t\t<div class="cps-card__header">\n\t\t\t\t\tCard 4\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class="cps-col-xs-4">\n\t\t\t<div class="cps-fixed-masonry__card cps-card">\n\t\t\t\t<div class="cps-card__header">\n\t\t\t\t\tCard 5\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>' } }),
+				React.createElement('cp-edit-render-code', { dangerouslySetInnerHTML: { __html: '<div class="cps-fixed-masonry">\n\t<div class="cps-row">\n\t\t<div class="cps-col-xs-6">\n\t\t\t<div class="cps-fixed-masonry__card cps-card +thin">\n\t\t\t\t<div class="cps-card__header">\n\t\t\t\t\tCard 1\n\t\t\t\t\t<a href class="cps-pull-right cps-blue-link">+ Take some action</a>\n\t\t\t\t</div>\n\t\t\t\t<div class="cps-card__body">\n\t\t\t\t\tThese cards are within a fixed masonry layout. The layout of these cards is arranged with bootstrap classes.\n\t\t\t\t\tThe actual layout and structure of the cards are the same as others. The cards have a min height of 296px and\n\t\t\t\t\t\tdepending on the content cards may need manually defined max height.\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class="cps-col-xs-6">\n\t\t\t<div class="cps-fixed-masonry__card cps-card +thin">\n\t\t\t\t<div class="cps-card__header">\n\t\t\t\t\tCard 2\n\t\t\t\t</div>\n\t\t\t\t<a class="cps-slat">\n\t\t\t\t\t<div class="cps-slat__badge">\n\t\t\t\t\t\t<i class="cps-icon cps-subheader cps-icon-taxes"></i>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="cps-slat__content">\n\t\t\t\t\t\t<div class="cps-slat__content__title">\n\t\t\t\t\t\t\tFilename\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class="cps-slat__content__description">\n\t\t\t\t\t\t\tDocument\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="cps-slat__actions">\n\t\t\t\t\t\t2:30PM - 3:30PM\n\t\t\t\t\t</div>\n\t\t\t\t</a>\n\t\t\t\t<a class="cps-slat">\n\t\t\t\t\t<div class="cps-slat__badge">\n\t\t\t\t\t\t<i class="cps-icon cps-subheader cps-icon-taxes"></i>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="cps-slat__content">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\tFilename\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="cps-slat__actions">\n\t\t\t\t\t\t2:30PM - 3:30PM\n\t\t\t\t\t</div>\n\t\t\t\t</a>\n\t\t\t\t<a class="cps-slat">\n\t\t\t\t\t<div class="cps-slat__badge">\n\t\t\t\t\t\t<i class="cps-icon cps-subheader cps-icon-taxes"></i>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="cps-slat__content">\n\t\t\t\t\t\t<div class="cps-slat__content__title">\n\t\t\t\t\t\t\tFilename\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class="cps-slat__content__description">\n\t\t\t\t\t\t\tDocument\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class="cps-slat__actions">\n\t\t\t\t\t\t2:30PM - 3:30PM\n\t\t\t\t\t</div>\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<div class="cps-row">\n\t\t<div class="cps-col-xs-4">\n\t\t\t<div class="cps-fixed-masonry__card cps-card">\n\t\t\t\t<div class="cps-card__header">\n\t\t\t\t\tCard 3\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class="cps-col-xs-4">\n\t\t\t<div class="cps-fixed-masonry__card cps-card">\n\t\t\t\t<div class="cps-card__header">\n\t\t\t\t\tCard 4\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class="cps-col-xs-4">\n\t\t\t<div class="cps-fixed-masonry__card cps-card">\n\t\t\t\t<div class="cps-card__header">\n\t\t\t\t\tCard 5\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>' } }),
 				React.createElement(
 					'div',
 					{ className: 'cps-flexible-focus cps-card cps-margin-bottom-16 cps-margin-top-32' },
@@ -54247,7 +54247,7 @@
 									React.createElement(
 										"tr",
 										null,
-										React.createElement("th", { colspan: "4" })
+										React.createElement("th", { colSpan: "4" })
 									)
 								),
 								React.createElement(
@@ -54398,7 +54398,7 @@
 						)
 					)
 				),
-				React.createElement("cp-edit-render-code", { dangerouslySetInnerHTML: { __html: "<cp-progress-bar id=\"progressBar1\" progress-percent=\"50\" min-label=\"Jun 2\" max-label=\"Sep 21\"></cp-progress-bar>" } })
+				React.createElement("cp-edit-render-code", { dangerouslySetInnerHTML: { __html: "\n<div style=\"display: table; width: 100%;\">\n\t<div style=\"display: table-row;\">\n\t\t<div style=\"display: table-cell; padding: 2rem;\">\n\t\t\t<cp-progress-bar></cp-progress-bar>\n\t\t</div>\n\t</div>\n\t<div style=\"display: table-row;\">\n\t\t<div style=\"display: table-cell; padding: 2rem;\">\n\t\t\t<cp-progress-bar progress-percent=\"88\" min-label=\"Slow\" max-label=\"Fast\"></cp-progress-bar>\n\t\t</div>\n\t</div>\n\t<div style=\"display: table-row;\">\n\t\t<div style=\"display: table-cell; padding: 2rem;\">\n\t\t\t<cp-progress-bar progress-percent=\"50\" min-label=\"Cold\" max-label=\"Hot\"></cp-progress-bar>\n\t\t</div>\n\t</div>\n\t<div style=\"display: table-row;\">\n\t\t<div style=\"display: table-cell; padding: 2rem;\">\n\t\t\t<cp-progress-bar progress-percent=\"15\" min-label=\"Jun 2\" max-label=\"Sep 21\"></cp-progress-bar>\n\t\t</div>\n\t</div>\n</div>" } })
 			);
 		}
 	});

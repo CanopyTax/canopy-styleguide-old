@@ -123,7 +123,7 @@ module.exports = React.createClass({
 								<div className="cps-card__header">
 									Card 2
 								</div>
-								<div className="cps-slat">
+								<a className="cps-slat">
 									<div className="cps-slat__badge">
 										<i className="cps-icon cps-subheader cps-icon-taxes"></i>
 									</div>
@@ -138,8 +138,8 @@ module.exports = React.createClass({
 									<div className="cps-slat__actions">
 										2:30PM - 3:30PM
 									</div>
-								</div>
-								<div className="cps-slat">
+								</a>
+								<a className="cps-slat">
 									<div className="cps-slat__badge">
 										<i className="cps-icon cps-subheader cps-icon-taxes"></i>
 									</div>
@@ -151,8 +151,8 @@ module.exports = React.createClass({
 									<div className="cps-slat__actions">
 										2:30PM - 3:30PM
 									</div>
-								</div>
-								<div className="cps-slat">
+								</a>
+								<a className="cps-slat">
 									<div className="cps-slat__badge">
 										<i className="cps-icon cps-subheader cps-icon-taxes"></i>
 									</div>
@@ -167,7 +167,7 @@ module.exports = React.createClass({
 									<div className="cps-slat__actions">
 										2:30PM - 3:30PM
 									</div>
-								</div>
+								</a>
 							</div>
 						</div>
 					</div>
@@ -217,7 +217,7 @@ module.exports = React.createClass({
 				<div class="cps-card__header">
 					Card 2
 				</div>
-				<div class="cps-slat">
+				<a class="cps-slat">
 					<div class="cps-slat__badge">
 						<i class="cps-icon cps-subheader cps-icon-taxes"></i>
 					</div>
@@ -232,8 +232,8 @@ module.exports = React.createClass({
 					<div class="cps-slat__actions">
 						2:30PM - 3:30PM
 					</div>
-				</div>
-				<div class="cps-slat">
+				</a>
+				<a class="cps-slat">
 					<div class="cps-slat__badge">
 						<i class="cps-icon cps-subheader cps-icon-taxes"></i>
 					</div>
@@ -245,8 +245,8 @@ module.exports = React.createClass({
 					<div class="cps-slat__actions">
 						2:30PM - 3:30PM
 					</div>
-				</div>
-				<div class="cps-slat">
+				</a>
+				<a class="cps-slat">
 					<div class="cps-slat__badge">
 						<i class="cps-icon cps-subheader cps-icon-taxes"></i>
 					</div>
@@ -261,7 +261,7 @@ module.exports = React.createClass({
 					<div class="cps-slat__actions">
 						2:30PM - 3:30PM
 					</div>
-				</div>
+				</a>
 			</div>
 		</div>
 	</div>
