@@ -2432,10 +2432,10 @@ label.cps-has-error {
   top: 0;
 }
 .cps-has-feedback-left .cps-form-control {
-  padding: 0 12px 1px 12px;
+  padding: 0 0 1px 16px;
 }
 .cps-has-feedback-left .cps-form-control {
-  padding-left: 44px;
+  padding-left: 48px;
 }
 .cps-has-feedback-left .cps-form-control-feedback {
   left: 8px;
@@ -2599,6 +2599,7 @@ textarea.cps-form-control.\+no-resize {
 /************Navigation************/
 .cps-topnav {
   position: fixed;
+  display: table;
   width: 100%;
   z-index: 100;
   top: 0;
@@ -2619,17 +2620,21 @@ textarea.cps-form-control.\+no-resize {
   background-color: #4caf50;
 }
 .cps-topnav__content {
+  display: table-row;
   background-color: white;
   height: 5.6rem;
   line-height: 5.6rem;
   vertical-align: middle;
-  padding-left: 2.4rem;
-  padding-right: 2.4rem;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 .cps-topnav__content__brand {
+  display: table-cell;
   cursor: pointer;
   float: left;
-  width: 32px;
+  width: 138px;
+  padding-left: 24px;
+  margin-right: 32px;
 }
 .cps-topnav__content__brand > img {
   height: 2.8rem;
@@ -2637,10 +2642,10 @@ textarea.cps-form-control.\+no-resize {
   vertical-align: middle;
 }
 .cps-topnav__content__menu {
+  display: table-cell;
+  vertical-align: middle;
   list-style: none;
   float: left;
-  margin: 0;
-  padding-left: 1rem;
 }
 .cps-topnav__content__menu:before,
 .cps-topnav__content__menu:after {
@@ -2651,12 +2656,16 @@ textarea.cps-form-control.\+no-resize {
   clear: both;
 }
 .cps-topnav__content__menu__form {
+  vertical-align: middle;
   padding-top: 1.2rem;
+  margin-right: 3.2rem;
 }
 .cps-topnav__content__menu > li {
   position: relative;
   display: block;
   float: left;
+  display: table-cell;
+  vertical-align: middle;
 }
 .cps-topnav__content__menu > li > a {
   text-decoration: none;
@@ -2664,8 +2673,7 @@ textarea.cps-form-control.\+no-resize {
   font-size: 1.4rem;
   position: relative;
   display: block;
-  padding-right: 1.6rem;
-  padding-left: 1.6rem;
+  margin-right: 32px;
 }
 .cps-topnav__content__menu > li > a:hover,
 .cps-topnav__content__menu > li > a:focus {
@@ -2699,8 +2707,8 @@ textarea.cps-form-control.\+no-resize {
 .cps-topnav-secondary__content {
   border-top: 0.1rem solid #E9E9E9;
   background-color: #F9F9F9;
-  padding-left: 2.4rem;
-  padding-right: 2.4rem;
+  padding-left: 24px;
+  padding-right: 24px;
   height: 5.6rem;
 }
 .cps-topnav-secondary__content.\+green-banner {
@@ -2848,7 +2856,7 @@ textarea.cps-form-control.\+no-resize {
 .cps-nav-content {
   margin-left: 24.0rem;
   width: calc(100% - 24.0rem);
-  padding: 10rem 2.4rem;
+  padding: 10rem 24px;
 }
 .cps-nav-content.\+tall-top {
   padding-top: 14.0rem;
@@ -2885,7 +2893,7 @@ textarea.cps-form-control.\+no-resize {
   height: calc(100% - 13.8rem);
 }
 .cps-secondarynav__title {
-  padding: 2.4rem;
+  padding: 24px;
   border-bottom: 0.1rem solid #E9E9E9;
   font-size: 1.6rem;
   font-weight: bold;
@@ -4033,8 +4041,6 @@ strong {
   padding: 5px 12px 0px 16px;
   color: white;
   font-weight: 600;
-  position: fixed;
-  top: 0px;
   width: 100%;
   z-index: 100;
   /* matches the nav bars' z-index */

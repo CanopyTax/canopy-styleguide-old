@@ -7,11 +7,12 @@
 
 @nav-height: 5.6rem;
 @half-nav-height: 2.8rem;
-@default-padding: 2.4rem;
+@default-padding: 24px;;
 @banner-height: 3.2rem;
 
 .cps-topnav {
 	position: fixed;
+	display: table;
 	width: 100%;
 	z-index: 100;
 	top: 0;
@@ -36,6 +37,7 @@
 
 	// PRIMARY GLOBAL NAV //
 	&__content {
+		display: table-row;
 		background-color: @white;
 		height: @nav-height;
 		line-height: @nav-height;
@@ -44,9 +46,12 @@
 		padding-right: @default-padding;
 
 		&__brand {
+			display: table-cell;
 			cursor: pointer;
 			float: left;
-			width: 32px;
+			width: 138px;
+			padding-left: @default-padding;
+			margin-right: 32px;
 			> img {
 				height: @half-nav-height;
 				line-height: @half-nav-height;
@@ -55,20 +60,24 @@
 		}
 
 		&__menu {
+			display: table-cell;
+			vertical-align: middle;
 			list-style: none;
 			float: left;
-			margin: 0;
-			padding-left: 1rem;
 			.clearfix;
 
 			&__form {
+				vertical-align: middle;
 				padding-top: 1.2rem;
+				margin-right: 3.2rem;
 			}
 
 			> li {
 				position: relative;
 				display: block;
 				float: left;
+				display: table-cell;
+				vertical-align: middle;
 
 				> a {
 					text-decoration: none;
@@ -76,8 +85,7 @@
 					font-size: 1.4rem;
 					position: relative;
 					display: block;
-					padding-right: 1.6rem;
-					padding-left: 1.6rem;
+					margin-right: 32px;
 					&:hover,
 					&:focus {
 						color: @blue-link;
