@@ -2625,15 +2625,15 @@ textarea.cps-form-control.\+no-resize {
   height: 5.6rem;
   line-height: 5.6rem;
   vertical-align: middle;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
 }
 .cps-topnav__content__brand {
   display: table-cell;
   cursor: pointer;
   float: left;
   width: 138px;
-  padding-left: 24px;
+  padding-left: 2.4rem;
   margin-right: 32px;
 }
 .cps-topnav__content__brand > img {
@@ -2707,8 +2707,8 @@ textarea.cps-form-control.\+no-resize {
 .cps-topnav-secondary__content {
   border-top: 0.1rem solid #E9E9E9;
   background-color: #F9F9F9;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
   height: 5.6rem;
 }
 .cps-topnav-secondary__content.\+green-banner {
@@ -2856,7 +2856,7 @@ textarea.cps-form-control.\+no-resize {
 .cps-nav-content {
   margin-left: 24.0rem;
   width: calc(100% - 24.0rem);
-  padding: 10rem 24px;
+  padding: 10rem 2.4rem;
 }
 .cps-nav-content.\+tall-top {
   padding-top: 14.0rem;
@@ -2893,7 +2893,7 @@ textarea.cps-form-control.\+no-resize {
   height: calc(100% - 13.8rem);
 }
 .cps-secondarynav__title {
-  padding: 24px;
+  padding: 2.4rem;
   border-bottom: 0.1rem solid #E9E9E9;
   font-size: 1.6rem;
   font-weight: bold;
@@ -4041,6 +4041,8 @@ strong {
   padding: 5px 12px 0px 16px;
   color: white;
   font-weight: 600;
+  position: fixed;
+  top: 0px;
   width: 100%;
   z-index: 100;
   /* matches the nav bars' z-index */
