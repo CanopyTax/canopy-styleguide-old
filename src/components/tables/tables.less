@@ -8,21 +8,21 @@
 
 	thead {
 		color: @gray10;
-		font-weight: 600;
-		font-size: 1.4rem;
+		font-weight: normal !important;
+		font-size: 1.2rem;
 	}
 
 	tbody {
-		font-size: 1.4rem;
+		font-size: 1.2rem;
 	}
 
 	tr {
-		height: 4.8rem;
+		height: 4.0rem;
 		padding: 0;
 	}
 
 	th, td {
-		padding: 1.2rem 2.4rem;
+		padding: .8rem 2.4rem;
 		border-bottom: .1rem solid @breakline-light;
 		text-align: left;
 	}
@@ -33,11 +33,11 @@
 	table {
 		border-spacing: 0;
 		width: 100%;
-		font-size: 1.4rem;
+		font-size: 1.2rem;
 	}
 
 	tr {
-		height: 4.8rem;
+		height: 4.0rem;
 		padding: 0;
 		width: 100%;
 		user-select: none;
@@ -57,10 +57,10 @@
 
 	thead {
 		color: @gray10;
-		font-weight: 600;
-		font-size: 1.4rem;
+		font-weight: normal !important;
+		font-size: 1.2rem;
 		tr {
-			height: 5.0rem;
+			height: 4.0rem;
 
 			&:last-child {
 				&.\+thin {
@@ -73,7 +73,9 @@
 				th {
 					padding: 0;
 					height:0;
-					background: linear-gradient(to bottom,#F1F1F1 0,#FFF 100%);
+					/* background: -webkit-linear-gradient(top, #F1F1F1 0, #FFF 100%);
+					background: linear-gradient(to bottom, #F1F1F1 0, #FFF 100%); */
+					border-bottom: .1rem solid @breakline-light;
 				}
 			}
 		}
@@ -81,13 +83,13 @@
 
 	th, td {
 		text-align: left;
-		padding: 1.2rem 2.4rem;
+		padding: .8rem 2.4rem;
 	}
 
 
 	td {
 		border-bottom: .1rem solid @breakline-light;
-		height: 4.8rem;
+		height: 4.0rem;
 	}
 
 	td,th {

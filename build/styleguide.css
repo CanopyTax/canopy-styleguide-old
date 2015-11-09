@@ -3236,29 +3236,29 @@ a.cps-slat-lg.cps-animate.ng-leave.ng-leave-active {
 }
 .cps-inset-table thead {
   color: #AFAFAF;
-  font-weight: 600;
-  font-size: 1.4rem;
+  font-weight: normal !important;
+  font-size: 1.2rem;
 }
 .cps-inset-table tbody {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 .cps-inset-table tr {
-  height: 4.8rem;
+  height: 4.0rem;
   padding: 0;
 }
 .cps-inset-table th,
 .cps-inset-table td {
-  padding: 1.2rem 2.4rem;
+  padding: .8rem 2.4rem;
   border-bottom: 0.1rem solid #E9E9E9;
   text-align: left;
 }
 .cps-card-table table {
   border-spacing: 0;
   width: 100%;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 .cps-card-table tr {
-  height: 4.8rem;
+  height: 4.0rem;
   padding: 0;
   width: 100%;
   -webkit-user-select: none;
@@ -3278,11 +3278,11 @@ a.cps-slat-lg.cps-animate.ng-leave.ng-leave-active {
 }
 .cps-card-table thead {
   color: #AFAFAF;
-  font-weight: 600;
-  font-size: 1.4rem;
+  font-weight: normal !important;
+  font-size: 1.2rem;
 }
 .cps-card-table thead tr {
-  height: 5.0rem;
+  height: 4.0rem;
 }
 .cps-card-table thead tr:last-child {
   height: .3rem;
@@ -3296,17 +3296,16 @@ a.cps-slat-lg.cps-animate.ng-leave.ng-leave-active {
 .cps-card-table thead tr:last-child th {
   padding: 0;
   height: 0;
-  background: -webkit-linear-gradient(top, #F1F1F1 0, #FFF 100%);
-  background: linear-gradient(to bottom, #F1F1F1 0, #FFF 100%);
+  border-bottom: 0.1rem solid #E9E9E9;
 }
 .cps-card-table th,
 .cps-card-table td {
   text-align: left;
-  padding: 1.2rem 2.4rem;
+  padding: .8rem 2.4rem;
 }
 .cps-card-table td {
   border-bottom: 0.1rem solid #E9E9E9;
-  height: 4.8rem;
+  height: 4.0rem;
 }
 .cps-card-table td.cps-card-table__select-column,
 .cps-card-table th.cps-card-table__select-column {
