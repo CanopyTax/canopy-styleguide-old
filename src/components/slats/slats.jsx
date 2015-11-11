@@ -252,6 +252,37 @@ module.exports = React.createClass({
 	</div>
 </div>` } } />
 
+
+				<div className="cps-flexible-focus cps-card">
+					<div className="cps-card__body">
+						<div id="title" className="cps-subheader-sm">Disabled slats</div>
+					</div>
+					<hr />
+					<div className="cps-card__body">
+						Create a visually "disabled" variation of a slat by adding the class modifier +disabled. This will
+						remove the hover state, as well as the cursor change.
+					</div>
+				</div>
+
+				<cp-edit-render-code dangerouslySetInnerHTML={ {__html:
+`<div class="cps-flexible-focus">
+	<div class="cps-card">
+		<a class="cps-slat-lg +disabled">
+			<div class="cps-slat-lg__content">
+				<div class="cps-slat-lg__content__title">
+					A disabled large slat
+				</div>
+				Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin
+				tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter
+				prosciutto ham rump tail.
+			</div>
+			<div class="cps-slat-lg__actions cps-margin-top-4">
+				<i class="cps-icon cps-icon-lock"></i>
+			</div>
+		</a>
+	</div>
+</div>` } } />
+
 			</div>
 		)
 	}

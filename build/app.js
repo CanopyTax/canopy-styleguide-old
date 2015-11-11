@@ -23770,6 +23770,7 @@
 	    if (event.defaultPrevented === true) allowTransition = false;
 
 	    // If target prop is set (e.g. to "_blank") let browser handle link.
+	    /* istanbul ignore if: untestable with Karma */
 	    if (this.props.target) {
 	      if (!allowTransition) event.preventDefault();
 
@@ -24148,9 +24149,7 @@
 
 	var _PropTypes = __webpack_require__(232);
 
-	var _React$PropTypes = _react2['default'].PropTypes;
-	var bool = _React$PropTypes.bool;
-	var func = _React$PropTypes.func;
+	var func = _react2['default'].PropTypes.func;
 
 	/**
 	 * An <IndexRoute> is used to specify its parent's <Route indexRoute> in
@@ -24185,9 +24184,9 @@
 	    key: 'propTypes',
 	    value: {
 	      path: _PropTypes.falsy,
-	      ignoreScrollBehavior: bool,
 	      component: _PropTypes.component,
 	      components: _PropTypes.components,
+	      getComponent: func,
 	      getComponents: func
 	    },
 	    enumerable: true
@@ -24230,7 +24229,6 @@
 
 	var _React$PropTypes = _react2['default'].PropTypes;
 	var string = _React$PropTypes.string;
-	var bool = _React$PropTypes.bool;
 	var func = _React$PropTypes.func;
 
 	/**
@@ -24267,9 +24265,9 @@
 	    key: 'propTypes',
 	    value: {
 	      path: string,
-	      ignoreScrollBehavior: bool,
 	      component: _PropTypes.component,
 	      components: _PropTypes.components,
+	      getComponent: func,
 	      getComponents: func
 	    },
 	    enumerable: true
@@ -41521,7 +41519,29 @@
 					)
 				),
 				React.createElement("cp-edit-render-code", { dangerouslySetInnerHTML: { __html: "<div class=\"cps-flexible-focus\">\n\t<div class=\"cps-card\">\n\t\t<a class=\"cps-slat +small\">\n\t\t\t<div class=\"cps-slat__badge\">\n\t\t\t\t<i class=\"cps-icon cps-subheader cps-icon-taxes\"></i>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat__content\">\n\t\t\t\t<div class=\"cps-slat__content__title\">\n\t\t\t\t\tFilename\n\t\t\t\t</div>\n\t\t\t\t<div class=\"cps-slat__content__description\">\n\t\t\t\t\tDocument\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat__actions\">\n\t\t\t\t2:30PM - 3:30PM\n\t\t\t</div>\n\t\t</a>\n\t\t<div class=\"cps-slat +small\">\n\t\t\t<div class=\"cps-slat__content\">\n\t\t\t\t<div class=\"cps-slat__content__title\">\n\t\t\t\t\tFilename\n\t\t\t\t</div>\n\t\t\t\t<div class=\"cps-slat__content__description\">\n\t\t\t\t\tDocument\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat__actions\">\n\t\t\t\t2:30PM - 3:30PM\n\t\t\t</div>\n\t\t</div>\n\t\t<a class=\"cps-slat +small\">\n\t\t\t<div class=\"cps-slat__badge\">\n\t\t\t\t<i class=\"cps-icon cps-subheader cps-icon-taxes\"></i>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat__content\">\n\t\t\t\t<div class=\"cps-slat__content__title\">\n\t\t\t\t\tFilename\n\t\t\t\t</div>\n\t\t\t\t<div class=\"cps-slat__content__description\">\n\t\t\t\t\tDocument\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat__actions +hover-show\">\n\t\t\t\t<i class=\"cps-icon cps-icon-trash\"></i>\n\t\t\t\t<i class=\"cps-icon cps-icon-archive cps-margin-left-24\"></i>\n\t\t\t\t<span class=\"cps-link cps-primary-green cps-margin-left-12\"><strong>Move</strong></span>\n\t\t\t\t<span class=\"cps-link cps-primary-green\"><strong>Rename</strong></span>\n\t\t\t</div>\n\t\t</a>\n\t</div>\n</div>" } }),
-				React.createElement("cp-edit-render-code", { dangerouslySetInnerHTML: { __html: "<div class=\"cps-flexible-focus\">\n\t<div class=\"cps-card\">\n\t\t<div class=\"cps-card__header cps-subheader\">\n\t\t\tThis slat appears within a card.\n\t\t</div>\n\t\t<a class=\"cps-slat-lg\">\n\t\t\t<div class=\"cps-slat-lg__badge\">\n\t\t\t\t<div class=\"cps-slat-lg__badge__main\">21</div>\n\t\t\t\t<div class=\"cps-slat-lg__badge__sub\">Jan</div>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat-lg__content\">\n\t\t\t\t<div class=\"cps-slat-lg__content__title\">\n\t\t\t\t\tDate Title\n\t\t\t\t</div>\n\t\t\t\tSalami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin\n\t\t\t\ttri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter\n\t\t\t\tprosciutto ham rump tail.\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat-lg__actions\">\n\t\t\t\t2:30PM - 3:30PM\n\t\t\t</div>\n\t\t</a>\n\t\t<a class=\"cps-slat-lg\">\n\t\t\t<div class=\"cps-slat-lg__badge\">\n\t\t\t\t<div class=\"cps-slat-lg__badge__main\">21</div>\n\t\t\t\t<div class=\"cps-slat-lg__badge__sub\">Jan</div>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat-lg__content\">\n\t\t\t\t<div class=\"cps-slat-lg__content__title\">\n\t\t\t\t\tDate Title\n\t\t\t\t</div>\n\t\t\t\tSalami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin\n\t\t\t\ttri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter\n\t\t\t\tprosciutto ham rump tail.\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat-lg__actions\">\n\t\t\t\t2:30PM - 3:30PM\n\t\t\t</div>\n\t\t</a>\n\t</div>\n</div>" } })
+				React.createElement("cp-edit-render-code", { dangerouslySetInnerHTML: { __html: "<div class=\"cps-flexible-focus\">\n\t<div class=\"cps-card\">\n\t\t<div class=\"cps-card__header cps-subheader\">\n\t\t\tThis slat appears within a card.\n\t\t</div>\n\t\t<a class=\"cps-slat-lg\">\n\t\t\t<div class=\"cps-slat-lg__badge\">\n\t\t\t\t<div class=\"cps-slat-lg__badge__main\">21</div>\n\t\t\t\t<div class=\"cps-slat-lg__badge__sub\">Jan</div>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat-lg__content\">\n\t\t\t\t<div class=\"cps-slat-lg__content__title\">\n\t\t\t\t\tDate Title\n\t\t\t\t</div>\n\t\t\t\tSalami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin\n\t\t\t\ttri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter\n\t\t\t\tprosciutto ham rump tail.\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat-lg__actions\">\n\t\t\t\t2:30PM - 3:30PM\n\t\t\t</div>\n\t\t</a>\n\t\t<a class=\"cps-slat-lg\">\n\t\t\t<div class=\"cps-slat-lg__badge\">\n\t\t\t\t<div class=\"cps-slat-lg__badge__main\">21</div>\n\t\t\t\t<div class=\"cps-slat-lg__badge__sub\">Jan</div>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat-lg__content\">\n\t\t\t\t<div class=\"cps-slat-lg__content__title\">\n\t\t\t\t\tDate Title\n\t\t\t\t</div>\n\t\t\t\tSalami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin\n\t\t\t\ttri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter\n\t\t\t\tprosciutto ham rump tail.\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat-lg__actions\">\n\t\t\t\t2:30PM - 3:30PM\n\t\t\t</div>\n\t\t</a>\n\t</div>\n</div>" } }),
+				React.createElement(
+					"div",
+					{ className: "cps-flexible-focus cps-card" },
+					React.createElement(
+						"div",
+						{ className: "cps-card__body" },
+						React.createElement(
+							"div",
+							{ id: "title", className: "cps-subheader-sm" },
+							"Disabled slats"
+						)
+					),
+					React.createElement("hr", null),
+					React.createElement(
+						"div",
+						{ className: "cps-card__body" },
+						"Create a \"disabled\" variation of a slat by adding the class modifier +disabled. This will remove the hover state, as well as the cursor change. Also changes the color of the text.",
+						React.createElement("br", null),
+						"You can still show icons (even on hover) like in a normal slat."
+					)
+				),
+				React.createElement("cp-edit-render-code", { dangerouslySetInnerHTML: { __html: "<div class=\"cps-flexible-focus\">\n\t<div class=\"cps-card\">\n\t\t<a class=\"cps-slat-lg\">\n\t\t\t<div class=\"cps-slat-lg__badge\">\n\t\t\t\t<div class=\"cps-slat-lg__badge__main\">21</div>\n\t\t\t\t<div class=\"cps-slat-lg__badge__sub\">Jan</div>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat-lg__content\">\n\t\t\t\t<div class=\"cps-slat-lg__content__title\">\n\t\t\t\t\tDate Title\n\t\t\t\t</div>\n\t\t\t\tSalami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin\n\t\t\t\ttri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter\n\t\t\t\tprosciutto ham rump tail.\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat-lg__actions\">\n\t\t\t\t2:30PM - 3:30PM\n\t\t\t</div>\n\t\t</a>\n\t\t<a class=\"cps-slat-lg +disabled\">\n\t\t\t<div class=\"cps-slat-lg__badge\">\n\t\t\t\t<div class=\"cps-slat-lg__badge__main\">21</div>\n\t\t\t\t<div class=\"cps-slat-lg__badge__sub\">Jan</div>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat-lg__content\">\n\t\t\t\t<div class=\"cps-slat-lg__content__title\">\n\t\t\t\t\tA disabled large slat\n\t\t\t\t</div>\n\t\t\t\tSalami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin\n\t\t\t\ttri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter\n\t\t\t\tprosciutto ham rump tail.\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat-lg__actions\">\n\t\t\t\t2:30PM - 3:30PM\n\t\t\t</div>\n\t\t</a>\n\t\t<a class=\"cps-slat-lg +disabled\">\n\t\t\t<div class=\"cps-slat-lg__content\">\n\t\t\t\t<div class=\"cps-slat-lg__content__title\">\n\t\t\t\t\tA disabled large slat\n\t\t\t\t</div>\n\t\t\t\tSalami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin\n\t\t\t\ttri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter\n\t\t\t\tprosciutto ham rump tail.\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat-lg__actions cps-margin-top-4\">\n\t\t\t\t<i class=\"cps-icon cps-icon-lock\"></i>\n\t\t\t</div>\n\t\t</a>\n\t\t<a class=\"cps-slat +disabled\">\n\t\t\t<div class=\"cps-slat__badge\">\n\t\t\t\t<i class=\"cps-icon cps-subheader cps-icon-taxes\"></i>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat__content\">\n\t\t\t\t<div class=\"cps-slat__content__title\">\n\t\t\t\t\tFilename\n\t\t\t\t</div>\n\t\t\t\t<div class=\"cps-slat__content__description\">\n\t\t\t\t\tDocument\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"cps-slat__actions\">\n\t\t\t\t2:30PM - 3:30PM\n\t\t\t</div>\n\t\t</a>\n\t</div>\n</div>" } })
 			);
 		}
 	});
