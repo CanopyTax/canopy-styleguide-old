@@ -49,17 +49,16 @@
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
     "react-highlight": "^0.5.0",
+    "react-router": "^1.0.0-rc2",
     "style-loader": "^0.8.3",
     "url-loader": "^0.5.6",
     "webpack": "^1.7.2",
     "webpack-dev-server": "1.12.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "history": "1.13.0"
+  },
   "publishConfig": {
     "registry": "http://npm.canopytax.com"
-  },
-  "optionalDependencies": {
-    "react-router": "^1.0.0-rc2",
-    "history": "1.13.0"
   }
 }
