@@ -2658,7 +2658,8 @@ textarea.cps-form-control.\+no-resize {
 .cps-topnav__content__menu__form {
   vertical-align: middle;
   padding-top: 1.2rem;
-  margin-right: 3.2rem;
+  margin-right: 2.4rem;
+  width: 24rem;
 }
 .cps-topnav__content__menu > li {
   position: relative;
@@ -2669,19 +2670,23 @@ textarea.cps-form-control.\+no-resize {
 }
 .cps-topnav__content__menu > li > a {
   text-decoration: none;
-  color: #333333;
+  color: #777777;
+  opacity: 0.5;
   font-size: 1.4rem;
   position: relative;
   display: block;
   margin-right: 32px;
 }
-.cps-topnav__content__menu > li > a:hover,
+.cps-topnav__content__menu > li > a:hover {
+  opacity: 1;
+}
 .cps-topnav__content__menu > li > a:focus {
   color: #4A90E2;
 }
 .cps-topnav__content__menu > li > a.\+active {
-  font-weight: 600;
-  color: #333333;
+  font-weight: 400;
+  color: #777777;
+  opacity: 1;
 }
 .cps-topnav__content__icon,
 .cps-topnav__content__title {

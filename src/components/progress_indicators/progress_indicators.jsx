@@ -8,6 +8,11 @@ module.exports = React.createClass({
 					<div className="cps-card__header cps-subheader">
 						Progress indicators
 					</div>
+				</div>
+				<div className="cps-flexible-focus cps-card cps-margin-top-16">
+					<div className="cps-card__header cps-subheader">
+						Progress Bar *web component
+					</div>
 					<div className="cps-card__body">
 						<div className="cps-card-table cps-card">
 							<table>

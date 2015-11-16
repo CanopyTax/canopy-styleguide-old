@@ -69,7 +69,8 @@
 			&__form {
 				vertical-align: middle;
 				padding-top: 1.2rem;
-				margin-right: 3.2rem;
+				margin-right: 2.4rem;
+				width: 24rem;
 			}
 
 			> li {
@@ -81,18 +82,22 @@
 
 				> a {
 					text-decoration: none;
-					color: @dark-gray;
+					color: @light-gray;
+					opacity: 0.5;
 					font-size: 1.4rem;
 					position: relative;
 					display: block;
 					margin-right: 32px;
-					&:hover,
+					&:hover {
+						opacity: 1;
+					}
 					&:focus {
 						color: @blue-link;
 					}
 					&.\+active {
-						font-weight: 600;
-						color: @dark-gray;
+						font-weight: 400;
+						color: @light-gray;
+						opacity: 1;
 					}
 				}
 			}
