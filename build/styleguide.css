@@ -1807,9 +1807,18 @@ a.cps-link .cps-icon,
   padding-right: 4px;
   color: inherit;
 }
+button.cps-link {
+  border: none;
+}
+button.cps-link::-moz-focus-inner {
+  border: 0;
+}
 button.cps-btn {
   padding: 0px 24px;
   height: 32px;
+}
+button.cps-btn::-moz-focus-inner {
+  border: 0;
 }
 fieldset {
   padding: 0px;

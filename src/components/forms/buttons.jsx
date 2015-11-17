@@ -38,9 +38,9 @@ module.exports = React.createClass({
 
 <a href class="cps-link"><span class="cps-icon cps-icon-lg-check"></span> ACCEPT</a>
 
-<a href class="cps-link" disabled="disabled">
+<a href class="cps-link" disabled="disabled"><span class="cps-icon cps-icon-lg-check"></span> PRIMARY link</a>
 
-<span class="cps-icon cps-icon-lg-check"></span> PRIMARY link</a>`} } />
+<button class="cps-link">BUTTON</button>`} } />
 
 				<cp-edit-render-code section-title="Icon Buttons" dangerouslySetInnerHTML={ {__html:
 `<div class="cps-btn-icon">
