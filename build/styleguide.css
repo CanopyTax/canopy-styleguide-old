@@ -3477,9 +3477,8 @@ a.cps-slat-lg.\+disabled a.cps-slat-lg__badge__main {
 }
 .cps-card.\+thin .cps-card__header {
   height: 4.0rem;
-  line-height: 4.0rem;
+  padding: 1rem 1.6rem;
   background-color: #FAFAFA;
-  padding-left: 1.6rem;
   border-radius: 2px 2px 0 0;
 }
 .cps-card.\+thin .cps-card__body {
