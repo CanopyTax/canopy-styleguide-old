@@ -2862,6 +2862,7 @@ textarea.cps-form-control.\+no-resize {
   color: #333333;
 }
 .cps-flexible-sidenav__menu__item.\+active {
+  font-weight: 600;
   color: #4caf50;
 }
 .cps-flexible-sidenav__menu__item.\+active i {
@@ -2988,6 +2989,7 @@ textarea.cps-form-control.\+no-resize {
 }
 .cps-secondarynav__menu__item.\+expanded .cps-secondarynav__menu__item__bar {
   background-color: #4caf50;
+  font-weight: 600;
 }
 .cps-secondarynav__menu__item.\+expanded .cps-icon-left-caret {
   -webkit-transform: rotate(-90deg);
