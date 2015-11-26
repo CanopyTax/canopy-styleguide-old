@@ -2864,6 +2864,7 @@ textarea.cps-form-control.\+no-resize {
 .cps-flexible-sidenav__menu__item.\+active {
   font-weight: 600;
   color: #4caf50;
+  border-left: 0.4rem solid #4caf50;
 }
 .cps-flexible-sidenav__menu__item.\+active i {
   color: #4caf50;
