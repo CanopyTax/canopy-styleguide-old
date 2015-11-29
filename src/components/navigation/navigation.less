@@ -339,6 +339,38 @@
 	}
 
 	&__menu {
+		&__tabs {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			height: 4.0rem;
+			align-items: center;
+			border-bottom: .1rem solid @breakline-light;
+		}
+
+		&__tab {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			flex-basis: 50%; //only two tabs allowed at a time right now
+			justify-content: space-around;
+
+			height: 100%;
+
+			text-decoration: none;
+			color: @general;
+			cursor: pointer;
+
+			&:hover {
+				text-decoration: none;
+			}
+
+			&.\+active {
+				font-weight: 600;
+				border-bottom: .2rem solid @primary-green;
+			}
+		}
+
 		&__item {
 			display: block;
 			height: 4.0rem;
