@@ -3007,6 +3007,12 @@ textarea.cps-form-control.\+no-resize {
   top: 1.0rem;
   left: 6.0rem;
 }
+.cps-secondarynav__menu__item__title--depth-1 {
+  left: calc(7.9rem);
+}
+.cps-secondarynav__menu__item__title--depth-2 {
+  left: calc(9.8rem);
+}
 .cps-secondarynav__menu__item:hover {
   background-color: #F7F7F7;
 }
@@ -3024,6 +3030,24 @@ textarea.cps-form-control.\+no-resize {
   left: 1.8rem;
   top: .8rem;
   position: absolute;
+}
+.cps-secondarynav__menu__item__icon--depth-1 {
+  left: calc(3.7rem);
+}
+.cps-secondarynav__menu__item__icon--depth-2 {
+  left: calc(5.6rem);
+}
+.cps-secondarynav__menu__item__bullet--depth-1:before {
+  left: 2.6rem;
+  top: 1rem;
+  position: absolute;
+  content: '\2022';
+}
+.cps-secondarynav__menu__item__bullet--depth-2:before {
+  left: 2.6rem;
+  top: 1rem;
+  position: absolute;
+  content: '\2022 \2022';
 }
 .cps-secondarynav__menu__item.\+anchor-bottom {
   position: absolute;
