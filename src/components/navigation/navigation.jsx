@@ -16,6 +16,14 @@ module.exports = React.createClass({
 			Some Title
 		</div>
 		<div class="cps-secondarynav__menu">
+			<div class="cps-secondarynav__menu__tabs">
+				<a class="cps-secondarynav__menu__tab +active">
+					<span>WORKFLOW</span>
+				</a>
+				<a class="cps-secondarynav__menu__tab">
+					<span>FORMS</span>
+				</a>
+			</div>
 			<a href="#" class="cps-secondarynav__menu__item +expanded">
 				<div class="cps-secondarynav__menu__item__bar"></div>
 				<i class="cps-secondarynav__menu__item__icon cps-icon cps-icon-compass"></i>

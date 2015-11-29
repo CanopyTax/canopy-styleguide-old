@@ -9,7 +9,7 @@
 	<style>
 		@import url('//cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css');
 		@import url('//cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/theme/mdn-like.min.css');
-		@import url('//styleguide.corp.canopytax.com/styleguide.css');
+		@import url('/build/styleguide.css');
 
 		.CodeMirror {
 			height: auto;

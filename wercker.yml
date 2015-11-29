@@ -7,6 +7,7 @@ build:
         name: move files into build
         code: |
           sed -i -e 's/<script src=\"http:\/\/localhost:8080\/webpack-dev-server.js\"><\/script>/ /g' index.html
+          sed -i -e 's/\/build\/styleguide.css/\/\/styleguide.corp.canopytax.com\/styleguide.css/g' vendor/cp-edit-render-code.html
           cp -a vendor build/vendor
           cp index.html build/
           cp canopy-logomark.svg build/
