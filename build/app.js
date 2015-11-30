@@ -23770,7 +23770,6 @@
 	    if (event.defaultPrevented === true) allowTransition = false;
 
 	    // If target prop is set (e.g. to "_blank") let browser handle link.
-	    /* istanbul ignore if: untestable with Karma */
 	    if (this.props.target) {
 	      if (!allowTransition) event.preventDefault();
 
@@ -24149,7 +24148,9 @@
 
 	var _PropTypes = __webpack_require__(232);
 
-	var func = _react2['default'].PropTypes.func;
+	var _React$PropTypes = _react2['default'].PropTypes;
+	var bool = _React$PropTypes.bool;
+	var func = _React$PropTypes.func;
 
 	/**
 	 * An <IndexRoute> is used to specify its parent's <Route indexRoute> in
@@ -24184,9 +24185,9 @@
 	    key: 'propTypes',
 	    value: {
 	      path: _PropTypes.falsy,
+	      ignoreScrollBehavior: bool,
 	      component: _PropTypes.component,
 	      components: _PropTypes.components,
-	      getComponent: func,
 	      getComponents: func
 	    },
 	    enumerable: true
@@ -24229,6 +24230,7 @@
 
 	var _React$PropTypes = _react2['default'].PropTypes;
 	var string = _React$PropTypes.string;
+	var bool = _React$PropTypes.bool;
 	var func = _React$PropTypes.func;
 
 	/**
@@ -24265,9 +24267,9 @@
 	    key: 'propTypes',
 	    value: {
 	      path: string,
+	      ignoreScrollBehavior: bool,
 	      component: _PropTypes.component,
 	      components: _PropTypes.components,
-	      getComponent: func,
 	      getComponents: func
 	    },
 	    enumerable: true

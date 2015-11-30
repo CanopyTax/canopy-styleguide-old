@@ -3047,7 +3047,7 @@ textarea.cps-form-control.\+no-resize {
   left: 2.6rem;
   top: 1rem;
   position: absolute;
-  content: '\2022 \2022';
+  content: '\2022     \2022';
 }
 .cps-secondarynav__menu__item.\+anchor-bottom {
   position: absolute;
@@ -3994,7 +3994,7 @@ strong {
   padding: .8rem 1.6rem;
   clear: both;
   font-weight: normal;
-  line-height: 1.42857143;
+  height: 4rem;
   color: #333333;
   white-space: nowrap;
   text-decoration: none;
