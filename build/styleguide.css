@@ -1570,6 +1570,9 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 .cps-label-square > .cps-center-vertical {
   top: 48%;
 }
+.cps-label-square.\+no-hover-effect {
+  opacity: 1;
+}
 .cps-label-square:hover {
   opacity: 1;
 }

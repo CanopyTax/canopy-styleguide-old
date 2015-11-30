@@ -160,6 +160,11 @@ module.exports = React.createClass({
 			<div class="cps-center-vertical"><i class="cps-icon cps-icon-add-person"></i></div>
 		</div>
 	</li>
+	<li>
+		<div class="cps-bg-gray-6 cps-label-square +no-hover-effect +medium">
+			<div class="cps-center-vertical"><i class="cps-icon cps-icon-client-no-access"></i></div>
+		</div>
+	</li>
 </ul>`} } />
 
 
