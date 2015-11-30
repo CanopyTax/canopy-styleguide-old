@@ -1751,7 +1751,7 @@ button.cps-btn.\+phat {
 }
 .cps-btn-icon a.cps-link,
 .cps-btn-icon .cps-link {
-  padding: 4px;
+  padding: 4px !important;
 }
 .cps-btn-icon .cps-icon {
   padding-right: 0px !important;
