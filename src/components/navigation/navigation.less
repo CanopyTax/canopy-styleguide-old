@@ -294,6 +294,11 @@
 		padding-top: 14.0rem;
 	}
 
+	&.wide-menu {
+		margin-left: 32.2rem;
+		width: ~"calc(100% - 32.2rem)";
+	}
+
 	&.\+banner-top {
 		padding-top: 16.9rem !important;
 	}
@@ -315,6 +320,10 @@
 	z-index: 98;
 	border-right: .1rem solid @breakline-light;
 	overflow: auto;
+
+	&.wide-menu {
+		width: 32.2rem;
+	}
 
 	&.\+tall-top {
 		margin-top: 11.2rem !important;

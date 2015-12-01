@@ -2888,6 +2888,10 @@ textarea.cps-form-control.\+no-resize {
 .cps-nav-content.\+tall-top {
   padding-top: 14.0rem;
 }
+.cps-nav-content.wide-menu {
+  margin-left: 32.2rem;
+  width: calc(100% - 32.2rem);
+}
 .cps-nav-content.\+banner-top {
   padding-top: 16.9rem !important;
 }
@@ -2906,6 +2910,9 @@ textarea.cps-form-control.\+no-resize {
   z-index: 98;
   border-right: 0.1rem solid #E9E9E9;
   overflow: auto;
+}
+.cps-secondarynav.wide-menu {
+  width: 32.2rem;
 }
 .cps-secondarynav.\+tall-top {
   margin-top: 11.2rem !important;
