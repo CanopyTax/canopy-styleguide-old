@@ -54148,8 +54148,8 @@
 
 	module.exports = {
 		"checksum": {
-			"previous": "8640a67eb228f9517943854cde2756f7d8c9340918f454306d8ff965833759a7",
-			"current": "8640a67eb228f9517943854cde2756f7d8c9340918f454306d8ff965833759a7"
+			"previous": "0efe6038856e3e747d24df7066c7efd6efa571f24fdc73e17631c98a46f711d3",
+			"current": "0efe6038856e3e747d24df7066c7efd6efa571f24fdc73e17631c98a46f711d3"
 		},
 		"fonts": [
 			"build/canopy-icons.ttf",
@@ -54158,6 +54158,18 @@
 			"build/canopy-icons.eot"
 		],
 		"glyphs": {
+			"1": {
+				"codepoint": 61797,
+				"source": "icons/1.svg"
+			},
+			"2": {
+				"codepoint": 61798,
+				"source": "icons/2.svg"
+			},
+			"3": {
+				"codepoint": 61799,
+				"source": "icons/3.svg"
+			},
 			"add": {
 				"codepoint": 61696,
 				"source": "icons/add.svg"
@@ -54189,6 +54201,14 @@
 			"billing": {
 				"codepoint": 61702,
 				"source": "icons/billing.svg"
+			},
+			"blocks": {
+				"codepoint": 61795,
+				"source": "icons/blocks.svg"
+			},
+			"boards": {
+				"codepoint": 61785,
+				"source": "icons/boards.svg"
 			},
 			"business": {
 				"codepoint": 61703,
@@ -54238,6 +54258,10 @@
 				"codepoint": 61713,
 				"source": "icons/cog.svg"
 			},
+			"collapse": {
+				"codepoint": 61786,
+				"source": "icons/collapse.svg"
+			},
 			"compass": {
 				"codepoint": 61714,
 				"source": "icons/compass.svg"
@@ -54249,6 +54273,10 @@
 			"credits": {
 				"codepoint": 61715,
 				"source": "icons/credits.svg"
+			},
+			"details": {
+				"codepoint": 61787,
+				"source": "icons/details.svg"
 			},
 			"download": {
 				"codepoint": 61716,
@@ -54298,6 +54326,14 @@
 				"codepoint": 61724,
 				"source": "icons/folder.svg"
 			},
+			"folder-open": {
+				"codepoint": 61788,
+				"source": "icons/folder-open.svg"
+			},
+			"forms": {
+				"codepoint": 61789,
+				"source": "icons/forms.svg"
+			},
 			"grid-view": {
 				"codepoint": 61725,
 				"source": "icons/grid-view.svg"
@@ -54321,6 +54357,10 @@
 			"invoices": {
 				"codepoint": 61730,
 				"source": "icons/invoices.svg"
+			},
+			"irs": {
+				"codepoint": 61790,
+				"source": "icons/irs.svg"
 			},
 			"items": {
 				"codepoint": 61731,
@@ -54414,6 +54454,14 @@
 				"codepoint": 61749,
 				"source": "icons/recent.svg"
 			},
+			"redo": {
+				"codepoint": 61791,
+				"source": "icons/redo.svg"
+			},
+			"refresh": {
+				"codepoint": 61800,
+				"source": "icons/refresh.svg"
+			},
 			"reorder": {
 				"codepoint": 61776,
 				"source": "icons/reorder.svg"
@@ -54433,6 +54481,14 @@
 			"search": {
 				"codepoint": 61753,
 				"source": "icons/search.svg"
+			},
+			"sections": {
+				"codepoint": 61796,
+				"source": "icons/sections.svg"
+			},
+			"segments": {
+				"codepoint": 61801,
+				"source": "icons/segments.svg"
 			},
 			"send": {
 				"codepoint": 61782,
@@ -54462,6 +54518,14 @@
 				"codepoint": 61759,
 				"source": "icons/sm-close.svg"
 			},
+			"sm-neg": {
+				"codepoint": 61802,
+				"source": "icons/sm-neg.svg"
+			},
+			"sm-pending": {
+				"codepoint": 61803,
+				"source": "icons/sm-pending.svg"
+			},
 			"sort": {
 				"codepoint": 61760,
 				"source": "icons/sort.svg"
@@ -54474,6 +54538,10 @@
 				"codepoint": 61775,
 				"source": "icons/status.svg"
 			},
+			"table": {
+				"codepoint": 61792,
+				"source": "icons/table.svg"
+			},
 			"tasks": {
 				"codepoint": 61762,
 				"source": "icons/tasks.svg"
@@ -54481,6 +54549,10 @@
 			"taxes": {
 				"codepoint": 61763,
 				"source": "icons/taxes.svg"
+			},
+			"template": {
+				"codepoint": 61793,
+				"source": "icons/template.svg"
 			},
 			"tile-view": {
 				"codepoint": 61764,
@@ -54493,6 +54565,10 @@
 			"trash": {
 				"codepoint": 61766,
 				"source": "icons/trash.svg"
+			},
+			"undo": {
+				"codepoint": 61794,
+				"source": "icons/undo.svg"
 			},
 			"upload": {
 				"codepoint": 61767,
