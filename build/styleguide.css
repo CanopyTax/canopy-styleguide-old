@@ -2994,6 +2994,8 @@ textarea.cps-form-control.\+no-resize {
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  min-height: 5rem;
+  overflow-y: hidden;
 }
 .cps-secondarynav__menu {
   -webkit-box-flex: 400;
