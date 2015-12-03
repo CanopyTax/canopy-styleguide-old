@@ -9,7 +9,6 @@
 @half-nav-height: 2.8rem;
 @default-padding: 2.4rem;
 @banner-height: 3.2rem;
-@bullet-width: 1.9rem;
 
 .cps-topnav {
 	position: fixed;
@@ -320,9 +319,25 @@
 	z-index: 98;
 	border-right: .1rem solid @breakline-light;
 	overflow: auto;
+	display: flex;
+	flex-direction: column;
 
 	&.wide-menu {
 		width: 32.2rem;
+
+		& .cps-secondarynav__menu__item {
+			min-height: 4.6rem;
+			height: 4.6rem;
+		}
+
+		& .cps-secondarynav__menu__tabs {
+			min-height: 4.6rem;
+			height: 4.6rem;
+		}
+
+		& .cps-secondarynav__menu__tab {
+			min-height: 4.6rem;
+		}
 	}
 
 	&.\+tall-top {
@@ -341,19 +356,34 @@
 	}
 
 	&__title {
-		padding: @default-padding;
+		padding:  @default-padding;
 		border-bottom: .1rem solid @breakline-light;
 		font-size: 1.6rem;
 		font-weight: bold;
 		color: @primary-green;
+		flex-grow: 1;
 	}
 
 	&__menu {
+		flex-grow: 400;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		&__bottom, &__top {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: center;
+		}
+
 		&__tabs {
+			width: 100%;
 			display: flex;
 			flex-direction: row;
 			justify-content: space-around;
 			height: 4.0rem;
+			min-height: 4.0rem;
 			align-items: center;
 			border-bottom: .1rem solid @breakline-light;
 		}
@@ -365,7 +395,8 @@
 			flex-basis: 50%; //only two tabs allowed at a time right now
 			justify-content: space-around;
 
-			height: 100%;
+			min-height: 4.0rem;
+			height: 4.0rem;
 
 			text-decoration: none;
 			color: @general;
@@ -381,8 +412,16 @@
 			}
 		}
 
+		&__anchor__bottom {
+			height: 100%;
+		}
+
 		&__item {
-			display: block;
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			min-height: 4.0rem;
 			height: 4.0rem;
 			border-bottom: .1rem solid @breakline-light;
 			color: @general;
@@ -390,36 +429,8 @@
 			cursor: pointer;
 			position: relative;
 
-			.cps-icon-left-caret {
-				float: right;
-				position: absolute;
-				top: .9rem;
-				right: .8rem;
-				color: @gray8;
-				transition: 250ms linear transform;
-				vertical-align: top;
-			}
-
-			&__bar {
-				display: none; /* we're not showing the bar anymore */
-				float: left;
-				width: 0;
-				height: 100%;
-				background-color: @white;
-			}
-
 			&__title {
-				position: absolute;
-				top: 1.0rem;
-				left: 6.0rem;
-
-				&--depth-1 {
-					left: calc(6.0rem + @bullet-width);
-				}
-
-				&--depth-2 {
-					left: calc(6.0rem + @bullet-width + @bullet-width);
-				}
+				padding-left: 1.4rem; //for a total of 1.6rem since the icon padding is weird
 			}
 
 			&:hover {
@@ -436,37 +447,15 @@
 
 			&__icon {
 				color: @light-gray;
-				left: 1.8rem;
-				top: .8rem;
-				position: absolute;
-
-				&--depth-1 {
-					left: calc(1.8rem + @bullet-width);
-				}
-
-				&--depth-2 {
-					left: calc(1.8rem + @bullet-width + @bullet-width);
-				}
-			}
-
-			&__bullet--depth-1:before {
-				left: 2.6rem;
-				top: 1rem;
-				position: absolute;
-				content: '\2022';
-			}
-
-			&__bullet--depth-2:before {
-				left: 2.6rem;
-				top: 1rem;
-				position: absolute;
-				content: '\2022     \2022';
+				padding-left: 2.4rem;
 			}
 
 			&.\+anchor-bottom {
-				position: absolute;
+				&:before {
+					height: 100%;
+				}
+
 				width: 100%;
-				bottom: 0;
 				border-top: .1rem solid @breakline-light;
 			}
 
@@ -487,14 +476,11 @@
 					background-color: @primary-green;
 					font-weight: 600;
 				}
-
-				.cps-icon-left-caret {
-					transform: rotate(-90deg);
-				}
 			}
 		}
 
 		&__sub {
+			width: 100%;
 			background-color: @gray2;
 			max-height: 0;
 			overflow: hidden;
@@ -522,6 +508,7 @@
 				}
 
 				&:last-child {
+					min-height: 4.0rem;
 					height: 4.0rem;
 				}
 
