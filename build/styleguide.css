@@ -3122,6 +3122,7 @@ textarea.cps-form-control.\+no-resize {
 }
 .cps-secondarynav__menu__item__title {
   padding-left: 1.4rem;
+  padding-right: 1.6rem;
 }
 .cps-secondarynav__menu__item:hover {
   background-color: #F7F7F7;
