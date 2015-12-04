@@ -3121,6 +3121,7 @@ textarea.cps-form-control.\+no-resize {
   position: relative;
 }
 .cps-secondarynav__menu__item__title {
+  width: 100%;
   padding-left: 1.4rem;
   padding-right: 1.6rem;
 }
