@@ -1,6 +1,6 @@
 {
   "name": "canopy-styleguide",
-  "version": "3.4.1",
+  "version": "4.0.5",
   "description": "Style-guide for Canopy",
   "main": "build/styleguide.css",
   "scripts": {
@@ -11,7 +11,8 @@
     "build-index": "cp index.html build/",
     "deploy": "cp build/* ../workflow-ui/node_modules/canopy-styleguide/build/",
     "patch-workflowui": "echo 'Please ensure that your git working directory is clean' && npm version patch -m '%s -- npm run patch-workflowui has incremented the patch version of canopy-styleguide to %s' && npm publish && cd ../workflow-ui && npm install && npm install canopy-styleguide@latest --save --save-exact && npm shrinkwrap && echo 'Please make sure to commit and push any changed built files to source control'",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "test-workflow-ui": "npm run build && cd ../workflow-ui && npm i ../canopy-styleguide && cd ../canopy-styleguide"
   },
   "git-tasker": [
     {
