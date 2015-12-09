@@ -4,11 +4,11 @@
 
 @font-face {
   font-family: "canopy-icons";
-  src: url(8b5da749d1093fd3f18664061c7eb1c9.eot);
-  src: url(8b5da749d1093fd3f18664061c7eb1c9.eot?#iefix) format("embedded-opentype"),
-       url(43781c95a6aea92c93b9c4f4e8fe5ff4.woff) format("woff"),
-       url(4385f56e6dfef439d66bd7460b7ea290.ttf) format("truetype"),
-       url(9b61c405a0d17397fd64b2a816ab6901.svg#canopy-icons) format("svg");
+  src: url(86a9d7d9f98e1dc9daca33dc4dd809fb.eot);
+  src: url(86a9d7d9f98e1dc9daca33dc4dd809fb.eot?#iefix) format("embedded-opentype"),
+       url(4da1a758a145ff6e9cd9cb78e15573c2.woff) format("woff"),
+       url(53024515d4e2347455a5651bf8f57780.ttf) format("truetype"),
+       url(2b377b79979c7d90c40a33154b1106e3.svg#canopy-icons) format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -16,7 +16,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: "canopy-icons";
-    src: url(9b61c405a0d17397fd64b2a816ab6901.svg#canopy-icons) format("svg");
+    src: url(2b377b79979c7d90c40a33154b1106e3.svg#canopy-icons) format("svg");
   }
 }
 
@@ -41,6 +41,7 @@
 .cps-icon-camera:before,
 .cps-icon-cash:before,
 .cps-icon-center-aligned:before,
+.cps-icon-circle:before,
 .cps-icon-client:before,
 .cps-icon-client-access:before,
 .cps-icon-client-no-access:before,
@@ -163,6 +164,7 @@
 .cps-icon-camera:before { content: "\f14c"; }
 .cps-icon-cash:before { content: "\f109"; }
 .cps-icon-center-aligned:before { content: "\f10a"; }
+.cps-icon-circle:before { content: "\f16c"; }
 .cps-icon-client:before { content: "\f10b"; }
 .cps-icon-client-access:before { content: "\f10c"; }
 .cps-icon-client-no-access:before { content: "\f10d"; }
@@ -1292,7 +1294,6 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
           transform: translateY(-50%);
 }
 .cps-show {
@@ -4325,7 +4326,6 @@ strong {
   top: 20%;
   left: 50%;
   -webkit-transform: translate(-260px, 0);
-      -ms-transform: translate(-260px, 0);
           transform: translate(-260px, 0);
   width: 52.0rem;
   box-shadow: 0 25px 55px 0 rgba(0, 0, 0, 0.2), 0 16px 28px 0 rgba(0, 0, 0, 0.24);
