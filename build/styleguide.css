@@ -1302,7 +1302,6 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
           transform: translateY(-50%);
 }
 .cps-show {
@@ -2772,8 +2771,6 @@ textarea.cps-form-control.\+no-resize {
   box-shadow: 0 0.3rem 0.5rem 0 rgba(0, 0, 0, 0.18);
   min-width: 1024px;
   height: 5.6rem;
-  overflow: hidden;
-  max-height: 5.6rem;
 }
 .cps-topnav-secondary.\+banner-top {
   margin-top: 3.2rem;
@@ -4336,7 +4333,6 @@ strong {
   top: 20%;
   left: 50%;
   -webkit-transform: translate(-260px, 0);
-      -ms-transform: translate(-260px, 0);
           transform: translate(-260px, 0);
   width: 52.0rem;
   box-shadow: 0 25px 55px 0 rgba(0, 0, 0, 0.2), 0 16px 28px 0 rgba(0, 0, 0, 0.24);
