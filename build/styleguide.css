@@ -4,11 +4,11 @@
 
 @font-face {
   font-family: "canopy-icons";
-  src: url(86a9d7d9f98e1dc9daca33dc4dd809fb.eot);
-  src: url(86a9d7d9f98e1dc9daca33dc4dd809fb.eot?#iefix) format("embedded-opentype"),
-       url(4da1a758a145ff6e9cd9cb78e15573c2.woff) format("woff"),
-       url(53024515d4e2347455a5651bf8f57780.ttf) format("truetype"),
-       url(2b377b79979c7d90c40a33154b1106e3.svg#canopy-icons) format("svg");
+  src: url(1bba503693b4dc3022a7aa8138547da7.eot);
+  src: url(1bba503693b4dc3022a7aa8138547da7.eot?#iefix) format("embedded-opentype"),
+       url(30889efef8ec7ff6023626264f06c5f5.woff) format("woff"),
+       url(a8542c3a6222bdedc91c9469cfd1b39c.ttf) format("truetype"),
+       url(b2b181ea396471c88a38b90d5f39ff40.svg#canopy-icons) format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -16,7 +16,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: "canopy-icons";
-    src: url(2b377b79979c7d90c40a33154b1106e3.svg#canopy-icons) format("svg");
+    src: url(b2b181ea396471c88a38b90d5f39ff40.svg#canopy-icons) format("svg");
   }
 }
 
@@ -36,6 +36,7 @@
 .cps-icon-billing:before,
 .cps-icon-blocks:before,
 .cps-icon-boards:before,
+.cps-icon-bold:before,
 .cps-icon-business:before,
 .cps-icon-calendar:before,
 .cps-icon-camera:before,
@@ -54,6 +55,7 @@
 .cps-icon-conversation:before,
 .cps-icon-credits:before,
 .cps-icon-details:before,
+.cps-icon-down-caret:before,
 .cps-icon-download:before,
 .cps-icon-drag:before,
 .cps-icon-duplicate:before,
@@ -75,6 +77,7 @@
 .cps-icon-information:before,
 .cps-icon-invoices:before,
 .cps-icon-irs:before,
+.cps-icon-italics:before,
 .cps-icon-items:before,
 .cps-icon-left-aligned:before,
 .cps-icon-left-caret:before,
@@ -127,6 +130,7 @@
 .cps-icon-transfer:before,
 .cps-icon-trash:before,
 .cps-icon-undo:before,
+.cps-icon-up-caret:before,
 .cps-icon-upload:before,
 .cps-icon-valid:before,
 .cps-icon-visible:before,
@@ -159,6 +163,7 @@
 .cps-icon-billing:before { content: "\f106"; }
 .cps-icon-blocks:before { content: "\f163"; }
 .cps-icon-boards:before { content: "\f159"; }
+.cps-icon-bold:before { content: "\f16d"; }
 .cps-icon-business:before { content: "\f107"; }
 .cps-icon-calendar:before { content: "\f108"; }
 .cps-icon-camera:before { content: "\f14c"; }
@@ -177,6 +182,7 @@
 .cps-icon-conversation:before { content: "\f14d"; }
 .cps-icon-credits:before { content: "\f113"; }
 .cps-icon-details:before { content: "\f15b"; }
+.cps-icon-down-caret:before { content: "\f16e"; }
 .cps-icon-download:before { content: "\f114"; }
 .cps-icon-drag:before { content: "\f154"; }
 .cps-icon-duplicate:before { content: "\f115"; }
@@ -198,6 +204,7 @@
 .cps-icon-information:before { content: "\f121"; }
 .cps-icon-invoices:before { content: "\f122"; }
 .cps-icon-irs:before { content: "\f15e"; }
+.cps-icon-italics:before { content: "\f16f"; }
 .cps-icon-items:before { content: "\f123"; }
 .cps-icon-left-aligned:before { content: "\f124"; }
 .cps-icon-left-caret:before { content: "\f125"; }
@@ -250,6 +257,7 @@
 .cps-icon-transfer:before { content: "\f145"; }
 .cps-icon-trash:before { content: "\f146"; }
 .cps-icon-undo:before { content: "\f162"; }
+.cps-icon-up-caret:before { content: "\f170"; }
 .cps-icon-upload:before { content: "\f147"; }
 .cps-icon-valid:before { content: "\f148"; }
 .cps-icon-visible:before { content: "\f149"; }

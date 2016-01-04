@@ -30,7 +30,7 @@ module.exports = React.createClass({
 </div>`} } />
 
 				<cp-edit-render-code section-title="Flat Buttons" dangerouslySetInnerHTML={ {__html:
-`<span class="cps-link cps-primary-green"><strong>PRIMARY link</strong></span
+`<span class="cps-link cps-primary-green"><strong>PRIMARY link</strong></span>
 
 <a href class="cps-link">PRIMARY link</a>
 
