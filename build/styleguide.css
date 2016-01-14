@@ -3326,6 +3326,10 @@ textarea.cps-form-control.\+no-resize {
 .cps-slat.\+disabled .cps-slat__badge__main {
   color: #AFAFAF;
 }
+.cps-slat.\+active {
+  cursor: auto;
+  background-color: rgba(74, 144, 226, 0.1);
+}
 .cps-card .cps-slat-lg,
 .cps-card .cps-slat {
   box-shadow: none;
@@ -3480,6 +3484,11 @@ a.cps-slat-lg.\+disabled a.cps-slat-lg__content__title {
 a.cps-slat-lg.\+disabled .cps-slat-lg__badge__main,
 a.cps-slat-lg.\+disabled a.cps-slat-lg__badge__main {
   color: #AFAFAF;
+}
+.cps-slat-lg.\+active,
+a.cps-slat-lg.\+active {
+  cursor: auto;
+  background-color: rgba(74, 144, 226, 0.1);
 }
 /** tables.less **/
 .cps-inset-table {
