@@ -1302,6 +1302,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
           transform: translateY(-50%);
 }
 .cps-show {
@@ -3156,10 +3157,16 @@ textarea.cps-form-control.\+no-resize {
 .cps-secondarynav__menu__item.\+anchor-bottom:before {
   height: 100%;
 }
+.cps-secondarynav__menu__item.\+active {
+  color: #388E3C;
+}
 .cps-secondarynav__menu__item.\+active .cps-secondarynav__menu__item__bar {
   background-color: #4caf50;
 }
 .cps-secondarynav__menu__item.\+active span {
+  font-weight: 600;
+}
+.cps-secondarynav__menu__item.\+active i {
   color: #388E3C;
 }
 .cps-secondarynav__menu__item.\+expanded {
@@ -4333,6 +4340,7 @@ strong {
   top: 20%;
   left: 50%;
   -webkit-transform: translate(-260px, 0);
+      -ms-transform: translate(-260px, 0);
           transform: translate(-260px, 0);
   width: 52.0rem;
   box-shadow: 0 25px 55px 0 rgba(0, 0, 0, 0.2), 0 16px 28px 0 rgba(0, 0, 0, 0.24);
