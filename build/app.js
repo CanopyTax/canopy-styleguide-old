@@ -24478,7 +24478,39 @@
 					{ className: "cps-card__body" },
 					React.createElement(
 						"div",
-						{ className: "cps-row cps-regular" },
+						{ className: "cps-row cps-wt-light" },
+						React.createElement(
+							"div",
+							{ className: "cps-col-xs-2" },
+							React.createElement(
+								"span",
+								{ className: "cps-pull-right" },
+								"LIGHT"
+							)
+						),
+						React.createElement(
+							"div",
+							{ className: "cps-col-xs-2" },
+							React.createElement(
+								"span",
+								{ className: "cps-pull-right" },
+								".cps-wt-light"
+							)
+						),
+						React.createElement(
+							"div",
+							{ className: "cps-col-xs-8 cps-text-muted-dark" },
+							"An economy based on endless growth is unsustainable"
+						)
+					)
+				),
+				React.createElement("hr", null),
+				React.createElement(
+					"div",
+					{ className: "cps-card__body" },
+					React.createElement(
+						"div",
+						{ className: "cps-row cps-wt-regular" },
 						React.createElement(
 							"div",
 							{ className: "cps-col-xs-2" },
@@ -24494,7 +24526,7 @@
 							React.createElement(
 								"span",
 								{ className: "cps-pull-right" },
-								".cps-regular"
+								".cps-wt-regular"
 							)
 						),
 						React.createElement(
@@ -24508,7 +24540,7 @@
 							React.createElement(
 								"div",
 								null,
-								"Regular is the standard weight throughout the app"
+								"* Regular is the standard weight throughout the app"
 							)
 						)
 					)
@@ -24519,7 +24551,7 @@
 					{ className: "cps-card__body" },
 					React.createElement(
 						"div",
-						{ className: "cps-row cps-semibold " },
+						{ className: "cps-row cps-wt-semibold" },
 						React.createElement(
 							"div",
 							{ className: "cps-col-xs-2" },
@@ -24535,7 +24567,39 @@
 							React.createElement(
 								"span",
 								{ className: "cps-pull-right" },
-								".cps-semibold"
+								".cps-wt-semibold"
+							)
+						),
+						React.createElement(
+							"div",
+							{ className: "cps-col-xs-8 cps-text-muted-dark" },
+							"An economy based on endless growth is unsustainable"
+						)
+					)
+				),
+				React.createElement("hr", null),
+				React.createElement(
+					"div",
+					{ className: "cps-card__body" },
+					React.createElement(
+						"div",
+						{ className: "cps-row cps-wt-bold" },
+						React.createElement(
+							"div",
+							{ className: "cps-col-xs-2" },
+							React.createElement(
+								"span",
+								{ className: "cps-pull-right" },
+								"BOLD"
+							)
+						),
+						React.createElement(
+							"div",
+							{ className: "cps-col-xs-2" },
+							React.createElement(
+								"span",
+								{ className: "cps-pull-right" },
+								".cps-wt-bold"
 							)
 						),
 						React.createElement(
