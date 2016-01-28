@@ -56,7 +56,7 @@
 
 /** Fade in/out ng-if statements **/
 .cps-animate-fade.ng-enter, .cps-animate-fade.ng-leave {
-  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s;
 }
 
 .cps-animate-fade.ng-enter,
@@ -70,17 +70,17 @@
 }
 
 /** Slide in and out ng-if statements 100, 300, 500 versions **/
-.cps-animate-if.ng-enter, .cps-animate-if.ng-leave {
+.cps-animate-if.ng-enter, .cps-animate-if.ng-leave, .cps-animate-if-enter.ng-enter {
   transition: 1s linear all;
   overflow: hidden;
 }
 
-.cps-animate-if.ng-enter {
+.cps-animate-if.ng-enter, .cps-animate-if-enter.ng-enter {
   max-height: 0;
   opacity: 0;
 }
 
-.cps-animate-if.ng-enter.ng-enter-active {
+.cps-animate-if.ng-enter.ng-enter-active, .cps-animate-if-enter.ng-enter.ng-enter-active{
   max-height: 999px;
   opacity:1;
 }
