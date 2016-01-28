@@ -4,11 +4,11 @@
 
 @font-face {
   font-family: "canopy-icons";
-  src: url(1bba503693b4dc3022a7aa8138547da7.eot);
-  src: url(1bba503693b4dc3022a7aa8138547da7.eot?#iefix) format("embedded-opentype"),
-       url(30889efef8ec7ff6023626264f06c5f5.woff) format("woff"),
-       url(a8542c3a6222bdedc91c9469cfd1b39c.ttf) format("truetype"),
-       url(b2b181ea396471c88a38b90d5f39ff40.svg#canopy-icons) format("svg");
+  src: url(45e4fb8e23c71b007215cf8fa79c86f2.eot);
+  src: url(45e4fb8e23c71b007215cf8fa79c86f2.eot?#iefix) format("embedded-opentype"),
+       url(f6b9d03b3f41377ad426f99855077f03.woff) format("woff"),
+       url(b53de0c4cb2effa94b4635e7bc38bb1b.ttf) format("truetype"),
+       url(732223c6c96f3eb564209414f68a1de4.svg#canopy-icons) format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -16,7 +16,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: "canopy-icons";
-    src: url(b2b181ea396471c88a38b90d5f39ff40.svg#canopy-icons) format("svg");
+    src: url(732223c6c96f3eb564209414f68a1de4.svg#canopy-icons) format("svg");
   }
 }
 
@@ -71,6 +71,9 @@
 .cps-icon-folder-open:before,
 .cps-icon-forms:before,
 .cps-icon-grid-view:before,
+.cps-icon-header1:before,
+.cps-icon-header2:before,
+.cps-icon-header3:before,
 .cps-icon-help:before,
 .cps-icon-hidden:before,
 .cps-icon-home:before,
@@ -123,6 +126,7 @@
 .cps-icon-statements:before,
 .cps-icon-status:before,
 .cps-icon-table:before,
+.cps-icon-tag:before,
 .cps-icon-tasks:before,
 .cps-icon-taxes:before,
 .cps-icon-template:before,
@@ -198,6 +202,9 @@
 .cps-icon-folder-open:before { content: "\f15c"; }
 .cps-icon-forms:before { content: "\f15d"; }
 .cps-icon-grid-view:before { content: "\f11d"; }
+.cps-icon-header1:before { content: "\f171"; }
+.cps-icon-header2:before { content: "\f172"; }
+.cps-icon-header3:before { content: "\f173"; }
 .cps-icon-help:before { content: "\f11e"; }
 .cps-icon-hidden:before { content: "\f11f"; }
 .cps-icon-home:before { content: "\f120"; }
@@ -250,6 +257,7 @@
 .cps-icon-statements:before { content: "\f141"; }
 .cps-icon-status:before { content: "\f14f"; }
 .cps-icon-table:before { content: "\f160"; }
+.cps-icon-tag:before { content: "\f174"; }
 .cps-icon-tasks:before { content: "\f142"; }
 .cps-icon-taxes:before { content: "\f143"; }
 .cps-icon-template:before { content: "\f161"; }
