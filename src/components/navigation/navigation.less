@@ -118,7 +118,7 @@
 .cps-topnav-secondary {
 	position: fixed;
 	width: 100%;
-	z-index: 99;
+	z-index: 98;
 	top: @nav-height;
 	color: @dark-gray;
 	box-shadow: 0 .3rem .5rem 0 rgba(0, 0, 0, 0.18);
@@ -316,9 +316,9 @@
 	color: @dark-gray;
 	top: 0;
 	height:~'calc(100% - 5.6rem)';
-	z-index: 98;
+	z-index: 97;
 	border-right: .1rem solid @breakline-light;
-	overflow: auto;
+	overflow: hidden;
 	display: flex;
 	flex-direction: column;
 
@@ -338,6 +338,10 @@
 		& .cps-secondarynav__menu__tab {
 			min-height: 4.6rem;
 		}
+	}
+
+	&:hover {
+		overflow: auto;
 	}
 
 	&.\+tall-top {
