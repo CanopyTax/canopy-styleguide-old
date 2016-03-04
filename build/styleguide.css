@@ -3623,6 +3623,7 @@ a.cps-slat-lg.\+active {
   -webkit-columns: 213px 6;
 }
 .cps-flexible-masonry-card {
+  word-wrap: break-word;
   display: inline-block;
   margin-bottom: .8rem;
   margin-top: .8rem;
@@ -3662,12 +3663,14 @@ a.cps-slat-lg.\+active {
   height: 5rem;
   font-size: 1.6rem;
   margin-bottom: .2rem;
+  word-wrap: break-word;
 }
 .cps-flexible-masonry-card.\+small .cps-flexible-masonry-card__body {
   min-height: 9.2rem;
   max-height: 9.2rem;
   font-size: 1.2rem;
   line-height: 1.6rem;
+  word-wrap: break-word;
 }
 .cps-card {
   background-color: white;
