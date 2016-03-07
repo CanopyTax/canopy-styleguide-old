@@ -1310,6 +1310,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
           transform: translateY(-50%);
 }
 .cps-show {
@@ -4362,9 +4363,15 @@ strong {
   top: 20%;
   left: 50%;
   -webkit-transform: translate(-260px, 0);
+      -ms-transform: translate(-260px, 0);
           transform: translate(-260px, 0);
   width: 52.0rem;
   box-shadow: 0 25px 55px 0 rgba(0, 0, 0, 0.2), 0 16px 28px 0 rgba(0, 0, 0, 0.24);
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .cps-modal__dialog {
+    top: 25%;
+  }
 }
 .cps-modal__dialog__close {
   float: right;
