@@ -6,6 +6,8 @@
 /************Navigation************/
 
 @nav-height: 5.6rem;
+@nav-height-tall: 7.8rem;
+@tabs-height: 4.0rem;
 @half-nav-height: 2.8rem;
 @default-padding: 2.4rem;
 @banner-height: 3.2rem;
@@ -125,6 +127,14 @@
 	min-width: 1024px;
 	height: @nav-height;
 
+	&.\+with-tabs {
+		height: @nav-height + @tabs-height;
+	}
+
+	&.\+tall-with-tabs {
+		height: @nav-height-tall + @tabs-height;
+	}
+
 	&.\+banner-top {
 		margin-top: @banner-height;
 	}
@@ -140,6 +150,14 @@
 			background-color:#4CAF50;
 		}
 
+		&.\+white-background {
+			background-color: @white;
+		}
+
+		&.\+tall {
+			height: @nav-height-tall;
+		}
+
 		&__menu {
 			height: @nav-height;
 			line-height: @nav-height;
@@ -151,6 +169,9 @@
 		&__right-menu {
 			padding-top: 1.3rem;
 			float: right;
+			&.\+tall {
+				padding-top: 2.5rem;
+			}
 		}
 
 		&__menu, &__right-menu {
@@ -202,6 +223,38 @@
 			}
 		}
 	}
+
+	&__tabs {
+		background-color: white;
+		height: @tabs-height;
+		min-height: @tabs-height;
+		text-align: center;
+		border-top: .1rem solid @breakline-light;
+
+		&__tab {
+			color: @light-gray;
+			opacity: 0.5;
+			display: inline-block;
+			padding: 1.0rem 2.0rem;
+			min-height: @tabs-height;
+			height: @tabs-height;
+
+			text-decoration: none;
+			cursor: pointer;
+
+			&:hover, &:focus {
+				opacity: 1;
+				text-decoration: none;
+			}
+
+			&.\+active {
+				opacity: 1;
+				font-weight: 600;
+				border-bottom: .2rem solid @primary-green;
+			}
+		}
+	}
+
 }
 
 // FLEXIBLE SIDE NAV //
@@ -218,6 +271,10 @@
 
 	&.\+tall-top {
 		margin-top: 14.0rem !important;
+	}
+
+	&.\+x-tall-top {
+		margin-top: 20.0rem !important;
 	}
 
 	&.\+banner-top {
@@ -291,6 +348,10 @@
 
 	&.\+tall-top {
 		padding-top: 14.0rem;
+	}
+
+	&.\+x-tall-top {
+		padding-top: 20.0rem;
 	}
 
 	&.wide-menu {
