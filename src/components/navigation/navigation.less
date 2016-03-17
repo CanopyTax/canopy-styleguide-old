@@ -410,6 +410,11 @@
 		height:~'calc(100% - 10.6rem)';
 	}
 
+	&.\+x-tall-top {
+	  	margin-top: 17.4rem !important;
+	  	height:~'calc(100% - 17.4rem)';
+	}
+
 	&.\+banner-top {
 		margin-top: 8.8rem !important;
 		height:~'calc(100% - 8.8rem)';
@@ -418,6 +423,12 @@
 	&.\+tall-top.\+banner-top {
 		margin-top: 13.8rem !important;
 		height:~'calc(100% - 13.8rem)';
+	}
+
+  	&.\+no-background {
+	  	background: none;
+	  	border: none;
+	  	padding: 0 0.2rem;
 	}
 
 	&__title {
@@ -603,5 +614,9 @@
 				margin-bottom: .4rem;
 			}
 		}
+	}
+
+  	.cps-card.cps-fixed-focus {
+	  	max-width: 100%;
 	}
 }
