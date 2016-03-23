@@ -2548,7 +2548,7 @@ label.cps-has-error {
 .cps-form-control-resize:focus {
   border: 1px solid #CFCFCF;
 }
-input[readonly="readonly"].cps-form-control-resize {
+input[readonly].cps-form-control-resize {
   cursor: text;
   border: 1px solid transparent !important;
 }
