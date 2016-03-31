@@ -1674,6 +1674,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   z-index: 0;
 }
 .cps-icon span {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   position: relative;
   top: -5px;
   left: 6px;
