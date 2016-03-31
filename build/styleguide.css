@@ -3051,7 +3051,11 @@ textarea.cps-form-control.\+no-resize {
 }
 .cps-secondarynav.\+tall-top {
   margin-top: 11.2rem !important;
-  height: calc(100% - 10.6rem);
+  height: calc(100% - 11.2rem);
+}
+.cps-secondarynav.\+x-tall-top {
+  margin-top: 17.4rem !important;
+  height: calc(100% - 17.4rem);
 }
 .cps-secondarynav.\+banner-top {
   margin-top: 8.8rem !important;
@@ -3303,7 +3307,7 @@ textarea.cps-form-control.\+no-resize {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 3.4rem 2.4rem;
+  padding: 2.6rem 2.4rem;
 }
 .cps-sidebar.\+x-tall-top {
   margin-top: 17.4rem !important;
