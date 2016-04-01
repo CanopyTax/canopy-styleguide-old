@@ -3097,9 +3097,6 @@ textarea.cps-form-control.\+no-resize {
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  min-height: -webkit-min-content;
-  min-height: -moz-min-content;
-  min-height: min-content;
 }
 .cps-secondarynav__menu__bottom,
 .cps-secondarynav__menu__top {
