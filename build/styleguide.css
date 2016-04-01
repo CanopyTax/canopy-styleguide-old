@@ -3097,6 +3097,7 @@ textarea.cps-form-control.\+no-resize {
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  overflow-y: hidden;
 }
 .cps-secondarynav__menu__bottom,
 .cps-secondarynav__menu__top {
@@ -3117,6 +3118,9 @@ textarea.cps-form-control.\+no-resize {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+}
+.cps-secondarynav__menu__top {
+  overflow-y: auto;
 }
 .cps-secondarynav__menu__tabs {
   width: 100%;

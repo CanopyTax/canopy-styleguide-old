@@ -448,12 +448,17 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+		overflow-y: hidden;
 
 		&__bottom, &__top {
 			display: flex;
 			flex-direction: column;
 			justify-content: flex-start;
 			align-items: center;
+		}
+
+		&__top {
+			overflow-y: auto;
 		}
 
 		&__tabs {
