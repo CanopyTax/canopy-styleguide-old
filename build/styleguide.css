@@ -2930,8 +2930,11 @@ textarea.cps-form-control.\+no-resize {
 .cps-flexible-sidenav.\+x-tall-top {
   margin-top: 20.0rem !important;
 }
-.cps-flexible-sidenav.\+banner-top {
+.cps-flexible-sidenav.\+tall-top.\+banner-top {
   margin-top: 16.9rem !important;
+}
+.cps-flexible-sidenav.\+x-tall-top.\+banner-top {
+  margin-top: 22.9rem !important;
 }
 .cps-flexible-sidenav__button {
   position: relative;
@@ -3000,8 +3003,11 @@ textarea.cps-form-control.\+no-resize {
   margin-left: 32.2rem;
   width: calc(100% - 32.2rem);
 }
-.cps-nav-content.\+banner-top {
+.cps-nav-content.\+tall-top.\+banner-top {
   padding-top: 16.9rem !important;
+}
+.cps-nav-content.\+x-tall-top.\+banner-top {
+  padding-top: 22.9rem !important;
 }
 .cps-nav-content.\+full {
   margin-left: 0;
@@ -3065,6 +3071,10 @@ textarea.cps-form-control.\+no-resize {
 .cps-secondarynav.\+tall-top.\+banner-top {
   margin-top: 13.8rem !important;
   height: calc(100% - 13.8rem);
+}
+.cps-secondarynav.\+x-tall-top.\+banner-top {
+  margin-top: 20.3rem !important;
+  height: calc(100% - 20.3rem);
 }
 .cps-secondarynav__title {
   padding: 2.4rem;
@@ -3314,6 +3324,10 @@ textarea.cps-form-control.\+no-resize {
 .cps-sidebar.\+x-tall-top {
   margin-top: 17.4rem !important;
   height: calc(100% - 17.4rem);
+}
+.cps-sidebar.\+x-tall-top.\+banner-top {
+  margin-top: 20.3rem !important;
+  height: calc(100% - 20.3rem);
 }
 .cps-sidebar .cps-card.cps-fixed-focus {
   max-width: 100%;
