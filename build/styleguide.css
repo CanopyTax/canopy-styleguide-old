@@ -4230,6 +4230,16 @@ strong {
   white-space: nowrap;
   text-decoration: none;
 }
+.cps-dropdown-menu li > a.cps-light-gray {
+  color: #777777;
+  opacity: .5;
+}
+.cps-dropdown-menu li > a.cps-medium-gray {
+  color: #5c5c5c;
+}
+.cps-dropdown-menu li > a:hover {
+  opacity: 1;
+}
 .cps-dropdown-menu__icon {
   font-size: 2.4rem;
   display: inline-block;
