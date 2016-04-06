@@ -150,6 +150,32 @@ module.exports = React.createClass({
 	</table>
 </div>`} } />
 
+				<cp-edit-render-code section-title="Flexbox table" dangerouslySetInnerHTML={ {__html:
+`<div class="cps-card-table cps-card">
+	<div class="cps-flex-table">
+		<div class="cps-flex-table__header">
+			<div class="cps-flex-table__col">Filename</div>
+			<div class="cps-flex-table__col">Type</div>
+			<div class="cps-flex-table__col">Last Modified</div>
+		</div>
+		<div class="cps-flex-table__row">
+			<div class="cps-flex-table__col">some_filename.pdf</div>
+			<div class="cps-flex-table__col">PDF</div>
+			<div class="cps-flex-table__col">Jan 21 <span class="cps-l-gray">Kurt Avarell</span></div>
+		</div>
+		<div class="cps-flex-table__row">
+			<div class="cps-flex-table__col">secondquarter-tracking.doc</div>
+			<div class="cps-flex-table__col">Document</div>
+			<div class="cps-flex-table__col">Jan 19 <span class="cps-l-gray">Kurt Avarell</span></div>
+		</div>
+		<div class="cps-flex-table__row">
+			<div class="cps-flex-table__col">client-list.docx</div>
+			<div class="cps-flex-table__col">Document</div>
+			<div class="cps-flex-table__col">Jan 02 <span class="cps-l-gray">Kurt Avarell</span></div>
+		</div>
+	</div>
+</div>`} } />
+
 			</div>
 		);
 	}

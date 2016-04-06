@@ -132,3 +132,28 @@
 		}
 	}
 }
+
+.cps-flex-table {
+	font-size: 1.2rem;
+}
+
+.cps-flex-table__row {
+	display: flex;
+	min-height: 4.0rem;
+	border-bottom: .1rem solid @breakline-light;
+}
+
+.cps-flex-table__header {
+	color: @gray10;
+	font-weight: bold;
+	.cps-flex-table__row;
+}
+
+.cps-flex-table__row:last-child {
+	border-bottom: 0;
+}
+
+.cps-flex-table__col {
+	flex: 8; // Give some room for scaling down other columns
+	padding: 1.1rem 2.4rem;
+}
