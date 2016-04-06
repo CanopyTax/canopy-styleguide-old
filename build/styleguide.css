@@ -2529,6 +2529,7 @@ label.cps-has-error {
   font-size: 14px;
   color: #AFAFAF;
   height: 23px;
+  line-height: 23px;
   padding-top: 0px;
   padding-right: 8px !important;
 }
