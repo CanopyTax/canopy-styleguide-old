@@ -2555,6 +2555,7 @@ label.cps-has-error {
   box-shadow: none;
   color: inherit;
   padding: 0.2rem !important;
+  height: 2.2rem;
 }
 .cps-form-control-resize.cp-select:hover,
 .cps-form-control-resize.cp-select:focus {
