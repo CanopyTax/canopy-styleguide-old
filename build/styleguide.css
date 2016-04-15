@@ -3321,7 +3321,8 @@ textarea.cps-form-control.\+no-resize {
   position: fixed;
   width: 36.8rem;
   top: 0;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
