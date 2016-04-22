@@ -2797,6 +2797,7 @@ textarea.cps-form-control.\+no-resize {
   box-shadow: 0 0.3rem 0.5rem 0 rgba(0, 0, 0, 0.18);
   min-width: 1024px;
   height: 5.6rem;
+  text-align: left;
 }
 .cps-topnav-secondary.\+with-tabs {
   height: 9.6rem;
@@ -3142,7 +3143,7 @@ textarea.cps-form-control.\+no-resize {
           align-items: center;
 }
 .cps-secondarynav__menu__top {
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 .cps-secondarynav__menu__tabs {
   width: 100%;
