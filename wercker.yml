@@ -7,9 +7,11 @@ build:
         name: npm install
         code: |
           npm install
+    - script:
         name: build
         code: |
           npm run build
+    - script:
         name: move files into build
         code: |
           sed -i -e 's/<script src=\"http:\/\/localhost:8080\/webpack-dev-server.js\"><\/script>/ /g' index.html
