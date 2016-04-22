@@ -4,11 +4,25 @@ box:
 build:
   steps:
     - script:
+      name: npm setup
+      code: |
+        echo '//npm.canopytax.com/:_authToken="xrWFRKpQUST+6no1HCmddV8mVbGVEOGEWB3NQZKMXPc="' > ~/.npmrc
+        npm set registry http://npm.canopytax.com
+    - script:
+        name: npm install
+        code: |
+          npm install
+    - script:
+        name: build
+        code: |
+          npm run build
+    - script:
         name: move files into build
         code: |
           sed -i -e 's/<script src=\"http:\/\/localhost:8080\/webpack-dev-server.js\"><\/script>/ /g' index.html
           sed -i -e 's/build\/styleguide.css/styleguide.css/g' index.html
           sed -i -e 's/\/build\/styleguide.css/\/\/styleguide.corp.canopytax.com\/styleguide.css/g' vendor/cp-edit-render-code.html
+          mkdir -p build/vendor
           cp -a vendor build/vendor
           cp index.html build/
           cp canopy-logomark.svg build/
