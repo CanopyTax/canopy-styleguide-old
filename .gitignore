@@ -31,3 +31,5 @@ nohup.out
 
 # JetBrains config directory
 .idea/
+
+build/
