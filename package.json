@@ -52,11 +52,11 @@
     "react-router": "1.0.3",
     "style-loader": "0.8.3",
     "url-loader": "0.5.6",
-    "webpack": "1.7.2",
-    "webpack-dev-server": "1.12.1"
+    "webpack": "1.13.1",
+    "webpack-dev-server": "1.14.1"
   },
   "dependencies": {
-    "canopy-iconography": "1.7.10",
+    "canopy-iconography": "1.7.12",
     "history": "1.17.0"
   },
   "publishConfig": {
