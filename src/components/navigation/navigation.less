@@ -379,7 +379,7 @@
 	}
 
   	&.with-sidebar {
-	  	margin-left: @sidebar-width;
+	  	margin-left: ~"calc(@{sidebar-width} + 0.1rem)";
 	  	width: ~"calc(100% - @{sidebar-width})";
 	  	padding-left: 0;
 	}
@@ -642,6 +642,8 @@
 	position: fixed;
 	width: @sidebar-width;
 	top: 0;
+	z-index: 1;
+	background-color: #F4F5F8;
 	overflow-y: auto;
   overflow-x: hidden;
   display: flex;
