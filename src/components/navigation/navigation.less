@@ -270,21 +270,26 @@
 	background-color: #f4f5f8;
 	color: @dark-gray;
 	z-index: 90;
+	overflow-y: auto;
 
 	&.\+tall-top {
 		margin-top: 14.0rem !important;
+		height: ~"calc(100% - 14.0rem)";
 	}
 
 	&.\+x-tall-top {
 		margin-top: 20.0rem !important;
+		height: ~"calc(100% - 20.0rem)";
 	}
 
 	&.\+tall-top.\+banner-top {
 		margin-top: 16.9rem !important;
+		height: ~"calc(100% - 16.9rem)";
 	}
 
 	&.\+x-tall-top.\+banner-top {
 	  margin-top: 22.9rem !important;
+		height: ~"calc(100% - 22.9rem)";
 	}
 
 	&__button {
