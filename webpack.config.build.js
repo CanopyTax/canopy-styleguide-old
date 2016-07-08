@@ -40,19 +40,19 @@ module.exports = {
 			},
 			{
 				test: /\.woff$/,
-				loader: "file"
+				loader: "file?name=fonts/[name].[ext]"
 			},
 			{
 				test: /\.ttf$/,
-				loader: "file"
+				loader: "file?name=fonts/[name].[ext]"
 			},
 			{
 				test: /\.eot$/,
-				loader: "file"
+				loader: "file?name=fonts/[name].[ext]"
 			},
 			{
 				test: /\.svg$/,
-				loader: "file"
+				loader: "file?name=fonts/[name].[ext]"
 			}
 		]
 	},
