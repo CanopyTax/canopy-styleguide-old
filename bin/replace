@@ -9,8 +9,8 @@ var host = process.argv[3];
 console.log('fixing', version, host);
 
 var output = replace({
-  regex: "url\(([^\(]+)\)",
-  replacement: "https://" + host + '/sofe/canopy-styleguide/' + version + '/$1',
+  regex: /url\(([^\(]+)\)/g,
+  replacement: "url(https://" + host + '/sofe/canopy-styleguide/' + version + '/$1)',
   paths: [
 		'build/' + version + '/styleguide-global.js',
 		'build/' + version + '/styleguide-local.js',
