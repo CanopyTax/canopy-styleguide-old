@@ -37,7 +37,7 @@ deploy:
     steps:
         - script:
             name: fix urls
-            code: npm install replace && ./bin/replace "$(cat build/version.txt)" $AWS_BUCKET
+            code: npm install replace && ./bin/replace "$(cat build/version.txt)" $AWS_BUCKET && rm build/version.txt
         - canopytax/deploy-sofe-service:
             sofe_service_name: 'canopy-styleguide.css'
             upload_dir: build

@@ -18,5 +18,3 @@ var output = replace({
   recursive: true,
   silent: false,
 });
-
-console.log(output);
