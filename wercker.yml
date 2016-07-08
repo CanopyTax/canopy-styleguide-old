@@ -33,7 +33,7 @@ deploy:
         - canopytax/deploy-sofe-service:
             sofe_service_name: 'canopy-styleguide.css'
             upload_dir: build
-            main_file: 'build/styleguide-global.js' # example toast-service.js
+            main_file: 'styleguide-global.js' # example toast-service.js
             s3_access_key: $AWS_ACCESS_KEY
             s3_secret_key: $AWS_SECRET
             s3_location: $AWS_BUCKET/sofe/canopy-styleguide
