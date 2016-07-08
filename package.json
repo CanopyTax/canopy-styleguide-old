@@ -13,7 +13,8 @@
     "patch-workflowui": "echo 'Please ensure that your git working directory is clean' && rm -rf node_modules && npm install && npm version patch -m '%s -- npm run patch-workflowui has incremented the patch version of canopy-styleguide to %s' && npm publish && cd ../workflow-ui && npm prune && npm install && npm install canopy-styleguide@latest --save --save-exact && npm shrinkwrap && echo 'Please make sure to commit and push any changed built files to source control'",
     "start": "webpack-dev-server",
     "test-workflow-ui": "npm run build && cd ../workflow-ui && npm i ../canopy-styleguide && cd ../canopy-styleguide",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+		"sofe": "./bin/build"
   },
   "git-tasker": [
     {
@@ -50,6 +51,7 @@
     "react-dom": "^0.14.0",
     "react-highlight": "^0.5.0",
     "react-router": "1.0.3",
+    "sofe-css-builder": "^1.0.2",
     "style-loader": "0.8.3",
     "url-loader": "0.5.6",
     "webpack": "1.13.1",

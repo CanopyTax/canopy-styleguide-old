@@ -1,54 +1,43 @@
 box:
-  id: canopytax/static-core
-  tag: latest
+    id: canopytax/static-core
+    tag: latest
 build:
-  steps:
-    - script:
-      name: npm setup
-      code: |
-        echo '//npm.canopytax.com/:_authToken="xrWFRKpQUST+6no1HCmddV8mVbGVEOGEWB3NQZKMXPc="' > ~/.npmrc
-        npm set registry http://npm.canopytax.com
-    - script:
-        name: npm install
-        code: |
-          npm install
-    - script:
-        name: build
-        code: |
-          npm run build
-    - script:
-        name: move files into build
-        code: |
-          sed -i -e 's/<script src=\"http:\/\/localhost:8080\/webpack-dev-server.js\"><\/script>/ /g' index.html
-          sed -i -e 's/build\/styleguide.css/styleguide.css/g' index.html
-          sed -i -e 's/\/build\/styleguide.css/\/\/styleguide.corp.canopytax.com\/styleguide.css/g' vendor/cp-edit-render-code.html
-          cp -a vendor build/
-          cp index.html build/
-          cp canopy-logomark.svg build/
-          cp canopy-logotype.svg build/
-          cp -a design build/design
-    - create-file:
-        name: add robots.txt
-        filename: build/robots.txt
-        content: |
-          # Go away!
-          User-agent: *
-          Disallow: /
-    - script:
-        name: gzip files
-        code: |
-          find build -type f -exec gzip "{}" \; -exec mv "{}.gz" "{}" \;
-    - script:
-        name: deploy files to s3
-        code: |
-          mkdir -p ~/.aws/
-          echo -e "[default]\nregion=us-west-2\naws_access_key_id = $AWS_ACCESS_KEY\naws_secret_access_key = $AWS_SECRET\n" > ~/.aws/config
-          aws s3 sync build s3://styleguide.corp.canopytax.com --exclude=* --include=design/* --cache-control "public, max-age=5184000" --content-encoding gzip
-          aws s3 sync build s3://styleguide.corp.canopytax.com --exclude=design/* --content-encoding gzip --delete
-          
-  after-steps:
-    - slack-notifier:
-        url: $SLACK_URL
-        channel: dev-camp
-        username: canopybot
-        notify_on: "failed"
+    steps:
+        - script:
+            name: npm setup
+            code: |
+                echo '//npm.canopytax.com/:_authToken="xrWFRKpQUST+6no1HCmddV8mVbGVEOGEWB3NQZKMXPc="' > ~/.npmrc
+                npm set registry http://npm.canopytax.com
+        - script:
+            name: npm install
+            code: |
+                npm install
+        - script:
+            name: create sofe bundle
+            code: |
+                npm run sofe
+        - script:
+            name: copy output to wercker
+            code: |
+                git describe
+                mkdir -p "$WERCKER_OUTPUT_DIR/build/$(git describe)/"
+                cp --recursive build/* "$WERCKER_OUTPUT_DIR/build/$(git describe)/"
+    after-steps:
+        - slack-notifier:
+            url: $SLACK_URL
+            channel: dev-camp
+            username: canopybot
+            notify_on: "failed"
+deploy:
+    steps:
+        - canopytax/deploy-sofe-service:
+            sofe_service_name: 'canopy-styleguide.css'
+            upload_dir: build
+            main_file: 'styleguide-global.js' # example toast-service.js
+            s3_access_key: $AWS_ACCESS_KEY
+            s3_secret_key: $AWS_SECRET
+            s3_location: $AWS_BUCKET/sofe/canopy-styleguide
+            deplanifester_url: 'https://deplanifester.canopy.ninja'
+            deplanifester_env: $DEPLANIFESTER_ENV
+            deplanifester_username: $DEPLANIFESTER_USERNAME
+            deplanifester_password: $DEPLANIFESTER_PASSWORD

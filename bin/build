@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+# Webpack build the css
+echo "Building css"
+node node_modules/webpack/bin/webpack.js --config webpack.config.build.js
+
+# Build CSS Modules with global defaults
+echo "Building css-modules global"
+node node_modules/sofe-css-builder/lib/cli.js -g -s=canopy-styleguide.css build/styleguide.css build/styleguide-global.js
+
+# Cleanup
+rm build/variables.js
+rm build/styleguide.js
+
+# Build CSS Modules with local defaults
+echo "Building css-modules local"
+node node_modules/sofe-css-builder/lib/cli.js -s=canopy-styleguide.css build/styleguide.css build/styleguide-local.js
