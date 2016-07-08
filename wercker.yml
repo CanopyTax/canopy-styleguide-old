@@ -22,6 +22,11 @@ build:
                 git describe
                 mkdir -p "$WERCKER_OUTPUT_DIR/build/$(git describe)/"
                 cp --recursive build/* "$WERCKER_OUTPUT_DIR/build/$(git describe)/"
+                mkdir -p "$WERCKER_OUTPUT_DIR/bin"
+                cp --recursive bin/* "$WERCKER_OUTPUT_DIR/bin/"
+                mkdir -p "$WERCKER_OUTPUT_DIR/node_modules"
+                cp --recursive node_modules/replace "$WERCKER_OUTPUT_DIR/node_modules/"
+                git describe > "$WERCKER_OUTPUT_DIR/build/version.txt"
     after-steps:
         - slack-notifier:
             url: $SLACK_URL
@@ -30,6 +35,9 @@ build:
             notify_on: "failed"
 deploy:
     steps:
+        - script:
+            name: fix urls
+            code: npm install replace && ./bin/replace "$(cat build/version.txt)" $AWS_BUCKET
         - canopytax/deploy-sofe-service:
             sofe_service_name: 'canopy-styleguide.css'
             upload_dir: build
