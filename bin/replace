@@ -5,6 +5,7 @@ var replace = require('replace');
 var version = process.argv[2];
 var host = process.argv[3];
 
+// fixed
 console.log('fixing', version, host);
 
 var output = replace({
