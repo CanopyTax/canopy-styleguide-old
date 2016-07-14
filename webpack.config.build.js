@@ -5,7 +5,7 @@ module.exports = {
 	entry: {
 		styleguide: "./src/components.less",
 		variables: "./src/external-variables.less",
-		// app: "./src/app.jsx"
+		app: "./src/app.jsx"
 	},
 	output: {
 		path: './build',
