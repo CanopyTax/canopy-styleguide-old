@@ -1,19 +1,22 @@
 #!/usr/bin/env node
 
+/**
+ * Change the urls within the CSS to be absolute urls. Necessary because
+ * relative paths are loaded from the context of index.html file, not the
+ * location of the CSS.
+ */
+
 var replace = require('replace');
 
 var version = process.argv[2];
 var host = process.argv[3];
 
-// fixed
-console.log('fixing', version, host);
-
 var output = replace({
   regex: /url\(([^\(]+)\)/g,
   replacement: "url(https://" + host + '/sofe/canopy-styleguide/' + version + '/$1)',
   paths: [
-		'build/' + version + '/styleguide-global.js',
-		'build/' + version + '/styleguide-local.js',
+		'sofe/' + version + '/styleguide-global.js',
+		'sofe/' + version + '/styleguide-local.js',
 	],
   recursive: true,
   silent: false,
