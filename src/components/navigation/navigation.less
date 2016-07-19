@@ -5,117 +5,14 @@
 
 /************Navigation************/
 
-@nav-height: 5.6rem;
+@nav-height: 4.8rem;
 @nav-height-tall: 7.8rem;
+@secondary-nav-height: 5.6rem;
 @tabs-height: 4.0rem;
 @half-nav-height: 2.8rem;
 @default-padding: 2.4rem;
 @banner-height: 3.2rem;
 @sidebar-width: 36.8rem;
-
-.cps-topnav {
-	position: fixed;
-	display: table;
-	width: 100%;
-	z-index: 99;
-	top: 0;
-	color: @dark-gray;
-	min-width: 1024px;
-
-	&.\+banner-top {
-		top:@banner-height;
-		height: @nav-height;
-		line-height: @nav-height;
-		vertical-align: middle;
-	}
-
-	&.\+add-box-shadow {
-		.depth-z2;
-	}
-
-	&__bar {
-		height: 0;
-		background-color: @primary-green;
-	}
-
-	// PRIMARY GLOBAL NAV //
-	&__content {
-		display: table-row;
-		background-color: @white;
-		height: @nav-height;
-		line-height: @nav-height;
-		vertical-align: middle;
-		padding-left: @default-padding;
-		padding-right: @default-padding;
-
-		&__brand {
-			display: table-cell;
-			cursor: pointer;
-			float: left;
-			width: 138px;
-			padding-left: @default-padding;
-			margin-right: 32px;
-			> img {
-				height: @half-nav-height;
-				line-height: @half-nav-height;
-				vertical-align: middle;
-			}
-		}
-
-		&__menu {
-			display: table-cell;
-			vertical-align: middle;
-			list-style: none;
-			float: left;
-			.clearfix;
-
-			&__form {
-				vertical-align: middle;
-				padding-top: 1.2rem;
-				margin-right: 2.4rem;
-				width: 24rem;
-			}
-
-			> li {
-				position: relative;
-				display: block;
-				float: left;
-				display: table-cell;
-				vertical-align: middle;
-
-				> a {
-					text-decoration: none;
-					color: @light-gray;
-					opacity: 0.5;
-					font-size: 1.4rem;
-					position: relative;
-					display: block;
-					margin-right: 32px;
-					&:hover {
-						opacity: 1;
-					}
-					&:focus {
-						color: @blue-link;
-					}
-					&.\+active {
-						font-weight: 400;
-						color: @light-gray;
-						opacity: 1;
-					}
-				}
-			}
-		}
-
-		&__icon, &__title {
-			font-size: 1.6rem;
-			display: inline-block;
-		}
-	}
-
-	.cps-dropdown {
-		padding-top: 5px;
-	}
-}
 
 // SECONDARY GLOBAL NAV //
 .cps-topnav-secondary {
@@ -126,15 +23,15 @@
 	color: @dark-gray;
 	box-shadow: 0 .3rem .5rem 0 rgba(0, 0, 0, 0.18);
 	min-width: 1024px;
-	height: @nav-height;
+	height: @secondary-nav-height;
 	text-align: left;
 
 	&.\+with-tabs {
-		height: @nav-height + @tabs-height;
+		height: @secondary-nav-height + @tabs-height;
 	}
 
 	&.\+tall-with-tabs {
-		height: @nav-height-tall + @tabs-height;
+		height: @secondary-nav-height-tall + @tabs-height;
 	}
 
 	&.\+banner-top {
@@ -143,13 +40,13 @@
 
 	&__content {
 		border-top: .1rem solid @gray6;
-		background-color: @gray3;
+		background-color: @white;
 		padding-left: @default-padding;
 		padding-right: @default-padding;
-		height: @nav-height;
+		height: @secondary-nav-height;
 
 		&.\+green-banner {
-			background-color:#00BF4B;
+			background-color: #00BF4B;
 		}
 
 		&.\+white-background {
@@ -161,8 +58,8 @@
 		}
 
 		&__menu {
-			height: @nav-height;
-			line-height: @nav-height;
+			height: @secondary-nav-height;
+			line-height: @secondary-nav-height;
 			vertical-align: middle;
 			padding-left: 0;
 			float: left;
@@ -191,7 +88,7 @@
 				font-weight: 600;
 
 				&.\+settings-nav {
-					color: white;
+					color: @dark-gray;
 					font-size: 18px;
 				}
 
