@@ -5,151 +5,43 @@
 
 /************Navigation************/
 
-@nav-height: 5.6rem;
-@nav-height-tall: 7.8rem;
-@tabs-height: 4.0rem;
-@half-nav-height: 2.8rem;
 @default-padding: 2.4rem;
-@banner-height: 3.2rem;
+@nav-content-padding: @default-padding;
 @sidebar-width: 36.8rem;
 
-.cps-topnav {
-	position: fixed;
-	display: table;
-	width: 100%;
-	z-index: 99;
-	top: 0;
-	color: @dark-gray;
-	min-width: 1024px;
-
-	&.\+banner-top {
-		top:@banner-height;
-		height: @nav-height;
-		line-height: @nav-height;
-		vertical-align: middle;
-	}
-
-	&.\+add-box-shadow {
-		.depth-z2;
-	}
-
-	&__bar {
-		height: 0;
-		background-color: @primary-green;
-	}
-
-	// PRIMARY GLOBAL NAV //
-	&__content {
-		display: table-row;
-		background-color: @white;
-		height: @nav-height;
-		line-height: @nav-height;
-		vertical-align: middle;
-		padding-left: @default-padding;
-		padding-right: @default-padding;
-
-		&__brand {
-			display: table-cell;
-			cursor: pointer;
-			float: left;
-			width: 138px;
-			padding-left: @default-padding;
-			margin-right: 32px;
-			> img {
-				height: @half-nav-height;
-				line-height: @half-nav-height;
-				vertical-align: middle;
-			}
-		}
-
-		&__menu {
-			display: table-cell;
-			vertical-align: middle;
-			list-style: none;
-			float: left;
-			.clearfix;
-
-			&__form {
-				vertical-align: middle;
-				padding-top: 1.2rem;
-				margin-right: 2.4rem;
-				width: 24rem;
-			}
-
-			> li {
-				position: relative;
-				display: block;
-				float: left;
-				display: table-cell;
-				vertical-align: middle;
-
-				> a {
-					text-decoration: none;
-					color: @light-gray;
-					opacity: 0.5;
-					font-size: 1.4rem;
-					position: relative;
-					display: block;
-					margin-right: 32px;
-					&:hover {
-						opacity: 1;
-					}
-					&:focus {
-						color: @blue-link;
-					}
-					&.\+active {
-						font-weight: 400;
-						color: @light-gray;
-						opacity: 1;
-					}
-				}
-			}
-		}
-
-		&__icon, &__title {
-			font-size: 1.6rem;
-			display: inline-block;
-		}
-	}
-
-	.cps-dropdown {
-		padding-top: 5px;
-	}
-}
+/* Heights */
+@secondary-nav-height: 5.6rem;
+@secondary-nav-tall-addition: 2.2rem;
+@secondary-nav-tabs-height: 4.0rem;
 
 // SECONDARY GLOBAL NAV //
 .cps-topnav-secondary {
 	position: fixed;
 	width: 100%;
-	z-index: 98;
-	top: @nav-height;
+	z-index: 100;
 	color: @dark-gray;
 	box-shadow: 0 .3rem .5rem 0 rgba(0, 0, 0, 0.18);
 	min-width: 1024px;
-	height: @nav-height;
+	height: @secondary-nav-height;
 	text-align: left;
 
 	&.\+with-tabs {
-		height: @nav-height + @tabs-height;
+		height: @secondary-nav-height + @secondary-nav-tabs-height;
 	}
 
 	&.\+tall-with-tabs {
-		height: @nav-height-tall + @tabs-height;
-	}
-
-	&.\+banner-top {
-		margin-top: @banner-height;
+		height: @secondary-nav-height + @secondary-nav-tall-addition + @secondary-nav-tabs-height;
 	}
 
 	&__content {
 		border-top: .1rem solid @gray6;
-		background-color: @gray3;
+		background-color: @white;
 		padding-left: @default-padding;
 		padding-right: @default-padding;
-		height: @nav-height;
+		height: @secondary-nav-height;
 
 		&.\+green-banner {
-			background-color:#00BF4B;
+			background-color: #00BF4B;
 		}
 
 		&.\+white-background {
@@ -157,12 +49,12 @@
 		}
 
 		&.\+tall {
-			height: @nav-height-tall;
+			height: @secondary-nav-height + @secondary-nav-tall-addition;
 		}
 
 		&__menu {
-			height: @nav-height;
-			line-height: @nav-height;
+			height: @secondary-nav-height;
+			line-height: @secondary-nav-height;
 			vertical-align: middle;
 			padding-left: 0;
 			float: left;
@@ -191,7 +83,7 @@
 				font-weight: 600;
 
 				&.\+settings-nav {
-					color: white;
+					color: @dark-gray;
 					font-size: 18px;
 				}
 
@@ -228,8 +120,8 @@
 
 	&__tabs {
 		background-color: white;
-		height: @tabs-height;
-		min-height: @tabs-height;
+		height: @secondary-nav-tabs-height;
+		min-height: @secondary-nav-tabs-height;
 		text-align: center;
 		border-top: .1rem solid @breakline-light;
 
@@ -238,8 +130,8 @@
 			opacity: 0.5;
 			display: inline-block;
 			padding: 1.0rem 2.0rem;
-			min-height: @tabs-height;
-			height: @tabs-height;
+			min-height: @secondary-nav-tabs-height;
+			height: @secondary-nav-tabs-height;
 
 			text-decoration: none;
 			cursor: pointer;
@@ -262,35 +154,15 @@
 // FLEXIBLE SIDE NAV //
 
 .cps-flexible-sidenav {
-	margin-top: 8.8rem;
 	position: fixed;
-	top: 0;
 	left: 0;
 	width: 24.0rem;
 	background-color: #f4f5f8;
 	color: @dark-gray;
 	z-index: 90;
 	overflow-y: auto;
-
-	&.\+tall-top {
-		margin-top: 14.0rem !important;
-		height: ~"calc(100% - 14.0rem)";
-	}
-
-	&.\+x-tall-top {
-		margin-top: 20.0rem !important;
-		height: ~"calc(100% - 20.0rem)";
-	}
-
-	&.\+tall-top.\+banner-top {
-		margin-top: 16.9rem !important;
-		height: ~"calc(100% - 16.9rem)";
-	}
-
-	&.\+x-tall-top.\+banner-top {
-	  margin-top: 22.9rem !important;
-		height: ~"calc(100% - 22.9rem)";
-	}
+	margin-top: @nav-content-padding;
+	height: 100%;
 
 	&__button {
 		position: relative;
@@ -355,27 +227,11 @@
 .cps-nav-content {
 	margin-left: 24.0rem;
 	width: ~"calc(100% - 24.0rem)";
-	padding: 10.0rem @default-padding;
-
-	&.\+tall-top {
-		padding-top: 14.0rem;
-	}
-
-	&.\+x-tall-top {
-		padding-top: 20.0rem;
-	}
+	padding: @default-padding;
 
 	&.wide-menu {
 		margin-left: 32.2rem;
 		width: ~"calc(100% - 32.2rem)";
-	}
-
-	&.\+tall-top.\+banner-top {
-	  	padding-top: 16.9rem !important;
-	}
-
-	&.\+x-tall-top.\+banner-top {
-	  	padding-top: 22.9rem !important;
 	}
 
 	&.\+full {
@@ -391,13 +247,11 @@
 }
 
 .cps-secondarynav {
-	margin-top: @nav-height;
 	position: fixed;
 	width: 24.0rem;
 	background-color: @white;
 	color: @dark-gray;
-	top: 0;
-	height:~'calc(100% - 5.6rem)';
+	height: 100%;
 	z-index: 97;
 	border-right: .1rem solid @breakline-light;
 	overflow: hidden;
@@ -425,31 +279,6 @@
 	&:hover {
 		overflow: auto;
 	}
-
-	&.\+tall-top {
-		margin-top: 11.2rem !important;
-		height:~'calc(100% - 11.2rem)';
-	}
-
-	&.\+x-tall-top {
-		margin-top: 17.4rem !important;
-		height:~'calc(100% - 17.4rem)';
-	}
-
-	&.\+banner-top {
-		margin-top: 8.8rem !important;
-		height:~'calc(100% - 8.8rem)';
-	}
-
-	&.\+tall-top.\+banner-top {
-		margin-top: 13.8rem !important;
-		height:~'calc(100% - 13.8rem)';
-	}
-
-  	&.\+x-tall-top.\+banner-top {
-		margin-top: 20.3rem !important;
-	  	height:~'calc(100% - 20.3rem)';
-  	}
 
 	&__title {
 		padding:  @default-padding;
@@ -643,29 +472,18 @@
 }
 
 .cps-sidebar {
-	margin-top: @nav-height;
 	position: fixed;
 	width: @sidebar-width;
-	top: 0;
 	z-index: 1;
 	background-color: #F4F5F8;
 	overflow-y: auto;
-  overflow-x: hidden;
-  display: flex;
+	overflow-x: hidden;
+	display: flex;
 	flex-direction: column;
-	padding: 2.6rem 2.4rem;
-
-	&.\+x-tall-top {
-		margin-top: 17.4rem !important;
-		height:~'calc(100% - 17.4rem)';
-	}
-
-	&.\+x-tall-top.\+banner-top {
-	  	margin-top: 20.3rem !important;
-	  	height:~'calc(100% - 20.3rem)';
-	}
+	height: 100%;
+	padding: @nav-content-padding;
 
 	.cps-card.cps-fixed-focus {
-	  	max-width: 100%;
+		max-width: 100%;
 	}
 }
