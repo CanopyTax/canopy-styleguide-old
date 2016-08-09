@@ -78,6 +78,7 @@
 	padding: 1.6rem 2.4rem 1.6rem 2.4rem;
 	border-bottom: .1rem solid @breakline-light;
 	font-weight: 400;
+	border-radius: 5px 5px 0px 0px; /* Without this, setting the background-color of this element will cause it to not respect cps-card's border-radius */
 
 	&.\+no-border {
 		border-bottom: 0;
@@ -116,6 +117,7 @@
 .cps-card__footer {
 	padding: 16px 24px 16px 24px;
 	border-top: 1px solid @breakline-light;
+	border-radius: 0px 0px 5px 5px; /* Without this, setting the background-color of this element will cause it to not respect cps-card's border-radius */
 }
 
 .cps-card__inset-body {
