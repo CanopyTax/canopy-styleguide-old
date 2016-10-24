@@ -5,7 +5,7 @@
 
 .cps-card {
 	background-color: @white;
-	border-radius: .2rem;
+	border-radius: .5rem;
 	color: @dark-gray;
 	.depth-z1();
 
@@ -21,7 +21,7 @@
 			height: 4.0rem;
 			padding: 1rem 1.6rem;
 			background-color: @gray2;
-			border-radius: 2px 2px 0 0;
+			border-radius: 5px 5px 0 0;
 		}
 
 		.cps-card__body {
@@ -78,6 +78,7 @@
 	padding: 1.6rem 2.4rem 1.6rem 2.4rem;
 	border-bottom: .1rem solid @breakline-light;
 	font-weight: 400;
+	border-radius: 5px 5px 0px 0px; /* Without this, setting the background-color of this element will cause it to not respect cps-card's border-radius */
 
 	&.\+no-border {
 		border-bottom: 0;
@@ -99,7 +100,7 @@
 		padding: .4rem .8rem;
 		&:hover {
 			border: .1rem solid #E9E9E9;
-			border-radius: .2rem;
+			border-radius: .5rem;
 		}
 	}
 }
@@ -116,6 +117,7 @@
 .cps-card__footer {
 	padding: 16px 24px 16px 24px;
 	border-top: 1px solid @breakline-light;
+	border-radius: 0px 0px 5px 5px; /* Without this, setting the background-color of this element will cause it to not respect cps-card's border-radius */
 }
 
 .cps-card__inset-body {
@@ -128,6 +130,6 @@
 	background-color: @white;
 	max-width: 800px;
 	margin: 88px auto 0 auto;
-	border-radius: 3px;
+	border-radius: 5px;
 	box-shadow: 0px 2px 5px 0px rgba(153,153,153,.3);
 }
