@@ -1,6 +1,6 @@
 {
   "name": "canopy-styleguide",
-  "version": "4.3.5",
+  "version": "5.1.12",
   "description": "Style-guide for Canopy",
   "main": "build/styleguide.css",
   "scripts": {
@@ -59,7 +59,7 @@
     "webpack-dev-server": "1.14.1"
   },
   "dependencies": {
-    "canopy-iconography": "1.8.0",
+    "canopy-iconography": "1.8.7",
     "history": "1.17.0"
   },
   "publishConfig": {
