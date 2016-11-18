@@ -1,4 +1,4 @@
-let ExtractTextPlugin = require("extract-text-webpack-plugin");
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
 	// The standard entry point and output config

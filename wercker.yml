@@ -58,7 +58,7 @@ build:
     after-steps:
         - slack-notifier:
             url: $SLACK_URL
-            channel: dev-camp
+            channel: dev-noise
             username: canopybot
             notify_on: "failed"
 deploy:
