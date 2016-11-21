@@ -1,9 +1,10 @@
+var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
 	// The standard entry point and output config
 	entry: {
-		styleguide: "./src/styleguide.js",
+		'canopy-styleguide': "./src/styleguide.js",
 		variables: "./src/external-variables.less",
 		app: "./src/app.jsx"
 	},
@@ -42,6 +43,7 @@ module.exports = {
 			},
 			{
 				test: /\.woff$/,
+				// loader: "file?name=fonts/[name].[ext]",
 				loader: "url?limit=6500000&mimetype=application/font-woff&name=https://app.canopytax.com/v1.0.1-84-ge04941d/css/styleguide/d8c1f7c89cd85b24d4860b93b575e35c.woff"
 			},
 			{
@@ -59,5 +61,9 @@ module.exports = {
 		]
 	},
 	plugins: [
+		new webpack.optimize.UglifyJsPlugin({
+			mangle: true,
+			compress: true,
+		})
 	]
 }
