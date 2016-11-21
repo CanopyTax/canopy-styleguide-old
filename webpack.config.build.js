@@ -1,15 +1,18 @@
+var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
 	// The standard entry point and output config
 	entry: {
-		styleguide: "./src/components.less",
+		'canopy-styleguide': "./src/styleguide.js",
 		variables: "./src/external-variables.less",
 		app: "./src/app.jsx"
 	},
 	output: {
 		path: './build',
 		filename: "[name].js",
+		library: 'styleguide',
+		libraryTarget: 'umd',
 		chunkFilename: "[id].js"
 	},
 	module: {
@@ -17,13 +20,13 @@ module.exports = {
 			// Extract css files
 			{
 				test: /\.css$/,
-				loader: ExtractTextPlugin.extract("style-loader", "css-loader!autoprefixer")
+				loader: "style-loader!css-loader!autoprefixer"
 			},
 			// Optionally extract less files
 			// or any other compile-to-css language
 			{
 				test: /\.less$/,
-				loader: ExtractTextPlugin.extract("style-loader", "css-loader!autoprefixer!less-loader")
+				loader: "style-loader!css-loader!autoprefixer!less-loader"
 			},
 			{
 				test: /\.jsx?$/,
@@ -40,23 +43,27 @@ module.exports = {
 			},
 			{
 				test: /\.woff$/,
-				loader: "file"
+				// loader: "file?name=fonts/[name].[ext]",
+				loader: "url?limit=6500000&mimetype=application/font-woff&name=https://app.canopytax.com/v1.0.1-84-ge04941d/css/styleguide/d8c1f7c89cd85b24d4860b93b575e35c.woff"
 			},
 			{
 				test: /\.ttf$/,
-				loader: "file"
+				loader: "url?limit=6500000&mimetype=application/octet-stream&name=fonts/[name].[ext]"
 			},
 			{
 				test: /\.eot$/,
-				loader: "file"
+				loader: "url?limit=6500000&mimetype=application/octet-stream&name=fonts/[name].[ext]"
 			},
 			{
 				test: /\.svg$/,
-				loader: "file"
+				loader: "url?limit=6500000&mimetype=image/svg+xml&name=fonts/[name].[ext]"
 			}
 		]
 	},
 	plugins: [
-		new ExtractTextPlugin("[name].css")
+		new webpack.optimize.UglifyJsPlugin({
+			mangle: true,
+			compress: true,
+		})
 	]
 }
