@@ -63,9 +63,9 @@ build:
             notify_on: "failed"
 deploy:
     steps:
-        # - script:
-        #     name: fix urls
-        #     code: npm install replace && ./bin/replace "$(cat sofe/version.txt)" $AWS_BUCKET && rm sofe/version.txt
+        - script:
+            name: fix urls
+            code: echo 'Ski' #npm install replace && ./bin/replace "$(cat sofe/version.txt)" $AWS_BUCKET && rm sofe/version.txt
         - canopytax/deploy-sofe-service:
             sofe_service_name: 'canopy-styleguide.css'
             upload_dir: sofe
