@@ -47,6 +47,7 @@ build:
             code: |
                 mkdir -p "$WERCKER_OUTPUT_DIR/website/"
                 cp --recursive build/* "$WERCKER_OUTPUT_DIR/website/"
+                cp --recursive sofe/* "$WERCKER_OUTPUT_DIR/website/"
                 git describe
                 mkdir -p "$WERCKER_OUTPUT_DIR/sofe/$(git describe)/"
                 cp --recursive sofe/canopy-styleguide.js "$WERCKER_OUTPUT_DIR/sofe/$(git describe)/"
