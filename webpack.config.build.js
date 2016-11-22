@@ -44,7 +44,7 @@ module.exports = {
 			{
 				test: /\.woff$/,
 				// loader: "file?name=fonts/[name].[ext]",
-				loader: "url?limit=6500000&mimetype=application/font-woff&name=https://app.canopytax.com/v1.0.1-84-ge04941d/css/styleguide/d8c1f7c89cd85b24d4860b93b575e35c.woff"
+				loader: "url?limit=6500000&mimetype=application/font-woff"
 			},
 			{
 				test: /\.ttf$/,
