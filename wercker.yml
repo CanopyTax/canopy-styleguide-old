@@ -35,19 +35,19 @@ build:
               User-agent: *
               Disallow: /
         - script:
-            name: gzip files
-            code: |
-              find build -type f -exec gzip "{}" \; -exec mv "{}.gz" "{}" \;
-        - script:
             name: create sofe bundle
             code: |
                 npm run sofe
+                cp --recursive sofe/* build/
+        - script:
+            name: gzip files
+            code: |
+              find build -type f -exec gzip "{}" \; -exec mv "{}.gz" "{}" \;
         - script:
             name: copy output to wercker
             code: |
                 mkdir -p "$WERCKER_OUTPUT_DIR/website/"
                 cp --recursive build/* "$WERCKER_OUTPUT_DIR/website/"
-                cp --recursive sofe/* "$WERCKER_OUTPUT_DIR/website/"
                 git describe
                 mkdir -p "$WERCKER_OUTPUT_DIR/sofe/$(git describe)/"
                 cp --recursive sofe/canopy-styleguide.js "$WERCKER_OUTPUT_DIR/sofe/$(git describe)/"
