@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+# Webpack build the css
+# Build the things
+echo "Building css"
+node node_modules/webpack/bin/webpack.js --config webpack.config.build.js --output-path sofe
+

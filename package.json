@@ -1,16 +1,20 @@
 {
   "name": "canopy-styleguide",
-  "version": "5.1.9-asap-font",
+  "version": "5.1.12",
   "description": "Style-guide for Canopy",
   "main": "build/styleguide.css",
   "scripts": {
     "setup": "bin/install-git-hooks post-merge",
-    "clean": "rm build/*",
+    "clean": "rm -rf build/*",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node node_modules/webpack/bin/webpack.js --config webpack.config.build.js && npm run build-index",
+    "build": "node node_modules/webpack/bin/webpack.js --config webpack.config.build-css.js && npm run build-index",
     "build-index": "cp index.html build/",
+    "deploy": "cp build/* ../workflow-ui/node_modules/canopy-styleguide/build/",
+    "patch-workflowui": "echo 'Please ensure that your git working directory is clean' && rm -rf node_modules && npm install && npm version patch -m '%s -- npm run patch-workflowui has incremented the patch version of canopy-styleguide to %s' && npm publish && cd ../workflow-ui && npm prune && npm install && npm install canopy-styleguide@latest --save --save-exact && npm shrinkwrap && echo 'Please make sure to commit and push any changed built files to source control'",
     "start": "webpack-dev-server",
-    "prepublish": "npm run build"
+    "test-workflow-ui": "npm run build && cd ../workflow-ui && npm i ../canopy-styleguide && cd ../canopy-styleguide",
+    "prepublish": "npm run build",
+    "sofe": "./bin/build"
   },
   "git-tasker": [
     {
@@ -47,13 +51,15 @@
     "react-dom": "^0.14.0",
     "react-highlight": "^0.5.0",
     "react-router": "1.0.3",
+    "replace": "^0.3.0",
+    "sofe-css-builder": "^1.0.2",
     "style-loader": "0.8.3",
     "url-loader": "0.5.6",
     "webpack": "1.13.1",
     "webpack-dev-server": "1.14.1"
   },
   "dependencies": {
-    "canopy-iconography": "1.8.4",
+    "canopy-iconography": "^2.0.1",
     "history": "1.17.0"
   },
   "publishConfig": {
