@@ -59,7 +59,7 @@
     "webpack-dev-server": "1.14.1"
   },
   "dependencies": {
-    "canopy-iconography": "^2.0.0",
+    "canopy-iconography": "^2.0.1",
     "history": "1.17.0"
   },
   "publishConfig": {
