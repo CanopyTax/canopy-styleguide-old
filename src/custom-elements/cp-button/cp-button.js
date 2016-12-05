@@ -13,6 +13,7 @@ class CpButton extends HTMLElement {
 		render.call(this);
 	}
 	attributeChangedCallback(attr, oldValue, newValue) {
+		// This triggers the setter for the property, which in turn triggers a rerender.
 		this[attr] = newValue;
 	}
 	set type(newType) {
