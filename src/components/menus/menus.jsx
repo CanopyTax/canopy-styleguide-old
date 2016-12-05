@@ -13,7 +13,7 @@ module.exports = React.createClass({
 			<cp-edit-render-code section-title="Examples" dangerouslySetInnerHTML={ {__html:
 `<div class="cps-row" style="height: 27.5rem;">
 	<div class="cps-col-xs-2">
-		<ul class="cps-topnav__content__menu">
+		<ul class="cps-list-unstyled">
 			<li class="cps-dropdown cps-open">
 				<a class="cps-btn +primary cps-white">
 					New <span class="cps-caret"></span>
