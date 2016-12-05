@@ -1,4 +1,4 @@
-#!/usr/bin/env sh -e
+#/bin/env bash -e
 
 # Webpack build the css
 # Build the things
