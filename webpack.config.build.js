@@ -15,12 +15,13 @@ module.exports = {
 		libraryTarget: 'umd',
 		chunkFilename: "[id].js"
 	},
+	devtool: 'sourcemap',
 	module: {
 		loaders: [
 			// Extract css files
 			{
 				test: /\.css$/,
-				loader: "style-loader!css-loader!autoprefixer"
+				loader: "style-loader!css-loader?modules"
 			},
 			// Optionally extract less files
 			// or any other compile-to-css language
@@ -61,9 +62,9 @@ module.exports = {
 		]
 	},
 	plugins: [
-		new webpack.optimize.UglifyJsPlugin({
-			mangle: true,
-			compress: true,
-		})
+		// new webpack.optimize.UglifyJsPlugin({
+		// 	mangle: true,
+		// 	compress: true,
+		// })
 	]
 }
