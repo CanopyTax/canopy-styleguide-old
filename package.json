@@ -14,6 +14,7 @@
     "start": "webpack-dev-server",
     "test-workflow-ui": "npm run build && cd ../workflow-ui && npm i ../canopy-styleguide && cd ../canopy-styleguide",
     "prepublish": "npm run build",
+    "watch": "./bin/build -w",
     "sofe": "./bin/build"
   },
   "git-tasker": [

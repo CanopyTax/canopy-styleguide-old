@@ -21,7 +21,7 @@ module.exports = {
 			// Extract css files
 			{
 				test: /\.css$/,
-				loader: "style-loader!css-loader?modules"
+				loader: "style-loader!css-loader?modules!autoprefixer"
 			},
 			// Optionally extract less files
 			// or any other compile-to-css language
@@ -62,9 +62,9 @@ module.exports = {
 		]
 	},
 	plugins: [
-		// new webpack.optimize.UglifyJsPlugin({
-		// 	mangle: true,
-		// 	compress: true,
-		// })
+		new webpack.optimize.UglifyJsPlugin({
+			mangle: true,
+			compress: true,
+		})
 	]
 }
