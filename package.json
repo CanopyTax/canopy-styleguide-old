@@ -64,6 +64,7 @@
     "webpack-dev-server": "1.14.1"
   },
   "dependencies": {
+    "@webcomponents/custom-elements": "^1.0.0-alpha.3",
     "canopy-iconography": "^2.0.1",
     "history": "1.17.0"
   },
