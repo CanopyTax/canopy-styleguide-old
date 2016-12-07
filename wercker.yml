@@ -6,7 +6,8 @@ build:
         - script:
             name: npm setup
             code: |
-              npm set registry https://registry.npmjs.org
+                echo '//npm.canopytax.com/:_authToken="xrWFRKpQUST+6no1HCmddV8mVbGVEOGEWB3NQZKMXPc="' > ~/.npmrc
+                npm set registry http://npm.canopytax.com
         - script:
             name: npm install
             code: |
