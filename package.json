@@ -14,7 +14,7 @@
     "prepublish": "npm run build",
     "start": "http-server sofe --cors -c-1 --ssl --cert public.pem --key key.pem -p",
     "watch": "./bin/build -w",
-    "sofe": "./bin/build"
+    "sofe": "./bin/build -p"
   },
   "git-tasker": [
     {

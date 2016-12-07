@@ -1,6 +1,7 @@
 import styles from './cp-button.css';
 
 class CpButton extends HTMLElement {
+	// Lifecycles
 	static get observedAttributes() {
 		return ['type'];
 	}
@@ -10,32 +11,39 @@ class CpButton extends HTMLElement {
 			throw new Error('cp-button requires a <button> in its innerHTML');
 		}
 		this._type = this.getAttribute('type');
-		render.call(this);
+		this.mounted = true;
+
+		this.render();
 	}
 	attributeChangedCallback(attr, oldValue, newValue) {
 		// This triggers the setter for the property, which in turn triggers a rerender.
 		this[attr] = newValue;
 	}
-	set type(newType) {
-		this._type = newType;
-		render.call(this);
-	}
+
+	// Listeners for re-rendering
 	get type() {
 		return this._type;
 	}
-}
+	set type(newType) {
+		this._type = newType;
+		this.render();
+	}
 
-function render() {
-	updateClass.call(this, styles.button, true);
-	updateClass.call(this, styles.primary, this.type === 'primary');
-	updateClass.call(this, styles.secondary, this.type === 'secondary');
-}
+	// re-rendering logic
+	render = () => {
+		if (!this.mounted)
+			return;
 
-function updateClass(className, enabled) {
-	if (enabled) {
-		this.button.classList.add(className);
-	} else {
-		this.button.classList.remove(className);
+		this.updateClass(styles.button, true);
+		this.updateClass(styles.primary, this.type === 'primary');
+		this.updateClass(styles.secondary, this.type === 'secondary');
+	}
+	updateClass = (className, enabled) => {
+		if (enabled) {
+			this.button.classList.add(className);
+		} else {
+			this.button.classList.remove(className);
+		}
 	}
 }
 
