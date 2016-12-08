@@ -1,6 +1,11 @@
-require('./components.less');
+// Global css
+import './components.less';
 
-var el = document.createElement('link'); 
+// Custom elements
+import 'custom-elements-canopy';
+import './custom-elements/cp-button/cp-button.js';
+
+const el = document.createElement('link'); 
 el.setAttribute("rel", "stylesheet");
 /* Asap only has font-weights of 400 and 700. All of our references to font-weight: 600
  * will be rendered as font-weight 700 because of the CSS specification. See
@@ -8,5 +13,5 @@ el.setAttribute("rel", "stylesheet");
  */
 el.setAttribute("href", "https://fonts.googleapis.com/css?family=Asap:400,400i,700,700i");
 el.setAttribute("type","text/css");
-var head = document.getElementsByTagName('head')[0];
+const head = document.getElementsByTagName('head')[0];
 head.appendChild(el);

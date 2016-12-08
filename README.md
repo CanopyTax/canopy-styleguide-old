@@ -1,14 +1,5 @@
-# Beanstalk Style Guide
-Beanstalk Style Guide
+# Canopy Styleguide
+The Canopy Styleguide is a sofe service that exposes global css classes and custom html elements.
 
-## Requirements
-Node.js or Io.js
-
-## Setup
-Setup the style-guide for development by first installing webpack: `npm install -g webpack webpack-dev-server`
-
-Run the style-guide development server by executing `webpack-dev-server` inside the root directory.
-
-## Releases
-Release a new version of the style guide by executing from the root directory `npm run build`.
-Also update the version within `package.json`.
+## Custom elements
+Look in the [custom-elements](/src/custom-elements) directory for documentation on each custom element that is available.
