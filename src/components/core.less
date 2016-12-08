@@ -8,6 +8,9 @@ html {
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 	box-sizing: border-box;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 // https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
@@ -24,6 +27,7 @@ body {
 	font-size: 1.4rem;
 	font-weight: 400;
 	color: @dark-gray;
+	letter-spacing: 0.01rem;
 }
 
 ul,
