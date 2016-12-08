@@ -2,7 +2,7 @@
 import './components.less';
 
 // Custom elements
-import '@webcomponents/custom-elements';
+import 'custom-elements-canopy';
 import './custom-elements/cp-button/cp-button.js';
 
 const el = document.createElement('link'); 
