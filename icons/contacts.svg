@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
+    <title>contacts</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="contacts" fill="#777777">
+            <g id="Group-2" transform="translate(12.000000, 12.000000) scale(-1, 1) translate(-12.000000, -12.000000) translate(2.000000, 4.000000)">
+                <g id="Imported-Layers-+-Oval-204-+-Rectangle-906-Copy-8">
+                    <g id="Imported-Layers-+-Oval-204">
+                        <path d="M7,10 C3.170125,10 0.063,11.799 0.00525,14.031 L0,15.962 L14,15.962 L14,14.031 C13.937,11.799 10.829875,10 7,10 Z" id="Imported-Layers"></path>
+                        <circle id="Oval-204" cx="7" cy="4" r="4"></circle>
+                    </g>
+                </g>
+                <rect id="Rectangle-1045" x="12" y="0" width="8" height="2"></rect>
+                <rect id="Rectangle-1045" x="13" y="4" width="7" height="2"></rect>
+                <rect id="Rectangle-1045" x="12" y="8" width="8" height="2"></rect>
+                <rect id="Rectangle-1045" x="16" y="12" width="4" height="2"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

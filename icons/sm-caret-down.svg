@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
+    <title>sm-caret-down</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="sm-caret-down" fill="#777777">
+            <g id="Triangle-4-+-Rectangle-906-Copy-7" transform="translate(8.000000, 10.000000)">
+                <polygon id="Triangle-4" transform="translate(4.000000, 2.000000) scale(-1, 1) rotate(-270.000000) translate(-4.000000, -2.000000) " points="2 6 2 -2 6 2"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

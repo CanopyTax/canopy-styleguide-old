@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
+    <title>irs</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="irs">
+            <g id="Group-+-Rectangle-906-Copy-12" transform="translate(2.000000, 2.000000)">
+                <g id="Group">
+                    <g id="Oval-248-Copy-+-Rectangle-876-+-Rectangle-876-Copy" transform="translate(0.000000, 9.000000)"></g>
+                    <g id="Oval-248-Copy-+-Rectangle-872-+-Rectangle-872-Copy" transform="translate(0.000000, 6.000000)" fill="#777777">
+                        <path d="M8.8817842e-16,5 C0,7.209139 1.790861,9 4,9 C6.209139,9 8,7.209139 8,5 L8.8817842e-16,5 Z M3,0 L5,0 L3.70149112,2.16418147 C3.13432741,3.10945431 2,5 2,5 L0,5 L3,0 Z" id="Oval-248-Copy"></path>
+                        <path d="M6,0 L8,0 L6.70149112,2.16418147 C6.13432741,3.10945431 5,5 5,5 L3,5 L6,0 Z" id="Rectangle-872-Copy" transform="translate(5.500000, 2.500000) scale(-1, 1) translate(-5.500000, -2.500000) "></path>
+                    </g>
+                    <path d="M9,18 L4,18 L4,20 L16,20 L16,18 L11,18 L11,6 L17,6 L17,4 L11,4 L11,0 L9,0 L9,4 L3,4 L3,6 L9,6 L9,18 Z" id="Rectangle-877" fill="#777777"></path>
+                    <g id="Oval-248-Copy-+-Rectangle-872-+-Rectangle-872-Copy-Copy" transform="translate(12.000000, 6.000000)" fill="#777777">
+                        <path d="M8,9 C8,6.790861 6.209139,5 4,5 C1.790861,5 0,6.790861 0,9" id="Oval-248-Copy" transform="translate(4.000000, 7.000000) rotate(-180.000000) translate(-4.000000, -7.000000) "></path>
+                        <path d="M3,0 L5,0 L3.70149112,2.16418147 C3.13432741,3.10945431 2,5 2,5 L0,5 L3,0 Z" id="Rectangle-872"></path>
+                        <path d="M6,0 L8,0 L6.70149112,2.16418147 C6.13432741,3.10945431 5,5 5,5 L3,5 L6,0 Z" id="Rectangle-872-Copy" transform="translate(5.500000, 2.500000) scale(-1, 1) translate(-5.500000, -2.500000) "></path>
+                    </g>
+                    <rect id="Rectangle-873" fill="#777777" x="8" y="0" width="4" height="2"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

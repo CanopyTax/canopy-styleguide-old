@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>fit-to-one-page-zoom</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="fit-to-one-page-zoom" fill="#777777">
+            <g id="Group-Copy-+-Rectangle-906-Copy-8" transform="translate(3.000000, 3.000000)">
+                <g id="Group-Copy">
+                    <g id="Group">
+                        <path d="M1.99508929,18 L16.0049107,18 C17.1073772,18 18,17.1067681 18,16.0049107 L18,1.99508929 C18,0.892622799 17.1067681,0 16.0049107,0 L1.99508929,0 C0.892622799,0 0,0.893231902 0,1.99508929 L0,16.0049107 C0,17.1073772 0.893231902,18 1.99508929,18 Z M2,3.99508929 L1.99508929,2 L16.0049107,2 L16,3.99508929 L16,16.0049107 L14.0049107,16 L1.99508929,16 L2,3.99508929 Z" id="Rectangle-17"></path>
+                        <g id="Group-2" transform="translate(4.000000, 4.000000)">
+                            <polygon id="Shape" points="4.27272441 4.53586511 1.51245563 7.25431163 0.312529877 6.07256656 0.193855899 9.80826617 3.90791182 9.61347303 2.70798607 8.43172796 5.46825484 5.71328144"></polygon>
+                            <polygon id="Shape" points="5.46825484 4.2219755 2.70798607 1.50352898 3.90791182 0.321783912 0.114739914 0.204908024 0.312529877 3.86269037 1.51245563 2.68094531 4.27272441 5.39939183"></polygon>
+                            <polygon id="Shape" points="5.78697352 5.39939183 8.5472423 2.68094531 9.74716805 3.86269037 9.86584203 0.126990766 6.15178611 0.321783912 7.35171186 1.50352898 4.59144309 4.2219755"></polygon>
+                            <polygon id="Shape" points="4.0320086 5.16232323 7.35171186 8.43172796 6.15178611 9.61347303 9.94495802 9.73034891 9.74716805 6.07256656 8.5472423 7.25431163 5.22753903 3.9849069"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

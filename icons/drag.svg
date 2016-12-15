@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
+    <title>drag</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="drag" fill="#777777">
+            <g id="Group" transform="translate(8.000000, 5.000000)">
+                <rect id="Rectangle-99" x="0" y="0" width="8" height="2"></rect>
+                <rect id="Rectangle-100" x="0" y="4" width="8" height="2"></rect>
+                <rect id="Rectangle-101" x="0" y="8" width="8" height="2"></rect>
+                <rect id="Rectangle-101-Copy" x="0" y="12" width="8" height="2"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

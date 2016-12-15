@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background: #000000;">
+    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
+    <title>trash</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="trash" fill="#777777">
+            <g id="Rectangle-195-+-Rectangle-196-+-Rectangle-197-+-Rectangle-906-Copy-2" transform="translate(6.000000, 3.000000)">
+                <g id="Rectangle-195-+-Rectangle-196-+-Rectangle-197">
+                    <g>
+                        <path d="M1,4 L11,4 L10.1422136,16.0090093 C10.0636712,17.1086031 9.11329365,18 8.00189865,18 L3.99810135,18 C2.89458045,18 1.93592428,17.1029399 1.85778638,16.0090093 L1,4 Z" id="Rectangle-195"></path>
+                        <path d="M0,1 L12,1 L12,3 L0,3 L0,1 Z M3,0 L9,0 L10,1 L2,1 L3,0 Z" id="Rectangle-196"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

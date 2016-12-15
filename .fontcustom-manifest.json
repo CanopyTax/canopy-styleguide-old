@@ -1,0 +1,755 @@
+{
+  "checksum": {
+    "previous": "6f868446975b90601654743750c22e7f296744d3f8e69a75e7e1daf7e4ab44bf",
+    "current": "6f868446975b90601654743750c22e7f296744d3f8e69a75e7e1daf7e4ab44bf"
+  },
+  "fonts": [
+    "build/canopy-icons.ttf",
+    "build/canopy-icons.svg",
+    "build/canopy-icons.woff",
+    "build/canopy-icons.eot"
+  ],
+  "glyphs": {
+    "1": {
+      "codepoint": 61696,
+      "source": "icons/1.svg"
+    },
+    "100-percent-zoom": {
+      "codepoint": 61697,
+      "source": "icons/100-percent-zoom.svg"
+    },
+    "2": {
+      "codepoint": 61698,
+      "source": "icons/2.svg"
+    },
+    "3": {
+      "codepoint": 61699,
+      "source": "icons/3.svg"
+    },
+    "abc": {
+      "codepoint": 61700,
+      "source": "icons/abc.svg"
+    },
+    "add": {
+      "codepoint": 61701,
+      "source": "icons/add.svg"
+    },
+    "add-person": {
+      "codepoint": 61702,
+      "source": "icons/add-person.svg"
+    },
+    "alarm": {
+      "codepoint": 61703,
+      "source": "icons/alarm.svg"
+    },
+    "archive": {
+      "codepoint": 61704,
+      "source": "icons/archive.svg"
+    },
+    "arrow-left": {
+      "codepoint": 61705,
+      "source": "icons/arrow-left.svg"
+    },
+    "attachment": {
+      "codepoint": 61706,
+      "source": "icons/attachment.svg"
+    },
+    "audio-file": {
+      "codepoint": 61707,
+      "source": "icons/audio-file.svg"
+    },
+    "bell": {
+      "codepoint": 61708,
+      "source": "icons/bell.svg"
+    },
+    "billing": {
+      "codepoint": 61709,
+      "source": "icons/billing.svg"
+    },
+    "blocks": {
+      "codepoint": 61710,
+      "source": "icons/blocks.svg"
+    },
+    "boards": {
+      "codepoint": 61711,
+      "source": "icons/boards.svg"
+    },
+    "bold": {
+      "codepoint": 61712,
+      "source": "icons/bold.svg"
+    },
+    "branding": {
+      "codepoint": 61713,
+      "source": "icons/branding.svg"
+    },
+    "business": {
+      "codepoint": 61714,
+      "source": "icons/business.svg"
+    },
+    "calendar": {
+      "codepoint": 61715,
+      "source": "icons/calendar.svg"
+    },
+    "camera": {
+      "codepoint": 61716,
+      "source": "icons/camera.svg"
+    },
+    "cash": {
+      "codepoint": 61717,
+      "source": "icons/cash.svg"
+    },
+    "center-aligned": {
+      "codepoint": 61718,
+      "source": "icons/center-aligned.svg"
+    },
+    "circle": {
+      "codepoint": 61719,
+      "source": "icons/circle.svg"
+    },
+    "client": {
+      "codepoint": 61720,
+      "source": "icons/client.svg"
+    },
+    "client-access": {
+      "codepoint": 61721,
+      "source": "icons/client-access.svg"
+    },
+    "client-no-access": {
+      "codepoint": 61722,
+      "source": "icons/client-no-access.svg"
+    },
+    "client-portal-folder": {
+      "codepoint": 61723,
+      "source": "icons/client-portal-folder.svg"
+    },
+    "clients": {
+      "codepoint": 61724,
+      "source": "icons/clients.svg"
+    },
+    "close": {
+      "codepoint": 61725,
+      "source": "icons/close.svg"
+    },
+    "cloud": {
+      "codepoint": 61726,
+      "source": "icons/cloud.svg"
+    },
+    "code-file": {
+      "codepoint": 61727,
+      "source": "icons/code-file.svg"
+    },
+    "cog": {
+      "codepoint": 61728,
+      "source": "icons/cog.svg"
+    },
+    "collapse": {
+      "codepoint": 61729,
+      "source": "icons/collapse.svg"
+    },
+    "color-picker": {
+      "codepoint": 61730,
+      "source": "icons/color-picker.svg"
+    },
+    "compass": {
+      "codepoint": 61731,
+      "source": "icons/compass.svg"
+    },
+    "contacts": {
+      "codepoint": 61732,
+      "source": "icons/contacts.svg"
+    },
+    "conversation": {
+      "codepoint": 61733,
+      "source": "icons/conversation.svg"
+    },
+    "credits": {
+      "codepoint": 61734,
+      "source": "icons/credits.svg"
+    },
+    "details": {
+      "codepoint": 61735,
+      "source": "icons/details.svg"
+    },
+    "dock": {
+      "codepoint": 61736,
+      "source": "icons/dock.svg"
+    },
+    "dock-expanded": {
+      "codepoint": 61737,
+      "source": "icons/dock-expanded.svg"
+    },
+    "dock-minimized": {
+      "codepoint": 61738,
+      "source": "icons/dock-minimized.svg"
+    },
+    "dot-file": {
+      "codepoint": 61739,
+      "source": "icons/dot-file.svg"
+    },
+    "down-caret": {
+      "codepoint": 61740,
+      "source": "icons/down-caret.svg"
+    },
+    "download": {
+      "codepoint": 61741,
+      "source": "icons/download.svg"
+    },
+    "drag": {
+      "codepoint": 61742,
+      "source": "icons/drag.svg"
+    },
+    "duplicate": {
+      "codepoint": 61743,
+      "source": "icons/duplicate.svg"
+    },
+    "email": {
+      "codepoint": 61744,
+      "source": "icons/email.svg"
+    },
+    "error": {
+      "codepoint": 61745,
+      "source": "icons/error.svg"
+    },
+    "expand": {
+      "codepoint": 61746,
+      "source": "icons/expand.svg"
+    },
+    "export": {
+      "codepoint": 61747,
+      "source": "icons/export.svg"
+    },
+    "external-link": {
+      "codepoint": 61748,
+      "source": "icons/external-link.svg"
+    },
+    "fast": {
+      "codepoint": 61749,
+      "source": "icons/fast.svg"
+    },
+    "favorites": {
+      "codepoint": 61750,
+      "source": "icons/favorites.svg"
+    },
+    "favorites-hollow": {
+      "codepoint": 61751,
+      "source": "icons/favorites-hollow.svg"
+    },
+    "files": {
+      "codepoint": 61752,
+      "source": "icons/files.svg"
+    },
+    "filter": {
+      "codepoint": 61753,
+      "source": "icons/filter.svg"
+    },
+    "fit-to-one-page-zoom": {
+      "codepoint": 61754,
+      "source": "icons/fit-to-one-page-zoom.svg"
+    },
+    "fit-to-width-zoom": {
+      "codepoint": 61755,
+      "source": "icons/fit-to-width-zoom.svg"
+    },
+    "flag": {
+      "codepoint": 61756,
+      "source": "icons/flag.svg"
+    },
+    "folder": {
+      "codepoint": 61757,
+      "source": "icons/folder.svg"
+    },
+    "folder-caret": {
+      "codepoint": 61758,
+      "source": "icons/folder-caret.svg"
+    },
+    "folder-open": {
+      "codepoint": 61759,
+      "source": "icons/folder-open.svg"
+    },
+    "folder-open-caret": {
+      "codepoint": 61760,
+      "source": "icons/folder-open-caret.svg"
+    },
+    "forms": {
+      "codepoint": 61761,
+      "source": "icons/forms.svg"
+    },
+    "forward": {
+      "codepoint": 61762,
+      "source": "icons/forward.svg"
+    },
+    "grid-view": {
+      "codepoint": 61763,
+      "source": "icons/grid-view.svg"
+    },
+    "header1": {
+      "codepoint": 61764,
+      "source": "icons/header1.svg"
+    },
+    "header2": {
+      "codepoint": 61765,
+      "source": "icons/header2.svg"
+    },
+    "header3": {
+      "codepoint": 61766,
+      "source": "icons/header3.svg"
+    },
+    "help": {
+      "codepoint": 61767,
+      "source": "icons/help.svg"
+    },
+    "hidden": {
+      "codepoint": 61768,
+      "source": "icons/hidden.svg"
+    },
+    "home": {
+      "codepoint": 61769,
+      "source": "icons/home.svg"
+    },
+    "image": {
+      "codepoint": 61770,
+      "source": "icons/image.svg"
+    },
+    "image-file": {
+      "codepoint": 61771,
+      "source": "icons/image-file.svg"
+    },
+    "import": {
+      "codepoint": 61772,
+      "source": "icons/import.svg"
+    },
+    "incoming-phone-call": {
+      "codepoint": 61773,
+      "source": "icons/incoming-phone-call.svg"
+    },
+    "information": {
+      "codepoint": 61774,
+      "source": "icons/information.svg"
+    },
+    "initial": {
+      "codepoint": 61775,
+      "source": "icons/initial.svg"
+    },
+    "invoices": {
+      "codepoint": 61776,
+      "source": "icons/invoices.svg"
+    },
+    "irs": {
+      "codepoint": 61777,
+      "source": "icons/irs.svg"
+    },
+    "italics": {
+      "codepoint": 61778,
+      "source": "icons/italics.svg"
+    },
+    "items": {
+      "codepoint": 61779,
+      "source": "icons/items.svg"
+    },
+    "left-aligned": {
+      "codepoint": 61780,
+      "source": "icons/left-aligned.svg"
+    },
+    "left-caret": {
+      "codepoint": 61781,
+      "source": "icons/left-caret.svg"
+    },
+    "letterhead": {
+      "codepoint": 61782,
+      "source": "icons/letterhead.svg"
+    },
+    "letters": {
+      "codepoint": 61783,
+      "source": "icons/letters.svg"
+    },
+    "lg-check": {
+      "codepoint": 61784,
+      "source": "icons/lg-check.svg"
+    },
+    "license": {
+      "codepoint": 61785,
+      "source": "icons/license.svg"
+    },
+    "list": {
+      "codepoint": 61786,
+      "source": "icons/list.svg"
+    },
+    "location": {
+      "codepoint": 61787,
+      "source": "icons/location.svg"
+    },
+    "lock": {
+      "codepoint": 61788,
+      "source": "icons/lock.svg"
+    },
+    "log-out": {
+      "codepoint": 61789,
+      "source": "icons/log-out.svg"
+    },
+    "love": {
+      "codepoint": 61790,
+      "source": "icons/love.svg"
+    },
+    "megaphone": {
+      "codepoint": 61791,
+      "source": "icons/megaphone.svg"
+    },
+    "menu-2": {
+      "codepoint": 61792,
+      "source": "icons/menu-2.svg"
+    },
+    "merge": {
+      "codepoint": 61793,
+      "source": "icons/merge.svg"
+    },
+    "message-remove": {
+      "codepoint": 61794,
+      "source": "icons/message-remove.svg"
+    },
+    "more": {
+      "codepoint": 61795,
+      "source": "icons/more.svg"
+    },
+    "move": {
+      "codepoint": 61796,
+      "source": "icons/move.svg"
+    },
+    "move-down": {
+      "codepoint": 61797,
+      "source": "icons/move-down.svg"
+    },
+    "move-file": {
+      "codepoint": 61798,
+      "source": "icons/move-file.svg"
+    },
+    "move-up": {
+      "codepoint": 61799,
+      "source": "icons/move-up.svg"
+    },
+    "nav": {
+      "codepoint": 61800,
+      "source": "icons/nav.svg"
+    },
+    "new-folder": {
+      "codepoint": 61801,
+      "source": "icons/new-folder.svg"
+    },
+    "new-folder-template": {
+      "codepoint": 61802,
+      "source": "icons/new-folder-template.svg"
+    },
+    "notes": {
+      "codepoint": 61803,
+      "source": "icons/notes.svg"
+    },
+    "notifications": {
+      "codepoint": 61804,
+      "source": "icons/notifications.svg"
+    },
+    "number": {
+      "codepoint": 61805,
+      "source": "icons/number.svg"
+    },
+    "outgoing-phone-call": {
+      "codepoint": 61806,
+      "source": "icons/outgoing-phone-call.svg"
+    },
+    "page-break": {
+      "codepoint": 61807,
+      "source": "icons/page-break.svg"
+    },
+    "palette": {
+      "codepoint": 61808,
+      "source": "icons/palette.svg"
+    },
+    "payments": {
+      "codepoint": 61809,
+      "source": "icons/payments.svg"
+    },
+    "pdf-file": {
+      "codepoint": 61810,
+      "source": "icons/pdf-file.svg"
+    },
+    "pending": {
+      "codepoint": 61811,
+      "source": "icons/pending.svg"
+    },
+    "phone": {
+      "codepoint": 61812,
+      "source": "icons/phone.svg"
+    },
+    "pin": {
+      "codepoint": 61813,
+      "source": "icons/pin.svg"
+    },
+    "presentation-file": {
+      "codepoint": 61814,
+      "source": "icons/presentation-file.svg"
+    },
+    "print": {
+      "codepoint": 61815,
+      "source": "icons/print.svg"
+    },
+    "projects": {
+      "codepoint": 61816,
+      "source": "icons/projects.svg"
+    },
+    "quick-add": {
+      "codepoint": 61817,
+      "source": "icons/quick-add.svg"
+    },
+    "recent": {
+      "codepoint": 61818,
+      "source": "icons/recent.svg"
+    },
+    "redo": {
+      "codepoint": 61819,
+      "source": "icons/redo.svg"
+    },
+    "refresh": {
+      "codepoint": 61820,
+      "source": "icons/refresh.svg"
+    },
+    "reorder": {
+      "codepoint": 61821,
+      "source": "icons/reorder.svg"
+    },
+    "reply": {
+      "codepoint": 61822,
+      "source": "icons/reply.svg"
+    },
+    "reports": {
+      "codepoint": 61823,
+      "source": "icons/reports.svg"
+    },
+    "restore-file": {
+      "codepoint": 61824,
+      "source": "icons/restore-file.svg"
+    },
+    "right-aligned": {
+      "codepoint": 61825,
+      "source": "icons/right-aligned.svg"
+    },
+    "right-caret": {
+      "codepoint": 61826,
+      "source": "icons/right-caret.svg"
+    },
+    "save-to-files": {
+      "codepoint": 61827,
+      "source": "icons/save-to-files.svg"
+    },
+    "search": {
+      "codepoint": 61828,
+      "source": "icons/search.svg"
+    },
+    "sections": {
+      "codepoint": 61829,
+      "source": "icons/sections.svg"
+    },
+    "segments": {
+      "codepoint": 61830,
+      "source": "icons/segments.svg"
+    },
+    "send": {
+      "codepoint": 61831,
+      "source": "icons/send.svg"
+    },
+    "sidebar": {
+      "codepoint": 61832,
+      "source": "icons/sidebar.svg"
+    },
+    "sign": {
+      "codepoint": 61833,
+      "source": "icons/sign.svg"
+    },
+    "signature": {
+      "codepoint": 61834,
+      "source": "icons/signature.svg"
+    },
+    "sm-caret-down": {
+      "codepoint": 61835,
+      "source": "icons/sm-caret-down.svg"
+    },
+    "sm-caret-left": {
+      "codepoint": 61836,
+      "source": "icons/sm-caret-left.svg"
+    },
+    "sm-caret-right": {
+      "codepoint": 61837,
+      "source": "icons/sm-caret-right.svg"
+    },
+    "sm-caret-up": {
+      "codepoint": 61838,
+      "source": "icons/sm-caret-up.svg"
+    },
+    "sm-check": {
+      "codepoint": 61839,
+      "source": "icons/sm-check.svg"
+    },
+    "sm-close": {
+      "codepoint": 61840,
+      "source": "icons/sm-close.svg"
+    },
+    "sm-neg": {
+      "codepoint": 61841,
+      "source": "icons/sm-neg.svg"
+    },
+    "sm-pending": {
+      "codepoint": 61842,
+      "source": "icons/sm-pending.svg"
+    },
+    "sort": {
+      "codepoint": 61843,
+      "source": "icons/sort.svg"
+    },
+    "source": {
+      "codepoint": 61844,
+      "source": "icons/source.svg"
+    },
+    "spreadsheet-file": {
+      "codepoint": 61845,
+      "source": "icons/spreadsheet-file.svg"
+    },
+    "statements": {
+      "codepoint": 61846,
+      "source": "icons/statements.svg"
+    },
+    "status": {
+      "codepoint": 61847,
+      "source": "icons/status.svg"
+    },
+    "survey": {
+      "codepoint": 61848,
+      "source": "icons/survey.svg"
+    },
+    "survey-override": {
+      "codepoint": 61849,
+      "source": "icons/survey-override.svg"
+    },
+    "switch-account": {
+      "codepoint": 61850,
+      "source": "icons/switch-account.svg"
+    },
+    "table": {
+      "codepoint": 61851,
+      "source": "icons/table.svg"
+    },
+    "tag": {
+      "codepoint": 61852,
+      "source": "icons/tag.svg"
+    },
+    "tasks": {
+      "codepoint": 61853,
+      "source": "icons/tasks.svg"
+    },
+    "taxes": {
+      "codepoint": 61854,
+      "source": "icons/taxes.svg"
+    },
+    "template": {
+      "codepoint": 61855,
+      "source": "icons/template.svg"
+    },
+    "tile-view": {
+      "codepoint": 61856,
+      "source": "icons/tile-view.svg"
+    },
+    "transfer": {
+      "codepoint": 61857,
+      "source": "icons/transfer.svg"
+    },
+    "trash": {
+      "codepoint": 61858,
+      "source": "icons/trash.svg"
+    },
+    "underline": {
+      "codepoint": 61859,
+      "source": "icons/underline.svg"
+    },
+    "undo": {
+      "codepoint": 61860,
+      "source": "icons/undo.svg"
+    },
+    "up-caret": {
+      "codepoint": 61861,
+      "source": "icons/up-caret.svg"
+    },
+    "upload": {
+      "codepoint": 61862,
+      "source": "icons/upload.svg"
+    },
+    "valid": {
+      "codepoint": 61863,
+      "source": "icons/valid.svg"
+    },
+    "video-file": {
+      "codepoint": 61864,
+      "source": "icons/video-file.svg"
+    },
+    "visible": {
+      "codepoint": 61865,
+      "source": "icons/visible.svg"
+    },
+    "web-link-file": {
+      "codepoint": 61866,
+      "source": "icons/web-link-file.svg"
+    },
+    "word-doc-file": {
+      "codepoint": 61867,
+      "source": "icons/word-doc-file.svg"
+    },
+    "work": {
+      "codepoint": 61868,
+      "source": "icons/work.svg"
+    },
+    "wrench": {
+      "codepoint": 61869,
+      "source": "icons/wrench.svg"
+    },
+    "zip-file": {
+      "codepoint": 61870,
+      "source": "icons/zip-file.svg"
+    },
+    "zoom-in": {
+      "codepoint": 61871,
+      "source": "icons/zoom-in.svg"
+    },
+    "zoom-out": {
+      "codepoint": 61872,
+      "source": "icons/zoom-out.svg"
+    }
+  },
+  "options": {
+    "autowidth": false,
+    "base64": false,
+    "config": "fontcustom.yml",
+    "css_selector": ".cps-icon-{{glyph}}",
+    "debug": false,
+    "font_ascent": 448,
+    "font_descent": 64,
+    "font_design_size": 16,
+    "font_em": 512,
+    "font_name": "canopy-icons",
+    "force": true,
+    "input": {
+      "templates": "icons",
+      "vectors": "icons"
+    },
+    "no_hash": true,
+    "output": {
+      "css": "build",
+      "fonts": "build",
+      "preview": "build"
+    },
+    "preprocessor_path": null,
+    "quiet": false,
+    "templates": [
+      "css",
+      "preview"
+    ]
+  },
+  "templates": [
+    "build/canopy-icons.css",
+    "build/canopy-icons-preview.html"
+  ]
+}

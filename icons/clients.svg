@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
+    <title>clients</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="clients" fill="#777777">
+            <g id="Imported-Layers-+-Rectangle-906-Copy-7" transform="translate(2.000000, 4.000000)">
+                <g id="Imported-Layers">
+                    <path d="M13,10.019 C12.624,10.019 12.257,10.041 11.897,10.075 C13.752,10.986 14.954,12.409 15,14.05 L15,15.981 L20,15.981 L20,14.05 C19.937,11.818 16.83,10.019 13,10.019" id="Fill-1"></path>
+                    <path d="M10,10.418 C9.09,10.165 8.075,10.019 7,10.019 C3.17,10.019 0.063,11.818 0.005,14.05 L0,15.981 L14,15.981 L14,14.05 C13.955,12.445 12.331,11.068 10,10.418" id="Fill-2"></path>
+                    <path d="M7,0.019 C4.791,0.019 3,1.81 3,4.019 C3,6.228 4.791,8.019 7,8.019 C8.202,8.019 9.267,7.478 10,6.639 C10.615,5.936 11,5.027 11,4.019 C11,3.011 10.615,2.102 10,1.398 C9.267,0.56 8.202,0.019 7,0.019 Z" id="Fill-3"></path>
+                    <path d="M13,0.019 C12.158,0.019 11.378,0.282 10.733,0.727 C11.512,1.609 12,2.753 12,4.019 C12,5.285 11.512,6.429 10.733,7.311 C11.378,7.756 12.158,8.019 13,8.019 C15.209,8.019 17,6.228 17,4.019 C17,1.81 15.209,0.019 13,0.019" id="Fill-4"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

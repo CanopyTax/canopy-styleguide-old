@@ -1,7 +1,7 @@
 var React = require('react');
 var _ = require('lodash');
 
-var icons = require('canopy-iconography/.fontcustom-manifest.json').glyphs;
+var icons = require('../../../.fontcustom-manifest.json').glyphs;
 icons = _.map(icons, function(icon, name) {
 	return 'cps-icon-' + name;
 });
