@@ -6,7 +6,7 @@ import { designPrinciples } from './design-principles.js';
 var Highlight = require('react-highlight');
 var _ = require('lodash');
 
-var icons = _.map(require('canopy-iconography/.fontcustom-manifest.json').glyphs, function(icon, name) {
+var icons = _.map(require('../.fontcustom-manifest.json').glyphs, function(icon, name) {
 	return 'cps-icon-' + name;
 });
 

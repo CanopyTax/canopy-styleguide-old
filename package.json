@@ -7,14 +7,15 @@
     "setup": "bin/install-git-hooks post-merge",
     "clean": "rm -rf build/*",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node node_modules/webpack/bin/webpack.js --config webpack.config.build-css.js && npm run build-index",
+    "build": "rm -rf build && npm run build-icons && node node_modules/webpack/bin/webpack.js --config webpack.config.build-css.js && npm run build-index",
     "build-index": "cp index.html build/",
+    "build-icons": "fontcustom compile -F && node bin/build-fonts.js",
     "deploy": "cp build/* ../workflow-ui/node_modules/canopy-styleguide/build/",
     "website": "webpack-dev-server",
     "prepublish": "npm run build",
     "start": "http-server sofe --cors -c-1 --ssl --cert public.pem --key key.pem -p",
-    "watch": "./bin/build -w",
-    "sofe": "./bin/build -p"
+    "watch": "echo 'Please ensure fontcustom is installed\n' && npm run build-icons && ./bin/build -w",
+    "sofe": "rm -rf build && npm run build-icons && ./bin/build -p"
   },
   "git-tasker": [
     {
@@ -57,6 +58,7 @@
     "react-highlight": "^0.5.0",
     "react-router": "1.0.3",
     "replace": "^0.3.0",
+    "rework": "^1.0.1",
     "sofe-css-builder": "^1.0.2",
     "style-loader": "^0.13.1",
     "url-loader": "0.5.6",
@@ -65,7 +67,6 @@
   },
   "dependencies": {
     "custom-elements-canopy": "^1.0.0-alpha.3",
-    "canopy-iconography": "^2.0.1",
     "history": "1.17.0"
   }
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
+    <title>favorites-hollow</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="10 14.4 4.12214748 18.0901699 5.81535135 11.3596748 0.489434837 6.90983006 7.4137449 6.44032524 10 0 12.5862551 6.44032524 19.5105652 6.90983006 14.1846486 11.3596748 15.8778525 18.0901699"></polygon>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="20" height="20" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="favorites-hollow" stroke="#777777" stroke-width="2">
+            <g id="Star-3-+-Rectangle-906-Copy-10" transform="translate(2.000000, 3.000000)">
+                <use id="Star-3" mask="url(#mask-2)" xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>

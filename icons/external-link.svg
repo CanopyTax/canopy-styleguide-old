@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
+    <title>external-link</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="external-link" fill="#777777">
+            <g id="Group-Copy-+-Rectangle-906-Copy-8" transform="translate(3.000000, 3.000000)">
+                <g id="Group-Copy">
+                    <g id="Group">
+                        <path d="M10.5857864,6 L1.99566602,14.5901204 L2,3.99508929 L1.99508929,2 L16.0049107,2 L16,3.99508929 L16,16.0049107 L14.0049107,16 L3.41421356,16 L12,7.41421356 L12,13 L14,13 L14,4 L13,4 L5,4 L5,6 L10.5857864,6 Z M1.99508929,18 L16.0049107,18 C17.1073772,18 18,17.1067681 18,16.0049107 L18,1.99508929 C18,0.892622799 17.1067681,0 16.0049107,0 L1.99508929,0 C0.892622799,0 0,0.893231902 0,1.99508929 L0,16.0049107 C0,17.1073772 0.893231902,18 1.99508929,18 Z" id="Rectangle-17"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

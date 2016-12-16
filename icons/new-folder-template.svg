@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
+    <title>new-folder-template</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M3.70704848,0 L8.01316894,0 L10.5,2.69959092 L17.3043201,2.69959101 C18.2408183,2.70672047 19,3.48833563 19,4.46378726 L19,12.2487128 C19,13.215922 18.2365195,14 17.3078242,14 L3.69217587,14 C2.75761294,14 2,13.2173004 2,12.2551972 L2,1.74480275 C2,0.7811748 2.761572,0 3.70704848,0 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="17" height="14" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <path d="M1.60663386,0 L5.65945312,0 L7.82343752,2.45733642 L14.404066,2.50676308 C15.285476,2.51338329 16,3.2391688 16,4.14494531 L16,11.3738047 C16,12.2719276 15.2814301,13 14.4073639,13 L1.59263611,13 C0.713047472,13 0,12.2732075 0,11.379826 L0,1.62017398 C0,0.7253766 0.716773648,0 1.60663386,0 Z" id="path-3"></path>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="16" height="13" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="new-folder-template">
+            <g id="Group-25-Copy-4" transform="translate(2.000000, 3.000000)">
+                <g id="Group-22-Copy-3">
+                    <g id="folder-copy-2">
+                        <g id="folder">
+                            <g id="Page-1">
+                                <g id="folder">
+                                    <g id="Rectangle-156-+-Rectangle-906-Copy-6">
+                                        <use id="Rectangle-156-Copy-4" stroke="#777777" mask="url(#mask-2)" stroke-width="4" fill="#FFFFFF" xlink:href="#path-1"></use>
+                                        <g id="Group-27" transform="translate(0.000000, 5.000000)">
+                                            <use id="Rectangle-156-Copy" stroke="#777777" mask="url(#mask-4)" stroke-width="4" fill="#777777" xlink:href="#path-3"></use>
+                                            <g id="Group-24" transform="translate(7.000000, 4.000000)" fill="#FFFFFF">
+                                                <rect id="Rectangle-32" x="2.69725276" y="0.514523205" width="1.63150184" height="6.48547679"></rect>
+                                                <polyline id="Rectangle-32-Copy" points="6.77600735 2.946577 6.77600735 4.5679462 0.25 4.5679462 0.25 2.946577 6.77600735 2.946577"></polyline>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

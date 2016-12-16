@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
+    <title>search</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="search" fill="#777777">
+            <g id="Oval-28-+-Line-+-Rectangle-906-Copy-2" transform="translate(3.000000, 3.000000)">
+                <path d="M14.9,7.9 C14.9,4.03400675 11.7659932,0.899999999 7.9,0.899999999 C4.03400675,0.899999999 0.899999999,4.03400675 0.899999999,7.9 C0.899999999,11.7659932 4.03400675,14.9 7.9,14.9 C11.7659932,14.9 14.9,11.7659932 14.9,7.9 Z M2.9,7.9 C2.9,5.13857625 5.13857625,2.9 7.9,2.9 C10.6614237,2.9 12.9,5.13857625 12.9,7.9 C12.9,10.6614237 10.6614237,12.9 7.9,12.9 C5.13857625,12.9 2.9,10.6614237 2.9,7.9 Z" id="Oval-28"></path>
+                <polygon id="Line" points="15.6284271 17.0426407 16.3355339 17.7497475 17.7497475 16.3355339 17.0426407 15.6284271 13.5071068 12.0928932 12.8 11.3857864 11.3857864 12.8 12.0928932 13.5071068"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

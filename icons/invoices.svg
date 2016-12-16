@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
+    <title>invoices</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="invoices">
+            <g id="Rectangle-512-+-Group-+-Rectangle-905-Copy-6" transform="translate(4.000000, 2.000000)">
+                <path d="M11,10.5 L11,10 C11,9.44386482 10.5564136,9 10.009222,9 L7,9 L7,8 L11,8 L11,6 L5.99077797,6 C5.72090793,6 5.47323964,6.1119028 5.29302576,6.29283014 C5.10974288,6.47653039 5,6.72524434 5,6.99980749 L5,10.0001925 C5,10.2766903 5.11068629,10.5254065 5.28987791,10.7056109 C5.46954486,10.8890594 5.71721376,11 5.99077797,11 L9,11 L9,12 L5,12 L5,14 L10.009222,14 C10.2790921,14 10.5267604,13.8880972 10.7069742,13.7071699 C10.8902571,13.5234696 11,13.2747557 11,13.0001925 L11,10.5 Z M0,0 L16,0 L16,20 L14.0077515,18 L12.027832,20 L10.0169678,18 L8.01171875,20 L5.99316406,18 L4.00720215,20 L2.00689697,18 L0,20 L0,0 Z M7,14 L9,14 L9,15 L7,15 L7,14 Z M7,5 L9,5 L9,6 L7,6 L7,5 Z" id="Rectangle-512" fill="#777777"></path>
+                <g id="Group" transform="translate(5.000000, 5.000000)"></g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
+    <title>segments</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="segments" fill="#777777">
+            <g id="Group" transform="translate(2.000000, 2.000000)">
+                <path d="M11,9 L11,18 C11,18 11.2231058,17.9979618 11.3339094,17.9939205 C16.1497734,17.8182751 20,13.8587718 20,9 C20,4.02943725 15.9705627,0 11,0 C6.15537071,0 2.2047826,3.82784529 2.00770933,8.62406218 C2.00258652,8.74873719 2,9 2,9 L11,9 Z" id="Oval-260"></path>
+                <path d="M7.89895959,18.9158817 L7.89895959,9.91588167 C7.89895959,9.91588167 7.784287,9.91641901 7.72714371,9.91748891 C2.96124426,10.006722 -0.898592737,13.8005524 -1.09333108,18.5399439 C-1.0984539,18.6646189 -1.10104041,18.9158817 -1.10104041,18.9158817 L7.89895959,18.9158817 Z" id="Oval-260-Copy" transform="translate(4.503529, 14.415882) rotate(-90.000000) translate(-4.503529, -14.415882) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

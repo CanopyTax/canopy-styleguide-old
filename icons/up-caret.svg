@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
+    <title>up-caret</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="up-caret" fill="#777777">
+            <g id="Line-+-Line-+-Line-2-+-Rectangle-906-Copy-3" transform="translate(11.500000, 12.000000) scale(-1, -1) rotate(90.000000) translate(-11.500000, -12.000000) translate(7.000000, 6.000000)">
+                <g id="Line-+-Line-+-Line-2" transform="translate(4.500000, 6.000000) scale(-1, 1) translate(-4.500000, -6.000000) ">
+                    <polygon id="Line" points="6.09186138 11.106031 6.80451961 11.8075424 8.20754242 10.382226 7.49488419 9.68071457 3.1015114 5.38734178 2.38885317 4.68583038 0.985830366 6.11114684 1.6984886 6.81265824"></polygon>
+                    <polygon id="Line-2" points="7.50047957 2.40710678 8.20758635 1.7 6.79337279 0.285786441 6.086266 0.992893222 1.69289322 5.38626601 0.985786436 6.09337279 2.4 7.50758635 3.10710678 6.80047957"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

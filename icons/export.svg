@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>export</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="export" fill="#777777">
+            <g id="Rectangle-130-+-Triangle-30-+-Rectangle-131-+-Rectangle-241-+-Rectangle-906-Copy-10" transform="translate(4.000000, 2.000000)">
+                <g id="Rectangle-130-+-Triangle-30-+-Rectangle-131-+-Rectangle-241">
+                    <g id="Rectangle-130-+-Triangle-30-+-Rectangle-131" transform="translate(8.000000, 6.500000) scale(1, -1) translate(-8.000000, -6.500000) ">
+                        <path d="M4,0 L12,0 L12,5 L4,5 L4,0 Z M0,5 L16,5 L8,13 L0,5 Z" id="Rectangle-130"></path>
+                    </g>
+                    <rect id="Rectangle-241" x="4" y="14" width="8" height="3"></rect>
+                    <rect id="Rectangle-241" x="4" y="18" width="8" height="2"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
