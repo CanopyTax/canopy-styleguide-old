@@ -67,8 +67,5 @@
     "custom-elements-canopy": "^1.0.0-alpha.3",
     "canopy-iconography": "^2.0.1",
     "history": "1.17.0"
-  },
-  "publishConfig": {
-    "registry": "http://npm.canopytax.com"
   }
 }
