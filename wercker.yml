@@ -4,11 +4,6 @@ box:
 build:
     steps:
         - script:
-            name: npm setup
-            code: |
-                echo '//npm.canopytax.com/:_authToken="xrWFRKpQUST+6no1HCmddV8mVbGVEOGEWB3NQZKMXPc="' > ~/.npmrc
-                npm set registry http://npm.canopytax.com
-        - script:
             name: npm install
             code: |
                 npm install
