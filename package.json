@@ -68,8 +68,5 @@
   "dependencies": {
     "@webcomponents/custom-elements": "1.0.0-alpha.3",
     "history": "1.17.0"
-  },
-  "publishConfig": {
-    "registry": "http://npm.canopytax.com"
   }
 }
