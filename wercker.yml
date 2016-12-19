@@ -42,6 +42,7 @@ build:
             name: copy output to wercker
             code: |
                 mkdir -p "$WERCKER_OUTPUT_DIR/website/"
+                ls -la build
                 cp --recursive build/* "$WERCKER_OUTPUT_DIR/website/"
                 git describe
                 mkdir -p "$WERCKER_OUTPUT_DIR/sofe/$(git describe)/"
@@ -79,6 +80,7 @@ website:
             name: deploy files to s3
             code: |
               mkdir -p ~/.aws/
+              ls -lah website
               echo -e "[default]\nregion=us-west-2\naws_access_key_id = $AWS_ACCESS_KEY\naws_secret_access_key = $AWS_SECRET\n" > ~/.aws/config
               aws s3 sync website s3://styleguide.corp.canopytax.com --exclude=* --include=design/* --cache-control "public, max-age=5184000" --content-encoding gzip
               aws s3 sync website s3://styleguide.corp.canopytax.com --exclude=design/* --content-encoding gzip --delete
