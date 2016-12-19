@@ -15,7 +15,7 @@
     "prepublish": "npm run build",
     "start": "http-server sofe --cors -c-1 --ssl --cert public.pem --key key.pem -p",
     "watch": "echo 'Please ensure fontcustom is installed\n' && npm run build-icons && ./bin/build -w",
-    "sofe": "rm -rf build && npm run build-icons && ./bin/build -p"
+    "sofe": "npm run build-icons && ./bin/build -p"
   },
   "git-tasker": [
     {
