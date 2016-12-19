@@ -19,7 +19,7 @@ build:
               sed -i -e 's/\/build\/styleguide.css/\/\/styleguide.corp.canopytax.com\/styleguide.css/g' vendor/cp-edit-render-code.html
               cp -a vendor build/
               cp index.html build/
-              cp white-logo.png build/
+              cp *.png build/
               cp canopy-logotype.svg build/
               cp -a design build/design
         - create-file:
