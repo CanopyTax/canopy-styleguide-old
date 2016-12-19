@@ -62,11 +62,11 @@ var TopNav = ({route}) =>  {
 				<div className="cps-topnav__bar"></div>
 				<div className="cps-topnav__content" style={{position: 'relative'}}>
 					<span className="cps-topnav__content__brand" style={{float: 'left'}}>
-						<img src="canopy-logomark.svg" alt="Company Logo"/>
+						<img style={{position: 'relative', top: '4px', left: '12px'}} src="white-logo.png" alt="Company Logo"/>
 					</span>
 					<ul className="cps-topnav__content__menu">
-						<li style={{listStyle: 'none', margin: '8px 30px', display: 'inline-block'}}><Link className="cps-white" to={ `/design/${designPrinciples[0].title}` } activeClassName='+active'>Design</Link></li>
-						<li style={{listStyle: 'none', margin: '8px 30px', display: 'inline-block'}}><Link className="cps-white" to={ `/components/${components[0].title}` } activeClassName='+active'>Components</Link></li>
+						<li style={{listStyle: 'none', margin: '8px 16px', display: 'inline-block'}}><Link className="cps-white" to={ `/design/${designPrinciples[0].title}` } activeClassName='+active'>Design</Link></li>
+						<li style={{listStyle: 'none', margin: '8px 16px', display: 'inline-block'}}><Link className="cps-white" to={ `/components/${components[0].title}` } activeClassName='+active'>Components</Link></li>
 					</ul>
 					<ul className="cps-topnav__content__menu cps-pull-right">
 						<li className="cps-topnav__content__menu__form">
@@ -93,7 +93,7 @@ var TopNav = ({route}) =>  {
 					</ul>
 				</div>
 			</div>
-			<div className="cps-topnav-secondary">
+			<div className="cps-topnav-secondary" style={{top: '38px'}}>
 				<div className="cps-topnav-secondary__content" >
 					<ul className="cps-topnav-secondary__content__menu">
 						<li>
