@@ -73,11 +73,11 @@ deploy:
             deplanifester_env: $DEPLANIFESTER_ENV
             deplanifester_username: $DEPLANIFESTER_USERNAME
             deplanifester_password: $DEPLANIFESTER_PASSWORD
-    website:
-        - script:
-            name: deploy files to s3
-            code: |
-              mkdir -p ~/.aws/
-              echo -e "[default]\nregion=us-west-2\naws_access_key_id = $AWS_ACCESS_KEY\naws_secret_access_key = $AWS_SECRET\n" > ~/.aws/config
-              aws s3 sync website s3://styleguide.corp.canopytax.com --exclude=* --include=design/* --cache-control "public, max-age=5184000" --content-encoding gzip
-              aws s3 sync website s3://styleguide.corp.canopytax.com --exclude=design/* --content-encoding gzip --delete
+website:
+    - script:
+        name: deploy files to s3
+        code: |
+          mkdir -p ~/.aws/
+          echo -e "[default]\nregion=us-west-2\naws_access_key_id = $AWS_ACCESS_KEY\naws_secret_access_key = $AWS_SECRET\n" > ~/.aws/config
+          aws s3 sync website s3://styleguide.corp.canopytax.com --exclude=* --include=design/* --cache-control "public, max-age=5184000" --content-encoding gzip
+          aws s3 sync website s3://styleguide.corp.canopytax.com --exclude=design/* --content-encoding gzip --delete
