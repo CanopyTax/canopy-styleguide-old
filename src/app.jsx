@@ -47,7 +47,7 @@ var Sidebar = function({route}) {
 		);
 	}
 	return (
-		<div className="cps-flexible-sidenav +tall-top" style={{height: '100%'}}>
+		<div className="cps-flexible-sidenav +tall-top" style={{height: '100%', paddingTop: '80px'}}>
 			<div className="cps-flexible-sidenav__menu" style={{overflow: 'auto', height: 'calc(100% - 175px)'}}>
 				{ menuItems }
 			</div>
@@ -145,7 +145,7 @@ var ComponentLayout = ({params, route}) => {
 		<div>
 			<TopNav route={route}/>
 			<Sidebar route={route}/>
-			<div className="cps-nav-content +tall-top">
+			<div className="cps-nav-content +tall-top" style={{paddingTop: '120px'}}>
 				<Component/>
 			</div>
 		</div>
@@ -158,7 +158,7 @@ var DesignLayout = ({params, route}) => {
 		<div>
 			<TopNav route={route} />
 			<Sidebar route={route}/>
-			<div className="cps-nav-content +tall-top">
+			<div className="cps-nav-content +tall-top" style={{paddingTop: '120px'}}>
 				<img src={`/design/${designPrinciple.title.replace(/ /g, '_')}.png`} />
 			</div>
 		</div>
