@@ -1,9 +1,8 @@
 // Global css
 import './components.less';
-
-// Custom elements
-import '@webcomponents/custom-elements';
-import './custom-elements/cp-button/cp-button.js';
+import './custom-elements/custom-elements.js';
+import '@joeldenning/custom-elements';
+import './custom-elements/cps-button/cps-button.js';
 
 const el = document.createElement('link'); 
 el.setAttribute("rel", "stylesheet");

@@ -39,7 +39,7 @@
 	margin-left: 24px;
 }
 
-.button + .link {
+.button + :global(.cps-link) {
 	margin-left: 12px;
 }
 
