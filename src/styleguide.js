@@ -1,8 +1,8 @@
 // Global css
 import './components.less';
-import './custom-elements/custom-elements.js';
+import './custom-elements/force-polyfill.js';
 import '@joeldenning/custom-elements';
-import './custom-elements/cps-button/cps-button.js';
+import './custom-elements/definitions.js';
 
 const el = document.createElement('link'); 
 el.setAttribute("rel", "stylesheet");
