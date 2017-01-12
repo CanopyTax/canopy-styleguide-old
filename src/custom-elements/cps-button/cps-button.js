@@ -6,8 +6,14 @@ class CpsButton extends HTMLButtonElement {
 		return ['action-type', 'disable-on-click'];
 	}
 	connectedCallback() {
-		this._actionType = this.getAttribute('action-type');
-		this.disableOnClick = this.getAttribute('disable-on-click') === "true" ? true : false;
+		if (this.getAttribute('action-type')) {
+			this._actionType = this.getAttribute('action-type');
+		}
+
+		if (this.getAttribute('disable-on-click')) {
+			this.disableOnClick = this.getAttribute('disable-on-click') === "true" ? true : false;
+		}
+
 		this.render();
 	}
 	attributeChangedCallback(attr, oldValue, newValue) {

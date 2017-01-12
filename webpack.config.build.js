@@ -21,7 +21,7 @@ module.exports = {
 			// Extract css files
 			{
 				test: /\.css$/,
-				loader: "style-loader!css-loader?modules!autoprefixer"
+				loader: "style-loader!css-loader?modules&localIdentName=[name]__[local]--[hash:base64:5]!autoprefixer"
 			},
 			// Optionally extract less files
 			// or any other compile-to-css language
