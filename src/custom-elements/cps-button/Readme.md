@@ -1,4 +1,4 @@
-# cp-button
+# cps-button
 Provides styling and auto-disabling for `<button>` elements.
 
 ## HTML Usage
@@ -8,9 +8,14 @@ Provides styling and auto-disabling for `<button>` elements.
 </button>
 ```
 
-## Attributes / properties
-- `action-type` (optional): A string with potential values of `primary` or `secondary`. If not provided, the default `buttonface` background-color will be applied.
-- `disable-on-click` (optional): A boolean value that determines if the button becomes disabled once it is clicked. Defaults to true.
+## Properties
+Properties are good for both initial configuration and for all subsequent changes to the DOM element.
+- `actionType` (optional): A string with potential values of `primary` or `secondary`. If not provided, the default `buttonface` background-color will be applied.
+
+## Attributes
+Attributes are good for initial configuration, but changing an attribute after mounting to the DOM does *not* update the corresponding property or cause a re-render.
+- `action-type` (optional): This is the same as the actionType property, just it's an attribute.
+- `disable-on-click` (optional): This is the same as the disable-on-click property, just it's an attribute. The string "true" or "false" is expected.
 
 ## JS Events
 Right now there are no events that cp-button emits. Use event listeners on the `<button>` element

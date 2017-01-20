@@ -1,10 +1,8 @@
 import styles from './cps-button.css';
+import {createReactComponent} from '../react-interop.js';
 
 class CpsButton extends HTMLButtonElement {
 	// Lifecycles
-	static get observedAttributes() {
-		return ['action-type', 'disable-on-click'];
-	}
 	connectedCallback() {
 		if (this.getAttribute('action-type')) {
 			this._actionType = this.getAttribute('action-type');
@@ -15,10 +13,6 @@ class CpsButton extends HTMLButtonElement {
 		}
 
 		this.render();
-	}
-	attributeChangedCallback(attr, oldValue, newValue) {
-		// This triggers the setter for the property, which in turn triggers a rerender.
-		this[attr] = newValue;
 	}
 
 	// Listeners for re-rendering
@@ -49,8 +43,8 @@ class CpsButton extends HTMLButtonElement {
 	// re-rendering logic
 	render = () => {
 		this.updateClass(styles.button, true);
-		this.updateClass(styles.primary, this._actionType === 'primary');
-		this.updateClass(styles.secondary, this._actionType === 'secondary');
+		this.updateClass(styles.primary, this.actionType === 'primary');
+		this.updateClass(styles.secondary, this.actionType === 'secondary');
 	}
 	updateClass = (className, enabled) => {
 		if (enabled) {
@@ -67,3 +61,8 @@ class CpsButton extends HTMLButtonElement {
 }
 
 customElements.define('cps-button', CpsButton, {extends: 'button'});
+export const CprButton = createReactComponent({
+	name: 'cps-button',
+	extends: 'button',
+	properties: ['actionType', 'disableOnClick'],
+});
