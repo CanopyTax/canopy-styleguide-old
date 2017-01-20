@@ -80,14 +80,12 @@ customElements.define('my-custom-element', MyCustomElement);
 export const CprMyCustomElement = createReactComponent({
 	name: 'my-custom-element', // The name of the custom element
 	extends: null, // Not required for autonomous custom elements, but required for customized built-in elements
-	properties: ['myProp', 'anotherProp'], // A list of all the properties that your custom element supports. All other React props are passed to the custom element as attributes
 });
 ```
 - The react version of a custom element will be exported as a React component whose name starts with `Cpr`. This is because we may
   need to do a similar thing for other frameworks, but we don't collisions in naming the framework-specific versions of custom elements.
   So the `r` in `Cpr` is for React.
-- Our implementation of the React interop defaults to element attributes for anything that is not specifically whitelisted as an element property.
-  Who knows if this is what React will eventually decide on, but it is very very close to what React@15 currently does. Sticking pretty close to the
-  (incomplete) React@15 logic for handling custom elements makes the implementation more straightforward and hopefully avoids weird bugs. One place
-  where we deviated from the React@15 implementation is that we transform the `className` prop into a `class=""` attribute, which React@15 weirdly does
-  not do (it creates a `classname=""` attribute on the element).
+- Our implementation of the React interop defaults to element properties for all react props. This works well with className, id, etc, but isn't perfect.
+  Who knows if this is what React will eventually decide on, but this is the best guess I have right now. Sticking pretty close to the
+  (incomplete) React@15 logic for handling custom elements makes it hard to handle special properties like `className` and `disabled`, so
+  we didn't do that.

@@ -1,5 +1,7 @@
 import React from 'react';
-import {toPairs, difference, includes} from 'lodash';
+import {toPairs, difference, includes, startsWith} from 'lodash';
+
+const blacklistedProperties = ['children', 'className'];
 
 export function createReactComponent(opts) {
 	if (!opts.name || typeof opts.name !== 'string') {
@@ -8,10 +10,6 @@ export function createReactComponent(opts) {
 
 	if (opts.extends && typeof opts.extends !== 'string') {
 		throw new Error(`opts.extends must be a string, if provided`);
-	}
-
-	if (!Array.isArray(opts.properties)) {
-		throw new Error(`Cannot convert custom element to React component without opts.properties`);
 	}
 
 	return class ReactCustomElementInterop extends React.Component {
@@ -24,17 +22,13 @@ export function createReactComponent(opts) {
 		}
 		render() {
 			const childProps = {ref: el => this.el = el};
-			for (let propName in this.props) {
-				if (!includes(opts.properties, propName) && propName !== 'children') {
-					if (propName === 'className') {
-						childProps.class = this.props[propName];
-					} else {
-						childProps[propName] = this.props[propName];
-					}
-				}
-			}
 			if (opts.extends) {
 				childProps.is = opts.name;
+			}
+			for (let propName in this.props) {
+				if (startsWith(propName, 'on')) {
+					childProps[propName] = this.props[propName];
+				}
 			}
 
 			const name = opts.extends || opts.name;
@@ -47,7 +41,7 @@ export function createReactComponent(opts) {
 			this.handleEventListeners(oldProps, newProps);
 
 			for (let propName in newProps) {
-				if (includes(opts.properties, propName)) {
+				if (!includes(blacklistedProperties, propName) && !startsWith(propName, 'on')) {
 					/* CRAZY JS BEHAVIOR HERE:
 					 * Since React creates the DOM element and re-renders it a couple of times before even appending it to the document,
 					 * we sometimes set the element property value before the element has even been upgraded to be a custom element.
@@ -60,6 +54,8 @@ export function createReactComponent(opts) {
 					delete this.el[propName];
 					// This should be set as a property on the custom element
 					this.el[propName] = newProps[propName];
+				} else if (propName === 'className') {
+					this.el.classList.add(newProps[propName]);
 				}
 			}
 		}
