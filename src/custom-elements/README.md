@@ -54,7 +54,7 @@ export default class MyComponent extends React.Component {
 		 * And the events props is a object where the values are event handler functions and the keys are names of events that the
 		 * custom element might fire.
 		 *
-		 * This turns into `<button is="cps-button id="243" class="my_class" />` in the DOM inspector, where `addEventListener` has been
+		 * This turns into `<button is="cps-button" id="243" class="my_class" />` in the DOM inspector, where `addEventListener` has been
 		 * called for the events, and properties on the dom element have been set for `actionType`, and `disableOnClick`.
 		 */
 		return <CprButton actionType="secondary" disableOnClick={true} className="my_class" events={{'event-name': this.eventHandler}} id="234" />
