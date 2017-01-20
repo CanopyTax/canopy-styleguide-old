@@ -55,7 +55,8 @@ export function createReactComponent(opts) {
 					// This should be set as a property on the custom element
 					this.el[propName] = newProps[propName];
 				} else if (propName === 'className') {
-					this.el.classList.add(newProps[propName]);
+					const classNames = newProps[propName].split(/\s+/);
+					classNames.forEach(className => this.el.classList.add(className));
 				}
 			}
 		}
