@@ -1,17 +1,19 @@
 # Custom elements at Canopy
 
 The styleguide defines some custom elements that apps and components should use as the "leaf nodes"
-of ui. Here are some of the benefits:
+of ui.
+
+#### Here are some of the benefits:
 
 - Custom elements are more powerful than CSS classes because they have js functionality
 - Custom elements are framework agnostic and can be used regardless of which single-spa app or framework needs them.
 
-Here are some disadvantages:
+#### Here are some disadvantages:
 - Interoperating with framework components and custom elements is not always seamless. Should frameworks set attributes? Properties? Both? How should frameworks set up event listeners?
 - It's not easy to write custom elements that behave exactly correctly. Getters and setters have some quirky behaviors, it's all vanilla js,
   and there are edge cases you have to worry about.
 
-To try and help with the disadvantages, we've done the following:
+#### To try and help with the disadvantages, we've done the following:
 - Created a react-interop thing where custom elements can be easily exposed as React Components.
 - We're considering using Preact or similar underneath the hood for implementing custom elements, and then
   having a adapter layer thing that converts Preact components into custom elements. That way people will
@@ -29,8 +31,9 @@ Reading that article is the best way to get acquainted with the conventions, but
 Each custom element has a folder with a Readme. That readme should tell you all the specifics of how to use a custom element.
 
 ## React interoperability.
-As of Jan 2017, React is still figuring out how it is going to make interoperating with custom elements more seamless. Here are
-some links to discussion about it:
+As of Jan 2017, React is still figuring out how it is going to make interoperating with custom elements more seamless.
+
+#### Here are some links to discussion about it:
 - https://github.com/facebook/react/issues/7901
 - https://github.com/facebook/react/issues/7249
 - https://github.com/facebook/react/pull/8755
@@ -59,13 +62,13 @@ export default class MyComponent extends React.Component {
 }
 ```
 
-Risks of building a React component version of every custom element:
+#### Risks of building a React component version of every custom element:
 - If the React component version actually has some extra behavior to it in addition to what the custom element does, then
   people get different behaviors depending on whether they're using React or not. This is really bad.
 - When the above-referenced React issues are sorted out, it might be tricky to move off of our interop layer and onto
   the official React way of doing custom elements.
 
-Here's our approach, which tries to address the risks:
+#### Here's our approach, which tries to address the risks:
 - We want the custom element to have the behavior in it, not the React component. For this reason, we've created
   a [react-interop](/src/custom-elements/react-interop.js) file which makes it so that people who write custom elements
   (1) don't have to think about how to make it into a React component, and (2) it makes it pretty much impossible to
