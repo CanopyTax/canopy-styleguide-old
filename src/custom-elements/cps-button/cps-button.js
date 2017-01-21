@@ -64,5 +64,4 @@ customElements.define('cps-button', CpsButton, {extends: 'button'});
 export const CprButton = createReactComponent({
 	name: 'cps-button',
 	extends: 'button',
-	properties: ['actionType', 'disableOnClick'],
 });
