@@ -39,8 +39,8 @@ As of Jan 2017, React is still figuring out how it is going to make interoperati
 - https://github.com/facebook/react/pull/8755
 
 Until that is figured out, the only way to interoperate correctly with custom elements is to get `refs` and then
-set the properties, attributes, and event listeners on the ref itself. That's sort of clanky, so we decided to
-build a way for people to use custom elements via a React component that isn't clanky. Each custom element exports
+set the properties, attributes, and event listeners on the ref itself. That's sort of clunky, so we decided to
+build a way for people to use custom elements via a React component that isn't clunky. Each custom element exports
 a React component version of it. Example:
 
 ```js
