@@ -11,9 +11,12 @@ module.exports = {
 	output: {
 		path: './build',
 		filename: "[name].js",
-		library: 'styleguide',
-		libraryTarget: 'umd',
+		libraryTarget: 'amd',
 		chunkFilename: "[id].js"
+	},
+	externals: {
+		react: 'react',
+		lodash: 'lodash',
 	},
 	devtool: 'sourcemap',
 	module: {
@@ -21,7 +24,7 @@ module.exports = {
 			// Extract css files
 			{
 				test: /\.css$/,
-				loader: "style-loader!css-loader?modules!autoprefixer"
+				loader: "style-loader!css-loader?modules&localIdentName=[name]__[local]--[hash:base64:5]!autoprefixer"
 			},
 			// Optionally extract less files
 			// or any other compile-to-css language

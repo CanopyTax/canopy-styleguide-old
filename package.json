@@ -66,7 +66,7 @@
     "webpack-dev-server": "1.14.1"
   },
   "dependencies": {
-    "@webcomponents/custom-elements": "1.0.0-alpha.3",
+    "@joeldenning/custom-elements": "1.0.0-alpha.6",
     "history": "1.17.0"
   }
 }

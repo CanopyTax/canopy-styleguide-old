@@ -1,9 +1,8 @@
 // Global css
 import './components.less';
-
-// Custom elements
-import '@webcomponents/custom-elements';
-import './custom-elements/cp-button/cp-button.js';
+import './custom-elements/force-polyfill.js';
+import '@joeldenning/custom-elements';
+import './custom-elements/definitions.js';
 
 const el = document.createElement('link'); 
 el.setAttribute("rel", "stylesheet");
@@ -15,3 +14,5 @@ el.setAttribute("href", "https://fonts.googleapis.com/css?family=Asap:400,400i,7
 el.setAttribute("type","text/css");
 const head = document.getElementsByTagName('head')[0];
 head.appendChild(el);
+
+exports.CprButton = require('./custom-elements/cps-button/cps-button.js').CprButton;
