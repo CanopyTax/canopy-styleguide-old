@@ -12,6 +12,8 @@ class CpsButton extends HTMLButtonElement {
 			this.disableOnClick = this.getAttribute('disable-on-click') === "true" ? true : false;
 		}
 
+		this._willDisableNextClick = false;
+
 		this.render();
 	}
 
@@ -33,10 +35,6 @@ class CpsButton extends HTMLButtonElement {
 		if (typeof newVal !== 'boolean') {
 			throw new Error(`disableOnClick property of cps-button elements must be a boolean. Was '${typeof newVal}'`);
 		}
-		this.removeEventListener('click', this.disableOnClickListener);
-		if (newVal) {
-			this.addEventListener('click', this.disableOnClickListener);
-		}
 		this._disableOnClick = newVal;
 	}
 
@@ -45,6 +43,14 @@ class CpsButton extends HTMLButtonElement {
 		this.updateClass(styles.button, true);
 		this.updateClass(styles.primary, this.actionType === 'primary');
 		this.updateClass(styles.secondary, this.actionType === 'secondary');
+
+		if (this.disableOnClick && !this._willDisableNextClick) {
+			this._willDisableNextClick = true;
+			this.addEventListener('click', this.disableOnClickListener);
+		} else if (!this.disableOnClick && this._willDisableNextClick) {
+			this._willDisableNextClick = false;
+			this.removeEventListener('click', this.disableOnClickListener);
+		}
 	}
 	updateClass = (className, enabled) => {
 		if (enabled) {
