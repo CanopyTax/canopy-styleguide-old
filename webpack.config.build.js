@@ -11,7 +11,8 @@ module.exports = {
 	output: {
 		path: './build',
 		filename: "[name].js",
-		libraryTarget: 'amd',
+		library: 'styleguide',
+		libraryTarget: 'umd',
 		chunkFilename: "[id].js"
 	},
 	externals: {
