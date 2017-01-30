@@ -67,6 +67,7 @@
   },
   "dependencies": {
     "@joeldenning/custom-elements": "1.0.0-alpha.6",
+    "classlist-polyfill": "^1.0.3",
     "history": "1.17.0",
     "preact": "^7.1.0"
   }
