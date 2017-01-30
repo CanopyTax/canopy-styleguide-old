@@ -8,9 +8,14 @@ class CpsButton extends Component {
 		disabled: false,
 	}
 	componentDidMount() {
+		// Used for disableOnClick
 		this.props.customElement.addEventListener('click', this.onClick);
 	}
 	componentWillReceiveProps(nextProps) {
+		/* When showLoader is set to true, we want to hide whatever text is in the button, but unhide it when
+		 * showLoader is set back to false. Unfortunately, you can't set display: none on text nodes, so we have to
+		 * remove the text nodes in order to achieve the same effect.
+		 */
 		if (!this.props.showLoader && nextProps.showLoader) {
 			this.textNodes = Array.prototype.filter.call(this.props.customElement.childNodes, childNode => childNode.nodeType === 3);
 			Array.prototype.forEach.call(this.textNodes, textNode => textNode.parentNode.removeChild(textNode));
@@ -22,6 +27,7 @@ class CpsButton extends Component {
 		}
 	}
 	render() {
+		// Update the classes on the custom element itself
 		this.props.customElement.classList.add(styles.button);
 		this.props.customElement.classList.toggle(styles.primary, this.props.actionType === 'primary');
 		this.props.customElement.classList.toggle(styles.secondary, this.props.actionType === 'secondary');
@@ -30,6 +36,7 @@ class CpsButton extends Component {
 			this.props.customElement.disabled = this.state.disabled;
 		}
 
+		// Only return something if we want to completely overwrite the innerHTML
 		if (this.props.showLoader) {
 			return (
 				<span className={`cps-loader ${styles.loader}`}>
