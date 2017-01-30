@@ -15,7 +15,7 @@ Properties are good for both initial configuration and for all subsequent change
   where it's best to disable the button so you don't have to debounce it.
 
 ## Attributes
-Attributes are good for initial configuration, but changing an attribute after mounting to the DOM does *not* update the corresponding property or cause a re-render.
+Attributes are good for initial configuration. If an attribute is changed, the corresponding property will be updated.
 - `action-type` (optional): This is the same as the actionType property, just it's an attribute.
 - `disable-on-click` (optional): This is the same as the disable-on-click property, just it's an attribute. The string "true" or "false" is expected.
 
