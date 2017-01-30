@@ -34,6 +34,7 @@ Each custom element has a folder with a Readme. That readme should tell you all 
 If you so choose, you can create a custom element by first writing a Preact component and then calling preactToCustomElement. This
 will return to you a custom element class that you can then call customElements.define() with. Here are some things to be aware of:
 - Anything you return from the render function will be put *inside* of the custom element. **Not *on* the custom element**
+- Anything you return from the render function will *overwrite* the existing innerHTML of the custom element. Not be merged with it.
 - DOM properties on the custom element will be converted to props on the Preact component.
 - You will receive a special prop called `customElement` that is a ref to the DOM node for the custom element.
 - If you want to add classes, event listeners, attributes, etc. to the custom element dom node, use `this.props.customElement`.
