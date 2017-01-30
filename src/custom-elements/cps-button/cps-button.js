@@ -1,73 +1,52 @@
+import {Component, h} from 'preact';
 import styles from './cps-button.css';
-import {createReactComponent} from '../react-interop.js';
+import {customElementToReact} from '../react-interop.js';
+import {preactToCustomElement} from '../preact-to-custom-element.js';
 
-class CpsButton extends HTMLButtonElement {
-	// Lifecycles
-	connectedCallback() {
-		if (this.getAttribute('action-type')) {
-			this._actionType = this.getAttribute('action-type');
+class CpsButton extends Component {
+	static state = {
+		disabled: false,
+	}
+	componentDidMount() {
+		this.props.customElement.addEventListener('click', this.onClick);
+	}
+	componentWillReceiveProps(nextProps) {
+		if (!this.props.showLoader && nextProps.showLoader) {
+			this.textNodes = Array.prototype.filter.call(this.props.customElement.childNodes, childNode => childNode.nodeType === 3);
+			Array.prototype.forEach.call(this.textNodes, textNode => textNode.parentNode.removeChild(textNode));
 		}
 
-		if (this.getAttribute('disable-on-click')) {
-			this.disableOnClick = this.getAttribute('disable-on-click') === "true" ? true : false;
-		}
-
-		this._willDisableNextClick = false;
-
-		this.render();
-	}
-
-	// Listeners for re-rendering
-	get actionType() {
-		return this._actionType;
-	}
-	set actionType(newType) {
-		if (typeof newType !== 'string') {
-			throw new Error(`actionType property of cps-button elements must be a string. Was '${typeof newType}'`);
-		}
-		this._actionType = newType;
-		this.render();
-	}
-	get disableOnClick() {
-		return this._disableOnClick;
-	}
-	set disableOnClick(newVal) {
-		if (typeof newVal !== 'boolean') {
-			throw new Error(`disableOnClick property of cps-button elements must be a boolean. Was '${typeof newVal}'`);
-		}
-		this._disableOnClick = newVal;
-	}
-
-	// re-rendering logic
-	render = () => {
-		this.updateClass(styles.button, true);
-		this.updateClass(styles.primary, this.actionType === 'primary');
-		this.updateClass(styles.secondary, this.actionType === 'secondary');
-
-		if (this.disableOnClick && !this._willDisableNextClick) {
-			this._willDisableNextClick = true;
-			this.addEventListener('click', this.disableOnClickListener);
-		} else if (!this.disableOnClick && this._willDisableNextClick) {
-			this._willDisableNextClick = false;
-			this.removeEventListener('click', this.disableOnClickListener);
+		if (this.props.showLoader && !nextProps.showLoader) {
+			Array.prototype.forEach.call(this.textNodes, textNode => this.props.customElement.appendChild(textNode));
+			delete this.textNodes;
 		}
 	}
-	updateClass = (className, enabled) => {
-		if (enabled) {
-			this.classList.add(className);
-		} else {
-			this.classList.remove(className);
+	render() {
+		this.props.customElement.classList.add(styles.button);
+		this.props.customElement.classList.toggle(styles.primary, this.props.actionType === 'primary');
+		this.props.customElement.classList.toggle(styles.secondary, this.props.actionType === 'secondary');
+
+		if (this.state.disabled) {
+			this.props.customElement.disabled = this.state.disabled;
+		}
+
+		if (this.props.showLoader) {
+			return (
+				<span className={`cps-loader ${styles.loader}`}>
+					<span />
+					<span />
+					<span />
+				</span>
+			)
 		}
 	}
-
-	// event listeners
-	disableOnClickListener = () => {
-		this.disabled = true;
+	onClick = () => {
+		if (this.props.disableOnClick) {
+			this.setState({disabled: true});
+		}
 	}
 }
 
-customElements.define('cps-button', CpsButton, {extends: 'button'});
-export const CprButton = createReactComponent({
-	name: 'cps-button',
-	extends: 'button',
-});
+const customElement = preactToCustomElement(CpsButton, {parentClass: HTMLButtonElement, properties: ['actionType', 'disableOnClick', 'showLoader']});
+customElements.define('cps-button', customElement, {extends: 'button'});
+export const CprButton = customElementToReact({name: 'cps-button', extends: 'button'});

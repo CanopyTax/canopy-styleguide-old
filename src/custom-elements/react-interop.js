@@ -3,7 +3,7 @@ import {toPairs, difference, includes, startsWith} from 'lodash';
 
 const blacklistedProperties = ['children', 'className'];
 
-export function createReactComponent(opts) {
+export function customElementToReact(opts) {
 	if (!opts.name || typeof opts.name !== 'string') {
 		throw new Error(`Cannot convert custom element to React component without opts.name`);
 	}
