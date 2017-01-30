@@ -4,6 +4,20 @@ import preact, {h} from 'preact';
 export function preactToCustomElement(preactComponent, opts) {
 	class PreactCustomElement extends opts.parentClass {
 		connectedCallback() {
+			opts
+			.properties
+			.filter(property => !this[property])
+			.forEach(property => {
+				const attrName = kebabCase(property);
+				if (this.hasAttribute(attrName)) {
+					/* We set the private property so as to not trigger the setter (which in turn causes a render)
+					 * We are already going to render anyway at the end of connectedCallback, so no need to do it repeatedly
+					 * during the connectedCallback.
+					 */
+					this['_' + property] = this.getAttribute(attrName);
+				}
+			});
+
 			this.render();
 		}
 		disconnectedCallback() {
