@@ -29,8 +29,8 @@ class CpsButton extends Component {
 	render() {
 		// Update the classes on the custom element itself
 		this.props.customElement.classList.add(styles.button);
-		toggleClass(this.props.customElement.classList, styles.primary, this.props.actionType === 'primary');
-		toggleClass(this.props.customElement.classList, styles.secondary, this.props.actionType === 'secondary');
+		toggleClass(this.props.customElement, styles.primary, this.props.actionType === 'primary');
+		toggleClass(this.props.customElement, styles.secondary, this.props.actionType === 'secondary');
 
 		if (this.state.disabled) {
 			this.props.customElement.disabled = this.state.disabled;
