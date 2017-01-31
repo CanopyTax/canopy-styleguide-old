@@ -37,7 +37,13 @@ module.exports = {
 			{
 				test: /\.jsx?$/,
 				exclude: /(node_modules|bower_components)/,
-				loader: 'babel'
+				loader: 'babel-loader',
+				query: {
+					presets: ['es2015', 'stage-2'],
+					plugins: [
+						['transform-react-jsx', {'pragma': 'h'}],
+					],
+				},
 			},
 			{
 				test: /\.json$/,

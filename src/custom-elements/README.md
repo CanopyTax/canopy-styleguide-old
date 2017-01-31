@@ -15,20 +15,57 @@ of ui.
 
 #### To try and help with the disadvantages, we've done the following:
 - Created a react-interop thing where custom elements can be easily exposed as React Components.
-- We're considering using Preact or similar underneath the hood for implementing custom elements, and then
-  having a adapter layer thing that converts Preact components into custom elements. That way people will
-  hopefully not have to deal with the oddities of DOM elements and custom elements quite as much
+- We've built a function that turns Preact components into custom elements. That way people will
+  hopefully not have to deal with the oddities of DOM elements and custom elements quite as much.
+  See [explanation here](#preact-custom-elements).
 
 ## Some conventions that we use at Canopy
 [Rob Dodson's conventions](https://medium.com/dev-channel/custom-elements-that-work-anywhere-898e1dd2bc48) are what we try to follow, for the most part.
 Reading that article is the best way to get acquainted with the conventions, but here's a brief summary:
 - Use properties (not attributes) as your source of truth.
-- All exposed attributes should have a corresponding property.
-- Updating a property doesn't need to cause the corresponding attribute to change. Attributes are most useful for *initial* configuration only.
+- All exposed attributes should have a corresponding property. If you change an attribute, it should change its corresponding property.
+- Updating a property doesn't need to cause the corresponding attribute to change. Attributes are most useful for *initial* configuration.
 - Data goes out of custom elements via dom events.
 
 ## Documentation for custom elements
 Each custom element has a folder with a Readme. That readme should tell you all the specifics of how to use a custom element.
+
+## Preact custom elements
+If you so choose, you can create a custom element by first writing a Preact component and then calling preactToCustomElement. This
+will return to you a custom element class that you can then call customElements.define() with. Here are some things to be aware of:
+- Anything you return from the render function will be put *inside* of the custom element. **Not *on* the custom element**
+- Anything you return from the render function will *overwrite* the existing innerHTML of the custom element. Not be merged with it.
+- DOM properties on the custom element will be converted to props on the Preact component.
+- You will receive a special prop called `customElement` that is a ref to the DOM node for the custom element.
+- If you want to add classes, event listeners, attributes, etc. to the custom element dom node, use `this.props.customElement`.
+  For example, `this.props.customElement.classList.toggle('my-className', this.props.useMyClassName)` and
+  `this.props.customElement.addEventListener('click', () => console.log('click'))`. You *will not* be able to achieve this
+  with `onClick` or `className` because the actual custom element itself is not managed by Preact, only the children of the
+  custom element are managed by preact.
+- It is advisable to not return anything from the render function of your Preact component, so that you do not overwrite the innerHTML
+  that the user of the custom element has set up.
+- To send data up to the user of the custom element, fire CustomEvents on this.props.customElement.
+
+For example:
+```js
+import {Component, h} from 'preact';
+
+class CpsPillbox extends Component {
+	componentDidMount() {
+		this.props.customElement.addEventListener('click', this.onClick);
+	}
+	render() {
+		this.props.customElement.classList.toggle('my-class', this.props.useMyClassName);
+	}
+	onClick = evt => {
+		console.log('click');
+		this.props.customElement.dispatchEvent(new CustomEvent('pillbox-clicked', {detail: 'yep it was clicked'}));
+	}
+}
+
+const customElement = preactToCustomElement(customElement, {parentClass: HTMLElement, properties: ['useMyClassName']});
+customElements.define('cps-pillbox', customElement);
+```
 
 ## React interoperability.
 As of Jan 2017, React is still figuring out how it is going to make interoperating with custom elements more seamless.
@@ -77,7 +114,7 @@ export default class MyComponent extends React.Component {
 class MyCustomElement extends HTMLElement {
 }
 customElements.define('my-custom-element', MyCustomElement);
-export const CprMyCustomElement = createReactComponent({
+export const CprMyCustomElement = customElementToReact({
 	name: 'my-custom-element', // The name of the custom element
 	extends: null, // Not required for autonomous custom elements, but required for customized built-in elements
 });

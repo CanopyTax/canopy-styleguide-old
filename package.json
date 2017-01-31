@@ -36,8 +36,8 @@
   "devDependencies": {
     "autoprefixer-loader": "1.2.0",
     "babel-core": "^6.18.2",
-    "babel-loader": "^6.2.8",
-    "babel-plugin-transform-custom-element-classes": "^0.1.0",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-react-jsx": "^6.22.0",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-2": "^6.18.0",
@@ -67,6 +67,7 @@
   },
   "dependencies": {
     "@joeldenning/custom-elements": "1.0.0-alpha.6",
-    "history": "1.17.0"
+    "history": "1.17.0",
+    "preact": "^7.2.0"
   }
 }
