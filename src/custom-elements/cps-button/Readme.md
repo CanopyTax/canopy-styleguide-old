@@ -20,5 +20,5 @@ Attributes are good for initial configuration. If an attribute is changed, the c
 - `disable-on-click` (optional): This is the same as the disable-on-click property, just it's an attribute. The string "true" or "false" is expected.
 
 ## JS Events
-Right now there are no events that cp-button emits. Use event listeners on the `<button>` element
+Right now there are no events that cps-button emits. Use event listeners on the `<button>` element
 itself to get key events, click events, etc.
