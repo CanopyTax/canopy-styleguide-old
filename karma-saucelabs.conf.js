@@ -43,7 +43,7 @@ module.exports = function(config) {
 
 	config.set({
 		sauceLabs: {
-			testName: "single-spa tests",
+			testName: "canopy-styleguide tests",
 			// username: 'canopytax',
 			// accessKey: 'access-key'
 		},
