@@ -29,8 +29,8 @@ class CpsButton extends Component {
 	render() {
 		// Update the classes on the custom element itself
 		this.props.customElement.classList.add(styles.button);
-		this.props.customElement.classList.toggle(styles.primary, this.props.actionType === 'primary');
-		this.props.customElement.classList.toggle(styles.secondary, this.props.actionType === 'secondary');
+		toggleClass(this.props.customElement.classList, styles.primary, this.props.actionType === 'primary');
+		toggleClass(this.props.customElement.classList, styles.secondary, this.props.actionType === 'secondary');
 
 		if (this.state.disabled) {
 			this.props.customElement.disabled = this.state.disabled;
@@ -57,3 +57,11 @@ class CpsButton extends Component {
 const customElement = preactToCustomElement(CpsButton, {parentClass: HTMLButtonElement, properties: ['actionType', 'disableOnClick', 'showLoader']});
 customElements.define('cps-button', customElement, {extends: 'button'});
 export const CprButton = customElementToReact({name: 'cps-button', extends: 'button'});
+
+function toggleClass(element, className, condition) {
+	if (condition) {
+		element.classList.add(className);
+	} else {
+		element.classList.remove(className);
+	}
+}
