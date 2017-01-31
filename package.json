@@ -13,7 +13,7 @@
     "deploy": "cp build/* ../workflow-ui/node_modules/canopy-styleguide/build/",
     "website": "webpack-dev-server",
     "prepublish": "npm run build",
-    "start": "http-server sofe --cors -c-1 --ssl --cert public.pem --key key.pem -p",
+    "start": "http-server sofe --cors -c-1 --ssl --cert ~/.canopy-ssl/public.pem --key ~/.canopy-ssl/key.pem -p",
     "watch": "echo 'Please ensure fontcustom is installed\n' && npm run build-icons && ./bin/build -w",
     "sofe": "npm run build-icons && ./bin/build -p"
   },
