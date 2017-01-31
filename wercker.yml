@@ -8,6 +8,10 @@ build:
             code: |
                 npm install
         - script:
+            name: browser tests
+            code: |
+                npm run test:ci
+        - script:
             name: build
             code: |
               npm run build
