@@ -24,7 +24,7 @@ build:
             code: |
               ./bin/build-website
         - create-file:
-            name: add robots.txt
+            name: add robots.txt to website
             filename: website/robots.txt
             content: |
               # Go away!
@@ -38,7 +38,7 @@ build:
         - script:
             name: gzip files
             code: |
-              find build -type f -exec gzip "{}" \; -exec mv "{}.gz" "{}" \;
+              find website -type f -exec gzip "{}" \; -exec mv "{}.gz" "{}" \;
               find sofe -type f -exec gzip "{}" \; -exec mv "{}.gz" "{}" \;
         - script:
             name: copy output to wercker
