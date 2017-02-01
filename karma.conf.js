@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Wed Aug 10 2016 16:23:13 GMT-0600 (MDT)
 
-var webpackConfig = require('./webpack.config.build.js');
+var webpackConfig = require('./webpack.config.sofe.js');
 delete webpackConfig.externals;
 delete webpackConfig.entry;
 webpackConfig.devtool = 'inline-source-map';

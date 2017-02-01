@@ -50,9 +50,9 @@ input:
 #  templates: my/templates
 
 output:
-  fonts: build
-  css: build
-  preview: build
+  fonts: fonts
+  css: fonts
+  preview: fonts
 #  my-custom-template.yml: path/to/template/output
 
 
