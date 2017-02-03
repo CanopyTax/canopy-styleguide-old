@@ -19,7 +19,8 @@ class CpsTooltip extends Component {
 			document.body.appendChild(this.tooltipContainer);
 		}
 
-		const thingToRender = this.state.renderTooltip ? h(Tooltip, this.props) : '';
+		const props = {...this.props, tooltipShown: this.tooltipShown};
+		const thingToRender = this.state.renderTooltip ? h(Tooltip, props) : '';
 		this.preactTooltip = preact.render(thingToRender, this.tooltipContainer, this.preactTooltip);
 
 		// Don't return anything, we don't care about innerHTML of the custom element
@@ -36,7 +37,14 @@ class CpsTooltip extends Component {
 		this.setState({renderTooltip: false}, () => {
 			this.tooltipContainer.parentNode.removeChild(this.tooltipContainer);
 			delete this.tooltipContainer;
+			this.props.customElement.dispatchEvent(new CustomEvent('cps-tooltip:hidden'));
 		});
+	}
+	tooltipShown = el => {
+		this.props.customElement.dispatchEvent(new CustomEvent('cps-tooltip:shown', {detail: {tooltipEl: el}}));
+	}
+	tooltipHidden = () => {
+		this.props.customElement.dispatchEvent(new CustomEvent('cps-tooltip:hidden'));
 	}
 }
 
@@ -49,7 +57,11 @@ class Tooltip extends Component {
 	}
 	componentDidMount() {
 		this.setState(this.getPositionStyles());
-		setTimeout(() => this.setState({waitingForDelayTime: false}), Number(this.props.delayTime || 0));
+		setTimeout(() => {
+			this.setState({waitingForDelayTime: false}, () => {
+				this.props.tooltipShown(this.el);
+			});
+		}, Number(this.props.delayTime || 0));
 	}
 	render() {
 		return this.state.waitingForDelayTime
