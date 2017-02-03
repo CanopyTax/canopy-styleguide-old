@@ -1,13 +1,13 @@
 {
   "checksum": {
-    "previous": "e2d83b5d816382afdfaed236d951f8c8bab626d21cf006a43e8a51c63b436965",
-    "current": "e2d83b5d816382afdfaed236d951f8c8bab626d21cf006a43e8a51c63b436965"
+    "previous": "65650da80411b2cbadb36c425b50f3a37573095925a57eb0d46c4848ecfbc3f1",
+    "current": "65650da80411b2cbadb36c425b50f3a37573095925a57eb0d46c4848ecfbc3f1"
   },
   "fonts": [
-    "build/canopy-icons.ttf",
-    "build/canopy-icons.svg",
-    "build/canopy-icons.woff",
-    "build/canopy-icons.eot"
+    "fonts/canopy-icons.ttf",
+    "fonts/canopy-icons.svg",
+    "fonts/canopy-icons.woff",
+    "fonts/canopy-icons.eot"
   ],
   "glyphs": {
     "1": {
@@ -737,9 +737,9 @@
     },
     "no_hash": true,
     "output": {
-      "css": "build",
-      "fonts": "build",
-      "preview": "build"
+      "css": "fonts",
+      "fonts": "fonts",
+      "preview": "fonts"
     },
     "preprocessor_path": null,
     "quiet": false,
@@ -749,7 +749,7 @@
     ]
   },
   "templates": [
-    "build/canopy-icons.css",
-    "build/canopy-icons-preview.html"
+    "fonts/canopy-icons.css",
+    "fonts/canopy-icons-preview.html"
   ]
 }

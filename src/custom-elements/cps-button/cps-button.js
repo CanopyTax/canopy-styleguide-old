@@ -10,21 +10,10 @@ class CpsButton extends Component {
 	componentDidMount() {
 		// Used for disableOnClick
 		this.props.customElement.addEventListener('click', this.onClick);
+		this.checkShowLoader({}, this.props);
 	}
 	componentWillReceiveProps(nextProps) {
-		/* When showLoader is set to true, we want to hide whatever text is in the button, but unhide it when
-		 * showLoader is set back to false. Unfortunately, you can't set display: none on text nodes, so we have to
-		 * remove the text nodes in order to achieve the same effect.
-		 */
-		if (!this.props.showLoader && nextProps.showLoader) {
-			this.textNodes = Array.prototype.filter.call(this.props.customElement.childNodes, childNode => childNode.nodeType === 3);
-			Array.prototype.forEach.call(this.textNodes, textNode => textNode.parentNode.removeChild(textNode));
-		}
-
-		if (this.props.showLoader && !nextProps.showLoader) {
-			Array.prototype.forEach.call(this.textNodes, textNode => this.props.customElement.appendChild(textNode));
-			delete this.textNodes;
-		}
+		this.checkShowLoader(this.props, nextProps);
 	}
 	render() {
 		// Update the classes on the custom element itself
@@ -50,6 +39,21 @@ class CpsButton extends Component {
 	onClick = () => {
 		if (this.props.disableOnClick) {
 			this.setState({disabled: true});
+		}
+	}
+	checkShowLoader = (oldProps, nextProps) => {
+		/* When showLoader is set to true, we want to hide whatever text is in the button, but unhide it when
+		 * showLoader is set back to false. Unfortunately, you can't set display: none on text nodes, so we have to
+		 * remove the text nodes in order to achieve the same effect.
+		 */
+		if (!oldProps.showLoader && nextProps.showLoader) {
+			this.textNodes = Array.prototype.filter.call(nextProps.customElement.childNodes, childNode => childNode.nodeType === 3);
+			Array.prototype.forEach.call(this.textNodes, textNode => textNode.parentNode.removeChild(textNode));
+		}
+
+		if (oldProps.showLoader && !nextProps.showLoader) {
+			Array.prototype.forEach.call(this.textNodes, textNode => nextProps.customElement.appendChild(textNode));
+			delete this.textNodes;
 		}
 	}
 }

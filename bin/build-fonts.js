@@ -2,7 +2,7 @@ const fs = require('fs');
 const rework = require('rework');
 
 process.stdout.write("Removing non woff fonts...");
-const css = fs.readFileSync('build/canopy-icons.css', 'utf8');
+const css = fs.readFileSync('fonts/canopy-icons.css', 'utf8');
 const formattedCss = rework(css)
 	.use(ast => {
 		// Remove non woff fonts. This is because they will be base64 inlined within
@@ -15,5 +15,5 @@ const formattedCss = rework(css)
 	})
 	.toString();
 
-fs.writeFileSync('build/canopy-icons.css', formattedCss);
+fs.writeFileSync('fonts/canopy-icons.css', formattedCss);
 console.log('success');

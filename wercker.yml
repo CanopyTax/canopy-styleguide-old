@@ -8,23 +8,24 @@ build:
             code: |
                 npm install
         - script:
-            name: build
+            name: browser tests
             code: |
-              npm run build
+                npm run test-ci
         - script:
-            name: move files into build
+            name: clean directories
             code: |
-              sed -i -e 's/<script src=\"http:\/\/localhost:8080\/webpack-dev-server.js\"><\/script>/ /g' index.html
-              sed -i -e 's/build\/styleguide.css/styleguide.css/g' index.html
-              sed -i -e 's/\/build\/styleguide.css/\/\/styleguide.corp.canopytax.com\/styleguide.css/g' vendor/cp-edit-render-code.html
-              cp -a vendor build/
-              cp index.html build/
-              cp *.png build/
-              cp canopy-logotype.svg build/
-              cp -a design build/design
+              npm run clean
+        - script:
+            name: build icons
+            code: |
+              npm run build-icons
+        - script:
+            name: build website
+            code: |
+              ./bin/build-website
         - create-file:
-            name: add robots.txt
-            filename: build/robots.txt
+            name: add robots.txt to website
+            filename: website/robots.txt
             content: |
               # Go away!
               User-agent: *
@@ -33,26 +34,21 @@ build:
             name: create sofe bundle
             code: |
                 npm run sofe
-                cp --recursive sofe/* build/
+                cp --recursive fonts/* sofe
         - script:
             name: gzip files
             code: |
-              find build -type f -exec gzip "{}" \; -exec mv "{}.gz" "{}" \;
+              find website -type f -exec gzip "{}" \; -exec mv "{}.gz" "{}" \;
+              find sofe -type f -exec gzip "{}" \; -exec mv "{}.gz" "{}" \;
         - script:
             name: copy output to wercker
             code: |
                 mkdir -p "$WERCKER_OUTPUT_DIR/website/"
-                ls -la build
-                cp --recursive build/* "$WERCKER_OUTPUT_DIR/website/"
+                ls -la website
+                cp --recursive website/* "$WERCKER_OUTPUT_DIR/website/"
                 git describe
                 mkdir -p "$WERCKER_OUTPUT_DIR/sofe/$(git describe)/"
-                cp sofe/canopy-styleguide.js "$WERCKER_OUTPUT_DIR/sofe/$(git describe)/"
-                cp sofe/canopy-styleguide.js.map "$WERCKER_OUTPUT_DIR/sofe/$(git describe)/"
-                mkdir -p "$WERCKER_OUTPUT_DIR/bin"
-                cp --recursive bin/* "$WERCKER_OUTPUT_DIR/bin/"
-                mkdir -p "$WERCKER_OUTPUT_DIR/node_modules"
-                cp --recursive node_modules/replace "$WERCKER_OUTPUT_DIR/node_modules/"
-                git describe > "$WERCKER_OUTPUT_DIR/sofe/version.txt"
+                cp --recursive sofe/* "$WERCKER_OUTPUT_DIR/sofe/$(git describe)/"
     after-steps:
         - slack-notifier:
             url: $SLACK_URL
@@ -61,9 +57,6 @@ build:
             notify_on: "failed"
 deploy:
     steps:
-        - script:
-            name: fix urls
-            code: rm sofe/version.txt #npm install replace && ./bin/replace "$(cat sofe/version.txt)" $AWS_BUCKET && rm sofe/version.txt
         - canopytax/deploy-sofe-service:
             sofe_service_name: 'canopy-styleguide'
             upload_dir: sofe

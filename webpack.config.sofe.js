@@ -5,11 +5,9 @@ module.exports = {
 	// The standard entry point and output config
 	entry: {
 		'canopy-styleguide': "./src/styleguide.js",
-		variables: "./src/external-variables.less",
-		app: "./src/app.jsx"
 	},
 	output: {
-		path: './build',
+		path: './sofe',
 		filename: "[name].js",
 		library: 'styleguide',
 		libraryTarget: 'umd',
