@@ -34,11 +34,11 @@ class CpsTooltip extends Component {
 		this.setState({renderTooltip: true});
 	}
 	mouseLeave = evt => {
-		this.setState({renderTooltip: false}, () => {
-			this.tooltipContainer.parentNode.removeChild(this.tooltipContainer);
-			delete this.tooltipContainer;
-			this.props.customElement.dispatchEvent(new CustomEvent('cps-tooltip:hidden'));
-		});
+		// this.setState({renderTooltip: false}, () => {
+		// 	this.tooltipContainer.parentNode.removeChild(this.tooltipContainer);
+		// 	delete this.tooltipContainer;
+		// 	this.props.customElement.dispatchEvent(new CustomEvent('cps-tooltip:hidden'));
+		// });
 	}
 	tooltipShown = el => {
 		this.props.customElement.dispatchEvent(new CustomEvent('cps-tooltip:shown', {detail: {tooltipEl: el}}));
@@ -82,7 +82,17 @@ class Tooltip extends Component {
 		const targetRect = targetEl.getBoundingClientRect();
 
 		const tooltipCenter = targetRect.left + (targetEl.offsetWidth / 2);
-		const left = Math.max(0, this.el ? tooltipCenter - (this.el.offsetWidth / 2) : targetRect.left);
+		let left;
+		if (this.el) {
+			left = tooltipCenter - (this.el.offsetWidth / 2);
+			const numPixelsTooFarRight = (left + this.el.offsetWidth) - window.innerWidth;
+			if (numPixelsTooFarRight > 0) {
+				left -= numPixelsTooFarRight;
+			}
+		} else {
+			left = targetRect.left;
+		}
+		left = Math.max(0, left);
 
 		let top;
 		if (this.state.showAbove) {
