@@ -22,4 +22,19 @@ Attributes are good for initial configuration. If an attribute is changed, the c
 - `delay-time`
 
 ## JS Events
-Right now there are no events that cps-tooltip emits.
+cps-tooltip elements fire the following events:
+- `cps-tooltip:shown`: Fired whenever the tooltip is shown. The tooltip element is provided in the `evt.detail.tooltipEl`.
+- `cps-tooltip:hidden`: Fired whenever the tooltip is hidden.
+
+```js
+const el = document.createElement('cps-tooltip');
+el.addEventListener('cps-tooltip:shown', evt => {
+	console.log(evt.detail.tooltipEl);
+});
+el.addEventListener('cps-tooltip:hidden', () => {
+	console.log('hidden');
+});
+
+// Triggers the tooltip to be shown
+el.dispatchEvent(new CustomEvent('mouseover'));
+```
