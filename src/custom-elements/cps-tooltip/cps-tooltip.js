@@ -34,11 +34,11 @@ class CpsTooltip extends Component {
 		this.setState({renderTooltip: true});
 	}
 	mouseLeave = evt => {
-		// this.setState({renderTooltip: false}, () => {
-		// 	this.tooltipContainer.parentNode.removeChild(this.tooltipContainer);
-		// 	delete this.tooltipContainer;
-		// 	this.props.customElement.dispatchEvent(new CustomEvent('cps-tooltip:hidden'));
-		// });
+		this.setState({renderTooltip: false}, () => {
+			this.tooltipContainer.parentNode.removeChild(this.tooltipContainer);
+			delete this.tooltipContainer;
+			this.props.customElement.dispatchEvent(new CustomEvent('cps-tooltip:hidden'));
+		});
 	}
 	tooltipShown = el => {
 		this.props.customElement.dispatchEvent(new CustomEvent('cps-tooltip:shown', {detail: {tooltipEl: el}}));
