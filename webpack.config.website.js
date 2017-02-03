@@ -4,9 +4,11 @@ module.exports = {
 	// The standard entry point and output config
 	entry: {
 		'styleguide': "./src/components.less",
+		app: "./src/app.jsx",
+		variables: "./src/external-variables.less",
 	},
 	output: {
-		path: './build',
+		path: './website',
 		filename: "[name].js",
 		chunkFilename: "[id].js"
 	},

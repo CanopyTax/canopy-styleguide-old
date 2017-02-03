@@ -1,0 +1,13 @@
+#/bin/env bash -e
+
+node node_modules/webpack/bin/webpack.js --config webpack.config.website.js
+cp index.html website
+cp --recursive fonts/* website
+sed -i -e 's/<script src=\"http:\/\/localhost:8080\/webpack-dev-server.js\"><\/script>/ /g' index.html
+sed -i -e 's/website\/styleguide.css/styleguide.css/g' index.html
+sed -i -e 's/\/website\/styleguide.css/\/\/styleguide.corp.canopytax.com\/styleguide.css/g' vendor/cp-edit-render-code.html
+cp -a vendor website/
+cp index.html website/
+cp *.png website/
+cp canopy-logotype.svg website/
+cp -a design website/design
