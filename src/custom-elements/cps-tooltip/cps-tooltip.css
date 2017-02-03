@@ -1,0 +1,14 @@
+.tooltip {
+	background-color: #777777;
+	font-size: 12px;
+	max-width: 240px;
+	padding: 8px;
+	color: white;
+	border-radius: 5px;
+	box-shadow: 0 1px 4px rgba(0; 0; 0; 0.26);
+	z-index: 100000;
+	position: absolute;
+}
+
+.tooltipContainer {
+}

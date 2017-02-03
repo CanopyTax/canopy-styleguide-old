@@ -38,7 +38,7 @@ will return to you a custom element class that you can then call customElements.
 - DOM properties on the custom element will be converted to props on the Preact component.
 - You will receive a special prop called `customElement` that is a ref to the DOM node for the custom element.
 - If you want to add classes, event listeners, attributes, etc. to the custom element dom node, use `this.props.customElement`.
-  For example, `this.props.customElement.classList.toggle('my-className', this.props.useMyClassName)` and
+  For example, `this.props.customElement.classList.add('my-className')` and
   `this.props.customElement.addEventListener('click', () => console.log('click'))`. You *will not* be able to achieve this
   with `onClick` or `className` because the actual custom element itself is not managed by Preact, only the children of the
   custom element are managed by preact.
@@ -55,7 +55,9 @@ class CpsPillbox extends Component {
 		this.props.customElement.addEventListener('click', this.onClick);
 	}
 	render() {
-		this.props.customElement.classList.toggle('my-class', this.props.useMyClassName);
+		if (this.props.useMyClassName) {
+			this.props.customElement.add('my-class', this.props.useMyClassName);
+		}
 	}
 	onClick = evt => {
 		console.log('click');

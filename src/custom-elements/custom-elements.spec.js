@@ -1,3 +1,4 @@
+import 'custom-event-polyfill';
 import 'babel-polyfill';
 import './force-polyfill.js';
 import '@joeldenning/custom-elements';

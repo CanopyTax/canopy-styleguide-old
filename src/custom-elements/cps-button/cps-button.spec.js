@@ -1,4 +1,6 @@
 describe(`<button is="cps-button" />`, () => {
+	let el;
+
 	beforeAll(done => {
 		customElements
 		.whenDefined('cps-button')
@@ -6,15 +8,21 @@ describe(`<button is="cps-button" />`, () => {
 		.catch(fail);
 	});
 
+	beforeEach(() => {
+		el = document.createElement('button', {is: 'cps-button'});
+	});
+
+	afterEach(() => {
+		el.parentNode.removeChild(el);
+	});
+
 	it(`actually upgrades a button to be a cps-button`, () => {
-		var el = document.createElement('button', {is: 'cps-button'});
 		document.body.appendChild(el);
 
 		expect(el instanceof customElements.get('cps-button')).toBe(true);
 	});
 
 	it(`respects the actionType property values of 'primary' and 'secondary'`, () => {
-		var el = document.createElement('button', {is: 'cps-button'});
 		// Set the actionType before even appending to doc
 		el.actionType = 'primary';
 		document.body.appendChild(el);
@@ -29,7 +37,6 @@ describe(`<button is="cps-button" />`, () => {
 	});
 
 	it(`respects the showLoader property`, () => {
-		var el = document.createElement('button', {is: 'cps-button'});
 		el.textContent = 'Button text'
 		document.body.appendChild(el);
 
@@ -45,7 +52,6 @@ describe(`<button is="cps-button" />`, () => {
 	});
 
 	it(`respects the disableOnClick property`, done => {
-		var el = document.createElement('button', {is: 'cps-button'});
 		document.body.appendChild(el);
 
 		el.disableOnClick = true;
