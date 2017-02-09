@@ -24,19 +24,18 @@ class CpsTooltip extends Component {
 		this.preactTooltip = preact.render(thingToRender, this.tooltipContainer, this.preactTooltip);
 
 		// Don't return anything, we don't care about innerHTML of the custom element
-		return undefined;
+		return <div style={{height: 0, width: 0}} />;
 	}
 	componentWillUnmount() {
+		this.deleteTooltipElement();
 		preact.render('', document.body, this.tooltipContainer);
-		document.body.removeChild(this.tooltipContainer);
 	}
 	mousedOver = evt => {
 		this.setState({renderTooltip: true});
 	}
 	mouseLeave = evt => {
 		this.setState({renderTooltip: false}, () => {
-			this.tooltipContainer.parentNode.removeChild(this.tooltipContainer);
-			delete this.tooltipContainer;
+			this.deleteTooltipElement();
 			this.props.customElement.dispatchEvent(new CustomEvent('cps-tooltip:hidden'));
 		});
 	}
@@ -45,6 +44,12 @@ class CpsTooltip extends Component {
 	}
 	tooltipHidden = () => {
 		this.props.customElement.dispatchEvent(new CustomEvent('cps-tooltip:hidden'));
+	}
+	deleteTooltipElement = () => {
+		if (this.tooltipContainer) {
+			this.tooltipContainer.parentNode.removeChild(this.tooltipContainer);
+			delete this.tooltipContainer;
+		}
 	}
 }
 
