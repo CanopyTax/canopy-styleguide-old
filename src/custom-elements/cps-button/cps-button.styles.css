@@ -87,3 +87,7 @@
 	display: flex;
 	justify-content: center;
 }
+
+.disabledWithLoader > span {
+	background-color: #afafaf;
+}

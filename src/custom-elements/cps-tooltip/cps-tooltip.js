@@ -1,7 +1,7 @@
 import preact, {h, Component} from 'preact';
 import {preactToCustomElement} from '../preact-to-custom-element.js';
 import {customElementToReact} from '../react-interop.js';
-import styles from './cps-tooltip.css';
+import styles from './cps-tooltip.styles.css';
 import {throttle, isEqual} from 'lodash';
 
 class CpsTooltip extends Component {
@@ -11,6 +11,8 @@ class CpsTooltip extends Component {
 	componentDidMount() {
 		this.props.customElement.addEventListener('mouseover', throttle(this.mousedOver, 10));
 		this.props.customElement.addEventListener('mouseleave', throttle(this.mouseLeave, 10));
+		// Custom elements default to inline, but inline-block is necessary to calculate height/width correctly
+		this.props.customElement.classList.add(styles.inlineBlock)
 	}
 	render() {
 		if (!this.tooltipContainer && this.state.renderTooltip) {
@@ -84,9 +86,8 @@ class Tooltip extends Component {
 		const verticalMargin = 8;
 
 		const targetEl = this.props.customElement;
-		const targetRect = targetEl.getBoundingClientRect();
 
-		const tooltipCenter = targetRect.left + (targetEl.offsetWidth / 2);
+		const tooltipCenter = targetEl.offsetLeft + (targetEl.offsetWidth / 2);
 		let left;
 		if (this.el) {
 			left = tooltipCenter - (this.el.offsetWidth / 2);
@@ -95,7 +96,7 @@ class Tooltip extends Component {
 				left -= numPixelsTooFarRight;
 			}
 		} else {
-			left = targetRect.left;
+			left = targetEl.offsetLeft;
 		}
 		left = Math.max(0, left);
 
@@ -105,7 +106,7 @@ class Tooltip extends Component {
 			top = targetEl.offsetTop - verticalMargin - this.el.offsetHeight;
 		} else {
 			// Show tooltip below target
-			top = document.body.scrollTop + targetRect.bottom + verticalMargin;
+			top = targetEl.offsetTop + targetEl.offsetHeight + verticalMargin;
 		}
 
 		const showAbove = this.state.showAbove || Boolean(this.el && !this.showAbove && this.el.getBoundingClientRect().bottom > window.innerHeight)

@@ -12,3 +12,7 @@
 
 .tooltipContainer {
 }
+
+.inlineBlock {
+	display: inline-block;
+}
