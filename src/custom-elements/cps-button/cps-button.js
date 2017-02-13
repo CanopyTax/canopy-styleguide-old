@@ -1,5 +1,5 @@
 import {Component, h} from 'preact';
-import styles from './cps-button.css';
+import styles from './cps-button.styles.css';
 import {customElementToReact} from '../react-interop.js';
 import {preactToCustomElement} from '../preact-to-custom-element.js';
 
@@ -28,7 +28,7 @@ class CpsButton extends Component {
 		// Only return something if we want to completely overwrite the innerHTML
 		if (this.props.showLoader) {
 			return (
-				<span className={`cps-loader ${styles.loader}`}>
+				<span className={`cps-loader ${styles.loader} ${this.props.customElement.disabled ? styles.disabledWithLoader : ''}`}>
 					<span />
 					<span />
 					<span />
