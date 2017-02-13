@@ -111,7 +111,6 @@ class Tooltip extends Component {
 
 		const showAbove = this.state.showAbove || Boolean(this.el && !this.showAbove && this.el.getBoundingClientRect().bottom > window.innerHeight)
 		
-		console.log('top', top, 'showAbove', this.state.showAbove)
 		return {top, left, showAbove};
 	}
 }
