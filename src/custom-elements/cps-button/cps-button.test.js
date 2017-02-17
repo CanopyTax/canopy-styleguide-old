@@ -36,6 +36,15 @@ describe(`<button is="cps-button" />`, () => {
 		expect(getComputedStyle(el).backgroundColor).toEqual('rgb(0, 191, 75)');
 	});
 
+	it(`respects the actionType property value for 'flat'`, () => {
+		el.actionType = 'flat';
+		document.body.appendChild(el);
+		// fully transparent background for flat buttons
+		expect(getComputedStyle(el).backgroundColor).toEqual('rgba(0, 0, 0, 0)');
+		// Default to green text for flat buttons
+		expect(getComputedStyle(el).color).toEqual('rgb(0, 191, 75)');
+	});
+
 	it(`respects the showLoader property`, () => {
 		el.textContent = 'Button text'
 		document.body.appendChild(el);

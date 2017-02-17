@@ -1,5 +1,5 @@
 import React from 'react';
-import {toPairs, difference, includes, startsWith} from 'lodash';
+import {toPairs, difference, includes, startsWith, kebabCase} from 'lodash';
 
 const blacklistedProperties = ['children', 'className'];
 
@@ -42,18 +42,7 @@ export function customElementToReact(opts) {
 
 			for (let propName in newProps) {
 				if (!includes(blacklistedProperties, propName) && !startsWith(propName, 'on')) {
-					/* CRAZY JS BEHAVIOR HERE:
-					 * Since React creates the DOM element and re-renders it a couple of times before even appending it to the document,
-					 * we sometimes set the element property value before the element has even been upgraded to be a custom element.
-					 * Before it is upgraded, the getter and setter for the custom element properties are not set up, and so setting the
-					 * property causes the getter and setter _not_ to be called because of the prototype chain. This is really weird native browser
-					 * behavior for getters and setters, but it's how it is. By deleting the prop before setting it, we make sure that the getter
-					 * and setter further up the prototype chain are called no matter what, because `delete` will make sure that it has to fall back
-					 * to the prototype chain to look up the property.
-					 */
-					delete this.el[propName];
-					// This should be set as a property on the custom element
-					this.el[propName] = newProps[propName];
+					this.setCustomElementValue(propName, newProps[propName])
 				} else if (propName === 'className') {
 					const classNames = newProps[propName].split(/\s+/);
 					classNames.forEach(className => this.el.classList.add(className));
@@ -74,6 +63,24 @@ export function customElementToReact(opts) {
 			newEventListeners.forEach((eventName, eventListener) => {
 				this.el.addEventListener(eventName, eventListener);
 			});
+		}
+		setCustomElementValue(propName, propValue) {
+			if (typeof propValue === 'string') {
+				this.el.setAttribute(kebabCase(propName), propValue);
+			} else {
+				/* CRAZY JS BEHAVIOR HERE:
+				 * Since React creates the DOM element and re-renders it a couple of times before even appending it to the document,
+				 * we sometimes set the element property value before the element has even been upgraded to be a custom element.
+				 * Before it is upgraded, the getter and setter for the custom element properties are not set up, and so setting the
+				 * property causes the getter and setter _not_ to be called because of the prototype chain. This is really weird native browser
+				 * behavior for getters and setters, but it's how it is. By deleting the prop before setting it, we make sure that the getter
+				 * and setter further up the prototype chain are called no matter what, because `delete` will make sure that it has to fall back
+				 * to the prototype chain to look up the property.
+				 */
+				delete this.el[propName];
+				// This should be set as a property on the custom element
+				this.el[propName] = propValue;
+			}
 		}
 	}
 }

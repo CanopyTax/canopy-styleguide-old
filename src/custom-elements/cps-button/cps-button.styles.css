@@ -40,7 +40,7 @@
 	margin-left: 24px;
 }
 
-.button + :global(.cps-link) {
+.button + :global(.cps-link), .button + .flat {
 	margin-left: 12px;
 }
 
@@ -90,4 +90,80 @@
 
 .disabledWithLoader > span {
 	background-color: #afafaf;
+}
+
+a.flat, .flat {
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	-webkit-appearance: none;
+		 -moz-appearance: none;
+			  	appearance: none;
+	font-size: 14px;
+	color: #00BF4B;
+	text-decoration: none;
+	padding: 4px 12px 4px 12px;
+	border-radius: 5px;
+	line-height: 1.75; /* accounts for icon */
+	font-weight: 600;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+a.flat:hover, .flat:hover {
+	background-color: rgba(0,0,0,.05);
+}
+
+a.flat + :global(.cps-btn), .flat + :global(.cps-btn), a.flat + .button, .flat + button {
+	margin-left: 12px;
+}
+
+a.flat:global(.\+align), .flat:global(.\+align) {
+	margin-left: -12px;
+}
+
+a.flat:global(.\+disabled), a.flat:disabled, .flat:global(.\+disabled), .flat:disabled {
+	pointer-events: none;
+	cursor: not-allowed;
+	color: rgba(0,0,0,.24);
+	box-shadow: none !important;
+}
+
+a.flat:focus, .flat:focus {
+	background-color: rgba(0,0,0,.1);
+	outline:none;
+}
+
+.a.flat :global(.cps-icon), .flat :global(.cps-icon) {
+	float: left;
+	padding-right: 4px;
+	color: inherit;
+}
+
+button.flat {
+	border: none;
+}
+
+button.flat::-moz-focus-inner {
+	border: 0;
+}
+
+button.button {
+	padding: 0px 24px;
+	height: 32px;
+}
+
+button.button::-moz-focus-inner {
+	border: 0;
+}
+
+fieldset:disabled .flat {
+	pointer-events: none;
+	cursor: not-allowed;
+	color: rgba(0,0,0,.24);
+	box-shadow: none !important;
+}
+
+:global(.cps-btn-icon) a.flat, :global(.cps-btn-icon) .flat {
+	padding: 4px !important; /* 8px + 24px icon height = 32px */
 }
