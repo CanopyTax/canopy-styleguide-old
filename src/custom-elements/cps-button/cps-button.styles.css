@@ -148,16 +148,16 @@ button.flat::-moz-focus-inner {
 	border: 0;
 }
 
-button.cps-btn {
+button.button {
 	padding: 0px 24px;
 	height: 32px;
 }
 
-button.cps-btn::-moz-focus-inner {
+button.button::-moz-focus-inner {
 	border: 0;
 }
 
-fieldset:disabled .cps-link {
+fieldset:disabled .flat {
 	pointer-events: none;
 	cursor: not-allowed;
 	color: rgba(0,0,0,.24);
