@@ -40,7 +40,7 @@ describe(`<button is="cps-button" />`, () => {
 		el.actionType = 'flat';
 		document.body.appendChild(el);
 		// fully transparent background for flat buttons
-		expect(getComputedStyle(el).backgroundColor).toEqual('rgba(0, 0, 0, 0)');
+		expect(['rgba(0, 0, 0, 0)', 'transparent'].indexOf(getComputedStyle(el).backgroundColor)).toBeGreaterThan(-1);
 		// Default to green text for flat buttons
 		expect(getComputedStyle(el).color).toEqual('rgb(0, 191, 75)');
 	});
