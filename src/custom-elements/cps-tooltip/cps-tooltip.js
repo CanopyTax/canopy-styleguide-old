@@ -18,7 +18,9 @@ class CpsTooltip extends Component {
 		if (!this.tooltipContainer && this.state.renderTooltip) {
 			this.tooltipContainer = document.createElement('div');
 			this.tooltipContainer.classList.add(styles.tooltipContainer);
-			document.body.appendChild(this.tooltipContainer);
+			// Put the tooltip element into the nearest positioned ancestor, so that offsetTop works.
+			this.parentElement = $(this.props.customElement).offsetParent()[0];
+			this.parentElement.appendChild(this.tooltipContainer);
 		}
 
 		const props = {...this.props, tooltipShown: this.tooltipShown};
@@ -30,7 +32,10 @@ class CpsTooltip extends Component {
 	}
 	componentWillUnmount() {
 		this.deleteTooltipElement();
-		preact.render('', document.body, this.tooltipContainer);
+		if (this.parentElement) {
+			preact.render('', this.parentElement, this.tooltipContainer);
+			delete this.parentElement;
+		}
 	}
 	mousedOver = evt => {
 		this.setState({renderTooltip: true});
