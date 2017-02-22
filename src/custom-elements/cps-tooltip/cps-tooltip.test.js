@@ -73,4 +73,48 @@ describe(`<cps-tooltip />`, () => {
 
 		el.dispatchEvent(new CustomEvent('mouseover'));
 	});
+
+	it(`puts the tooltip at the correct top when the custom element's nearest positioned ancestor is the document.body`, done => {
+		el.html = 'Html!';
+		el.innerHTML = `<div style="position: relative; top: 5px; left: 22px; width: 20px; height: 10px;"></div>`;
+		document.body.appendChild(el);
+
+		el.addEventListener('cps-tooltip:shown', evt => {
+			const rect = evt.detail.tooltipEl.getBoundingClientRect();
+			const documentBodyTop = document.body.getBoundingClientRect().top;
+			// 5 px top + 10px height + 8px tooltip buffer + document.body's top
+			const expectedTop = 5 + 10 + 8 + documentBodyTop;
+
+			// Assert the position is +/- 2 pixels from manual calculation
+			expect(rect.top).toBeGreaterThan(expectedTop - 2);
+			expect(rect.top).toBeLessThan(expectedTop + 2);
+			done();
+		});
+		el.dispatchEvent(new CustomEvent('mouseover'));
+	});
+
+	it(`puts the tooltip at the correct top when the custom element's nearest positioned ancestor is not document.body`, done => {
+		el.html = 'Html!';
+		el.innerHTML = `<div style="position: relative; top: 5px; left: 22px; width: 20px; height: 10px;"></div>`;
+
+		const parentEl = document.createElement('div');
+		parentEl.style.position = 'absolute';
+		parentEl.style.top = '11px';
+		document.body.appendChild(parentEl);
+		parentEl.appendChild(el);
+
+		el.addEventListener('cps-tooltip:shown', evt => {
+			const rect = evt.detail.tooltipEl.getBoundingClientRect();
+			const parentTop = parentEl.getBoundingClientRect().top;
+			// 5 px el top + 10px height + 8px tooltip buffer + parentEl's top
+			const expectedTop = 5 + 10 + 8 + parentTop;
+
+			// Assert the position is +/- 2 pixels from manual calculation
+			expect(rect.top).toBeGreaterThan(expectedTop - 2);
+			expect(rect.top).toBeLessThan(expectedTop + 2);
+			parentEl.parentNode.removeChild(parentEl);
+			done();
+		});
+		el.dispatchEvent(new CustomEvent('mouseover'));
+	});
 });
