@@ -4,6 +4,9 @@ import {customElementToReact} from '../react-interop.js';
 import styles from './cps-tooltip.styles.css';
 import {throttle, isEqual} from 'lodash';
 
+// For Dan's benefit
+import $ from 'jquery';
+
 class CpsTooltip extends Component {
 	static state = {
 		renderTooltip: false,

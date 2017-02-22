@@ -66,6 +66,7 @@
   "dependencies": {
     "@joeldenning/custom-elements": "1.0.0-alpha.6",
     "history": "1.17.0",
+    "jquery": "^3.1.1",
     "preact": "7.2.0"
   }
 }
