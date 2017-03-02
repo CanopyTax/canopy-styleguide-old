@@ -117,4 +117,61 @@ describe(`<cps-tooltip />`, () => {
 		});
 		el.dispatchEvent(new CustomEvent('mouseover'));
 	});
+
+	it(`appends the tooltip as a child of the tooltipContainer property if that property exists`, done => {
+		el.html = 'Html!';
+		el.innerHTML = `<div style="height: 10px"></div>`;
+
+		const parentOfEl = document.createElement('div');
+		parentOfEl.style.position = 'absolute';
+		parentOfEl.style.left = '30px';
+		parentOfEl.style.top = '25px';
+
+		const tooltipContainer = document.createElement('div');
+		tooltipContainer.setAttribute('id', 'tooltipContainer1');
+		document.body.appendChild(tooltipContainer);
+
+		el.tooltipContainer = tooltipContainer;
+		el.addEventListener('cps-tooltip:shown', evt => {
+			let node = evt.detail.tooltipEl;
+			let testFailed = true;
+			while (node = node.parentNode) {
+				if (node === tooltipContainer) {
+					testFailed = false;
+					break;
+				}
+			}
+
+			if (testFailed) {
+				fail(`The tooltip element should have been appended as a child of the specified tooltipContainer`);
+			}
+
+			const rect = evt.detail.tooltipEl.getBoundingClientRect();
+			// Even though we're appending the tooltip to a different container, it needs to respect parentOfEl's position
+			const expectedTop = el.getBoundingClientRect().bottom + 8;
+			expect(rect.top).toBeGreaterThan(expectedTop - 2);
+			expect(rect.top).toBeLessThan(expectedTop + 2);
+
+			parentOfEl.parentNode.removeChild(parentOfEl);
+			tooltipContainer.parentNode.removeChild(tooltipContainer);
+
+			done();
+		});
+
+		document.body.appendChild(parentOfEl);
+		parentOfEl.appendChild(el);
+		el.dispatchEvent(new CustomEvent('mouseover'));
+	});
+
+	it(`will make the tooltip element fixed with useFixedPosition property`, done => {
+		el.html = `Html!`;
+		el.useFixedPosition = true;
+		document.body.appendChild(el);
+		el.addEventListener('cps-tooltip:shown', evt => {
+			expect(getComputedStyle(evt.detail.tooltipEl).getPropertyValue('position')).toBe('fixed');
+			done();
+		});
+
+		el.dispatchEvent(new CustomEvent('mouseover'));
+	});
 });

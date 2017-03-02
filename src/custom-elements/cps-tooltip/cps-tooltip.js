@@ -18,26 +18,28 @@ class CpsTooltip extends Component {
 		this.props.customElement.classList.add(styles.inlineBlock)
 	}
 	render() {
-		if (!this.tooltipContainer && this.state.renderTooltip) {
-			this.tooltipContainer = document.createElement('div');
-			this.tooltipContainer.classList.add(styles.tooltipContainer);
+		const offsetParent = $(this.props.customElement).offsetParent()[0];
+		if (!this.preactContainer && this.state.renderTooltip) {
+			this.preactContainer = document.createElement('div');
 			// Put the tooltip element into the nearest positioned ancestor, so that offsetTop works.
-			this.parentElement = $(this.props.customElement).offsetParent()[0];
-			this.parentElement.appendChild(this.tooltipContainer);
+			this.positionedAncestor = this.props.tooltipContainer || offsetParent;
+			this.positionedAncestor.appendChild(this.preactContainer);
 		}
 
-		const props = {...this.props, tooltipShown: this.tooltipShown};
+		const startingLeft = this.props.tooltipContainer ? offsetParent.getBoundingClientRect().left : 0;
+		const startingTop = this.props.tooltipContainer ? offsetParent.getBoundingClientRect().top : 0;
+		const props = {...this.props, tooltipShown: this.tooltipShown, startingLeft, startingTop};
 		const thingToRender = this.state.renderTooltip ? h(Tooltip, props) : '';
-		this.preactTooltip = preact.render(thingToRender, this.tooltipContainer, this.preactTooltip);
+		this.preactTooltip = preact.render(thingToRender, this.preactContainer, this.preactTooltip);
 
 		// Don't return anything, we don't care about innerHTML of the custom element
 		return <div style={{height: 0, width: 0}} />;
 	}
 	componentWillUnmount() {
 		this.deleteTooltipElement();
-		if (this.parentElement) {
-			preact.render('', this.parentElement, this.tooltipContainer);
-			delete this.parentElement;
+		if (this.positionedAncestor) {
+			preact.render('', this.positionedAncestor, this.preactContainer);
+			delete this.positionedAncestor;
 		}
 	}
 	mousedOver = evt => {
@@ -56,9 +58,9 @@ class CpsTooltip extends Component {
 		this.props.customElement.dispatchEvent(new CustomEvent('cps-tooltip:hidden'));
 	}
 	deleteTooltipElement = () => {
-		if (this.tooltipContainer) {
-			this.tooltipContainer.parentNode.removeChild(this.tooltipContainer);
-			delete this.tooltipContainer;
+		if (this.preactContainer) {
+			this.preactContainer.parentNode.removeChild(this.preactContainer);
+			delete this.preactContainer;
 		}
 	}
 }
@@ -79,9 +81,14 @@ class Tooltip extends Component {
 		}, Number(this.props.delayTime || 0));
 	}
 	render() {
+		const style = {top: `${this.state.top}px`, left: `${this.state.left}px`};
+		if (this.props.useFixedPosition) {
+			style.position = 'fixed';
+		}
+
 		return this.state.waitingForDelayTime
 			? null
-			: <div className={styles.tooltip} style={{top: `${this.state.top}px`, left: `${this.state.left}px`}} ref={el => this.el = el} dangerouslySetInnerHTML={{__html: this.props.html}} />
+			: <div className={styles.tooltip} style={style} ref={el => this.el = el} dangerouslySetInnerHTML={{__html: this.props.html}} />
 	}
 	componentDidUpdate() {
 		const newPosition = this.getPositionStyles();
@@ -106,7 +113,7 @@ class Tooltip extends Component {
 		} else {
 			left = targetEl.offsetLeft;
 		}
-		left = Math.max(0, left);
+		left = Math.max(0, left + this.props.startingLeft);
 
 		let top;
 		if (this.state.showAbove) {
@@ -117,12 +124,14 @@ class Tooltip extends Component {
 			top = targetEl.offsetTop + targetEl.offsetHeight + verticalMargin;
 		}
 
+		top += this.props.startingTop;
+
 		const showAbove = this.state.showAbove || Boolean(this.el && !this.showAbove && this.el.getBoundingClientRect().bottom > window.innerHeight)
 		
 		return {top, left, showAbove};
 	}
 }
 
-const customElement = preactToCustomElement(CpsTooltip, {parentClass: HTMLElement, properties: ['html', 'delayTime']});
+const customElement = preactToCustomElement(CpsTooltip, {parentClass: HTMLElement, properties: ['html', 'delayTime', 'tooltipContainer', 'useFixedPosition']});
 customElements.define('cps-tooltip', customElement);
 export const CprTooltip = customElementToReact({name: 'cps-tooltip'});
