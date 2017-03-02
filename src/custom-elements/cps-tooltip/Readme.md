@@ -15,6 +15,8 @@ The `<cps-tooltip>` dom node is `display: inline`.
 Properties are good for both initial configuration and for all subsequent changes to the DOM element.
 - `html` (required): A string of html to show in the tooltip.
 - `delayTime` (optional): The number of milliseconds to wait before showing the tooltip.
+- `useFixedPosition` (optional): A boolean that determines whether the tooltip should be fixed positioned or not. Defaults to false.
+- `tooltipContainer` (optional): The container DOM element to put the tooltip element in. Defaults to the nearest positioned ancestor of the `<cps-tooltip>` element.
 
 ## Attributes
 Attributes are good for initial configuration. If an attribute is changed, the corresponding property will be updated.
