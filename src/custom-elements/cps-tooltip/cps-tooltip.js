@@ -19,28 +19,27 @@ class CpsTooltip extends Component {
 	}
 	render() {
 		const offsetParent = $(this.props.customElement).offsetParent()[0];
-		if (!this.tooltipParent && this.state.renderTooltip) {
-			this.tooltipParent = document.createElement('div');
-			this.tooltipParent.classList.add(styles.tooltipContainer);
+		if (!this.preactContainer && this.state.renderTooltip) {
+			this.preactContainer = document.createElement('div');
 			// Put the tooltip element into the nearest positioned ancestor, so that offsetTop works.
-			this.parentElement = this.props.tooltipContainer || offsetParent
-			this.parentElement.appendChild(this.tooltipParent);
+			this.positionedAncestor = this.props.tooltipContainer || offsetParent;
+			this.positionedAncestor.appendChild(this.preactContainer);
 		}
 
 		const startingLeft = this.props.tooltipContainer ? offsetParent.getBoundingClientRect().left : 0;
 		const startingTop = this.props.tooltipContainer ? offsetParent.getBoundingClientRect().top : 0;
 		const props = {...this.props, tooltipShown: this.tooltipShown, startingLeft, startingTop};
 		const thingToRender = this.state.renderTooltip ? h(Tooltip, props) : '';
-		this.preactTooltip = preact.render(thingToRender, this.tooltipParent, this.preactTooltip);
+		this.preactTooltip = preact.render(thingToRender, this.preactContainer, this.preactTooltip);
 
 		// Don't return anything, we don't care about innerHTML of the custom element
 		return <div style={{height: 0, width: 0}} />;
 	}
 	componentWillUnmount() {
 		this.deleteTooltipElement();
-		if (this.parentElement) {
-			preact.render('', this.parentElement, this.tooltipParent);
-			delete this.parentElement;
+		if (this.positionedAncestor) {
+			preact.render('', this.positionedAncestor, this.preactContainer);
+			delete this.positionedAncestor;
 		}
 	}
 	mousedOver = evt => {
@@ -59,9 +58,9 @@ class CpsTooltip extends Component {
 		this.props.customElement.dispatchEvent(new CustomEvent('cps-tooltip:hidden'));
 	}
 	deleteTooltipElement = () => {
-		if (this.tooltipParent) {
-			this.tooltipParent.parentNode.removeChild(this.tooltipParent);
-			delete this.tooltipParent;
+		if (this.preactContainer) {
+			this.preactContainer.parentNode.removeChild(this.preactContainer);
+			delete this.preactContainer;
 		}
 	}
 }
