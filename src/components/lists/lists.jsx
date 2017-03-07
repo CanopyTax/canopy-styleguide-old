@@ -1,8 +1,7 @@
 var React = require('react');
-var Highlight = require('react-highlight');
 
 module.exports = React.createClass({
-	render: function() {
+	render: function () {
 		return (
 			<div>
 				<div className="cps-flexible-focus cps-card">
@@ -11,8 +10,9 @@ module.exports = React.createClass({
 					</div>
 				</div>
 
-				<cp-edit-render-code section-title="Inline lists" dangerouslySetInnerHTML={ {__html:
-`<div class="cps-col-xs-4 cps-clear-top">
+				<cp-edit-render-code section-title="Inline lists" dangerouslySetInnerHTML={{
+					__html:
+					`<div class="cps-col-xs-4 cps-clear-top">
 	<ul class="cps-list-inline +pipes +underline">
 		<li><a>active</a></li>
 		<li><a>archived</a></li>
@@ -24,7 +24,7 @@ module.exports = React.createClass({
 		<li><a><i class="cps-icon cps-icon-list"></i></a></li>
 		<li><a><i class="cps-icon cps-icon-grid-view"></i></a></li>
 	</ul>
-</div>`} } />
+</div>`}} />
 			</div>
 		);
 	}

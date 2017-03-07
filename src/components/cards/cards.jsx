@@ -1,8 +1,7 @@
 var React = require('react');
-var Highlight = require('react-highlight');
 
 module.exports = React.createClass({
-	render: function() {
+	render: function () {
 		return (
 			<div>
 				<div className="cps-flexible-focus cps-card cps-margin-bottom-16">
@@ -13,7 +12,7 @@ module.exports = React.createClass({
 
 				<div className="cps-flexible-focus cps-card cps-margin-bottom-16">
 					<div className="cps-card__header cps-subheader">
-						Flexible Focus cards 
+						Flexible Focus cards
 					</div>
 					<div className="cps-card__body">
 						This card is within a flexible focus layout.
@@ -24,15 +23,16 @@ module.exports = React.createClass({
 							<strong>The class name "cps-card" is what makes the card look with a white background.</strong>
 							This same class name is used for the card look and feel of the slat and table components.
 						</p>
-						<hr className="cps-card__hr"/>
+						<hr className="cps-card__hr" />
 						<p>
 							The thinner card headers can be used by adding the class modifier "+thin" to the cps-card element.
 						</p>
 					</div>
 				</div>
 
-				<cp-edit-render-code dangerouslySetInnerHTML={ {__html:
-`<div class="cps-flexible-focus cps-card">
+				<cp-edit-render-code dangerouslySetInnerHTML={{
+					__html:
+					`<div class="cps-flexible-focus cps-card">
 	<div class="cps-card__header cps-subheader">
 		The Header content goes here.
 	</div>
@@ -43,11 +43,11 @@ module.exports = React.createClass({
 	<div class="cps-card__body">
 		There can be multiple body tags, generally separated by an hr
 	</div>
-</div>`} } />
+</div>`}} />
 
 				<div className="cps-flexible-focus cps-card cps-margin-bottom-16 cps-margin-top-32">
 					<div className="cps-card__header cps-subheader">
-						Fixed Focus cards 
+						Fixed Focus cards
 					</div>
 				</div>
 
@@ -72,8 +72,9 @@ module.exports = React.createClass({
 					</div>
 				</div>
 
-				<cp-edit-render-code dangerouslySetInnerHTML={ {__html:
-`<div class="cps-fixed-focus cps-card">
+				<cp-edit-render-code dangerouslySetInnerHTML={{
+					__html:
+					`<div class="cps-fixed-focus cps-card">
 	<div class="cps-card__header cps-subheader">
 		The Header content goes here.
 	</div>
@@ -95,11 +96,11 @@ module.exports = React.createClass({
 			Followed by more text.
 		</p>
 	</div>
-</div>` } } />
+</div>` }} />
 
 				<div className="cps-flexible-focus cps-card cps-margin-bottom-16 cps-margin-top-32">
 					<div className="cps-card__header cps-subheader">
-						Fixed Masonry cards 
+						Fixed Masonry cards
 					</div>
 				</div>
 
@@ -196,8 +197,9 @@ module.exports = React.createClass({
 					</div>
 				</div>
 
-				<cp-edit-render-code dangerouslySetInnerHTML={ {__html:
-`<div class="cps-fixed-masonry">
+				<cp-edit-render-code dangerouslySetInnerHTML={{
+					__html:
+					`<div class="cps-fixed-masonry">
 	<div class="cps-row">
 		<div class="cps-col-xs-6">
 			<div class="cps-fixed-masonry__card cps-card +thin">
@@ -288,11 +290,11 @@ module.exports = React.createClass({
 			</div>
 		</div>
 	</div>
-</div>`} } />
+</div>`}} />
 
 				<div className="cps-flexible-focus cps-card cps-margin-bottom-16 cps-margin-top-32">
 					<div className="cps-card__header cps-subheader">
-						Flexible Masonry cards 
+						Flexible Masonry cards
 					</div>
 					<div className="cps-card__body">
 						The flexible masonry grid can be achieved purely in CSS or with the masonry JS lib available at http://masonry.desandro.com/.
@@ -370,8 +372,9 @@ module.exports = React.createClass({
 					</div>
 				</div>
 
-				<cp-edit-render-code dangerouslySetInnerHTML={ {__html:
-`<div class="cps-flexible-masonry cps-flexible-focus">
+				<cp-edit-render-code dangerouslySetInnerHTML={{
+					__html:
+					`<div class="cps-flexible-masonry cps-flexible-focus">
 	<div class="cps-flexible-masonry-card">
 		<div class="cps-flexible-masonry-card__title">
 			Title of the note goes here
@@ -438,7 +441,7 @@ module.exports = React.createClass({
 			Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.
 		</div>
 	</div>
-</div>` } } />
+</div>` }} />
 
 
 				<div className="cps-flexible-focus cps-card cps-margin-bottom-16 cps-margin-top-32">
@@ -450,8 +453,9 @@ module.exports = React.createClass({
 					</div>
 				</div>
 
-				<cp-edit-render-code dangerouslySetInnerHTML={ {__html:
-`<div class="cps-fixed-focus">
+				<cp-edit-render-code dangerouslySetInnerHTML={{
+					__html:
+					`<div class="cps-fixed-focus">
 	<div class="cps-flexible-masonry-card +small">
 		<div class="cps-flexible-masonry-card__title">
 			Title of the note goes here
@@ -476,7 +480,7 @@ module.exports = React.createClass({
 			Salami venison spare ribs shankle landjaeger tongue, pork loin brisket sirloin tri-tip turducken doner pork t-bone. Porchetta landjaeger chicken, kielbasa frankfurter prosciutto ham rump tail. Kevin kielbasa pork, alcatra ground round spare ribs jowl frankfurter. Andouille alcatra biltong brisket tri-tip venison pig ham rump shank.
 		</div>
 	</div>
-</div>` } } />
+</div>` }} />
 
 			</div>
 		)

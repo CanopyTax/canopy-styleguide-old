@@ -1,8 +1,7 @@
 var React = require('react');
-var Highlight = require('react-highlight');
 
 module.exports = React.createClass({
-	render: function() {
+	render: function () {
 		return (
 			<div>
 				<div className="cps-flexible-focus cps-card">
@@ -23,8 +22,9 @@ module.exports = React.createClass({
 					</div>
 				</div>
 
-				<cp-edit-render-code section-title="Inset table" dangerouslySetInnerHTML={ {__html:
-`<table class="cps-inset-table">
+				<cp-edit-render-code section-title="Inset table" dangerouslySetInnerHTML={{
+					__html:
+					`<table class="cps-inset-table">
 	<thead>
 		<tr>
 			<th>Date</th>
@@ -49,11 +49,12 @@ module.exports = React.createClass({
 			<td>$ 105.00</td>
 		</tr>
 	</tbody>
-</table>`} } />
+</table>`}} />
 
 
-				<cp-edit-render-code section-title="Card table" dangerouslySetInnerHTML={ {__html:
-`<div class="cps-card-table cps-card">
+				<cp-edit-render-code section-title="Card table" dangerouslySetInnerHTML={{
+					__html:
+					`<div class="cps-card-table cps-card">
 	<table>
 		<thead>
 			<tr>
@@ -83,10 +84,11 @@ module.exports = React.createClass({
 			</tr>
 		</tbody>
 	</table>
-</div>`} } />
+</div>`}} />
 
-				<cp-edit-render-code section-title="Card table with header" dangerouslySetInnerHTML={ {__html:
-`<div class="cps-card-table cps-card">
+				<cp-edit-render-code section-title="Card table with header" dangerouslySetInnerHTML={{
+					__html:
+					`<div class="cps-card-table cps-card">
 	<div class="cps-card-table__headcontent">
 		<div class="cps-card-table__actions">
 			<div class="cps-card-table__actions__icons">
@@ -148,10 +150,11 @@ module.exports = React.createClass({
 			</tr>
 		</tbody>
 	</table>
-</div>`} } />
+</div>`}} />
 
-				<cp-edit-render-code section-title="Flexbox table" dangerouslySetInnerHTML={ {__html:
-`<div class="cps-card-table cps-card">
+				<cp-edit-render-code section-title="Flexbox table" dangerouslySetInnerHTML={{
+					__html:
+					`<div class="cps-card-table cps-card">
 	<div class="cps-flex-table">
 		<div class="cps-flex-table__header">
 			<div class="cps-flex-table__col">Filename</div>
@@ -174,7 +177,7 @@ module.exports = React.createClass({
 			<div class="cps-flex-table__col">Jan 02 <span class="cps-l-gray">Kurt Avarell</span></div>
 		</div>
 	</div>
-</div>`} } />
+</div>`}} />
 
 			</div>
 		);
