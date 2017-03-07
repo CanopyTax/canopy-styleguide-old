@@ -30,6 +30,7 @@ module.exports = {
 					{
 						loader: "css-loader",
 						options: {
+							modules: true,
 							importLoaders: 1,
 							localIdentName: "[name]__[local]--[hash:base64:5]"
 						}
@@ -57,9 +58,9 @@ module.exports = {
 			},
 			{
 				test: /\.jsx?$/,
-				ignore: /(node_modules|bower_components)/,
 				loader: "babel-loader",
 				query: {
+					ignore: /(node_modules|bower_components)/,
 					presets: [
 						"es2015",
 						"stage-2"
