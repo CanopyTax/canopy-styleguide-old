@@ -1,7 +1,7 @@
 import React from 'react';
 import {toPairs, difference, includes, startsWith, kebabCase} from 'lodash';
 
-const blacklistedProperties = ['children', 'className'];
+const blacklistedProperties = ['children', 'className', 'style'];
 
 export function customElementToReact(opts) {
 	if (!opts.name || typeof opts.name !== 'string') {
@@ -46,6 +46,13 @@ export function customElementToReact(opts) {
 				} else if (propName === 'className') {
 					const classNames = newProps[propName].split(/\s+/);
 					classNames.forEach(className => this.el.classList.add(className));
+				} else if (propName === 'style') {
+					if (typeof newProps[propName] !== 'object') {
+						throw new Error(`The style prop (to a React wrapper of a custom element) must be an object`);
+					}
+					for (let styleName in newProps[propName]) {
+						this.el.style[styleName] = newProps[propName][styleName];
+					}
 				}
 			}
 		}
