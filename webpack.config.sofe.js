@@ -57,9 +57,9 @@ module.exports = {
 			},
 			{
 				test: /\.jsx?$/,
+				ignore: /(node_modules|bower_components)/,
 				loader: "babel-loader",
 				query: {
-					ignore: /(node_modules|bower_components)/,
 					presets: [
 						"es2015",
 						"stage-2"
