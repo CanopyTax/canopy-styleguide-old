@@ -75,7 +75,7 @@ class CpsDatepicker extends Component {
 		});
 	}
 	handleFocus = e => {
-		this.props.customElement.dispatchEvent(e);
+		this.props.customElement.dispatchEvent(new Event(e));
 		this.setState({
 			datepicker: true,
 		});
@@ -100,7 +100,7 @@ class CpsDatepicker extends Component {
 				detail: e.target.value ? date : null,
 			}));
 		}
-		this.props.customElement.dispatchEvent(e);
+		this.props.customElement.dispatchEvent(new Event(e));
 	}
 }
 
