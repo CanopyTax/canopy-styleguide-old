@@ -1,0 +1,98 @@
+.container {
+	position: relative;
+}
+
+.popupDatepicker {
+	position: absolute;
+	z-index: 100;
+	border-radius: 5px;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.26);
+}
+
+.datepicker {
+	background: white;
+	border-radius: 5px;
+}
+
+.datepickerBody {
+	padding: 8px;
+}
+
+.removeDateFooter {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	padding: 8px;
+	background: #EFEFEF;
+}
+
+.removeDateFooter:hover {
+	background: #DFDFDF;
+}
+
+.header {
+	justify-content: space-around;
+	align-items: center;
+	display: flex
+}
+
+.header span:hover {
+	background: #EFEFEF;
+}
+
+.headerArrow {
+	cursor: pointer;
+	border-radius: 15px;
+}
+
+.headerDisplay {
+	padding: 4px 24px;
+	cursor: pointer;
+	border-radius: 15px;
+	text-align: center;
+}
+
+.week {
+	display: flex;
+	justify-content: space-around;
+}
+
+.day {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.picked {
+	background: #00C049;
+	cursor: pointer;
+	color: white;
+}
+
+.today {
+	background: #989898;
+	cursor: pointer;
+	color: white;
+}
+
+.day:hover:not(.weekHeaderDay):not(.picked):not(.today) {
+	background: #EFEFEF;
+	cursor: pointer;
+}
+
+.range {
+	display: flex;
+	justify-content: space-around;
+}
+
+.rangeItem {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.rangeItem:hover {
+	background: #EFEFEF;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
-import {toPairs, difference, includes, startsWith, kebabCase} from 'lodash';
+import {toPairs, difference, includes, startsWith, kebabCase, forEach} from 'lodash';
 
-const blacklistedProperties = ['children', 'className', 'style'];
+const blacklistedProperties = ['children', 'className', 'style', 'events'];
 
 export function customElementToReact(opts) {
 	if (!opts.name || typeof opts.name !== 'string') {
@@ -13,12 +13,29 @@ export function customElementToReact(opts) {
 	}
 
 	return class ReactCustomElementInterop extends React.Component {
+		events = {}
 		componentDidMount() {
 			const oldProps = undefined;
 			this.updateCustomElement(oldProps, this.props);
+			this.addEvents(this.props);
 		}
 		componentWillReceiveProps(nextProps) {
 			this.updateCustomElement(this.props, nextProps);
+			this.addEvents(nextProps);
+		}
+		addEvents = (props) => {
+			forEach(props.events, (callback, eventName) => {
+				if (!this.events[eventName]) {
+					this.events[eventName] = (...args) => {
+						if (this.props.events[eventName]) {
+							setTimeout(() => {
+								this.props.events[eventName].apply(this, args);
+							});
+						}
+					}
+					this.el.addEventListener(eventName, this.events[eventName])
+				}
+			})
 		}
 		render() {
 			const childProps = {ref: el => this.el = el};

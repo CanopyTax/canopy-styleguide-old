@@ -17,3 +17,4 @@ head.appendChild(el);
 
 exports.CprButton = require('./custom-elements/cps-button/cps-button.js').CprButton;
 exports.CprTooltip = require('./custom-elements/cps-tooltip/cps-tooltip.js').CprTooltip;
+exports.CprDatepicker = require('./custom-elements/cps-datepicker/cps-datepicker.js').CprDatepicker;

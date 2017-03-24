@@ -20,13 +20,21 @@ export function preactToCustomElement(preactComponent, opts) {
 			// https://github.com/developit/preact/issues/53
 			preact.render('', this, this._preactRoot);
 		}
-		observedAttributes() {
+		static get observedAttributes() {
 			return opts.properties.map(kebabCase);
 		}
-		attributeChangedCallback(name,  oldValue, newValue) {
+		attributeChangedCallback(name, oldValue, newValue) {
 			this[camelCase(name)] = newValue;
 		}
 		render = () => {
+			opts.properties.forEach(property => {
+				if (Object.hasOwnProperty(this, property)) {
+					// Make sure the getter and setter for the property are being used.
+					var existingValue = this[property];
+					delete this[property];
+					this[property] = existingValue;
+				}
+			});
 			const props = opts.properties.reduce((res, property) => {
 				res[property] = this[property];
 				return res;
@@ -34,7 +42,7 @@ export function preactToCustomElement(preactComponent, opts) {
 			props.customElement = this;
 			this._preactRoot = preact.render(h(preactComponent, props), this, this._preactRoot);
 		}
-	};
+	}
 
 	opts.properties.forEach(property => {
 		if (camelCase(property) !== property) {
