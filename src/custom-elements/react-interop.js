@@ -17,14 +17,18 @@ export function customElementToReact(opts) {
 		componentDidMount() {
 			const oldProps = undefined;
 			this.updateCustomElement(oldProps, this.props);
-			this.addEvents(this.props);
+			this.addEvents(oldProps, this.props);
 		}
 		componentWillReceiveProps(nextProps) {
 			this.updateCustomElement(this.props, nextProps);
-			this.addEvents(nextProps);
+			this.addEvents(this.props, nextProps);
 		}
-		addEvents = (props) => {
+		addEvents = (oldProps = {events: {}}, props) => {
 			forEach(props.events, (callback, eventName) => {
+				if (oldProps.events[eventName] !== callback) {
+					this.el.removeEventListener(eventName, oldProps.events[eventName]);
+					delete this.events[eventName];
+				}
 				if (!this.events[eventName]) {
 					this.events[eventName] = (...args) => {
 						if (this.props.events[eventName]) {
@@ -55,7 +59,6 @@ export function customElementToReact(opts) {
 			if (!this.el) {
 				return;
 			}
-			this.handleEventListeners(oldProps, newProps);
 
 			for (let propName in newProps) {
 				if (!includes(blacklistedProperties, propName) && !startsWith(propName, 'on')) {
@@ -72,21 +75,6 @@ export function customElementToReact(opts) {
 					}
 				}
 			}
-		}
-		handleEventListeners = (oldProps={}, newProps={}) => {
-			if ((oldProps.events && typeof oldProps.events !== 'object') || (newProps.events && typeof newProps.events !== 'object')) {
-				throw new Error(`The 'events' prop for custom elements must be an object with key/value pairs of eventName/eventListener`);
-			}
-
-			const removedEventListeners = difference(toPairs(oldProps.events), toPairs(newProps.events));
-			removedEventListeners.forEach((eventName, eventListener) => {
-				this.el.removeEventListener(eventName, eventListener);
-			});
-
-			const newEventListeners = difference(toPairs(newProps.events), toPairs(oldProps.events));
-			newEventListeners.forEach((eventName, eventListener) => {
-				this.el.addEventListener(eventName, eventListener);
-			});
 		}
 		setCustomElementValue(propName, propValue) {
 			if (typeof propValue === 'string') {
