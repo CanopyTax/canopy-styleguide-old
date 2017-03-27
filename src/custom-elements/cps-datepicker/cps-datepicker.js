@@ -61,7 +61,7 @@ class CpsDatepicker extends Component {
 		this.input.blur();
 	}
 	selectDate = date => {
-		this.props.customElement.dispatchEvent(new CustomEvent('date-change', {
+		this.props.customElement.dispatchEvent(new CustomEvent('datechange', {
 			detail: date ? new Date(date) : null,
 		}));
 		this.setState({
@@ -96,7 +96,7 @@ class CpsDatepicker extends Component {
 			this.noDateChange = false;
 		}
 		else {
-			this.props.customElement.dispatchEvent(new CustomEvent('date-change', {
+			this.props.customElement.dispatchEvent(new CustomEvent('datechange', {
 				detail: e.target.value ? date : null,
 			}));
 		}
