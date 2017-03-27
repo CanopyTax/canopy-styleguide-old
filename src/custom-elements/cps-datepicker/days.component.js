@@ -71,18 +71,21 @@ function formDayGrid(date) {
 			const attachedDate = moment();
 			attachedDate.date(item);
 			attachedDate.month(date.month() - 1);
+			attachedDate.year(date.year);
 			return {day: item, attachedDate: attachedDate};
 		}
 		if (index >= daysInMonth + weekdayStart) {
 			const attachedDate = moment().date(item);
 			attachedDate.date(item);
 			attachedDate.month(date.month() + 1);
+			attachedDate.year(date.year());
 			return {day: item, attachedDate: attachedDate};
 		}
 		else {
 			const attachedDate = moment();
 			attachedDate.date(item);
 			attachedDate.month(date.month());
+			attachedDate.year(date.year());
 			return {day: item, attachedDate: attachedDate};
 		}
 	});
