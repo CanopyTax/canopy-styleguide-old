@@ -55,7 +55,7 @@ export default class CpsCalendar extends Component {
 	}
 	selectDate = date => {
 		if (this.props.customElement) {
-			this.props.customElement.dispatchEvent(new CustomEvent('date-change', {
+			this.props.customElement.dispatchEvent(new CustomEvent('datechange', {
 				detail: date ? new Date(date) : null,
 			}))
 		} else if (this.props.selectDate) {
