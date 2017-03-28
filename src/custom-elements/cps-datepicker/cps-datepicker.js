@@ -24,9 +24,20 @@ class CpsDatepicker extends Component {
 			dateString: nextProps.date ? moment(nextProps.date).format(nextProps.format || 'MM/DD/YYYY') : "",
 		});
 	}
+	componentDidMount() {
+		document.body.addEventListener('click', this.bodyClick);
+		this.datepicker.addEventListener('click', e => {
+			e.stopPropagation();
+		});
+	}
+	componentWillUnmount() {
+		document.body.removeEventListener('click', this.bodyClick);
+	}
 	render() {
 		return (
-			<div className={`${styles.container}`}>
+			<div
+				ref={ref => this.datepicker = ref}
+				className={`${styles.container}`}>
 				{this.state.datepicker &&
 					<div
 						onMouseDown={this.dontBlur}
@@ -52,13 +63,15 @@ class CpsDatepicker extends Component {
 			</div>
 		)
 	}
+	bodyClick = e => {
+		if (this.state.datepicker) {
+			this.setState({
+				datepicker: false,
+			});
+		}
+	}
 	dontBlur = () => {
 		this.stopBlurEvent = true;
-	}
-	blurWithoutDateChange = () => {
-		this.noDateChange = true;
-		this.stopBlurEvent = false;
-		this.input.blur();
 	}
 	selectDate = date => {
 		this.props.customElement.dispatchEvent(new CustomEvent('datechange', {
@@ -67,7 +80,7 @@ class CpsDatepicker extends Component {
 		this.setState({
 			datepicker: false,
 		})
-		this.blurWithoutDateChange();
+		this.stopBlurEvent = false;
 	}
 	handleChange = e => {
 		this.setState({
@@ -88,18 +101,9 @@ class CpsDatepicker extends Component {
 			return;
 		}
 		const date = moment(e.target.value).isValid() ? new Date(e.target.value) : new Date();
-		this.setState({
-			datepicker: false,
-			dateString: e.target.value ? moment(date).format(this.props.format || 'MM/DD/YYYY') : "",
-		});
-		if (this.noDateChange) {
-			this.noDateChange = false;
-		}
-		else {
-			this.props.customElement.dispatchEvent(new CustomEvent('datechange', {
-				detail: e.target.value ? date : null,
-			}));
-		}
+		this.props.customElement.dispatchEvent(new CustomEvent('datechange', {
+			detail: e.target.value ? date : null,
+		}));
 		this.props.customElement.dispatchEvent(new Event(e));
 	}
 }
