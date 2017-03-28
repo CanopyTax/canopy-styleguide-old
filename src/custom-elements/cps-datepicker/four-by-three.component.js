@@ -30,7 +30,7 @@ export default class FourByThree extends Component {
 													: item,
 												getDisplayChange(this.props.display)
 											)}
-											className={styles.rangeItem}>
+											className={`${styles.rangeItem} cps-light-gray`}>
 											{item}
 										</div>
 									)
