@@ -81,6 +81,8 @@ class CpsDatepicker extends Component {
 			datepicker: false,
 		})
 		this.stopBlurEvent = false;
+		this.blurNoChange = true;
+		this.input.blur();
 	}
 	handleChange = e => {
 		this.setState({
@@ -88,7 +90,7 @@ class CpsDatepicker extends Component {
 		});
 	}
 	handleFocus = e => {
-		this.props.customElement.dispatchEvent(new Event(e));
+		this.props.customElement.dispatchEvent(new CustomEvent(e));
 		this.setState({
 			datepicker: true,
 		});
@@ -100,11 +102,15 @@ class CpsDatepicker extends Component {
 			e.target.focus();
 			return;
 		}
+		if (this.blurNoChange) {
+			this.blurNoChange = false;
+			return;
+		}
 		const date = moment(e.target.value).isValid() ? new Date(e.target.value) : new Date();
 		this.props.customElement.dispatchEvent(new CustomEvent('datechange', {
 			detail: e.target.value ? date : null,
 		}));
-		this.props.customElement.dispatchEvent(new Event(e));
+		this.props.customElement.dispatchEvent(new CustomEvent(e));
 	}
 }
 

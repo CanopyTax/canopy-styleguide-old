@@ -13,7 +13,16 @@ export default class Days extends Component {
 				<div
 					className={styles.week}>
 					{days.map(day => {
-						return <div className={`${styles.day} ${styles.weekHeaderDay} cps-medium-gray cps-wt-bold`}>{day}</div>
+						return (
+							<div
+								style={{
+									minHeight: `${square}px`,
+									minWidth: `${square}px`,
+								}}
+								className={`${styles.day} ${styles.weekHeaderDay} cps-medium-gray cps-wt-bold`}>
+								{day}
+							</div>
+						)
 					})}
 				</div>
 				{formDayGrid(this.props.date)
