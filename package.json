@@ -65,8 +65,10 @@
   },
   "dependencies": {
     "@joeldenning/custom-elements": "1.0.0-alpha.6",
+    "color": "^1.0.3",
     "history": "1.17.0",
     "jquery": "^3.1.1",
+    "moment": "^2.18.1",
     "preact": "7.2.0"
   }
 }
