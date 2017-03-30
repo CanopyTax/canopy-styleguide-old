@@ -1,0 +1,16 @@
+.icon {
+	/* Lets the icon inherit the text color. */
+	fill: currentColor;
+
+	/* Inherit the text’s size too. Also allows sizing
+		the icon by changing its font-size. */
+	width: 1em;
+	height: 1em;
+
+	/* Nice visual alignment for icons alongside text. */
+	vertical-align: -0.15em;
+
+	/* Paths and strokes that overflow the viewBox can
+		show in IE. */
+	overflow: hidden;
+}

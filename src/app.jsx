@@ -3,21 +3,20 @@ var ReactDOM = require('react-dom');
 var { Router, Route, Redirect, Link } = require('react-router');
 var components = require('./components.js');
 import { designPrinciples } from './design-principles.js';
-var Highlight = require('react-highlight');
 var _ = require('lodash');
 
-var icons = _.map(require('../.fontcustom-manifest.json').glyphs, function(icon, name) {
+var icons = _.map(require('../.fontcustom-manifest.json').glyphs, function (icon, name) {
 	return 'cps-icon-' + name;
 });
 
-var Sidebar = function({route}) {
+var Sidebar = function ({ route }) {
 	var menuItems;
 	if (route.path.includes('/components')) {
 		menuItems = (
 			<div>
-				{components.map(function(component, i) {
+				{components.map(function (component, i) {
 					var classes = "cps-icon " + icons[i] + " cps-flexible-sidenav__menu__item__icon";
-					if(component.link) {
+					if (component.link) {
 						return <a className="cps-flexible-sidenav__menu__item" key={component.title} href={component.link}>
 							<i className={classes}></i>
 							<span className="cps-flexible-sidenav__menu__item__title">{component.title}</span>
@@ -47,26 +46,26 @@ var Sidebar = function({route}) {
 		);
 	}
 	return (
-		<div className="cps-flexible-sidenav +tall-top" style={{height: '100%', paddingTop: '80px'}}>
-			<div className="cps-flexible-sidenav__menu" style={{overflow: 'auto', height: 'calc(100% - 175px)'}}>
-				{ menuItems }
+		<div className="cps-flexible-sidenav +tall-top" style={{ height: '100%', paddingTop: '80px' }}>
+			<div className="cps-flexible-sidenav__menu" style={{ overflow: 'auto', height: 'calc(100% - 175px)' }}>
+				{menuItems}
 			</div>
 		</div>
 	);
 }
 
-var TopNav = ({route}) =>  {
+var TopNav = ({ route }) => {
 	return (
 		<div>
-			<div className="cps-topnav" style={{position: 'fixed', width: '100%', height: '38px', backgroundColor: '#00bf4b', top: 0, zIndex: 100}}>
+			<div className="cps-topnav" style={{ position: 'fixed', width: '100%', height: '38px', backgroundColor: '#00bf4b', top: 0, zIndex: 100 }}>
 				<div className="cps-topnav__bar"></div>
-				<div className="cps-topnav__content" style={{position: 'relative'}}>
-					<span className="cps-topnav__content__brand" style={{float: 'left'}}>
-						<img style={{position: 'relative', top: '2px', left: '12px'}} src="white-logo.png" alt="Company Logo"/>
+				<div className="cps-topnav__content" style={{ position: 'relative' }}>
+					<span className="cps-topnav__content__brand" style={{ float: 'left' }}>
+						<img style={{ position: 'relative', top: '2px', left: '12px' }} src="white-logo.png" alt="Company Logo" />
 					</span>
 					<ul className="cps-topnav__content__menu">
-						<li style={{listStyle: 'none', margin: '8px 16px', display: 'inline-block'}}><Link className="cps-white" to={ `/design/${designPrinciples[0].title}` } activeClassName='+active'>Design</Link></li>
-						<li style={{listStyle: 'none', margin: '8px 16px', display: 'inline-block'}}><Link className="cps-white" to={ `/components/${components[0].title}` } activeClassName='+active'>Components</Link></li>
+						<li style={{ listStyle: 'none', margin: '8px 16px', display: 'inline-block' }}><Link className="cps-white" to={`/design/${designPrinciples[0].title}`} activeClassName='+active'>Design</Link></li>
+						<li style={{ listStyle: 'none', margin: '8px 16px', display: 'inline-block' }}><Link className="cps-white" to={`/components/${components[0].title}`} activeClassName='+active'>Components</Link></li>
 					</ul>
 					<ul className="cps-topnav__content__menu cps-pull-right">
 						<li className="cps-topnav__content__menu__form">
@@ -93,7 +92,7 @@ var TopNav = ({route}) =>  {
 					</ul>
 				</div>
 			</div>
-			<div className="cps-topnav-secondary" style={{top: '38px'}}>
+			<div className="cps-topnav-secondary" style={{ top: '38px' }}>
 				<div className="cps-topnav-secondary__content" >
 					<ul className="cps-topnav-secondary__content__menu">
 						<li>
@@ -137,28 +136,28 @@ var TopNav = ({route}) =>  {
 	);
 }
 
-var ComponentLayout = ({params, route}) => {
-	var Component = components.filter(function(component) {
+var ComponentLayout = ({ params, route }) => {
+	var Component = components.filter(function (component) {
 		return component.title === params.title;
 	})[0].html;
 	return (
 		<div>
-			<TopNav route={route}/>
-			<Sidebar route={route}/>
-			<div className="cps-nav-content +tall-top" style={{paddingTop: '120px'}}>
-				<Component/>
+			<TopNav route={route} />
+			<Sidebar route={route} />
+			<div className="cps-nav-content +tall-top" style={{ paddingTop: '120px' }}>
+				<Component />
 			</div>
 		</div>
 	);
 }
 
-var DesignLayout = ({params, route}) => {
+var DesignLayout = ({ params, route }) => {
 	var designPrinciple = designPrinciples.filter((principle) => principle.title === params.title)[0];
 	return (
 		<div>
 			<TopNav route={route} />
-			<Sidebar route={route}/>
-			<div className="cps-nav-content +tall-top" style={{paddingTop: '120px'}}>
+			<Sidebar route={route} />
+			<div className="cps-nav-content +tall-top" style={{ paddingTop: '120px' }}>
 				<img src={`/design/${designPrinciple.title.replace(/ /g, '_')}.png`} />
 			</div>
 		</div>
@@ -166,10 +165,10 @@ var DesignLayout = ({params, route}) => {
 }
 
 ReactDOM.render((
-		<Router>
-			<Redirect from="/" to="components/Typography"/>
-			<Route path="/components/:title" component={ComponentLayout} />
-			<Route path="/design/:title" component={DesignLayout} />
-		</Router>
-	), document.getElementById('styleguide')
+	<Router>
+		<Redirect from="/" to="components/Typography" />
+		<Route path="/components/:title" component={ComponentLayout} />
+		<Route path="/design/:title" component={DesignLayout} />
+	</Router>
+), document.getElementById('styleguide')
 )
