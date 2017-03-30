@@ -1,14 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
-    <title>send</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="send" fill="#777777">
-            <g id="Triangle-170-+-Rectangle-906-Copy-9" transform="translate(2.000000, 4.000000)">
-                <polygon id="Triangle-170" points="0 16 2 10.0168457 13.9969482 8 2 6.00140381 3.55271368e-15 0 20 8"></polygon>
-            </g>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path fill-rule="evenodd" d="M2 20l2-5.983L15.997 12 4 10 2 4l20 8"/>
 </svg>

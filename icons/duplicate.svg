@@ -1,17 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
-    <title>duplicate</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="duplicate" fill="#777777">
-            <g id="Rectangle-470-+-Rectangle-474-+-Rectangle-906-Copy-8" transform="translate(3.000000, 3.000000)">
-                <g id="Rectangle-470-+-Rectangle-474">
-                    <path d="M14,6 L15.9914698,6 C17.1007504,6 18,6.90195036 18,8.0085302 L18,15.9914698 C18,17.1007504 17.0980496,18 15.9914698,18 L8.0085302,18 C6.8992496,18 6,17.0980496 6,15.9914698 L6,14 L8,14 L8,16 L16,16 L16,8 L14,8 L14,6 Z" id="Rectangle-470"></path>
-                    <rect id="Rectangle-474" x="0" y="0" width="12" height="12" rx="2"></rect>
-                </g>
-            </g>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <g fill-rule="evenodd" transform="translate(3 3)">
+    <path d="M14 6h1.99C17.1 6 18 6.902 18 8.01v7.98c0 1.11-.902 2.01-2.01 2.01H8.01C6.9 18 6 17.098 6 15.99V14h2v2h8V8h-2V6z"/>
+    <rect width="12" height="12" rx="2"/>
+  </g>
 </svg>

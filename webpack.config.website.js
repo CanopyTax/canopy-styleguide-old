@@ -53,6 +53,11 @@ module.exports = {
 					mimetype: "application/font-woff"
 				}
 			},
+			{
+				test: /\.svg$/,
+				exclude: __dirname+ '/node_modules',
+				loader: "svg-sprite-loader",
+			}
 		]
 	},
 	plugins: [

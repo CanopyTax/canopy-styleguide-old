@@ -1,14 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
-    <title>sm-caret-right</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="sm-caret-right" fill="#777777">
-            <g id="Triangle-4-+-Rectangle-904-Copy-2" transform="translate(10.000000, 8.000000)">
-                <polygon id="Triangle-4" transform="translate(2.000000, 4.000000) scale(-1, -1) rotate(-180.000000) translate(-2.000000, -4.000000) " points="-9.79717439e-16 8 -9.79717439e-16 8.8817842e-16 4 4"></polygon>
-            </g>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path fill-rule="evenodd" d="M10 16V8l4 4"/>
 </svg>

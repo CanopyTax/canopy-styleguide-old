@@ -1,14 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
-    <title>email</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="email" fill="#777777">
-            <g id="Rectangle-646-+-Rectangle-906-Copy-7" transform="translate(2.000000, 4.000000)">
-                <path d="M0,1.99406028 C0,0.892771196 0.898212381,0 1.99079514,0 L18.0092049,0 C19.1086907,0 20,0.894513756 20,1.99406028 L20,14.0059397 C20,15.1072288 19.1017876,16 18.0092049,16 L1.99079514,16 C0.891309342,16 0,15.1054862 0,14.0059397 L0,1.99406028 Z M2.0411377,2.01062012 L2.0411377,4.04481238 L10.0002197,9.05187988 L18.0039673,3.96380615 L18.0039673,2.00810197 L10.0002198,7.03125003 L2.0411377,2.01062012 Z" id="Rectangle-646"></path>
-            </g>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path fill-rule="evenodd" d="M2 5.994C2 4.894 2.898 4 3.99 4h16.02c1.1 0 1.99.895 1.99 1.994v12.012c0 1.1-.898 1.994-1.99 1.994H3.99C2.89 20 2 19.105 2 18.006V5.994zm2.04.017v2.035L12 13.052l8.004-5.088V6.008L12 11.03 4.04 6.01z"/>
 </svg>

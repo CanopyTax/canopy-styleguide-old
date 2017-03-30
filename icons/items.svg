@@ -1,21 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
-    <title>items</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="items" fill="#777777">
-            <g id="Group-+-Rectangle-906-Copy-6-+-Rectangle-906-Copy-7" transform="translate(2.000000, 4.000000)">
-                <g id="Group">
-                    <rect id="Rectangle-557" x="0" y="0" width="2" height="16"></rect>
-                    <rect id="Rectangle-563" x="18" y="0" width="2" height="16"></rect>
-                    <rect id="Rectangle-558" x="3" y="0" width="1" height="16"></rect>
-                    <rect id="Rectangle-559" x="6" y="0" width="2" height="16"></rect>
-                    <rect id="Rectangle-561" x="10" y="0" width="1" height="16"></rect>
-                    <rect id="Rectangle-562" x="13" y="0" width="3" height="16"></rect>
-                </g>
-            </g>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <g fill-rule="evenodd">
+    <path d="M2 4h2v16H2zM20 4h2v16h-2zM5 4h1v16H5zM8 4h2v16H8zM12 4h1v16h-1zM15 4h3v16h-3z"/>
+  </g>
 </svg>

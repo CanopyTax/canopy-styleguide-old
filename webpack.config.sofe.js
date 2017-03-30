@@ -1,4 +1,5 @@
 var webpack = require("webpack");
+var path = require("path");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
@@ -7,7 +8,7 @@ module.exports = {
 		"canopy-styleguide": "./src/styleguide.js",
 	},
 	output: {
-		path: "./sofe",
+		path: path.resolve(__dirname, 'sofe'),
 		filename: "[name].js",
 		library: "styleguide",
 		libraryTarget: "umd",
@@ -37,7 +38,6 @@ module.exports = {
 					},
 					"postcss-loader"
 				]
-				//		loader: "style-loader!css-loader?modules&localIdentName=[name]__[local]--[hash:base64:5]"
 			},
 			// Optionally extract less files
 			// or any other compile-to-css language
@@ -54,7 +54,6 @@ module.exports = {
 					"postcss-loader",
 					"less-loader"
 				]
-				// loader: "style-loader!css-loader!less-loader"
 			},
 			{
 				test: /\.jsx?$/,
@@ -105,12 +104,8 @@ module.exports = {
 			},
 			{
 				test: /\.svg$/,
-				loader: "url-loader",
-				options: {
-					limit: 6500000,
-					mimetype: "image/svg+xml",
-					name: "fonts/[name].[ext]"
-				}
+				exclude: [path.resolve(__dirname, 'node_modules')],
+				loader: "svg-sprite-loader",
 			}
 		]
 	},

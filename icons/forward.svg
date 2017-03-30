@@ -1,16 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
-    <title>forward</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="forward" fill="#777777">
-            <g id="Rectangle-130-+-Triangle-30-+-Rectangle-131-Copy-+-Rectangle-906-Copy-12" transform="translate(12.039900, 12.038521) rotate(-90.000000) translate(-12.039900, -12.038521) translate(4.039900, 4.038521)">
-                <g id="Rectangle-130-+-Triangle-30-+-Rectangle-131-Copy">
-                    <path d="M4,0 L12,0 L12,8 L4,8 L4,0 Z M0,8 L16,8 L8,16 L0,8 Z" id="Rectangle-130"></path>
-                </g>
-            </g>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path fill-rule="evenodd" d="M4.04 16.04v-8h8v8h-8zm8 4v-16l8 8-8 8z"/>
 </svg>

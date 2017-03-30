@@ -1,19 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
-    <title>sm-neg</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="sm-neg" fill="#777777">
-            <g id="Oval-26-+-Line-+-Line-2-+-Rectangle-906-Copy-13" transform="translate(7.000000, 7.000000)">
-                <g id="Oval-26-+-Line-+-Line-2">
-                    <g id="Line-+-Line-2">
-                        <polygon id="Line" transform="translate(5.000000, 5.000000) rotate(-270.000000) translate(-5.000000, -5.000000) " points="7.80312228 9.21733585 8.15667567 9.57088925 9.57088925 8.15667567 9.21733585 7.80312228 2.19687772 0.782664145 1.84332433 0.429110754 0.429110754 1.84332433 0.782664145 2.19687772"></polygon>
-                        <polygon id="Line-2" transform="translate(5.021573, 5.000000) rotate(-90.000000) translate(-5.021573, -5.000000) " points="0.839592358 7.76776694 0.486038967 8.12132033 1.90025254 9.53553391 2.25380593 9.18198052 9.20355339 2.23223306 9.55710678 1.87867967 8.14289321 0.464466094 7.78933982 0.818019485"></polygon>
-                    </g>
-                </g>
-            </g>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <g fill-rule="evenodd">
+    <path d="M7.783 14.803l-.354.354 1.41 1.413.353-.352 7.02-7.02.354-.354-1.413-1.414-.354.353"/>
+    <path d="M14.79 16.182l.353.354 1.414-1.415-.353-.35-6.95-6.95-.354-.353L7.486 8.88l.354.352"/>
+  </g>
 </svg>

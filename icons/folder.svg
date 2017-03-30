@@ -1,14 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
-    <title>folder</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="folder" fill="#777777">
-            <g id="Rectangle-156-+-Rectangle-906-Copy-6" transform="translate(2.000000, 4.000000)">
-                <path d="M0,1.99406028 C0,0.892771196 0.895967061,0 2.00829233,0 L7.0743164,0 L9.77929688,3.02441405 L18.0050825,3.08524687 C19.106845,3.09339482 20,3.98666929 20,5.10147115 L20,13.9985289 C20,15.1039109 19.1017876,16 18.0092049,16 L1.99079514,16 C0.891309342,16 0,15.1054862 0,14.0059397 L0,1.99406028 Z" id="Rectangle-156"></path>
-            </g>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path fill-rule="evenodd" d="M2 5.994C2 4.894 2.896 4 4.008 4h5.066l2.705 3.024 8.225.06c1.102.01 1.995.903 1.995 2.017V18c0 1.104-.898 2-1.99 2H3.99C2.89 20 2 19.105 2 18.006V5.994z"/>
 </svg>

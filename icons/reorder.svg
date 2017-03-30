@@ -1,22 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
-    <title>reorder</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="reorder" fill="#777777">
-            <g id="reorder-+-Rectangle-904-Copy-4" transform="translate(3.000000, 5.000000)">
-                <g id="reorder">
-                    <g id="Group" transform="translate(10.000000, 1.000000)">
-                        <rect id="Rectangle-723" x="0" y="0" width="8" height="3"></rect>
-                        <rect id="Rectangle-723-Copy" x="0" y="5" width="8" height="3"></rect>
-                        <rect id="Rectangle-723-Copy-2" x="0" y="10" width="8" height="3"></rect>
-                    </g>
-                    <polygon id="Path-80" points="7.04187012 14.0097656 1.01025841 14.0097656 7.02002404 8"></polygon>
-                    <path d="M3.0345459,12.0541382 C3.0345459,12.0541382 -1.7120163,9.71040055 1.06927491,0.986450166 C1.06927491,0.986450166 0.784279025,8.48661744 5.07685216,9.96132873 C9.3694253,11.43604 3.0345459,12.0541382 3.0345459,12.0541382 Z" id="Path-80"></path>
-                </g>
-            </g>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <g fill-rule="evenodd">
+    <path d="M13 6h8v3h-8zm0 5h8v3h-8zm0 5h8v3h-8zm-2.958 3.01H4.01L10.02 13"/>
+    <path d="M6.035 17.054S1.288 14.71 4.07 5.986c0 0-.286 7.5 4.007 8.975 4.292 1.478-2.042 2.096-2.042 2.096z"/>
+  </g>
 </svg>

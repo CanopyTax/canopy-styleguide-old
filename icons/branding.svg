@@ -1,12 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
-    <title>branding</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="branding" fill="#777777">
-            <path d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,15.0846336 L8.29179607,17.4126782 L9.36000001,13.1665613 L6,10.3592552 L10.3683903,10.0630552 L12,6 L13.6316097,10.0630552 L18,10.3592552 L14.64,13.1665613 L15.7082039,17.4126782 L12,15.0846336 Z" id="Combined-Shape"></path>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path fill-rule="evenodd" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm0-6.915l-3.708 2.328 1.068-4.246L6 10.36l4.368-.297L12 6l1.632 4.063L18 10.36l-3.36 2.807 1.068 4.246L12 15.085z"/>
 </svg>

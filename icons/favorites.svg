@@ -1,14 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
-    <title>favorites</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="favorites" fill="#777777">
-            <g id="Star-3-+-Rectangle-906-Copy-10" transform="translate(2.000000, 3.000000)">
-                <polygon id="Star-3" points="10 14.4 4.12214748 18.0901699 5.81535135 11.3596748 0.489434837 6.90983006 7.4137449 6.44032524 10 0 12.5862551 6.44032524 19.5105652 6.90983006 14.1846486 11.3596748 15.8778525 18.0901699"></polygon>
-            </g>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path fill-rule="evenodd" d="M12 17.4l-5.878 3.69 1.693-6.73L2.49 9.91l6.924-.47L12 3l2.586 6.44 6.925.47-5.325 4.45 1.693 6.73"/>
 </svg>

@@ -1,12 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
-    <title>color-picker</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="color-picker" fill="#777777">
-            <path d="M21.71,4.6325 L19.37,2.2925 C18.98,1.9025 18.35,1.9025 17.96,2.2925 L14.84,5.4125 L12.91,3.5025 L11.5,4.9125 L12.92,6.3325 L4,15.2525 L4,20.0025 L8.75,20.0025 L17.67,11.0825 L19.09,12.5025 L20.5,11.0925 L18.58,9.1725 L21.7,6.0525 C22.1,5.6525 22.1,5.0225 21.71,4.6325 L21.71,4.6325 Z M7.92,18.0025 L6,16.0825 L14.06,8.0225 L15.98,9.9425 L7.92,18.0025 L7.92,18.0025 Z" id="Shape"></path>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path fill-rule="evenodd" d="M21.71 4.633l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-3.12 3.12-1.93-1.91-1.41 1.41 1.42 1.42L4 15.252v4.75h4.75l8.92-8.92 1.42 1.42 1.41-1.41-1.92-1.92 3.12-3.12c.4-.4.4-1.03.01-1.42zM7.92 18.002L6 16.083l8.06-8.06 1.92 1.92-8.06 8.06z"/>
 </svg>

@@ -1,18 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
-    <title>presentation-file</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="presentation-file" fill="#777777">
-            <g id="Presentation-file" transform="translate(4.000000, 2.000000)">
-                <g id="Rectangle-67-Copy-+-Rectangle-906-Copy-11-Copy-Copy-Copy-Copy-Copy-Copy">
-                    <g id="Rectangle-67-Copy-7">
-                        <path d="M0,1.99079514 C0,0.891309342 0.902306354,0 2.00932295,0 L12.0047363,0 L16,4.00708008 L16,18.0068221 C16,19.1076239 15.1054862,20 14.0059397,20 L1.99406028,20 C0.892771196,20 0,19.1017876 0,18.0092049 L0,1.99079514 Z M11,1 L15,5 L11,5 L11,1 Z M3,9 L13,9 L13,15 L3,15 L3,9 Z" id="Rectangle-67"></path>
-                    </g>
-                </g>
-            </g>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path fill-rule="evenodd" d="M4 3.99C4 2.89 4.902 2 6.01 2h9.995L20 6.007v14c0 1.1-.895 1.993-1.994 1.993H5.994C4.894 22 4 21.102 4 20.01V3.99zM15 3l4 4h-4V3zm-8 8h10v6H7v-6z"/>
 </svg>

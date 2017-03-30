@@ -1,16 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
-    <title>work</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="work" fill="#777777">
-            <g id="Rectangle-51-+-Rectangle-52-+-Rectangle-906-Copy-2" transform="translate(2.000000, 3.000000)">
-                <g id="Rectangle-51-+-Rectangle-52">
-                    <path d="M6,4 L1.99079514,4 C0.898212381,4 0,4.89805351 0,6.00585866 L0,15.9941413 C0,17.1029399 0.891309342,18 1.99079514,18 L18.0092049,18 C19.1017876,18 20,17.1019465 20,15.9941413 L20,6.00585866 C20,4.89706013 19.1086907,4 18.0092049,4 L14,4 L14,0.990777969 C14,0.45097518 13.5536144,0 13.0029699,0 L6.99703014,0 C6.45303631,0 6,0.443586406 6,0.990777969 L6,4 Z M8,2 L12,2 L12,4 L8,4 L8,2 Z" id="Rectangle-51"></path>
-                </g>
-            </g>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path fill-rule="evenodd" d="M8 7H3.99C2.9 7 2 7.898 2 9.006v9.988C2 20.104 2.89 21 3.99 21h16.02C21.1 21 22 20.102 22 18.994V9.006C22 7.896 21.11 7 20.01 7H16V3.99c0-.54-.446-.99-.997-.99H8.997C8.453 3 8 3.444 8 3.99V7zm2-2h4v2h-4V5z"/>
 </svg>

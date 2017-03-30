@@ -1,12 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
-    <title>header1</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="header1" fill="#777777">
-            <path d="M6.35902346,12.8268709 L6.35902346,18.3491304 L4,18.3491304 L4,6 L6.35902346,6 L6.35902346,10.950375 L10.7553854,10.950375 L10.7553854,6 L13.1322802,6 L13.1322802,18.3491304 L10.7553854,18.3491304 L10.7553854,12.8268709 L6.35902346,12.8268709 Z M18.0698899,18.3491304 L18.0698899,10.0159566 L15.7721398,11.409925 L14.9143131,10.0925483 L18.2690282,8.0398915 L20,8.0398915 L20,18.3491304 L18.0698899,18.3491304 Z" id="H1"></path>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path fill-rule="evenodd" d="M6.36 12.827v5.522H4V6h2.36v4.95h4.395V6h2.377v12.35h-2.377v-5.523H6.36zm11.71 5.522v-8.334l-2.298 1.394-.858-1.317L18.27 8.04H20v10.31h-1.93z"/>
 </svg>
