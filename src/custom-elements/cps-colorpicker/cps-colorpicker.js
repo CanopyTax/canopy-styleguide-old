@@ -2,8 +2,8 @@ import { h, render, Component } from 'preact';
 import Color from 'color';
 import {customElementToReact} from '../react-interop.js';
 import {preactToCustomElement} from '../preact-to-custom-element.js';
-import { styles } from './colorpicker.styles.css';
-import { colorToPosition } from './colorpicker.helper.js';
+import { colorToPosition, saturation, lightness } from './colorpicker.helper.js';
+import styles from './colorpicker.styles.css';
 
 import ColorBar from './bar.component.js';
 import ColorSlider from './slider.component.js';
@@ -17,12 +17,19 @@ class CpsColorpicker extends Component {
 	}
 	componentDidMount() {
 		window.addEventListener('resize', this.handleResize);
+		const rect = this.colorpicker.getBoundingClientRect();
+		this.setState({
+			width: rect.width,
+			start: rect.left,
+		});
 	}
 	componentWillUnmount() {
 		window.removeEventListener('resize', this.handleResize);
+		if (this.resizeTimer)
+			clearTimeout(this.resizeTimer);
 	}
 	render() {
-		const color = this.props.color ? Color(this.props.color) : Color(`hsl(0, 90%, 50%)`);
+		const color = this.props.color ? Color(this.props.color) : Color(`hsl(0, ${saturation}%, ${lightness}%)`);
 		return (
 			<div
 				ref={ref => this.colorpicker = ref}
@@ -40,8 +47,8 @@ class CpsColorpicker extends Component {
 		)
 	}
 	setColor = color => {
-		this.customElement.dispatchEvent(new CustomEvent('colorchange', {
-			detail: color[this.props.format]().toString(),
+		this.props.customElement.dispatchEvent(new CustomEvent('colorchange', {
+			detail: color[this.props.format || 'hex']().toString(),
 		}));
 	}
 	handleResize = () => {

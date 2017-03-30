@@ -2,6 +2,7 @@ import { h, Component } from 'preact';
 import { colorToPosition } from './colorpicker.helper.js';
 import Color from 'color';
 import styles from './colorpicker.styles.css';
+import { saturation, lightness } from './colorpicker.helper.js';
 
 export default class ColorSlider extends Component {
 	constructor() {
@@ -10,10 +11,15 @@ export default class ColorSlider extends Component {
 			dragging: false,
 		}
 	}
+	componentWillUnmount() {
+		window.removeEventListener('mousemove', this.mousemove);
+		window.removeEventListener('mouseup', this.mouseup);
+	}
 	render(props, state) {
 		return (
 			<div
 				onMouseDown={e => {
+					e.preventDefault();
 					this.xStart = e.x;
 					this.setState({
 						dragging: true,
@@ -33,7 +39,7 @@ export default class ColorSlider extends Component {
 	}
 	mousemove = e => {
 		const hue = Math.floor(((e.x - this.props.barStart) / this.props.barWidth) * 360);
-		this.props.setColor(Color(`hsl(${hue >= 360 ? 359 : hue < 0 ? 0 : hue}, 90%, 50%)`));
+		this.props.setColor(Color(`hsl(${hue >= 360 ? 359 : hue < 0 ? 0 : hue}, ${saturation}%, ${lightness}%)`));
 	}
 	mouseup = e => {
 		window.removeEventListener('mousemove', this.mousemove);

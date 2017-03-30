@@ -1,6 +1,7 @@
 import { Component, h } from 'preact';
 import color from 'color';
-import { styles } from './colorpicker.styles.css';
+import styles from './colorpicker.styles.css';
+import { lightness, saturation } from './colorpicker.helper.js';
 
 export default class ColorBar extends Component {
 	render() {
@@ -14,7 +15,7 @@ export default class ColorBar extends Component {
 				onClick={e => {
 					const rect = this.bar.getBoundingClientRect();
 					const hue = Math.floor(((e.x - rect.left) / rect.width) * 360);
-					this.props.barClick(color(`hsl(${hue}, 90%, 50%)`));
+					this.props.barClick(color(`hsl(${hue}, ${saturation}%, ${lightness}%)`));
 				}}
 				class={`${styles.bar}`}>
 			</div>
@@ -23,11 +24,11 @@ export default class ColorBar extends Component {
 }
 
 const colorGrad = [
-	`hsl(0, 90%, 50%) 0%`,
-	`hsl(60, 90%, 50%) 16%`,
-	`hsl(120, 90%, 50%) 33%`,
-	`hsl(180, 90%, 50%) 50%`,
-	`hsl(240, 90%, 50%) 66%`,
-	`hsl(300, 90%, 50%) 83%`,
-	`hsl(360, 90%, 50%) 100%`,
+	`hsl(0, ${saturation}%, ${lightness}%) 0%`,
+	`hsl(60, ${saturation}%, ${lightness}%) 16%`,
+	`hsl(120, ${saturation}%, ${lightness}%) 33%`,
+	`hsl(180, ${saturation}%, ${lightness}%) 50%`,
+	`hsl(240, ${saturation}%, ${lightness}%) 66%`,
+	`hsl(300, ${saturation}%, ${lightness}%) 83%`,
+	`hsl(360, ${saturation}%, ${lightness}%) 100%`,
 ];
