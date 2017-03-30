@@ -79,7 +79,7 @@ module.exports = {
 			{
 				test: /\.woff$/,
 				loader: "url-loader",
-				options: {
+				query: {
 					limit: 6500000,
 					mimetype: "application/font-woff"
 				}
@@ -87,7 +87,7 @@ module.exports = {
 			{
 				test: /\.ttf$/,
 				loader: "url-loader",
-				options: {
+				query: {
 					limit: 6500000,
 					mimetype: "application/octet-stream",
 					name: "fonts/[name].[ext]"
@@ -96,7 +96,7 @@ module.exports = {
 			{
 				test: /\.eot$/,
 				loader: "url-loader",
-				options: {
+				query: {
 					limit: 6500000,
 					mimetype: "application/octet-stream",
 					name: "fonts/[name].[ext]"
@@ -105,7 +105,7 @@ module.exports = {
 			{
 				test: /\.svg$/,
 				loader: "url-loader",
-				options: {
+				query: {
 					limit: 6500000,
 					mimetype: "image/svg+xml",
 					name: "fonts/[name].[ext]"
