@@ -8,7 +8,6 @@ import Calendar from './cps-calendar.component.js';
 class CpsDatepicker extends Component {
 	constructor(props) {
 		super();
-		debugger;
 		this.state = {
 			datepicker: false,
 			dateString: props.date ? moment(props.date).format(props.format || 'MM/DD/YYYY') : "",
