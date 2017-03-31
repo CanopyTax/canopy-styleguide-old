@@ -8,18 +8,13 @@ import Calendar from './cps-calendar.component.js';
 class CpsDatepicker extends Component {
 	constructor(props) {
 		super();
-		if (props.date && !moment(props.date).isValid()) {
-			throw Error('Date provided to CpsDatepicker was not valid.');
-		}
+		debugger;
 		this.state = {
 			datepicker: false,
 			dateString: props.date ? moment(props.date).format(props.format || 'MM/DD/YYYY') : "",
 		};
 	}
 	componentWillReceiveProps(nextProps) {
-		if (nextProps.date && !moment(nextProps.date).isValid()) {
-			throw Error('Date provided to CpsDatepicker was not valid.');
-		}
 		this.setState({
 			dateString: nextProps.date ? moment(nextProps.date).format(nextProps.format || 'MM/DD/YYYY') : "",
 		});
