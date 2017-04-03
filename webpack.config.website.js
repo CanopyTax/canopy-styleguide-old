@@ -3,44 +3,55 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
 	// The standard entry point and output config
 	entry: {
-		'styleguide': "./src/components.less",
+		"styleguide": "./src/components.less",
 		app: "./src/app.jsx",
 		variables: "./src/external-variables.less",
 	},
 	output: {
-		path: './website',
+		path: __dirname + "/website",
 		filename: "[name].js",
 		chunkFilename: "[id].js"
 	},
 	module: {
-		loaders: [
+		rules: [
 			// Extract css files
 			{
 				test: /\.css$/,
-				loader: ExtractTextPlugin.extract("style-loader", "css-loader!autoprefixer")
+				use: ExtractTextPlugin.extract({
+					fallback: "style-loader",
+					loader: "css-loader"
+				})
 			},
 			// Optionally extract less files
 			// or any other compile-to-css language
 			{
 				test: /\.less$/,
-				loader: ExtractTextPlugin.extract("style-loader", "css-loader!autoprefixer!less-loader")
+				use: ExtractTextPlugin.extract({
+					fallback: "style-loader",
+					use: [
+						"css-loader",
+						"less-loader",
+					]
+				})
 			},
 			{
 				test: /\.jsx?$/,
-				exclude: /(node_modules|bower_components)/,
-				loader: 'babel'
-			},
-			{
-				test: /\.json$/,
-				loader: 'json-loader'
+				loader: "babel-loader",
+				options: {
+					ignore: /(node_modules|bower_components)/
+				}
 			},
 			{
 				test: /\.html$/,
-				loader: 'html-loader'
+				loader: "html-loader"
 			},
 			{
 				test: /\.woff$/,
-				loader: "url?limit=6500000&mimetype=application/font-woff"
+				loader: "url-loader",
+				query: {
+					limit: 6500000,
+					mimetype: "application/font-woff"
+				}
 			},
 		]
 	},

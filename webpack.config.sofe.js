@@ -1,73 +1,115 @@
-var webpack = require('webpack');
+var webpack = require("webpack");
+var path = require("path");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
 	// The standard entry point and output config
 	entry: {
-		'canopy-styleguide': "./src/styleguide.js",
+		"canopy-styleguide": "./src/styleguide.js",
 	},
 	output: {
-		path: './sofe',
+		path: path.resolve(__dirname, "sofe"),
 		filename: "[name].js",
-		library: 'styleguide',
-		libraryTarget: 'umd',
+		library: "styleguide",
+		libraryTarget: "umd",
 		chunkFilename: "[id].js"
 	},
 	externals: {
-		react: 'react',
-		'react-dom': 'react-dom',
-		lodash: 'lodash',
-		jquery: 'jquery',
+		"react": "react",
+		"react-dom": "react-dom",
+		"lodash": "lodash",
+		"jquery": "jquery",
 	},
-	devtool: 'sourcemap',
+	devtool: "sourcemap",
 	module: {
-		loaders: [
+		rules: [
 			// Extract css files
 			{
 				test: /\.css$/,
-				loader: "style-loader!css-loader?modules&localIdentName=[name]__[local]--[hash:base64:5]!autoprefixer"
+				use: [
+					"style-loader",
+					{
+						loader: "css-loader",
+						options: {
+							modules: true,
+							importLoaders: 1,
+							localIdentName: "[name]__[local]--[hash:base64:5]"
+						}
+					},
+					"postcss-loader"
+				]
 			},
 			// Optionally extract less files
 			// or any other compile-to-css language
 			{
 				test: /\.less$/,
-				loader: "style-loader!css-loader!autoprefixer!less-loader"
+				use: [
+					"style-loader",
+					{
+						loader: "css-loader",
+						options: {
+							importLoaders: 1
+						}
+					},
+					"postcss-loader",
+					"less-loader"
+				]
 			},
 			{
 				test: /\.jsx?$/,
-				exclude: /(node_modules|bower_components)/,
-				loader: 'babel-loader',
+				loader: "babel-loader",
 				query: {
-					presets: ['es2015', 'stage-2'],
-					plugins: [
-						['transform-react-jsx', {'pragma': 'h'}],
+					ignore: /(node_modules|bower_components)/,
+					presets: [
+						"es2015",
+						"stage-2"
 					],
-				},
-			},
-			{
-				test: /\.json$/,
-				loader: 'json-loader'
+					plugins: [
+						[
+							"transform-react-jsx",
+							{ "pragma": "h" }
+						],
+					]
+				}
 			},
 			{
 				test: /\.html$/,
-				loader: 'html-loader'
+				loader: "html-loader"
 			},
 			{
 				test: /\.woff$/,
-				// loader: "file?name=fonts/[name].[ext]",
-				loader: "url?limit=6500000&mimetype=application/font-woff"
+				loader: "url-loader",
+				query: {
+					limit: 6500000,
+					mimetype: "application/font-woff"
+				}
 			},
 			{
 				test: /\.ttf$/,
-				loader: "url?limit=6500000&mimetype=application/octet-stream&name=fonts/[name].[ext]"
+				loader: "url-loader",
+				query: {
+					limit: 6500000,
+					mimetype: "application/octet-stream",
+					name: "fonts/[name].[ext]"
+				}
 			},
 			{
 				test: /\.eot$/,
-				loader: "url?limit=6500000&mimetype=application/octet-stream&name=fonts/[name].[ext]"
+				loader: "url-loader",
+				query: {
+					limit: 6500000,
+					mimetype: "application/octet-stream",
+					name: "fonts/[name].[ext]"
+				}
 			},
 			{
 				test: /\.svg$/,
-				loader: "url?limit=6500000&mimetype=image/svg+xml&name=fonts/[name].[ext]"
+				loader: "url-loader",
+				query: {
+					limit: 6500000,
+					mimetype: "image/svg+xml",
+					name: "fonts/[name].[ext]"
+				}
 			}
 		]
 	},
