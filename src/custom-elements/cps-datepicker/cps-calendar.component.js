@@ -47,7 +47,7 @@ export default class CpsCalendar extends Component {
 					<div
 						onClick={partial(this.selectDate, null)}
 						className={`${styles.removeDateFooter} cps-primary-green cps-wt-bold`}>
-						{this.props.removeDateText}
+						{this.props.removeDateText || 'Remove date'}
 					</div>
 				}
 			</div>

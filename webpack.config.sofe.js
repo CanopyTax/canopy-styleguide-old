@@ -8,7 +8,7 @@ module.exports = {
 		"canopy-styleguide": "./src/styleguide.js",
 	},
 	output: {
-		path: path.resolve(__dirname, 'sofe'),
+		path: path.resolve(__dirname, "sofe"),
 		filename: "[name].js",
 		library: "styleguide",
 		libraryTarget: "umd",
@@ -79,7 +79,7 @@ module.exports = {
 			{
 				test: /\.woff$/,
 				loader: "url-loader",
-				options: {
+				query: {
 					limit: 6500000,
 					mimetype: "application/font-woff"
 				}
@@ -87,7 +87,7 @@ module.exports = {
 			{
 				test: /\.ttf$/,
 				loader: "url-loader",
-				options: {
+				query: {
 					limit: 6500000,
 					mimetype: "application/octet-stream",
 					name: "fonts/[name].[ext]"
@@ -96,7 +96,7 @@ module.exports = {
 			{
 				test: /\.eot$/,
 				loader: "url-loader",
-				options: {
+				query: {
 					limit: 6500000,
 					mimetype: "application/octet-stream",
 					name: "fonts/[name].[ext]"

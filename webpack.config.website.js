@@ -48,7 +48,7 @@ module.exports = {
 			{
 				test: /\.woff$/,
 				loader: "url-loader",
-				options: {
+				query: {
 					limit: 6500000,
 					mimetype: "application/font-woff"
 				}

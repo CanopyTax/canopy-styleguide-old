@@ -34,7 +34,7 @@
     "css-loader": "^0.28.0",
     "custom-event-polyfill": "^0.3.0",
     "extract-text-webpack-plugin": "2.1.0",
-    "file-loader": "0.10.1",
+    "file-loader": "0.11.1",
     "git-tasker": "^1.0.1",
     "highlight.js": "^9.10.0",
     "html-loader": "^0.4.5",
@@ -61,11 +61,12 @@
     "style-loader": "^0.16.1",
     "svg-sprite-loader": "^0.3.0",
     "url-loader": "0.5.8",
-    "webpack": "2.3.2",
+    "webpack": "2.3.3",
     "webpack-dev-server": "2.4.2"
   },
   "dependencies": {
     "@joeldenning/custom-elements": "1.0.0-alpha.6",
+    "color": "^1.0.3",
     "history": "1.17.0",
     "jquery": "^3.2.1",
     "moment": "^2.18.1",
