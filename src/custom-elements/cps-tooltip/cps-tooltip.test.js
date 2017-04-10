@@ -29,7 +29,7 @@ describe(`<cps-tooltip />`, () => {
 
 		el.addEventListener('cps-tooltip:shown', () => {
 			shown = true;
-			el.dispatchEvent(new CustomEvent('mouseout'));
+			el.dispatchEvent(new CustomEvent('mouseleave'));
 		});
 		el.addEventListener('cps-tooltip:hidden', () => {
 			if (!shown) {
