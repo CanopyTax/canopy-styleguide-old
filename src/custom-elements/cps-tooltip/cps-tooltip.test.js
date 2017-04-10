@@ -174,4 +174,19 @@ describe(`<cps-tooltip />`, () => {
 
 		el.dispatchEvent(new CustomEvent('mouseover'));
 	});
+
+	it(`let's you specify 'left' and 'top' which are absolute positions`, done => {
+		el.html = `Html!`;
+		el.useFixedPosition = true;
+		el.top = 54;
+		el.left = 88;
+		document.body.appendChild(el);
+		el.addEventListener('cps-tooltip:shown', evt => {
+			expect(evt.detail.tooltipEl.getBoundingClientRect().top).toEqual(54);
+			expect(evt.detail.tooltipEl.getBoundingClientRect().left).toEqual(88);
+			done();
+		});
+
+		el.dispatchEvent(new CustomEvent('mouseover'));
+	});
 });

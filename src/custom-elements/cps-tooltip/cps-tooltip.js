@@ -126,6 +126,9 @@ class Tooltip extends Component {
 
 		top += this.props.startingTop;
 
+		top = typeof this.props.top === 'number' ? this.props.top : top;
+		left = typeof this.props.left === 'number' ? this.props.left : left;
+
 		const showAbove = this.state.showAbove || Boolean(this.el && !this.showAbove && this.el.getBoundingClientRect().bottom > window.innerHeight)
 		
 		return {top, left, showAbove};
@@ -134,7 +137,7 @@ class Tooltip extends Component {
 
 const customElement = preactToCustomElement(
 	CpsTooltip,
-	{parentClass: HTMLElement, properties: ['html', 'delayTime', 'tooltipContainer', 'useFixedPosition']}
+	{parentClass: HTMLElement, properties: ['html', 'delayTime', 'tooltipContainer', 'useFixedPosition', 'left', 'top']}
 );
 customElements.define('cps-tooltip', customElement);
 export const CprTooltip = customElementToReact({name: 'cps-tooltip'});
