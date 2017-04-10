@@ -29,7 +29,7 @@ describe(`<cps-tooltip />`, () => {
 
 		el.addEventListener('cps-tooltip:shown', () => {
 			shown = true;
-			el.dispatchEvent(new CustomEvent('mouseleave'));
+			el.dispatchEvent(new CustomEvent('mouseout'));
 		});
 		el.addEventListener('cps-tooltip:hidden', () => {
 			if (!shown) {
@@ -49,6 +49,21 @@ describe(`<cps-tooltip />`, () => {
 		el.addEventListener('cps-tooltip:shown', evt => {
 			expect(evt.detail.tooltipEl.innerHTML).toEqual(html);
 			el.dispatchEvent(new CustomEvent('mouseleave'));
+		});
+
+		el.addEventListener('cps-tooltip:hidden', done);
+
+		el.dispatchEvent(new CustomEvent('mouseover'));
+	});
+
+	it(`hides the tooltip even if mouseleave is never fired (but mouseover _is_ fired)`, done => {
+		const html = `<i>Show this in the tooltip</i>`
+		el.html = html;
+		document.body.appendChild(el);
+
+		el.addEventListener('cps-tooltip:shown', evt => {
+			expect(evt.detail.tooltipEl.innerHTML).toEqual(html);
+			el.dispatchEvent(new CustomEvent('mouseout'));
 		});
 
 		el.addEventListener('cps-tooltip:hidden', done);
