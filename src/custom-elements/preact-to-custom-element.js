@@ -18,6 +18,7 @@ export function preactToCustomElement(preactComponent, opts) {
 		}
 		disconnectedCallback() {
 			// https://github.com/developit/preact/issues/53
+			this.disconnected = true;
 			preact.render('', this, this._preactRoot);
 		}
 		static get observedAttributes() {
@@ -30,11 +31,16 @@ export function preactToCustomElement(preactComponent, opts) {
 			opts.properties.forEach(property => {
 				if (Object.hasOwnProperty(this, property)) {
 					// Make sure the getter and setter for the property are being used.
-					var existingValue = this[property];
+					const existingValue = this[property];
 					delete this[property];
 					this[property] = existingValue;
 				}
 			});
+
+			if (this.disconnected) {
+				// If we have already disconnected, we don't want the preact.render() to execute below
+				return;
+			}
 			const props = opts.properties.reduce((res, property) => {
 				res[property] = this[property];
 				return res;
