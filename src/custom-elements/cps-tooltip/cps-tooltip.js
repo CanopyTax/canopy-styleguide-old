@@ -13,7 +13,7 @@ class CpsTooltip extends Component {
 	}
 	componentDidMount() {
 		this.props.customElement.addEventListener('mouseover', throttle(this.mousedOver, 10));
-		this.props.customElement.addEventListener('mouseleave', throttle(this.mouseLeave, 10));
+		this.props.customElement.addEventListener('mouseout', throttle(this.mouseLeave, 10));
 		// Custom elements default to inline, but inline-block is necessary to calculate height/width correctly
 		this.props.customElement.classList.add(styles.inlineBlock)
 	}
