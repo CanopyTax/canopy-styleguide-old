@@ -4,8 +4,6 @@ import preact, {h} from 'preact';
 export function preactToCustomElement(preactComponent, opts) {
 	class PreactCustomElement extends opts.parentClass {
 		connectedCallback() {
-			this.connected = true;
-
 			opts
 			.properties
 			.filter(property => !this[property])
@@ -20,7 +18,6 @@ export function preactToCustomElement(preactComponent, opts) {
 		}
 		disconnectedCallback() {
 			// https://github.com/developit/preact/issues/53
-			this.connected = false;
 			preact.render('', this, this._preactRoot);
 		}
 		static get observedAttributes() {
@@ -30,11 +27,6 @@ export function preactToCustomElement(preactComponent, opts) {
 			this[camelCase(name)] = newValue;
 		}
 		render = () => {
-			if (!this.connected && this._preactRoot) {
-				// If we aren't connected, we don't want the preact.render() to execute below
-				return;
-			}
-
 			opts.properties.forEach(property => {
 				if (Object.hasOwnProperty(this, property)) {
 					// Make sure the getter and setter for the property are being used.
@@ -48,7 +40,12 @@ export function preactToCustomElement(preactComponent, opts) {
 				return res;
 			}, {});
 			props.customElement = this;
-			this._preactRoot = preact.render(h(preactComponent, props), this, this._preactRoot);
+
+			if (this._preactRoot && !this._preactRoot.parentNode) {
+				this._preactRoot = preact.render(h(preactComponent, props), this, null);
+			} else {
+				this._preactRoot = preact.render(h(preactComponent, props), this, this._preactRoot);
+			}
 		}
 	}
 

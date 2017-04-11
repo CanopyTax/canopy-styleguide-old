@@ -161,10 +161,8 @@ describe(`<cps-tooltip />`, () => {
 			done();
 		});
 
-		setTimeout(() => {
-			el.tooltipContainer = tooltipContainer;
-			el.dispatchEvent(new CustomEvent('mouseover'));
-		});
+		el.tooltipContainer = tooltipContainer;
+		el.dispatchEvent(new CustomEvent('mouseover'));
 	});
 
 	it(`will make the tooltip element fixed with useFixedPosition property`, done => {
