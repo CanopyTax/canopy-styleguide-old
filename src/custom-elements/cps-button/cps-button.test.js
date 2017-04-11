@@ -22,7 +22,7 @@ describe(`<button is="cps-button" />`, () => {
 		expect(el instanceof customElements.get('cps-button')).toBe(true);
 	});
 
-	it(`respects the actionType property values of 'primary' and 'secondary'`, () => {
+	it(`respects the actionType property values of 'primary' and 'secondary'`, (done) => {
 		// Set the actionType before even appending to doc
 		el.actionType = 'primary';
 		document.body.appendChild(el);
@@ -30,10 +30,18 @@ describe(`<button is="cps-button" />`, () => {
 		expect(getComputedStyle(el).backgroundColor).toEqual('rgb(0, 191, 75)');
 
 		el.actionType = 'secondary';
-		expect(getComputedStyle(el).backgroundColor).toEqual('rgb(244, 244, 244)');
 
-		el.actionType = 'primary';
-		expect(getComputedStyle(el).backgroundColor).toEqual('rgb(0, 191, 75)');
+		setTimeout(() => {
+			expect(getComputedStyle(el).backgroundColor).toEqual('rgb(244, 244, 244)');
+
+			el.actionType = 'primary';
+
+			setTimeout(() => {
+				expect(getComputedStyle(el).backgroundColor).toEqual('rgb(0, 191, 75)');
+				done();
+			});
+		});
+
 	});
 
 	it(`respects the actionType property value for 'flat'`, () => {
@@ -45,19 +53,24 @@ describe(`<button is="cps-button" />`, () => {
 		expect(getComputedStyle(el).color).toEqual('rgb(0, 191, 75)');
 	});
 
-	it(`respects the showLoader property`, () => {
+	it(`respects the showLoader property`, done => {
 		el.textContent = 'Button text'
 		document.body.appendChild(el);
 
 		expect(el.querySelector('.cps-loader')).toBeFalsy();
 
 		el.showLoader = true;
-		expect(el.querySelector('.cps-loader')).toBeTruthy();
-		expect(el.textContent).toBe('');
+		setTimeout(() => {
+			expect(el.querySelector('.cps-loader')).toBeTruthy();
+			expect(el.textContent).toBe('');
+			el.showLoader = false;
 
-		el.showLoader = false;
-		expect(el.querySelector('.cps-loader')).toBeFalsy();
-		expect(el.textContent).toBe('Button text'); // Restores the text from before loader was activated
+			setTimeout(() => {
+				expect(el.querySelector('.cps-loader')).toBeFalsy();
+				expect(el.textContent).toBe('Button text'); // Restores the text from before loader was activated
+				done();
+			});
+		});
 	});
 
 	it(`respects the disableOnClick property`, done => {

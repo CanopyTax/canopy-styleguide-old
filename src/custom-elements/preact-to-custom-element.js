@@ -4,6 +4,8 @@ import preact, {h} from 'preact';
 export function preactToCustomElement(preactComponent, opts) {
 	class PreactCustomElement extends opts.parentClass {
 		connectedCallback() {
+			this.connected = true;
+
 			opts
 			.properties
 			.filter(property => !this[property])
@@ -18,7 +20,7 @@ export function preactToCustomElement(preactComponent, opts) {
 		}
 		disconnectedCallback() {
 			// https://github.com/developit/preact/issues/53
-			this.disconnected = true;
+			this.connected = false;
 			preact.render('', this, this._preactRoot);
 		}
 		static get observedAttributes() {
@@ -28,6 +30,11 @@ export function preactToCustomElement(preactComponent, opts) {
 			this[camelCase(name)] = newValue;
 		}
 		render = () => {
+			if (!this.connected && this._preactRoot) {
+				// If we aren't connected, we don't want the preact.render() to execute below
+				return;
+			}
+
 			opts.properties.forEach(property => {
 				if (Object.hasOwnProperty(this, property)) {
 					// Make sure the getter and setter for the property are being used.
@@ -36,11 +43,6 @@ export function preactToCustomElement(preactComponent, opts) {
 					this[property] = existingValue;
 				}
 			});
-
-			if (this.disconnected || (this._preactRoot && !this._preactRoot.parentNode)) {
-				// If we have already disconnected, we don't want the preact.render() to execute below
-				return;
-			}
 			const props = opts.properties.reduce((res, property) => {
 				res[property] = this[property];
 				return res;
