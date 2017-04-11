@@ -37,7 +37,7 @@ export function preactToCustomElement(preactComponent, opts) {
 				}
 			});
 
-			if (this.disconnected) {
+			if (this.disconnected || (this._preactRoot && !this._preactRoot.parentNode)) {
 				// If we have already disconnected, we don't want the preact.render() to execute below
 				return;
 			}
