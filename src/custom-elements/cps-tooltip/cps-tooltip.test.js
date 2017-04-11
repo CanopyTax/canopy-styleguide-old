@@ -90,6 +90,7 @@ describe(`<cps-tooltip />`, () => {
 			expect(rect.top).toBeLessThan(expectedTop + 2);
 			done();
 		});
+
 		el.dispatchEvent(new CustomEvent('mouseover'));
 	});
 
@@ -129,9 +130,11 @@ describe(`<cps-tooltip />`, () => {
 
 		const tooltipContainer = document.createElement('div');
 		tooltipContainer.setAttribute('id', 'tooltipContainer1');
-		document.body.appendChild(tooltipContainer);
 
-		el.tooltipContainer = tooltipContainer;
+		document.body.appendChild(tooltipContainer);
+		document.body.appendChild(parentOfEl);
+		parentOfEl.appendChild(el);
+
 		el.addEventListener('cps-tooltip:shown', evt => {
 			let node = evt.detail.tooltipEl;
 			let testFailed = true;
@@ -158,9 +161,10 @@ describe(`<cps-tooltip />`, () => {
 			done();
 		});
 
-		document.body.appendChild(parentOfEl);
-		parentOfEl.appendChild(el);
-		el.dispatchEvent(new CustomEvent('mouseover'));
+		setTimeout(() => {
+			el.tooltipContainer = tooltipContainer;
+			el.dispatchEvent(new CustomEvent('mouseover'));
+		});
 	});
 
 	it(`will make the tooltip element fixed with useFixedPosition property`, done => {
