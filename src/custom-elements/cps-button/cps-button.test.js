@@ -72,4 +72,13 @@ describe(`<button is="cps-button" />`, () => {
 			done();
 		});
 	});
+
+	it(`makes a button bigger if the 'phat' property is set`, () => {
+		document.body.appendChild(el);
+		document.body.appendChild(el);
+
+		el.phat = true;
+
+		expect(el.getBoundingClientRect().height).toEqual(48);
+	});
 });

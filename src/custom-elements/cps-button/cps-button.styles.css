@@ -167,3 +167,9 @@ fieldset:disabled .flat {
 :global(.cps-btn-icon) a.flat, :global(.cps-btn-icon) .flat {
 	padding: 4px !important; /* 8px + 24px icon height = 32px */
 }
+
+button.phat {
+	font-size: 18px;
+	height: 48px;
+	padding: 0 28px;
+}

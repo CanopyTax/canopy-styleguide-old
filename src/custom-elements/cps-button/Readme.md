@@ -12,6 +12,7 @@ Provides styling and auto-disabling for `<button>` elements.
 Properties are good for both initial configuration and for all subsequent changes to the DOM element.
 - `actionType` (optional): A string with potential values of `primary` or `secondary`. If not provided, the default `buttonface` background-color will be applied.
 - `disableOnClick` (optional): A boolean that determines if the button should automatically be disabled when you click on it. The idea is maybe for Save/Delete buttons,
+- `phat` (optional): A boolean that determines whether the button should be large.
   where it's best to disable the button so you don't have to debounce it.
 
 ## Attributes
