@@ -9,6 +9,8 @@
 	z-index: 100000;
 	position: absolute;
 	word-wrap: break-word;
+	text-align: center;
+	font-weight: normal;
 }
 
 .inlineBlock {
