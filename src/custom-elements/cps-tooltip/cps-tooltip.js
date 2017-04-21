@@ -32,7 +32,7 @@ class CpsTooltip extends Component {
 
 		const startingLeft = this.props.tooltipContainer ? offsetParent.getBoundingClientRect().left : 0;
 		const startingTop = this.props.tooltipContainer ? offsetParent.getBoundingClientRect().top : 0;
-		const props = {...this.props, tooltipShown: this.tooltipShown, startingLeft, startingTop};
+		const props = {...this.props, tooltipShown: this.tooltipShown, startingLeft, startingTop, keepTooltipOpen: this.keepTooltipOpen, closeTooltipNow: this.hideTooltip};
 		const thingToRender = this.state.renderTooltip ? h(Tooltip, props) : '';
 		this.preactTooltip = preact.render(thingToRender, this.preactContainer, this.preactTooltip);
 
@@ -47,19 +47,29 @@ class CpsTooltip extends Component {
 		}
 	}
 	mousedOver = evt => {
+		clearTimeout(this.hideTooltipTimeout);
+		delete this.hideTooltipTimeout;
 		this.setState({renderTooltip: true});
 	}
 	mouseLeave = evt => {
-		this.setState({renderTooltip: false}, () => {
-			this.deleteTooltipElement();
-			this.props.customElement.dispatchEvent(new CustomEvent('cps-tooltip:hidden'));
-		});
+		const timeToWait = this.props.allowInteraction ? 500 : 0;
+		if (this.hideTooltipTimeout) {
+			clearTimeout(this.hideTooltipTimeout);
+		}
+		this.hideTooltipTimeout = setTimeout(this.hideTooltip, timeToWait);
 	}
 	tooltipShown = el => {
 		this.props.customElement.dispatchEvent(new CustomEvent('cps-tooltip:shown', {detail: {tooltipEl: el}}));
 	}
-	tooltipHidden = () => {
-		this.props.customElement.dispatchEvent(new CustomEvent('cps-tooltip:hidden'));
+	keepTooltipOpen = () => {
+		clearTimeout(this.hideTooltipTimeout);
+		delete this.hideTooltipTimeout;
+	}
+	hideTooltip = () => {
+		this.setState({renderTooltip: false}, () => {
+			this.deleteTooltipElement();
+			this.props.customElement.dispatchEvent(new CustomEvent('cps-tooltip:hidden'));
+		});
 	}
 	deleteTooltipElement = () => {
 		if (this.preactContainer) {
@@ -92,13 +102,21 @@ class Tooltip extends Component {
 
 		return this.state.waitingForDelayTime
 			? null
-			: <div className={styles.tooltip} style={style} ref={el => this.el = el} dangerouslySetInnerHTML={{__html: this.props.html}} />
+			: <div className={styles.tooltip} style={style} ref={this.handleRef} dangerouslySetInnerHTML={{__html: this.props.html}} />
 	}
 	componentDidUpdate() {
 		const newPosition = this.getPositionStyles();
 		const tolerance = 3; // Num pixels to not care about updating for
 		if (this.state.showAbove !== newPosition.showAbove || Math.abs(newPosition.top - this.state.top) > tolerance || Math.abs(newPosition.left - this.state.left) > tolerance) {
 			this.setState(newPosition);
+		}
+	}
+	handleRef = el => {
+		this.el = el;
+		if (this.props.allowInteraction && !this.mouseEventsAdded) {
+			this.el.addEventListener('mouseover', this.props.keepTooltipOpen);
+			this.el.addEventListener('mouseleave', this.props.closeTooltipNow);
+			this.mouseEventsAdded = true;
 		}
 	}
 	getPositionStyles = () => {
@@ -141,7 +159,7 @@ class Tooltip extends Component {
 
 const customElement = preactToCustomElement(
 	CpsTooltip,
-	{parentClass: HTMLElement, properties: ['html', 'delayTime', 'tooltipContainer', 'useFixedPosition', 'left', 'top']}
+	{parentClass: HTMLElement, properties: ['html', 'delayTime', 'tooltipContainer', 'useFixedPosition', 'left', 'top', 'allowInteraction']}
 );
 customElements.define('cps-tooltip', customElement);
 export const CprTooltip = customElementToReact({name: 'cps-tooltip'});

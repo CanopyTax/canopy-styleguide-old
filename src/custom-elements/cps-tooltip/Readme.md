@@ -19,6 +19,8 @@ Properties are good for both initial configuration and for all subsequent change
 - `tooltipContainer` (optional): The container DOM element to put the tooltip element in. Defaults to the nearest positioned ancestor of the `<cps-tooltip>` element.
 - `top` (optional): An integer number of pixels to be applied to the tooltip top. Note that tooltip is absolutely positioned.
 - `left` (optional): An integer number of pixels to be applied to the tooltip left. Note that tooltip is absolutely positioned.
+- `allowInteraction` (optional): A boolean that defaults to false. Indicates whether the tooltip should stay open if the user mouses over the tooltip itself.
+	Also it gives the user some time to get the mouse from the `<cps-tooltip>` element to the gray tooltip.
 
 ## Attributes
 Attributes are good for initial configuration. If an attribute is changed, the corresponding property will be updated.
