@@ -14,7 +14,7 @@ export default class ColorBar extends Component {
 				ref={ref => this.bar = ref}
 				onClick={e => {
 					const rect = this.bar.getBoundingClientRect();
-					const hue = Math.floor(((e.x - rect.left) / rect.width) * 360);
+					const hue = Math.floor(((e.pageX - rect.left) / rect.width) * 360);
 					this.props.barClick(color(`hsl(${hue}, ${saturation}%, ${lightness}%)`));
 				}}
 				class={`${styles.bar}`}>

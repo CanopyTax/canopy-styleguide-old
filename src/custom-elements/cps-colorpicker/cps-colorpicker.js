@@ -38,6 +38,7 @@ class CpsColorpicker extends Component {
 					barHeight={this.state.width * .09}
 					barClick={this.setColor.bind(this)}/>
 				<ColorSlider
+					barHeight={this.state.width * .09}
 					barStart={this.state.start}
 					setColor={this.setColor.bind(this)}
 					barWidth={this.state.width}
