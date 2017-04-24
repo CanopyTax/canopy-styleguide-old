@@ -40,6 +40,7 @@ class CpsTooltip extends Component {
 		return <div style={{height: 0, width: 0}} />;
 	}
 	componentWillUnmount() {
+		clearTimeout(this.hideTooltipTimeout);
 		this.deleteTooltipElement();
 		if (this.positionedAncestor) {
 			preact.render('', this.positionedAncestor, this.preactContainer);
