@@ -206,4 +206,55 @@ describe(`<cps-tooltip />`, () => {
 
 		el.dispatchEvent(new CustomEvent('mouseover'));
 	});
+
+	it(`respects the 'allowInteraction' property which gives the user time to mouse over the tooltip to keep it from hiding`, done => {
+		let testStatus = 'start';
+		el.html = `Tooltip html!`
+		el.allowInteraction = true;
+		document.body.appendChild(el);
+
+		el.addEventListener('cps-tooltip:shown', evt => {
+			expect(testStatus).toEqual('start');
+			setTimeout(() => {
+				testStatus = 'Tooltip about to disappear but user going to mouse over';
+				evt.detail.tooltipEl.dispatchEvent(new CustomEvent('mouseover'));
+
+				setTimeout(() => {
+					testStatus = 'Tooltip should hide now';
+					evt.detail.tooltipEl.dispatchEvent(new CustomEvent('mouseleave'));
+				}, 200);
+			}, 400); // 400 is less than the grace period for the user to get the mouse to the tooltip
+		});
+
+		el.addEventListener('cps-tooltip:hidden', evt => {
+			expect(testStatus).toEqual('Tooltip should hide now');
+			done();
+		});
+
+		el.dispatchEvent(new CustomEvent('mouseover'));
+	});
+
+	it(`hides the tooltip if the user moves the mouse off of <cps-tooltip> and never moves the mouse to the gray tooltip`, done => {
+		el.html = 'html';
+		el.allowInteraction = true;
+		document.body.appendChild(el);
+
+		let testStatus = 'waiting for hide event';
+
+		const timeout = setTimeout(() => {
+			expect(testStatus).toEqual('done');
+		}, 1000);
+
+		el.addEventListener('cps-tooltip:shown', evt => {
+			el.dispatchEvent(new CustomEvent('mouseleave'));
+		});
+
+		el.addEventListener('cps-tooltip:hidden', evt => {
+			testStatus = 'done';
+			clearTimeout(timeout);
+			done();
+		});
+
+		el.dispatchEvent(new CustomEvent('mouseover'));
+	});
 });
