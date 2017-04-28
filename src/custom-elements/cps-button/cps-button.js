@@ -60,7 +60,7 @@ class CpsButton extends Component {
 		}
 
 		if (oldProps.showLoader && !nextProps.showLoader) {
-			this.loaderIsGone();
+			this.loaderIsGone(nextProps);
 		}
 	}
 	prepareElementForLoader = () => {
@@ -70,8 +70,8 @@ class CpsButton extends Component {
 		this.props.customElement.style.width = this.props.customElement.clientWidth + "px";
 		this.props.customElement.style.height = this.props.customElement.clientHeight + "px";
 	}
-	loaderIsGone = () => {
-		Array.prototype.forEach.call(this.textNodes, textNode => nextProps.customElement.appendChild(textNode));
+	loaderIsGone = props => {
+		Array.prototype.forEach.call(this.textNodes, textNode => props.customElement.appendChild(textNode));
 		delete this.textNodes;
 
 		if (this.widthBeforeLoader) {
