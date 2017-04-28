@@ -10,7 +10,7 @@ el.setAttribute("rel", "stylesheet");
  * will be rendered as font-weight 700 because of the CSS specification. See
  * https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight "Fallback" section
  */
-el.setAttribute("href", "https://fonts.googleapis.com/css?family=Asap:400,400i,700,700i");
+el.setAttribute("href", "https://fonts.googleapis.com/css?family=Asap:400,400i,500,500i,700,700i");
 el.setAttribute("type", "text/css");
 const head = document.getElementsByTagName('head')[0];
 head.appendChild(el);
