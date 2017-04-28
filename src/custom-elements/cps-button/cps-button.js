@@ -4,8 +4,10 @@ import {customElementToReact} from '../react-interop.js';
 import {preactToCustomElement} from '../preact-to-custom-element.js';
 
 class CpsButton extends Component {
-	static state = {
+	state = {
 		disabled: false,
+		loaderWidth: null,
+		loaderHeight: null,
 	}
 	componentDidMount() {
 		// Used for disableOnClick
@@ -29,6 +31,9 @@ class CpsButton extends Component {
 
 		// Only return something if we want to completely overwrite the innerHTML
 		if (this.props.showLoader) {
+			if (!this.props.customElement.querySelector('.cps-loader')) {
+				this.prepareElementForLoader();
+			}
 			return (
 				<span className={`cps-loader ${styles.loader} ${this.props.customElement.disabled ? styles.disabledWithLoader : ''}`}>
 					<span />
@@ -49,13 +54,29 @@ class CpsButton extends Component {
 		 * remove the text nodes in order to achieve the same effect.
 		 */
 		if (!oldProps.showLoader && nextProps.showLoader) {
+			this.prepareElementForLoader();
 			this.textNodes = Array.prototype.filter.call(nextProps.customElement.childNodes, childNode => childNode.nodeType === 3);
 			Array.prototype.forEach.call(this.textNodes, textNode => textNode.parentNode.removeChild(textNode));
 		}
 
 		if (oldProps.showLoader && !nextProps.showLoader) {
-			Array.prototype.forEach.call(this.textNodes, textNode => nextProps.customElement.appendChild(textNode));
-			delete this.textNodes;
+			this.loaderIsGone();
+		}
+	}
+	prepareElementForLoader = () => {
+		this.widthBeforeLoader = this.props.customElement.style.clientWidth;
+		this.heightBeforeLoader = this.props.customElement.style.clientHeight;
+
+		this.props.customElement.style.width = this.props.customElement.clientWidth + "px";
+		this.props.customElement.style.height = this.props.customElement.clientHeight + "px";
+	}
+	loaderIsGone = () => {
+		Array.prototype.forEach.call(this.textNodes, textNode => nextProps.customElement.appendChild(textNode));
+		delete this.textNodes;
+
+		if (this.widthBeforeLoader) {
+			this.props.customElement.style.width = this.widthBeforeLoader;
+			this.props.customElement.style.height = this.heightBeforeLoader;
 		}
 	}
 }
