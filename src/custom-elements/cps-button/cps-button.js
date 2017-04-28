@@ -78,6 +78,9 @@ class CpsButton extends Component {
 			this.props.customElement.style.width = this.widthBeforeLoader;
 			this.props.customElement.style.height = this.heightBeforeLoader;
 		}
+
+		delete this.widthBeforeLoader;
+		delete this.heightBeforeLoader;
 	}
 }
 
