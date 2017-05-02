@@ -80,4 +80,17 @@ describe(`<button is="cps-button" />`, () => {
 
 		expect(el.getBoundingClientRect().height).toEqual(48);
 	});
+
+	it(`doesn't change the width of a button when the loader shows after initially not showing`, done => {
+		el.textContent = 'a pretty wide button';
+		document.body.appendChild(el);
+
+		setTimeout(() => {
+			const originalWidth = el.clientWidth;
+			el.showLoader = true;
+			expect(el.querySelector('.cps-loader'));
+			expect(el.clientWidth).toEqual(originalWidth);
+			done();
+		}, 50);
+	});
 });

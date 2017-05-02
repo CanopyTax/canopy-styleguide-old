@@ -61,6 +61,10 @@
 	background-color: #e9e9e9;
 }
 
+.secondary .loader span {
+	background-color: #afafaf;
+}
+
 .button :global(.cps-icon) {
 	float: left;
 	padding-right: 4px;
