@@ -1,17 +1,5 @@
 ## CpsDatepicker
 
-### Vanilla Example
-```js
-<cps-datepicker
-  cp-custom-element
-  orientation="'bottom'"
-  placeholder="placeholder"
-  input-class="'cps-form-control cps-input-sm'"
-  date="date"
-  on-date-change="onDateChange(e)">
-</cps-datepicker>
-```
-
 ### React Example
 
 ```js
@@ -26,6 +14,18 @@ import { CprDatepicker } from 'canopy-styleguide!sofe';
   events={{
     "datechange": this.onDateChange
   }} />
+```
+
+### Angular Example
+```js
+<cps-datepicker
+  cp-custom-element
+  orientation="'bottom'"
+  placeholder="placeholder"
+  input-class="'cps-form-control cps-input-sm'"
+  date="date"
+  on-date-change="onDateChange(e)">
+</cps-datepicker>
 ```
 
 ### Events
