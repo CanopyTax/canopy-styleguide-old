@@ -1,5 +1,33 @@
 ## CpsDatepicker
 
+### Vanilla Example
+```js
+<cps-datepicker
+  cp-custom-element
+  orientation="'bottom'"
+  placeholder="placeholder"
+  input-class="'cps-form-control cps-input-sm'"
+  date="date"
+  on-date-change="onDateChange(e)">
+</cps-datepicker>
+```
+
+### React Example
+
+```js
+import { CprDatepicker } from 'canopy-styleguide!sofe';
+
+<CprDatepicker 
+  removeDateOption={true}
+  removeDateText={"Remove Date"}
+  orientation="bottom right"
+  date={this.props.answer}
+  inputClass={`cps-form-control ${styles["source-form-104"]}`}
+  events={{
+    "datechange": this.onDateChange
+  }} />
+```
+
 ### Events
 `cps-datepicker` has three possible events: `focus`, `blur`, `datechange`
 - `focus` fires when the input is focused
