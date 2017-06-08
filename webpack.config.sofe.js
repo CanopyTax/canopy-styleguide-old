@@ -18,7 +18,6 @@ module.exports = {
 		"react": "react",
 		"react-dom": "react-dom",
 		"lodash": "lodash",
-		"jquery": "jquery",
 	},
 	devtool: "sourcemap",
 	module: {
