@@ -20,20 +20,18 @@ class CpsTooltip extends Component {
 	}
 	render() {
 		const offsetParent = this.props.customElement.offsetParent;
-		if(offsetParent) {
-			if (!this.preactContainer && this.state.renderTooltip) {
-				this.preactContainer = document.createElement('div');
-				// Put the tooltip element into the nearest positioned ancestor, so that offsetTop works.
-				this.positionedAncestor = this.props.tooltipContainer || offsetParent;
-				this.positionedAncestor.appendChild(this.preactContainer);
-			}
-
-			const startingLeft = this.props.tooltipContainer ? offsetParent.getBoundingClientRect().left : 0;
-			const startingTop = this.props.tooltipContainer ? offsetParent.getBoundingClientRect().top : 0;
-			const props = {...this.props, tooltipShown: this.tooltipShown, startingLeft, startingTop, keepTooltipOpen: this.keepTooltipOpen, closeTooltipNow: this.hideTooltip};
-			const thingToRender = this.state.renderTooltip ? h(Tooltip, props) : '';
-			this.preactTooltip = preact.render(thingToRender, this.preactContainer, this.preactTooltip);
+		if (!this.preactContainer && this.state.renderTooltip) {
+			this.preactContainer = document.createElement('div');
+			// Put the tooltip element into the nearest positioned ancestor, so that offsetTop works.
+			this.positionedAncestor = this.props.tooltipContainer || offsetParent;
+			this.positionedAncestor.appendChild(this.preactContainer);
 		}
+
+		const startingLeft = this.props.tooltipContainer ? offsetParent.getBoundingClientRect().left : 0;
+		const startingTop = this.props.tooltipContainer ? offsetParent.getBoundingClientRect().top : 0;
+		const props = {...this.props, tooltipShown: this.tooltipShown, startingLeft, startingTop, keepTooltipOpen: this.keepTooltipOpen, closeTooltipNow: this.hideTooltip};
+		const thingToRender = this.state.renderTooltip ? h(Tooltip, props) : '';
+		this.preactTooltip = preact.render(thingToRender, this.preactContainer, this.preactTooltip);
 
 		// Don't return anything, we don't care about innerHTML of the custom element
 		return <div style={{height: 0, width: 0}} />;
