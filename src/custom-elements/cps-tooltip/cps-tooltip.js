@@ -4,9 +4,6 @@ import {customElementToReact} from '../react-interop.js';
 import styles from './cps-tooltip.styles.css';
 import {throttle, isEqual} from 'lodash';
 
-// For Dan's benefit
-import $ from 'jquery';
-
 class CpsTooltip extends Component {
 	static state = {
 		renderTooltip: false,
@@ -22,7 +19,7 @@ class CpsTooltip extends Component {
 		this.props.customElement.classList.add(styles.inlineBlock)
 	}
 	render() {
-		const offsetParent = $(this.props.customElement).offsetParent()[0];
+		const offsetParent = this.props.customElement.offsetParent;
 		if (!this.preactContainer && this.state.renderTooltip) {
 			this.preactContainer = document.createElement('div');
 			// Put the tooltip element into the nearest positioned ancestor, so that offsetTop works.
