@@ -10,8 +10,9 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, "sofe"),
 		filename: "[name].js",
-		library: "styleguide",
+		library: "canopy-styleguide",
 		libraryTarget: "umd",
+		umdNamedDefine: true,
 		chunkFilename: "[id].js"
 	},
 	externals: {
