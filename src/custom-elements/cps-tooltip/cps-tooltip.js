@@ -20,6 +20,11 @@ class CpsTooltip extends Component {
 	}
 	render() {
 		const offsetParent = this.props.customElement.offsetParent;
+
+		/* Sometimes render is invoked before tooltip element is connected to the DOM, In these cases offsetParent is null.
+		   Render will always be called when tooltip is actually connected to the DOM.
+		   This statement checks for existence of offsetParent (i.e. tooltip is connected) and updates connected element.
+		   If offsetParent is null, it is not important to run this conditional statement which can sometimes throw an error. */
 		if(offsetParent) {
 			if (!this.preactContainer && this.state.renderTooltip) {
 				this.preactContainer = document.createElement('div');
