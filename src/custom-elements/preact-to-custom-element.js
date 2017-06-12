@@ -13,14 +13,11 @@ export function preactToCustomElement(preactComponent, opts) {
 					this.attributeChangedCallback(attrName, undefined, this.getAttribute(attrName));
 				}
 			});
-			this.connected = true;
 
 			this.render();
 		}
-		connected = false
 		disconnectedCallback() {
 			// https://github.com/developit/preact/issues/53
-			this.connected = false;
 			preact.render('', this, this._preactRoot);
 		}
 		static get observedAttributes() {
@@ -38,7 +35,6 @@ export function preactToCustomElement(preactComponent, opts) {
 					this[property] = existingValue;
 				}
 			});
-			if(!this.connected) return;
 			const props = opts.properties.reduce((res, property) => {
 				res[property] = this[property];
 				return res;
