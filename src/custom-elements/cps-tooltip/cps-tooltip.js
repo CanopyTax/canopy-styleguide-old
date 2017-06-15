@@ -18,8 +18,14 @@ class CpsTooltip extends Component {
 		// Custom elements default to inline, but inline-block is necessary to calculate height/width correctly
 		this.props.customElement.classList.add(styles.inlineBlock)
 	}
+
 	render() {
 		const offsetParent = this.props.customElement.offsetParent;
+		if (this.props.disabled) {
+			this.hideTooltip();
+			return <div style={{height: 0, width: 0}} />;
+		}
+
 		if (!this.preactContainer && this.state.renderTooltip) {
 			this.preactContainer = document.createElement('div');
 			// Put the tooltip element into the nearest positioned ancestor, so that offsetTop works.
@@ -64,6 +70,8 @@ class CpsTooltip extends Component {
 		delete this.hideTooltipTimeout;
 	}
 	hideTooltip = () => {
+		if (this.state.renderTooltip === false) return;
+
 		this.setState({renderTooltip: false}, () => {
 			this.deleteTooltipElement();
 			this.props.customElement.dispatchEvent(new CustomEvent('cps-tooltip:hidden'));
@@ -157,7 +165,7 @@ class Tooltip extends Component {
 
 const customElement = preactToCustomElement(
 	CpsTooltip,
-	{parentClass: HTMLElement, properties: ['html', 'delayTime', 'tooltipContainer', 'useFixedPosition', 'left', 'top', 'allowInteraction']}
+	{parentClass: HTMLElement, properties: ['html', 'disabled', 'delayTime', 'tooltipContainer', 'useFixedPosition', 'left', 'top', 'allowInteraction']}
 );
 customElements.define('cps-tooltip', customElement);
 export const CprTooltip = customElementToReact({name: 'cps-tooltip'});
