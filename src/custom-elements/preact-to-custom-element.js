@@ -1,8 +1,13 @@
 import {kebabCase, camelCase} from 'lodash';
 import preact, {h} from 'preact';
+import {debounce} from 'lodash';
 
 export function preactToCustomElement(preactComponent, opts) {
 	class PreactCustomElement extends opts.parentClass {
+		constructor() {
+			super();
+			this.render = debounce(this._render, 10);
+		}
 		connectedCallback() {
 			opts
 			.properties
@@ -29,7 +34,7 @@ export function preactToCustomElement(preactComponent, opts) {
 		attributeChangedCallback(name, oldValue, newValue) {
 			this[camelCase(name)] = newValue;
 		}
-		render = () => {
+		_render = () => {
 			opts.properties.forEach(property => {
 				if (Object.hasOwnProperty(this, property)) {
 					// Make sure the getter and setter for the property are being used.
@@ -64,8 +69,10 @@ export function preactToCustomElement(preactComponent, opts) {
 				return this[privatePropertyName];
 			},
 			set(newVal) {
-				this[privatePropertyName] = newVal;
-				this.render();
+				if (this[privatePropertyName] !== newVal) {
+					this[privatePropertyName] = newVal;
+					this.render();
+				}
 			},
 			enumerable: true,
 			configurable: true,

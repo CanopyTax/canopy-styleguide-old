@@ -21,6 +21,11 @@ class CpsTooltip extends Component {
 	render() {
 		const offsetParent = this.props.customElement.offsetParent;
 
+		if (this.props.disabled) {
+			this.hideTooltip();
+			return <div style={{height: 0, width: 0}} />;
+		}
+
 		/* Sometimes render is invoked before tooltip element is connected to the DOM, In these cases offsetParent is null.
 		Render will always be called when tooltip is actually connected to the DOM.
 		This statement checks for existence of offsetParent (i.e. tooltip is connected) and updates connected element.
@@ -71,6 +76,8 @@ class CpsTooltip extends Component {
 		delete this.hideTooltipTimeout;
 	}
 	hideTooltip = () => {
+		if (this.state.renderTooltip === false) return;
+
 		this.setState({renderTooltip: false}, () => {
 			this.deleteTooltipElement();
 			this.props.customElement.dispatchEvent(new CustomEvent('cps-tooltip:hidden'));
@@ -164,7 +171,7 @@ class Tooltip extends Component {
 
 const customElement = preactToCustomElement(
 	CpsTooltip,
-	{parentClass: HTMLElement, properties: ['html', 'delayTime', 'tooltipContainer', 'useFixedPosition', 'left', 'top', 'allowInteraction']}
+	{parentClass: HTMLElement, properties: ['html', 'disabled', 'delayTime', 'tooltipContainer', 'useFixedPosition', 'left', 'top', 'allowInteraction']}
 );
 customElements.define('cps-tooltip', customElement);
 export const CprTooltip = customElementToReact({name: 'cps-tooltip'});
