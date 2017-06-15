@@ -18,26 +18,32 @@ class CpsTooltip extends Component {
 		// Custom elements default to inline, but inline-block is necessary to calculate height/width correctly
 		this.props.customElement.classList.add(styles.inlineBlock)
 	}
-
 	render() {
 		const offsetParent = this.props.customElement.offsetParent;
+
 		if (this.props.disabled) {
 			this.hideTooltip();
 			return <div style={{height: 0, width: 0}} />;
 		}
 
-		if (!this.preactContainer && this.state.renderTooltip) {
-			this.preactContainer = document.createElement('div');
-			// Put the tooltip element into the nearest positioned ancestor, so that offsetTop works.
-			this.positionedAncestor = this.props.tooltipContainer || offsetParent;
-			this.positionedAncestor.appendChild(this.preactContainer);
-		}
+		/* Sometimes render is invoked before tooltip element is connected to the DOM, In these cases offsetParent is null.
+		Render will always be called when tooltip is actually connected to the DOM.
+		This statement checks for existence of offsetParent (i.e. tooltip is connected) and updates connected element.
+		If offsetParent is null, it is not important to run this conditional statement which can sometimes throw an error. */
+		if(offsetParent) {
+			if (!this.preactContainer && this.state.renderTooltip) {
+				this.preactContainer = document.createElement('div');
+				// Put the tooltip element into the nearest positioned ancestor, so that offsetTop works.
+				this.positionedAncestor = this.props.tooltipContainer || offsetParent;
+				this.positionedAncestor.appendChild(this.preactContainer);
+			}
 
-		const startingLeft = this.props.tooltipContainer ? offsetParent.getBoundingClientRect().left : 0;
-		const startingTop = this.props.tooltipContainer ? offsetParent.getBoundingClientRect().top : 0;
-		const props = {...this.props, tooltipShown: this.tooltipShown, startingLeft, startingTop, keepTooltipOpen: this.keepTooltipOpen, closeTooltipNow: this.hideTooltip};
-		const thingToRender = this.state.renderTooltip ? h(Tooltip, props) : '';
-		this.preactTooltip = preact.render(thingToRender, this.preactContainer, this.preactTooltip);
+			const startingLeft = this.props.tooltipContainer ? offsetParent.getBoundingClientRect().left : 0;
+			const startingTop = this.props.tooltipContainer ? offsetParent.getBoundingClientRect().top : 0;
+			const props = {...this.props, tooltipShown: this.tooltipShown, startingLeft, startingTop, keepTooltipOpen: this.keepTooltipOpen, closeTooltipNow: this.hideTooltip};
+			const thingToRender = this.state.renderTooltip ? h(Tooltip, props) : '';
+			this.preactTooltip = preact.render(thingToRender, this.preactContainer, this.preactTooltip);
+		}
 
 		// Don't return anything, we don't care about innerHTML of the custom element
 		return <div style={{height: 0, width: 0}} />;
