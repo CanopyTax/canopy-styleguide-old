@@ -95,10 +95,8 @@ describe(`<button is="cps-button" />`, () => {
 		document.body.appendChild(el);
 
 		el.phat = true;
-				console.log('3');
 
 		setTimeout(() => {
-				console.log('4');
 			expect(el.getBoundingClientRect().height).toEqual(48);
 			done();
 		}, 11);
