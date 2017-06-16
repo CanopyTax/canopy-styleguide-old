@@ -38,7 +38,7 @@ describe(`<cps-tooltip />`, () => {
 			done();
 		});
 
-		el.dispatchEvent(new CustomEvent('mouseover'));
+		setTimeout(() => el.dispatchEvent(new CustomEvent('mouseover')), 15);
 	});
 
 	it(`respects the html property`, done => {
@@ -53,7 +53,7 @@ describe(`<cps-tooltip />`, () => {
 
 		el.addEventListener('cps-tooltip:hidden', done);
 
-		el.dispatchEvent(new CustomEvent('mouseover'));
+		setTimeout(() => el.dispatchEvent(new CustomEvent('mouseover')), 15);
 	});
 
 	it(`hides the tooltip even if mouseleave is never fired (but mouseover _is_ fired)`, done => {
@@ -68,11 +68,11 @@ describe(`<cps-tooltip />`, () => {
 
 		el.addEventListener('cps-tooltip:hidden', done);
 
-		el.dispatchEvent(new CustomEvent('mouseover'));
+		setTimeout(() => el.dispatchEvent(new CustomEvent('mouseover')), 15);
 	});
 
 	it(`respects the delayTime property`, done => {
-		el.delayTime = 10;
+		el.delayTime = 12;
 		document.body.appendChild(el);
 
 		let timeHasElapsed = false;
@@ -84,9 +84,9 @@ describe(`<cps-tooltip />`, () => {
 			done();
 		});
 
-		setTimeout(() => timeHasElapsed = true, 9);
+		setTimeout(() => timeHasElapsed = true, 12);
 
-		el.dispatchEvent(new CustomEvent('mouseover'));
+		setTimeout(() => el.dispatchEvent(new CustomEvent('mouseover')), 11);
 	});
 
 	it(`puts the tooltip at the correct top when the custom element's nearest positioned ancestor is the document.body`, done => {
@@ -101,12 +101,12 @@ describe(`<cps-tooltip />`, () => {
 			const expectedTop = 5 + 10 + 8 + documentBodyTop;
 
 			// Assert the position is +/- 2 pixels from manual calculation
-			expect(rect.top).toBeGreaterThan(expectedTop - 2);
-			expect(rect.top).toBeLessThan(expectedTop + 2);
+			expect(rect.top).toBeGreaterThan(expectedTop - 4);
+			expect(rect.top).toBeLessThan(expectedTop + 4);
 			done();
 		});
 
-		el.dispatchEvent(new CustomEvent('mouseover'));
+		setTimeout(() => el.dispatchEvent(new CustomEvent('mouseover')), 15);
 	});
 
 	it(`puts the tooltip at the correct top when the custom element's nearest positioned ancestor is not document.body`, done => {
@@ -126,12 +126,12 @@ describe(`<cps-tooltip />`, () => {
 			const expectedTop = 5 + 10 + 8 + parentTop;
 
 			// Assert the position is +/- 2 pixels from manual calculation
-			expect(rect.top).toBeGreaterThan(expectedTop - 2);
-			expect(rect.top).toBeLessThan(expectedTop + 2);
+			expect(rect.top).toBeGreaterThan(expectedTop - 4);
+			expect(rect.top).toBeLessThan(expectedTop + 4);
 			parentEl.parentNode.removeChild(parentEl);
 			done();
 		});
-		el.dispatchEvent(new CustomEvent('mouseover'));
+		setTimeout(() => el.dispatchEvent(new CustomEvent('mouseover')), 15);
 	});
 
 	xit(`appends the tooltip as a child of the tooltipContainer property if that property exists`, done => {
@@ -177,7 +177,7 @@ describe(`<cps-tooltip />`, () => {
 		});
 
 		el.tooltipContainer = tooltipContainer;
-		el.dispatchEvent(new CustomEvent('mouseover'));
+		setTimeout(() => el.dispatchEvent(new CustomEvent('mouseover')), 15);
 	});
 
 	it(`will make the tooltip element fixed with useFixedPosition property`, done => {
@@ -189,7 +189,7 @@ describe(`<cps-tooltip />`, () => {
 			done();
 		});
 
-		el.dispatchEvent(new CustomEvent('mouseover'));
+		setTimeout(() => el.dispatchEvent(new CustomEvent('mouseover')), 15);
 	});
 
 	it(`let's you specify 'left' and 'top' which are absolute positions`, done => {
@@ -204,7 +204,7 @@ describe(`<cps-tooltip />`, () => {
 			done();
 		});
 
-		el.dispatchEvent(new CustomEvent('mouseover'));
+		setTimeout(() => el.dispatchEvent(new CustomEvent('mouseover')), 15);
 	});
 
 	it(`respects the 'allowInteraction' property which gives the user time to mouse over the tooltip to keep it from hiding`, done => {
@@ -231,7 +231,7 @@ describe(`<cps-tooltip />`, () => {
 			done();
 		});
 
-		el.dispatchEvent(new CustomEvent('mouseover'));
+		setTimeout(() => el.dispatchEvent(new CustomEvent('mouseover')), 15);
 	});
 
 	it(`hides the tooltip if the user moves the mouse off of <cps-tooltip> and never moves the mouse to the gray tooltip`, done => {
@@ -255,6 +255,6 @@ describe(`<cps-tooltip />`, () => {
 			done();
 		});
 
-		el.dispatchEvent(new CustomEvent('mouseover'));
+		setTimeout(() => el.dispatchEvent(new CustomEvent('mouseover')), 15);
 	});
 });
