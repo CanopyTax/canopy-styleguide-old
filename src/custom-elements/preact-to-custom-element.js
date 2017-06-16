@@ -6,7 +6,7 @@ export function preactToCustomElement(preactComponent, opts) {
 	class PreactCustomElement extends opts.parentClass {
 		constructor() {
 			super();
-			this.render = debounce(this._render, 10);
+			this.render = debounce(this._render, 5);
 		}
 		connectedCallback() {
 			opts
