@@ -61,14 +61,16 @@ describe(`<cps-tooltip />`, () => {
 		el.html = html;
 		document.body.appendChild(el);
 
-		el.addEventListener('cps-tooltip:shown', evt => {
-			expect(evt.detail.tooltipEl.innerHTML).toEqual(html);
-			el.dispatchEvent(new CustomEvent('mouseout'));
-		});
+		setTimeout(() => {
+			el.addEventListener('cps-tooltip:shown', evt => {
+				expect(evt.detail.tooltipEl.innerHTML).toEqual(html);
+				el.dispatchEvent(new CustomEvent('mouseout'));
+			});
 
-		el.addEventListener('cps-tooltip:hidden', done);
+			el.addEventListener('cps-tooltip:hidden', done);
 
-		setTimeout(() => el.dispatchEvent(new CustomEvent('mouseover')), 15);
+			setTimeout(() => el.dispatchEvent(new CustomEvent('mouseover')), 15);
+		}, 11);
 	});
 
 	it(`respects the delayTime property`, done => {
