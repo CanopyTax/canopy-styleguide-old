@@ -31,9 +31,8 @@ class CpsButton extends Component {
 
 		// Only return something if we want to completely overwrite the innerHTML
 		if (this.props.showLoader) {
-			if (!this.props.customElement.querySelector('.cps-loader')) {
-				this.prepareElementForLoader();
-			}
+			this.prepareElementForLoader();
+
 			return (
 				<span className={`cps-loader ${styles.loader} ${this.props.customElement.disabled ? styles.disabledWithLoader : ''}`}>
 					<span />
@@ -64,11 +63,21 @@ class CpsButton extends Component {
 		}
 	}
 	prepareElementForLoader = () => {
-		this.widthBeforeLoader = this.props.customElement.style.clientWidth;
-		this.heightBeforeLoader = this.props.customElement.style.clientHeight;
+		if (this.elementPreparedForLoader) {
+			// We already set the width and height, no need to do it again
+			return;
+		}
 
-		this.props.customElement.style.width = this.props.customElement.clientWidth + "px";
-		this.props.customElement.style.height = this.props.customElement.clientHeight + "px";
+		const actualWidth = this.props.customElement.clientWidth;
+		const actualHeight = this.props.customElement.clientHeight;
+
+		this.widthBeforeLoader = this.props.customElement.style.width;
+		this.heightBeforeLoader = this.props.customElement.style.height;
+
+		this.props.customElement.style.width = actualWidth + "px";
+		this.props.customElement.style.height = actualHeight + "px";
+
+		this.elementPreparedForLoader = true;
 	}
 	loaderIsGone = props => {
 		Array.prototype.forEach.call(this.textNodes, textNode => props.customElement.appendChild(textNode));
@@ -77,10 +86,14 @@ class CpsButton extends Component {
 		if (this.widthBeforeLoader) {
 			this.props.customElement.style.width = this.widthBeforeLoader;
 			this.props.customElement.style.height = this.heightBeforeLoader;
+		} else {
+			this.props.customElement.style.removeProperty('width');
+			this.props.customElement.style.removeProperty('height');
 		}
 
 		delete this.widthBeforeLoader;
 		delete this.heightBeforeLoader;
+		delete this.elementPreparedForLoader;
 	}
 }
 
