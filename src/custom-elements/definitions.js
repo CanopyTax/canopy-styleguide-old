@@ -4,3 +4,4 @@ import './cps-datepicker/cps-datepicker.js';
 import './cps-datepicker/cps-calendar.component.js';
 import './cps-colorpicker/cps-colorpicker.js';
 import './cps-icon/cps-icon.js';
+import './cps-loader/cps-loader.js';
