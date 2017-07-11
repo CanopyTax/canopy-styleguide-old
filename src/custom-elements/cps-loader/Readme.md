@@ -8,7 +8,7 @@ Provides a loading indicator with 3 dots
 
 ## HTML Usage in Angular
 ```html
-<span is="cps-loader" page="true" color="orange" />
+<cps-loader page="true" color="#ff0000"/>
 ```
 
 ### Attributes
@@ -20,5 +20,6 @@ Provides a loading indicator with 3 dots
     - Determines the width in pixels of the loading dots
     - Takes precedence over the page property
 - `color`
+    - Not required
     - Will change the color of the dots
     - defaults to a light gray (#e0e0e0)
