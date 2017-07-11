@@ -5,16 +5,16 @@ import styles from './cps-loader.styles.css';
 import {makeDots} from './cps-loader.helper.js';
 
 class CpsLoader extends Component {
-    render(){
-        return (
-            <span className={`${styles.loader} ${this.props.customElement.page ? styles.page : ''}`}>
-                {
-                    makeDots(this.props.customElement)
-                }
-            </span>
-        )
+    render(){
+        return (
+            <span className={`${styles.loader} ${this.props.customElement.page ? styles.page : ''}`}>
+                {
+                    makeDots(this.props.customElement)
+                }
+            </span>
+        )
     }
-}  
+}
 
 const customElement = preactToCustomElement(CpsLoader, {parentClass: HTMLElement, properties: ['page', 'dotSize', 'color']});
 customElements.define('cps-loader', customElement);
