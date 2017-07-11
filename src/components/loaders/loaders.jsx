@@ -6,7 +6,10 @@ module.exports = React.createClass({
 			<div>
 				<div className="cps-flexible-focus cps-card">
 					<div className="cps-card__header cps-subheader">
-						Loading indicators
+						Loading indicators: 
+						<p className="cps-body">
+						These will work although they are deprecated now in favor of the custom element <a href="https://github.com/CanopyTax/canopy-styleguide/blob/master/src/custom-elements/cps-loader"> CprLoader</a> 
+						</p>
 					</div>
 				</div>
 

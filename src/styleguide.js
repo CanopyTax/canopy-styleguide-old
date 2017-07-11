@@ -21,3 +21,4 @@ exports.CprCalendar = require('./custom-elements/cps-datepicker/cps-calendar.com
 exports.CprDatepicker = require('./custom-elements/cps-datepicker/cps-datepicker.js').CprDatepicker;
 exports.CprColorpicker = require('./custom-elements/cps-colorpicker/cps-colorpicker.js').CprColorpicker;
 exports.CprIcon = require('./custom-elements/cps-icon/cps-icon.js').CprIcon;
+exports.CprLoader = require('./custom-elements/cps-loader/cps-loader.js').CprLoader;
