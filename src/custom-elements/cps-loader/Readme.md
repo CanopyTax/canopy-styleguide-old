@@ -1,9 +1,14 @@
 # cps-loader
-Provieds a loading indicator with 3 dots
+Provides a loading indicator with 3 dots
 
-## HTML Usage
+## HTML Usage in React
 ```html
 <CprLoader dotSize="24" page="true" color="orange"/>
+```
+
+## HTML Usage in Angular
+```html
+<span is="cps-loader" page="true" color="orange" />
 ```
 
 ### Attributes
