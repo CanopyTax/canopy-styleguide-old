@@ -3,7 +3,7 @@ Provides a loading indicator with 3 dots
 
 ## HTML Usage in React
 ```html
-<CprLoader dotSize="24" page="true" color="orange"/>
+<CprLoader dotSize={24} page={true} color="orange"/>
 ```
 
 ## HTML Usage in Angular
