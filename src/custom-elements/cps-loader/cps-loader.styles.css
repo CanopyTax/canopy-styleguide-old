@@ -1,7 +1,10 @@
 
 .loader {
 	padding:0 36px;
-	display: block;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
 }
 
 .loader span {

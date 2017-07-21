@@ -7,11 +7,11 @@ import {makeDots} from './cps-loader.helper.js';
 class CpsLoader extends Component {
 	render() {
 		return (
-			<span className={`${styles.loader} ${this.props.customElement.page ? styles.page : ''}`}>
+			<div className={`${styles.loader} ${this.props.customElement.page ? styles.page : ''}`}>
 				{
 					makeDots(this.props.customElement)
 				}
-			</span>
+			</div>
 		)
 	}
 }
