@@ -1,14 +1,13 @@
 {
   "checksum": {
-    "previous": "72a6215d4b077d984a04b33957f39feca4dcfec0fda11c103408b08ab0a6feb4",
-    "current": "72a6215d4b077d984a04b33957f39feca4dcfec0fda11c103408b08ab0a6feb4"
+    "previous": "58f2713ecd48e78025a35ff0098f77bb0d5ba69958e3230fe3002c7edd19984b",
+    "current": "58f2713ecd48e78025a35ff0098f77bb0d5ba69958e3230fe3002c7edd19984b"
   },
   "fonts": [
     "fonts/canopy-icons.ttf",
     "fonts/canopy-icons.svg",
     "fonts/canopy-icons.woff",
-    "fonts/canopy-icons.eot",
-    "fonts/canopy-icons.woff2"
+    "fonts/canopy-icons.eot"
   ],
   "glyphs": {
     "1": {
@@ -371,6 +370,10 @@
       "codepoint": 61785,
       "source": "icons/license.svg"
     },
+    "link": {
+      "codepoint": 61873,
+      "source": "icons/link.svg"
+    },
     "list": {
       "codepoint": 61786,
       "source": "icons/list.svg"
@@ -724,8 +727,6 @@
     "autowidth": false,
     "base64": false,
     "config": "fontcustom.yml",
-    "copyright": "",
-    "css3": false,
     "css_selector": ".cps-icon-{{glyph}}",
     "debug": false,
     "font_ascent": 448,
