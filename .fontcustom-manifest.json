@@ -1,7 +1,7 @@
 {
   "checksum": {
-    "previous": "58f2713ecd48e78025a35ff0098f77bb0d5ba69958e3230fe3002c7edd19984b",
-    "current": "58f2713ecd48e78025a35ff0098f77bb0d5ba69958e3230fe3002c7edd19984b"
+    "previous": "de86690f95ee1c74dbe1dc0363028b0097a1d4b9416d4849e37784c1c70ded3b",
+    "current": "de86690f95ee1c74dbe1dc0363028b0097a1d4b9416d4849e37784c1c70ded3b"
   },
   "fonts": [
     "fonts/canopy-icons.ttf",
@@ -193,6 +193,10 @@
     "download": {
       "codepoint": 61741,
       "source": "icons/download.svg"
+    },
+    "draft": {
+      "codepoint": 61874,
+      "source": "icons/draft.svg"
     },
     "drag": {
       "codepoint": 61742,
@@ -621,6 +625,10 @@
     "status": {
       "codepoint": 61847,
       "source": "icons/status.svg"
+    },
+    "subtask": {
+      "codepoint": 61875,
+      "source": "icons/subtask.svg"
     },
     "survey": {
       "codepoint": 61848,
