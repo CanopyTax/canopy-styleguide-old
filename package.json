@@ -7,12 +7,9 @@
     "test": "karma start",
     "test-ci": "karma start karma-saucelabs.conf.js",
     "build-icons": "fontcustom compile -F && node bin/build-fonts.js",
-    "local-website":
-      "npm run build-icons && webpack-dev-server --config webpack.config.website.js",
-    "start":
-      "http-server sofe --cors -c-1 --ssl --cert ~/.canopy-ssl/public.pem --key ~/.canopy-ssl/key.pem -p",
-    "watch":
-      "echo 'Please ensure fontcustom is installed\n' && npm run build-icons && ./bin/build -w",
+    "local-website": "npm run build-icons && webpack-dev-server --config webpack.config.website.js",
+    "start": "http-server sofe --cors -c-1 --ssl --cert ~/.canopy-ssl/public.pem --key ~/.canopy-ssl/key.pem -p",
+    "watch": "echo 'Please ensure fontcustom is installed\n' && npm run build-icons && ./bin/build -w",
     "sofe": "./bin/build -p"
   },
   "repository": {
