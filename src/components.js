@@ -1,23 +1,90 @@
 module.exports = [
-	{ title: "Typography",			html: require('./components/typography/typography.jsx') },
-	{ title: "Color Palette",		html: require('./components/variables/colors.jsx') },
-	{ title: "Inputs",				html: require('./components/forms/input.jsx') },
-	{ title: "Buttons & Links",		html: require('./components/forms/buttons.jsx') },
-	{ title: "Checkboxes & Radios",	html: require('./components/forms/checkbox-radio.jsx') },
-	{ title: "Textarea",			html: require('./components/forms/textarea.jsx') },
-	{ title: "Pickers",				html: require('./components/pickers/pickers.jsx') },
-	{ title: "Cards",				html: require('./components/cards/cards.jsx') },
-	{ title: "Slats",				html: require('./components/slats/slats.jsx') },
-	{ title: "Navigation",			html: require('./components/navigation/navigation.jsx') },
-	{ title: "Menus",				html: require('./components/menus/menus.jsx') },
-	{ title: "Icons & Labels",		html: require('./components/icons/icons.jsx') },
-	{ title: "Tables",				html: require('./components/tables/tables.jsx') },
-	{ title: "Toasters & Banners",	html: require('./components/banners/banners.jsx') },
-	{ title: "Modals",				html: require('./components/modals/modals.jsx') },
-	{ title: "Lists",				html: require('./components/lists/lists.jsx') },
-	{ title: "Progress Indicators",	html: require('./components/progress_indicators/progress_indicators.jsx') },
-	{ title: "Loaders",				html: require('./components/loaders/loaders.jsx') },
-	{ title: 'Animations',			html: require('./components/animate.jsx')},
-	{ title: 'Utility Classes',		html: require('./components/utilities.jsx')},
-	{ title: "JavaScript Widgets",	html: require('./js-widgets.jsx')}
+	{
+		title: 'Typography',
+		html: require('./components/typography/typography.jsx'),
+	},
+	{
+		title: 'Color Palette',
+		html: require('./components/variables/colors.jsx'),
+	},
+	{
+		title: 'Inputs',
+		html: require('./components/forms/input.jsx'),
+	},
+	{
+		title: 'Buttons & Links',
+		html: require('./components/forms/buttons.jsx'),
+	},
+	{
+		title: 'Checkboxes & Radios',
+		html: require('./components/forms/checkbox-radio.jsx'),
+	},
+	{
+		title: 'Textarea',
+		html: require('./components/forms/textarea.jsx'),
+	},
+	{
+		title: 'Pickers',
+		html: require('./components/pickers/pickers.jsx'),
+	},
+	{
+		title: 'Cards',
+		html: require('./components/cards/cards.jsx'),
+	},
+	{
+		title: 'Wells',
+		html: require('./components/wells/wells.jsx'),
+	},
+	{
+		title: 'Slats',
+		html: require('./components/slats/slats.jsx'),
+	},
+	{
+		title: 'Navigation',
+		html: require('./components/navigation/navigation.jsx'),
+	},
+	{
+		title: 'Menus',
+		html: require('./components/menus/menus.jsx'),
+	},
+	{
+		title: 'Icons & Labels',
+		html: require('./components/icons/icons.jsx'),
+	},
+	{
+		title: 'Tables',
+		html: require('./components/tables/tables.jsx'),
+	},
+	{
+		title: 'Toasters & Banners',
+		html: require('./components/banners/banners.jsx'),
+	},
+	{
+		title: 'Modals',
+		html: require('./components/modals/modals.jsx'),
+	},
+	{
+		title: 'Lists',
+		html: require('./components/lists/lists.jsx'),
+	},
+	{
+		title: 'Progress Indicators',
+		html: require('./components/progress_indicators/progress_indicators.jsx'),
+	},
+	{
+		title: 'Loaders',
+		html: require('./components/loaders/loaders.jsx'),
+	},
+	{
+		title: 'Animations',
+		html: require('./components/animate.jsx'),
+	},
+	{
+		title: 'Utility Classes',
+		html: require('./components/utilities.jsx'),
+	},
+	{
+		title: 'JavaScript Widgets',
+		html: require('./js-widgets.jsx'),
+	},
 ];

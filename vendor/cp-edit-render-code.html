@@ -10,7 +10,6 @@
 		@import url('//cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css');
 		@import url('//cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/theme/mdn-like.min.css');
 		@import url('/styleguide.css');
-
 		.CodeMirror {
 			height: auto;
 		}
@@ -38,12 +37,12 @@
 
 	var defaultObjectProps = { writable: true };
 
-	Object.defineProperties(objectPrototype,  {
+	Object.defineProperties(objectPrototype, {
 		'section-title': defaultObjectProps,
 		'code-min-width': defaultObjectProps
 	});
 
-	objectPrototype.createdCallback = function () {		
+	objectPrototype.createdCallback = function () {
 		var shadow = this.createShadowRoot();
 		var template = renderCodeOwner.querySelector('#cpEditRenderedCode');
 
@@ -53,7 +52,7 @@
 		this.sectionTitle.textContent = this.getAttribute('section-title') || 'Example';
 
 		var codeEl = shadow.getElementById('code');
-		var renderedContentEl  = shadow.querySelector('#renderedContent')
+		var renderedContentEl = shadow.querySelector('#renderedContent')
 
 		codeEl.value = this.innerHTML;
 
@@ -86,4 +85,5 @@
 	document.registerElement("cp-edit-render-code", {
 		prototype: objectPrototype
 	});
+
 </script>
