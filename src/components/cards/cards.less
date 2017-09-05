@@ -1,16 +1,12 @@
 /** cards.less **/
 
-@import './flexible-masonry.less';
-@import '../variables/variables.less';
-
-@cardshadowcolor: #52555A;
+@import "./flexible-masonry.less";
+@import "../variables/variables.less";
 
 .cps-card {
 	background-color: @white;
-	border: 1px solid #dfdfdf;
-	border-radius: 5px;
+	border-radius: .5rem;
 	color: @dark-gray;
-	box-sizing: border-box;
 
 	&__hr {
 		margin-left: -24px;
@@ -21,7 +17,7 @@
 
 	&.\+thin {
 		.cps-card__header {
-			height: 4rem;
+			height: 4.0rem;
 			padding: 1rem 1.6rem;
 			background-color: @gray2;
 			border-radius: 5px 5px 0 0;
@@ -29,64 +25,67 @@
 		}
 
 		.cps-card__body {
-			padding: 1.6rem 1.6rem;
+			padding:1.6rem 1.6rem;
 		}
 	}
 
 	&.L1 {
+		border: 1px solid #dfdfdf;
 		border-radius: 1px;
 		box-shadow: 0 10px 30px -24px shade(@cardshadowcolor, 8%);
 	}
 
 	&.L2 {
+		border: 1px solid #dfdfdf;
 		border-radius: 5px;
 		box-shadow: 0 10px 40px -24px shade(@cardshadowcolor, 30%);
 	}
 
 	&.L3 {
+		border: 1px solid #dfdfdf;
 		border-radius: 8px;
 		box-shadow: 0 16px 50px -24px shade(@cardshadowcolor, 60%);
 	}
 }
 
-.cps-fixed-masonry,
-.cps-flexible-focus {
-	min-width: 70rem;
-	max-width: 136rem;
+.cps-fixed-masonry, .cps-flexible-focus {
+	min-width: 70.0rem;
+	max-width: 136.0rem;
 	margin: 0 auto 0 auto;
 }
 
 .cps-fixed-focus {
-	width: 76rem;
-	margin: 0 auto 0 auto;
+  width: 76.0rem;
+  margin: 0 auto 0 auto;
 }
 
 .cps-fixed-masonry__card {
-	height: 100%;
-	margin-bottom: 0.8rem;
-	margin-top: 0.8rem;
+	height:100%;
+	margin-bottom: .8rem;
+	margin-top: .8rem;
 
 	&.\+fixed-height {
 		min-height: 29.6rem;
 	}
 }
 
+
 .cps-card__banner {
 	margin: 1rem -2.4rem;
-	padding: 0.8rem 2.4rem;
+	padding: .8rem 2.4rem;
 
 	&.\+large {
 		height: 56px;
 		padding: 1.2rem 2.4rem 1.6rem 2.4rem;
 		> i {
-			font-size: 32px;
+			font-size:32px;
 			> span {
 				font-size: 18px;
 				color: @dark-gray;
 			}
 		}
 		&.\+bg-warning {
-			background-color: rgba(255, 138, 101, 0.2);
+			background-color:rgba(255, 138, 101, 0.2);
 		}
 	}
 }
@@ -95,7 +94,7 @@
 }
 .cps-card__header {
 	padding: 1.6rem 2.4rem 1.6rem 2.4rem;
-	border-bottom: 0.1rem solid @breakline-light;
+	border-bottom: .1rem solid @breakline-light;
 	font-weight: 400;
 	border-radius: 5px 5px 0px 0px; /* Without this, setting the background-color of this element will cause it to not respect cps-card's border-radius */
 
@@ -103,34 +102,34 @@
 		border-bottom: 0;
 	}
 
-	h3,
-	h4 {
+	h3,h4 {
 		margin: 0;
 		color: @dark-gray;
 	}
+
 }
 
 .cps-content-footer {
-	padding: 16px 2.4rem;
-	border-top: 0.1rem solid @breakline-light;
+	padding:16px 2.4rem;
+	border-top: .1rem solid @breakline-light;
 	a {
 		color: @dark-gray;
 		text-decoration: none;
-		padding: 0.4rem 0.8rem;
+		padding: .4rem .8rem;
 		&:hover {
-			border: 0.1rem solid #e9e9e9;
-			border-radius: 0.5rem;
+			border: .1rem solid #E9E9E9;
+			border-radius: .5rem;
 		}
 	}
 }
 
 .cps-card__banner {
 	margin: 1rem -2.4rem;
-	padding: 0.8rem 2.4rem;
+	padding: .8rem 2.4rem;
 }
 
 .cps-card__body {
-	padding: 16px 24px;
+	padding:16px 24px;
 }
 
 .cps-card__footer {
@@ -140,7 +139,7 @@
 }
 
 .cps-card__inset-body {
-	padding: 16px 24px;
+	padding:16px 24px;
 	background-color: @inset-background;
 	box-shadow: inset 2px 5px 6px -6px rgba(153, 153, 153, 0.51);
 }
@@ -150,5 +149,5 @@
 	max-width: 800px;
 	margin: 88px auto 0 auto;
 	border-radius: 5px;
-	box-shadow: 0px 2px 5px 0px rgba(153, 153, 153, 0.3);
+	box-shadow: 0px 2px 5px 0px rgba(153,153,153,.3);
 }
