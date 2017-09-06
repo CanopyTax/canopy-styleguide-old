@@ -2,21 +2,18 @@
 
 @import '../variables/variables.less';
 
-.cps-well {
+.cps-well, .cps-well__light, .cps-well__dark {
+	background-color: #f9f9f9;
 	border: 0.1rem solid #dfdfdf;
 	border-radius: 0.5rem;
 	color: @dark-gray;
 	box-sizing: border-box;
 
-	&.L1 {
+	&__light {
 		background-color: #ffffff;
 	}
 
-	&.L2 {
-		background-color: #f9f9f9;
-	}
-
-	&.L3 {
+	&__dark {
 		background-color: #f3f3f3;
 	}
 }

@@ -10,16 +10,16 @@ module.exports = React.createClass({
 
 				<cp-edit-render-code
 					dangerouslySetInnerHTML={{
-						__html: `<p class="cps-well L1 cps-padding-32">
-	This is an L1 well.
+						__html: `<p class="cps-well__light cps-padding-32">
+	This is a p tag with the 'cps-well__light' class applied.
 </p>
 
-<div class="cps-well L2 cps-padding-32">
-	This is an L2 well.
+<div class="cps-well cps-padding-32">
+	This is the default well.
 </div>
 
-<p class="cps-well L3 cps-padding-32">
-	Well, well well... an L3 well.
+<p class="cps-well__dark cps-padding-32">
+	Well, well well... a p tag with the 'cps-well__dark' class applied..
 </p>`,
 					}}
 				/>

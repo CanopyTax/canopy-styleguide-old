@@ -3,12 +3,12 @@
 @import "./flexible-masonry.less";
 @import "../variables/variables.less";
 
-@cardshadowcolor: #52555A;
-
-.cps-card {
+.cps-card, .cps-card__height-2, .cps-card__height-3 {
 	background-color: @white;
-	border-radius: .5rem;
+	border: 1px solid #dfdfdf;
+	border-radius: 1px;
 	color: @dark-gray;
+	.depth-1;
 
 	&__hr {
 		margin-left: -24px;
@@ -31,22 +31,14 @@
 		}
 	}
 
-	&.L1 {
-		border: 1px solid #dfdfdf;
-		border-radius: 1px;
-		box-shadow: 0 10px 30px -24px shade(@cardshadowcolor, 8%);
-	}
-
-	&.L2 {
-		border: 1px solid #dfdfdf;
+	&__height-2 {
 		border-radius: 5px;
-		box-shadow: 0 10px 40px -24px shade(@cardshadowcolor, 30%);
+		.depth-2;
 	}
 
-	&.L3 {
-		border: 1px solid #dfdfdf;
+	&__height-3 {
 		border-radius: 8px;
-		box-shadow: 0 16px 50px -24px shade(@cardshadowcolor, 60%);
+		.depth-3;
 	}
 }
 

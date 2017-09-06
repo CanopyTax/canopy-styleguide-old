@@ -18,7 +18,7 @@ module.exports = React.createClass({
 
 				<div style={{width: "100%", height: "350px"}} className="cps-flexible-focus cps-modal">
 					<div className="cps-modal__screen" style={{position: "relative"}}></div>
-					<div className="cps-modal__dialog cps-card L3" style={{position: "absolute", top: "200px"}}>
+					<div className="cps-modal__dialog cps-card__height-3" style={{position: "absolute", top: "200px"}}>
 						<div className="cps-card__header cps-subheader-sm">
 							Upload a File
 							<a href className="cps-modal__dialog__close cps-icon cps-icon-close"></a>
