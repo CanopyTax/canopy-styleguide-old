@@ -40,7 +40,7 @@ module.exports = React.createClass({
 				{
 `<div class="cps-modal">
 	<div class="cps-modal__screen"></div>
-		<div class="cps-modal__dialog cps-card L3">
+		<div class="cps-modal__dialog cps-card__height-3">
 		<div class="cps-card__header cps-subheader-sm"><span>Upload a File</span>
 		<a href="true" class="cps-modal__dialog__close cps-icon cps-icon-close"></a>
 		</div>
