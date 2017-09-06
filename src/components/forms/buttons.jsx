@@ -1,9 +1,9 @@
 var React = require('react');
 
-module.exports = React.createClass({
-	render: function() {
+module.exports = class extends React.Component{
+	render() {
 		return (
-		
+
 			<div>
 				<div className="cps-flexible-focus cps-card">
 					<div className="cps-card__header">
@@ -50,10 +50,10 @@ module.exports = React.createClass({
 	<a href class="cps-link"><span class="cps-icon cps-icon-help"></span></a>
 	<a href class="cps-link"><span class="cps-icon cps-icon-lg-check"></span></a>
 </div>`} } />
-	
+
 				<cp-edit-render-code section-title="Links" dangerouslySetInnerHTML={ {__html: `<a href>this is a standard link</a>`} } />
 
 			</div>
 		)
 	}
-});
+};

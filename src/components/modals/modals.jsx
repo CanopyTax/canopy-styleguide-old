@@ -1,8 +1,8 @@
 var React = require('react');
 var Highlight = require('react-highlight');
 
-module.exports = React.createClass({
-	render: function() {
+module.exports = class extends React.Component{
+	render() {
 		return (
 			<div>
 				<div className="cps-flexible-focus cps-card">
@@ -158,4 +158,4 @@ module.exports = React.createClass({
 			</div>
 		)
 	}
-});
+};

@@ -1,7 +1,7 @@
 var React = require('react');
 
-module.exports = React.createClass({
-	render: function() {
+module.exports = class extends React.Component{
+	render() {
 		return (
 			<div>
 				<div className="cps-flexible-focus cps-card cps-margin-bottom-32">
@@ -286,4 +286,4 @@ module.exports = React.createClass({
 			</div>
 		)
 	}
-});
+};

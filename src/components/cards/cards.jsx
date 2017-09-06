@@ -1,7 +1,7 @@
 var React = require('react');
 
-module.exports = React.createClass({
-	render: function () {
+module.exports = class extends React.Component{
+	render() {
 		return (
 			<div>
 				<div className="cps-flexible-focus cps-card cps-margin-bottom-16">
@@ -501,4 +501,4 @@ This is a div with the 'cps-card__height-3' class applied.
 			</div>
 		)
 	}
-});
+};
