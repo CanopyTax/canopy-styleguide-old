@@ -1,7 +1,7 @@
 var React = require('react');
 
-module.exports = React.createClass({
-	render: function() {
+module.exports = class extends React.Component{
+	render() {
 		return (
 			<div>
 				<div className="cps-flexible-focus cps-card">
@@ -9,7 +9,7 @@ module.exports = React.createClass({
 						<h3 className="cps-subheader">Textareas</h3>
 					</div>
 				</div>
-			
+
 				<cp-edit-render-code section-title="Textarea with top-aligned label" dangerouslySetInnerHTML={ {__html:
 `<form>
 	<div class="cps-form-group">
@@ -32,4 +32,4 @@ module.exports = React.createClass({
 			</div>
 		)
 	}
-});
+};

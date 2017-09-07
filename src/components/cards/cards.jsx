@@ -1,7 +1,7 @@
 var React = require('react');
 
-module.exports = React.createClass({
-	render: function () {
+module.exports = class extends React.Component{
+	render() {
 		return (
 			<div>
 				<div className="cps-flexible-focus cps-card cps-margin-bottom-16">
@@ -9,6 +9,22 @@ module.exports = React.createClass({
 						Cards
 					</div>
 				</div>
+
+				<cp-edit-render-code dangerouslySetInnerHTML={{
+					__html:
+					`<p class="cps-card cps-padding-32 cps-margin-bottom-32">
+	This is the default card.
+</p>
+
+<div class="cps-card__height-2 cps-padding-32 cps-margin-bottom-32">
+	This is a div with the 'cps-card__height-2' class applied.
+</div>
+
+<p class="cps-card__height-3 cps-padding-32 cps-margin-bottom-32">
+This is a div with the 'cps-card__height-3' class applied.
+</p>`
+}}
+/>
 
 				<div className="cps-flexible-focus cps-card cps-margin-bottom-16">
 					<div className="cps-card__header cps-subheader">
@@ -485,4 +501,4 @@ module.exports = React.createClass({
 			</div>
 		)
 	}
-});
+};

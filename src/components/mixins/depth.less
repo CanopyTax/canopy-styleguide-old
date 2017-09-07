@@ -1,5 +1,7 @@
 /** depth.less **/
 
+@shadowColor: #52555A;
+
 /************Depth************/
 .depth-z1 {
 	box-shadow: 0 1px 4px 0 (rgba(0,0,0,.26));
@@ -19,4 +21,16 @@
 
 .depth-z5 {
 	box-shadow: 0 25px 55px 0 (rgba(0,0,0,.20)),0 16px 28px 0 (rgba(0,0,0,.24));
+}
+
+.depth-1 {
+	box-shadow: 0 10px 30px -24px shade(@shadowColor, 8%);
+}
+
+.depth-2 {
+	box-shadow: 0 10px 40px -24px shade(@shadowColor, 30%);
+}
+
+.depth-3 {
+	box-shadow: 0 16px 50px -24px shade(@shadowColor, 60%);
 }

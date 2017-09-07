@@ -1,8 +1,8 @@
 var React = require('react');
 var Highlight = require('react-highlight');
 
-module.exports = React.createClass({
-	render: function() {
+module.exports = class extends React.Component{
+	render() {
 		return (
 			<div>
 				<div className="cps-flexible-focus cps-card">
@@ -18,7 +18,7 @@ module.exports = React.createClass({
 
 				<div style={{width: "100%", height: "350px"}} className="cps-flexible-focus cps-modal">
 					<div className="cps-modal__screen" style={{position: "relative"}}></div>
-					<div className="cps-modal__dialog cps-card" style={{position: "absolute", top: "200px"}}>
+					<div className="cps-modal__dialog cps-card__height-3" style={{position: "absolute", top: "200px"}}>
 						<div className="cps-card__header cps-subheader-sm">
 							Upload a File
 							<a href className="cps-modal__dialog__close cps-icon cps-icon-close"></a>
@@ -40,7 +40,7 @@ module.exports = React.createClass({
 				{
 `<div class="cps-modal">
 	<div class="cps-modal__screen"></div>
-		<div class="cps-modal__dialog cps-card">
+		<div class="cps-modal__dialog cps-card__height-3">
 		<div class="cps-card__header cps-subheader-sm"><span>Upload a File</span>
 		<a href="true" class="cps-modal__dialog__close cps-icon cps-icon-close"></a>
 		</div>
@@ -158,4 +158,4 @@ module.exports = React.createClass({
 			</div>
 		)
 	}
-});
+};

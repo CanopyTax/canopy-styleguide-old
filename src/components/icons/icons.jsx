@@ -6,8 +6,8 @@ icons = _.map(icons, function(icon, name) {
 	return 'cps-icon-' + name;
 });
 
-module.exports = React.createClass({
-	render: function() {
+module.exports = class extends React.Component{
+	render() {
 
 		icons.sort();
 
@@ -22,7 +22,7 @@ module.exports = React.createClass({
 						Icons &amp; Labels
 					</div>
 				</div>
-			
+
 				<div className="cps-flexible-focus cps-card">
 					<div className="cps-card__header ">
 						Canopy Font Icons
@@ -173,4 +173,4 @@ module.exports = React.createClass({
 
 		)
 	}
-});
+};

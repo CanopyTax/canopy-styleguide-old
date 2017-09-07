@@ -1,7 +1,7 @@
 var React = require('react');
 
-module.exports = React.createClass({
-	render: function() {
+module.exports = class extends React.Component{
+	render() {
 		return (
 			<div>
 				<div className="cps-flexible-focus">
@@ -11,7 +11,7 @@ module.exports = React.createClass({
 						</div>
 					</div>
 				</div>
-	
+
 				<cp-edit-render-code section-title="Toasters" dangerouslySetInnerHTML={ {__html:
 `<div class="cps-toaster +general">
 	<span class="cps-toaster__message">Error: Please contact support</span>
@@ -53,4 +53,4 @@ module.exports = React.createClass({
 			</div>
 		);
 	}
-});
+};

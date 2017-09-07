@@ -7,6 +7,7 @@ module.exports = [
 	{ title: "Textarea",			html: require('./components/forms/textarea.jsx') },
 	{ title: "Pickers",				html: require('./components/pickers/pickers.jsx') },
 	{ title: "Cards",				html: require('./components/cards/cards.jsx') },
+	{ title: "Wells",				html: require('./components/wells/wells.jsx') },
 	{ title: "Slats",				html: require('./components/slats/slats.jsx') },
 	{ title: "Navigation",			html: require('./components/navigation/navigation.jsx') },
 	{ title: "Menus",				html: require('./components/menus/menus.jsx') },
