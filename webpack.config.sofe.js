@@ -21,6 +21,7 @@ module.exports = {
 		"lodash": "lodash",
 	},
 	devtool: "sourcemap",
+	plugins: [],
 	module: {
 		rules: [
 			// Extract css files
@@ -61,7 +62,7 @@ module.exports = {
 				query: {
 					ignore: /(node_modules|bower_components)/,
 					presets: [
-						"es2015",
+						"env",
 						"stage-2"
 					],
 					plugins: [

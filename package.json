@@ -8,8 +8,7 @@
     "test-ci": "karma start karma-saucelabs.conf.js",
     "build-icons": "fontcustom compile -F && node bin/build-fonts.js",
     "local-website": "npm run build-icons && webpack-dev-server --config webpack.config.website.js",
-    "start": "http-server sofe --cors -c-1 --ssl --cert ~/.canopy-ssl/public.pem --key ~/.canopy-ssl/key.pem -p",
-    "watch": "echo 'Please ensure fontcustom is installed\n' && npm run build-icons && ./bin/build -w",
+    "start": "webpack-dev-server --config ./webpack.config.dev.js --https --cert ~/.canopy-ssl/public.pem --key ~/.canopy-ssl/key.pem --port",
     "sofe": "./bin/build -p"
   },
   "repository": {
@@ -28,7 +27,7 @@
     "babel-plugin-transform-custom-element-classes": "^0.1.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-polyfill": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "css-loader": "^0.28.7",
@@ -59,8 +58,10 @@
     "sofe-css-builder": "^1.0.2",
     "style-loader": "^0.18.2",
     "url-loader": "0.5.9",
-    "webpack": "3.5.5",
-    "webpack-dev-server": "2.7.1"
+    "webpack": "3.6.0",
+    "webpack-bundle-analyzer": "^2.9.0",
+    "webpack-dashboard": "next",
+    "webpack-dev-server": "2.8.2"
   },
   "dependencies": {
     "@joeldenning/custom-elements": "1.0.0-alpha.6",
