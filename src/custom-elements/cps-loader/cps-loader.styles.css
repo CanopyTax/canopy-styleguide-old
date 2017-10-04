@@ -1,3 +1,6 @@
+.page {
+	padding: 0 !important;
+}
 
 .loader {
 	padding:0 36px;
