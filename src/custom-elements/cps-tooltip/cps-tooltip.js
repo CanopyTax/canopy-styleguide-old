@@ -107,14 +107,40 @@ class Tooltip extends Component {
 		}, Number(this.props.delayTime || 0));
 	}
 	render() {
+		const caretTopOffset = (this.props.caretOnBottom && this.el) ? this.el.clientHeight : 5;
+		const caretTop = this.state.top + caretTopOffset;
+		let caretLeftOffset = 10;
+
+		if (this.el) {
+			if(this.props.caretLeft) {
+				caretLeftOffset = 10;
+			} else if (this.props.caretMiddle) {
+				caretLeftOffset = this.el.clientWidth / 2;
+			} else if (this.props.caretRight) {
+				caretLeftOffset = this.el.clientWidth - 20;
+			}
+		}
+
 		const style = {top: `${this.state.top}px`, left: `${this.state.left}px`};
+		const caretStyle = {top: `${caretTop}px`, left: `${this.state.left + caretLeftOffset}px`};
 		if (this.props.useFixedPosition) {
 			style.position = 'fixed';
 		}
 
 		return this.state.waitingForDelayTime
 			? null
-			: <div className={styles.tooltip} style={style} ref={this.handleRef} dangerouslySetInnerHTML={{__html: this.props.html}} />
+			: <div>
+					<div
+						className={this.props.caretOnBottom ? styles.caretBottom : styles.caretTop}
+						style={caretStyle}
+					/>
+					<div
+						className={styles.tooltip}
+						style={style}
+						ref={this.handleRef}
+						dangerouslySetInnerHTML={{__html: this.props.html}}
+					/>
+				</div>
 	}
 	componentDidUpdate() {
 		const newPosition = this.getPositionStyles();
@@ -164,14 +190,30 @@ class Tooltip extends Component {
 		left = typeof this.props.left === 'number' ? this.props.left : left;
 
 		const showAbove = this.state.showAbove || Boolean(this.el && !this.showAbove && this.el.getBoundingClientRect().bottom > window.innerHeight)
-		
+
 		return {top, left, showAbove};
 	}
 }
 
 const customElement = preactToCustomElement(
 	CpsTooltip,
-	{parentClass: HTMLElement, properties: ['html', 'disabled', 'delayTime', 'tooltipContainer', 'useFixedPosition', 'left', 'top', 'allowInteraction']}
+	{
+		parentClass: HTMLElement,
+		properties: [
+			'html',
+			'disabled',
+			'delayTime',
+			'tooltipContainer',
+			'useFixedPosition',
+			'left',
+			'top',
+			'allowInteraction',
+			'caretOnBottom',
+			'caretLeft',
+			'caretMiddle',
+			'caretRight',
+		]
+	}
 );
 customElements.define('cps-tooltip', customElement);
 export const CprTooltip = customElementToReact({name: 'cps-tooltip'});
