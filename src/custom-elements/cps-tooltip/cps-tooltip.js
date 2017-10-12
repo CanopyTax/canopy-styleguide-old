@@ -108,7 +108,7 @@ class Tooltip extends Component {
 	}
 	render() {
 		const caretTopOffset = (this.props.caretOnBottom && this.el) ? this.el.clientHeight : 5;
-		const caretTop = this.state.top + caretTopOffset;
+		const caretTop = this.props.caretOnBottom ? this.state.top + caretTopOffset : this.state.top - caretTopOffset;
 		let caretLeftOffset = 10;
 
 		if (this.el) {
