@@ -107,14 +107,9 @@ class Tooltip extends Component {
 		}, Number(this.props.delayTime || 0));
 	}
 	render() {
-		const caretTopOffset = (this.props.caretOnBottom && this.el) ? this.el.clientHeight : 5;
-		const caretTop = this.props.caretOnBottom ? this.state.top + caretTopOffset : this.state.top - caretTopOffset;
 		let caretLeftOffset = 10;
-
 		if (this.el) {
-			if(this.props.caretLeft) {
-				caretLeftOffset = 10;
-			} else if (this.props.caretMiddle) {
+			if (this.props.caretMiddle) {
 				caretLeftOffset = this.el.clientWidth / 2;
 			} else if (this.props.caretRight) {
 				caretLeftOffset = this.el.clientWidth - 20;
@@ -122,7 +117,6 @@ class Tooltip extends Component {
 		}
 
 		const style = {top: `${this.state.top}px`, left: `${this.state.left}px`};
-		const caretStyle = {top: `${caretTop}px`, left: `${this.state.left + caretLeftOffset}px`};
 		if (this.props.useFixedPosition) {
 			style.position = 'fixed';
 		}
@@ -130,10 +124,18 @@ class Tooltip extends Component {
 		return this.state.waitingForDelayTime
 			? null
 			: <div>
-					<div
-						className={this.props.caretOnBottom ? styles.caretBottom : styles.caretTop}
-						style={caretStyle}
-					/>
+					{
+						this.props.caretOnBottom ?
+						<div
+							className={styles.caretBottom}
+							style={{top: `${this.state.top + (this.el && this.el.clientHeight)}px`, left: `${this.state.left + caretLeftOffset}px`}}
+						/> :
+						<div
+							className={styles.caretTop}
+							style={{top: `${this.state.top - 5}px`, left: `${this.state.left + caretLeftOffset}px`}}
+						/>
+					}
+
 					<div
 						className={styles.tooltip}
 						style={style}

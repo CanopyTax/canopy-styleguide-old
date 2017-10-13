@@ -23,7 +23,6 @@ Properties are good for both initial configuration and for all subsequent change
 - `allowInteraction` (optional): A boolean that defaults to false. Indicates whether the tooltip should stay open if the user mouses over the tooltip itself.
 	Also it gives the user some time to get the mouse from the `<cps-tooltip>` element to the gray tooltip.
 -	`caretOnBottom` (optional): A boolean that defaults to false. Indicates tool tip should be on the bottom (or not).
--	`caretLeft` (optional): Boolean that indicates caret should be on the left side. (default)
 -	`caretMiddle` (optional): Boolean that indicates caret should be in the middle.
 -	`caretRight` (optional): Boolean that indicates caret should be on the right side.
 
