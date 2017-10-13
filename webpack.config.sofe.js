@@ -57,7 +57,7 @@ module.exports = {
 				]
 			},
 			{
-				test: /\.jsx?$/,
+				test: /\.(jsx|js)?$/,
 				loader: "babel-loader",
 				query: {
 					ignore: /(node_modules|bower_components)/,

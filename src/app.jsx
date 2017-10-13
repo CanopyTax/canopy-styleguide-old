@@ -1,17 +1,17 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var { Router, Route, Redirect, Link } = require('react-router');
-var components = require('./components.js');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { HashRouter, Route, Redirect, NavLink } from 'react-router-dom';
+import components from './components.js';
 import { designPrinciples } from './design-principles.js';
-var _ = require('lodash');
+import { map } from 'lodash';
 
-var icons = _.map(require('../.fontcustom-manifest.json').glyphs, function (icon, name) {
+const icons = map(require('../.fontcustom-manifest.json').glyphs, function (icon, name) {
 	return 'cps-icon-' + name;
 });
 
-var Sidebar = function ({ route }) {
+const Sidebar = function ({ match }) {
 	var menuItems;
-	if (route.path.includes('/components')) {
+	if (match.path.includes('/components')) {
 		menuItems = (
 			<div>
 				{components.map(function (component, i) {
@@ -22,10 +22,10 @@ var Sidebar = function ({ route }) {
 							<span className="cps-flexible-sidenav__menu__item__title">{component.title}</span>
 						</a>
 					} else {
-						return <Link className="cps-flexible-sidenav__menu__item" key={component.title} activeClassName="+active" to={`/components/${component.title}`}>
+						return <NavLink className="cps-flexible-sidenav__menu__item" key={component.title} activeClassName="+active" to={`/components/${component.title}`}>
 							<i className={classes}></i>
 							<span className="cps-flexible-sidenav__menu__item__title">{component.title}</span>
-						</Link>;
+						</NavLink>;
 					}
 				})}
 			</div>
@@ -36,10 +36,10 @@ var Sidebar = function ({ route }) {
 				{designPrinciples.map((designPrinciple, i) => {
 					var classes = `cps-icon ${designPrinciple.icon} cps-flexible-sidenav__menu__item__icon`;
 					return (
-						<Link className="cps-flexible-sidenav__menu__item" key={i} to={`/design/${designPrinciple.title}`} activeClassName="+active">
+						<NavLink className="cps-flexible-sidenav__menu__item" key={i} to={`/design/${designPrinciple.title}`} activeClassName="+active">
 							<i className={classes}></i>
 							<span className="cps-flexible-sidenav__menu__item__title">{designPrinciple.title}</span>
-						</Link>
+						</NavLink>
 					);
 				})}
 			</div>
@@ -54,7 +54,7 @@ var Sidebar = function ({ route }) {
 	);
 }
 
-var TopNav = ({ route }) => {
+const TopNav = ({ match }) => {
 	return (
 		<div>
 			<div className="cps-topnav" style={{ position: 'fixed', width: '100%', height: '38px', backgroundColor: '#00bf4b', top: 0, zIndex: 100 }}>
@@ -64,30 +64,18 @@ var TopNav = ({ route }) => {
 						<img style={{ position: 'relative', top: '2px', left: '12px' }} src="white-logo.png" alt="Company Logo" />
 					</span>
 					<ul className="cps-topnav__content__menu">
-						<li style={{ listStyle: 'none', margin: '8px 16px', display: 'inline-block' }}><Link className="cps-white" to={`/design/${designPrinciples[0].title}`} activeClassName='+active'>Design</Link></li>
-						<li style={{ listStyle: 'none', margin: '8px 16px', display: 'inline-block' }}><Link className="cps-white" to={`/components/${components[0].title}`} activeClassName='+active'>Components</Link></li>
+						<li style={{ listStyle: 'none', margin: '8px 16px', display: 'inline-block' }}><NavLink className="cps-white" to={`/design/${designPrinciples[0].title}`} activeClassName='+active'>Design</NavLink></li>
+						<li style={{ listStyle: 'none', margin: '8px 16px', display: 'inline-block' }}><NavLink className="cps-white" to={`/components/${components[0].title}`} activeClassName='+active'>Components</NavLink></li>
 					</ul>
 					<ul className="cps-topnav__content__menu cps-pull-right">
 						<li className="cps-topnav__content__menu__form">
-							<div client-search></div>
+							<div></div>
 						</li>
-						<li className="cps-dropdown" dropdown on-toggle="toggled(cps-open)">
-							<a className="cps-link" dropdown-toggle>
+						<li className="cps-dropdown">
+							<a className="cps-link">
 								Mike Hewitt
 								<span className="cps-caret"></span>
 							</a>
-							<ul className="cps-dropdown-menu" role="menu">
-								<li><a>My Profile</a></li>
-								<li><a>Team Members</a></li>
-								<li><a>Company Profile</a></li>
-
-								<li className="cps-divider"></li>
-								<li><a>Help</a>
-								</li>
-								<li className="cps-divider"></li>
-								<li><a>Sign out</a>
-								</li>
-							</ul>
 						</li>
 					</ul>
 				</div>
@@ -136,14 +124,12 @@ var TopNav = ({ route }) => {
 	);
 }
 
-var ComponentLayout = ({ params, route }) => {
-	var Component = components.filter(function (component) {
-		return component.title === params.title;
-	})[0].html;
+const ComponentLayout = ({ match }) => {
+	var Component = components.filter(component => component.title === match.params.title)[0].html;
 	return (
 		<div>
-			<TopNav route={route} />
-			<Sidebar route={route} />
+			<TopNav match={match} />
+			<Sidebar match={match} />
 			<div className="cps-nav-content +tall-top" style={{ paddingTop: '120px' }}>
 				<Component />
 			</div>
@@ -151,12 +137,12 @@ var ComponentLayout = ({ params, route }) => {
 	);
 }
 
-var DesignLayout = ({ params, route }) => {
-	var designPrinciple = designPrinciples.filter((principle) => principle.title === params.title)[0];
+const DesignLayout = ({ match }) => {
+	var designPrinciple = designPrinciples.filter(principle => principle.title === match.params.title)[0];
 	return (
 		<div>
-			<TopNav route={route} />
-			<Sidebar route={route} />
+			<TopNav match={match} />
+			<Sidebar match={match} />
 			<div className="cps-nav-content +tall-top" style={{ paddingTop: '120px' }}>
 				<img src={`/design/${designPrinciple.title.replace(/ /g, '_')}.png`} />
 			</div>
@@ -165,10 +151,14 @@ var DesignLayout = ({ params, route }) => {
 }
 
 ReactDOM.render((
-	<Router>
-		<Redirect from="/" to="components/Typography" />
-		<Route path="/components/:title" component={ComponentLayout} />
-		<Route path="/design/:title" component={DesignLayout} />
-	</Router>
+	<HashRouter>
+		<div>
+			<Route exact path="/" render={() =>
+				<Redirect from="/" to="/components/Typography" />
+			} />
+			<Route path="/components/:title" component={ComponentLayout} />
+			<Route path="/design/:title" component={DesignLayout} />
+		</div>
+	</HashRouter>
 ), document.getElementById('styleguide')
 )

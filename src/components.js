@@ -1,6 +1,6 @@
 module.exports = [
 	{ title: "Typography",			html: require('./components/typography/typography.jsx') },
-	{ title: "Color Palette",		html: require('./components/variables/colors.jsx') },
+	{ title: "Color Palette",		html: require('./components/variables/colors.js') },
 	{ title: "Inputs",				html: require('./components/forms/input.jsx') },
 	{ title: "Buttons & Links",		html: require('./components/forms/buttons.jsx') },
 	{ title: "Checkboxes & Radios",	html: require('./components/forms/checkbox-radio.jsx') },
