@@ -104,7 +104,23 @@ class TooltipTargetElement extends Component {
 
 const customElement = preactToCustomElement(
 	TooltipTargetElement,
-	{parentClass: HTMLElement, properties: ['html', 'disabled', 'delayTime', 'tooltipContainer', 'useFixedPosition', 'left', 'top', 'allowInteraction']}
+	{
+		parentClass: HTMLElement,
+		properties: [
+			'html',
+			'disabled',
+			'delayTime',
+			'tooltipContainer',
+			'useFixedPosition',
+			'left',
+			'top',
+			'allowInteraction',
+			'caretOnBottom',
+			'caretLeft',
+			'caretMiddle',
+			'caretRight',
+		]
+	}
 );
 customElements.define('cps-tooltip', customElement);
 export const CprTooltip = customElementToReact({name: 'cps-tooltip'});

@@ -17,6 +17,15 @@ export default class TooltipPopup extends Component {
 		}, Number(this.props.delayTime || 0));
 	}
 	render() {
+		let caretLeftOffset = 10;
+		if (this.el) {
+			if (this.props.caretMiddle) {
+				caretLeftOffset = this.el.clientWidth / 2;
+			} else if (this.props.caretRight) {
+				caretLeftOffset = this.el.clientWidth - 20;
+			}
+		}
+
 		const style = {top: `${this.state.top}px`, left: `${this.state.left}px`};
 		if (this.props.useFixedPosition) {
 			style.position = 'fixed';
@@ -24,7 +33,26 @@ export default class TooltipPopup extends Component {
 
 		return this.state.waitingForDelayTime
 			? null
-			: <div className={styles.tooltip} style={style} ref={this.handleRef} dangerouslySetInnerHTML={{__html: this.props.html}} />
+			: <div>
+					{
+						this.props.caretOnBottom ?
+						<div
+							className={styles.caretBottom}
+							style={{top: `${this.state.top + (this.el && this.el.clientHeight)}px`, left: `${this.state.left + caretLeftOffset}px`}}
+						/> :
+						<div
+							className={styles.caretTop}
+							style={{top: `${this.state.top - 5}px`, left: `${this.state.left + caretLeftOffset}px`}}
+						/>
+					}
+
+					<div
+						className={styles.tooltip}
+						style={style}
+						ref={this.handleRef}
+						dangerouslySetInnerHTML={{__html: this.props.html}}
+					/>
+				</div>
 	}
 	componentDidUpdate() {
 		const newPosition = this.getPositionStyles();
@@ -74,7 +102,7 @@ export default class TooltipPopup extends Component {
 		left = typeof this.props.left === 'number' ? this.props.left : left;
 
 		const showAbove = this.state.showAbove || Boolean(this.el && !this.showAbove && this.el.getBoundingClientRect().bottom > window.innerHeight)
-		
+
 		return {top, left, showAbove};
 	}
 }
