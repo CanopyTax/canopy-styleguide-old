@@ -6,9 +6,6 @@ import {throttle, isEqual} from 'lodash';
 import TooltipPopup from './tooltip-popup.component.js';
 
 class TooltipTargetElement extends Component {
-	constructor() {
-		super();
-	}
 	static state = {
 		renderTooltip: false,
 	}

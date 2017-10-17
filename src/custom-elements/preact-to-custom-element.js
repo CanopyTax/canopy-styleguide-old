@@ -35,7 +35,7 @@ export function preactToCustomElement(preactComponent, opts) {
 		}
 		_render = () => {
 			if (!this.connected) {
-				preact.render(null, this, this._preactRoot);
+				preact.render('', this, this._preactRoot);
 				return;
 			}
 
