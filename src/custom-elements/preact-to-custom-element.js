@@ -24,9 +24,8 @@ export function preactToCustomElement(preactComponent, opts) {
 		}
 		connected = false
 		disconnectedCallback() {
-			// https://github.com/developit/preact/issues/53
 			this.connected = false;
-			preact.render('', this, this._preactRoot);
+			this.render();
 		}
 		static get observedAttributes() {
 			return opts.properties.map(kebabCase);
@@ -35,6 +34,12 @@ export function preactToCustomElement(preactComponent, opts) {
 			this[camelCase(name)] = newValue;
 		}
 		_render = () => {
+			if (!this.connected) {
+				// https://github.com/developit/preact/issues/53
+				preact.render(null, this, this._preactRoot);
+				return;
+			}
+
 			opts.properties.forEach(property => {
 				if (Object.hasOwnProperty(this, property)) {
 					// Make sure the getter and setter for the property are being used.
@@ -43,7 +48,7 @@ export function preactToCustomElement(preactComponent, opts) {
 					this[property] = existingValue;
 				}
 			});
-			if(!this.connected) return;
+
 			const props = opts.properties.reduce((res, property) => {
 				res[property] = this[property];
 				return res;

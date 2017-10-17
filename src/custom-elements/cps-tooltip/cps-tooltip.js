@@ -1,29 +1,35 @@
 import preact, {h, Component} from 'preact';
 import {preactToCustomElement} from '../preact-to-custom-element.js';
 import {customElementToReact} from '../react-interop.js';
-import styles from './cps-tooltip.styles.css';
 import {throttle, isEqual} from 'lodash';
+import TooltipPopup from './tooltip-popup.component.js';
 
-class CpsTooltip extends Component {
+class TooltipTargetElement extends Component {
+	constructor() {
+		super();
+	}
 	static state = {
 		renderTooltip: false,
 	}
 	componentDidMount() {
-		this.props.customElement.addEventListener('mouseover', throttle(this.mousedOver, 10));
+		this.mouseOverListener = throttle(this.mousedOver, 10);
+		this.mouseLeaveListener = throttle(this.mouseLeave, 10);
+		this.mouseOutListener = throttle(this.mouseLeave, 10);
 
+		this.props.customElement.addEventListener('mouseover', this.mouseOverListener);
 		// I think IE11 has a bug where mouseleave doesn't always get fired for inline styled elements. So we do both mouseout and mouseleave
-		this.props.customElement.addEventListener('mouseleave', throttle(this.mouseLeave, 10));
-		this.props.customElement.addEventListener('mouseout', throttle(this.mouseLeave, 10));
+		this.props.customElement.addEventListener('mouseleave', this.mouseLeaveListener);
+		this.props.customElement.addEventListener('mouseout', this.mouseOutListener);
 
 		// Custom elements default to inline, but inline-block is necessary to calculate height/width correctly
-		this.props.customElement.classList.add(styles.inlineBlock)
+		this.props.customElement.classList.add("cps-inline-block")
 	}
 	render() {
 		const offsetParent = this.props.customElement.offsetParent;
 
 		if (this.props.disabled) {
 			this.hideTooltip();
-			return <div style={{height: 0, width: 0}} />;
+			return null;
 		}
 
 		/* Sometimes render is invoked before tooltip element is connected to the DOM, In these cases offsetParent is null.
@@ -41,16 +47,21 @@ class CpsTooltip extends Component {
 			const startingLeft = this.props.tooltipContainer ? offsetParent.getBoundingClientRect().left : 0;
 			const startingTop = this.props.tooltipContainer ? offsetParent.getBoundingClientRect().top : 0;
 			const props = {...this.props, tooltipShown: this.tooltipShown, startingLeft, startingTop, keepTooltipOpen: this.keepTooltipOpen, closeTooltipNow: this.hideTooltip};
-			const thingToRender = this.state.renderTooltip ? h(Tooltip, props) : '';
+			const thingToRender = this.state.renderTooltip ? h(TooltipPopup, props) : '';
 			this.preactTooltip = preact.render(thingToRender, this.preactContainer, this.preactTooltip);
 		}
 
 		// Don't return anything, we don't care about innerHTML of the custom element
-		return <div style={{height: 0, width: 0}} />;
+		return null;
 	}
 	componentWillUnmount() {
 		clearTimeout(this.hideTooltipTimeout);
 		this.deleteTooltipElement();
+
+		this.props.customElement.removeEventListener('mouseover', this.mouseOverListener);
+		this.props.customElement.removeEventListener('mouseleave', this.mouseLeaveListener);
+		this.props.customElement.removeEventListener('mouseout', this.mouseOutListener);
+
 		if (this.positionedAncestor) {
 			preact.render('', this.positionedAncestor, this.preactContainer);
 			delete this.positionedAncestor;
@@ -91,86 +102,8 @@ class CpsTooltip extends Component {
 	}
 }
 
-class Tooltip extends Component {
-	state = {
-		top: window.innerHeight,
-		left: window.innerWidth,
-		waitingForDelayTime: true,
-		showAbove: false,
-	}
-	componentDidMount() {
-		this.setState(this.getPositionStyles());
-		setTimeout(() => {
-			this.setState({waitingForDelayTime: false}, () => {
-				this.props.tooltipShown(this.el);
-			});
-		}, Number(this.props.delayTime || 0));
-	}
-	render() {
-		const style = {top: `${this.state.top}px`, left: `${this.state.left}px`};
-		if (this.props.useFixedPosition) {
-			style.position = 'fixed';
-		}
-
-		return this.state.waitingForDelayTime
-			? null
-			: <div className={styles.tooltip} style={style} ref={this.handleRef} dangerouslySetInnerHTML={{__html: this.props.html}} />
-	}
-	componentDidUpdate() {
-		const newPosition = this.getPositionStyles();
-		const tolerance = 3; // Num pixels to not care about updating for
-		if (this.state.showAbove !== newPosition.showAbove || Math.abs(newPosition.top - this.state.top) > tolerance || Math.abs(newPosition.left - this.state.left) > tolerance) {
-			this.setState(newPosition);
-		}
-	}
-	handleRef = el => {
-		this.el = el;
-		if (this.props.allowInteraction && !this.mouseEventsAdded) {
-			this.el.addEventListener('mouseover', this.props.keepTooltipOpen);
-			this.el.addEventListener('mouseleave', this.props.closeTooltipNow);
-			this.mouseEventsAdded = true;
-		}
-	}
-	getPositionStyles = () => {
-		const verticalMargin = 8;
-
-		const targetEl = this.props.customElement;
-
-		const tooltipCenter = targetEl.offsetLeft + (targetEl.offsetWidth / 2);
-		let left;
-		if (this.el) {
-			left = tooltipCenter - (this.el.offsetWidth / 2);
-			const numPixelsTooFarRight = (left + this.el.offsetWidth) - window.innerWidth;
-			if (numPixelsTooFarRight > 0) {
-				left -= numPixelsTooFarRight;
-			}
-		} else {
-			left = targetEl.offsetLeft;
-		}
-		left = Math.max(0, left + this.props.startingLeft);
-
-		let top;
-		if (this.state.showAbove) {
-			// Show tooltip above target
-			top = targetEl.offsetTop - verticalMargin - this.el.offsetHeight;
-		} else {
-			// Show tooltip below target
-			top = targetEl.offsetTop + targetEl.offsetHeight + verticalMargin;
-		}
-
-		top += this.props.startingTop;
-
-		top = typeof this.props.top === 'number' ? this.props.top : top;
-		left = typeof this.props.left === 'number' ? this.props.left : left;
-
-		const showAbove = this.state.showAbove || Boolean(this.el && !this.showAbove && this.el.getBoundingClientRect().bottom > window.innerHeight)
-		
-		return {top, left, showAbove};
-	}
-}
-
 const customElement = preactToCustomElement(
-	CpsTooltip,
+	TooltipTargetElement,
 	{parentClass: HTMLElement, properties: ['html', 'disabled', 'delayTime', 'tooltipContainer', 'useFixedPosition', 'left', 'top', 'allowInteraction']}
 );
 customElements.define('cps-tooltip', customElement);
