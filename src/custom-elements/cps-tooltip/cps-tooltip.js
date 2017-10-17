@@ -1,6 +1,7 @@
 import preact, {h, Component} from 'preact';
 import {preactToCustomElement} from '../preact-to-custom-element.js';
 import {customElementToReact} from '../react-interop.js';
+import styles from './cps-tooltip.styles.css';
 import {throttle, isEqual} from 'lodash';
 import TooltipPopup from './tooltip-popup.component.js';
 
@@ -22,7 +23,7 @@ class TooltipTargetElement extends Component {
 		this.props.customElement.addEventListener('mouseout', this.mouseOutListener);
 
 		// Custom elements default to inline, but inline-block is necessary to calculate height/width correctly
-		this.props.customElement.classList.add("cps-inline-block")
+		this.props.customElement.classList.add(styles.inlineBlock)
 	}
 	render() {
 		const offsetParent = this.props.customElement.offsetParent;
