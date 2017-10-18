@@ -11,6 +11,8 @@ Provides a tooltip around the innerHTML of the cps-tooltip element
 ## Notes
 The `<cps-tooltip>` dom node is `display: inline`.
 
+`cps-tooltip.js` creates the custom element that is watching for mouseover events. That then displays `tooltip-popup.component.js` which renders the HTML given to it by the `html=` prop.
+
 ## Properties
 Properties are good for both initial configuration and for all subsequent changes to the DOM element.
 - `html` (required): A string of html to show in the tooltip.
