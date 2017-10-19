@@ -8,8 +8,10 @@ const Badge = ({ children, filled }) => (
 			paddingLeft: 8,
 			paddingRight: 8,
 			border: 'solid 1px #333',
+			width: 'fit-content',
 		}}>
 		<div
+			className="cps-caption"
 			style={{
 				color: filled ? '#fff' : '#333',
 			}}>

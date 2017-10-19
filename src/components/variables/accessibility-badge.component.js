@@ -42,4 +42,4 @@ const getColorObject = hex => {
 	};
 };
 
-export {AccessibilityBadge, getColorObject};
+export { AccessibilityBadge, getColorObject };
