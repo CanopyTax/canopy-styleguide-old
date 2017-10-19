@@ -5,3 +5,4 @@ import './cps-datepicker/cps-calendar.component.js';
 import './cps-colorpicker/cps-colorpicker.js';
 import './cps-icon/cps-icon.js';
 import './cps-loader/cps-loader.js';
+import './cps-slide-dialog/cps-slide-dialog.js';
