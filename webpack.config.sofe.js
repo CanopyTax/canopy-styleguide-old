@@ -15,7 +15,6 @@ module.exports = {
 		umdNamedDefine: true,
 		chunkFilename: '[id].js',
 	},
-	externals: [/^.+!sofe$/, /^lodash$/, /^react$/, /^react\/lib.*/, /^react-dom$/, /.*react-dom.*/, /^sofe$/],
 	devtool: 'sourcemap',
 	plugins: [],
 	module: {

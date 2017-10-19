@@ -5225,10 +5225,6 @@ sofe-css-builder@^1.0.2:
     postcss "^5.0.21"
     postcss-modules "^0.5.0"
 
-sofe@^2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/sofe/-/sofe-2.1.2.tgz#532965abea71ec0b0a8e710d8dde9198098f7dd5"
-
 sort-keys@^1.0.0:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/sort-keys/-/sort-keys-1.1.2.tgz#441b6d4d346798f1b4e49e8920adfba0e543f9ad"
