@@ -1,5 +1,4 @@
 import { Component, h } from 'preact';
-import { NavContent } from 'primary-navbar!sofe';
 import { customElementToReact } from '../react-interop.js';
 import { preactToCustomElement } from '../preact-to-custom-element.js';
 import styles from './cps-slide-dialog.styles.css';
@@ -17,30 +16,25 @@ class CpsSlideDialog extends Component {
 		console.log('in here');
 
 		return (
-			<NavContent
-				hasTopnavSecondary={false}
-				contactMenuPossible={true}
-				style={{ marginLeft: 0, width: '100%', padding: 0 }}>
-				<div
-					ref={el => {
-						this.dialog = el;
-					}}
-					className={`${styles.slideDialog} ${this.state.beenDismissed ? styles.out : styles.in}`}>
-					<div className={`cps-card__height-3 cps-padding-24 ${styles.card}`}>
-						<TheX />
-						<div>
-							{this.props.children({
-								show,
-								hide,
-								destroy,
-								onShowReady,
-								onShowComplete,
-								onHideComplete,
-							})}
-						</div>
+			<div
+				ref={el => {
+					this.dialog = el;
+				}}
+				className={`${styles.slideDialog} ${this.state.beenDismissed ? styles.out : styles.in}`}>
+				<div className={`cps-card__height-3 cps-padding-24 ${styles.card}`}>
+					<TheX />
+					<div>
+						{this.props.children({
+							show,
+							hide,
+							destroy,
+							onShowReady,
+							onShowComplete,
+							onHideComplete,
+						})}
 					</div>
 				</div>
-			</NavContent>
+			</div>
 		);
 	}
 
