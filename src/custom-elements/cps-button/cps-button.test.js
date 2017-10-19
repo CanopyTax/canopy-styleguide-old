@@ -38,9 +38,9 @@ describe(`<button is="cps-button" />`, () => {
 				setTimeout(() => {
 					expect(getComputedStyle(el).backgroundColor).toEqual('rgb(0, 191, 75)');
 					done();
-				}, 11);
-			}, 11);
-		}, 11);
+				}, 50);
+			}, 50);
+		}, 50);
 	});
 
 	it(`respects the actionType property value for 'flat'`, done => {
@@ -52,7 +52,7 @@ describe(`<button is="cps-button" />`, () => {
 			// Default to green text for flat buttons
 			expect(getComputedStyle(el).color).toEqual('rgb(0, 191, 75)');
 			done();
-		}, 11);
+		}, 50);
 	});
 
 	it(`respects the showLoader property`, done => {
@@ -71,9 +71,9 @@ describe(`<button is="cps-button" />`, () => {
 					expect(el.querySelector('.cps-loader')).toBeFalsy();
 					expect(el.textContent).toBe('Button text'); // Restores the text from before loader was activated
 					done();
-				}, 11);
-			}, 11);
-		}, 11);
+				}, 50);
+			}, 50);
+		}, 50);
 	});
 
 	xit(`respects the disableOnClick property`, done => {
@@ -88,7 +88,7 @@ describe(`<button is="cps-button" />`, () => {
 				expect(el.disabled).toBe(true)
 				done();
 			}, 1000);
-		}, 10);
+		}, 50);
 	});
 
 	it(`makes a button bigger if the 'phat' property is set`, done => {
@@ -99,7 +99,7 @@ describe(`<button is="cps-button" />`, () => {
 		setTimeout(() => {
 			expect(el.getBoundingClientRect().height).toEqual(48);
 			done();
-		}, 11);
+		}, 50);
 	});
 
 	it(`doesn't change the width of a button when the loader shows after initially not showing`, done => {
