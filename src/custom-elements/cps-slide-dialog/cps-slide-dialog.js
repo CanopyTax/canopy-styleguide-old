@@ -14,6 +14,8 @@ class CpsSlideDialog extends Component {
 	};
 
 	render() {
+		console.log('in here');
+
 		return (
 			<NavContent
 				hasTopnavSecondary={false}
