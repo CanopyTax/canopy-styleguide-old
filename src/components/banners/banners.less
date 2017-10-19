@@ -1,29 +1,28 @@
 /** banners.less **/
 
-@import "../variables/variables.less";
-@import "../mixins/mixins.less";
+@import '../variables/variables.less';
+@import '../mixins/mixins.less';
 
 .cps-toaster {
-	min-height: 48px;
-	width: 363px;
+	min-height: 210px;
+	width: 240px;
 	opacity: 95%;
 	margin: 24px;
-	padding: 15px 24px 15px 24px;
+	padding: 36px;
 	border-radius: 5px;
 	transition: 300ms ease-in all;
 	.depth-z2;
 
 	&__message {
 		display: inline-block;
-		width: 230px;
-		color: white;
+		width: 144px;
+		color: @gray-2;
 		font-size: 14px;
 	}
 	a {
 		cursor: pointer;
 		float: right !important;
 		text-decoration: none;
-		color: white;
 		font-size: 14px;
 		font-weight: 600;
 	}
@@ -34,22 +33,21 @@
 		background-color: @info;
 	}
 	&.\+success {
-		background-color: @primary-green;
+		background-color: @success;
 	}
 	&.\+warning {
 		background-color: @warning;
 	}
 	&.\+general {
-		background-color: @dark-gray;
+		background-color: @general;
 	}
-
 }
 
 .cps-banner-inline {
 	margin: 0 auto 0 auto;
 	padding: 13px 24px 24px 24px;
-	min-width: 70.0rem;
-	max-width: 136.0rem;
+	min-width: 70rem;
+	max-width: 136rem;
 	border-radius: 5px;
 	background-color: @light-green;
 	.depth-z1;
