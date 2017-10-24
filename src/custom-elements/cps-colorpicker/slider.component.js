@@ -23,7 +23,6 @@ export default class ColorSlider extends Component {
 					this.xStart = e.clientX;
 					this.setState({
 						dragging: true,
-						xStart: e.clientX
 					})
 					window.addEventListener('mousemove', this.mousemove);
 					window.addEventListener('mouseup', this.mouseup);
