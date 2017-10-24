@@ -20,9 +20,10 @@ export default class ColorSlider extends Component {
 			<div
 				onMouseDown={e => {
 					e.preventDefault();
-					this.xStart = e.pageX;
+					this.xStart = e.clientX;
 					this.setState({
 						dragging: true,
+						xStart: e.clientX
 					})
 					window.addEventListener('mousemove', this.mousemove);
 					window.addEventListener('mouseup', this.mouseup);
@@ -39,7 +40,7 @@ export default class ColorSlider extends Component {
 		)
 	}
 	mousemove = e => {
-		const hue = Math.floor(((e.pageX - this.props.barStart) / this.props.barWidth) * 360);
+		const hue = Math.floor(((e.clientX - this.props.barStart) / this.props.barWidth) * 360);
 		this.props.setColor(Color(`hsl(${hue >= 360 ? 359 : hue < 0 ? 0 : hue}, ${saturation}%, ${lightness}%)`));
 	}
 	mouseup = e => {
