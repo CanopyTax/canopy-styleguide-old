@@ -177,3 +177,7 @@ button.phat {
 	height: 48px;
 	padding: 0 28px;
 }
+
+.buttonLetterSpacing {
+	letter-spacing: inherit;
+}
