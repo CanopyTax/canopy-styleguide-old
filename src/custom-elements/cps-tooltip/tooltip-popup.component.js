@@ -18,9 +18,12 @@ export default class TooltipPopup extends Component {
 	}
 	render() {
 		let caretLeftOffset = 10;
+		// if the element is set, by default we'll center the caret. otherwise, just set an arbitrary 10 from left.
 		if (this.el) {
-			if (this.props.caretMiddle) {
-				caretLeftOffset = this.el.clientWidth / 2;
+			// (width / 2) almost centers it, but then you have to subtract 5 more because .caretTop has border left & right of 5px and this will put the tip of the caret in the middle  
+			caretLeftOffset = this.el.clientWidth / 2 - 5;
+			if (this.props.caretLeft) {
+				caretLeftOffset = 10
 			} else if (this.props.caretRight) {
 				caretLeftOffset = this.el.clientWidth - 20;
 			}
