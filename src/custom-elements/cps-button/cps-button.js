@@ -24,6 +24,7 @@ class CpsButton extends Component {
 		toggleClass(this.props.customElement, styles.secondary, this.props.actionType === 'secondary');
 		toggleClass(this.props.customElement, styles.flat, this.props.actionType === 'flat');
 		toggleClass(this.props.customElement, styles.phat, !!this.props.phat);
+		this.props.customElement.classList.add(styles.buttonLetterSpacing);
 
 		if (this.state.disabled) {
 			this.props.customElement.disabled = this.state.disabled;

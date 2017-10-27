@@ -16,6 +16,7 @@
 .caretTop {
 	width: 0;
 	height: 0;
+	/* if you change the border-left and/or border-right, you'll need to change the component's render method to properly center the caret again */
 	border-left: 5px solid transparent;
 	border-right: 5px solid transparent;
 	border-bottom: 5px solid #777777;

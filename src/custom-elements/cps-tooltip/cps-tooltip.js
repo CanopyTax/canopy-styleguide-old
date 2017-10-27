@@ -68,7 +68,9 @@ class TooltipTargetElement extends Component {
 	mousedOver = evt => {
 		clearTimeout(this.hideTooltipTimeout);
 		delete this.hideTooltipTimeout;
-		this.setState({renderTooltip: true});
+
+		//don't force a rerender, which creates duplicate tooltips, if we already have one
+		if(!this.state.renderTooltip) this.setState({renderTooltip: true});
 	}
 	mouseLeave = evt => {
 		const timeToWait = this.props.allowInteraction ? 500 : 0;
