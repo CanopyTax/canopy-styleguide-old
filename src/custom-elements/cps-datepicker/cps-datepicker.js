@@ -59,7 +59,8 @@ class CpsDatepicker extends Component {
 					onChange={this.handleChange}
 					onFocus={this.handleFocus}
 					onBlur={this.handleBlur}
-					className={this.props.inputClass}/>
+					className={this.props.inputClass}
+					autoComplete="off"/>
 			</div>
 		)
 	}
