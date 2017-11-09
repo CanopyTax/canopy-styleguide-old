@@ -1,6 +1,7 @@
-var React = require('react');
+import React from "react";
+import CodeExample from "../../code-example.component.js";
 
-module.exports = class extends React.Component{
+module.exports = class extends React.Component {
 	render() {
 		return (
 			<div>
@@ -24,39 +25,66 @@ module.exports = class extends React.Component{
 										<th>Description</th>
 									</tr>
 									<tr>
-										<th colSpan="4"></th>
+										<th colSpan="4" />
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
 										<td>min-label</td>
-										<td><i>string</i></td>
+										<td>
+											<i>string</i>
+										</td>
 										<td>0%</td>
-										<td>The text that appears over the left-most side of the progress bar, usually indicating the minimum possible value.</td>
+										<td>
+											The text that appears over the left-most side of the
+											progress bar, usually indicating the minimum possible
+											value.
+										</td>
 									</tr>
 									<tr>
 										<td>max-label</td>
-										<td><i>string</i></td>
+										<td>
+											<i>string</i>
+										</td>
 										<td>100%</td>
-										<td>The text that appears over the right-most side of the progress bar, usually indicating the maximum possible value.</td>
+										<td>
+											The text that appears over the right-most side of the
+											progress bar, usually indicating the maximum possible
+											value.
+										</td>
 									</tr>
 									<tr>
 										<td>progress-bar-color</td>
-										<td><i>string</i></td>
+										<td>
+											<i>string</i>
+										</td>
 										<td>#67BB6A</td>
-										<td>The browser-interpretable color that the progress indicator will be.</td>
+										<td>
+											The browser-interpretable color that the progress
+											indicator will be.
+										</td>
 									</tr>
 									<tr>
 										<td>progress-bar-border-color</td>
-										<td><i>string</i></td>
+										<td>
+											<i>string</i>
+										</td>
 										<td>#67BB6A</td>
-										<td>The browser-interpretable color that the progress indicator's border will be.</td>
+										<td>
+											The browser-interpretable color that the progress
+											indicator's border will be.
+										</td>
 									</tr>
 									<tr>
 										<td>progress-percent</td>
-										<td><i>integer</i></td>
+										<td>
+											<i>integer</i>
+										</td>
 										<td>0</td>
-										<td>The value, inclusive between 0 and 100, that indicates the amount complete.</td>
+										<td>
+											The value, inclusive between 0 and 100, that indicates the
+											amount complete.
+										</td>
 									</tr>
 								</tbody>
 							</table>
@@ -64,31 +92,43 @@ module.exports = class extends React.Component{
 					</div>
 				</div>
 
-				<cp-edit-render-code dangerouslySetInnerHTML={ {__html:
-`
-<div style="display: table; width: 100%;">
-	<div style="display: table-row;">
-		<div style="display: table-cell; padding: 2rem;">
-			<cp-progress-bar></cp-progress-bar>
-		</div>
-	</div>
-	<div style="display: table-row;">
-		<div style="display: table-cell; padding: 2rem;">
-			<cp-progress-bar progress-percent="88" min-label="Slow" max-label="Fast"></cp-progress-bar>
-		</div>
-	</div>
-	<div style="display: table-row;">
-		<div style="display: table-cell; padding: 2rem;">
-			<cp-progress-bar progress-percent="50" min-label="Cold" max-label="Hot"></cp-progress-bar>
-		</div>
-	</div>
-	<div style="display: table-row;">
-		<div style="display: table-cell; padding: 2rem;">
-			<cp-progress-bar progress-percent="15" min-label="Jun 2" max-label="Sep 21"></cp-progress-bar>
-		</div>
-	</div>
-</div>` } } />
+				<CodeExample>
+					<div style={{ display: "table", width: "100%" }}>
+						<div style={{ display: "tableRow" }}>
+							<div style={{ display: "tableCell", padding: "2rem" }}>
+								<cp-progress-bar />
+							</div>
+						</div>
+						<div style={{ display: "tableRow" }}>
+							<div style={{ display: "tableCell", padding: "2rem" }}>
+								<cp-progress-bar
+									progress-percent="88"
+									min-label="Slow"
+									max-label="Fast"
+								/>
+							</div>
+						</div>
+						<div style={{ display: "tableRow" }}>
+							<div style={{ display: "tableCell", padding: "2rem" }}>
+								<cp-progress-bar
+									progress-percent="50"
+									min-label="Cold"
+									max-label="Hot"
+								/>
+							</div>
+						</div>
+						<div style={{ display: "tableRow" }}>
+							<div style={{ display: "tableCell", padding: "2rem" }}>
+								<cp-progress-bar
+									progress-percent="15"
+									min-label="Jun 2"
+									max-label="Sep 21"
+								/>
+							</div>
+						</div>
+					</div>
+				</CodeExample>
 			</div>
-		)
+		);
 	}
 };

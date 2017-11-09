@@ -13,7 +13,7 @@ module.exports = [
 	{ title: "Menus",				html: require('./components/menus/menus.jsx') },
 	{ title: "Icons & Labels",		html: require('./components/icons/icons.jsx') },
 	{ title: "Tables",				html: require('./components/tables/tables.jsx') },
-	{ title: "Toasters & Banners",	html: require('./components/banners/banners.jsx') },
+	{ title: "Banners",				html: require('./components/banners/banners.jsx') },
 	{ title: "Modals",				html: require('./components/modals/modals.jsx') },
 	{ title: "Lists",				html: require('./components/lists/lists.jsx') },
 	{ title: "Progress Indicators",	html: require('./components/progress_indicators/progress_indicators.jsx') },

@@ -32,7 +32,7 @@ module.exports = {
 				}),
 			},
 			{
-				test: /\.jsx?$/,
+				test: /\.(jsx|js)?$/,
 				loader: 'babel-loader',
 				options: {
 					ignore: /(node_modules|bower_components)/,

@@ -7,7 +7,8 @@
 		"test": "karma start",
 		"test-ci": "karma start karma-saucelabs.conf.js",
 		"build-icons": "fontcustom compile -F && node bin/build-fonts.js",
-		"local-website": "npm run build-icons && webpack-dev-server --config webpack.config.website.js",
+		"local-website":
+			"npm run build-icons && webpack-dev-server --config webpack.config.website.js",
 		"start":
 			"webpack-dev-server --config ./webpack.config.dev.js --https --cert ~/.canopy-ssl/public.pem --key ~/.canopy-ssl/key.pem --port",
 		"sofe": "./bin/build -p"
@@ -33,7 +34,7 @@
 		"babel-preset-stage-2": "^6.24.1",
 		"css-loader": "^0.28.7",
 		"custom-event-polyfill": "^0.3.0",
-		"extract-text-webpack-plugin": "2.1.0",
+		"extract-text-webpack-plugin": "3.0.2",
 		"file-loader": "1.1.5",
 		"git-tasker": "^1.0.1",
 		"highlight.js": "^9.12.0",
@@ -46,12 +47,13 @@
 		"karma-sauce-launcher": "^1.2.0",
 		"karma-sourcemap-loader": "^0.3.7",
 		"karma-webpack": "^2.0.5",
-		"less": "2.7.2",
+		"less": "2.7.3",
 		"less-loader": "4.0.5",
 		"lodash": "^4.17.4",
 		"postcss-loader": "^2.0.8",
-		"react": "^16.0.0",
-		"react-dom": "^16.0.0",
+		"react": "^15.4.2",
+		"react-dom": "^15.4.2",
+		"react-element-to-jsx-string": "^13.0.0",
 		"react-highlight": "^0.10.0",
 		"react-router-dom": "4.2.2",
 		"replace": "^0.3.0",
@@ -61,8 +63,8 @@
 		"url-loader": "0.6.2",
 		"webpack": "3.8.1",
 		"webpack-bundle-analyzer": "^2.9.0",
-		"webpack-dashboard": "^1.0.0",
-		"webpack-dev-server": "^2.9.2"
+		"webpack-dashboard": "^1.0.1",
+		"webpack-dev-server": "^2.9.4"
 	},
 	"dependencies": {
 		"@joeldenning/custom-elements": "1.0.0-alpha.6",
@@ -70,6 +72,6 @@
 		"chroma-js": "^1.3.4",
 		"history": "4.7.2",
 		"moment": "^2.19.1",
-		"preact": "^8.2.5"
+		"preact": "^8.2.6"
 	}
 }

@@ -1,6 +1,7 @@
-var React = require('react');
+import React from "react";
+import CodeExample from "../../code-example.component.js";
 
-module.exports = class extends React.Component{
+module.exports = class extends React.Component {
 	render() {
 		return (
 			<div>
@@ -10,26 +11,28 @@ module.exports = class extends React.Component{
 					</div>
 				</div>
 
-				<cp-edit-render-code section-title="Textarea with top-aligned label" dangerouslySetInnerHTML={ {__html:
-`<form>
-	<div class="cps-form-group">
-		<label htmlFor="exampleInputEmail1">Email address</label>
-		<textarea class="cps-form-control"></textarea>
-	</div>
-</form>`} } />
+				<CodeExample title="Textarea with top-aligned label">
+					<form>
+						<div className="cps-form-group">
+							<label htmlFor="exampleInputEmail1">Email address</label>
+							<textarea className="cps-form-control" />
+						</div>
+					</form>
+				</CodeExample>
 
-
-				<cp-edit-render-code section-title="Textarea with left-aligned label and no resize handle" dangerouslySetInnerHTML={ {__html:
-`<form class="cps-form-horizontal">
-	<div class="cps-form-group">
-		<label htmlFor="exampleInputEmail1" class="cps-col-xs-1">Full Name</label>
-		<div class="cps-col-xs-3">
-			<textarea class="cps-form-control +no-resize"></textarea>
-		</div>
-	</div>
-</form>`} } />
-
+				<CodeExample title="Textarea with left-aligned label and no resize handle">
+					<form className="cps-form-horizontal">
+						<div className="cps-form-group">
+							<label htmlFor="exampleInputEmail1" className="cps-col-xs-1">
+								Full Name
+							</label>
+							<div className="cps-col-xs-3">
+								<textarea className="cps-form-control +no-resize" />
+							</div>
+						</div>
+					</form>
+				</CodeExample>
 			</div>
-		)
+		);
 	}
 };
