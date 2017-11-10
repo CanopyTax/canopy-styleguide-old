@@ -1,6 +1,8 @@
 import React from "react";
+import { renderToStaticMarkup } from "react-dom/server";
 import reactElementToJSXString from "react-element-to-jsx-string";
 import Highlight from "react-highlight";
+import { html } from 'js-beautify';
 
 export default class CodeExample extends React.Component {
 	state = {
@@ -12,7 +14,7 @@ export default class CodeExample extends React.Component {
 
 		let codeString = this.state.showReact
 			? reactElementToJSXString(children)
-			: reactElementToJSXString(children).replace(/className=/g, "class=");
+			: html(renderToStaticMarkup(children), { indent_inner_html: true, indent_size: 2 });
 
 		return (
 			<div style={{ ...this.props.style }}>
