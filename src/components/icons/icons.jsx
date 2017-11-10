@@ -12,8 +12,7 @@ module.exports = class extends React.Component {
 		let i = 0;
 		const iconGroups = groupBy(icons, icon => indexOf(icons, icon) % 3);
 
-		return (
-			<div>
+		return <div>
 				<div className="cps-flexible-focus cps-card">
 					<div className="cps-card__header cps-subheader">
 						Icons &amp; Labels
@@ -25,29 +24,25 @@ module.exports = class extends React.Component {
 					<div className="cps-card__body">
 						<div className="cps-row">
 							{map(iconGroups, function(group, i) {
-								return (
-									<div className="cps-col-xs-4" key={i}>
+								return <div className="cps-col-xs-4" key={i}>
 										{group.map(function(obj, j) {
-											return (
-												<div className="cps-row cps-padding-top-8" key={j}>
+											return <div className="cps-row cps-padding-top-8" key={j}>
 													<div className="cps-col-xs-8 cps-center-vertical">
 														<span className="cps-pull-right">{obj}</span>
 													</div>
 													<div className="cps-col-xs-4 cps-center-vertical">
 														<i className={"cps-icon " + obj} />
 													</div>
-												</div>
-											);
+												</div>;
 										})}
-									</div>
-								);
+									</div>;
 							})}
 						</div>
 					</div>
 				</div>
 
 				<CodeExample title="Icon usage">
-					<ul className="cps-list-inline">
+					<ul className="cps-list-inline" style={{ display: "flex" }}>
 						<li>
 							<div className="cps-center-vertical">
 								<i className="cps-icon cps-icon-cog" />
@@ -77,7 +72,7 @@ module.exports = class extends React.Component {
 				</CodeExample>
 
 				<CodeExample title="Wrapped icons">
-					<ul className="cps-list-inline">
+					<ul className="cps-list-inline" style={{ display: "flex" }}>
 						<li>
 							<div className="cps-center-vertical">
 								<i className="cps-icon +round cps-bg-primary-green cps-white cps-icon-taxes" />
@@ -92,7 +87,7 @@ module.exports = class extends React.Component {
 				</CodeExample>
 
 				<CodeExample title="Canopy labels">
-					<ul className="cps-list-inline">
+					<ul className="cps-list-inline" style={{ display: "flex" }}>
 						<li>
 							<div className="cps-label-square +x-large">
 								<div className="cps-center-vertical">AC</div>
@@ -131,7 +126,6 @@ module.exports = class extends React.Component {
 						<span>Hello</span>
 					</i>
 				</CodeExample>
-			</div>
-		);
+			</div>;
 	}
 };
