@@ -1,4 +1,4 @@
-var React = require('react');
+import React from 'react';
 
 module.exports = class extends React.Component{
 	render() {
@@ -15,7 +15,7 @@ module.exports = class extends React.Component{
 						<div className="cps-col-xs-2">
 							<span className="cps-pull-right">.cps-wt-light</span>
 						</div>
-						<div className="cps-col-xs-8 cps-text-muted-dark">An economy based on endless growth is unsustainable</div>
+						<div className="cps-col-xs-8">An economy based on endless growth is unsustainable</div>
 					</div>
 				</div>
 				<hr />
@@ -27,7 +27,7 @@ module.exports = class extends React.Component{
 						<div className="cps-col-xs-2">
 							<span className="cps-pull-right">.cps-wt-regular</span>
 						</div>
-						<div className="cps-col-xs-8 cps-text-muted-dark">
+						<div className="cps-col-xs-8">
 							<div>
 								An economy based on endless growth is unsustainable
 							</div>
@@ -46,7 +46,7 @@ module.exports = class extends React.Component{
 						<div className="cps-col-xs-2">
 							<span className="cps-pull-right">.cps-wt-semibold</span>
 						</div>
-						<div className="cps-col-xs-8 cps-text-muted-dark">An economy based on endless growth is unsustainable</div>
+						<div className="cps-col-xs-8">An economy based on endless growth is unsustainable</div>
 					</div>
 				</div>
 				<hr />
@@ -58,7 +58,7 @@ module.exports = class extends React.Component{
 						<div className="cps-col-xs-2">
 							<span className="cps-pull-right">.cps-wt-bold</span>
 						</div>
-						<div className="cps-col-xs-8 cps-text-muted-dark">An economy based on endless growth is unsustainable</div>
+						<div className="cps-col-xs-8">An economy based on endless growth is unsustainable</div>
 					</div>
 				</div>
 				<hr />
@@ -70,7 +70,7 @@ module.exports = class extends React.Component{
 						<div className="cps-col-xs-2">
 							<span className="cps-pull-right">.cps-header</span>
 						</div>
-						<div className="cps-col-xs-8 cps-header cps-text-muted-dark">
+						<div className="cps-col-xs-8 cps-header">
 							<div>Font Size 40px</div>
 							<div>Line Height 52px</div>
 						</div>
@@ -85,7 +85,7 @@ module.exports = class extends React.Component{
 						<div className="cps-col-xs-2">
 							<span className="cps-pull-right">.cps-header-sm</span>
 						</div>
-						<div className="cps-col-xs-8 cps-header-sm cps-text-muted-dark">
+						<div className="cps-col-xs-8 cps-header-sm">
 							<div>Font Size 32px</div>
 							<div>Line Height 44px</div>
 						</div>
@@ -100,7 +100,7 @@ module.exports = class extends React.Component{
 						<div className="cps-col-xs-2">
 							<span className="cps-pull-right">.cps-subheader</span>
 						</div>
-						<div className="cps-col-xs-8 cps-subheader cps-text-muted-dark">
+						<div className="cps-col-xs-8 cps-subheader">
 							<div>Font Size 24px</div>
 							<div>Line Height 32px</div>
 						</div>
@@ -115,7 +115,7 @@ module.exports = class extends React.Component{
 						<div className="cps-col-xs-2">
 							<span className="cps-pull-right">.cps-subheader-sm</span>
 						</div>
-						<div className="cps-col-xs-8 cps-subheader-sm cps-text-muted-dark">
+						<div className="cps-col-xs-8 cps-subheader-sm">
 							<div>Font Size 18px</div>
 							<div>Line Height 28px</div>
 						</div>
@@ -130,7 +130,7 @@ module.exports = class extends React.Component{
 						<div className="cps-col-xs-2">
 							<span className="cps-pull-right">.cps-body</span>
 						</div>
-						<div className="cps-col-xs-8 cps-body cps-text-muted-dark">
+						<div className="cps-col-xs-8 cps-body">
 							<div>Font Size 16px</div>
 							<div>Line Height 24px</div>
 						</div>
@@ -145,7 +145,7 @@ module.exports = class extends React.Component{
 						<div className="cps-col-xs-2">
 							<span className="cps-pull-right">.cps-body-sm</span>
 						</div>
-						<div className="cps-col-xs-8 cps-body-sm cps-text-muted-dark">
+						<div className="cps-col-xs-8 cps-body-sm">
 							<div>Font Size 14px</div>
 							<div>Line Height 20px</div>
 						</div>
@@ -160,7 +160,7 @@ module.exports = class extends React.Component{
 						<div className="cps-col-xs-2">
 							<span className="cps-pull-right">.cps-caption</span>
 						</div>
-						<div className="cps-col-xs-8 cps-caption cps-text-muted-dark">
+						<div className="cps-col-xs-8 cps-caption">
 							<div>Font Size 12px</div>
 							<div>Line Height 16px</div>
 						</div>

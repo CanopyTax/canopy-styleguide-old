@@ -1,6 +1,6 @@
 /** core.less **/
 
-@import "variables/variables.less";
+@import 'variables/variables.less';
 
 html {
 	font-size: 62.5%;
@@ -14,18 +14,20 @@ html {
 }
 
 // https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
-*, *:before, *:after {
+*,
+*:before,
+*:after {
 	box-sizing: inherit;
 }
 
 body {
 	margin: 0;
 	padding-top: 0px;
-	background-color: #f4f5f8;
+	background-color: @background;
 	font-family: @font-stack;
 	font-size: 1.4rem;
 	font-weight: 400;
-	color: @dark-gray;
+	color: @gray;
 	letter-spacing: 0.01rem;
 	/* "One of the ways we keep it clean and modern is with airy line spacing." -Carly */
 	line-height: 1.5;
@@ -42,15 +44,13 @@ h4 {
 }
 
 hr {
-
 	.\+light {
 		background-color: @breakline-light;
 	}
 	height: 1px;
 	width: 100%;
 	border: 0;
-	background-color:@gray8;
-
+	background-color: @gray8;
 }
 
 a:hover {

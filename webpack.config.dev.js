@@ -1,6 +1,6 @@
 /* eslint-env node */
 const DashboardPlugin = require('webpack-dashboard/plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const config = require('./webpack.config.sofe.js');
 
 config.plugins.push(new DashboardPlugin());

@@ -1,6 +1,6 @@
-var React = require('react');
+import React from "react";
 
-module.exports = class extends React.Component{
+module.exports = class extends React.Component {
 	render() {
 		return (
 			<div className="cps-flexible-focus cps-card">
@@ -23,10 +23,8 @@ module.exports = class extends React.Component{
 					<div>cps-ellipsis</div>
 					<div>+noclick</div>
 				</div>
-				<hr/>
-				<div className="cps-card__header cps-subheader">
-					Depth classes
-				</div>
+				<hr />
+				<div className="cps-card__header cps-subheader">Depth classes</div>
 				<div className="cps-card__body">
 					<div>cps-depth-1</div>
 					<div>cps-depth-2</div>
@@ -34,12 +32,13 @@ module.exports = class extends React.Component{
 					<div>cps-depth-4</div>
 					<div>cps-depth-5</div>
 				</div>
-				<hr/>
-				<div className="cps-card__header cps-subheader">
-					Spacing Classes
-				</div>
+				<hr />
+				<div className="cps-card__header cps-subheader">Spacing Classes</div>
 				<div className="cps-card__body">
-					<div>All of the following classes the 0 can be replaced with: 0, 4, 8, 12, 16, 24, 32</div>
+					<div>
+						All of the following classes the 0 can be replaced with: 0, 4, 8,
+						12, 16, 24, 32
+					</div>
 					<div>cps-margin-0</div>
 					<div>cps-margin-left-0</div>
 					<div>cps-margin-right-0</div>
@@ -52,5 +51,6 @@ module.exports = class extends React.Component{
 					<div>cps-padding-bottom-0</div>
 				</div>
 			</div>
-		)}
+		);
+	}
 };

@@ -1,6 +1,6 @@
-var React = require('react');
+import React from "react";
 
-module.exports = class extends React.Component{
+module.exports = class extends React.Component {
 	render() {
 		return null;
 	}

@@ -1,6 +1,7 @@
-var React = require('react');
+import React from "react";
+import CodeExample from "../../code-example.component.js";
 
-module.exports = class extends React.Component{
+module.exports = class extends React.Component {
 	render() {
 		return (
 			<div>
@@ -8,21 +9,22 @@ module.exports = class extends React.Component{
 					<div className="cps-card__header cps-subheader">Wells</div>
 				</div>
 
-				<cp-edit-render-code
-					dangerouslySetInnerHTML={{
-						__html: `<p class="cps-well__light cps-padding-32">
-	This is a p tag with the 'cps-well__light' class applied.
-</p>
+				<CodeExample>
+					<div>
+						<p className="cps-well__light cps-padding-32">
+							This is a p tag with the 'cps-well__light' class applied.
+						</p>
 
-<div class="cps-well cps-padding-32">
-	This is the default well.
-</div>
+						<div className="cps-well cps-padding-32">
+							This is the default well.
+						</div>
 
-<p class="cps-well__dark cps-padding-32">
-	Well, well well... a p tag with the 'cps-well__dark' class applied..
-</p>`,
-					}}
-				/>
+						<p className="cps-well__dark cps-padding-32">
+							Well, well well... a p tag with the 'cps-well__dark' class
+							applied..
+						</p>
+					</div>
+				</CodeExample>
 			</div>
 		);
 	}
