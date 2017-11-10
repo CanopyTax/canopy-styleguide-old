@@ -6,13 +6,13 @@ import { html } from 'js-beautify';
 
 export default class CodeExample extends React.Component {
 	state = {
-		showReact: false
+		showJSX: false
 	};
 
 	render() {
 		const { title, children } = this.props;
 
-		let codeString = this.state.showReact
+		let codeString = this.state.showJSX
 			? reactElementToJSXString(children)
 			: html(renderToStaticMarkup(children), { indent_inner_html: true, indent_size: 2 });
 
@@ -35,13 +35,13 @@ export default class CodeExample extends React.Component {
 									ref={el => (this.theCheckbox = el)}
 									type="checkbox"
 									onChange={this.toggleCheckbox}
-									checked={this.state.showReact}
+									checked={this.state.showJSX}
 								/>
 								<div
 									className="cps-margin-right-24"
 									onClick={this.toggleCheckbox}
 								>
-									React
+									JSX
 								</div>
 							</div>
 							<div className="cps-card__body">
@@ -55,6 +55,6 @@ export default class CodeExample extends React.Component {
 	}
 
 	toggleCheckbox = () => {
-		this.setState(() => ({ showReact: this.theCheckbox.checked }));
+		this.setState(() => ({ showJSX: this.theCheckbox.checked }));
 	};
 }
