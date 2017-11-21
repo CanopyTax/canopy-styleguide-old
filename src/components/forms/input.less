@@ -224,19 +224,19 @@ label.cps-has-error {
 	}
 
 	.cps-form-control, .cps-form-control:hover {
-		border: 2px solid rgba(254,153,108, .3);
+		border: 2px solid fade(@warning, 30%);
 		box-shadow: none; /* emulate the border */
 	}
 
 	.cps-form-control:focus {
 		border-color: transparent; /* remove the border's color */
-		box-shadow: 0 0 0 2px rgba(254,153,108, .3); /* emulate the border */
+		box-shadow: 0 0 0 2px fade(@warning, 30%); /* emulate the border */
 	}
 
 	.cps-form-control-resize {
-		background-color:	rgba(254,143,108, .3);
+		background-color:	fade(@warning, 30%);
 		&:focus {
-			background-color:	rgba(254,143,108, .3) !important;
+			background-color:	fade(@warning, 30%) !important;
 		}
 	}
 
@@ -311,7 +311,6 @@ label.cps-has-error {
 	color: @medium-gray;
 
 	&:focus {
-		//background-color:	rgba(84,178,88, .3);
 		border: 1px solid @gray9;
 	}
 
