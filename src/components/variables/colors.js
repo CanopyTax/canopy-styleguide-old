@@ -19,14 +19,14 @@ const colors = {
 	[colorCategories.accents]: {
 		'Canopy Shade': { hex: '#009E38', cssclass: 'accent-green' },
 		Mandy: { hex: '#FF345E', cssclass: 'red' },
-		Monsoon: { hex: '#777777', cssclass: 'gray-1' },
-		Slate: { hex: '#919191', cssclass: 'gray-2' },
+		Monsoon: { hex: '#777777', cssclass: 'gray1' },
+		Slate: { hex: '#919191', cssclass: 'gray2' },
 	},
 	[colorCategories.gray]: {
-		Athens: { hex: '#DFDFDF', cssclass: 'gray-3' },
-		Silver: { hex: '#E9E9E9', cssclass: 'gray-4' },
-		Chrome: { hex: '#F3F3F3', cssclass: 'gray-5' },
-		Ash: { hex: '#F9F9F9', cssclass: 'gray-6' },
+		Athens: { hex: '#DFDFDF', cssclass: 'gray3' },
+		Silver: { hex: '#E9E9E9', cssclass: 'gray4' },
+		Chrome: { hex: '#F3F3F3', cssclass: 'gray5' },
+		Ash: { hex: '#F9F9F9', cssclass: 'gray6' },
 	},
 	[colorCategories.base]: {
 		'Blue Smoke': { hex: '#F4F5F8', cssclass: 'background' },
