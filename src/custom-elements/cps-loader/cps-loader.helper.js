@@ -1,11 +1,10 @@
 import { h } from 'preact';
 
 const eventLoaderMap = getEventLoaderMap()
-const baseSpecialOccasionStyles = getOccasionStyles()
+const baseSpecialOccasionStyles = getBaseSpecialOccasionStyles(getOccasion())
 
 export function makeDots(props) {
   let dots = [];
-  props.specialOccasionStyles = baseSpecialOccasionStyles
   for (let i = 0; i < 3; i++) {
     dots.push(makeDot(props, i === 2));
   }
@@ -19,7 +18,7 @@ export function makeDot(props, last) {
     width: size,
     height: size,
     marginLeft: size,
-    ...props.specialOccasionStyles
+    ...baseSpecialOccasionStyles
   };
 
   if (last) styles.marginRight = size;
@@ -33,10 +32,6 @@ export function determineDotWidth(props) {
     size = props.page ? 42 : 8;
   }
   return size;
-}
-
-export function getOccasionStyles() {
-  return getBaseSpecialOccasionStyles(getOccasion())
 }
 
 export function getOccasion() {
