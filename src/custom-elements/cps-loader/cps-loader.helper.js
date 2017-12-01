@@ -45,13 +45,13 @@ export function getOccasion() {
     if (date.getMonth() === 11) {
       return 'december'
     } else {
-      return undefined
+      return ''
     }
   }
 }
 
 export function getBaseSpecialOccasionStyles(occasion) {
-  return eventLoaderMap[occasion]
+  return eventLoaderMap[occasion] || {}
 }
 
 function getEventLoaderMap() {
