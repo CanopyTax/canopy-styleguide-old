@@ -1,10 +1,7 @@
 import { h } from 'preact';
-import { merge } from 'lodash'
 
 const eventLoaderMap = getEventLoaderMap()
-const occasion = getOccasion()
-const baseSpecialOccasionStyles = getBaseSpecialOccasionStyles(occasion)
-const isSpecialOccasion = !!baseSpecialOccasionStyles
+const baseSpecialOccasionStyles = getOccasionStyles()
 
 export function makeDots(props) {
   let dots = [];
@@ -22,13 +19,12 @@ export function makeDot(props, last) {
     width: size,
     height: size,
     marginLeft: size,
+    ...props.specialOccasionStyles
   };
-
-  const mergedStyles = merge({}, styles, props.specialOccasionStyles)
 
   if (last) styles.marginRight = size;
 
-  return <span style={mergedStyles} />;
+  return <span style={styles} />;
 }
 
 export function determineDotWidth(props) {
@@ -37,6 +33,10 @@ export function determineDotWidth(props) {
     size = props.page ? 42 : 8;
   }
   return size;
+}
+
+export function getOccasionStyles() {
+  return getBaseSpecialOccasionStyles(getOccasion())
 }
 
 export function getOccasion() {
@@ -55,13 +55,16 @@ export function getBaseSpecialOccasionStyles(occasion) {
 }
 
 function getEventLoaderMap() {
+  const imageCommon = {
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    backgroundColor: 'transparent'
+  }
   return {
     december: {
       backgroundImage: "url('https://cdn.canopytax.com/images/light_lit.svg')",
-      backgroundSize: 'contain',
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
-      backgroundColor: 'transparent'
+      ...imageCommon
     },
   }
 }
