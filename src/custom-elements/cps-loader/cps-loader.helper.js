@@ -51,7 +51,12 @@ export function getOccasion() {
 }
 
 export function getBaseSpecialOccasionStyles(occasion) {
-  return eventLoaderMap[occasion] || {}
+  const noEasterEggs = localStorage.getItem('cp:no-easter-eggs') === 'true'
+  if (noEasterEggs) {
+    return {}
+  } else {
+    return eventLoaderMap[occasion] || {}
+  }
 }
 
 function getEventLoaderMap() {
