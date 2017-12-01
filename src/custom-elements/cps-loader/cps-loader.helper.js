@@ -37,7 +37,10 @@ export function determineDotWidth(props) {
 export function getOccasion() {
   if (window.spalpatineInitialTime) {
     const date = new Date(window.spalpatineInitialTime)
-    if (date.getMonth() === 11) {
+    const forcedEvent = window.localStorage.getItem('cp-loader:force-occasion')
+    if (forcedEvent) {
+      return forcedEvent
+    } else if (date.getMonth() === 11) {
       return 'december'
     } else {
       return ''
