@@ -40,8 +40,6 @@ export function getOccasion() {
     const forcedEvent = window.localStorage.getItem('cp-loader:force-occasion')
     if (forcedEvent) {
       return forcedEvent
-    } else if (date.getMonth() === 11) {
-      return 'december'
     } else {
       return ''
     }
