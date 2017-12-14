@@ -27,9 +27,10 @@ describe(`cps-loader.js`, () => {
 
   describe(`getOccasion`, () => {
     it(`should return december`, () => {
-      window.spalpatineInitialTime = 1512158983477
-      expect(getOccasion()).toBe('december')
-      window.spalpatineInitialTime = undefined
+      // disabled because we've temporarily removed the december loader
+      // window.spalpatineInitialTime = 1512158983477
+      // expect(getOccasion()).toBe('december')
+      // window.spalpatineInitialTime = undefined
     })
   })
 });
