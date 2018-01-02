@@ -65,18 +65,17 @@
 }
 
 .picked {
-	background: #00C049;
+	background: #00BF4B;
 	cursor: pointer;
 	color: white;
 }
 
 .today {
-	background: #989898;
 	cursor: pointer;
-	color: white;
+	color: #00BF4B;
 }
 
-.day:hover:not(.weekHeaderDay):not(.picked):not(.today) {
+.day:hover:not(.weekHeaderDay):not(.picked) {
 	background: #EFEFEF;
 	cursor: pointer;
 }

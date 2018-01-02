@@ -61,7 +61,18 @@ function getDayClass(pickedDate, viewDate, day) {
 	const isToday = stringDay === today.format("MMDDYY");
 	const isPicked = pickedDate && pickedDate.format("MMDDYY") === stringDay;
 	const thisMonth = day.month() === viewDate.month();
-	return `${isPicked ? styles.picked : isToday ? styles.today : ''} ${(isToday || isPicked) ? 'cps-white' : thisMonth ? 'cps-light-gray' : 'cps-gray-10'} ${styles.day}`
+
+	let classes = `${styles.day} `
+	if(isPicked) {
+		classes += `${styles.picked} cps-white`
+	} else if(isToday) {
+		classes += `${styles.today} cps-wt-bold`
+	} else if(thisMonth) {
+		classes += "cps-light-gray"
+	} else {
+		classes += "cps-gray-10"
+	}
+	return classes
 }
 
 function formDayGrid(date) {

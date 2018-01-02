@@ -12,16 +12,22 @@ export default class Header extends Component {
 				}}
 				className={`${styles.header} cps-light-gray`}>
 				<span
-					className={`cps-icon cps-icon-left-caret ${styles.headerArrow}`}
-					onClick={partial(this.props.changeRange, -1)}/>
+					className={`cps-icon cps-icon-sm-caret-left ${styles.headerArrow}`}
+					onClick={partial(this.props.changeRange, -1)}
+					role="button"
+					aria-label="Previous month"
+				/>
 				<span
 					className={`${styles.headerDisplay}`}
 					onClick={partial(this.props.changeDisplay, getDisplayChange(this.props.display))}>
 					{this.getHeaderDisplay()}
 				</span>
 				<span
-					className={`cps-icon cps-icon-right-caret ${styles.headerArrow}`}
-					onClick={partial(this.props.changeRange, 1)}/>
+					className={`cps-icon cps-icon-sm-caret-right ${styles.headerArrow}`}
+					onClick={partial(this.props.changeRange, 1)}
+					role="button"
+					aria-label="Next month"
+				/>
 			</div>
 		)
 	}

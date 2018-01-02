@@ -53,6 +53,11 @@ export default class CpsCalendar extends Component {
 			</div>
 		)
 	}
+	componentWillReceiveProps(nextProps) {
+		if(nextProps.date && !moment(nextProps.date).isSame(this.state.date)) {
+			this.setState({date: nextProps.date})
+		}
+	}
 	selectDate = date => {
 		if (this.props.customElement) {
 			this.props.customElement.dispatchEvent(new CustomEvent('datechange', {
@@ -68,9 +73,9 @@ export default class CpsCalendar extends Component {
 		});
 	}
 	changeRange = modifier => {
-		this.setState({
-			date: getRangeDate(this.state.display, modifier, this.state.date)
-		})
+		this.setState(prevState => ({
+			date: getRangeDate(prevState.display, modifier, prevState.date)
+		}))
 	}
 	pickRangeChangeDisplay = (range, display) => {
 		const newDate = moment(this.state.date);
