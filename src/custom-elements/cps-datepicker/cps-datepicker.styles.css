@@ -75,7 +75,7 @@
 	color: #00BF4B;
 }
 
-.day:hover:not(.weekHeaderDay):not(.picked):not(.today) {
+.day:hover:not(.weekHeaderDay):not(.picked) {
 	background: #EFEFEF;
 	cursor: pointer;
 }
