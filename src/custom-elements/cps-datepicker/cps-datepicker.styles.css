@@ -32,7 +32,7 @@
 }
 
 .header {
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
 	display: flex
 }
@@ -47,7 +47,7 @@
 }
 
 .headerDisplay {
-	padding: 4px 24px;
+	padding: 4px 12px;
 	cursor: pointer;
 	border-radius: 15px;
 	text-align: center;
