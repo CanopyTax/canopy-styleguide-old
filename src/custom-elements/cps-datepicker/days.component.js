@@ -3,7 +3,7 @@ import styles from './cps-datepicker.styles.css';
 import moment from 'moment';
 import { range, chunk, partial } from 'lodash';
 
-const days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+const days = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 
 export default class Days extends Component {
 	render() {
